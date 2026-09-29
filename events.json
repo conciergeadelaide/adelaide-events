@@ -1,0 +1,29 @@
+[
+{
+"title": "Sample Live Music Event",
+"venue": "Adelaide Festival Centre",
+"location": "Adelaide CBD",
+"datetime": "2026-10-03T19:30:00",
+"category": "Music",
+"image": "https://images.unsplash.com/photo-1501386761578-eac5c94b800a",
+"url": "https://www.adelaidefestivalcentre.com.au/"
+},
+{
+"title": "Sample Comedy Night",
+"venue": "Rhino Room",
+"location": "North Adelaide",
+"datetime": "2026-10-04T20:00:00",
+"category": "Comedy",
+"image": "https://images.unsplash.com/photo-1585699324551-f6c309eedeca",
+"url": "https://rhinoroom.com.au/"
+},
+{
+"title": "Sample Food Market",
+"venue": "Adelaide Central Market",
+"location": "Adelaide CBD",
+"datetime": "2026-10-05T11:00:00",
+"category": "Food",
+"image": "https://images.unsplash.com/photo-1488459716781-31db52582fe9",
+"url": "https://adelaidecentralmarket.com.au/"
+}
+]
