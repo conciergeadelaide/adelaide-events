@@ -1,263 +1,176 @@
-<!DOCTYPE html>
 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="What's on in Adelaide — Concierge Events Guide">
 
-```
-<meta
-    name="description"
-    content="What's on in Adelaide — Concierge Events Guide"
->
+    <title>What's On Adelaide | Concierge</title>
 
-<title>What's On Adelaide | Concierge</title>
-
-<link rel="stylesheet" href="style.css">
-```
-
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-```
-<header class="site-header">
+    <header class="site-header">
+        <div class="header-inner">
 
-    <div class="header-inner">
+            <div class="brand">
+                <span class="brand-name">CONCIERGE</span>
+            </div>
 
-        <div class="brand">
-            <span class="brand-name">CONCIERGE</span>
+            <div class="header-title">
+                <h1>What's On Adelaide</h1>
+            </div>
+
         </div>
-
-        <div class="header-title">
-            <h1>What's On Adelaide</h1>
-        </div>
-
-    </div>
-
-</header>
+    </header>
 
 
-<main class="container">
+    <main class="container">
+
+        <section class="intro">
+
+            <p class="eyebrow">ADELAIDE EVENTS</p>
+
+            <h2>Discover what's happening in Adelaide</h2>
+
+            <p class="intro-text">
+                A curated guide to concerts, theatre, exhibitions,
+                food, comedy, workshops and more.
+            </p>
+
+        </section>
 
 
-    <section class="intro">
+        <section class="controls">
 
-        <p class="eyebrow">
-            ADELAIDE EVENTS
-        </p>
+            <div class="search-box">
+                <label for="search">Search</label>
 
-        <h2>
-            Discover what's happening in Adelaide
-        </h2>
-
-        <p class="intro-text">
-            A curated guide to concerts, theatre, exhibitions, food,
-            comedy, workshops and more.
-        </p>
-
-    </section>
+                <input
+                    type="search"
+                    id="search"
+                    placeholder="Search events or venues..."
+                >
+            </div>
 
 
-    <section class="controls">
+            <div class="filter-box">
+                <label for="date-from">From</label>
+
+                <input
+                    type="date"
+                    id="date-from"
+                >
+            </div>
 
 
-        <div class="search-box">
+            <div class="filter-box">
+                <label for="date-to">To</label>
 
-            <label for="search">
-                Search
-            </label>
+                <input
+                    type="date"
+                    id="date-to"
+                >
+            </div>
 
-            <input
-                type="search"
-                id="search"
-                placeholder="Search events or venues..."
+
+            <div class="filter-box">
+                <label for="category-filter">Category</label>
+
+                <select id="category-filter">
+                    <option value="all">All categories</option>
+                </select>
+            </div>
+
+
+            <div class="filter-box">
+                <label for="venue-filter">Venue</label>
+
+                <select id="venue-filter">
+                    <option value="all">All venues</option>
+                </select>
+            </div>
+
+
+            <div class="filter-box">
+                <label for="sort">Sort</label>
+
+                <select id="sort">
+                    <option value="date-asc">Date — soonest first</option>
+                    <option value="date-desc">Date — latest first</option>
+                    <option value="title">Event name</option>
+                    <option value="venue">Venue</option>
+                </select>
+            </div>
+
+        </section>
+
+
+        <section class="results-header">
+
+            <div>
+                <span class="results-label">UPCOMING EVENTS</span>
+                <span id="event-count"></span>
+            </div>
+
+            <button
+                id="clear-filters"
+                class="clear-button"
             >
+                Clear filters
+            </button>
 
-        </div>
-
-
-        <div class="filter-box">
-
-            <label for="date-from">
-                From
-            </label>
-
-            <input
-                type="date"
-                id="date-from"
-            >
-
-        </div>
+        </section>
 
 
-        <div class="filter-box">
-
-            <label for="date-to">
-                To
-            </label>
-
-            <input
-                type="date"
-                id="date-to"
-            >
-
-        </div>
-
-
-        <div class="filter-box">
-
-            <label for="category-filter">
-                Category
-            </label>
-
-            <select id="category-filter">
-
-                <option value="all">
-                    All categories
-                </option>
-
-            </select>
-
-        </div>
-
-
-        <div class="filter-box">
-
-            <label for="venue-filter">
-                Venue
-            </label>
-
-            <select id="venue-filter">
-
-                <option value="all">
-                    All venues
-                </option>
-
-            </select>
-
-        </div>
-
-
-        <div class="filter-box">
-
-            <label for="sort">
-                Sort
-            </label>
-
-            <select id="sort">
-
-                <option value="date-asc">
-                    Date — soonest first
-                </option>
-
-                <option value="date-desc">
-                    Date — latest first
-                </option>
-
-                <option value="title">
-                    Event name
-                </option>
-
-                <option value="venue">
-                    Venue
-                </option>
-
-            </select>
-
-        </div>
-
-
-    </section>
-
-
-    <section class="results-header">
-
-        <div>
-
-            <span class="results-label">
-                UPCOMING EVENTS
-            </span>
-
-            <span id="event-count"></span>
-
-        </div>
-
-
-        <button
-            id="clear-filters"
-            class="clear-button"
+        <section
+            id="events"
+            class="events-grid"
         >
-            Clear filters
-        </button>
-
-    </section>
+            <!-- Event cards appear here -->
+        </section>
 
 
-    <section
-        id="events"
-        class="events-grid"
-    >
+        <section
+            id="no-results"
+            class="no-results hidden"
+        >
 
-        <!-- Events will be inserted here automatically -->
+            <h3>No events found</h3>
 
-    </section>
+            <p>Try changing your search or filters.</p>
 
+        </section>
 
-    <section
-        id="no-results"
-        class="no-results hidden"
-    >
-
-        <h3>
-            No events found
-        </h3>
-
-        <p>
-            Try changing your search or date range.
-        </p>
-
-    </section>
+    </main>
 
 
-</main>
+    <footer class="site-footer">
 
+        <div class="footer-inner">
 
-<footer class="site-footer">
+            <div>
+                <span class="brand-name">CONCIERGE</span>
 
-    <div class="footer-inner">
+                <p>Adelaide Events Guide</p>
+            </div>
 
-
-        <div>
-
-            <span class="brand-name">
-                CONCIERGE
-            </span>
-
-            <p>
-                Adelaide Events Guide
-            </p>
+            <div class="footer-note">
+                <p>
+                    Events and information sourced from official Adelaide
+                    venues and organisations.
+                </p>
+            </div>
 
         </div>
 
-
-        <div class="footer-note">
-
-            <p>
-                Events and information sourced from official Adelaide
-                venues and organisations.
-            </p>
-
-        </div>
+    </footer>
 
 
-    </div>
-
-</footer>
-
-
-<script src="script.js"></script>
-```
+    <script src="script.js"></script>
 
 </body>
 </html>
