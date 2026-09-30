@@ -1,29 +1,560 @@
 [
-{
-"title": "Sample Live Music Event",
-"venue": "Adelaide Festival Centre",
-"location": "Adelaide CBD",
-"datetime": "2026-10-03T19:30:00",
-"category": "Music",
-"image": "https://images.unsplash.com/photo-1501386761578-eac5c94b800a",
-"url": "https://www.adelaidefestivalcentre.com.au/"
-},
-{
-"title": "Sample Comedy Night",
-"venue": "Rhino Room",
-"location": "North Adelaide",
-"datetime": "2026-10-04T20:00:00",
-"category": "Comedy",
-"image": "https://images.unsplash.com/photo-1585699324551-f6c309eedeca",
-"url": "https://rhinoroom.com.au/"
-},
-{
-"title": "Sample Food Market",
-"venue": "Adelaide Central Market",
-"location": "Adelaide CBD",
-"datetime": "2026-10-05T11:00:00",
-"category": "Food",
-"image": "https://images.unsplash.com/photo-1488459716781-31db52582fe9",
-"url": "https://adelaidecentralmarket.com.au/"
-}
+    {
+        "title": "Re:PLAY",
+        "venue": "Artspace",
+        "location": "Adelaide",
+        "datetime": "2026-09-30",
+        "category": "Family",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/04-Apr/RePLAY/1136-x-994-Website-Images-credit-Arlon-hall-2025_2026-02-13-015144_gaib.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/replay-families-workshops-2026"
+    },
+    {
+        "title": "Death of a Salesman",
+        "venue": "Festival Theatre",
+        "location": "Adelaide",
+        "datetime": "2026-09-30",
+        "category": "Theatre",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/09-Sep/Death-of-a-Salesman/death-of-salesman-2026-feature.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/death-of-a-salesman"
+    },
+    {
+        "title": "Cheek Live: State of the Nation",
+        "venue": "Her Majesty's Theatre",
+        "location": "Adelaide",
+        "datetime": "2026-10-03",
+        "category": "Talks",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/10-Oct/CHEEK-LIVE-State-of-the-Nation/cheek-live-hannah-ferguson-feature-2026.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/cheek-live-state-of-the-nation-with-hannah-ferguson"
+    },
+    {
+        "title": "Lucky Dumpling Market",
+        "venue": "Elder Park, Adelaide",
+        "location": "Adelaide",
+        "datetime": "2026-10-09",
+        "category": "Family",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/10-Oct/Lucky-Dumpling-Market/LDM-afc-website-1136x994.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/lucky-dumpling-market-2026"
+    },
+    {
+        "title": "Moon Lanterns at Lucky Dumpling Market",
+        "venue": "Lucky Dumpling Market, Elder Park",
+        "location": "Adelaide",
+        "datetime": "2026-10-09",
+        "category": "Family",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/09-Sep/Moon-Lanterns-at-Lucky-Dumpling-Market/moon-lanterns-afc-website-1136x994.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/moon-lanterns-at-lucky-dumpling-market"
+    },
+    {
+        "title": "Hong Kong Dragon",
+        "venue": "Riverbank Footbridge",
+        "location": "Adelaide",
+        "datetime": "2026-10-09",
+        "category": "Family",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/08-Aug/Hong-Kong-Dragon/hong-kong-dragon-afc-website-1136x994.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/hong-kong-dragon-2026"
+    },
+    {
+        "title": "Dog Man The Musical",
+        "venue": "Dunstan Playhouse",
+        "location": "Adelaide",
+        "datetime": "2026-10-09",
+        "category": "Theatre",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/10-Oct/Dog-Man-The-Musical/Dog-Man-feature-1136x994.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/dog-man-the-musical"
+    },
+    {
+        "title": "The Art of Asian Cinema",
+        "venue": "Various",
+        "location": "Adelaide",
+        "datetime": "2026-10-14",
+        "category": "Art",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/10-Oct/The-Art-of-Asian-Cinema/The-Cycle-of-Love_1136-x-994-Website-Images.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/the-art-of-asian-cinema"
+    },
+    {
+        "title": "Ceramic Tile Painting Workshop with Jake Yang",
+        "venue": "Artspace",
+        "location": "Adelaide",
+        "datetime": "2026-10-15",
+        "category": "Conferences/Workshops/Expos",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/09-Sep/Ceramic-Tile-Painting-Workshop-with-Jake-Yang/Jake-Yang_Fire-Horse_OzAsia-Festival_AFC_1136x994-2.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/ceramic-tile-painting-workshop-with-jake-yang"
+    },
+    {
+        "title": "I'll Sleep When I Die",
+        "venue": "The Breakout at The Mill, Adelaide",
+        "location": "Adelaide",
+        "datetime": "2026-10-15",
+        "category": "Theatre",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/08-Aug/Ill-Sleep-When-I-Die/1136-x-994-Website-Images-1.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/ill-sleep-when-i-die"
+    },
+    {
+        "title": "Benjamin Clementine",
+        "venue": "Dunstan Playhouse",
+        "location": "Adelaide",
+        "datetime": "2026-10-15",
+        "category": "Music",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/10-Oct/Benjamin-Clementine/benjamin-clementine-afc-web-1136x994.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/benjamin-clementine"
+    },
+    {
+        "title": "Regurgitator",
+        "venue": "OzAsia Festival Stage at Lucky Dumpling Market",
+        "location": "Adelaide",
+        "datetime": "2026-10-16",
+        "category": "Music",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/09-Sep/Regurgitator/Regurgitator-1136-x-994-Website-Images.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/regurgitator"
+    },
+    {
+        "title": "Carmen",
+        "venue": "Her Majesty's Theatre",
+        "location": "Adelaide",
+        "datetime": "2026-10-17",
+        "category": "Music",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/10-Oct/Carmen/sosa-afc-carmen-opera-2026-1136x994px.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/carmen-2026"
+    },
+    {
+        "title": "Hyoshi in Counterpoint",
+        "venue": "OzAsia Festival Stage at Lucky Dumpling Market",
+        "location": "Adelaide",
+        "datetime": "2026-10-17",
+        "category": "Music",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/08-Aug/Hyoshi-in-Counterpoint/Hyoshi_1136-x-994-Website-Images.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/hyoshi"
+    },
+    {
+        "title": "JADE Ensemble",
+        "venue": "OzAsia Festival Stage at Lucky Dumpling Market",
+        "location": "Adelaide",
+        "datetime": "2026-10-18",
+        "category": "Music",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/08-Aug/JADE-Ensemble/JADE-ROCKS_credit-Darren-Thomas_1136x994.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/jade-ensemble-live-kyo-wa-harmonic-resonance"
+    },
+    {
+        "title": "Creative Writing with Gabrielle Wang",
+        "venue": "Online",
+        "location": "Adelaide",
+        "datetime": "2026-10-21",
+        "category": "Other",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/09-Sep/Creative-Writing-with-Gabrielle-Wang/Created-Writing-with-Gabrielle-Wang-4_2026-07-16-053641_lldt.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/creative-writing-with-gabrielle-wang"
+    },
+    {
+        "title": "TYPÓ",
+        "venue": "OzAsia Festival Stage at Lucky Dumpling Market",
+        "location": "Adelaide",
+        "datetime": "2026-10-22",
+        "category": "Music",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/10-Oct/TYP%C3%93/typo-band-1136x994.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/typó-band"
+    },
+    {
+        "title": "Sashi Perera's Night School",
+        "venue": "Dunstan Playhouse",
+        "location": "Adelaide",
+        "datetime": "2026-10-23",
+        "category": "Comedy",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/09-Sep/Sashi-Pereras-Night-School/sashi-perera-night-school-afc-website-1136x994_2026-08-10-063306_bpho_2026-08-13-011603_ubbn.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/sashi-pereras-night-school"
+    },
+    {
+        "title": "Maajela",
+        "venue": "OzAsia Festival Stage at Lucky Dumpling Market",
+        "location": "Adelaide",
+        "datetime": "2026-10-23",
+        "category": "Music",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/08-Aug/Maajela/Maajela-1136-x-994-Website-Images.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/maajela"
+    },
+    {
+        "title": "The Greatest Debate",
+        "venue": "Dunstan Playhouse",
+        "location": "Adelaide",
+        "datetime": "2026-10-24",
+        "category": "Comedy",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/10-Oct/The-Greatest-Debate/special-comedy-greatest-debate-afc-website-1136x994.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/that-you-should-all-go-back-where-you-came-from"
+    },
+    {
+        "title": "OzAsia Festival’s Weekend of Words",
+        "venue": "Adelaide Festival Centre",
+        "location": "Adelaide",
+        "datetime": "2026-10-24",
+        "category": "Talks",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/08-Aug/OzAsia-Festival%E2%80%99s-Weekend-of-Words/WOW_1136-x-994-Website-Images.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/weekend-of-words-2026"
+    },
+    {
+        "title": "SUN DER",
+        "venue": "OzAsia Festival Stage at Lucky Dumpling Market",
+        "location": "Adelaide",
+        "datetime": "2026-10-24",
+        "category": "Music",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/09-Sep/Sun-Der/sun_der_ozasia_lucky_dumpling_market_stage_1136x994.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/sun-der"
+    },
+    {
+        "title": "AnimeGO!",
+        "venue": "Dom Polski Centre, Adelaide",
+        "location": "Adelaide",
+        "datetime": "2026-10-25",
+        "category": "Other",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/08-Aug/AnimeGO/1136_x_994_AnimeGO_OzAsia_Festival_2026.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/animego-2026"
+    },
+    {
+        "title": "Lastlings",
+        "venue": "OzAsia Festival Stage at Lucky Dumpling Market",
+        "location": "Adelaide",
+        "datetime": "2026-10-25",
+        "category": "Music",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/08-Aug/Lastlings/Lastlings-Lucky-Dumpling-Market-1136x994.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/lastlings"
+    },
+    {
+        "title": "AZIZA",
+        "venue": "Her Majesty's Theatre",
+        "location": "Adelaide",
+        "datetime": "2026-10-29",
+        "category": "Music",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/10-Oct/Aziza/aziza-website-1136x994.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/aziza"
+    },
+    {
+        "title": "Chat 10 Looks 3 Live",
+        "venue": "Her Majesty's Theatre",
+        "location": "Adelaide",
+        "datetime": "2026-11-05",
+        "category": "Talks",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/11-Nov/Chat-10-Looks-3-Live/CRSA5430_C10L3_Adelaide_1136x994_Feature_2026-07-24-060042_vqee.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/chat-10-looks-3-live-2026"
+    },
+    {
+        "title": "Nurse Georgie Carroll: Infectious",
+        "venue": "Her Majesty's Theatre",
+        "location": "Adelaide",
+        "datetime": "2026-11-06",
+        "category": "Comedy",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/11-Nov/Nurse-Georgie-Carroll-Infectious/georgie-carroll-infectious-feature-2026.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/nurse-georgie-carroll-infectious"
+    },
+    {
+        "title": "Kate Ceberano",
+        "venue": "Her Majesty's Theatre",
+        "location": "Adelaide",
+        "datetime": "2026-11-07",
+        "category": "Music",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/11-Nov/Kate-Ceberano/kate-cebrano-aus-made-2026-tour-feature.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/kate-ceberano-2026"
+    },
+    {
+        "title": "James Morrison",
+        "venue": "Her Majesty's Theatre",
+        "location": "Adelaide",
+        "datetime": "2026-11-08",
+        "category": "Music",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/11-Nov/James-Morrison/JamesMorrison-2026_HerMajesteysAdelaide_Assets_1136x994px.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/james-morrison-mahalia-barnes"
+    },
+    {
+        "title": "John Edward",
+        "venue": "Her Majesty's Theatre",
+        "location": "Adelaide",
+        "datetime": "2026-11-10",
+        "category": "Talks",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/11-Nov/John-Edward/John-Edward-2026-Adelaide-1136-%C3%97-994-px-1.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/john-edward-2026"
+    },
+    {
+        "title": "Introduction to Puppet Making and Puppeteering Workshop",
+        "venue": "Dunstan Playhouse",
+        "location": "Adelaide",
+        "datetime": "2026-11-13",
+        "category": "Conferences/Workshops/Expos",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/08-Aug/Introduction-to-Puppet-Making-and-Puppeteering-Workshop/puppet-making-puppeteering-workshop_hero-image_1136x994px.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/introduction-to-puppet-making-and-puppeteering-workshop"
+    },
+    {
+        "title": "Erth's Dinosaurs",
+        "venue": "Dunstan Playhouse",
+        "location": "Adelaide",
+        "datetime": "2026-11-13",
+        "category": "Family",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/11-Nov/Erths-Dinosaurs/Erths-Dino_Web_1136x994-1.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/erths-dinosaurs"
+    },
+    {
+        "title": "Lawrence Mooney",
+        "venue": "Her Majesty's Theatre",
+        "location": "Adelaide",
+        "datetime": "2026-11-13",
+        "category": "Comedy",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/11-Nov/Lawrence-Mooney/lawrence-mooney-full-moon-party-feature-2026.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/lawrence-mooney-full-moon-party"
+    },
+    {
+        "title": "Create Your Own Dinosaur",
+        "venue": "Artspace",
+        "location": "Adelaide",
+        "datetime": "2026-11-14",
+        "category": "Family",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/11-Nov/Create-Your-Own-Dinosaur/Create_your_own_dinosaur_with_Erth_AFC_workshop_website-image_1136x994.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/create-your-own-dinosaur-with-erth"
+    },
+    {
+        "title": "The Harmony Club",
+        "venue": "Her Majesty's Theatre",
+        "location": "Adelaide",
+        "datetime": "2026-11-14",
+        "category": "Music",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/11-Nov/The-Harmony-Club/Harmony-Club-1136x994.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/the-harmony-club"
+    },
+    {
+        "title": "An Evening with Alastair Campbell",
+        "venue": "Festival Theatre",
+        "location": "Adelaide",
+        "datetime": "2026-11-18",
+        "category": "Talks",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/11-Nov/An-Evening-with-Alastair-Campbell/alastair-campbell-featre-2026.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/an-evening-with-alastair-campbell"
+    },
+    {
+        "title": "TEEKS",
+        "venue": "Her Majesty's Theatre",
+        "location": "Adelaide",
+        "datetime": "2026-11-19",
+        "category": "Music",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/11-Nov/TEEKS/teeks-afc-website-1136x994.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/teeks"
+    },
+    {
+        "title": "An Evening with Mary Beard",
+        "venue": "Her Majesty's Theatre",
+        "location": "Adelaide",
+        "datetime": "2026-11-20",
+        "category": "Talks",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/11-Nov/An-Evening-with-Mary-Beard/MaryBeard_Feature-Image_1136x994.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/an-evening-with-mary-beard"
+    },
+    {
+        "title": "The Heartbreak Choir",
+        "venue": "Dunstan Playhouse",
+        "location": "Adelaide",
+        "datetime": "2026-11-20",
+        "category": "Theatre",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/11-Nov/The-Heartbreak-Choir/heartbreak-choir-stcsa-feature-2025.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/the-heartbreak-choir"
+    },
+    {
+        "title": "Björn Again: ABBA Forever Tour",
+        "venue": "Her Majesty's Theatre",
+        "location": "Adelaide",
+        "datetime": "2026-11-21",
+        "category": "Music",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/11-Nov/Bj%C3%B6rn-Again-ABBA-Forever-Tour/Bjorn-Again-ABBA-Forever-Tour_AFC_Adelaide_2026_1136x994.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/bjorn-again-abba-forever-tour"
+    },
+    {
+        "title": "Khaled Khalafalla",
+        "venue": "Space Theatre",
+        "location": "Adelaide",
+        "datetime": "2026-11-21",
+        "category": "Comedy",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/11-Nov/Khaled-Khalafalla/1136x994-Khaled.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/khaled-khalafalla"
+    },
+    {
+        "title": "The Nutcracker",
+        "venue": "Her Majesty's Theatre",
+        "location": "Adelaide",
+        "datetime": "2026-11-26",
+        "category": "Theatre",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/11-Nov/The-Nutcracker/Adelaide-Nutcracker-EventWebpageContent-FeatureImage-1136x994px.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/the-nutcracker-2026"
+    },
+    {
+        "title": "Detroit Motortown",
+        "venue": "Festival Theatre",
+        "location": "Adelaide",
+        "datetime": "2026-11-27",
+        "category": "Music",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/11-Nov/Detroit-Motortown/detroit-motortown-feature-2026.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/detroit-motortown"
+    },
+    {
+        "title": "Her Majesty's Theatre Guided Tour",
+        "venue": "Her Majesty's Theatre",
+        "location": "Adelaide",
+        "datetime": "2026-12-01",
+        "category": "Theatre",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/02-Feb/Her-Majestys-Theatre-Guided-Tour/her-maj-theatre-tour-feature-2025.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/her-majestys-theatre-guided-tour"
+    },
+    {
+        "title": "RocKwiz Rocks Christmas",
+        "venue": "Festival Theatre",
+        "location": "Adelaide",
+        "datetime": "2026-12-04",
+        "category": "Music",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/12-Dec/RocKwiz-Rocks-Christmas/RW-Whats-On-Feature-Image-1136x994-PINK.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/rockwiz-rocks-christmas"
+    },
+    {
+        "title": "Suzi Quatro",
+        "venue": "Festival Theatre",
+        "location": "Adelaide",
+        "datetime": "2026-12-05",
+        "category": "Music",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/12-Dec/Suzi-Quatro/suzi-quatro-feature-2026.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/suzi-quatro"
+    },
+    {
+        "title": "Eric Idle",
+        "venue": "Her Majesty's Theatre",
+        "location": "Adelaide",
+        "datetime": "2026-12-10",
+        "category": "Talks",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/12-Dec/Eric-Idle/EricIdle_Feature-Image_1136x994-TF.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/eric-idle-2026"
+    },
+    {
+        "title": "WOOF!",
+        "venue": "Drama Centre Rehearsal Room",
+        "location": "Adelaide",
+        "datetime": "2026-12-17",
+        "category": "Theatre",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/06-Jun/WOOF/WOOF-By-Anthony-Nocera_Inspace_2026_1136-x-994-px.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/woof-by-anthony-nocera"
+    },
+    {
+        "title": "The Book of Mormon",
+        "venue": "Festival Theatre",
+        "location": "Adelaide",
+        "datetime": "2026-12-19",
+        "category": "Music",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/12-Dec/The-Book-of-Mormon/BOM-AFC-Feature-no2-1136x994.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/the-book-of-mormon"
+    },
+    {
+        "title": "Storytime Ballet: Cinderella",
+        "venue": "Dunstan Playhouse",
+        "location": "Adelaide",
+        "datetime": "2027-01-07",
+        "category": "Family",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2027/01-Jan/Storytime-Ballet-Cinderella/1136-x-994_TAB5576_STB-AFC-Venue-Assets_FA_2.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/storytime-ballet-cinderella-2027"
+    },
+    {
+        "title": "Country Royalty",
+        "venue": "Her Majesty's Theatre",
+        "location": "Adelaide",
+        "datetime": "2027-01-16",
+        "category": "Music",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2027/01-Jan/Country-Royalty/County-Royaty-1136x994.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/country-royalty"
+    },
+    {
+        "title": "Where is the Green Sheep?",
+        "venue": "Dunstan Playhouse",
+        "location": "Adelaide",
+        "datetime": "2027-01-20",
+        "category": "Theatre",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2027/01-Jan/Where-is-the-Green-Sheep/wheres-the-green-sheep-afc-website-1136x994.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.3696&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/where-is-the-green-sheep"
+    },
+    {
+        "title": "You and Me Workshops",
+        "venue": "Drama Centre Rehearsal Room",
+        "location": "Adelaide",
+        "datetime": "2027-01-21",
+        "category": "Family",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2027/01-Jan/You-and-Me-Workshops/you-and-me-workshop-green-sheep-afc-website-1136x994.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/you-and-me-workshops"
+    },
+    {
+        "title": "Ben Folds",
+        "venue": "Her Majesty's Theatre",
+        "location": "Adelaide",
+        "datetime": "2027-02-18",
+        "category": "Music",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2027/02-Feb/Ben-Folds/Ben-folds-aso-2026-feature.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/ben-folds-and-the-adelaide-symphony-orchestra"
+    },
+    {
+        "title": "Bluebeard's Castle",
+        "venue": "Festival Theatre",
+        "location": "Adelaide",
+        "datetime": "2027-02-26",
+        "category": "Music",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2027/02-Feb/Bluebeards-Castle/af26-bluebeards-castle-feature-2026.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/bluebeards-castle"
+    },
+    {
+        "title": "K.",
+        "venue": "Her Majesty's Theatre",
+        "location": "Adelaide",
+        "datetime": "2027-03-04",
+        "category": "Theatre",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2027/03-Mar/K/af26-k-feature-2026.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/k"
+    },
+    {
+        "title": "Oedipus",
+        "venue": "Festival Theatre",
+        "location": "Adelaide",
+        "datetime": "2027-03-10",
+        "category": "Theatre",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2027/03-Mar/Oedipus/Oedipus_1136x994px.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/oedipus-2027"
+    },
+    {
+        "title": "Celtic Thunder",
+        "venue": "Her Majesty's Theatre",
+        "location": "Adelaide",
+        "datetime": "2027-03-25",
+        "category": "Music",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2027/03-Mar/Celtic-Thunder/Celtic-Thunder_HMT_1136x994.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/celtic-thunder-2027"
+    },
+    {
+        "title": "The Shawshank Redemption",
+        "venue": "Her Majesty's Theatre",
+        "location": "Adelaide",
+        "datetime": "2027-04-01",
+        "category": "Theatre",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2027/04-Apr/The-Shawshank-Redemption/AFC_1136x994-sept.jpg.jpeg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/the-shawshank-redemption"
+    },
+    {
+        "title": "Swan Lake",
+        "venue": "Her Majesty's Theatre",
+        "location": "Adelaide",
+        "datetime": "2027-04-15",
+        "category": "Theatre",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2027/04-Apr/Swan-Lake/swan_lake_1136x1280.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/swan-lake-2027"
+    },
+    {
+        "title": "Lenny's Toddler Rave",
+        "venue": "Festival Theatre",
+        "location": "Adelaide",
+        "datetime": "2027-05-22",
+        "category": "Family",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2027/05-May/Lennys-Toddler-Rave/lennys-toddler-rave-feature-2026.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/lennys-toddler-rave"
+    },
+    {
+        "title": "Cinderella",
+        "venue": "Festival Theatre",
+        "location": "Adelaide",
+        "datetime": "2027-09-04",
+        "category": "Family",
+        "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2027/09-Sep/Cinderella/cinderella_the_australian_ballet_adelaide_festival_centre_season_2027_1136x994.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+        "url": "https://www.adelaidefestivalcentre.com.au/whats-on/cinderella-2026"
+    }
 ]

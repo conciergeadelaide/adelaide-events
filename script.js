@@ -1,63 +1,15 @@
-var events = [
-    {
-        title: "Sample Live Music Event",
-        venue: "Adelaide Festival Centre",
-        location: "Adelaide CBD",
-        datetime: "2026-10-03T19:30:00",
-        category: "Music",
-        image: "https://images.unsplash.com/photo-1501386761578-eac5c94b800a",
-        url: "https://www.adelaidefestivalcentre.com.au/"
-    },
-    {
-        title: "Sample Comedy Night",
-        venue: "Rhino Room",
-        location: "North Adelaide",
-        datetime: "2026-10-04T20:00:00",
-        category: "Comedy",
-        image: "https://images.unsplash.com/photo-1585699324551-f6c309eedeca",
-        url: "https://rhinoroom.com.au/"
-    },
-    {
-        title: "Sample Food Market",
-        venue: "Adelaide Central Market",
-        location: "Adelaide CBD",
-        datetime: "2026-10-05T11:00:00",
-        category: "Food",
-        image: "https://images.unsplash.com/photo-1488459716781-31db52582fe9",
-        url: "https://adelaidecentralmarket.com.au/"
-    }
-];
+var events = [];
 
-
-var eventsContainer =
-    document.getElementById("events");
-
-var searchInput =
-    document.getElementById("search");
-
-var dateFromInput =
-    document.getElementById("date-from");
-
-var dateToInput =
-    document.getElementById("date-to");
-
-var categoryFilter =
-    document.getElementById("category-filter");
-
-var venueFilter =
-    document.getElementById("venue-filter");
-
-var sortSelect =
-    document.getElementById("sort");
-
-var eventCount =
-    document.getElementById("event-count");
-
-var noResults =
-    document.getElementById("no-results");
-
-var clearFiltersButton =
-    document.getElementById("clear-filters");
+var eventsContainer = document.getElementById("events");
+var searchInput = document.getElementById("search");
+var dateFromInput = document.getElementById("date-from");
+var dateToInput = document.getElementById("date-to");
+var categoryFilter = document.getElementById("category-filter");
+var venueFilter = document.getElementById("venue-filter");
+var sortSelect = document.getElementById("sort");
+var eventCount = document.getElementById("event-count");
+var noResults = document.getElementById("no-results");
+var clearFiltersButton = document.getElementById("clear-filters");
 
 
 function formatDate(datetime) {
@@ -77,120 +29,87 @@ function formatDate(datetime) {
 
 function createEventCard(event) {
 
-    var article =
-        document.createElement("article");
-
+    var article = document.createElement("article");
     article.className = "event-card";
 
 
-    var imageContainer =
-        document.createElement("div");
-
+    var imageContainer = document.createElement("div");
     imageContainer.className = "event-image";
 
 
-    var image =
-        document.createElement("img");
+    var image = document.createElement("img");
 
-    image.src = event.image;
+    if (event.image) {
+        image.src = event.image;
+    } else {
+        image.src =
+            "https://images.unsplash.com/photo-1492684223066-81342ee5ff30";
+    }
 
-    image.alt = event.title;
-
+    image.alt = event.title || "Adelaide event";
     image.loading = "lazy";
 
 
-    var badge =
-        document.createElement("span");
-
+    var badge = document.createElement("span");
     badge.className = "category-badge";
-
-    badge.textContent =
-        event.category;
+    badge.textContent = event.category || "Other";
 
 
     imageContainer.appendChild(image);
-
     imageContainer.appendChild(badge);
 
 
-    var content =
-        document.createElement("div");
-
+    var content = document.createElement("div");
     content.className = "event-content";
 
 
-    var date =
-        document.createElement("div");
-
+    var date = document.createElement("div");
     date.className = "event-date";
-
-    date.textContent =
-        formatDate(event.datetime);
+    date.textContent = formatDate(event.datetime);
 
 
-    var title =
-        document.createElement("h3");
-
+    var title = document.createElement("h3");
     title.className = "event-title";
-
-    title.textContent =
-        event.title;
+    title.textContent = event.title || "Untitled Event";
 
 
-    var venue =
-        document.createElement("div");
-
+    var venue = document.createElement("div");
     venue.className = "event-venue";
 
 
-    var venueIcon =
-        document.createElement("span");
-
+    var venueIcon = document.createElement("span");
     venueIcon.className = "venue-icon";
-
     venueIcon.textContent = "●";
 
 
-    var venueText =
-        document.createElement("span");
+    var venueText = document.createElement("span");
 
     venueText.textContent =
-        event.venue +
+        (event.venue || "Adelaide") +
         " · " +
-        event.location;
+        (event.location || "Adelaide");
 
 
     venue.appendChild(venueIcon);
-
     venue.appendChild(venueText);
 
 
-    var link =
-        document.createElement("a");
+    var link = document.createElement("a");
 
     link.className = "event-link";
-
-    link.href = event.url;
-
+    link.href = event.url || "#";
     link.target = "_blank";
-
     link.rel = "noopener noreferrer";
-
-    link.textContent =
-        "View Event";
+    link.textContent = "View Event";
 
 
     content.appendChild(date);
-
     content.appendChild(title);
-
     content.appendChild(venue);
-
     content.appendChild(link);
 
 
     article.appendChild(imageContainer);
-
     article.appendChild(content);
 
 
@@ -240,7 +159,6 @@ function populateFilters() {
 
 
     var categories = [];
-
     var venues = [];
 
 
@@ -250,9 +168,7 @@ function populateFilters() {
             event.category &&
             categories.indexOf(event.category) === -1
         ) {
-
             categories.push(event.category);
-
         }
 
 
@@ -260,26 +176,21 @@ function populateFilters() {
             event.venue &&
             venues.indexOf(event.venue) === -1
         ) {
-
             venues.push(event.venue);
-
         }
 
     });
 
 
     categories.sort();
-
     venues.sort();
 
 
     categories.forEach(function(category) {
 
-        var option =
-            document.createElement("option");
+        var option = document.createElement("option");
 
         option.value = category;
-
         option.textContent = category;
 
         categoryFilter.appendChild(option);
@@ -289,11 +200,9 @@ function populateFilters() {
 
     venues.forEach(function(venue) {
 
-        var option =
-            document.createElement("option");
+        var option = document.createElement("option");
 
         option.value = venue;
-
         option.textContent = venue;
 
         venueFilter.appendChild(option);
@@ -341,13 +250,13 @@ function applyFilters() {
 
             var searchableText =
                 (
-                    event.title +
+                    (event.title || "") +
                     " " +
-                    event.venue +
+                    (event.venue || "") +
                     " " +
-                    event.location +
+                    (event.location || "") +
                     " " +
-                    event.category
+                    (event.category || "")
                 ).toLowerCase();
 
 
@@ -450,17 +359,13 @@ function sortEvents(eventList) {
 function clearAllFilters() {
 
     searchInput.value = "";
-
     dateFromInput.value = "";
-
     dateToInput.value = "";
 
     categoryFilter.value = "all";
-
     venueFilter.value = "all";
 
     sortSelect.value = "date-asc";
-
 
     applyFilters();
 }
@@ -508,6 +413,56 @@ clearFiltersButton.addEventListener(
 );
 
 
-populateFilters();
+// ======================================
+// LOAD EVENTS FROM events.json
+// ======================================
 
-applyFilters();
+fetch("events.json")
+    .then(function(response) {
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Could not load events.json"
+            );
+
+        }
+
+        return response.json();
+
+    })
+    .then(function(data) {
+
+        console.log(
+            "events.json loaded successfully:",
+            data.length,
+            "events"
+        );
+
+
+        events =
+            Array.isArray(data)
+                ? data
+                : [];
+
+
+        populateFilters();
+
+        applyFilters();
+
+    })
+    .catch(function(error) {
+
+        console.error(
+            "Error loading events.json:",
+            error
+        );
+
+
+        events = [];
+
+        populateFilters();
+
+        displayEvents([]);
+
+    });
