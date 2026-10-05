@@ -97,7 +97,11 @@ function createEventCard(event) {
     var link = document.createElement("a");
 
     link.className = "event-link";
-    link.href = event.url || "#";
+
+    // events.json currently stores the event webpage as "link".
+    // "url" remains supported for compatibility with older records.
+    link.href = event.link || event.url || "#";
+
     link.target = "_blank";
     link.rel = "noopener noreferrer";
     link.textContent = "View Event";
@@ -331,8 +335,8 @@ function sortEvents(eventList) {
 
         if (sortMethod === "title") {
 
-            return a.title.localeCompare(
-                b.title
+            return (a.title || "").localeCompare(
+                b.title || ""
             );
 
         }
@@ -340,8 +344,8 @@ function sortEvents(eventList) {
 
         if (sortMethod === "venue") {
 
-            return a.venue.localeCompare(
-                b.venue
+            return (a.venue || "").localeCompare(
+                b.venue || ""
             );
 
         }
@@ -444,6 +448,76 @@ fetch("events.json")
             Array.isArray(data)
                 ? data
                 : [];
+
+
+        // ======================================
+        // REMOVE EVENTS THAT HAVE FINISHED
+        // ======================================
+        //
+        // If an event has end_datetime, that is
+        // used to determine whether it is still
+        // running.
+        //
+        // Otherwise datetime is used.
+        //
+        // This means a long-running event that
+        // started in the past can remain visible
+        // until its actual end date.
+
+        var today = new Date();
+
+        today.setHours(
+            0,
+            0,
+            0,
+            0
+        );
+
+
+        events =
+            events.filter(function(event) {
+
+                var effectiveEnd =
+                    event.end_datetime ||
+                    event.datetime;
+
+
+                if (!effectiveEnd) {
+
+                    return true;
+
+                }
+
+
+                var endDate =
+                    new Date(effectiveEnd);
+
+
+                if (
+                    isNaN(
+                        endDate.getTime()
+                    )
+                ) {
+
+                    return true;
+
+                }
+
+
+                // Keep an event visible for its
+                // entire final calendar day.
+
+                endDate.setHours(
+                    23,
+                    59,
+                    59,
+                    999
+                );
+
+
+                return endDate >= today;
+
+            });
 
 
         populateFilters();
