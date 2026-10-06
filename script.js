@@ -27,6 +27,34 @@ function formatDate(datetime) {
 }
 
 
+function getEventCategories(event) {
+
+    if (Array.isArray(event.category)) {
+
+        return event.category.filter(function(category) {
+
+            return Boolean(category);
+
+        });
+
+    }
+
+    if (event.category) {
+
+        return [event.category];
+
+    }
+
+    return ["Other"];
+}
+
+
+function getCategoryText(event) {
+
+    return getEventCategories(event).join(" · ");
+}
+
+
 function createEventCard(event) {
 
     var article = document.createElement("article");
@@ -40,10 +68,14 @@ function createEventCard(event) {
     var image = document.createElement("img");
 
     if (event.image) {
+
         image.src = event.image;
+
     } else {
+
         image.src =
             "https://images.unsplash.com/photo-1492684223066-81342ee5ff30";
+
     }
 
     image.alt = event.title || "Adelaide event";
@@ -52,7 +84,7 @@ function createEventCard(event) {
 
     var badge = document.createElement("span");
     badge.className = "category-badge";
-    badge.textContent = event.category || "Other";
+    badge.textContent = getCategoryText(event);
 
 
     imageContainer.appendChild(image);
@@ -137,6 +169,7 @@ function displayEvents(eventList) {
         noResults.classList.remove("hidden");
 
         return;
+
     }
 
 
@@ -150,6 +183,7 @@ function displayEvents(eventList) {
         );
 
     });
+
 }
 
 
@@ -162,25 +196,55 @@ function populateFilters() {
         "<option value='all'>All venues</option>";
 
 
-    var categories = [];
+    // Permanent master category list.
+    // These categories always appear even when
+    // there are currently no events in them.
+
+    var categories = [
+        "Arts & Culture",
+        "Comedy",
+        "Community",
+        "Expos",
+        "Family",
+        "Festival",
+        "Food & Beverage",
+        "Music",
+        "Other",
+        "Sport",
+        "Talks & Conferences",
+        "Theatre",
+        "Workshop"
+    ];
+
     var venues = [];
 
 
     events.forEach(function(event) {
 
-        if (
-            event.category &&
-            categories.indexOf(event.category) === -1
-        ) {
-            categories.push(event.category);
-        }
+        // An event can now contain more than one category.
+        // If an event ever contains a category that is not
+        // in our permanent list, still show it in the filter.
+
+        getEventCategories(event).forEach(function(category) {
+
+            if (
+                categories.indexOf(category) === -1
+            ) {
+
+                categories.push(category);
+
+            }
+
+        });
 
 
         if (
             event.venue &&
             venues.indexOf(event.venue) === -1
         ) {
+
             venues.push(event.venue);
+
         }
 
     });
@@ -212,6 +276,7 @@ function populateFilters() {
         venueFilter.appendChild(option);
 
     });
+
 }
 
 
@@ -260,7 +325,7 @@ function applyFilters() {
                     " " +
                     (event.location || "") +
                     " " +
-                    (event.category || "")
+                    getCategoryText(event)
                 ).toLowerCase();
 
 
@@ -282,7 +347,9 @@ function applyFilters() {
 
             var matchesCategory =
                 selectedCategory === "all" ||
-                event.category === selectedCategory;
+                getEventCategories(event).indexOf(
+                    selectedCategory
+                ) !== -1;
 
 
             var matchesVenue =
@@ -302,6 +369,7 @@ function applyFilters() {
 
 
     sortEvents(filteredEvents);
+
 }
 
 
@@ -357,6 +425,7 @@ function sortEvents(eventList) {
 
 
     displayEvents(eventList);
+
 }
 
 
@@ -372,6 +441,7 @@ function clearAllFilters() {
     sortSelect.value = "date-asc";
 
     applyFilters();
+
 }
 
 

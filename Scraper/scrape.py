@@ -15,6 +15,7 @@ try:
         parse_adelaide_oval,
         parse_adelaide_convention_centre,
         parse_adelaide_festival_centre,
+        parse_adelaide_entertainment_centre,
     )
 except ModuleNotFoundError:
     # Works when importing:
@@ -25,6 +26,7 @@ except ModuleNotFoundError:
         parse_adelaide_oval,
         parse_adelaide_convention_centre,
         parse_adelaide_festival_centre,
+        parse_adelaide_entertainment_centre,
     )
 
 
@@ -164,9 +166,33 @@ def clean_event(event, source_name):
         event.get("image", "")
     ).strip()
 
-    category = str(
-        event.get("category", "")
-    ).strip()
+    raw_category = event.get("category", "")
+
+    # Preserve multiple categories from parsers.
+    # Legacy single-string categories are converted to a one-item list.
+    if isinstance(raw_category, (list, tuple, set)):
+        category = []
+
+        for value in raw_category:
+            cleaned_category = str(value).strip()
+
+            if (
+                cleaned_category
+                and cleaned_category not in category
+            ):
+                category.append(cleaned_category)
+
+        if not category:
+            category = ["Other"]
+
+    else:
+        cleaned_category = str(raw_category).strip()
+
+        category = (
+            [cleaned_category]
+            if cleaned_category
+            else ["Other"]
+        )
 
     if not title:
         return None
@@ -298,6 +324,19 @@ def scrape_source(source):
         soup = fetch_page(url)
 
         return parse_adelaide_festival_centre(
+            soup,
+            url
+        )
+
+    # ----------------------------------------
+    # Adelaide Entertainment Centre
+    # ----------------------------------------
+
+    if name == "Adelaide Entertainment Centre":
+
+        soup = fetch_page(url)
+
+        return parse_adelaide_entertainment_centre(
             soup,
             url
         )

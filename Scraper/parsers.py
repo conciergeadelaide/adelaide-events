@@ -188,6 +188,39 @@ def get_image(element, source_url):
     return ""
 
 
+def categorise_event(title, text=""):
+    combined = f"{title} {text}".lower()
+    categories = []
+
+    def add(category):
+        if category not in categories:
+            categories.append(category)
+
+    rules = [
+        ("Sport", ["bbl", "wbbl", "sheffield shield", "odi", "cricket", "basketball", "36ers", "football", "afl", "soccer", "rugby", "wrestling", "darts", "tennis", "sport"]),
+        ("Food & Beverage", ["food", "wine", "beer", "dining", "dinner", "lunch", "brunch", "tasting", "culinary", "restaurant", "chef", "beverage", "cocktail", "dumpling", "market"]),
+        ("Expos", ["expo", "exhibition fair", "trade show", "trade fair"]),
+        ("Talks & Conferences", ["conference", "convention", "seminar", "symposium", "keynote", "lecture", "talk", "speaker", "forum", "words", "writing"]),
+        ("Community", ["community", "parade", "public rosary", "rosary for peace", "neighbourhood", "neighborhood", "community day", "civic celebration"]),
+        ("Comedy", ["comedy", "comedian", "stand-up", "stand up"]),
+        ("Family", ["kids", "children", "family", "families", "the wiggles", "disney", "dinosaur", "toddler", "cinderella", "green sheep", "dog man"]),
+        ("Festival", ["festival", "fest"]),
+        ("Workshop", ["workshop", "masterclass", "class", "puppet making", "creative writing"]),
+        ("Theatre", ["theatre", "theater", "play", "musical", "opera", "ballet", "dance", "magic", "magician", "illusion", "illusionist", "circus", "acrobat", "acrobatic", "burlesque", "cabaret", "physical theatre"]),
+        ("Music", ["concert", "music", "orchestra", "symphony", "choir", "band", "singer", "tour"]),
+        ("Arts & Culture", ["art", "gallery", "museum", "exhibition", "cultural", "culture", "cinema", "guided tour"]),
+    ]
+
+    for category, keywords in rules:
+        if any(keyword in combined for keyword in keywords):
+            add(category)
+
+    if not categories:
+        add("Other")
+
+    return categories
+
+
 # ============================================================
 # GENERIC JSON-LD
 # ============================================================
@@ -289,7 +322,7 @@ def parse_json_ld(soup, source_url):
                     "venue": venue,
                     "date": parsed_date,
                     "end_date": "",
-                    "category": "Other",
+                    "category": categorise_event(title),
                     "image": normalise_url(
                         image,
                         source_url,
@@ -372,7 +405,17 @@ def parse_adelaide_oval(soup, source_url):
                 "venue": "Adelaide Oval",
                 "date": date,
                 "end_date": "",
-                "category": "Sport & Entertainment",
+                "category": (
+                    ["Sport"]
+                    if any(
+                        keyword in text.lower()
+                        for keyword in [
+                            "bbl", "wbbl", "sheffield shield", "odi", "test",
+                            "cricket", "strikers", "football", "afl", "soccer", "rugby",
+                        ]
+                    )
+                    else ["Music"]
+                ),
                 "image": get_image(
                     parent,
                     source_url,
@@ -508,12 +551,28 @@ def parse_adelaide_convention_centre(soup, source_url):
         ):
             image = ""
 
+        # ACC category rules.
+        # Keep known current events deterministic, then use the normal
+        # title-based category helper for future events.
+        lower_title = title.lower()
+
+        if "michelin guide restaurant ceremony" in lower_title:
+            category = ["Food & Beverage"]
+        elif "starlit christmas" in lower_title:
+            category = ["Food & Beverage"]
+        elif "phil hoffmann travel expo" in lower_title:
+            category = ["Expos"]
+        elif "interstellar live" in lower_title:
+            category = ["Music"]
+        else:
+            category = categorise_event(title)
+
         events.append({
             "title": title,
             "venue": "Adelaide Convention Centre",
             "date": date,
             "end_date": end_date,
-            "category": "Other",
+            "category": category,
             "image": image,
             "url": event_url,
         })
@@ -596,32 +655,84 @@ def parse_adelaide_festival_centre(
 
         return ""
 
-    def afc_category(card):
+    def afc_category(card, title=""):
         labels = []
 
         for element in card.find_all(attrs={"aria-label": True}):
-            label = " ".join(
-                str(element.get("aria-label", "")).split()
-            ).strip()
+            label = " ".join(str(element.get("aria-label", "")).split()).strip()
             if label:
                 labels.append(label)
 
-        joined = " ".join(labels).lower()
+        joined = f"{title} {' '.join(labels)}".lower()
+        categories = []
 
-        if any(x in joined for x in ["music", "concert", "cabaret"]):
-            return "Music"
-        if any(x in joined for x in ["theatre", "opera", "ballet", "dance"]):
-            return "Theatre"
-        if "comedy" in joined:
-            return "Comedy"
-        if any(x in joined for x in ["kids", "families", "family"]):
-            return "Family"
-        if any(x in joined for x in ["workshop", "learning"]):
-            return "Workshop"
-        if "festival" in joined:
-            return "Festival"
+        def add(category):
+            if category not in categories:
+                categories.append(category)
 
-        return "Other"
+        rules = [
+            ("Theatre", ["theatre", "opera", "ballet", "dance", "cabaret", "magic", "magician", "illusion", "illusionist", "circus", "acrobat", "acrobatic", "burlesque", "physical theatre", "musical", "play"]),
+            ("Music", ["music", "concert", "orchestra", "choir"]),
+            ("Comedy", ["comedy"]),
+            ("Family", ["kids", "families", "family", "children", "dinosaur", "toddler", "cinderella", "green sheep", "dog man"]),
+            ("Workshop", ["workshop", "learning", "creative writing", "puppet making"]),
+            ("Festival", ["festival"]),
+            ("Food & Beverage", ["food", "dumpling", "market", "dining", "restaurant"]),
+            ("Talks & Conferences", ["talk", "speaker", "lecture", "words", "writing", "conversation", "an evening with"]),
+            ("Arts & Culture", ["art", "cinema", "cultural", "culture", "guided tour", "gallery", "museum"]),
+        ]
+
+        for category, keywords in rules:
+            if any(keyword in joined for keyword in keywords):
+                add(category)
+
+        lower_title = title.lower()
+
+        if "moon lanterns" in lower_title:
+            add("Family")
+            add("Festival")
+            add("Arts & Culture")
+
+        if "lucky dumpling market" in lower_title:
+            add("Family")
+            add("Festival")
+            add("Food & Beverage")
+
+        if "weekend of words" in lower_title:
+            add("Festival")
+            add("Talks & Conferences")
+
+        if "dog man the musical" in lower_title:
+            add("Theatre")
+            add("Family")
+
+        if "the nutcracker" in lower_title or "storytime ballet" in lower_title:
+            add("Theatre")
+            add("Family")
+
+        if title.strip().lower() == "cinderella":
+            add("Theatre")
+            add("Family")
+
+        if "her majesty's theatre guided tour" in lower_title:
+            categories = ["Arts & Culture"]
+
+        # These are theatrical productions. Do not add Music merely
+        # because the title/labels contain "musical", "choir", etc.
+        if "dog man the musical" in lower_title:
+            categories = ["Theatre", "Family"]
+
+        if "the heartbreak choir" in lower_title:
+            categories = ["Theatre"]
+
+        if "the book of mormon" in lower_title:
+            categories = ["Theatre"]
+
+        if not categories:
+            add("Other")
+
+        return categories
+
 
     def parse_cards(page_soup, page_url):
         page_events = []
@@ -689,7 +800,7 @@ def parse_adelaide_festival_centre(
                     "venue": venue,
                     "date": start_date,
                     "end_date": end_date,
-                    "category": afc_category(card),
+                    "category": afc_category(card, title),
                     "image": afc_image(card, page_url),
                     "url": href,
                 }
@@ -794,3 +905,229 @@ def parse_adelaide_festival_centre(
 
     return events
 
+
+
+# ============================================================
+# ADELAIDE ENTERTAINMENT CENTRE
+# ============================================================
+
+def parse_adelaide_entertainment_centre(soup, source_url):
+    """Parse active Adelaide Entertainment Centre event pages."""
+
+    session = requests.Session()
+    session.headers.update({
+        "User-Agent": (
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) "
+            "Chrome/140.0.0.0 Safari/537.36"
+        )
+    })
+
+    def clean_text(value):
+        return " ".join(str(value or "").replace("\xa0", " ").split())
+
+    def parse_event_datetime(day, month, year, time_text=""):
+        value = f"{day} {month} {year}"
+        time_text = clean_text(time_text)
+        if time_text:
+            value += f" {time_text}"
+            formats = [
+                "%d %B %Y %I:%M%p", "%d %B %Y %I%p",
+                "%d %b %Y %I:%M%p", "%d %b %Y %I%p",
+            ]
+        else:
+            formats = ["%d %B %Y", "%d %b %Y"]
+
+        for fmt in formats:
+            try:
+                return datetime.strptime(value, fmt).isoformat()
+            except ValueError:
+                pass
+        return ""
+
+    def find_when_block(event_soup):
+        when_text = event_soup.find(
+            string=lambda value: value and clean_text(value).lower() == "when"
+        )
+        if not when_text or not when_text.parent or not when_text.parent.parent:
+            return None
+        return when_text.parent.parent
+
+    def authoritative_date(event_soup):
+        container = find_when_block(event_soup)
+        if not container:
+            return None
+
+        date_element = container.find(
+            class_=lambda value: value and "content-block--event-date" in (
+                " ".join(value) if isinstance(value, list) else value
+            )
+        )
+        if not date_element:
+            return None
+
+        date_text = clean_text(date_element.get_text(" ", strip=True))
+        match = re.search(
+            r"\b(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),?\s+"
+            r"(\d{1,2})\s+"
+            r"(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|January|February|March|April|May|June|July|August|September|October|November|December)\s+"
+            r"(\d{4})",
+            date_text,
+            re.I,
+        )
+        if not match:
+            return None
+
+        lower = date_text.lower()
+        if "theatre" in lower:
+            venue = "Adelaide Entertainment Centre Theatre"
+        elif "arena" in lower:
+            venue = "Adelaide Entertainment Centre Arena"
+        else:
+            venue = "Adelaide Entertainment Centre"
+
+        return {
+            "day": match.group(1),
+            "month": match.group(2),
+            "year": match.group(3),
+            "venue": "Adelaide Entertainment Centre",
+            "container": container,
+        }
+
+    def header_time(event_soup):
+        text = clean_text(event_soup.get_text(" ", strip=True))
+        patterns = [
+            r"\b(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),?\s+\d{1,2}\s+(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{4}\s*[–—-]\s*(\d{1,2}(?::\d{2})?\s*(?:am|pm))",
+            r"\b(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),?\s+\d{1,2}\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+\d{4}\s*[|–—-]\s*(\d{1,2}(?::\d{2})?\s*(?:am|pm))",
+        ]
+        for pattern in patterns:
+            match = re.search(pattern, text, re.I)
+            if match:
+                return clean_text(match.group(1))
+        return ""
+
+    def labelled_start_time(container):
+        if not container:
+            return ""
+        labels = [
+            "match start", "show start", "show starts", "performance start",
+            "performance starts", "event start", "event starts",
+            "concert start", "concert starts",
+        ]
+        for paragraph in container.find_all("p"):
+            text = clean_text(paragraph.get_text(" ", strip=True))
+            for label in labels:
+                match = re.search(
+                    r"(\d{1,2}(?::\d{2})?\s*(?:am|pm))\s*[–—-]\s*" + re.escape(label),
+                    text,
+                    re.I,
+                )
+                if match:
+                    return clean_text(match.group(1))
+        return ""
+
+    def event_image(event_soup, event_url):
+        for element in event_soup.find_all(attrs={"data-background-image": True}):
+            candidate = str(element.get("data-background-image", "")).strip()
+            lower = candidate.lower()
+            if not candidate:
+                continue
+            if any(word in lower for word in [
+                "getting-here", "eat-and-drink", "accessibility", "faq", "logo", "icon"
+            ]):
+                continue
+            return normalise_url(candidate, event_url)
+        return ""
+
+    def category_for(title):
+        lower = title.lower()
+        categories = []
+
+        def add(category):
+            if category not in categories:
+                categories.append(category)
+
+        if "david the medium" in lower:
+            add("Other")
+
+        if any(word in lower for word in ["36ers", "basketball", "darts", "wrestling", "mega mania"]):
+            add("Sport")
+
+        if any(word in lower for word in ["wiggles", "disney", "family"]):
+            add("Family")
+
+        if any(word in lower for word in [
+            "comedy", "comedian", "gabriel iglesias", "paul smith",
+            "aaron chen", "morgan jay"
+        ]):
+            add("Comedy")
+
+        if any(word in lower for word in [
+            "magic", "magician", "illusion", "illusionist",
+            "circus", "acrobat", "acrobatic", "burlesque",
+            "cabaret", "physical theatre"
+        ]):
+            add("Theatre")
+
+        if not categories:
+            add("Music")
+
+        return categories
+
+
+    event_urls = []
+    seen_urls = set()
+    base_url = source_url.rstrip("/").lower()
+
+    for link in soup.find_all("a", href=True):
+        href = normalise_url(link.get("href"), source_url)
+        clean_href = href.split("#", 1)[0].split("?", 1)[0].rstrip("/")
+        lower_href = clean_href.lower()
+        if "adelaideentertainmentcentre.com.au/events/" not in lower_href:
+            continue
+        if lower_href == base_url:
+            continue
+        if lower_href in seen_urls:
+            continue
+        seen_urls.add(lower_href)
+        event_urls.append(clean_href + "/")
+
+    events = []
+
+    for event_url in event_urls:
+        try:
+            response = session.get(event_url, timeout=30)
+            response.raise_for_status()
+            event_soup = BeautifulSoup(response.text, "lxml")
+        except Exception as exc:
+            print(f"    AEC event page ERROR: {event_url} -> {exc}")
+            continue
+
+        heading = event_soup.find("h1")
+        title = clean_text(heading.get_text(" ", strip=True)) if heading else ""
+        if not title:
+            continue
+        if "cancelled" in title.lower() or "canceled" in title.lower():
+            continue
+
+        auth = authoritative_date(event_soup)
+        if not auth:
+            continue
+
+        time_text = labelled_start_time(auth["container"]) or header_time(event_soup)
+        date = parse_event_datetime(auth["day"], auth["month"], auth["year"], time_text)
+        if not date:
+            continue
+
+        events.append({
+            "title": title,
+            "venue": auth["venue"],
+            "date": date,
+            "end_date": "",
+            "category": category_for(title),
+            "image": event_image(event_soup, event_url),
+            "url": event_url,
+        })
+
+    print(f"\nTotal Adelaide Entertainment Centre events collected: {len(events)}")
+    return events
