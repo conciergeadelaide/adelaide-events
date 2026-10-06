@@ -342,87 +342,211 @@ def parse_json_ld(soup, source_url):
 # ============================================================
 
 def parse_adelaide_oval(soup, source_url):
+    """Parse Adelaide Oval What's On cards."""
+
     events = []
-    seen = set()
+    seen_urls = set()
+    today = datetime.now()
+
+    def parse_card_datetime(value):
+        if not value:
+            return ""
+
+        value = " ".join(str(value).replace("\xa0", " ").split())
+
+        match = re.search(
+            r"(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)?"
+            r",?\s*(\d{1,2})\s+"
+            r"(January|February|March|April|May|June|July|August|September|October|November|December)"
+            r"(?:,?\s+(20\d{2}))?"
+            r"(?:,?\s+(\d{1,2}(?::\d{2})?\s*(?:am|pm)))?",
+            value,
+            re.I,
+        )
+
+        if not match:
+            return ""
+
+        day = int(match.group(1))
+        month = MONTHS[match.group(2).lower()]
+        explicit_year = match.group(3)
+        time_text = (match.group(4) or "").replace(" ", "").lower()
+
+        if explicit_year:
+            year = int(explicit_year)
+        else:
+            year = today.year
+
+            # Adelaide Oval's listing omits the year. It is an upcoming-events
+            # page, so a month/day already passed this year belongs to next year.
+            try:
+                candidate = datetime(year, month, day)
+                today_date = datetime(today.year, today.month, today.day)
+                if candidate < today_date:
+                    year += 1
+            except ValueError:
+                return ""
+
+        hour = 0
+        minute = 0
+
+        if time_text:
+            for fmt in ("%I:%M%p", "%I%p"):
+                try:
+                    parsed_time = datetime.strptime(time_text, fmt)
+                    hour = parsed_time.hour
+                    minute = parsed_time.minute
+                    break
+                except ValueError:
+                    continue
+
+        try:
+            return datetime(
+                year,
+                month,
+                day,
+                hour,
+                minute,
+            ).isoformat()
+        except ValueError:
+            return ""
+
+    def parse_short_card_date(element, start_datetime):
+        if not element or not start_datetime:
+            return ""
+
+        text = " ".join(element.stripped_strings).strip()
+
+        match = re.search(
+            r"\b(\d{1,2})\s+"
+            r"(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)\b",
+            text,
+            re.I,
+        )
+
+        if not match:
+            return ""
+
+        short_months = {
+            "jan": 1, "feb": 2, "mar": 3, "apr": 4,
+            "may": 5, "jun": 6, "jul": 7, "aug": 8,
+            "sep": 9, "sept": 9, "oct": 10, "nov": 11, "dec": 12,
+        }
+
+        start = datetime.fromisoformat(start_datetime)
+        day = int(match.group(1))
+        month = short_months[match.group(2).lower()]
+        year = start.year
+
+        # A range may cross New Year.
+        if (month, day) < (start.month, start.day):
+            year += 1
+
+        try:
+            return datetime(year, month, day, 23, 59, 59).isoformat()
+        except ValueError:
+            return ""
 
     for link in soup.find_all("a", href=True):
-        href = normalise_url(
-            link.get("href"),
-            source_url,
+        href = normalise_url(link.get("href"), source_url)
+
+        if not href or "/events/" not in href.lower():
+            continue
+
+        clean_href = href.split("#", 1)[0].split("?", 1)[0]
+
+        if clean_href.lower() in seen_urls:
+            continue
+
+        title_element = link.select_one("h5.card-title")
+        date_element = link.select_one(
+            'strong.card-meta[itemprop="startDate"]'
         )
 
-        text = " ".join(
-            link.stripped_strings
-        ).strip()
-
-        if not text:
+        if not title_element or not date_element:
             continue
 
-        lower = text.lower()
+        title = " ".join(title_element.stripped_strings).strip()
+        date_text = (
+            date_element.get("content")
+            or date_element.get_text(" ", strip=True)
+        )
+        date = parse_card_datetime(date_text)
 
-        if not any(
-            keyword in lower
-            for keyword in [
-                "sheffield shield",
-                "bbl",
-                "wbbl",
-                "odi",
-                "test",
-                "robbie williams",
-                "concert",
-            ]
-        ):
+        if not title or not date:
             continue
 
-        parent = link
+        end_date = ""
+        end_element = link.select_one(".multiday-end-date-card")
 
-        for _ in range(10):
-            if parent.parent:
-                parent = parent.parent
+        if end_element:
+            end_date = parse_short_card_date(end_element, date)
 
-        block = " ".join(
-            parent.stripped_strings
+            # Do not create an end date when the card's "end" value is not
+            # actually later than the start date.
+            if end_date:
+                try:
+                    if datetime.fromisoformat(end_date).date() <= datetime.fromisoformat(date).date():
+                        end_date = ""
+                except ValueError:
+                    end_date = ""
+
+        image = ""
+        image_element = link.select_one(".card-image")
+
+        if image_element:
+            style = str(image_element.get("style", ""))
+            image_match = re.search(
+                r"background-image\s*:\s*url\(['\"]?([^'\")]+)",
+                style,
+                re.I,
+            )
+            if image_match:
+                image = normalise_url(
+                    image_match.group(1).strip(),
+                    source_url,
+                )
+
+        lower_title = title.lower()
+
+        sport_keywords = [
+            "bbl",
+            "wbbl",
+            "sheffield shield",
+            "odi",
+            "test",
+            "cricket",
+            "strikers",
+            "football",
+            "afl",
+            "soccer",
+            "rugby",
+        ]
+
+        category = (
+            ["Sport"]
+            if any(keyword in lower_title for keyword in sport_keywords)
+            else ["Music"]
         )
 
-        date = parse_date_text(block)
-
-        if not date:
-            continue
-
-        key = (
-            text.lower(),
-            date,
-        )
-
-        if key in seen:
-            continue
-
-        seen.add(key)
+        seen_urls.add(clean_href.lower())
 
         events.append(
             {
-                "title": text,
+                "title": title,
                 "venue": "Adelaide Oval",
                 "date": date,
-                "end_date": "",
-                "category": (
-                    ["Sport"]
-                    if any(
-                        keyword in text.lower()
-                        for keyword in [
-                            "bbl", "wbbl", "sheffield shield", "odi", "test",
-                            "cricket", "strikers", "football", "afl", "soccer", "rugby",
-                        ]
-                    )
-                    else ["Music"]
-                ),
-                "image": get_image(
-                    parent,
-                    source_url,
-                ),
-                "url": href,
+                "end_date": end_date,
+                "category": category,
+                "image": image,
+                "url": clean_href,
             }
         )
+
+    print(
+        f"\nTotal Adelaide Oval events collected: "
+        f"{len(events)}"
+    )
 
     return events
 
