@@ -21,7 +21,7 @@ SOURCES = [
     },
     {
         "name": "Hindley St Music Hall",
-        "url": "https://hindleymusichall.com.au/whats-on/"
+        "url": "https://www.hindleymusichall.com.au/"
     },
     {
         "name": "Adelaide Entertainment Centre",

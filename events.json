@@ -387,7 +387,7 @@
       "Music"
     ],
     "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/10-Oct/TYP%C3%93/typo-band-1136x994.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
-    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/typó-band",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/typo-band",
     "source": "Adelaide Festival Centre"
   },
   {
@@ -415,6 +415,18 @@
     "source": "Adelaide Festival Centre"
   },
   {
+    "title": "The Greatest Debate",
+    "venue": "Dunstan Playhouse",
+    "datetime": "2026-10-24T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Comedy"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/10-Oct/The-Greatest-Debate/special-comedy-greatest-debate-afc-website-1136x994.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/that-you-should-all-go-back-where-you-came-from",
+    "source": "Adelaide Festival Centre"
+  },
+  {
     "title": "OzAsia Festival’s Weekend of Words",
     "venue": "Adelaide Festival Centre",
     "datetime": "2026-10-24T00:00:00",
@@ -425,18 +437,6 @@
     ],
     "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/08-Aug/OzAsia-Festival%E2%80%99s-Weekend-of-Words/WOW_1136-x-994-Website-Images.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
     "link": "https://www.adelaidefestivalcentre.com.au/whats-on/weekend-of-words-2026",
-    "source": "Adelaide Festival Centre"
-  },
-  {
-    "title": "The Greatest Debate",
-    "venue": "Dunstan Playhouse",
-    "datetime": "2026-10-24T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Comedy"
-    ],
-    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/10-Oct/The-Greatest-Debate/special-comedy-greatest-debate-afc-website-1136x994.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
-    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/that-you-should-all-go-back-where-you-came-from",
     "source": "Adelaide Festival Centre"
   },
   {
@@ -777,6 +777,19 @@
     "source": "Adelaide Festival Centre"
   },
   {
+    "title": "Bluey’s Big Play",
+    "venue": "Her Majesty's Theatre",
+    "datetime": "2027-01-06T00:00:00",
+    "end_datetime": "2027-01-09T00:00:00",
+    "category": [
+      "Theatre",
+      "Family"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2027/01-Jan/Bluey%E2%80%99s-Big-Play/bluey-big-play-feature-1136x994.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/blueys-big-play-the-stage-show-2027",
+    "source": "Adelaide Festival Centre"
+  },
+  {
     "title": "Storytime Ballet: Cinderella",
     "venue": "Dunstan Playhouse",
     "datetime": "2027-01-07T00:00:00",
@@ -949,64 +962,148 @@
     "source": "Adelaide Festival Centre"
   },
   {
-    "title": "Aaron Chen",
-    "venue": "Adelaide Entertainment Centre",
-    "datetime": "2026-10-02T19:30:00",
-    "end_datetime": "",
-    "category": [
-      "Comedy"
-    ],
-    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/06/aaron_clean_1050x520.jpg",
-    "link": "https://www.adelaideentertainmentcentre.com.au/events/aaron-chen/",
-    "source": "Adelaide Entertainment Centre"
-  },
-  {
-    "title": "Dabble Darts ANZ Premier League",
-    "venue": "Adelaide Entertainment Centre",
-    "datetime": "2026-10-03T19:00:00",
-    "end_datetime": "",
-    "category": [
-      "Sport"
-    ],
-    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/06/1050w-x-520h.jpg",
-    "link": "https://www.adelaideentertainmentcentre.com.au/events/dabble-darts-anz-premier-league/",
-    "source": "Adelaide Entertainment Centre"
-  },
-  {
-    "title": "Adelaide 36ers v New Zealand Breakers",
-    "venue": "Adelaide Entertainment Centre",
-    "datetime": "2026-10-04T16:30:00",
-    "end_datetime": "",
-    "category": [
-      "Sport"
-    ],
-    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/05/1050X520-26.10.04.png",
-    "link": "https://www.adelaideentertainmentcentre.com.au/events/adelaide-36ers-v-new-zealand-breakers-6/",
-    "source": "Adelaide Entertainment Centre"
-  },
-  {
-    "title": "Lamb of God & Trivium",
-    "venue": "Adelaide Entertainment Centre",
-    "datetime": "2026-10-04T18:40:00",
+    "title": "Thrown Australian Tour 2027 with special guests Boundaries, 156/Silence & Volatile Ways",
+    "venue": "Hindley Street Music Hall",
+    "datetime": "2027-02-05T00:00:00",
     "end_datetime": "",
     "category": [
       "Music"
     ],
-    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/05/LOGTrivium_ADL_1050x520.jpg",
-    "link": "https://www.adelaideentertainmentcentre.com.au/events/lamb-of-god-trivium/",
-    "source": "Adelaide Entertainment Centre"
+    "image": "https://dynamicmedia.livenationinternational.com/r/t/p/c5ab2dfb-fbf1-4c9a-bf2e-004433590645.png?format=webp&width=3840&quality=75",
+    "link": "https://www.hindleymusichall.com.au/all-events/thrown-tickets-ae1372503",
+    "source": "Hindley St Music Hall"
   },
   {
-    "title": "Conan Gray",
-    "venue": "Adelaide Entertainment Centre",
-    "datetime": "2026-10-05T20:00:00",
+    "title": "SWIM: Live Solo Show",
+    "venue": "Hindley Street Music Hall",
+    "datetime": "2027-02-13T00:00:00",
     "end_datetime": "",
     "category": [
       "Music"
     ],
-    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2025/10/CG-ADEL-1050x520-1.jpg",
-    "link": "https://www.adelaideentertainmentcentre.com.au/events/conan-gray/",
-    "source": "Adelaide Entertainment Centre"
+    "image": "https://dynamicmedia.livenationinternational.com/b/q/h/9e0792d1-70b3-4c1f-8cd0-30e25d09c546.png?format=webp&width=3840&quality=75",
+    "link": "https://www.hindleymusichall.com.au/all-events/swim-tickets-ae1637664",
+    "source": "Hindley St Music Hall"
+  },
+  {
+    "title": "An Ending in Itself Tour - Sleeping With Sirens (US)",
+    "venue": "Hindley Street Music Hall",
+    "datetime": "2027-04-08T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://dynamicmedia.livenationinternational.com/j/n/y/3480a93d-9659-4f46-b636-969ccab1a110.png?format=webp&width=3840&quality=75",
+    "link": "https://www.hindleymusichall.com.au/all-events/sleeping-with-sirens-tickets-ae200689",
+    "source": "Hindley St Music Hall"
+  },
+  {
+    "title": "The Avalanches",
+    "venue": "Hindley Street Music Hall",
+    "datetime": "2027-03-04T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://dynamicmedia.livenationinternational.com/m/i/u/d8fed826-6f17-4ebb-9b4f-8f03096a8a16.jpg?format=webp&width=3840&quality=75",
+    "link": "https://www.hindleymusichall.com.au/all-events/the-avalanches-tickets-ae959059",
+    "source": "Hindley St Music Hall"
+  },
+  {
+    "title": "SIX60",
+    "venue": "Hindley Street Music Hall",
+    "datetime": "2026-12-03T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://networksites.livenationinternational.com/networksites/kzapxcdj/six60-banner.png?format=webp&width=3840&quality=75",
+    "link": "https://moshtix.com.au/v2/event/six60/198850?skin=hsmh",
+    "source": "Hindley St Music Hall"
+  },
+  {
+    "title": "The Wallflowers",
+    "venue": "Hindley Street Music Hall",
+    "datetime": "2026-12-09T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://networksites.livenationinternational.com/networksites/skqdxixz/wallflowers2026_hindleyhero1920x1080.jpg?format=webp&width=3840&quality=75",
+    "link": "https://moshtix.com.au/v2/event/the-wallflowers-30-years-of-bringing-down-the-horse-more/199381/?skin=hsmh",
+    "source": "Hindley St Music Hall"
+  },
+  {
+    "title": "1974AD ROCK YATRA",
+    "venue": "Hindley Street Music Hall",
+    "datetime": "2026-10-08T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://dynamicmedia.livenationinternational.com/p/w/n/2fc36443-633d-47e9-818d-6f26645742c2.png?format=webp&width=3840&quality=75",
+    "link": "https://www.hindleymusichall.com.au/all-events/1974ad-tickets-ae1690567",
+    "source": "Hindley St Music Hall"
+  },
+  {
+    "title": "Anastasia",
+    "venue": "Hindley Street Music Hall",
+    "datetime": "2026-10-09T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://dynamicmedia.livenationinternational.com/d/j/x/00e78bd3-d728-4ead-a8b0-efc3aafab774.png?format=webp&width=3840&quality=75",
+    "link": "https://www.hindleymusichall.com.au/all-events/anastasia-tickets-ae1670361",
+    "source": "Hindley St Music Hall"
+  },
+  {
+    "title": "James Marriott",
+    "venue": "Hindley Street Music Hall",
+    "datetime": "2026-10-12T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://networksites.livenationinternational.com/networksites/onpcls4b/james-marriott-banner.png?format=webp&width=3840&quality=75",
+    "link": "https://www.hindleymusichall.com.au/all-events/james-marriott-tickets-ae1405241",
+    "source": "Hindley St Music Hall"
+  },
+  {
+    "title": "The Dreggs “Heading Home” Tour",
+    "venue": "Hindley Street Music Hall",
+    "datetime": "2026-10-17T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://dynamicmedia.livenationinternational.com/u/o/u/e57cde14-2d1d-40d4-a10d-e5d1479b5347.png?format=webp&width=3840&quality=75",
+    "link": "https://www.hindleymusichall.com.au/all-events/the-dreggs-tickets-ae1402801",
+    "source": "Hindley St Music Hall"
+  },
+  {
+    "title": "TISM",
+    "venue": "Hindley Street Music Hall",
+    "datetime": "2026-10-16T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://dynamicmedia.livenationinternational.com/o/c/z/463384de-7ab8-4b6e-bcc3-03cb8c829c2f.png?format=webp&width=3840&quality=75",
+    "link": "https://www.hindleymusichall.com.au/all-events/tism-tickets-ae1674456",
+    "source": "Hindley St Music Hall"
+  },
+  {
+    "title": "Old Mervs",
+    "venue": "Hindley Street Music Hall",
+    "datetime": "2026-10-23T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://dynamicmedia.livenationinternational.com/y/x/q/da1065ce-a736-4cba-8139-f487d63ac81d.jpg?format=webp&width=3840&quality=75",
+    "link": "https://www.hindleymusichall.com.au/all-events/old-mervs-tickets-ae1488974",
+    "source": "Hindley St Music Hall"
   },
   {
     "title": "Adelaide 36ers v Melbourne United",

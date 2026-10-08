@@ -1031,6 +1031,125 @@ def parse_adelaide_festival_centre(
 
 
 
+
+# ============================================================
+# HINDLEY STREET MUSIC HALL
+# ============================================================
+
+def parse_hindley_st_music_hall(soup, source_url):
+    """Parse event cards from the Hindley Street Music Hall homepage."""
+
+    events = []
+    seen = set()
+
+    def clean_text(value):
+        return " ".join(str(value or "").replace("\xa0", " ").split()).strip()
+
+    def parse_hindley_date(value):
+        value = clean_text(value)
+        match = re.fullmatch(
+            r"(\d{1,2})\s+"
+            r"(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|SEPT|OCT|NOV|DEC)"
+            r"\s+(20\d{2})",
+            value,
+            re.I,
+        )
+        if not match:
+            return ""
+
+        months = {
+            "jan": 1, "feb": 2, "mar": 3, "apr": 4,
+            "may": 5, "jun": 6, "jul": 7, "aug": 8,
+            "sep": 9, "sept": 9, "oct": 10, "nov": 11, "dec": 12,
+        }
+
+        try:
+            return datetime(
+                int(match.group(3)),
+                months[match.group(2).lower()],
+                int(match.group(1)),
+            ).isoformat()
+        except ValueError:
+            return ""
+
+    def find_title_and_date(link):
+        # Large featured cards use two H2 elements: title, then date.
+        headings = link.find_all("h2")
+        if len(headings) >= 2:
+            title = clean_text(headings[0].get_text(" ", strip=True))
+            date = parse_hindley_date(
+                headings[1].get_text(" ", strip=True)
+            )
+            if title and date:
+                return title, date
+
+        # Smaller/new cards use P for the title and SMALL for the date.
+        date_element = link.find("small")
+        if not date_element:
+            return "", ""
+
+        date = parse_hindley_date(
+            date_element.get_text(" ", strip=True)
+        )
+        if not date:
+            return "", ""
+
+        paragraphs = link.find_all("p")
+        for paragraph in reversed(paragraphs):
+            candidate = clean_text(
+                paragraph.get_text(" ", strip=True)
+            )
+            if not candidate:
+                continue
+            if candidate.lower() in {"new", "find tickets"}:
+                continue
+            return candidate, date
+
+        return "", ""
+
+    for link in soup.find_all("a", href=True):
+        title, date = find_title_and_date(link)
+        if not title or not date:
+            continue
+
+        href = normalise_url(link.get("href"), source_url)
+        if not href:
+            continue
+
+        lower_href = href.lower()
+
+        # Current event cards link either to /all-events/ or directly to Moshtix.
+        if (
+            "/all-events/" not in lower_href
+            and "moshtix.com.au/" not in lower_href
+        ):
+            continue
+
+        key = (title.lower(), date[:10])
+        if key in seen:
+            continue
+        seen.add(key)
+
+        events.append(
+            {
+                "title": title,
+                "venue": "Hindley Street Music Hall",
+                "date": date,
+                "end_date": "",
+                "category": ["Music"],
+                "image": get_image(link, source_url),
+                "url": href,
+            }
+        )
+
+    print(
+        f"\nTotal Hindley Street Music Hall events collected: "
+        f"{len(events)}"
+    )
+
+    return events
+
+
 # ============================================================
 # ADELAIDE ENTERTAINMENT CENTRE
 # ============================================================

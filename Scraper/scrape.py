@@ -15,6 +15,7 @@ try:
         parse_adelaide_oval,
         parse_adelaide_convention_centre,
         parse_adelaide_festival_centre,
+        parse_hindley_st_music_hall,
         parse_adelaide_entertainment_centre,
     )
 except ModuleNotFoundError:
@@ -26,6 +27,7 @@ except ModuleNotFoundError:
         parse_adelaide_oval,
         parse_adelaide_convention_centre,
         parse_adelaide_festival_centre,
+        parse_hindley_st_music_hall,
         parse_adelaide_entertainment_centre,
     )
 
@@ -327,6 +329,16 @@ def scrape_source(source):
             soup,
             url
         )
+
+    # ----------------------------------------
+    # Hindley Street Music Hall
+    # ----------------------------------------
+
+    if name == "Hindley St Music Hall":
+
+        soup = fetch_page(url)
+
+        return parse_hindley_st_music_hall(soup, url)
 
     # ----------------------------------------
     # Adelaide Entertainment Centre
