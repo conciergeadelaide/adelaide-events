@@ -1037,116 +1037,112 @@ def parse_adelaide_festival_centre(
 # ============================================================
 
 def parse_hindley_st_music_hall(soup, source_url):
-    """Parse event cards from the Hindley Street Music Hall homepage."""
+    """Collect the official Hindley Street Music Hall event calendar.
+
+    The homepage only contains featured events. The venue's search API
+    provides the complete calendar when culture and venue ID are supplied.
+    Fail rather than returning a partial list, so scrape.py can preserve
+    existing records instead of replacing them with incomplete data.
+    """
+    api_url = "https://www.hindleymusichall.com.au/__api/search/events"
+    venue_id = "1368725"
+    page_size = 100
+    session = requests.Session()
+    session.headers.update({
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                      "AppleWebKit/537.36 Chrome/140.0.0.0 Safari/537.36",
+        "Referer": "https://www.hindleymusichall.com.au/whats-on",
+        "Accept": "application/json",
+    })
 
     events = []
     seen = set()
+    total = None
 
-    def clean_text(value):
-        return " ".join(str(value or "").replace("\xa0", " ").split()).strip()
-
-    def parse_hindley_date(value):
-        value = clean_text(value)
-        match = re.fullmatch(
-            r"(\d{1,2})\s+"
-            r"(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|SEPT|OCT|NOV|DEC)"
-            r"\s+(20\d{2})",
-            value,
-            re.I,
-        )
-        if not match:
-            return ""
-
-        months = {
-            "jan": 1, "feb": 2, "mar": 3, "apr": 4,
-            "may": 5, "jun": 6, "jul": 7, "aug": 8,
-            "sep": 9, "sept": 9, "oct": 10, "nov": 11, "dec": 12,
+    for page in range(1, 21):
+        params = {
+            "culture": "en-AU",
+            "VenueIds": venue_id,
+            "PageSize": page_size,
+            "Page": page,
         }
+        response = session.get(api_url, params=params, timeout=30)
+        response.raise_for_status()
+        data = response.json()
+        if data.get("hasError"):
+            raise RuntimeError("Hindley calendar API reported an error")
 
-        try:
-            return datetime(
-                int(match.group(3)),
-                months[match.group(2).lower()],
-                int(match.group(1)),
-            ).isoformat()
-        except ValueError:
-            return ""
+        documents = data.get("documents")
+        if not isinstance(documents, list):
+            raise ValueError("Hindley calendar API returned no documents list")
+        if total is None:
+            total = int(data.get("total", 0))
+            if total == 0:
+                raise ValueError("Hindley calendar API reported zero events")
 
-    def find_title_and_date(link):
-        # Large featured cards use two H2 elements: title, then date.
-        headings = link.find_all("h2")
-        if len(headings) >= 2:
-            title = clean_text(headings[0].get_text(" ", strip=True))
-            date = parse_hindley_date(
-                headings[1].get_text(" ", strip=True)
-            )
-            if title and date:
-                return title, date
-
-        # Smaller/new cards use P for the title and SMALL for the date.
-        date_element = link.find("small")
-        if not date_element:
-            return "", ""
-
-        date = parse_hindley_date(
-            date_element.get_text(" ", strip=True)
-        )
-        if not date:
-            return "", ""
-
-        paragraphs = link.find_all("p")
-        for paragraph in reversed(paragraphs):
-            candidate = clean_text(
-                paragraph.get_text(" ", strip=True)
-            )
-            if not candidate:
+        for item in documents:
+            if not isinstance(item, dict):
                 continue
-            if candidate.lower() in {"new", "find tickets"}:
+            venue = item.get("venue") or {}
+            if str(venue.get("id", "")) != venue_id:
                 continue
-            return candidate, date
 
-        return "", ""
+            title = " ".join(str(item.get("name") or "").split())
+            raw_date = str(item.get("eventDate") or "")
+            date_part = raw_date[:10]
+            if not title or not re.fullmatch(r"20\d{2}-\d{2}-\d{2}", date_part):
+                continue
+            try:
+                datetime.strptime(date_part, "%Y-%m-%d")
+            except ValueError:
+                continue
 
-    for link in soup.find_all("a", href=True):
-        title, date = find_title_and_date(link)
-        if not title or not date:
-            continue
+            # eventDate is the local calendar date. Do not convert the UTC
+            # timestamp, which could shift an Adelaide event to another day.
+            time_text = str(item.get("showTime") or "").strip()
+            time_match = re.fullmatch(r"(\d{1,2}):(\d{2})", time_text)
+            if time_match and int(time_match.group(1)) < 24 and int(time_match.group(2)) < 60:
+                clock = f"{int(time_match.group(1)):02d}:{time_match.group(2)}:00"
+            else:
+                clock = "00:00:00"
+            date = f"{date_part}T{clock}"
 
-        href = normalise_url(link.get("href"), source_url)
-        if not href:
-            continue
+            raw_end = str(item.get("eventDateTo") or "")[:10]
+            end_date = ""
+            if re.fullmatch(r"20\d{2}-\d{2}-\d{2}", raw_end) and raw_end > date_part:
+                end_date = f"{raw_end}T23:59:59"
 
-        lower_href = href.lower()
-
-        # Current event cards link either to /all-events/ or directly to Moshtix.
-        if (
-            "/all-events/" not in lower_href
-            and "moshtix.com.au/" not in lower_href
-        ):
-            continue
-
-        key = (title.lower(), date[:10])
-        if key in seen:
-            continue
-        seen.add(key)
-
-        events.append(
-            {
+            event_url = normalise_url(item.get("url"), source_url)
+            if not event_url:
+                continue
+            image = normalise_url(item.get("image"), source_url)
+            key = (str(item.get("id") or ""), date_part)
+            if key in seen:
+                continue
+            seen.add(key)
+            events.append({
                 "title": title,
                 "venue": "Hindley Street Music Hall",
                 "date": date,
-                "end_date": "",
+                "end_date": end_date,
                 "category": ["Music"],
-                "image": get_image(link, source_url),
-                "url": href,
-            }
+                "image": image,
+                "url": event_url,
+            })
+
+        print(f"    Hindley API page {page}: {len(documents)} returned")
+        if len(events) >= total:
+            break
+        if not documents:
+            break
+
+    # Never silently replace the existing source with an incomplete response.
+    if len(events) < total:
+        raise RuntimeError(
+            f"Hindley calendar incomplete: collected {len(events)} of {total} events"
         )
 
-    print(
-        f"\nTotal Hindley Street Music Hall events collected: "
-        f"{len(events)}"
-    )
-
+    print(f"\nTotal Hindley Street Music Hall events collected: {len(events)}")
     return events
 
 
