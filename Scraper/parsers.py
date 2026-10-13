@@ -1736,3 +1736,126 @@ def parse_immersive_light_and_art(soup, source_url):
                        'image': image_from_page(page, url), 'url': url})
     print(f'\nTotal Immersive Light and Art events collected: {len(events)}')
     return events
+
+
+# ============================================================
+# ADELAIDE TOWN HALL
+# ============================================================
+
+def parse_adelaide_town_hall(soup, source_url):
+    """Read Town Hall event details, avoiding related-event dates/images."""
+    from urllib.parse import urlparse
+
+    session = requests.Session()
+    session.headers.update({
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                      "AppleWebKit/537.36 Chrome/140.0.0.0 Safari/537.36"
+    })
+    host = urlparse(source_url).hostname
+    urls = []
+    seen = set()
+    for anchor in soup.find_all("a", href=True):
+        url = normalise_url(anchor.get("href", ""), source_url)
+        parsed = urlparse(url)
+        if parsed.hostname != host or not parsed.path.startswith("/events/"):
+            continue
+        url = url.split("#", 1)[0].split("?", 1)[0].rstrip("/") + "/"
+        if url not in seen:
+            seen.add(url)
+            urls.append(url)
+
+    events = []
+    for url in urls:
+        try:
+            response = session.get(url, timeout=25)
+            response.raise_for_status()
+            page = BeautifulSoup(response.text, "lxml")
+        except requests.RequestException as exc:
+            print(f"    Town Hall detail ERROR: {url} -> {exc}")
+            continue
+
+        page_title = page.title.get_text(" ", strip=True) if page.title else ""
+        title = re.split(r"\s*[|]\s*Adelaide Town Hall\s*$", page_title, flags=re.I)[0].strip()
+        if not title or title == page_title == "What's on":
+            print(f"    Town Hall skipped (no title): {url}")
+            continue
+
+        # Navigation also contains "Plan your visit", so splitting the whole
+        # document at that phrase would remove the event before its date.
+        # Instead, isolate the event details around its "When" field.
+        content = page.get_text(" ", strip=True)
+        when_match = re.search(r"\bWhen\s+", content, flags=re.I)
+        event_details = content[when_match.end():when_match.end() + 500] if when_match else ""
+        date_match = re.search(
+            r"Next\s+occurrence\s+is\s+(\d{1,2}\s+[A-Za-z]+\s+20\d{2})",
+            event_details, flags=re.I
+        )
+        date = parse_date_text(date_match.group(1)) if date_match else ""
+        if not date:
+            # Some events have a date range or a single dated "When" value.
+            # Only inspect the event's When field, not recommended events.
+            date = parse_date_text(event_details.split("Accessibility", 1)[0])
+        if not date:
+            print(f"    Town Hall skipped (no confirmed year/date): {title}")
+            continue
+
+        # For category detection, inspect the section around the event title,
+        # rather than the navigation menu.
+        title_position = content.find(title)
+        main_text = content[title_position:title_position + 1800] if title_position >= 0 else content[:1800]
+
+        # First ATDW image on the event detail is the event hero;
+        # subsequent ATDW images can be unrelated suggested events.
+        image = ""
+        for img in page.find_all("img"):
+            candidate = img.get("src") or img.get("data-src") or ""
+            if "assets.atdw-online.com.au/images/" in candidate:
+                image = normalise_url(candidate, url)
+                break
+
+        # Explicit Town Hall classifications override generic title heuristics.
+        # Keep these as single-category lists so broad keyword matches cannot
+        # incorrectly add Theatre, Talks, or other categories.
+        title_key = re.sub(r"[^a-z0-9]+", " ", title.casefold()).strip()
+        town_hall_music_titles = (
+            "paul lewis mozart",
+            "encore classics",
+            "bach s st john passion",
+            "alina ibragimova plays tchaikovsky",
+            "the choir of king s college cambridge and william barton",
+            "aco in motion",
+            "the john adams almanac",
+        )
+        if "daryl austin the long view" in title_key:
+            category = ["Arts & Culture"]
+        elif any(key in title_key for key in town_hall_music_titles):
+            category = ["Music"]
+        else:
+            category = None
+
+        category_text = main_text.split(title, 1)[0][-180:] if title in main_text else ""
+        lower = category_text.lower()
+        if category is None:
+            if "music" in lower or "concert" in lower:
+                category = ["Music"]
+            elif "exhibition" in lower or "art" in lower:
+                category = ["Arts & Culture"]
+            elif "tour" in lower:
+                category = ["Arts & Culture"]
+            elif "workshop" in lower:
+                category = ["Workshop"]
+            else:
+                category = categorise_event(title)
+
+        events.append({
+            "title": title,
+            "venue": "Adelaide Town Hall",
+            "date": date,
+            "end_date": "",
+            "category": category,
+            "image": image,
+            "url": url,
+        })
+
+    print(f"\nTotal Adelaide Town Hall events collected: {len(events)}")
+    return events
