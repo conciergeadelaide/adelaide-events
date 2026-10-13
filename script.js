@@ -19,7 +19,6 @@ var eventCount = document.getElementById("event-count");
 var noResults = document.getElementById("no-results");
 var clearFiltersButton = document.getElementById("clear-filters");
 
-
 // ======================================
 // DATE HELPERS
 // ======================================
@@ -37,8 +36,6 @@ function getEventEnd(event) {
 }
 
 // Return YYYY-MM-DD without timezone conversion.
-// This avoids shifting an event to the
-// previous day in some browsers.
 function getDatePart(value) {
     if (!value) {
         return "";
@@ -68,16 +65,12 @@ function getEventTimestamp(event) {
     return date.getTime();
 }
 
-// Format an event's date for display.
-function formatDate(value) {
-    if (!value) {
-        return "Date to be confirmed";
-    }
-
+// Construct a local date without timezone shifts.
+function parseLocalDate(value) {
     var datePart = getDatePart(value);
 
     if (!datePart) {
-        return "Date to be confirmed";
+        return null;
     }
 
     var parts = datePart.split("-");
@@ -86,8 +79,6 @@ function formatDate(value) {
     var month = Number(parts[1]);
     var day = Number(parts[2]);
 
-    // Construct at midday to avoid
-    // timezone-related day shifts.
     var date = new Date(
         year,
         month - 1,
@@ -97,7 +88,27 @@ function formatDate(value) {
         0
     );
 
-    if (isNaN(date.getTime())) {
+    if (
+        isNaN(date.getTime()) ||
+        date.getFullYear() !== year ||
+        date.getMonth() !== month - 1 ||
+        date.getDate() !== day
+    ) {
+        return null;
+    }
+
+    return date;
+}
+
+// Format an event's date for display.
+function formatDate(value) {
+    if (!value) {
+        return "Date to be confirmed";
+    }
+
+    var date = parseLocalDate(value);
+
+    if (!date) {
         return "Date to be confirmed";
     }
 
@@ -129,9 +140,9 @@ function formatDate(value) {
     }
 
     var timeDate = new Date(
-        year,
-        month - 1,
-        day,
+        date.getFullYear(),
+        date.getMonth(),
+        date.getDate(),
         hours,
         minutes
     );
@@ -147,6 +158,90 @@ function formatDate(value) {
     return dateText + " · " + timeText;
 }
 
+// Format multi-day events as date ranges.
+function formatEventDate(event) {
+    var startValue = getEventStart(event);
+    var endValue = getEventEnd(event);
+
+    var startDate = parseLocalDate(startValue);
+    var endDate = parseLocalDate(endValue);
+
+    if (!startDate) {
+        return "Date to be confirmed";
+    }
+
+    if (
+        !endDate ||
+        endDate.getTime() <= startDate.getTime()
+    ) {
+        return formatDate(startValue);
+    }
+
+    var sameYear =
+        startDate.getFullYear() ===
+        endDate.getFullYear();
+
+    var sameMonth =
+        sameYear &&
+        startDate.getMonth() ===
+        endDate.getMonth();
+
+    var startDay = startDate.getDate();
+    var endDay = endDate.getDate();
+
+    var startMonth = new Intl.DateTimeFormat(
+        "en-AU",
+        { month: "short" }
+    ).format(startDate);
+
+    var endMonth = new Intl.DateTimeFormat(
+        "en-AU",
+        { month: "short" }
+    ).format(endDate);
+
+    var startYear = startDate.getFullYear();
+    var endYear = endDate.getFullYear();
+
+    if (sameMonth) {
+        return (
+            startDay +
+            "–" +
+            endDay +
+            " " +
+            startMonth +
+            " " +
+            startYear
+        );
+    }
+
+    if (sameYear) {
+        return (
+            startDay +
+            " " +
+            startMonth +
+            " – " +
+            endDay +
+            " " +
+            endMonth +
+            " " +
+            endYear
+        );
+    }
+
+    return (
+        startDay +
+        " " +
+        startMonth +
+        " " +
+        startYear +
+        " – " +
+        endDay +
+        " " +
+        endMonth +
+        " " +
+        endYear
+    );
+}
 
 // ======================================
 // CATEGORY HELPERS
@@ -169,7 +264,6 @@ function getEventCategories(event) {
 function getCategoryText(event) {
     return getEventCategories(event).join(" · ");
 }
-
 
 // ======================================
 // CREATE EVENT CARD
@@ -206,9 +300,7 @@ function createEventCard(event) {
 
     var date = document.createElement("div");
     date.className = "event-date";
-    date.textContent = formatDate(
-        getEventStart(event)
-    );
+    date.textContent = formatEventDate(event);
 
     var title = document.createElement("h3");
     title.className = "event-title";
@@ -253,7 +345,6 @@ function createEventCard(event) {
     return article;
 }
 
-
 // ======================================
 // DISPLAY EVENTS
 // ======================================
@@ -281,7 +372,6 @@ function displayEvents(eventList) {
         );
     });
 }
-
 
 // ======================================
 // POPULATE FILTER DROPDOWNS
@@ -350,7 +440,6 @@ function populateFilters() {
     });
 }
 
-
 // ======================================
 // APPLY SEARCH AND FILTERS
 // ======================================
@@ -367,9 +456,13 @@ function applyFilters() {
 
     var filteredEvents = events.filter(
         function(event) {
-            var eventDateString = getDatePart(
+            var eventStartString = getDatePart(
                 getEventStart(event)
             );
+
+            var eventEndString = getDatePart(
+                getEventEnd(event)
+            ) || eventStartString;
 
             var searchableText = (
                 (event.title || "") +
@@ -384,20 +477,20 @@ function applyFilters() {
             var matchesSearch =
                 searchableText.indexOf(searchText) !== -1;
 
-            // Events with no known date are kept
-            // when no date filter is selected.
+            // Include multi-day events when their
+            // date range overlaps the selected dates.
             var matchesFrom =
                 !dateFrom ||
                 (
-                    eventDateString !== "" &&
-                    eventDateString >= dateFrom
+                    eventEndString !== "" &&
+                    eventEndString >= dateFrom
                 );
 
             var matchesTo =
                 !dateTo ||
                 (
-                    eventDateString !== "" &&
-                    eventDateString <= dateTo
+                    eventStartString !== "" &&
+                    eventStartString <= dateTo
                 );
 
             var matchesCategory =
@@ -422,7 +515,6 @@ function applyFilters() {
 
     sortEvents(filteredEvents);
 }
-
 
 // ======================================
 // SORT EVENTS
@@ -464,7 +556,6 @@ function sortEvents(eventList) {
     displayEvents(eventList);
 }
 
-
 // ======================================
 // CLEAR ALL FILTERS
 // ======================================
@@ -480,7 +571,6 @@ function clearAllFilters() {
 
     applyFilters();
 }
-
 
 // ======================================
 // FILTER EVENT LISTENERS
@@ -520,7 +610,6 @@ clearFiltersButton.addEventListener(
     "click",
     clearAllFilters
 );
-
 
 // ======================================
 // LOAD EVENTS.JSON
