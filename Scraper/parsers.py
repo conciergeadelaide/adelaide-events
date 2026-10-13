@@ -1447,3 +1447,161 @@ def parse_adelaide_entertainment_centre(soup, source_url):
 
     print(f"\nTotal Adelaide Entertainment Centre events collected: {len(events)}")
     return events
+
+
+# ============================================================
+# COOPERS STADIUM
+# ============================================================
+
+def parse_coopers_stadium(soup, source_url):
+    """Read Coopers Stadium's official events listing and event detail pages.
+
+    Only accept dated links to individual events. If the site's layout changes,
+    return no events so scrape.py preserves previously collected records.
+    """
+    from urllib.parse import urlparse
+
+    session = requests.Session()
+    session.headers.update({
+        "User-Agent": (
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+            "AppleWebKit/537.36 Chrome/140.0.0.0 Safari/537.36"
+        )
+    })
+    events = []
+    seen = set()
+    hostname = (urlparse(source_url).hostname or "").removeprefix("www.")
+    date_pattern = re.compile(
+        r"(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)"
+        r"\s+(\d{1,2})\s+"
+        r"(Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|"
+        r"Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)"
+        r"\s+(20\d{2})", re.I
+    )
+    months = {
+        "jan": 1, "feb": 2, "mar": 3, "apr": 4, "may": 5, "jun": 6,
+        "jul": 7, "aug": 8, "sep": 9, "oct": 10, "nov": 11, "dec": 12,
+    }
+    time_pattern = re.compile(r"\b(\d{1,2})(?::(\d{2}))?\s*(am|pm)\b", re.I)
+
+    def date_from_text(text):
+        match = date_pattern.search(" ".join(text.split()))
+        if not match:
+            return ""
+        day = int(match.group(1))
+        month = months[match.group(2).lower()[:3]]
+        year = int(match.group(3))
+        tail = text[match.end():]
+        time_match = time_pattern.search(tail)
+        hour = minute = 0
+        if time_match:
+            hour = int(time_match.group(1)) % 12
+            if time_match.group(3).lower() == "pm":
+                hour += 12
+            minute = int(time_match.group(2) or 0)
+        try:
+            return datetime(year, month, day, hour, minute).isoformat()
+        except ValueError:
+            return ""
+
+    def find_image(page_soup, page_url):
+        for element in page_soup.find_all(attrs={"data-background-image": True}):
+            value = str(element.get("data-background-image", "")).strip()
+            if value and not any(bad in value.lower() for bad in
+                                 ("logo", "favicon", "icon", "getting-here")):
+                return normalise_url(value, page_url)
+        for prop in ("og:image", "twitter:image"):
+            tag = page_soup.find("meta", attrs={"property": prop}) or page_soup.find(
+                "meta", attrs={"name": prop}
+            )
+            if tag:
+                value = str(tag.get("content", "")).strip()
+                if value and not any(bad in value.lower() for bad in ("logo", "favicon")):
+                    return normalise_url(value, page_url)
+        return ""
+
+    # Find the individual event links on the listing. Never use ticket links.
+    for link in soup.find_all("a", href=True):
+        url = normalise_url(link.get("href"), source_url)
+        parsed = urlparse(url)
+        if (parsed.hostname or "").removeprefix("www.") != hostname:
+            continue
+        path = parsed.path.rstrip("/")
+        if not path.startswith("/events/") or path == "/events":
+            continue
+        url = f"{parsed.scheme}://{parsed.netloc}{path}/"
+        if url.lower() in seen:
+            continue
+
+        # Listing cards include date, event title and a More info link.
+        # Walk only nearby ancestors to avoid picking another event's date.
+        card_date = ""
+        card_title = ""
+        node = link
+        for _ in range(5):
+            node = node.parent
+            if node is None or node.name in ("body", "html"):
+                break
+            text = node.get_text(" ", strip=True)
+            if len(text) > 1200:
+                break
+            candidate = date_from_text(text)
+            if candidate:
+                card_date = candidate
+                heading = node.find(["h2", "h3", "h4", "h5", "h6"])
+                if heading:
+                    card_title = heading.get_text(" ", strip=True)
+                break
+
+        # Individual event pages give the definitive title and artwork.
+        try:
+            response = session.get(url, timeout=20)
+            response.raise_for_status()
+            detail = BeautifulSoup(response.text, "lxml")
+        except requests.RequestException as exc:
+            print(f"    Coopers event page ERROR: {url} -> {exc}")
+            continue
+
+        heading = detail.find("h1")
+        title = heading.get_text(" ", strip=True) if heading else card_title
+        if not title or "cancelled" in title.lower() or "canceled" in title.lower():
+            continue
+
+        date = card_date
+        if not date:
+            # The date must be on the detail page if listing markup changes.
+            for element in detail.find_all(["time", "p", "div", "span"], limit=150):
+                candidate_text = element.get_text(" ", strip=True)
+                if len(candidate_text) > 250:
+                    continue
+                date = date_from_text(candidate_text)
+                if date:
+                    break
+        if not date:
+            continue
+
+        lower_title = title.lower()
+        sport_terms = (
+            "adelaide united", "football", "soccer", "fc ", " fc",
+            "champions league", "a-league", "aleague", "matildas",
+        )
+        category = ["Sport"] if any(term in lower_title for term in sport_terms) else ["Music"]
+        venue = "Coopers Stadium"
+        if "hindmarsh stadium" in detail.get_text(" ", strip=True).lower():
+            # Hindmarsh Stadium is another name for the same ground;
+            # use one consistent venue label to prevent duplicates.
+            venue = "Coopers Stadium"
+
+        events.append({
+            "title": title,
+            "venue": venue,
+            "date": date,
+            "end_date": "",
+            "category": category,
+            "image": find_image(detail, url),
+            "url": url,
+        })
+        seen.add(url.lower())
+
+    print(f"\nTotal Coopers Stadium events collected: {len(events)}")
+    return events

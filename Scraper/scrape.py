@@ -17,6 +17,7 @@ try:
         parse_adelaide_festival_centre,
         parse_hindley_st_music_hall,
         parse_adelaide_entertainment_centre,
+        parse_coopers_stadium,
     )
 except ModuleNotFoundError:
     # Works when importing:
@@ -29,6 +30,7 @@ except ModuleNotFoundError:
         parse_adelaide_festival_centre,
         parse_hindley_st_music_hall,
         parse_adelaide_entertainment_centre,
+        parse_coopers_stadium,
     )
 
 
@@ -352,6 +354,16 @@ def scrape_source(source):
             soup,
             url
         )
+
+    # ----------------------------------------
+    # Coopers Stadium
+    # ----------------------------------------
+
+    if name == "Coopers Stadium":
+
+        soup = fetch_page(url)
+
+        return parse_coopers_stadium(soup, url)
 
     # ----------------------------------------
     # Generic JSON-LD parser
