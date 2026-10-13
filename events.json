@@ -2244,5 +2244,65 @@
     "image": "https://www.coopersstadium.com.au/wp-content/uploads/2026/07/AKL-2340x765-1.png",
     "link": "https://www.coopersstadium.com.au/events/adelaide-united-v-auckland-fc-2/",
     "source": "Coopers Stadium"
+  },
+  {
+    "title": "Andrew Hill: Our Rights and Pleasures",
+    "venue": "Immersive Light and Art (ILA)",
+    "datetime": "2026-10-23T00:00:00",
+    "end_datetime": "2026-11-07T23:59:59",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://immersivelightandart.com.au/wp-content/uploads/2026/09/HERO_2568x1440_AndrewHill_ORAP_0-1024x576.jpg",
+    "link": "https://immersivelightandart.com.au/event/andrew-hill-our-rights-and-pleasures/",
+    "source": "Immersive Light and Art"
+  },
+  {
+    "title": "Architecture in Music",
+    "venue": "Immersive Light and Art (ILA)",
+    "datetime": "2026-11-12T00:00:00",
+    "end_datetime": "2026-12-05T23:59:59",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://immersivelightandart.com.au/wp-content/uploads/2026/09/2568x1440_AiM_Website_Resizes_Charles-Brooks-1024x576.jpg",
+    "link": "https://immersivelightandart.com.au/event/architecture-in-music/",
+    "source": "Immersive Light and Art"
+  },
+  {
+    "title": "Slava and Sharon Grigoryan – Live",
+    "venue": "Immersive Light and Art (ILA)",
+    "datetime": "2026-11-26T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://immersivelightandart.com.au/wp-content/uploads/2026/09/sharon-draper-slava-grigoryan-simon-shiff-2560-1-1024x683.jpg",
+    "link": "https://immersivelightandart.com.au/event/slava-and-sharon-grigoryan-live/",
+    "source": "Immersive Light and Art"
+  },
+  {
+    "title": "Thin Ice",
+    "venue": "Immersive Light and Art (ILA)",
+    "datetime": "2027-05-05T00:00:00",
+    "end_datetime": "2027-05-29T23:59:59",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://immersivelightandart.com.au/wp-content/uploads/2026/09/2568x1440_ThinIce_WebsiteImage-1024x576.jpg",
+    "link": "https://immersivelightandart.com.au/event/thin-ice/",
+    "source": "Immersive Light and Art"
+  },
+  {
+    "title": "Sea to Soil",
+    "venue": "Immersive Light and Art (ILA)",
+    "datetime": "2026-10-23T00:00:00",
+    "end_datetime": "2026-11-07T23:59:59",
+    "category": [
+      "Food & Beverage"
+    ],
+    "image": "https://immersivelightandart.com.au/wp-content/uploads/2026/06/ILA_Website_SeaToSoil_Hero_Image_2568x1440-1024x576.jpg",
+    "link": "https://immersivelightandart.com.au/event/sea-to-soil/",
+    "source": "Immersive Light and Art"
   }
 ]

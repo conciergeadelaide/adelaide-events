@@ -1605,3 +1605,134 @@ def parse_coopers_stadium(soup, source_url):
 
     print(f"\nTotal Coopers Stadium events collected: {len(events)}")
     return events
+
+
+# ============================================================
+# IMMERSIVE LIGHT AND ART (ILA)
+# ============================================================
+
+def parse_immersive_light_and_art(soup, source_url):
+    """Read ILA What's On cards and individual event pages."""
+    from urllib.parse import urlparse
+    session = requests.Session()
+    session.headers.update({"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/140.0.0.0 Safari/537.36"})
+    now = datetime.now()
+    month_map = {k[:3]: v for k, v in MONTHS.items()}
+    month_map['sep'] = 9
+    month_pattern = r'(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:t(?:ember)?)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)'
+
+    def parse_range(text):
+        text = ' '.join(str(text or '').replace('\xa0', ' ').replace('–', '-').replace('—', '-').split())
+        # Prefer a full, explicit year on detail pages.
+        m = re.search(r'\b(\d{1,2})\s+(' + month_pattern + r')\s*-\s*(\d{1,2})\s+(' + month_pattern + r')\s+(20\d{2})\b', text, re.I)
+        if m:
+            d1, mo1, d2, mo2, year = m.groups()
+            try:
+                a = datetime(int(year), month_map[mo1[:3].lower()], int(d1))
+                b = datetime(int(year), month_map[mo2[:3].lower()], int(d2), 23, 59, 59)
+                if b < a: b = b.replace(year=b.year+1)
+                return a.isoformat(), b.isoformat()
+            except ValueError: pass
+        m = re.search(r'\b(\d{1,2})\s*-\s*(\d{1,2})\s+(' + month_pattern + r')(?:\s+(20\d{2}))?\b', text, re.I)
+        if m:
+            d1, d2, mo, year = m.groups()
+            try:
+                y = int(year) if year else now.year
+                a = datetime(y, month_map[mo[:3].lower()], int(d1))
+                if not year and a.date() < now.date(): a = a.replace(year=y+1)
+                b = a.replace(day=int(d2), hour=23, minute=59, second=59)
+                if b >= a: return a.isoformat(), b.isoformat()
+            except ValueError: pass
+        m = re.search(r'\b(\d{1,2})\s+(' + month_pattern + r')\s*-\s*(\d{1,2})\s+(' + month_pattern + r')(?:\s+(20\d{2}))?\b', text, re.I)
+        if m:
+            d1, mo1, d2, mo2, year = m.groups()
+            try:
+                y = int(year) if year else now.year
+                a = datetime(y, month_map[mo1[:3].lower()], int(d1))
+                if not year and a.date() < now.date(): a = a.replace(year=y+1)
+                b = datetime(a.year, month_map[mo2[:3].lower()], int(d2), 23, 59, 59)
+                if b < a: b = b.replace(year=b.year+1)
+                return a.isoformat(), b.isoformat()
+            except ValueError: pass
+        m = re.search(r'\b(?:from\s+)?(\d{1,2})\s+(' + month_pattern + r')(?:\s+(20\d{2}))?\b', text, re.I)
+        if m:
+            day, mo, year = m.groups()
+            try:
+                y = int(year) if year else now.year
+                a = datetime(y, month_map[mo[:3].lower()], int(day))
+                if not year and a.date() < now.date(): a = a.replace(year=y+1)
+                return a.isoformat(), ''
+            except ValueError: pass
+        return '', ''
+
+    def image_from_page(page, page_url):
+        # Social metadata is normally the event's hero artwork.
+        for key in ('og:image', 'twitter:image'):
+            tag = page.find('meta', attrs={'property': key}) or page.find('meta', attrs={'name': key})
+            if tag:
+                url = normalise_url(tag.get('content', ''), page_url)
+                if url and not any(x in url.lower() for x in ('logo', 'favicon', 'placeholder')):
+                    return url
+        for img in page.find_all('img', limit=15):
+            url = img.get('data-src') or img.get('src') or ''
+            if url and not url.startswith('data:') and not any(x in url.lower() for x in ('logo', 'favicon', 'icon')):
+                return normalise_url(url, page_url)
+        return ''
+
+    events, seen = [], set()
+    host = urlparse(source_url).hostname or ''
+    for link in soup.find_all('a', href=True):
+        url = normalise_url(link.get('href'), source_url).split('#')[0].split('?')[0]
+        parsed = urlparse(url)
+        if parsed.hostname != host or not parsed.path.startswith('/event/') or parsed.path.rstrip('/') == '/event':
+            continue
+        url = url.rstrip('/') + '/'
+        if url in seen: continue
+        seen.add(url)
+        # Prefer date text from the detail page, not unrelated recommendations.
+        try:
+            response = session.get(url, timeout=20)
+            response.raise_for_status()
+            page = BeautifulSoup(response.text, 'lxml')
+        except requests.RequestException as exc:
+            print(f'    ILA event page ERROR: {url} -> {exc}')
+            continue
+        heading = page.find('h1')
+        title = heading.get_text(' ', strip=True) if heading else link.get_text(' ', strip=True)
+        if not title: continue
+        start, end = '', ''
+        # Search short date-related elements first, to avoid footer and related events.
+        for node in page.find_all(['h2','h3','h4','p','time','li','span'], limit=220):
+            t = node.get_text(' ', strip=True)
+            if not t or len(t) > 140: continue
+            a, b = parse_range(t)
+            if a:
+                start, end = a, b
+                if re.search(r'20\d{2}', t): break
+        if not start:
+            # Listing card may contain the date when detail markup changes.
+            parent = link
+            for _ in range(5):
+                parent = parent.parent
+                if not parent or parent.name in ('body','html'): break
+                t = parent.get_text(' ', strip=True)
+                if len(t) > 450: break
+                start, end = parse_range(t)
+                if start: break
+        if not start:
+            print(f'    ILA skipped (no date): {title}')
+            continue
+        lower = title.lower()
+        if any(k in lower for k in ('lunch','dining','soil','table','food','wine')):
+            category = ['Food & Beverage']
+        elif any(k in lower for k in ('exhibition','architecture','andrew hill','thin ice','art')):
+            category = ['Arts & Culture']
+        elif any(k in lower for k in ('live','concert','music','grigoryan')):
+            category = ['Music']
+        else:
+            category = categorise_event(title)
+        events.append({'title': title, 'venue': 'Immersive Light and Art (ILA)',
+                       'date': start, 'end_date': end, 'category': category,
+                       'image': image_from_page(page, url), 'url': url})
+    print(f'\nTotal Immersive Light and Art events collected: {len(events)}')
+    return events

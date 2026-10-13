@@ -53,7 +53,7 @@ SOURCES = [
     },
     {
         "name": "Immersive Light and Art",
-        "url": "https://immersivelightandart.com.au/events/"
+        "url": "https://immersivelightandart.com.au/whats-on/"
     },
     {
         "name": "State Opera South Australia",

@@ -18,6 +18,7 @@ try:
         parse_hindley_st_music_hall,
         parse_adelaide_entertainment_centre,
         parse_coopers_stadium,
+        parse_immersive_light_and_art,
     )
 except ModuleNotFoundError:
     # Works when importing:
@@ -31,6 +32,7 @@ except ModuleNotFoundError:
         parse_hindley_st_music_hall,
         parse_adelaide_entertainment_centre,
         parse_coopers_stadium,
+        parse_immersive_light_and_art,
     )
 
 
@@ -364,6 +366,14 @@ def scrape_source(source):
         soup = fetch_page(url)
 
         return parse_coopers_stadium(soup, url)
+
+    # ----------------------------------------
+    # Immersive Light and Art (ILA)
+    # ----------------------------------------
+
+    if name == "Immersive Light and Art":
+        soup = fetch_page("https://immersivelightandart.com.au/whats-on/")
+        return parse_immersive_light_and_art(soup, "https://immersivelightandart.com.au/whats-on/")
 
     # ----------------------------------------
     # Generic JSON-LD parser
