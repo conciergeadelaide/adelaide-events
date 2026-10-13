@@ -1859,3 +1859,91 @@ def parse_adelaide_town_hall(soup, source_url):
 
     print(f"\nTotal Adelaide Town Hall events collected: {len(events)}")
     return events
+
+# ============================================================
+# LION ARTS FACTORY
+# ============================================================
+
+def parse_lion_arts_factory(soup, source_url):
+    """Parse Lion Arts Factory's full What's On listing.
+
+    The site provides gig cards directly, with a dated heading, a
+    lazy-loaded Moshtix poster and a ticket link. No detail requests
+    or year guessing are needed.
+    """
+    events = []
+    seen = set()
+    cards = soup.select(".gig_inner")
+
+    if not cards:
+        raise RuntimeError("Lion Arts Factory: no gig cards found; page layout may have changed")
+
+    for card in cards:
+        title_element = card.select_one(".gig_heading")
+        date_element = card.select_one(".gig_date")
+        if not title_element or not date_element:
+            continue
+
+        title = title_element.get_text(" ", strip=True)
+        date_text = date_element.get_text(" ", strip=True)
+        date = ""
+        for fmt in ("%A %d %b %Y", "%a %d %b %Y", "%A %d %B %Y"):
+            try:
+                date = datetime.strptime(date_text, fmt).strftime("%Y-%m-%dT00:00:00")
+                break
+            except ValueError:
+                pass
+
+        if not title or not date:
+            print(f"    Lion Arts skipped (missing title/date): {title or date_text}")
+            continue
+
+        image_element = card.select_one(".gig_image_container img")
+        image = ""
+        if image_element:
+            image_src = (
+                image_element.get("data-src")
+                or image_element.get("data-lazy-src")
+                or image_element.get("src")
+                or ""
+            )
+            if image_src and not image_src.startswith("data:"):
+                image = normalise_url(image_src, source_url)
+
+        ticket = card.select_one("a.gig_button[href]")
+        if not ticket:
+            ticket = card.select_one('a[href*="moshtix.com.au"]')
+        link = normalise_url(ticket.get("href"), source_url) if ticket else source_url
+
+        key = (title.casefold(), date[:10])
+        if key in seen:
+            continue
+        seen.add(key)
+
+        # Lucha Fantastica is a wrestling performance, not a music gig.
+        lower_title = title.casefold()
+        if "lucha fantastica" in lower_title:
+            category = ["Sport", "Family"] if "family show" in lower_title else ["Sport"]
+        else:
+            category = ["Music"]
+
+        events.append({
+            "title": title,
+            "venue": "Lion Arts Factory",
+            "date": date,
+            "end_date": "",
+            "category": category,
+            "image": image,
+            "url": link,
+        })
+
+    # Avoid silently accepting a broken partial listing if the page
+    # contains many cards but most dates fail to parse.
+    if len(events) < max(1, int(len(cards) * 0.8)):
+        raise RuntimeError(
+            f"Lion Arts Factory: parsed only {len(events)} of {len(cards)} cards; "
+            "preserving existing records"
+        )
+
+    print(f"\nTotal Lion Arts Factory events collected: {len(events)}")
+    return events
