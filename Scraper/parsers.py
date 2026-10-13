@@ -1058,6 +1058,71 @@ def parse_hindley_st_music_hall(soup, source_url):
     events = []
     seen = set()
     total = None
+    image_cache = {}
+
+    def image_is_available(candidate):
+        """Check the response is an image, not an error page."""
+        if not candidate or not candidate.startswith(("https://", "http://")):
+            return False
+        if candidate in image_cache:
+            return image_cache[candidate]
+        try:
+            with session.get(
+                candidate,
+                timeout=10,
+                stream=True,
+                headers={"Accept": "image/avif,image/webp,image/*,*/*;q=0.8"},
+            ) as result:
+                content_type = result.headers.get("Content-Type", "").lower()
+                valid = result.status_code == 200 and content_type.startswith("image/")
+        except requests.RequestException:
+            valid = False
+        image_cache[candidate] = valid
+        return valid
+
+    def find_event_page_image(event_url, title):
+        """Prefer the image whose alt text names this specific event.
+
+        Do not fall back to site branding, logos or unrelated event artwork.
+        Full-width artwork is often usable when thumbnail variants are not.
+        """
+        try:
+            page_response = session.get(event_url, timeout=12)
+            page_response.raise_for_status()
+            page_soup = BeautifulSoup(page_response.text, "lxml")
+        except requests.RequestException:
+            return ""
+
+        def words(value):
+            return set(re.findall(r"[a-z0-9]+", str(value).lower())) - {
+                "the", "and", "with", "live", "tour", "at", "in", "on", "of",
+                "a", "an", "to", "ft", "featuring",
+            }
+
+        title_words = words(title)
+        candidates = []
+        for tag in page_soup.find_all("img"):
+            alt_words = words(tag.get("alt", ""))
+            if not title_words or not alt_words:
+                continue
+            # Strong name overlap guards against unrelated promotional artwork.
+            if len(title_words & alt_words) < min(2, len(title_words)):
+                continue
+            for key in ("src", "data-src", "data-lazy-src"):
+                if tag.get(key):
+                    candidates.append(normalise_url(tag[key], event_url))
+
+        for candidate in candidates:
+            lower = candidate.lower()
+            if any(word in lower for word in (
+                "favicon", "logo", "brandmark", "icon", "placeholder",
+            )):
+                continue
+            # Preserve the event page's full-size image URL. Some CDN
+            # variants cannot be verified reliably by Python requests even
+            # though they load in a browser.
+            return candidate
+        return ""
 
     for page in range(1, 21):
         params = {
@@ -1116,6 +1181,18 @@ def parse_hindley_st_music_hall(soup, source_url):
             if not event_url:
                 continue
             image = normalise_url(item.get("image"), source_url)
+            # The event page often has a full-size poster with the event's
+            # title as alt text. Prefer it to broken API thumbnails.
+            alternate = find_event_page_image(event_url, title)
+            if alternate:
+                if alternate != image:
+                    print(f"    Using event artwork: {title}")
+                image = alternate
+            elif any(word in image.lower() for word in (
+                "favicon", "logo", "brandmark", "icon", "placeholder",
+            )) or not image_is_available(image):
+                print(f"    No verified event artwork: {title}")
+                image = ""
             key = (str(item.get("id") or ""), date_part)
             if key in seen:
                 continue

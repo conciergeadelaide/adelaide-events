@@ -1,0 +1,2056 @@
+[
+  {
+    "title": "Sheffield Shield: SA v QLD",
+    "venue": "Adelaide Oval",
+    "datetime": "2026-10-19T10:30:00",
+    "end_datetime": "2026-10-22T23:59:59",
+    "category": [
+      "Sport"
+    ],
+    "image": "https://www.adelaideoval.com.au/wp-content/uploads/event/2025/07/3.png",
+    "link": "https://www.adelaideoval.com.au/events/sheffield-shield-sa-v-qld-2/",
+    "source": "Adelaide Oval"
+  },
+  {
+    "title": "Sheffield Shield: SA v WA",
+    "venue": "Adelaide Oval",
+    "datetime": "2026-10-28T10:30:00",
+    "end_datetime": "2026-10-31T23:59:59",
+    "category": [
+      "Sport"
+    ],
+    "image": "https://www.adelaideoval.com.au/wp-content/uploads/event/2025/07/4.png",
+    "link": "https://www.adelaideoval.com.au/events/sheffield-shield-sa-v-wa-3/",
+    "source": "Adelaide Oval"
+  },
+  {
+    "title": "Robbie Williams: BRITPOP World Tour",
+    "venue": "Adelaide Oval",
+    "datetime": "2026-11-07T18:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.adelaideoval.com.au/wp-content/uploads/event/2026/03/Event-Page-Image-19.png",
+    "link": "https://www.adelaideoval.com.au/events/robbie-williams-britpop-world-tour/",
+    "source": "Adelaide Oval"
+  },
+  {
+    "title": "Men’s ODI Series Australia v England",
+    "venue": "Adelaide Oval",
+    "datetime": "2026-11-15T14:00:00",
+    "end_datetime": "",
+    "category": [
+      "Sport"
+    ],
+    "image": "https://www.adelaideoval.com.au/wp-content/uploads/event/2026/03/AO-Insta-Posts-1.png",
+    "link": "https://www.adelaideoval.com.au/events/mens-odi-series-australia-v-england/",
+    "source": "Adelaide Oval"
+  },
+  {
+    "title": "WBBL|12: Adelaide Strikers v Melbourne Renegades",
+    "venue": "Adelaide Oval",
+    "datetime": "2026-11-20T18:40:00",
+    "end_datetime": "",
+    "category": [
+      "Sport"
+    ],
+    "image": "https://www.adelaideoval.com.au/wp-content/uploads/event/2026/07/BBL-hero-image-1.png",
+    "link": "https://www.adelaideoval.com.au/events/wbbl12-adelaide-strikers-v-melbourne-renegades/",
+    "source": "Adelaide Oval"
+  },
+  {
+    "title": "Sheffield Shield: SA v VIC",
+    "venue": "Adelaide Oval",
+    "datetime": "2026-11-24T10:30:00",
+    "end_datetime": "2026-11-27T23:59:59",
+    "category": [
+      "Sport"
+    ],
+    "image": "https://www.adelaideoval.com.au/wp-content/uploads/event/2025/07/2.png",
+    "link": "https://www.adelaideoval.com.au/events/sheffield-shield-sa-v-vic-2/",
+    "source": "Adelaide Oval"
+  },
+  {
+    "title": "Sheffield Shield: SA v TAS",
+    "venue": "Adelaide Oval",
+    "datetime": "2026-12-03T10:30:00",
+    "end_datetime": "2026-12-06T23:59:59",
+    "category": [
+      "Sport"
+    ],
+    "image": "https://www.adelaideoval.com.au/wp-content/uploads/event/2025/07/Website-Event-Banner-Image-338x480.png",
+    "link": "https://www.adelaideoval.com.au/events/sheffield-shield-sa-v-tas-2/",
+    "source": "Adelaide Oval"
+  },
+  {
+    "title": "NRMA Insurance Men’s Test: Australia v New Zealand",
+    "venue": "Adelaide Oval",
+    "datetime": "2026-12-17T10:00:00",
+    "end_datetime": "2026-12-21T23:59:59",
+    "category": [
+      "Sport"
+    ],
+    "image": "https://www.adelaideoval.com.au/wp-content/uploads/event/2026/03/Test-hero-image.png",
+    "link": "https://www.adelaideoval.com.au/events/nrma-insurance-mens-ashes-test-australia-v-new-zealand/",
+    "source": "Adelaide Oval"
+  },
+  {
+    "title": "BBL|16: Adelaide Strikers v Sydney Thunder",
+    "venue": "Adelaide Oval",
+    "datetime": "2026-12-23T18:45:00",
+    "end_datetime": "",
+    "category": [
+      "Sport"
+    ],
+    "image": "https://www.adelaideoval.com.au/wp-content/uploads/event/2026/07/BBL-hero-image-10.png",
+    "link": "https://www.adelaideoval.com.au/events/bbl16-adelaide-strikers-v-sydney-thunder/",
+    "source": "Adelaide Oval"
+  },
+  {
+    "title": "BBL|16: Adelaide Strikers v Melbourne Stars",
+    "venue": "Adelaide Oval",
+    "datetime": "2026-12-31T18:45:00",
+    "end_datetime": "",
+    "category": [
+      "Sport"
+    ],
+    "image": "https://www.adelaideoval.com.au/wp-content/uploads/event/2026/07/BBL-hero-image.png",
+    "link": "https://www.adelaideoval.com.au/events/bbl16-adelaide-strikers-v-melbourne-stars/",
+    "source": "Adelaide Oval"
+  },
+  {
+    "title": "BBL|16: Adelaide Strikers v Melbourne Renegades",
+    "venue": "Adelaide Oval",
+    "datetime": "2027-01-06T18:45:00",
+    "end_datetime": "",
+    "category": [
+      "Sport"
+    ],
+    "image": "https://www.adelaideoval.com.au/wp-content/uploads/event/2026/07/BBL-hero-image-3.png",
+    "link": "https://www.adelaideoval.com.au/events/bbl16-adelaide-strikers-v-melbourne-renegades/",
+    "source": "Adelaide Oval"
+  },
+  {
+    "title": "BBL|16: Adelaide Strikers v Hobart Hurricanes",
+    "venue": "Adelaide Oval",
+    "datetime": "2027-01-12T18:45:00",
+    "end_datetime": "",
+    "category": [
+      "Sport"
+    ],
+    "image": "https://www.adelaideoval.com.au/wp-content/uploads/event/2026/07/BBL-hero-image-6.png",
+    "link": "https://www.adelaideoval.com.au/events/bbl16-adelaide-strikers-v-hobart-hurricanes/",
+    "source": "Adelaide Oval"
+  },
+  {
+    "title": "BBL|16: Adelaide Strikers v Perth Scorchers",
+    "venue": "Adelaide Oval",
+    "datetime": "2027-01-16T15:30:00",
+    "end_datetime": "",
+    "category": [
+      "Sport"
+    ],
+    "image": "https://www.adelaideoval.com.au/wp-content/uploads/event/2026/07/BBL-hero-image-9.png",
+    "link": "https://www.adelaideoval.com.au/events/bbl16-adelaide-strikers-v-perth-scorchers/",
+    "source": "Adelaide Oval"
+  },
+  {
+    "title": "Sheffield Shield: SA v NSW",
+    "venue": "Adelaide Oval",
+    "datetime": "2027-02-08T14:30:00",
+    "end_datetime": "2027-02-11T23:59:59",
+    "category": [
+      "Sport"
+    ],
+    "image": "https://www.adelaideoval.com.au/wp-content/uploads/event/2025/07/2.png",
+    "link": "https://www.adelaideoval.com.au/events/sheffield-shield-sa-v-nsw/",
+    "source": "Adelaide Oval"
+  },
+  {
+    "title": "Starlit Christmas",
+    "venue": "Adelaide Convention Centre",
+    "datetime": "2026-12-12T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Food & Beverage"
+    ],
+    "image": "https://www.adelaidecc.com.au/wp-content/uploads/2026/04/Starlit-Christmas-Web-Banner.gif",
+    "link": "https://www.adelaidecc.com.au/events/starlit-christmas/",
+    "source": "Adelaide Convention Centre"
+  },
+  {
+    "title": "MICHELIN Guide Restaurant Ceremony South Australia 2027",
+    "venue": "Adelaide Convention Centre",
+    "datetime": "2026-10-14T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Food & Beverage"
+    ],
+    "image": "https://www.adelaidecc.com.au/wp-content/uploads/2026/09/MichelinGuide-Desktop.png",
+    "link": "https://www.adelaidecc.com.au/events/michelin-guide-restaurant-ceremony-south-australia-2027/",
+    "source": "Adelaide Convention Centre"
+  },
+  {
+    "title": "Phil Hoffmann Travel Expo",
+    "venue": "Adelaide Convention Centre",
+    "datetime": "2026-10-18T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Expos"
+    ],
+    "image": "https://www.adelaidecc.com.au/wp-content/uploads/2026/09/banner-image_PHT-Expo-promo-scaled.jpg",
+    "link": "https://www.adelaidecc.com.au/events/phil-hoffmann-travel-expo/",
+    "source": "Adelaide Convention Centre"
+  },
+  {
+    "title": "Interstellar Live",
+    "venue": "Adelaide Convention Centre",
+    "datetime": "2027-03-14T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.adelaidecc.com.au/wp-content/uploads/2026/07/Ticketing-1320-x-500-px.png",
+    "link": "https://www.adelaidecc.com.au/events/interstellar-live/",
+    "source": "Adelaide Convention Centre"
+  },
+  {
+    "title": "Lucky Dumpling Market",
+    "venue": "Elder Park, Adelaide",
+    "datetime": "2026-10-09T00:00:00",
+    "end_datetime": "2026-11-01T00:00:00",
+    "category": [
+      "Family",
+      "Food & Beverage",
+      "Festival"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/10-Oct/Lucky-Dumpling-Market/LDM-afc-website-1136x994.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/lucky-dumpling-market-2026",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "Moon Lanterns at Lucky Dumpling Market",
+    "venue": "Lucky Dumpling Market, Elder Park",
+    "datetime": "2026-10-09T00:00:00",
+    "end_datetime": "2026-11-01T00:00:00",
+    "category": [
+      "Family",
+      "Food & Beverage",
+      "Festival",
+      "Arts & Culture"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/09-Sep/Moon-Lanterns-at-Lucky-Dumpling-Market/moon-lanterns-afc-website-1136x994.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/moon-lanterns-at-lucky-dumpling-market",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "Hong Kong Dragon",
+    "venue": "Riverbank Footbridge",
+    "datetime": "2026-10-09T00:00:00",
+    "end_datetime": "2026-11-01T00:00:00",
+    "category": [
+      "Family"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/08-Aug/Hong-Kong-Dragon/hong-kong-dragon-afc-website-1136x994.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/hong-kong-dragon-2026",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "The Art of Asian Cinema",
+    "venue": "Various",
+    "datetime": "2026-10-14T00:00:00",
+    "end_datetime": "2026-10-25T00:00:00",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/10-Oct/The-Art-of-Asian-Cinema/The-Cycle-of-Love_1136-x-994-Website-Images.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/the-art-of-asian-cinema",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "Ceramic Tile Painting Workshop with Jake Yang",
+    "venue": "Artspace",
+    "datetime": "2026-10-15T00:00:00",
+    "end_datetime": "2026-11-26T00:00:00",
+    "category": [
+      "Workshop"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/09-Sep/Ceramic-Tile-Painting-Workshop-with-Jake-Yang/Jake-Yang_Fire-Horse_OzAsia-Festival_AFC_1136x994-2.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/ceramic-tile-painting-workshop-with-jake-yang",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "I'll Sleep When I Die",
+    "venue": "The Breakout at The Mill, Adelaide",
+    "datetime": "2026-10-15T00:00:00",
+    "end_datetime": "2026-10-16T00:00:00",
+    "category": [
+      "Theatre"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/08-Aug/Ill-Sleep-When-I-Die/1136-x-994-Website-Images-1.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/ill-sleep-when-i-die",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "Benjamin Clementine",
+    "venue": "Dunstan Playhouse",
+    "datetime": "2026-10-15T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/10-Oct/Benjamin-Clementine/benjamin-clementine-afc-web-1136x994.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/benjamin-clementine",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "Regurgitator",
+    "venue": "OzAsia Festival Stage at Lucky Dumpling Market",
+    "datetime": "2026-10-16T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/10-Oct/Regurgitator/Regurgitator-1136-x-994-Website-Images.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/regurgitator",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "Hyoshi in Counterpoint",
+    "venue": "OzAsia Festival Stage at Lucky Dumpling Market",
+    "datetime": "2026-10-17T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/08-Aug/Hyoshi-in-Counterpoint/Hyoshi_1136-x-994-Website-Images.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/hyoshi",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "Carmen",
+    "venue": "Her Majesty's Theatre",
+    "datetime": "2026-10-17T00:00:00",
+    "end_datetime": "2026-10-24T00:00:00",
+    "category": [
+      "Theatre"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/10-Oct/Carmen/sosa-afc-carmen-opera-2026-1136x994px.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/carmen-2026",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "JADE Ensemble",
+    "venue": "OzAsia Festival Stage at Lucky Dumpling Market",
+    "datetime": "2026-10-18T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/10-Oct/JADE-Ensemble/JADE-ROCKS_credit-Darren-Thomas_1136x994.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/jade-ensemble-live-kyo-wa-harmonic-resonance",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "Creative Writing with Gabrielle Wang",
+    "venue": "Online",
+    "datetime": "2026-10-21T00:00:00",
+    "end_datetime": "2026-10-22T00:00:00",
+    "category": [
+      "Workshop",
+      "Talks & Conferences"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/09-Sep/Creative-Writing-with-Gabrielle-Wang/Created-Writing-with-Gabrielle-Wang-4_2026-07-16-053641_lldt.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/creative-writing-with-gabrielle-wang",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "TYPÓ",
+    "venue": "OzAsia Festival Stage at Lucky Dumpling Market",
+    "datetime": "2026-10-22T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/10-Oct/TYP%C3%93/typo-band-1136x994.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/typo-band",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "Sashi Perera's Night School",
+    "venue": "Dunstan Playhouse",
+    "datetime": "2026-10-23T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Comedy"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/09-Sep/Sashi-Pereras-Night-School/sashi-perera-night-school-afc-website-1136x994_2026-08-10-063306_bpho_2026-08-13-011603_ubbn.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/sashi-pereras-night-school",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "Maajela",
+    "venue": "OzAsia Festival Stage at Lucky Dumpling Market",
+    "datetime": "2026-10-23T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/10-Oct/Maajela/Maajela-1136-x-994-Website-Images.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/maajela",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "The Greatest Debate",
+    "venue": "Dunstan Playhouse",
+    "datetime": "2026-10-24T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Comedy"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/10-Oct/The-Greatest-Debate/special-comedy-greatest-debate-afc-website-1136x994.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/that-you-should-all-go-back-where-you-came-from",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "OzAsia Festival’s Weekend of Words",
+    "venue": "Adelaide Festival Centre",
+    "datetime": "2026-10-24T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Festival",
+      "Talks & Conferences"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/10-Oct/OzAsia-Festival%E2%80%99s-Weekend-of-Words/WOW-2560x1280-1.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/weekend-of-words-2026",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "SUN DER",
+    "venue": "OzAsia Festival Stage at Lucky Dumpling Market",
+    "datetime": "2026-10-24T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/10-Oct/SUN-DER/sun_der_ozasia_lucky_dumpling_market_stage_1136x994.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/sun-der",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "AnimeGO!",
+    "venue": "Dom Polski Centre, Adelaide",
+    "datetime": "2026-10-25T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Other"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/08-Aug/AnimeGO/1136_x_994_AnimeGO_OzAsia_Festival_2026.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/animego-2026",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "Lastlings",
+    "venue": "OzAsia Festival Stage at Lucky Dumpling Market",
+    "datetime": "2026-10-25T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/08-Aug/Lastlings/Lastlings-Lucky-Dumpling-Market-1136x994.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/lastlings",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "AZIZA",
+    "venue": "Her Majesty's Theatre",
+    "datetime": "2026-10-29T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/10-Oct/Aziza/aziza-website-1136x994.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/aziza",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "Chat 10 Looks 3 Live",
+    "venue": "Her Majesty's Theatre",
+    "datetime": "2026-11-05T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Talks & Conferences"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/11-Nov/Chat-10-Looks-3-Live/CRSA5430_C10L3_Adelaide_1136x994_Feature_2026-07-24-060042_vqee.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/chat-10-looks-3-live-2026",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "Nurse Georgie Carroll: Infectious",
+    "venue": "Her Majesty's Theatre",
+    "datetime": "2026-11-06T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Comedy"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/11-Nov/Nurse-Georgie-Carroll-Infectious/georgie-carroll-infectious-feature-2026.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/nurse-georgie-carroll-infectious",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "Kate Ceberano",
+    "venue": "Her Majesty's Theatre",
+    "datetime": "2026-11-07T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/11-Nov/Kate-Ceberano/kate-cebrano-aus-made-2026-tour-feature.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/kate-ceberano-2026",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "James Morrison",
+    "venue": "Her Majesty's Theatre",
+    "datetime": "2026-11-08T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/11-Nov/James-Morrison/JamesMorrison-2026_HerMajesteysAdelaide_Assets_1136x994px.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/james-morrison-mahalia-barnes",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "John Edward",
+    "venue": "Her Majesty's Theatre",
+    "datetime": "2026-11-10T00:00:00",
+    "end_datetime": "2026-11-11T00:00:00",
+    "category": [
+      "Talks & Conferences"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/11-Nov/John-Edward/John-Edward-2026-Adelaide-1136-%C3%97-994-px-1.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/john-edward-2026",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "Introduction to Puppet Making and Puppeteering Workshop",
+    "venue": "Dunstan Playhouse",
+    "datetime": "2026-11-12T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Workshop"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/10-Oct/Introduction-to-Puppet-Making-and-Puppeteering-Workshop/puppet-making-puppeteering-workshop_hero-image_1136x994px.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/introduction-to-puppet-making-and-puppeteering-workshop",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "Erth's Dinosaurs",
+    "venue": "Dunstan Playhouse",
+    "datetime": "2026-11-13T00:00:00",
+    "end_datetime": "2026-11-14T00:00:00",
+    "category": [
+      "Family"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/11-Nov/Erths-Dinosaurs/Erths-Dino_Web_1136x994-1.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/erths-dinosaurs",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "Lawrence Mooney",
+    "venue": "Her Majesty's Theatre",
+    "datetime": "2026-11-13T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Comedy"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/11-Nov/Lawrence-Mooney/lawrence-mooney-full-moon-party-feature-2026.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/lawrence-mooney-full-moon-party",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "Create Your Own Dinosaur",
+    "venue": "Artspace",
+    "datetime": "2026-11-14T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Family"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/11-Nov/Create-Your-Own-Dinosaur/Create_your_own_dinosaur_with_Erth_AFC_workshop_website-image_1136x994.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/create-your-own-dinosaur-with-erth",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "The Harmony Club",
+    "venue": "Her Majesty's Theatre",
+    "datetime": "2026-11-14T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/11-Nov/The-Harmony-Club/Harmony-Club-1136x994.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/the-harmony-club",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "An Evening with Alastair Campbell",
+    "venue": "Festival Theatre",
+    "datetime": "2026-11-18T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Talks & Conferences"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/11-Nov/An-Evening-with-Alastair-Campbell/AlastairCampbell_Banner_1136x994.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/an-evening-with-alastair-campbell",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "TEEKS",
+    "venue": "Her Majesty's Theatre",
+    "datetime": "2026-11-19T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/11-Nov/TEEKS/teeks-afc-website-1136x994.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/teeks",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "An Evening with Mary Beard",
+    "venue": "Her Majesty's Theatre",
+    "datetime": "2026-11-20T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Talks & Conferences"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/11-Nov/An-Evening-with-Mary-Beard/MaryBeard_Feature-Image_1136x994.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/an-evening-with-mary-beard",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "The Heartbreak Choir",
+    "venue": "Dunstan Playhouse",
+    "datetime": "2026-11-20T00:00:00",
+    "end_datetime": "2026-12-05T00:00:00",
+    "category": [
+      "Theatre"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/11-Nov/The-Heartbreak-Choir/heartbreak-choir-stcsa-feature-2025.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/the-heartbreak-choir",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "Björn Again: ABBA Forever Tour",
+    "venue": "Her Majesty's Theatre",
+    "datetime": "2026-11-21T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/11-Nov/Bj%C3%B6rn-Again-ABBA-Forever-Tour/Bjorn-Again-ABBA-Forever-Tour_AFC_Adelaide_2026_1136x994.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/bjorn-again-abba-forever-tour",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "Khaled Khalafalla",
+    "venue": "Space Theatre",
+    "datetime": "2026-11-21T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Comedy"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/11-Nov/Khaled-Khalafalla/1136x994-Khaled.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/khaled-khalafalla",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "The Nutcracker",
+    "venue": "Her Majesty's Theatre",
+    "datetime": "2026-11-26T00:00:00",
+    "end_datetime": "2026-11-28T00:00:00",
+    "category": [
+      "Theatre",
+      "Family"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/11-Nov/The-Nutcracker/Adelaide-Nutcracker-EventWebpageContent-FeatureImage-1136x994px.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/the-nutcracker-2026",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "Detroit Motortown",
+    "venue": "Festival Theatre",
+    "datetime": "2026-11-27T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/11-Nov/Detroit-Motortown/detroit-motortown-feature-2026.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/detroit-motortown",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "Her Majesty's Theatre Guided Tour",
+    "venue": "Her Majesty's Theatre",
+    "datetime": "2026-12-01T00:00:00",
+    "end_datetime": "2026-12-15T00:00:00",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/02-Feb/Her-Majestys-Theatre-Guided-Tour/her-maj-theatre-tour-feature-2025.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/her-majestys-theatre-guided-tour",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "RocKwiz Rocks Christmas",
+    "venue": "Festival Theatre",
+    "datetime": "2026-12-04T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/12-Dec/RocKwiz-Rocks-Christmas/RW-Whats-On-Feature-Image-1136x994-PINK.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/rockwiz-rocks-christmas",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "Suzi Quatro",
+    "venue": "Festival Theatre",
+    "datetime": "2026-12-05T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/12-Dec/Suzi-Quatro/suzi-quatro-feature-2026.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/suzi-quatro",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "Eric Idle",
+    "venue": "Her Majesty's Theatre",
+    "datetime": "2026-12-10T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Talks & Conferences"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/12-Dec/Eric-Idle/EricIdle_Feature-Image_1136x994-TF.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/eric-idle-2026",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "WOOF!",
+    "venue": "Drama Centre Rehearsal Room",
+    "datetime": "2026-12-17T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Theatre"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/09-Sep/WOOF/WOOF-By-Anthony-Nocera_Inspace_2026_1136-x-994-px.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/woof-by-anthony-nocera",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "The Book of Mormon",
+    "venue": "Festival Theatre",
+    "datetime": "2026-12-19T00:00:00",
+    "end_datetime": "2027-01-10T00:00:00",
+    "category": [
+      "Theatre"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/10-Oct/The-Book-of-Mormon/BOM-AFC-Feature-no2-1136x994.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/the-book-of-mormon",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "New Years Eve Long Dining Experience",
+    "venue": "Angry Penguin",
+    "datetime": "2026-12-31T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Food & Beverage"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/10-Oct/New-Years-Eve-Long-Dining-Experience/image-5.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/new-years-eve-long-dining-experience",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "Bluey’s Big Play",
+    "venue": "Her Majesty's Theatre",
+    "datetime": "2027-01-06T00:00:00",
+    "end_datetime": "2027-01-09T00:00:00",
+    "category": [
+      "Theatre",
+      "Family"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2027/01-Jan/Bluey%E2%80%99s-Big-Play/bluey-big-play-feature-1136x994.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/blueys-big-play-the-stage-show-2027",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "Storytime Ballet: Cinderella",
+    "venue": "Dunstan Playhouse",
+    "datetime": "2027-01-07T00:00:00",
+    "end_datetime": "2027-01-10T00:00:00",
+    "category": [
+      "Theatre",
+      "Family"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2027/01-Jan/Storytime-Ballet-Cinderella/1136-x-994_TAB5576_STB-AFC-Venue-Assets_FA_2.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/storytime-ballet-cinderella-2027",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "Country Royalty",
+    "venue": "Her Majesty's Theatre",
+    "datetime": "2027-01-16T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2027/01-Jan/Country-Royalty/County-Royaty-1136x994.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/country-royalty",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "Where is the Green Sheep?",
+    "venue": "Dunstan Playhouse",
+    "datetime": "2027-01-20T00:00:00",
+    "end_datetime": "2027-01-23T00:00:00",
+    "category": [
+      "Theatre",
+      "Family"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2027/01-Jan/Where-is-the-Green-Sheep/wheres-the-green-sheep-afc-website-1136x994.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.3696&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/where-is-the-green-sheep",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "You and Me Workshops",
+    "venue": "Drama Centre Rehearsal Room",
+    "datetime": "2027-01-21T00:00:00",
+    "end_datetime": "2027-01-23T00:00:00",
+    "category": [
+      "Family",
+      "Workshop"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2027/01-Jan/You-and-Me-Workshops/you-and-me-workshop-green-sheep-afc-website-1136x994.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/you-and-me-workshops",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "First Nations Artists in Schools Program",
+    "venue": "In Schools",
+    "datetime": "2027-01-27T00:00:00",
+    "end_datetime": "2027-07-02T00:00:00",
+    "category": [
+      "Workshop",
+      "Arts & Culture"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/10-Oct/First-Nations-Artists-in-Schools-Program/first_nations_artists_in_schools_1136x994.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/first-nations-artists-in-schools-program",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "Drum Tao",
+    "venue": "Her Majesty's Theatre",
+    "datetime": "2027-02-16T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Theatre"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/10-Oct/Drum-Tao/drum-tao-2027-featre.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/drum-tao",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "Ben Folds",
+    "venue": "Her Majesty's Theatre",
+    "datetime": "2027-02-18T00:00:00",
+    "end_datetime": "2027-02-19T00:00:00",
+    "category": [
+      "Music"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2027/02-Feb/Ben-Folds/Ben-folds-aso-2026-feature.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/ben-folds-and-the-adelaide-symphony-orchestra",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "Bluebeard's Castle",
+    "venue": "Festival Theatre",
+    "datetime": "2027-02-26T00:00:00",
+    "end_datetime": "2027-03-02T00:00:00",
+    "category": [
+      "Theatre"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2027/02-Feb/Bluebeards-Castle/af26-bluebeards-castle-feature-2026.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/bluebeards-castle",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "K.",
+    "venue": "Her Majesty's Theatre",
+    "datetime": "2027-03-04T00:00:00",
+    "end_datetime": "2027-03-07T00:00:00",
+    "category": [
+      "Theatre"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2027/03-Mar/K/af26-k-feature-2026.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/k",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "Oedipus",
+    "venue": "Festival Theatre",
+    "datetime": "2027-03-10T00:00:00",
+    "end_datetime": "2027-03-14T00:00:00",
+    "category": [
+      "Theatre"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2027/03-Mar/Oedipus/Oedipus_1136x994px.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/oedipus-2027",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "Shen Yun",
+    "venue": "Festival Theatre",
+    "datetime": "2027-03-19T00:00:00",
+    "end_datetime": "2027-03-21T00:00:00",
+    "category": [
+      "Theatre"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2027/03-Mar/Shen-Yun/AFC-Feature-1136px-w-x-994px-h.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/shen-yun-2027",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "Celtic Thunder",
+    "venue": "Her Majesty's Theatre",
+    "datetime": "2027-03-25T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2027/03-Mar/Celtic-Thunder/Celtic-Thunder_HMT_1136x994.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/celtic-thunder-2027",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "The Shawshank Redemption",
+    "venue": "Her Majesty's Theatre",
+    "datetime": "2027-04-01T00:00:00",
+    "end_datetime": "2027-04-11T00:00:00",
+    "category": [
+      "Theatre"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2027/04-Apr/The-Shawshank-Redemption/AFC_1136x994-sept.jpg.jpeg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/the-shawshank-redemption",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "Magic Mike Live",
+    "venue": "Festival Theatre",
+    "datetime": "2027-04-07T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Theatre"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2027/04-Apr/Magic-Mike-Live/magic_mike_live_afc_adelaide_2026_1136x994.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/magic-mike-live",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "Swan Lake",
+    "venue": "Her Majesty's Theatre",
+    "datetime": "2027-04-15T00:00:00",
+    "end_datetime": "2027-04-18T00:00:00",
+    "category": [
+      "Theatre"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2027/04-Apr/Swan-Lake/swan_lake_1136x1280.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/swan-lake-2027",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "Lenny's Toddler Rave",
+    "venue": "Festival Theatre",
+    "datetime": "2027-05-22T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Family"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2027/05-May/Lennys-Toddler-Rave/lennys-toddler-rave-feature-2026.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/lennys-toddler-rave",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "Cinderella",
+    "venue": "Festival Theatre",
+    "datetime": "2027-09-04T00:00:00",
+    "end_datetime": "2027-09-11T00:00:00",
+    "category": [
+      "Family",
+      "Theatre"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2027/09-Sep/Cinderella/cinderella_the_australian_ballet_adelaide_festival_centre_season_2027_1136x994.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/cinderella-2026",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "TISM",
+    "venue": "Hindley Street Music Hall",
+    "datetime": "2026-10-16T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://dynamicmedia.livenationinternational.com/o/c/z/463384de-7ab8-4b6e-bcc3-03cb8c829c2f.png",
+    "link": "https://www.hindleymusichall.com.au/all-events/tism-tickets-ae1674456",
+    "source": "Hindley St Music Hall"
+  },
+  {
+    "title": "The Dreggs “Heading Home” Tour",
+    "venue": "Hindley Street Music Hall",
+    "datetime": "2026-10-17T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://dynamicmedia.livenationinternational.com/u/o/u/e57cde14-2d1d-40d4-a10d-e5d1479b5347.png",
+    "link": "https://www.hindleymusichall.com.au/all-events/the-dreggs-tickets-ae1402801",
+    "source": "Hindley St Music Hall"
+  },
+  {
+    "title": "Old Mervs",
+    "venue": "Hindley Street Music Hall",
+    "datetime": "2026-10-23T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://dynamicmedia.livenationinternational.com/y/x/q/da1065ce-a736-4cba-8139-f487d63ac81d.jpg",
+    "link": "https://www.hindleymusichall.com.au/all-events/old-mervs-tickets-ae1488974",
+    "source": "Hindley St Music Hall"
+  },
+  {
+    "title": "Project Hardstyle presents: Hardstyle Halloween ft: The Noisemakers Sickmode & Krowdexx Australian Tour",
+    "venue": "Hindley Street Music Hall",
+    "datetime": "2026-10-24T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://dynamicmedia.livenationinternational.com/j/a/e/ee861abf-3ebf-474a-9678-96617ac7483e.png",
+    "link": "https://www.hindleymusichall.com.au/all-events/project-hardstyle-tickets-ae1629967",
+    "source": "Hindley St Music Hall"
+  },
+  {
+    "title": "Stand Atlantic \"GODBREATH\" Australian Tour",
+    "venue": "Hindley Street Music Hall",
+    "datetime": "2026-10-29T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://dynamicmedia.livenationinternational.com/s/t/h/90bdc9fc-0b24-4f12-a045-173e00b6bed3.png",
+    "link": "https://www.hindleymusichall.com.au/all-events/stand-atlantic-tickets-ae1075848",
+    "source": "Hindley St Music Hall"
+  },
+  {
+    "title": "NIKOS OIKONOMOPOULOS LIVE",
+    "venue": "Hindley Street Music Hall",
+    "datetime": "2026-10-30T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://dynamicmedia.livenationinternational.com/t/m/n/baf7dcc9-67cb-4fce-a451-bec6e3fd09b0.jpeg",
+    "link": "https://www.hindleymusichall.com.au/all-events/nikos-oikonomopoulos-tickets-ae1696958",
+    "source": "Hindley St Music Hall"
+  },
+  {
+    "title": "THE ANGELS - AM I EVER GONNA SEE YOUR FACE AGAIN... 50 YEARS ON",
+    "venue": "Hindley Street Music Hall",
+    "datetime": "2026-11-06T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://networksites.livenationinternational.com/networksites/sg5ilsea/hindleystreet_brandmark-g-1.png?format=webp&width=384&quality=75",
+    "link": "https://www.hindleymusichall.com.au/all-events/the-angels-tickets-ae1404883",
+    "source": "Hindley St Music Hall"
+  },
+  {
+    "title": "Killswitch Engage with special guests Sylosis",
+    "venue": "Hindley Street Music Hall",
+    "datetime": "2026-11-12T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://dynamicmedia.livenationinternational.com/g/j/v/2bb18bf0-bad3-4972-9bd2-8cf07f1cd21f.jpg",
+    "link": "https://www.hindleymusichall.com.au/all-events/killswitch-engage-tickets-ae639",
+    "source": "Hindley St Music Hall"
+  },
+  {
+    "title": "Wade Forster - The Aftermath Tour",
+    "venue": "Hindley Street Music Hall",
+    "datetime": "2026-11-20T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://dynamicmedia.livenationinternational.com/a/x/b/8d1b174e-5758-45cb-be76-c40a0370ee10.jpg",
+    "link": "https://www.hindleymusichall.com.au/all-events/wade-forster-tickets-ae1613395",
+    "source": "Hindley St Music Hall"
+  },
+  {
+    "title": "The Mark Of Cain",
+    "venue": "Hindley Street Music Hall",
+    "datetime": "2026-11-21T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://dynamicmedia.livenationinternational.com/e/e/z/9b3386ee-70ba-4bce-bf6d-66ba12bbaa7d.png",
+    "link": "https://www.hindleymusichall.com.au/all-events/the-mark-of-cain-tickets-ae1687952",
+    "source": "Hindley St Music Hall"
+  },
+  {
+    "title": "Hoodoo Gurus Rewind Tour - All Killer, No Filler",
+    "venue": "Hindley Street Music Hall",
+    "datetime": "2026-11-27T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://dynamicmedia.livenationinternational.com/r/b/l/c659d1fb-e767-46bb-a1dd-04a7244e6f56.jpg",
+    "link": "https://www.hindleymusichall.com.au/all-events/hoodoo-gurus-tickets-ae134460",
+    "source": "Hindley St Music Hall"
+  },
+  {
+    "title": "Hoodoo Gurus Rewind Tour - All Killer, No Filler",
+    "venue": "Hindley Street Music Hall",
+    "datetime": "2026-11-28T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://dynamicmedia.livenationinternational.com/o/y/y/d4cee8c4-5972-42ee-b397-4ea929f93d01.jpg",
+    "link": "https://www.hindleymusichall.com.au/all-events/hoodoo-gurus-tickets-ae134460",
+    "source": "Hindley St Music Hall"
+  },
+  {
+    "title": "Kool & the Gang + Sister Sledge ft. Slegendary",
+    "venue": "Hindley Street Music Hall",
+    "datetime": "2026-11-30T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://networksites.livenationinternational.com/networksites/sg5ilsea/hindleystreet_brandmark-g-1.png?format=webp&width=384&quality=75",
+    "link": "https://www.hindleymusichall.com.au/all-events/kool-and-the-gang-tickets-ae129924",
+    "source": "Hindley St Music Hall"
+  },
+  {
+    "title": "Dizzee Rascal: We Want Bass Tour",
+    "venue": "Hindley Street Music Hall",
+    "datetime": "2026-12-01T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://dynamicmedia.livenationinternational.com/w/x/z/7bcfe7b2-530a-4b93-9c58-354a5be0b258.jpg",
+    "link": "https://www.hindleymusichall.com.au/all-events/dizzee-rascal-tickets-ae8442",
+    "source": "Hindley St Music Hall"
+  },
+  {
+    "title": "Dizzee Rascal: We Want Bass Tour",
+    "venue": "Hindley Street Music Hall",
+    "datetime": "2026-12-02T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://dynamicmedia.livenationinternational.com/w/x/z/7bcfe7b2-530a-4b93-9c58-354a5be0b258.jpg",
+    "link": "https://www.hindleymusichall.com.au/all-events/dizzee-rascal-tickets-ae8442",
+    "source": "Hindley St Music Hall"
+  },
+  {
+    "title": "SIX60",
+    "venue": "Hindley Street Music Hall",
+    "datetime": "2026-12-03T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://dynamicmedia.livenationinternational.com/k/p/u/0be4c572-b63a-4fa7-bed7-d69366562002.png",
+    "link": "https://www.hindleymusichall.com.au/all-events/six60-tickets-ae417569",
+    "source": "Hindley St Music Hall"
+  },
+  {
+    "title": "Cat Power: The Greatest On Tour",
+    "venue": "Hindley Street Music Hall",
+    "datetime": "2026-12-05T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://dynamicmedia.livenationinternational.com/t/e/x/5d65bae3-0b36-48e7-a43a-3603b45cd2a8.jpg",
+    "link": "https://www.hindleymusichall.com.au/all-events/cat-power-tickets-ae419581",
+    "source": "Hindley St Music Hall"
+  },
+  {
+    "title": "Wolf Alice | Australian Tour 2026",
+    "venue": "Hindley Street Music Hall",
+    "datetime": "2026-12-06T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://dynamicmedia.livenationinternational.com/z/d/n/c14151cf-ba0e-4ff7-a891-91c4f097b42c.jpg",
+    "link": "https://www.hindleymusichall.com.au/all-events/wolf-alice-tickets-ae429622",
+    "source": "Hindley St Music Hall"
+  },
+  {
+    "title": "Ministry",
+    "venue": "Hindley Street Music Hall",
+    "datetime": "2026-12-10T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://networksites.livenationinternational.com/networksites/ufxf1xcy/ministry_hindley_1920x1080.jpg",
+    "link": "https://www.hindleymusichall.com.au/all-events/ministry-tickets-ae272489",
+    "source": "Hindley St Music Hall"
+  },
+  {
+    "title": "Suki Waterhouse: The Loveland Tour",
+    "venue": "Hindley Street Music Hall",
+    "datetime": "2026-12-11T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://dynamicmedia.livenationinternational.com/m/g/d/3a51bc40-179a-4228-99f5-96c37f903261.jpg",
+    "link": "https://www.hindleymusichall.com.au/all-events/suki-waterhouse-tickets-ae1389247",
+    "source": "Hindley St Music Hall"
+  },
+  {
+    "title": "Jimmy Eat World Bleed American 25th Anniversary",
+    "venue": "Hindley Street Music Hall",
+    "datetime": "2026-12-12T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://networksites.livenationinternational.com/networksites/sg5ilsea/hindleystreet_brandmark-g-1.png?format=webp&width=384&quality=75",
+    "link": "https://www.hindleymusichall.com.au/all-events/jimmy-eat-world-tickets-ae138",
+    "source": "Hindley St Music Hall"
+  },
+  {
+    "title": "Max McNown 'Slow Down, Down Under Tour'",
+    "venue": "Hindley Street Music Hall",
+    "datetime": "2027-02-04T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://networksites.livenationinternational.com/networksites/sg5ilsea/hindleystreet_brandmark-g-1.png?format=webp&width=384&quality=75",
+    "link": "https://www.hindleymusichall.com.au/all-events/max-mcnown-tickets-ae1572568",
+    "source": "Hindley St Music Hall"
+  },
+  {
+    "title": "Thrown Australian Tour 2027 with special guests Boundaries, 156/Silence & Volatile Ways",
+    "venue": "Hindley Street Music Hall",
+    "datetime": "2027-02-05T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://dynamicmedia.livenationinternational.com/r/t/p/c5ab2dfb-fbf1-4c9a-bf2e-004433590645.png",
+    "link": "https://www.hindleymusichall.com.au/all-events/thrown-tickets-ae1372503",
+    "source": "Hindley St Music Hall"
+  },
+  {
+    "title": "Silverstein + Story Of The Year Camp Screamo Australia",
+    "venue": "Hindley Street Music Hall",
+    "datetime": "2027-02-08T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://dynamicmedia.livenationinternational.com/h/m/d/bf9f0cd7-c057-405e-ab6f-8b0a66f6624f.jpg",
+    "link": "https://www.hindleymusichall.com.au/all-events/silverstein-tickets-ae976",
+    "source": "Hindley St Music Hall"
+  },
+  {
+    "title": "Dayseeker 'Creature In The Black Night' Australian tour 2027",
+    "venue": "Hindley Street Music Hall",
+    "datetime": "2027-02-09T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://dynamicmedia.livenationinternational.com/c/n/f/981ff71c-303b-4a1e-a1f1-b4917fc33e9e.jpg",
+    "link": "https://www.hindleymusichall.com.au/all-events/dayseeker-tickets-ae1341207",
+    "source": "Hindley St Music Hall"
+  },
+  {
+    "title": "SWIM: Live Solo Show",
+    "venue": "Hindley Street Music Hall",
+    "datetime": "2027-02-13T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://dynamicmedia.livenationinternational.com/b/q/h/9e0792d1-70b3-4c1f-8cd0-30e25d09c546.png",
+    "link": "https://www.hindleymusichall.com.au/all-events/swim-tickets-ae1637664",
+    "source": "Hindley St Music Hall"
+  },
+  {
+    "title": "PRESIDENT: Australian Campaign 2027",
+    "venue": "Hindley Street Music Hall",
+    "datetime": "2027-02-21T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://dynamicmedia.livenationinternational.com/s/h/w/44982146-0e6b-48c6-a409-a8b2112a93ef.jpg",
+    "link": "https://www.hindleymusichall.com.au/all-events/president-tickets-ae1599180",
+    "source": "Hindley St Music Hall"
+  },
+  {
+    "title": "Ian Moss & Troy Cassar-Daley",
+    "venue": "Hindley Street Music Hall",
+    "datetime": "2027-02-26T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://dynamicmedia.livenationinternational.com/r/y/k/700a6679-4b4c-4a16-bf69-11f4e68513ff.png",
+    "link": "https://www.hindleymusichall.com.au/all-events/ian-moss-and-troy-cassar-daley-tickets-ae1669761",
+    "source": "Hindley St Music Hall"
+  },
+  {
+    "title": "The Avalanches",
+    "venue": "Hindley Street Music Hall",
+    "datetime": "2027-03-04T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://dynamicmedia.livenationinternational.com/m/i/u/d8fed826-6f17-4ebb-9b4f-8f03096a8a16.jpg",
+    "link": "https://www.hindleymusichall.com.au/all-events/the-avalanches-tickets-ae959059",
+    "source": "Hindley St Music Hall"
+  },
+  {
+    "title": "An Evening With CAKE",
+    "venue": "Hindley Street Music Hall",
+    "datetime": "2027-03-16T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://dynamicmedia.livenationinternational.com/f/f/t/5bc9a16d-2afe-498d-bdcd-808f5471a7ab.jpg",
+    "link": "https://www.hindleymusichall.com.au/all-events/cake-tickets-ae221167",
+    "source": "Hindley St Music Hall"
+  },
+  {
+    "title": "Soul Asylum + Ugly Kid Joe Australia 2027",
+    "venue": "Hindley Street Music Hall",
+    "datetime": "2027-03-17T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://networksites.livenationinternational.com/networksites/sg5ilsea/hindleystreet_brandmark-g-1.png?format=webp&width=384&quality=75",
+    "link": "https://www.hindleymusichall.com.au/all-events/soul-asylum-tickets-ae1526099",
+    "source": "Hindley St Music Hall"
+  },
+  {
+    "title": "Sam Barber Australia Tour 2027",
+    "venue": "Hindley Street Music Hall",
+    "datetime": "2027-04-06T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://dynamicmedia.livenationinternational.com/p/w/s/e5e24a77-9c83-4b80-bf9a-4be92747e016.png",
+    "link": "https://www.hindleymusichall.com.au/all-events/sam-barber-tickets-ae1427759",
+    "source": "Hindley St Music Hall"
+  },
+  {
+    "title": "An Ending in Itself Tour - Sleeping With Sirens (US)",
+    "venue": "Hindley Street Music Hall",
+    "datetime": "2027-04-08T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://dynamicmedia.livenationinternational.com/j/n/y/3480a93d-9659-4f46-b636-969ccab1a110.png",
+    "link": "https://www.hindleymusichall.com.au/all-events/sleeping-with-sirens-tickets-ae200689",
+    "source": "Hindley St Music Hall"
+  },
+  {
+    "title": "Tash Sultana",
+    "venue": "Hindley Street Music Hall",
+    "datetime": "2027-05-10T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://dynamicmedia.livenationinternational.com/f/h/t/8daf3b39-4f87-4b2c-b31b-97dde78af850.png",
+    "link": "https://www.hindleymusichall.com.au/all-events/tash-sultana-tickets-ae926317",
+    "source": "Hindley St Music Hall"
+  },
+  {
+    "title": "Will Sparks - Classics Tour",
+    "venue": "Hindley Street Music Hall",
+    "datetime": "2027-05-22T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://networksites.livenationinternational.com/networksites/sg5ilsea/hindleystreet_brandmark-g-1.png?format=webp&width=384&quality=75",
+    "link": "https://www.hindleymusichall.com.au/all-events/will-sparks-tickets-ae797894",
+    "source": "Hindley St Music Hall"
+  },
+  {
+    "title": "Hans Zimmer",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2026-10-15T19:30:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/05/HansZimmer26-AEC-1050x520-1.jpg",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/hans-zimmer/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "Sonu Nigam",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2026-10-16T19:30:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/03/1050w-x-520h.jpg",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/sonu-nigam/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "Lorna Shore",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2026-10-17T19:15:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/05/MobileBanner_1050x520.jpg",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/lorna-shore/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "Hindley Street Country Club",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2026-10-17T19:30:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2025/09/1050-x-520.jpg",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/hindley-street-country-club-4/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "Zara Larsson",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2026-10-18T20:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/02/zara_clean_1050x520.jpg",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/zara-larsson/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "David The Medium",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2026-10-25T14:30:00",
+    "end_datetime": "",
+    "category": [
+      "Other"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/08/Website-Mobile-Banner-1050x520-1.jpg",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/david-the-medium/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "Harry Potter & The Deathly Hallows Part 2™ In Concert",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2026-10-31T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2025/10/ASO25-AEC-HP7p2_1050-x-520-scaled.png",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/harry-potter-the-deathly-hallows-part-2-in-concert/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "World Series Wrestling – Mega Mania",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2026-10-31T19:30:00",
+    "end_datetime": "",
+    "category": [
+      "Sport"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/04/WSW_MEGAMANIA_ADELAIDE_1050x520-1.png",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/world-series-wrestling-mega-mania/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "Adelaide 36ers v Brisbane Bullets",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2026-11-01T16:30:00",
+    "end_datetime": "",
+    "category": [
+      "Sport"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/05/1050X520-26.11.01.png",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/adelaide-36ers-v-brisbane-bullets-7/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "Morgan Jay – The Goofy Guy Tour (Strictly 16+)",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2026-11-01T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Comedy"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2025/12/MJ-ADEL-1050x520-1.jpg",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/morgan-jay-recommended-16/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "5 Seconds of Summer",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2026-11-04T20:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2025/12/5SOS_1050x520.jpg",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/5-seconds-of-summer-2/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "Adelaide 36ers v Illawarra Hawks",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2026-11-07T17:00:00",
+    "end_datetime": "",
+    "category": [
+      "Sport"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/05/1050X520-26.11.07.png",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/adelaide-36ers-v-illawarra-hawks-7/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "Iron Maiden",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2026-11-11T18:30:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/02/IronMaiden_1050x520_adel.jpg",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/iron-maiden-3/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "Adelaide 36ers v Melbourne United",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2026-11-12T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Sport"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/05/1050X520-26.11.12.png",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/adelaide-36ers-v-melbourne-united-6/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "The Wiggles – SPARKLE! BIG SHOW",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2026-11-14T10:00:00",
+    "end_datetime": "",
+    "category": [
+      "Family"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/06/Wiggles_Sparkle-Banner-Small-Ticketek.jpg",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/the-wiggles-sparkle-big-show/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "Two Door Cinema Club",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2026-11-18T19:15:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/03/TDCC_AEC_Banner-Small.jpg",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/two-door-cinema-club/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "Dermot Kennedy",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2026-11-22T20:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/04/DK_clean_1050x520.jpg",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/dermot-kennedy/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "Dirty Dancing in Concert",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2026-11-27T19:30:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/06/DDIC-2026-AEC-1050x520-px.jpg",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/dirty-dancing-in-concert-3/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "Adelaide 36ers v SE Melbourne Phoenix",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2026-12-02T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Sport"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/05/1050X520-26.12.02.png",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/adelaide-36ers-v-se-melbourne-phoenix/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "Adelaide 36ers v Tasmania Jackjumpers",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2026-12-05T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Sport"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/05/1050X520-26.12.05.png",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/adelaide-36ers-v-tasmania-jackjumpers-7/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "Gabriel Iglesias (Recommended 15+)",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2026-12-06T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Comedy"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/07/GabrielIglesias-AEC-1050x520-1.jpg",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/gabriel-iglesias-2/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "Air Supply",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2026-12-10T20:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/06/AirSupply_Ticketek_Banner-Small.jpg",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/air-supply/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "The Greatest Christmas Show",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2026-12-11T19:15:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/08/XMAS1050x520.png",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/the-greatest-christmas-show-2/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "Adelaide 36ers v Sydney Kings",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2026-12-13T14:30:00",
+    "end_datetime": "",
+    "category": [
+      "Sport"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/05/1050X520-26.12.13.png",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/adelaide-36ers-v-sydney-kings-8/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "The Ten Tenors",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2026-12-17T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/03/TENTenors_MobileBanner.jpg",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/the-ten-tenors-2/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "Adelaide 36ers v Brisbane Bullets",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2026-12-19T17:00:00",
+    "end_datetime": "",
+    "category": [
+      "Sport"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/05/1050X520-26.12.19.png",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/adelaide-36ers-v-brisbane-bullets-8/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "The Holiday – Film with Live Orchestra",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2026-12-19T19:30:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/07/THE-HOLIDAY-ADELAIDE-venue-1050x520-px.jpg",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/the-holiday-film-with-live-orchestra/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "Adelaide 36ers v Perth Wildcats",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2026-12-24T18:30:00",
+    "end_datetime": "",
+    "category": [
+      "Sport"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/05/1050X520-26.12.24.png",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/adelaide-36ers-v-perth-wildcats-8/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "Adelaide 36ers v SE Melbourne Phoenix",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2027-01-02T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Sport"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/05/1050X520-27.01.02.png",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/adelaide-36ers-v-south-east-melbourne-phoenix-8/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "Adelaide 36ers v Perth Wildcats",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2027-01-09T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Sport"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/05/1050X520-27.01.09.png",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/adelaide-36ers-v-perth-wildcats-9/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "Adelaide 36ers v Illawarra Hawks",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2027-01-23T17:00:00",
+    "end_datetime": "",
+    "category": [
+      "Sport"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/05/1050X520-27.1.23.png",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/adelaide-36ers-v-illawarra-hawks-8/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "Adelaide 36ers v Sydney Kings",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2027-01-30T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Sport"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/05/1050X520-27.01.30.png",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/adelaide-36ers-v-sydney-kings-9/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "The Human League",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2027-02-03T20:15:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/01/thehumanleague_aec_1050x520.jpg",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/the-human-league-2/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "Paul Smith (Recommended 16+)",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2027-02-06T19:30:00",
+    "end_datetime": "",
+    "category": [
+      "Comedy"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/03/PS27_1050x520.jpg",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/paul-smith-2/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "Niall Horan",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2027-02-10T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/06/NiallHoran_1050x520_adel.jpg",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/niall-horan/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "Angus & Julia Stone",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2027-02-13T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/09/AJS27_Ticketek_1050x520.jpg",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/angus-julia-stone-2/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "Adelaide 36ers v New Zealand Breakers",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2027-02-14T14:30:00",
+    "end_datetime": "",
+    "category": [
+      "Sport"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/05/1050X520-27.02.14.png",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/adelaide-36ers-v-new-zealand-breakers-7/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "Simple Minds",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2027-02-16T19:30:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/06/Simple-Minds_AEC_Banner-Small.jpg",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/simple-minds-2/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "Fontaines D.C.",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2027-02-17T20:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/09/1050px-x-520px.png",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/fontaines-d-c/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "Empire Of The Sun",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2027-03-02T19:15:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/09/EMOF27-AEC-1050x520-1.jpg",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/empire-of-the-sun/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "Bryan Adams",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2027-03-04T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/07/BryanAdams27-AEC-1050x520-1.jpg",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/bryan-adams-3/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "LOOKOUT: +LIVE+, Stone Temple Pilots, 4 Non Blondes",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2027-03-06T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/08/LO-LiveSTP-AEC-1050x520-WebImage-SmallBanner.jpg",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/lookout-live-stone-temple-pilots-4-non-blondes/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "Evanescence",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2027-03-07T20:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/06/evanescence_clean_1050x520.jpg",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/evanescence-2/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "Trisha Paytas",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2027-03-12T19:30:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/10/Copy-of-TRISHA_EOTT_TKT_WEB_BannerSmall_1050x520.jpg",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/trisha-paytas/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "Sombr",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2027-04-13T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/08/AEC-1050x520-1.jpg",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/sombr/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "Delta Goodrem",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2027-04-19T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/07/DeltaGoodrem_1050x520_tk.jpg",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/delta-goodrem-4/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "UB40",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2027-05-19T19:30:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/07/ub40_aec_1050x520.jpg",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/ub40-2/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "Micky Dolenz",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2027-05-24T19:30:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/08/Micky-Dolenz_AEC_Mobile-Banner.jpg",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/micky-dolenz/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "How To Train Your Dragon 2 In Concert",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2027-06-05T18:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/10/ASO27-HTTYD-AEC_1050-x-520.png",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/how-to-train-your-dragon-2-in-concert/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "ICEHOUSE",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2027-07-03T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/09/ICEHOUSE_1050x520_adel.jpg",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/icehouse/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "Westlife",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2027-07-18T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/05/westlife-adel-1050x520-1.jpg",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/westlife/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "Nickelback",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2027-10-05T20:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/10/Nickelback_AEC-1050x520-1.jpg",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/nickelback-3/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "Star Wars: The Empire Strikes Back in Concert",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2027-11-06T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/10/ASO27-Star-Wars-AEC_1050-x-520.png",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/star-wars-the-empire-strikes-back-in-concert-2/",
+    "source": "Adelaide Entertainment Centre"
+  }
+]
