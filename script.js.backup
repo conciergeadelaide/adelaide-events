@@ -1,0 +1,832 @@
+
+"use strict";
+
+// ======================================
+// ADELAIDE EVENTS — CONCIERGE
+// Complete script.js
+// ======================================
+
+var events = [];
+
+var eventsContainer = document.getElementById("events");
+var searchInput = document.getElementById("search");
+var dateFromInput = document.getElementById("date-from");
+var dateToInput = document.getElementById("date-to");
+var categoryFilter = document.getElementById("category-filter");
+var venueFilter = document.getElementById("venue-filter");
+var sortSelect = document.getElementById("sort");
+var eventCount = document.getElementById("event-count");
+var noResults = document.getElementById("no-results");
+var clearFiltersButton = document.getElementById("clear-filters");
+
+// ======================================
+// DATE HELPERS
+// ======================================
+
+function getEventStart(event) {
+    return event.datetime || event.date || "";
+}
+
+function getEventEnd(event) {
+    return event.end_datetime ||
+           event.end_date ||
+           getEventStart(event);
+}
+
+function getDatePart(value) {
+    if (!value) {
+        return "";
+    }
+
+    var match = String(value).match(
+        /^(\d{4}-\d{2}-\d{2})/
+    );
+
+    return match ? match[1] : "";
+}
+
+function getEventTimestamp(event) {
+    var value = getEventStart(event);
+
+    if (!value) {
+        return Number.MAX_SAFE_INTEGER;
+    }
+
+    var date = new Date(value);
+
+    if (isNaN(date.getTime())) {
+        return Number.MAX_SAFE_INTEGER;
+    }
+
+    return date.getTime();
+}
+
+function parseLocalDate(value) {
+    var datePart = getDatePart(value);
+
+    if (!datePart) {
+        return null;
+    }
+
+    var parts = datePart.split("-");
+
+    var year = Number(parts[0]);
+    var month = Number(parts[1]);
+    var day = Number(parts[2]);
+
+    var date = new Date(
+        year,
+        month - 1,
+        day,
+        12,
+        0,
+        0
+    );
+
+    if (
+        isNaN(date.getTime()) ||
+        date.getFullYear() !== year ||
+        date.getMonth() !== month - 1 ||
+        date.getDate() !== day
+    ) {
+        return null;
+    }
+
+    return date;
+}
+
+function formatDate(value) {
+    if (!value) {
+        return "Date to be confirmed";
+    }
+
+    var date = parseLocalDate(value);
+
+    if (!date) {
+        return "Date to be confirmed";
+    }
+
+    var dateText = new Intl.DateTimeFormat(
+        "en-AU",
+        {
+            weekday: "short",
+            day: "numeric",
+            month: "short",
+            year: "numeric"
+        }
+    ).format(date);
+
+    var timeMatch = String(value).match(
+        /T(\d{2}):(\d{2})/
+    );
+
+    if (!timeMatch) {
+        return dateText;
+    }
+
+    var hours = Number(timeMatch[1]);
+    var minutes = Number(timeMatch[2]);
+
+    if (hours === 0 && minutes === 0) {
+        return dateText;
+    }
+
+    var timeDate = new Date(
+        date.getFullYear(),
+        date.getMonth(),
+        date.getDate(),
+        hours,
+        minutes
+    );
+
+    var timeText = new Intl.DateTimeFormat(
+        "en-AU",
+        {
+            hour: "numeric",
+            minute: "2-digit"
+        }
+    ).format(timeDate);
+
+    return dateText + " · " + timeText;
+}
+
+function formatEventDate(event) {
+    var startValue = getEventStart(event);
+    var endValue = getEventEnd(event);
+
+    var startDate = parseLocalDate(startValue);
+    var endDate = parseLocalDate(endValue);
+
+    if (!startDate) {
+        return "Date to be confirmed";
+    }
+
+    if (
+        !endDate ||
+        endDate.getTime() <= startDate.getTime()
+    ) {
+        return formatDate(startValue);
+    }
+
+    var sameYear =
+        startDate.getFullYear() ===
+        endDate.getFullYear();
+
+    var sameMonth =
+        sameYear &&
+        startDate.getMonth() ===
+        endDate.getMonth();
+
+    var startDay = startDate.getDate();
+    var endDay = endDate.getDate();
+
+    var startMonth = new Intl.DateTimeFormat(
+        "en-AU",
+        { month: "short" }
+    ).format(startDate);
+
+    var endMonth = new Intl.DateTimeFormat(
+        "en-AU",
+        { month: "short" }
+    ).format(endDate);
+
+    var startYear = startDate.getFullYear();
+    var endYear = endDate.getFullYear();
+
+    if (sameMonth) {
+        return (
+            startDay +
+            "–" +
+            endDay +
+            " " +
+            startMonth +
+            " " +
+            startYear
+        );
+    }
+
+    if (sameYear) {
+        return (
+            startDay +
+            " " +
+            startMonth +
+            " – " +
+            endDay +
+            " " +
+            endMonth +
+            " " +
+            endYear
+        );
+    }
+
+    return (
+        startDay +
+        " " +
+        startMonth +
+        " " +
+        startYear +
+        " – " +
+        endDay +
+        " " +
+        endMonth +
+        " " +
+        endYear
+    );
+}
+
+// ======================================
+// CATEGORY HELPERS
+// ======================================
+
+function getEventCategories(event) {
+    if (Array.isArray(event.category)) {
+        return event.category.filter(function(category) {
+            return Boolean(category);
+        });
+    }
+
+    if (event.category) {
+        return [event.category];
+    }
+
+    return ["Other"];
+}
+
+function getCategoryText(event) {
+    return getEventCategories(event).join(" · ");
+}
+
+// ======================================
+// VENUE HELPERS
+// ======================================
+
+// Only actual venue/building names should
+// appear in the Venue dropdown.
+//
+// Addresses and generic locations remain
+// available in event cards and search.
+//
+// This function does not modify events.json.
+
+function isActualVenue(value) {
+    if (typeof value !== "string") {
+        return false;
+    }
+
+    var venue = value.trim();
+
+    if (!venue) {
+        return false;
+    }
+
+    var lower = venue.toLowerCase();
+
+    // Empty, unknown or generic locations.
+    var genericLocations = [
+        "adelaide",
+        "adelaide cbd",
+        "adelaide city",
+        "south australia",
+        "sa",
+        "australia",
+        "city of adelaide",
+        "adelaide sa",
+        "adelaide south australia",
+        "various locations",
+        "various venues",
+        "multiple locations",
+        "multiple venues",
+        "various",
+        "tba",
+        "tbc",
+        "to be confirmed",
+        "location to be confirmed",
+        "venue to be confirmed",
+        "online"
+    ];
+
+    if (genericLocations.indexOf(lower) !== -1) {
+        return false;
+    }
+
+    // Australian postcodes.
+    if (/\b(?:SA\s*)?\d{4}\b/i.test(venue)) {
+        return false;
+    }
+
+    // Full street addresses usually begin
+    // with a street or unit number.
+    if (/^\s*\d+[a-z]?(?:\s*[-\/]\s*\d+[a-z]?)?\s+/i.test(venue)) {
+        return false;
+    }
+
+    // Unit and level addresses.
+    if (
+        /^(?:unit|suite|level|floor|shop|lot|building)\s+\d+\b/i.test(venue)
+    ) {
+        return false;
+    }
+
+    // Common street types.
+    var streetType =
+        /\b(?:street|st|road|rd|avenue|ave|boulevard|blvd|terrace|tce|lane|ln|drive|dr|highway|hwy|parade|pde|place|pl|crescent|circuit|court|ct|way)\b/i;
+
+    // Reject street addresses with numbers.
+    if (
+        /\d/.test(venue) &&
+        streetType.test(venue)
+    ) {
+        return false;
+    }
+
+    // Reject street intersections.
+    if (
+        /^(?:corner|cnr)\s+(?:of\s+)?/i.test(venue)
+    ) {
+        return false;
+    }
+
+    if (
+        /\b(?:corner of|intersection of|junction of)\b/i.test(venue)
+    ) {
+        return false;
+    }
+
+    // Reject names such as
+    // "North Terrace, Adelaide" where
+    // the text is clearly a street location.
+    //
+    // This check is deliberately limited
+    // to comma-separated location strings
+    // to avoid rejecting named buildings.
+    if (
+        streetType.test(venue) &&
+        /,\s*(?:adelaide|north adelaide|south australia|sa)\b/i.test(venue)
+    ) {
+        return false;
+    }
+
+    // Reject coordinates.
+    if (
+        /^-?\d{1,3}\.\d+[, ]+-?\d{1,3}\.\d+$/.test(venue)
+    ) {
+        return false;
+    }
+
+    // Reject location-only labels.
+    if (
+        /^(?:located at|address:|location:)\s*/i.test(venue)
+    ) {
+        return false;
+    }
+
+    return true;
+}
+
+// ======================================
+// CREATE EVENT CARD
+// ======================================
+
+function createEventCard(event) {
+    var article = document.createElement("article");
+    article.className = "event-card";
+
+    var imageContainer = document.createElement("div");
+    imageContainer.className = "event-image";
+
+    var image = document.createElement("img");
+
+    if (event.image) {
+        image.src = event.image;
+    } else {
+        image.src =
+            "https://images.unsplash.com/photo-1492684223066-81342ee5ff30";
+    }
+
+    image.alt = event.title || "Adelaide event";
+    image.loading = "lazy";
+
+    var badge = document.createElement("span");
+    badge.className = "category-badge";
+    badge.textContent = getCategoryText(event);
+
+    imageContainer.appendChild(image);
+    imageContainer.appendChild(badge);
+
+    var content = document.createElement("div");
+    content.className = "event-content";
+
+    var date = document.createElement("div");
+    date.className = "event-date";
+    date.textContent = formatEventDate(event);
+
+    var title = document.createElement("h3");
+    title.className = "event-title";
+    title.textContent =
+        event.title || "Untitled Event";
+
+    var venue = document.createElement("div");
+    venue.className = "event-venue";
+
+    var venueIcon = document.createElement("span");
+    venueIcon.className = "venue-icon";
+    venueIcon.textContent = "●";
+
+    var venueText = document.createElement("span");
+
+    var venueName = event.venue || "";
+    var locationName = event.location || "";
+
+    if (venueName && locationName) {
+        if (
+            venueName.trim().toLowerCase() ===
+            locationName.trim().toLowerCase()
+        ) {
+            venueText.textContent = venueName;
+        } else {
+            venueText.textContent =
+                venueName + " · " + locationName;
+        }
+    } else {
+        venueText.textContent =
+            venueName || locationName || "Adelaide";
+    }
+
+    venue.appendChild(venueIcon);
+    venue.appendChild(venueText);
+
+    var link = document.createElement("a");
+    link.className = "event-link";
+
+    link.href = event.link || event.url || "#";
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.textContent = "View Event";
+
+    content.appendChild(date);
+    content.appendChild(title);
+    content.appendChild(venue);
+    content.appendChild(link);
+
+    article.appendChild(imageContainer);
+    article.appendChild(content);
+
+    return article;
+}
+
+// ======================================
+// DISPLAY EVENTS
+// ======================================
+
+function displayEvents(eventList) {
+    eventsContainer.innerHTML = "";
+
+    eventCount.textContent =
+        eventList.length +
+        " event" +
+        (eventList.length === 1 ? "" : "s");
+
+    if (eventList.length === 0) {
+        noResults.classList.remove("hidden");
+        return;
+    }
+
+    noResults.classList.add("hidden");
+
+    eventList.forEach(function(event) {
+        eventsContainer.appendChild(
+            createEventCard(event)
+        );
+    });
+}
+
+// ======================================
+// POPULATE FILTER DROPDOWNS
+// ======================================
+
+function populateFilters() {
+    categoryFilter.innerHTML =
+        "<option value='all'>All categories</option>";
+
+    venueFilter.innerHTML =
+        "<option value='all'>All venues</option>";
+
+    // Preserve the existing master list.
+    // Additional categories in events.json
+    // are added automatically.
+
+    var categories = [
+        "Arts & Culture",
+        "Comedy",
+        "Community",
+        "Expos",
+        "Family",
+        "Festival",
+        "Food & Beverage",
+        "Music",
+        "Other",
+        "Sport",
+        "Talks & Conferences",
+        "Theatre",
+        "Workshop"
+    ];
+
+    var venues = [];
+
+    events.forEach(function(event) {
+        getEventCategories(event).forEach(
+            function(category) {
+                if (
+                    categories.indexOf(category) === -1
+                ) {
+                    categories.push(category);
+                }
+            }
+        );
+
+        // Only add genuine venue names.
+        if (
+            event.venue &&
+            isActualVenue(event.venue) &&
+            venues.indexOf(event.venue) === -1
+        ) {
+            venues.push(event.venue);
+        }
+    });
+
+    categories.sort(function(a, b) {
+        return a.localeCompare(b);
+    });
+
+    venues.sort(function(a, b) {
+        return a.localeCompare(b);
+    });
+
+    categories.forEach(function(category) {
+        var option = document.createElement("option");
+        option.value = category;
+        option.textContent = category;
+        categoryFilter.appendChild(option);
+    });
+
+    venues.forEach(function(venue) {
+        var option = document.createElement("option");
+        option.value = venue;
+        option.textContent = venue;
+        venueFilter.appendChild(option);
+    });
+
+    console.log(
+        "Venue dropdown:",
+        venues.length,
+        "venue names"
+    );
+}
+
+// ======================================
+// APPLY SEARCH AND FILTERS
+// ======================================
+
+function applyFilters() {
+    var searchText =
+        searchInput.value.toLowerCase().trim();
+
+    var dateFrom = dateFromInput.value;
+    var dateTo = dateToInput.value;
+
+    var selectedCategory = categoryFilter.value;
+    var selectedVenue = venueFilter.value;
+
+    var filteredEvents = events.filter(
+        function(event) {
+            var eventStartString = getDatePart(
+                getEventStart(event)
+            );
+
+            var eventEndString = getDatePart(
+                getEventEnd(event)
+            ) || eventStartString;
+
+            var searchableText = (
+                (event.title || "") +
+                " " +
+                (event.venue || "") +
+                " " +
+                (event.location || "") +
+                " " +
+                getCategoryText(event)
+            ).toLowerCase();
+
+            var matchesSearch =
+                searchableText.indexOf(searchText) !== -1;
+
+            // Include multi-day events when
+            // their date range overlaps the
+            // selected dates.
+
+            var matchesFrom =
+                !dateFrom ||
+                (
+                    eventEndString !== "" &&
+                    eventEndString >= dateFrom
+                );
+
+            var matchesTo =
+                !dateTo ||
+                (
+                    eventStartString !== "" &&
+                    eventStartString <= dateTo
+                );
+
+            var matchesCategory =
+                selectedCategory === "all" ||
+                getEventCategories(event).indexOf(
+                    selectedCategory
+                ) !== -1;
+
+            var matchesVenue =
+                selectedVenue === "all" ||
+                event.venue === selectedVenue;
+
+            return (
+                matchesSearch &&
+                matchesFrom &&
+                matchesTo &&
+                matchesCategory &&
+                matchesVenue
+            );
+        }
+    );
+
+    sortEvents(filteredEvents);
+}
+
+// ======================================
+// SORT EVENTS
+// ======================================
+
+function sortEvents(eventList) {
+    var sortMethod = sortSelect.value;
+
+    eventList.sort(function(a, b) {
+        if (sortMethod === "date-asc") {
+            return (
+                getEventTimestamp(a) -
+                getEventTimestamp(b)
+            );
+        }
+
+        if (sortMethod === "date-desc") {
+            return (
+                getEventTimestamp(b) -
+                getEventTimestamp(a)
+            );
+        }
+
+        if (sortMethod === "title") {
+            return (a.title || "").localeCompare(
+                b.title || ""
+            );
+        }
+
+        if (sortMethod === "venue") {
+            return (a.venue || "").localeCompare(
+                b.venue || ""
+            );
+        }
+
+        return 0;
+    });
+
+    displayEvents(eventList);
+}
+
+// ======================================
+// CLEAR ALL FILTERS
+// ======================================
+
+function clearAllFilters() {
+    searchInput.value = "";
+    dateFromInput.value = "";
+    dateToInput.value = "";
+
+    categoryFilter.value = "all";
+    venueFilter.value = "all";
+    sortSelect.value = "date-asc";
+
+    applyFilters();
+}
+
+// ======================================
+// FILTER EVENT LISTENERS
+// ======================================
+
+searchInput.addEventListener(
+    "input",
+    applyFilters
+);
+
+dateFromInput.addEventListener(
+    "change",
+    applyFilters
+);
+
+dateToInput.addEventListener(
+    "change",
+    applyFilters
+);
+
+categoryFilter.addEventListener(
+    "change",
+    applyFilters
+);
+
+venueFilter.addEventListener(
+    "change",
+    applyFilters
+);
+
+sortSelect.addEventListener(
+    "change",
+    applyFilters
+);
+
+clearFiltersButton.addEventListener(
+    "click",
+    clearAllFilters
+);
+
+// ======================================
+// LOAD EVENTS.JSON
+// ======================================
+
+fetch("events.json")
+    .then(function(response) {
+        if (!response.ok) {
+            throw new Error(
+                "Could not load events.json"
+            );
+        }
+
+        return response.json();
+    })
+    .then(function(data) {
+        events = Array.isArray(data) ? data : [];
+
+        console.log(
+            "events.json loaded:",
+            events.length,
+            "events"
+        );
+
+        // ==================================
+        // REMOVE EVENTS THAT HAVE FINISHED
+        // ==================================
+
+        var today = new Date();
+
+        var todayString =
+            today.getFullYear() +
+            "-" +
+            String(today.getMonth() + 1).padStart(2, "0") +
+            "-" +
+            String(today.getDate()).padStart(2, "0");
+
+        events = events.filter(function(event) {
+            var effectiveEnd = getEventEnd(event);
+
+            if (!effectiveEnd) {
+                return true;
+            }
+
+            var endDateString =
+                getDatePart(effectiveEnd);
+
+            if (!endDateString) {
+                return true;
+            }
+
+            // Keep events until the end
+            // of their final calendar day.
+
+            return endDateString >= todayString;
+        });
+
+        console.log(
+            "Upcoming/current events:",
+            events.length
+        );
+
+        populateFilters();
+        applyFilters();
+    })
+    .catch(function(error) {
+        console.error(
+            "Error loading events.json:",
+            error
+        );
+
+        events = [];
+        populateFilters();
+        displayEvents([]);
+    });

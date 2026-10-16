@@ -1,7 +1,7 @@
 SOURCES = [
     {
         "name": "South Australia Tourism Commission",
-        "url": "https://southaustralia.com/whats-on"
+        "url": "https://southaustralia.com/destinations/adelaide/what-s-on"
     },
     {
         "name": "Experience Adelaide",

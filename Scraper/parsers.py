@@ -1947,3 +1947,221 @@ def parse_lion_arts_factory(soup, source_url):
 
     print(f"\nTotal Lion Arts Factory events collected: {len(events)}")
     return events
+
+
+# Tourism-specific classification. Avoid the broad generic substring rules
+# (e.g. "play" inside "playgroup" and "family" inside a wine producer name).
+def categorise_tourism_event(title):
+    name = " ".join(str(title).casefold().split())
+    # Distinctive programme names are intentionally explicit. For unfamiliar
+    # listings, the conservative fallback below avoids invented categories.
+    exact = {
+        "adelaide film festival": ["Film", "Festival"],
+        "australian geographic nature photographer of the year": ["Exhibitions"],
+        "calm seas – sanctuary series": ["Music"],
+        "cheesefest 2026": ["Food & Beverage", "Festival"],
+        "cipx kaurna miyurna (critical indigenous photographic exchange with the kaurna community)": ["Exhibitions", "First Nations"],
+        "clos saint jean wine dinner": ["Food & Beverage"],
+        "dirty dancing in concert - adelaide": ["Music", "Film"],
+        "glam, gin & drag bingo at prohibition liquor co.": ["Club/Party", "Food & Beverage"],
+        "endless sky – cathedral series": ["Music"],
+        "exhibition: beginnings": ["Exhibitions"],
+        "festival of halloween": ["Festival", "Family"],
+        "fischer-z - adelaide": ["Music"],
+        "gabriel iglesias": ["Comedy"],
+        "grace": ["Music"],
+        "inferno": ["Theatre"],
+        "hoffmann family vineyards masterclass at bar septimus": ["Food & Beverage", "Conferences/Workshops/Expos"],
+        "intergenerational playgroup, the learning tree": ["Community", "Family"],
+        "ray white semaphore street fair": ["Community", "Festival"],
+        "meet the maker: 10th anniversary botanic rosé": ["Food & Beverage"],
+        "michelle nikou: tell it slant": ["Exhibitions"],
+        "mindful clay, pottery wheel, hand building & colors": ["Conferences/Workshops/Expos"],
+        "mmad wine dinner": ["Food & Beverage"],
+        "monet to matisse: defying tradition": ["Exhibitions"],
+        "monet to matisse friday nights: noriko tadano": ["Music", "Exhibitions"],
+        "pattern and colour of the market": ["Exhibitions"],
+        "raa bay to birdwood start": ["Community"],
+        "rooftop raclette at merrymaker rooftop bar": ["Food & Beverage"],
+        "bachata by the beach - latin dance party": ["Dance", "Club/Party"],
+        "shannons adelaide rally": ["Sport"],
+        "simply adelaide west coast swing": ["Dance"],
+        "social clay session - pottery wheel": ["Conferences/Workshops/Expos"],
+        "studio tours": ["Exhibitions"],
+        "the mini-cine": ["Film"],
+        "unwined uncovered": ["Food & Beverage"],
+        "vinyl thursdays": ["Music", "Club/Party"],
+    }
+    if name in exact:
+        return exact[name][:]
+    if name.startswith("ozasia festival"):
+        if "hong kong dragon" in name:
+            return ["Festival", "Dance"]
+        if "hyoshi in counterpoint" in name:
+            return ["Festival", "Music"]
+        if "jade ensemble" in name or "lastlings" in name or "regurgitator" in name:
+            return ["Festival", "Music"]
+        if "lucky dumpling market" in name:
+            return ["Festival", "Food & Beverage"]
+        if "maajela" in name:
+            return ["Festival", "Dance"]
+        return ["Festival"]
+
+    categories = []
+    def add(category):
+        if category not in categories:
+            categories.append(category)
+    if re.search(r"\b(exhibition|gallery|photograph|museum)\b", name):
+        add("Exhibitions")
+    if re.search(r"\b(comedy|comedian|stand.up)\b", name):
+        add("Comedy")
+    if re.search(r"\b(concert|orchestra|symphony|live music|gig)\b", name):
+        add("Music")
+    if re.search(r"\b(dance|ballet|bachata|swing)\b", name):
+        add("Dance")
+    if re.search(r"\b(film|cinema|cine)\b", name):
+        add("Film")
+    if re.search(r"\b(wine|dinner|tasting|cocktail|food|raclette)\b", name):
+        add("Food & Beverage")
+    if re.search(r"\b(workshop|masterclass|pottery|clay session)\b", name):
+        add("Conferences/Workshops/Expos")
+    if re.search(r"\b(festival|fest)\b", name):
+        add("Festival")
+    return categories or ["Other"]
+
+
+# ============================================================
+# SOUTH AUSTRALIA TOURISM COMMISSION — ADELAIDE
+# ============================================================
+
+def parse_south_australia_tourism(soup, source_url):
+    """Adelaide tourism listings only; fail safely if their layout changes.
+
+    Regional festival exceptions are intentionally not automatically included:
+    those require a curated list of approved festivals.
+    """
+    from urllib.parse import urlparse
+
+    listing_url = "https://southaustralia.com/destinations/adelaide/what-s-on"
+    session = requests.Session()
+    session.headers.update({"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/140.0.0.0 Safari/537.36"})
+    response = session.get(listing_url, timeout=30)
+    response.raise_for_status()
+    listing = BeautifulSoup(response.text, "lxml")
+    urls = set()
+    for anchor in listing.find_all("a", href=True):
+        link = normalise_url(anchor["href"], listing_url).split("#")[0].split("?")[0]
+        parsed = urlparse(link)
+        if parsed.hostname in ("southaustralia.com", "www.southaustralia.com") and re.fullmatch(r"/products/adelaide/event/[^/]+/?", parsed.path, re.I):
+            urls.add(link.rstrip("/"))
+
+    if not urls:
+        raise RuntimeError("Tourism: no Adelaide event links found; preserving existing records")
+
+    events = []
+    failed = 0
+    for url in sorted(urls):
+        try:
+            page_response = session.get(url, timeout=25)
+            page_response.raise_for_status()
+            page = BeautifulSoup(page_response.text, "lxml")
+            blocks = []
+            for tag in page.find_all("script", type="application/ld+json"):
+                try:
+                    data = json.loads(tag.string or tag.get_text())
+                    if isinstance(data, dict):
+                        blocks.extend(data.get("@graph", [data]))
+                    elif isinstance(data, list):
+                        blocks.extend(data)
+                except (ValueError, TypeError):
+                    continue
+
+            event_data = next((x for x in blocks if isinstance(x, dict) and "Event" in ([x.get("@type")] if isinstance(x.get("@type"), str) else x.get("@type", []))), None)
+            if not event_data:
+                failed += 1
+                continue
+            title = str(event_data.get("name") or "").strip()
+            raw_start = str(event_data.get("startDate") or "")
+            if not title or not raw_start:
+                failed += 1
+                continue
+            try:
+                start = datetime.fromisoformat(raw_start.replace("Z", "+00:00")).replace(tzinfo=None).isoformat(timespec="seconds")
+            except ValueError:
+                failed += 1
+                continue
+            end = ""
+            if event_data.get("endDate"):
+                try:
+                    end = datetime.fromisoformat(str(event_data["endDate"]).replace("Z", "+00:00")).replace(tzinfo=None).isoformat(timespec="seconds")
+                except ValueError:
+                    pass
+
+            # Keep multi-day events while they are running; exclude only events
+            # whose final calendar date is already in the past.
+            if (end or start)[:10] < datetime.now().date().isoformat():
+                continue
+
+            # ATDW commonly places venue/address in a separate Organization block.
+            locations = []
+            direct_location = event_data.get("location")
+            if isinstance(direct_location, dict):
+                locations.append(direct_location)
+            elif isinstance(direct_location, list):
+                locations.extend(x for x in direct_location if isinstance(x, dict))
+            for block in blocks:
+                if isinstance(block, dict) and isinstance(block.get("location"), dict):
+                    locations.append(block["location"])
+
+            localities = []
+            venue = ""
+            for loc in locations:
+                if not venue:
+                    venue = str(loc.get("name") or "").strip()
+                address = loc.get("address")
+                if isinstance(address, dict):
+                    locality = str(address.get("addressLocality") or "").strip()
+                    if locality:
+                        localities.append(locality)
+            # The Adelaide listing can include outlying attractions. The
+            # geographic test uses explicit known metro/nearby localities.
+            permitted = {
+                "adelaide", "north adelaide", "port adelaide", "glenelg", "glenelg south",
+                "henley beach", "west beach", "brighton", "semaphore", "norwood",
+                "unley", "prospect", "bowden", "hindmarsh", "thebarton", "mile end",
+                "goodwood", "kent town", "stepney", "burnside", "magill", "modbury",
+                "marion", "morphettville", "woodville", "findon", "fulham", "fulham gardens",
+                "grange", "west lakes", "mawson lakes", "salisbury", "elizabeth",
+                "tea tree gully", "belair", "blackwood", "bedford park", "oaklands park",
+                "north terrace", "adelaide cbd", "parkside", "dulwich", "kensington",
+                "hutt street", "rundle street", "northfield", "kilburn", "enfield",
+                "mount barker", "hahndorf", "stirling", "aldgate", "crafers",
+                "mount lofty", "cleland", "bridgewater", "mclaren vale", "willunga",
+                "port noarlunga", "noarlunga", "aldinga", "aldinga beach", "moana",
+            }
+            if not localities or not any(x.casefold() in permitted for x in localities):
+                continue
+
+            image_data = event_data.get("image", "")
+            if isinstance(image_data, dict):
+                image_data = image_data.get("url") or image_data.get("contentUrl") or ""
+            elif isinstance(image_data, list):
+                image_data = image_data[0] if image_data else ""
+                if isinstance(image_data, dict):
+                    image_data = image_data.get("url") or ""
+            image_url = normalise_url(str(image_data or ""), url)
+            if not venue:
+                venue = localities[0]
+            events.append({
+                "title": title, "venue": venue, "date": start, "end_date": end,
+                "category": categorise_tourism_event(title), "image": image_url, "url": url,
+            })
+        except requests.RequestException:
+            failed += 1
+
+    if failed > max(3, len(urls) // 4):
+        raise RuntimeError(f"Tourism: {failed}/{len(urls)} pages failed; preserving existing records")
+    if not events:
+        raise RuntimeError("Tourism: no eligible Adelaide events parsed; preserving existing records")
+    print(f"    Tourism: {len(urls)} links, {len(events)} eligible events, {failed} failed pages")
+    return events

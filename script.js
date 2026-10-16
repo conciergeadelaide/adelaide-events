@@ -23,19 +23,16 @@ var clearFiltersButton = document.getElementById("clear-filters");
 // DATE HELPERS
 // ======================================
 
-// Support both "datetime" and "date".
 function getEventStart(event) {
     return event.datetime || event.date || "";
 }
 
-// Support both "end_datetime" and "end_date".
 function getEventEnd(event) {
     return event.end_datetime ||
            event.end_date ||
            getEventStart(event);
 }
 
-// Return YYYY-MM-DD without timezone conversion.
 function getDatePart(value) {
     if (!value) {
         return "";
@@ -48,7 +45,6 @@ function getDatePart(value) {
     return match ? match[1] : "";
 }
 
-// Return a sortable timestamp.
 function getEventTimestamp(event) {
     var value = getEventStart(event);
 
@@ -65,7 +61,6 @@ function getEventTimestamp(event) {
     return date.getTime();
 }
 
-// Construct a local date without timezone shifts.
 function parseLocalDate(value) {
     var datePart = getDatePart(value);
 
@@ -100,7 +95,6 @@ function parseLocalDate(value) {
     return date;
 }
 
-// Format an event's date for display.
 function formatDate(value) {
     if (!value) {
         return "Date to be confirmed";
@@ -122,8 +116,6 @@ function formatDate(value) {
         }
     ).format(date);
 
-    // Only display the time when the
-    // source provides a non-midnight time.
     var timeMatch = String(value).match(
         /T(\d{2}):(\d{2})/
     );
@@ -158,7 +150,6 @@ function formatDate(value) {
     return dateText + " · " + timeText;
 }
 
-// Format multi-day events as date ranges.
 function formatEventDate(event) {
     var startValue = getEventStart(event);
     var endValue = getEventEnd(event);
@@ -266,6 +257,138 @@ function getCategoryText(event) {
 }
 
 // ======================================
+// VENUE HELPERS
+// ======================================
+
+// Only actual venue/building names should
+// appear in the Venue dropdown.
+//
+// Addresses and generic locations remain
+// available in event cards and search.
+//
+// This function does not modify events.json.
+
+function isActualVenue(value) {
+    if (typeof value !== "string") {
+        return false;
+    }
+
+    var venue = value.trim();
+
+    if (!venue) {
+        return false;
+    }
+
+    var lower = venue.toLowerCase();
+    var excludedLocations = ["mundy street", "north terrace", "north terrace, adjacent, morphett st bridge", "west beach road", "riverbank footbridge"];
+    if (excludedLocations.indexOf(lower) !== -1) return false;
+    if (/^[a-z][a-z\s\x27-]*\s(?:street|road|avenue|terrace|lane|boulevard|highway|crescent|court)$/i.test(venue)) return false;
+    if (/\b(?:street|road|avenue|terrace|lane|boulevard|highway)\s*,\s*(?:adjacent|near|opposite|corner|at)\b/i.test(venue)) return false;
+
+
+    // Empty, unknown or generic locations.
+    var genericLocations = [
+        "adelaide",
+        "adelaide cbd",
+        "adelaide city",
+        "south australia",
+        "sa",
+        "australia",
+        "city of adelaide",
+        "adelaide sa",
+        "adelaide south australia",
+        "various locations",
+        "various venues",
+        "multiple locations",
+        "multiple venues",
+        "various",
+        "tba",
+        "tbc",
+        "to be confirmed",
+        "location to be confirmed",
+        "venue to be confirmed",
+        "online"
+    ];
+
+    if (genericLocations.indexOf(lower) !== -1) {
+        return false;
+    }
+
+    // Australian postcodes.
+    if (/\b(?:SA\s*)?\d{4}\b/i.test(venue)) {
+        return false;
+    }
+
+    // Full street addresses usually begin
+    // with a street or unit number.
+    if (/^\s*\d+[a-z]?(?:\s*[-\/]\s*\d+[a-z]?)?\s+/i.test(venue)) {
+        return false;
+    }
+
+    // Unit and level addresses.
+    if (
+        /^(?:unit|suite|level|floor|shop|lot|building)\s+\d+\b/i.test(venue)
+    ) {
+        return false;
+    }
+
+    // Common street types.
+    var streetType =
+        /\b(?:street|st|road|rd|avenue|ave|boulevard|blvd|terrace|tce|lane|ln|drive|dr|highway|hwy|parade|pde|place|pl|crescent|circuit|court|ct|way)\b/i;
+
+    // Reject street addresses with numbers.
+    if (
+        /\d/.test(venue) &&
+        streetType.test(venue)
+    ) {
+        return false;
+    }
+
+    // Reject street intersections.
+    if (
+        /^(?:corner|cnr)\s+(?:of\s+)?/i.test(venue)
+    ) {
+        return false;
+    }
+
+    if (
+        /\b(?:corner of|intersection of|junction of)\b/i.test(venue)
+    ) {
+        return false;
+    }
+
+    // Reject names such as
+    // "North Terrace, Adelaide" where
+    // the text is clearly a street location.
+    //
+    // This check is deliberately limited
+    // to comma-separated location strings
+    // to avoid rejecting named buildings.
+    if (
+        streetType.test(venue) &&
+        /,\s*(?:adelaide|north adelaide|south australia|sa)\b/i.test(venue)
+    ) {
+        return false;
+    }
+
+    // Reject coordinates.
+    if (
+        /^-?\d{1,3}\.\d+[, ]+-?\d{1,3}\.\d+$/.test(venue)
+    ) {
+        return false;
+    }
+
+    // Reject location-only labels.
+    if (
+        /^(?:located at|address:|location:)\s*/i.test(venue)
+    ) {
+        return false;
+    }
+
+    return true;
+}
+
+// ======================================
 // CREATE EVENT CARD
 // ======================================
 
@@ -316,10 +439,23 @@ function createEventCard(event) {
 
     var venueText = document.createElement("span");
 
-    venueText.textContent =
-        (event.venue || "Adelaide") +
-        " · " +
-        (event.location || "Adelaide");
+    var venueName = event.venue || "";
+    var locationName = event.location || "";
+
+    if (venueName && locationName) {
+        if (
+            venueName.trim().toLowerCase() ===
+            locationName.trim().toLowerCase()
+        ) {
+            venueText.textContent = venueName;
+        } else {
+            venueText.textContent =
+                venueName + " · " + locationName;
+        }
+    } else {
+        venueText.textContent =
+            venueName || locationName || "Adelaide";
+    }
 
     venue.appendChild(venueIcon);
     venue.appendChild(venueText);
@@ -327,9 +463,7 @@ function createEventCard(event) {
     var link = document.createElement("a");
     link.className = "event-link";
 
-    // Support current and older JSON formats.
     link.href = event.link || event.url || "#";
-
     link.target = "_blank";
     link.rel = "noopener noreferrer";
     link.textContent = "View Event";
@@ -364,8 +498,6 @@ function displayEvents(eventList) {
 
     noResults.classList.add("hidden");
 
-    // Display every matching event.
-    // No 50-event or 100-event limit.
     eventList.forEach(function(event) {
         eventsContainer.appendChild(
             createEventCard(event)
@@ -384,7 +516,10 @@ function populateFilters() {
     venueFilter.innerHTML =
         "<option value='all'>All venues</option>";
 
-    // Permanent master category list.
+    // Preserve the existing master list.
+    // Additional categories in events.json
+    // are added automatically.
+
     var categories = [
         "Arts & Culture",
         "Comedy",
@@ -414,16 +549,23 @@ function populateFilters() {
             }
         );
 
+        // Only add genuine venue names.
         if (
             event.venue &&
+            isActualVenue(event.venue) &&
             venues.indexOf(event.venue) === -1
         ) {
             venues.push(event.venue);
         }
     });
 
-    categories.sort();
-    venues.sort();
+    categories.sort(function(a, b) {
+        return a.localeCompare(b);
+    });
+
+    venues.sort(function(a, b) {
+        return a.localeCompare(b);
+    });
 
     categories.forEach(function(category) {
         var option = document.createElement("option");
@@ -438,6 +580,12 @@ function populateFilters() {
         option.textContent = venue;
         venueFilter.appendChild(option);
     });
+
+    console.log(
+        "Venue dropdown:",
+        venues.length,
+        "venue names"
+    );
 }
 
 // ======================================
@@ -477,8 +625,10 @@ function applyFilters() {
             var matchesSearch =
                 searchableText.indexOf(searchText) !== -1;
 
-            // Include multi-day events when their
-            // date range overlaps the selected dates.
+            // Include multi-day events when
+            // their date range overlaps the
+            // selected dates.
+
             var matchesFrom =
                 !dateFrom ||
                 (
@@ -661,8 +811,9 @@ fetch("events.json")
                 return true;
             }
 
-            // Keep events until the end of
-            // their final calendar day.
+            // Keep events until the end
+            // of their final calendar day.
+
             return endDateString >= todayString;
         });
 

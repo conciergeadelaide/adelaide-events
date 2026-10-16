@@ -21,6 +21,7 @@ try:
         parse_immersive_light_and_art,
         parse_adelaide_town_hall,
         parse_lion_arts_factory,
+        parse_south_australia_tourism,
     )
 except ModuleNotFoundError:
     # Works when importing:
@@ -37,6 +38,7 @@ except ModuleNotFoundError:
         parse_immersive_light_and_art,
         parse_adelaide_town_hall,
         parse_lion_arts_factory,
+        parse_south_australia_tourism,
     )
 
 
@@ -298,6 +300,13 @@ def scrape_source(source):
 
     name = source["name"]
     url = source["url"]
+
+    # ----------------------------------------
+    # South Australia Tourism Commission
+    # ----------------------------------------
+
+    if name == "South Australia Tourism Commission":
+        return parse_south_australia_tourism(None, url)
 
     # ----------------------------------------
     # Adelaide Oval
@@ -782,7 +791,120 @@ def main():
             event
         )
 
-    final_events = deduplicated_final_events
+    # Tourism is an aggregator. Compare it against EVERY non-Tourism
+    # source, including any sources added in the future. Prefer the
+    # venue/organiser listing where the evidence supports a match.
+    # Keep distinct performances and avoid speculative title matches.
+    import re
+    from difflib import SequenceMatcher
+
+    def comparable_title(value):
+        value = str(value).casefold().replace("&", " and ")
+        value = re.sub(r"\b(20\d{2})\b", " ", value)
+        value = re.sub(r"[^a-z0-9]+", " ", value)
+        return " ".join(value.split())
+
+    def comparable_venue(value):
+        value = str(value).casefold().replace("&", " and ")
+        value = re.sub(r"[^a-z0-9]+", " ", value)
+        value = " ".join(value.split())
+        # Known Tourism street addresses and their official venue names.
+        aliases = {
+            "98 port road": "adelaide entertainment centre",
+            "98 port rd": "adelaide entertainment centre",
+            "58 grote street": "her majesty s theatre",
+            "58 grote st": "her majesty s theatre",
+            "festival drive": "adelaide festival centre precinct",
+            "king william street": "king william street",
+        }
+        return aliases.get(value, value)
+
+    def performance_time(event):
+        value = str(event.get("datetime", ""))
+        # Midnight from the Tourism feed often means 'time unspecified',
+        # rather than an actual midnight performance.
+        match = re.search(r"T(\d{2}):(\d{2})", value)
+        if not match or match.group(0) == "T00:00":
+            return None
+        return match.group(1) + ":" + match.group(2)
+
+    def same_performance(tourism_event, official_event):
+        first = performance_time(tourism_event)
+        second = performance_time(official_event)
+        # If both sites specify different times, they may be separate
+        # performances; do not silently discard either listing.
+        return not (first and second and first != second)
+
+    def tourism_matches_official(tourism_event, official_event):
+        if str(tourism_event.get("datetime", ""))[:10] != str(
+            official_event.get("datetime", "")
+        )[:10]:
+            return False
+        if not same_performance(tourism_event, official_event):
+            return False
+
+        title = comparable_title(tourism_event.get("title", ""))
+        other = comparable_title(official_event.get("title", ""))
+        # Tourism may prepend the festival name to an individual show.
+        # Compare the specific activity, never the festival name alone.
+        festival_prefix = r"^ozasia festival(?: 20\d{2})? "
+        if re.match(festival_prefix, title):
+            activity = re.sub(festival_prefix, "", title).strip()
+            # Only strip the prefix for a sufficiently distinctive activity.
+            if len(activity) >= 12 and len(activity.split()) >= 2:
+                title = activity
+        if not title or not other:
+            return False
+
+        venue = comparable_venue(tourism_event.get("venue", ""))
+        official_venue = comparable_venue(official_event.get("venue", ""))
+        same_venue = bool(venue and official_venue and venue == official_venue)
+
+        # Explicitly confirmed festival activity with different wording.
+        if ("moon lantern" in title and "moon lantern" in other
+                and "lucky dumpling market" in title
+                and "lucky dumpling market" in other):
+            return True
+
+        similarity = SequenceMatcher(None, title, other).ratio()
+        # When venues are demonstrably the same, allow minor title edits.
+        if same_venue and (title == other or (
+            len(title) >= 14 and len(other) >= 14 and similarity >= 0.88
+        )):
+            return True
+
+        # Tourism often gives a street address instead of a venue name.
+        # Require a near-exact title if the venue cannot be confirmed.
+        if title == other and len(title) >= 12:
+            return True
+        if (len(title) >= 18 and len(other) >= 18
+                and similarity >= 0.94):
+            return True
+        return False
+
+    non_tourism = [
+        e for e in deduplicated_final_events
+        if e.get("source") != "South Australia Tourism Commission"
+    ]
+    tourism = [
+        e for e in deduplicated_final_events
+        if e.get("source") == "South Australia Tourism Commission"
+    ]
+    by_date = {}
+    for event in non_tourism:
+        by_date.setdefault(str(event.get("datetime", ""))[:10], []).append(event)
+
+    kept_tourism = []
+    tourism_duplicates = 0
+    for event in tourism:
+        same_day = by_date.get(str(event.get("datetime", ""))[:10], [])
+        if any(tourism_matches_official(event, original) for original in same_day):
+            tourism_duplicates += 1
+        else:
+            kept_tourism.append(event)
+
+    final_events = non_tourism + kept_tourism
+    print(f"Tourism duplicates excluded: {tourism_duplicates}")
 
     final_duplicates_removed = (
         before_final_dedup
