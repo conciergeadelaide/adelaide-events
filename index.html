@@ -116,15 +116,22 @@
                 <span id="event-count"></span>
             </div>
 
-            <button
+            <div class="results-actions"><div class="view-toggle"><button id="view-cards" class="active" type="button">Cards</button><button id="view-calendar" type="button">Calendar</button></div><button
                 id="clear-filters"
                 class="clear-button"
             >
                 Clear filters
-            </button>
+            </button></div>
 
         </section>
 
+
+        <section id="calendar-view" class="calendar-section hidden"><p class="calendar-intro">Major events, festivals and public rallies. For the complete listings, switch to Cards.</p>
+            <div class="calendar-toolbar"><button id="month-prev" type="button" aria-label="Previous month">‹</button><h3 id="month-title"></h3><button id="month-next" type="button" aria-label="Next month">›</button><button id="month-today" type="button">This month</button></div>
+            <div class="calendar-weekdays"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>
+            <div id="calendar-grid" class="calendar-grid"></div>
+            <div id="calendar-details" class="calendar-details hidden" aria-live="polite"></div>
+        </section>
 
         <section
             id="events"

@@ -2165,3 +2165,88 @@ def parse_south_australia_tourism(soup, source_url):
         raise RuntimeError("Tourism: no eligible Adelaide events parsed; preserving existing records")
     print(f"    Tourism: {len(urls)} links, {len(events)} eligible events, {failed} failed pages")
     return events
+
+
+# ============================================================
+# TICKETMASTER DISCOVERY API — ADELAIDE REGION
+# ============================================================
+
+def parse_ticketmaster_adelaide(api_key):
+    """Read official Ticketmaster Discovery API; never scrape checkout pages."""
+    from datetime import date, timedelta
+    from urllib.parse import urlparse
+    if not api_key:
+        print("Ticketmaster skipped: set TICKETMASTER_API_KEY first")
+        return []
+
+    session = requests.Session()
+    today = date.today()
+    results = []
+    seen_ids = set()
+    # Search a year ahead, 45 km from central Adelaide. Verify SA venue.
+    for page in range(20):
+        params = {
+            "apikey": api_key, "countryCode": "AU", "latlong": "-34.9285,138.6007",
+            "radius": 45, "unit": "km", "size": 200, "page": page,
+            "sort": "date,asc", "startDateTime": today.strftime("%Y-%m-%dT00:00:00Z"),
+            "endDateTime": (today + timedelta(days=366)).strftime("%Y-%m-%dT23:59:59Z"),
+        }
+        response = session.get("https://app.ticketmaster.com/discovery/v2/events.json", params=params, timeout=40)
+        response.raise_for_status()
+        data = response.json()
+        items = data.get("_embedded", {}).get("events", [])
+        for item in items:
+            event_id = item.get("id")
+            if not event_id or event_id in seen_ids:
+                continue
+            seen_ids.add(event_id)
+            venues = item.get("_embedded", {}).get("venues", [])
+            venue = venues[0] if venues else {}
+            state = (venue.get("state") or {}).get("stateCode", "").upper()
+            city = (venue.get("city") or {}).get("name", "")
+            # Reject clearly non-SA venues; API location radius is also applied.
+            if state and state != "SA":
+                continue
+            if not state and not city:
+                continue
+            name = (item.get("name") or "").strip()
+            venue_name = (venue.get("name") or "").strip()
+            dates = item.get("dates") or {}
+            start = dates.get("start") or {}
+            local_date = start.get("localDate")
+            if not (name and venue_name and local_date):
+                continue
+            local_time = start.get("localTime") or "00:00:00"
+            if len(local_time) == 5:
+                local_time += ":00"
+            dt = local_date + "T" + local_time
+            if local_date < today.isoformat():
+                continue
+            classifications = item.get("classifications") or []
+            genre = classifications[0] if classifications else {}
+            segment = ((genre.get("segment") or {}).get("name") or "").lower()
+            subgenre = ((genre.get("genre") or {}).get("name") or "").lower()
+            if "comedy" in subgenre or "comedy" in segment:
+                category = ["Comedy"]
+            elif "music" in segment:
+                category = ["Music"]
+            elif "sport" in segment:
+                category = ["Sport"]
+            elif "arts" in segment or "theatre" in segment:
+                category = ["Theatre"]
+            else:
+                category = categorise_event(name)
+            images = item.get("images") or []
+            images = [im for im in images if im.get("url") and im.get("width", 0) >= 400]
+            images.sort(key=lambda im: abs(im.get("ratio", "") == "16_9") * -1)
+            image = images[0]["url"] if images else ""
+            url = item.get("url") or ""
+            if urlparse(url).scheme not in ("http", "https"):
+                continue
+            results.append({"title": name, "venue": venue_name, "date": dt,
+                            "category": category, "image": image, "url": url})
+        pages = data.get("page") or {}
+        if not items or page + 1 >= pages.get("totalPages", 1):
+            break
+    print("Ticketmaster Adelaide events collected:", len(results))
+    return results

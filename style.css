@@ -345,7 +345,7 @@ text-align: right;
 
 @media (max-width: 1050px) {
 
-```
+
 .controls {
     grid-template-columns: repeat(2, 1fr);
 }
@@ -357,7 +357,7 @@ text-align: right;
 .events-grid {
     grid-template-columns: repeat(2, 1fr);
 }
-```
+
 
 }
 
@@ -365,7 +365,7 @@ text-align: right;
 
 @media (max-width: 650px) {
 
-```
+
 .header-inner {
     padding: 18px 20px;
 }
@@ -413,6 +413,41 @@ text-align: right;
 .footer-note {
     text-align: left;
 }
-```
+
 
 }
+
+/* MONTHLY CALENDAR */
+.results-actions {display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.view-toggle {display:flex;border:1px solid #e2ded6}
+.view-toggle button {background:white;border:0;padding:9px 16px;color:#27313a;cursor:pointer;font:inherit;font-size:12px}
+.view-toggle button.active {background:#17212b;color:white}
+.calendar-section {padding:18px;background:white;border:1px solid #e2ded6}
+.calendar-toolbar {display:flex;align-items:center;gap:12px;margin-bottom:15px}
+.calendar-toolbar h3 {font:normal 24px Georgia,serif;color:#17212b;margin:0;min-width:180px;text-align:center}
+.calendar-toolbar button {padding:7px 12px;border:1px solid #e2ded6;background:white;cursor:pointer;font:inherit}
+#month-today {margin-left:auto}
+.calendar-weekdays,.calendar-grid {display:grid;grid-template-columns:repeat(7,minmax(0,1fr))}
+.calendar-weekdays span {text-align:center;padding:9px 0;font-size:12px;font-weight:bold;color:#6d757b}
+.calendar-cell {min-width:0;min-height:124px;padding:7px;border:1px solid #e2ded6;margin:-1px 0 0 -1px}
+.calendar-empty {background:#f7f5f0}
+.calendar-today {background:#faf7ef}
+.calendar-selected {box-shadow:inset 0 0 0 2px #b08d57}
+.calendar-day-number {border:0;background:transparent;font:inherit;font-weight:bold;cursor:pointer;padding:2px 5px;margin-bottom:5px}
+.calendar-today .calendar-day-number {background:#17212b;color:white;border-radius:50%}
+.calendar-event {display:block;width:100%;background:#f0ede7;border:0;border-left:3px solid #b08d57;padding:4px 5px;margin:3px 0;font:inherit;font-size:11px;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:pointer}
+.calendar-more {border:0;background:transparent;color:#8c6d3d;font-size:11px;font-weight:bold;cursor:pointer;padding:4px 2px}
+.calendar-details {margin-top:20px;padding:20px;background:#f7f5f0;border:1px solid #e2ded6}
+.calendar-details h4 {margin:0 0 12px;font:normal 23px Georgia,serif}
+.calendar-detail {display:flex;align-items:center;justify-content:space-between;gap:15px;padding:12px 0;border-top:1px solid #e2ded6;font-size:13px}
+.calendar-detail p {margin:4px 0 0;color:#6d757b}
+.calendar-detail a {color:#17212b;white-space:nowrap}
+.calendar-section button:focus-visible,.view-toggle button:focus-visible {outline:2px solid #b08d57;outline-offset:2px}
+@media(max-width:750px){.results-header{flex-wrap:wrap}.calendar-section{padding:8px}.calendar-cell{min-height:75px;padding:3px}.calendar-event{font-size:9px;padding:3px}.calendar-more{font-size:10px}.calendar-toolbar h3{min-width:0;font-size:19px}.calendar-details{padding:12px}.calendar-detail{flex-direction:column;align-items:flex-start}}
+
+/* Spacious, curated monthly calendar */
+.calendar-cell {min-height:260px;padding:10px;}
+.calendar-event {white-space:normal;overflow:visible;text-overflow:clip;line-height:1.3;font-size:12px;padding:6px 7px;margin:5px 0;overflow-wrap:anywhere;}
+.calendar-intro {margin:0 0 15px;color:#6d757b;font-size:13px;}
+@media(max-width:1050px) {.calendar-cell {min-height:215px;padding:6px;} .calendar-event {font-size:10px;padding:5px 4px;}}
+@media(max-width:650px) {.calendar-cell {min-height:155px;padding:3px;} .calendar-event {font-size:9px;padding:3px 2px;line-height:1.2;} .calendar-more {font-size:9px;}}

@@ -1,4 +1,8 @@
 import json
+import re
+import sys
+from difflib import SequenceMatcher
+from datetime import datetime
 import os
 import shutil
 import requests
@@ -22,6 +26,7 @@ try:
         parse_adelaide_town_hall,
         parse_lion_arts_factory,
         parse_south_australia_tourism,
+        parse_ticketmaster_adelaide,
     )
 except ModuleNotFoundError:
     # Works when importing:
@@ -39,6 +44,7 @@ except ModuleNotFoundError:
         parse_adelaide_town_hall,
         parse_lion_arts_factory,
         parse_south_australia_tourism,
+        parse_ticketmaster_adelaide,
     )
 
 
@@ -271,6 +277,158 @@ def deduplicate_new_events(events):
     return result
 
 
+# ------------------------------------------------------------
+# Ticketmaster event-level filtering and source-aware matching
+# ------------------------------------------------------------
+
+def _venue_name(value):
+    name = re.sub(r"[^a-z0-9]+", " ", str(value).casefold()).strip()
+    aliases = {
+        "hindley st music hall": "hindley street music hall",
+        "immersive light and art ila": "immersive light and art",
+        "98 port rd": "adelaide entertainment centre",
+        "98 port road": "adelaide entertainment centre",
+        "the gov": "governor hindmarsh hotel",
+    }
+    return aliases.get(name, name)
+
+
+def _title_name(value):
+    name = str(value).casefold().replace("&", " and ")
+    name = re.sub(r"[^a-z0-9]+", " ", name)
+    return " ".join(name.split())
+
+
+def _date(event):
+    return str(event.get("datetime") or event.get("date") or "")[:10]
+
+
+def _time(event):
+    dt = str(event.get("datetime") or event.get("date") or "")
+    match = re.search(r"T(\d{2}:\d{2})", dt)
+    return match.group(1) if match and match.group(1) != "00:00" else None
+
+
+def _date_within(event, official):
+    date = _date(event)
+    start = _date(official)
+    end = str(official.get("end_datetime") or official.get("end_date") or "")[:10]
+    return bool(date and start and start <= date <= (end or start))
+
+
+def _similar_title(a, b):
+    first, second = _title_name(a), _title_name(b)
+    if not first or not second:
+        return False
+    if first == second:
+        return True
+    # Allow a short headliner title versus a longer official tour title,
+    # but only with a meaningful, whole-word prefix.
+    shorter, longer = sorted((first, second), key=len)
+    if len(shorter) >= 9 and len(shorter.split()) >= 2 and longer.startswith(shorter + " "):
+        return True
+    return (len(first) >= 12 and len(second) >= 12
+            and SequenceMatcher(None, first, second).ratio() >= 0.87)
+
+
+def _same_event(ticket, official):
+    if _venue_name(ticket.get("venue")) != _venue_name(official.get("venue")):
+        return False
+    if not _date_within(ticket, official):
+        return False
+    # Confirmed alternate ticketing titles at Hindley Street Music Hall.
+    # Match only the same artist/show on the same date; never merge dates.
+    ticket_title = _title_name(ticket.get("title"))
+    official_title = _title_name(official.get("title"))
+    known_same_show = (
+        _venue_name(ticket.get("venue")) == "hindley street music hall"
+        and (
+            (ticket_title.startswith("dizzee rascal ")
+             and official_title.startswith("dizzee rascal ")
+             and "we want bass" in ticket_title
+             and "we want bass" in official_title)
+            or (ticket_title.startswith("swim ")
+                and official_title.startswith("swim ")
+                and "live solo show" in ticket_title
+                and "live solo show" in official_title)
+        )
+    )
+    if not known_same_show and not _similar_title(ticket.get("title"), official.get("title")):
+        return False
+    # A date-range official exhibition represents all its ticketed sessions.
+    if str(official.get("end_datetime") or "")[:10] > _date(official):
+        return True
+    a, b = _time(ticket), _time(official)
+    # Different explicit times may be distinct same-day performances.
+    return not (a and b and a != b)
+
+
+def _ticketmaster_consolidation(events):
+    """Convert ticket options to events and omit a known VIP-only package."""
+    result = []
+    grand_final = []
+    tennis = []
+    for event in events:
+        title = str(event.get("title", ""))
+        venue = _venue_name(event.get("venue"))
+        lower = title.casefold()
+        if venue == "adelaide street circuit" and (
+            "bp adelaide grand final" in lower or "bp adl gf" in lower
+        ):
+            grand_final.append(event)
+            continue
+        if venue == "adelaide street circuit" and "the jungle zone" in lower:
+            continue
+        if venue == "the drive" and "adelaide international 2027" in lower:
+            tennis.append(event)
+            continue
+        result.append(event)
+    if grand_final:
+        exemplar = next((x for x in grand_final if "4-day" in x.get("title", "").casefold()), grand_final[0])
+        event = dict(exemplar)
+        event.update(title="bp Adelaide Grand Final", venue="Adelaide Street Circuit",
+                     datetime="2026-11-26T00:00:00", end_datetime="2026-11-29T23:59:59",
+                     category=["Sport"],
+                     link="https://www.ticketmaster.com.au/AdelaideGrandFinal")
+        result.append(event)
+    if tennis:
+        # Derive the observed span; do not invent dates beyond the API results.
+        dates = sorted({_date(x) for x in tennis if _date(x)})
+        if dates:
+            event = dict(tennis[0])
+            event.update(title="Adelaide International 2027", venue="The Drive",
+                         datetime=dates[0] + "T00:00:00",
+                         end_datetime=dates[-1] + "T23:59:59", category=["Sport"])
+            result.append(event)
+    return result, len(grand_final), len(tennis)
+
+
+def filter_ticketmaster_events(all_events):
+    """Prefer existing/updated venue records; keep separate dated shows."""
+    official = [e for e in all_events if e.get("source") not in ("Ticketmaster Adelaide", "South Australia Tourism Commission")]
+    tickets = [e for e in all_events if e.get("source") == "Ticketmaster Adelaide"]
+    tickets, grand_count, tennis_count = _ticketmaster_consolidation(tickets)
+    by_venue = {}
+    for event in official:
+        by_venue.setdefault(_venue_name(event.get("venue")), []).append(event)
+    kept = []
+    suppressed = 0
+    for ticket in tickets:
+        candidates = by_venue.get(_venue_name(ticket.get("venue")), [])
+        if any(_same_event(ticket, other) for other in candidates):
+            suppressed += 1
+        else:
+            kept.append(ticket)
+    print(f"Ticketmaster: {suppressed} official-source overlaps excluded")
+    print(f"Ticketmaster: {grand_count} Grand Final ticket options -> "
+          f"{1 if grand_count else 0} event")
+    print(f"Ticketmaster: {tennis_count} tennis sessions -> "
+          f"{1 if tennis_count else 0} tournament")
+    print(f"Ticketmaster: {len(kept)} listings retained after filtering")
+    tourism = [e for e in all_events if e.get("source") == "South Australia Tourism Commission"]
+    return official + kept + tourism
+
+
 def fetch_page(url):
 
     try:
@@ -300,6 +458,12 @@ def scrape_source(source):
 
     name = source["name"]
     url = source["url"]
+
+    # ----------------------------------------
+    # Ticketmaster Adelaide (official API)
+    # ----------------------------------------
+    if name == "Ticketmaster Adelaide":
+        return parse_ticketmaster_adelaide(os.environ.get("TICKETMASTER_API_KEY", ""))
 
     # ----------------------------------------
     # South Australia Tourism Commission
@@ -546,6 +710,102 @@ def source_is_safe_to_replace(
     return fresh_count >= minimum_required
 
 
+def write_preview_report(existing_events, proposed_events):
+    """Write a read-only-to-database comparison for human review."""
+    from collections import defaultdict
+
+    def identity(event):
+        return event_key(event)
+
+    def describe(event):
+        return {
+            "title": event.get("title", ""),
+            "venue": event.get("venue", ""),
+            "datetime": event.get("datetime", ""),
+            "end_datetime": event.get("end_datetime", ""),
+            "source": event.get("source", ""),
+            "link": event.get("link", ""),
+        }
+
+    old_by_key = defaultdict(list)
+    new_by_key = defaultdict(list)
+    for event in existing_events:
+        old_by_key[identity(event)].append(event)
+    for event in proposed_events:
+        new_by_key[identity(event)].append(event)
+
+    added, removed, updated, unchanged = [], [], [], 0
+    for key in sorted(set(old_by_key) | set(new_by_key)):
+        old_items = old_by_key[key]
+        new_items = new_by_key[key]
+        common = min(len(old_items), len(new_items))
+        for index in range(common):
+            old, new = old_items[index], new_items[index]
+            if old == new:
+                unchanged += 1
+            else:
+                updated.append({"before": describe(old), "after": describe(new)})
+        removed.extend(describe(event) for event in old_items[common:])
+        added.extend(describe(event) for event in new_items[common:])
+
+    # Audit possible Ticketmaster/official overlaps without deleting them.
+    # This is intentionally review-only: separate shows must remain intact.
+    official = [e for e in proposed_events if e.get("source") not in
+                ("Ticketmaster Adelaide", "South Australia Tourism Commission")]
+    tickets = [e for e in proposed_events if e.get("source") == "Ticketmaster Adelaide"]
+    possible_overlaps = []
+    for ticket in tickets:
+        for venue_event in official:
+            if _venue_name(ticket.get("venue")) != _venue_name(venue_event.get("venue")):
+                continue
+            if not _date_within(ticket, venue_event):
+                continue
+            ticket_time, official_time = _time(ticket), _time(venue_event)
+            if ticket_time and official_time and ticket_time != official_time:
+                continue
+            a = _title_name(ticket.get("title"))
+            b = _title_name(venue_event.get("title"))
+            if not a or not b:
+                continue
+            words_a, words_b = set(a.split()), set(b.split())
+            shared = words_a & words_b
+            meaningful = {w for w in shared if len(w) >= 4 and w not in
+                          {"tour", "live", "with", "show", "music", "2026", "2027", "adelaide"}}
+            score = SequenceMatcher(None, a, b).ratio()
+            if score >= 0.52 or len(meaningful) >= 2:
+                possible_overlaps.append({
+                    "ticketmaster": describe(ticket),
+                    "official": describe(venue_event),
+                    "title_similarity": round(score, 3),
+                    "review_only": True,
+                })
+
+    report = {
+        "note": "Exact title + venue + date comparison. Renamed or re-venued events may appear in both added and removed; review manually before saving.",
+        "existing_total": len(existing_events),
+        "proposed_total": len(proposed_events),
+        "unchanged_count": unchanged,
+        "updated_count": len(updated),
+        "added_count": len(added),
+        "removed_count": len(removed),
+        "possible_ticketmaster_overlaps": possible_overlaps,
+        "possible_ticketmaster_overlaps_count": len(possible_overlaps),
+        "removed": removed,
+        "added": added,
+        "updated": updated,
+    }
+    path = os.path.join(BASE_DIR, "events-preview-report.json")
+    with open(path, "w", encoding="utf-8") as handle:
+        json.dump(report, handle, ensure_ascii=False, indent=2)
+
+    print("\nPREVIEW REPORT (exact title/venue/date comparison)")
+    print(f"Unchanged: {unchanged} | Updated: {len(updated)} | Added: {len(added)} | Removed: {len(removed)}")
+    print("Renamed or re-venued events can appear as both added and removed.")
+    print(f"Possible Ticketmaster overlaps to review: {len(possible_overlaps)}")
+    print(f"Report saved to: {path}")
+    print("events.json was NOT changed.")
+
+
 def main():
 
     print("========================================")
@@ -765,8 +1025,8 @@ def main():
     deduplicated_final_events = []
     final_seen = set()
 
-    # Fresh records first.
-    for event in all_new_events:
+    # Prefer official fresh records to Ticketmaster for identical keys.
+    for event in sorted(all_new_events, key=lambda e: e.get("source") == "Ticketmaster Adelaide"):
 
         key = event_key(event)
 
@@ -790,6 +1050,8 @@ def main():
         deduplicated_final_events.append(
             event
         )
+
+    deduplicated_final_events = filter_ticketmaster_events(deduplicated_final_events)
 
     # Tourism is an aggregator. Compare it against EVERY non-Tourism
     # source, including any sources added in the future. Prefer the
@@ -995,6 +1257,15 @@ def main():
     )
 
     print()
+
+    if "--preview-report" in sys.argv:
+        write_preview_report(existing_events, final_events)
+        print("DRY RUN: events.json was NOT changed.")
+        return
+
+    if "--dry-run" in sys.argv:
+        print("DRY RUN: events.json was NOT changed.")
+        return
 
     save_events(
         final_events

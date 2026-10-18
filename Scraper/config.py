@@ -180,3 +180,5 @@ SOURCES = [
         "url": "https://unisa.edu.au/connect/hawke-centre/kerry-packer-civic-gallery/"
     }
 ]
+# Ticketmaster Adelaide listings (requires TICKETMASTER_API_KEY environment variable)
+SOURCES.append({"name": "Ticketmaster Adelaide", "url": "https://app.ticketmaster.com/discovery/v2/events.json"})

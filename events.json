@@ -269,66 +269,6 @@
     "source": "Adelaide Festival Centre"
   },
   {
-    "title": "I'll Sleep When I Die",
-    "venue": "The Breakout at The Mill, Adelaide",
-    "datetime": "2026-10-15T00:00:00",
-    "end_datetime": "2026-10-16T00:00:00",
-    "category": [
-      "Theatre"
-    ],
-    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/08-Aug/Ill-Sleep-When-I-Die/1136-x-994-Website-Images-1.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
-    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/ill-sleep-when-i-die",
-    "source": "Adelaide Festival Centre"
-  },
-  {
-    "title": "Benjamin Clementine",
-    "venue": "Dunstan Playhouse",
-    "datetime": "2026-10-15T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/10-Oct/Benjamin-Clementine/benjamin-clementine-afc-web-1136x994.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
-    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/benjamin-clementine",
-    "source": "Adelaide Festival Centre"
-  },
-  {
-    "title": "Regurgitator",
-    "venue": "OzAsia Festival Stage at Lucky Dumpling Market",
-    "datetime": "2026-10-16T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/10-Oct/Regurgitator/Regurgitator-1136-x-994-Website-Images.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
-    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/regurgitator",
-    "source": "Adelaide Festival Centre"
-  },
-  {
-    "title": "Hyoshi in Counterpoint",
-    "venue": "OzAsia Festival Stage at Lucky Dumpling Market",
-    "datetime": "2026-10-17T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/08-Aug/Hyoshi-in-Counterpoint/Hyoshi_1136-x-994-Website-Images.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
-    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/hyoshi",
-    "source": "Adelaide Festival Centre"
-  },
-  {
-    "title": "Carmen",
-    "venue": "Her Majesty's Theatre",
-    "datetime": "2026-10-17T00:00:00",
-    "end_datetime": "2026-10-24T00:00:00",
-    "category": [
-      "Theatre"
-    ],
-    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/10-Oct/Carmen/sosa-afc-carmen-opera-2026-1136x994px.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
-    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/carmen-2026",
-    "source": "Adelaide Festival Centre"
-  },
-  {
     "title": "JADE Ensemble",
     "venue": "OzAsia Festival Stage at Lucky Dumpling Market",
     "datetime": "2026-10-18T00:00:00",
@@ -338,6 +278,18 @@
     ],
     "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/10-Oct/JADE-Ensemble/JADE-ROCKS_credit-Darren-Thomas_1136x994.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
     "link": "https://www.adelaidefestivalcentre.com.au/whats-on/jade-ensemble-live-kyo-wa-harmonic-resonance",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "Carmen",
+    "venue": "Her Majesty's Theatre",
+    "datetime": "2026-10-20T00:00:00",
+    "end_datetime": "2026-10-24T00:00:00",
+    "category": [
+      "Theatre"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/10-Oct/Carmen/sosa-afc-carmen-opera-2026-1136x994px.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/carmen-2026",
     "source": "Adelaide Festival Centre"
   },
   {
@@ -607,18 +559,6 @@
     "source": "Adelaide Festival Centre"
   },
   {
-    "title": "An Evening with Mary Beard",
-    "venue": "Her Majesty's Theatre",
-    "datetime": "2026-11-20T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Talks & Conferences"
-    ],
-    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/11-Nov/An-Evening-with-Mary-Beard/MaryBeard_Feature-Image_1136x994.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
-    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/an-evening-with-mary-beard",
-    "source": "Adelaide Festival Centre"
-  },
-  {
     "title": "The Heartbreak Choir",
     "venue": "Dunstan Playhouse",
     "datetime": "2026-11-20T00:00:00",
@@ -628,6 +568,18 @@
     ],
     "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/11-Nov/The-Heartbreak-Choir/heartbreak-choir-stcsa-feature-2025.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
     "link": "https://www.adelaidefestivalcentre.com.au/whats-on/the-heartbreak-choir",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "An Evening with Mary Beard",
+    "venue": "Her Majesty's Theatre",
+    "datetime": "2026-11-20T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Talks & Conferences"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/11-Nov/An-Evening-with-Mary-Beard/MaryBeard_Feature-Image_1136x994.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/an-evening-with-mary-beard",
     "source": "Adelaide Festival Centre"
   },
   {
@@ -658,7 +610,7 @@
     "title": "The Nutcracker",
     "venue": "Her Majesty's Theatre",
     "datetime": "2026-11-26T00:00:00",
-    "end_datetime": "2026-11-28T00:00:00",
+    "end_datetime": "2026-11-29T00:00:00",
     "category": [
       "Theatre",
       "Family"
@@ -984,30 +936,6 @@
     "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2027/09-Sep/Cinderella/cinderella_the_australian_ballet_adelaide_festival_centre_season_2027_1136x994.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
     "link": "https://www.adelaidefestivalcentre.com.au/whats-on/cinderella-2026",
     "source": "Adelaide Festival Centre"
-  },
-  {
-    "title": "TISM",
-    "venue": "Hindley Street Music Hall",
-    "datetime": "2026-10-16T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://dynamicmedia.livenationinternational.com/o/c/z/463384de-7ab8-4b6e-bcc3-03cb8c829c2f.png?format=webp&width=3840&quality=75",
-    "link": "https://www.hindleymusichall.com.au/all-events/tism-tickets-ae1674456",
-    "source": "Hindley St Music Hall"
-  },
-  {
-    "title": "The Dreggs “Heading Home” Tour",
-    "venue": "Hindley Street Music Hall",
-    "datetime": "2026-10-17T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://dynamicmedia.livenationinternational.com/u/o/u/e57cde14-2d1d-40d4-a10d-e5d1479b5347.png?format=webp&width=3840&quality=75",
-    "link": "https://www.hindleymusichall.com.au/all-events/the-dreggs-tickets-ae1402801",
-    "source": "Hindley St Music Hall"
   },
   {
     "title": "Old Mervs",
@@ -1404,54 +1332,6 @@
     "image": "https://networksites.livenationinternational.com/networksites/rn0nzhwx/will-sparks-banner.png?format=webp&width=3840&quality=75",
     "link": "https://www.hindleymusichall.com.au/all-events/will-sparks-tickets-ae797894",
     "source": "Hindley St Music Hall"
-  },
-  {
-    "title": "Hans Zimmer",
-    "venue": "Adelaide Entertainment Centre",
-    "datetime": "2026-10-15T19:30:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/05/HansZimmer26-AEC-1050x520-1.jpg",
-    "link": "https://www.adelaideentertainmentcentre.com.au/events/hans-zimmer/",
-    "source": "Adelaide Entertainment Centre"
-  },
-  {
-    "title": "Sonu Nigam",
-    "venue": "Adelaide Entertainment Centre",
-    "datetime": "2026-10-16T19:30:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/03/1050w-x-520h.jpg",
-    "link": "https://www.adelaideentertainmentcentre.com.au/events/sonu-nigam/",
-    "source": "Adelaide Entertainment Centre"
-  },
-  {
-    "title": "Lorna Shore",
-    "venue": "Adelaide Entertainment Centre",
-    "datetime": "2026-10-17T19:15:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/05/MobileBanner_1050x520.jpg",
-    "link": "https://www.adelaideentertainmentcentre.com.au/events/lorna-shore/",
-    "source": "Adelaide Entertainment Centre"
-  },
-  {
-    "title": "Hindley Street Country Club",
-    "venue": "Adelaide Entertainment Centre",
-    "datetime": "2026-10-17T19:30:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2025/09/1050-x-520.jpg",
-    "link": "https://www.adelaideentertainmentcentre.com.au/events/hindley-street-country-club-4/",
-    "source": "Adelaide Entertainment Centre"
   },
   {
     "title": "Zara Larsson",
@@ -2246,18 +2126,6 @@
     "source": "Coopers Stadium"
   },
   {
-    "title": "Nathan Evans and The Saint Phnx Band's 'Angels' Share' Australian Tour | Adelaide",
-    "venue": "Lion Arts Factory",
-    "datetime": "2026-10-17T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://www.moshtix.com.au/uploads/d7d13265-a8e8-4193-812d-cde3d15d6316xoriginal",
-    "link": "https://www.moshtix.com.au/v2/event/nathan-evans-and-the-saint-phnx-bands-angels-share-australian-tour-adelaide/187580?ref=RSS_LAF_RSS&skin=LAF20",
-    "source": "Lion Arts Factory"
-  },
-  {
     "title": "Bob Evans - Suburban Songbook 20th Anniversary Tour",
     "venue": "Lion Arts Factory",
     "datetime": "2026-10-22T00:00:00",
@@ -2813,7 +2681,7 @@
   {
     "title": "Daryl Austin: The Long View",
     "venue": "Adelaide Town Hall",
-    "datetime": "2026-10-16T00:00:00",
+    "datetime": "2026-10-19T00:00:00",
     "end_datetime": "",
     "category": [
       "Arts & Culture"
@@ -3063,6 +2931,882 @@
     "source": "Adelaide Town Hall"
   },
   {
+    "title": "Port Adelaide v Collingwood - 2026 NAB AFLW Season 11",
+    "venue": "Alberton Oval",
+    "datetime": "2026-10-23T18:35:00",
+    "end_datetime": "",
+    "category": [
+      "Sport"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/245/aab048fa-f0a7-4dd0-9b72-e3de4590b245_RETINA_LANDSCAPE_16_9.jpg",
+    "link": "https://www.ticketmaster.com.au/port-adelaide-v-collingwood-2026-nab-alberton-23-10-2026/event/250064E9C6617BB2",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "Don McLean American Pie 55th Anniversary Tour",
+    "venue": "Thebarton Theatre",
+    "datetime": "2026-10-23T19:30:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/011/aa46e2fb-6059-4925-9f58-264c1b154011_SOURCE",
+    "link": "https://www.ticketmaster.com.au/don-mclean-american-pie-55th-anniversary-torrensville-23-10-2026/event/13006477C04D556A",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "Inhibit & The Collective present TURNO (UK)",
+    "venue": "149 Hindley",
+    "datetime": "2026-10-23T21:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/c/df8/81eadad8-4449-412e-a2b1-3d8bbb78edf8_106181_RETINA_PORTRAIT_16_9.jpg",
+    "link": "https://www.moshtix.com.au/v2/event/inhibit-the-collective-present-turno-uk-/199746",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "Greg Davies: Full Fat Legend",
+    "venue": "Thebarton Theatre",
+    "datetime": "2026-10-24T20:00:00",
+    "end_datetime": "",
+    "category": [
+      "Comedy"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/9e9/ce8ea1f3-1f2a-4f39-a965-03d01482a9e9_RETINA_LANDSCAPE_16_9.jpg",
+    "link": "https://www.ticketmaster.com.au/greg-davies-full-fat-legend-torrensville-24-10-2026/event/13006457860C49A3",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "Khan Saab",
+    "venue": "Hindley St Music Hall",
+    "datetime": "2026-10-25T18:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/80d/6e4449b7-1d8d-4c96-a6e9-01970818380d_RETINA_PORTRAIT_16_9.jpg",
+    "link": "https://www.ticketmaster.com.au/khan-saab-adelaide-25-10-2026/event/2500653E86822DA8",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "Nils Hoffmann @ Divide / Everlight Album Tour",
+    "venue": "149 Hindley",
+    "datetime": "2026-10-30T22:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/044/b4e6353c-276a-4f4d-b260-e93d73131044_RETINA_PORTRAIT_16_9.jpg",
+    "link": "https://www.moshtix.com.au/v2/event/nils-hoffmann-divide-everlight-album-tour/199209",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "When Chai Met Toast - Joy Rooms Tour - Australia 2026",
+    "venue": "The Ed Castle Hotel",
+    "datetime": "2026-10-31T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/84b/12d19253-c753-4387-b392-ec404e72284b_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+    "link": "https://www.moshtix.com.au/v2/event/when-chai-met-toast-joy-rooms-tour-australia-2026/196110",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "Adelaide Crows v Melbourne - 2026 NAB AFLW Season 11",
+    "venue": "Unley Oval",
+    "datetime": "2026-11-01T14:35:00",
+    "end_datetime": "",
+    "category": [
+      "Sport"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/8e6/75e83eff-38e4-4228-98e1-4598a51b88e6_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+    "link": "https://www.ticketmaster.com.au/adelaide-crows-v-melbourne-2026-nab-unley-01-11-2026/event/130064E78B571862",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "PLAIN WHITE T'S TOUR 2026",
+    "venue": "Lion Arts Factory",
+    "datetime": "2026-11-01T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/73c/2671bc9a-0b3b-4026-b917-9fe7a66f073c_RETINA_LANDSCAPE_16_9.jpg",
+    "link": "https://www.moshtix.com.au/v2/event/plain-white-t-s-tour-2026/196658",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "Dream on Dreamer - Hope/Heartbound Revival Tour (All Ages)",
+    "venue": "UniBar Adelaide",
+    "datetime": "2026-11-01T19:30:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/c/fbc/b293c0ad-c904-4215-bc59-8d7f2414dfbc_106141_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+    "link": "https://www.moshtix.com.au/v2/event/dream-on-dreamer-hope-heartbound-revival-tour-all-ages-/200081",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "The Sweet (UK) - The Final Blitz Tour",
+    "venue": "Thebarton Theatre",
+    "datetime": "2026-11-05T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/f0d/f2fbfbaf-48b5-4f09-9c6d-17210fdd5f0d_RETINA_PORTRAIT_16_9.jpg",
+    "link": "https://www.ticketmaster.com.au/the-sweet-uk-the-final-blitz-torrensville-05-11-2026/event/13006481A5DF4EAB",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "Party Dozen - 21 Bum Salute Album Tour",
+    "venue": "The Ed Castle Hotel",
+    "datetime": "2026-11-05T19:30:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/4cd/4e5357fb-19cc-456f-97a4-45417ae444cd_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+    "link": "https://www.moshtix.com.au/v2/event/party-dozen-21-bum-salute-album-tour/200117",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "Northlane 'The Anemoia Experience' 2026",
+    "venue": "Thebarton Theatre",
+    "datetime": "2026-11-08T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/6fa/573ccb86-f0c1-458e-bdb8-18e7c13666fa_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+    "link": "https://www.ticketmaster.com.au/northlane-the-anemoia-experience-2026-torrensville-08-11-2026/event/130064FFC3916FE1",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "Jenny & Joel Creasey",
+    "venue": "Norwood Concert Hall",
+    "datetime": "2026-11-08T20:00:00",
+    "end_datetime": "",
+    "category": [
+      "Comedy"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/db2/24e1ab5e-09b7-45fc-8c56-e2a9e1061db2_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+    "link": "https://www.ticketmaster.com.au/jenny-joel-creasey-norwood-08-11-2026/event/130064FDCE4D7609",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "The Bootleg Beatles and their Orchestra In Concert",
+    "venue": "Thebarton Theatre",
+    "datetime": "2026-11-10T19:30:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/3fb/bcffc8c6-1c1b-4b5d-af2e-89f2803c13fb_SOURCE",
+    "link": "https://www.ticketmaster.com.au/the-bootleg-beatles-and-their-orchestra-torrensville-10-11-2026/event/130062DAFB1D3899",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "Des Bishop",
+    "venue": "Norwood Concert Hall",
+    "datetime": "2026-11-12T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Comedy"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/c2c/4a6a3dc6-002d-440f-ad3e-86fc71697c2c_RETINA_LANDSCAPE_16_9.jpg",
+    "link": "https://www.ticketmaster.com.au/des-bishop-norwood-12-11-2026/event/1300643EAD27908F",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "Richard Dawkins - 50 Years of The Selfish Gene",
+    "venue": "Thebarton Theatre",
+    "datetime": "2026-11-13T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Theatre"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/d64/7ab10082-ed44-42aa-991a-88746ad81d64_SOURCE",
+    "link": "https://www.ticketmaster.com.au/richard-dawkins-50-years-of-the-torrensville-13-11-2026/event/13006477A6D3377A",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "2026 Red Hot Summer Tour - AUSTRALIAN CRAWL",
+    "venue": "Glenelg Beach",
+    "datetime": "2026-11-15T12:30:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/bf5/fedee5f0-3b2d-4fd1-baff-358698739bf5_RETINA_LANDSCAPE_16_9.jpg",
+    "link": "https://www.ticketmaster.com.au/2026-red-hot-summer-tour-australian-glenelg-15-11-2026/event/130064C5D335952D",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "Creedence Clearwater Collective",
+    "venue": "Norwood Concert Hall",
+    "datetime": "2026-11-21T20:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/ce1/41b86c8f-2eb5-4735-8274-21e3123c9ce1_RETINA_PORTRAIT_16_9.jpg",
+    "link": "https://www.ticketmaster.com.au/creedence-clearwater-collective-norwood-21-11-2026/event/1300637293CB6041",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "MORTIIS + NYTT LAND + TiR - Southern Ritual",
+    "venue": "The Ed Castle Hotel",
+    "datetime": "2026-11-22T19:30:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/2ba/4d70d0a6-2607-4388-ab5f-25a9694452ba_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+    "link": "https://www.moshtix.com.au/v2/event/mortiis-nytt-land-tir-southern-ritual/181171",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "SK FEST 2026 Adelaide",
+    "venue": "Hindley St Music Hall",
+    "datetime": "2026-11-25T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/c/fbc/b293c0ad-c904-4215-bc59-8d7f2414dfbc_106141_RETINA_LANDSCAPE_16_9.jpg",
+    "link": "https://www.moshtix.com.au/v2/event/sk-fest-2026-adelaide/197760",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "Dan and Phil: Hard Launch World Tour",
+    "venue": "Thebarton Theatre",
+    "datetime": "2026-11-25T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Comedy"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/a4e/3969185d-ff77-4789-bdf0-740521060a4e_RETINA_PORTRAIT_16_9.jpg",
+    "link": "https://www.ticketmaster.com.au/dan-and-phil-hard-launch-world-torrensville-25-11-2026/event/130064D3EABD87A8",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "ANN WILSON & TRIPSITTER - The Voice Of Heart",
+    "venue": "Thebarton Theatre",
+    "datetime": "2026-11-26T18:30:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/06a/25ae514d-4ef2-4299-9a59-ed6f5a1d506a_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+    "link": "https://www.ticketmaster.com.au/ann-wilson-tripsitter-the-voice-of-torrensville-26-11-2026/event/130064FD97DC383E",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "The Church - A Psychedelic Symphony with The George Ellis Orchestra",
+    "venue": "Thebarton Theatre",
+    "datetime": "2026-11-28T19:30:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/305/f700e5c5-ef1d-4cc0-aad7-e53370549305_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+    "link": "https://www.ticketmaster.com.au/the-church-a-psychedelic-symphony-with-torrensville-28-11-2026/event/130064A4D64664BA",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "SUNNY LEONE AUSTRALIA TOUR - 2026",
+    "venue": "Thebarton Theatre",
+    "datetime": "2026-11-29T17:30:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/b0f/28198142-75fe-4775-97f0-bbca3956eb0f_RETINA_PORTRAIT_16_9.jpg",
+    "link": "https://www.ticketmaster.com.au/sunny-leone-australia-tour-2026-torrensville-29-11-2026/event/1300652BB27B7701",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "A Perfect Circle",
+    "venue": "The Drive",
+    "datetime": "2026-12-04T19:45:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/e9f/43342585-439b-4045-89ca-327847ed4e9f_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+    "link": "https://www.ticketmaster.com.au/a-perfect-circle-adelaide-04-12-2026/event/2500646BEE0E6D51",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "Zarna Garg: The Million Dollar Excuses Tour",
+    "venue": "Norwood Concert Hall",
+    "datetime": "2026-12-05T16:00:00",
+    "end_datetime": "",
+    "category": [
+      "Comedy"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/5c2/8c540982-ef2b-4cc2-8deb-a8235e6de5c2_TABLET_LANDSCAPE_16_9.jpg",
+    "link": "https://www.ticketmaster.com.au/zarna-garg-the-million-dollar-excuses-norwood-05-12-2026/event/1300652A84BD24BF",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "An Evening with Cat Power",
+    "venue": "Hindley St Music Hall",
+    "datetime": "2026-12-05T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/0cf/cd61e66f-cfd9-4afa-8901-20cdd39f00cf_SOURCE",
+    "link": "https://www.ticketmaster.com.au/an-evening-with-cat-power-adelaide-05-12-2026/event/250064C8EDB7BDC5",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "The Dandy Warhols",
+    "venue": "Thebarton Theatre",
+    "datetime": "2026-12-05T19:30:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/830/dd19ac02-2d76-434f-8782-299064952830_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+    "link": "https://www.ticketmaster.com.au/the-dandy-warhols-torrensville-05-12-2026/event/13006512D1C15D5C",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "Spacey Jane | Heading Back Down Under Australian Tour",
+    "venue": "The Drive",
+    "datetime": "2026-12-06T19:15:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/91d/beb66a26-d09c-4a50-a8df-d1241ec8991d_RETINA_PORTRAIT_16_9.jpg",
+    "link": "https://www.ticketmaster.com.au/spacey-jane-heading-back-down-under-adelaide-06-12-2026/event/250064ABC7EF2D19",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "Nepathya-Live in Adelaide 2026",
+    "venue": "Hindley St Music Hall",
+    "datetime": "2026-12-07T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/1ea/8f9aacc7-7b5a-4f01-adcd-461e008a01ea_RETINA_LANDSCAPE_16_9.jpg",
+    "link": "https://www.moshtix.com.au/v2/event/nepathya-live-in-adelaide-2026/200900",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "Queens of the Stone Age",
+    "venue": "The Drive",
+    "datetime": "2026-12-08T18:35:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/ade/41dae045-5042-4874-9c95-2a1a20dbeade_SOURCE",
+    "link": "https://www.ticketmaster.com.au/queens-of-the-stone-age-adelaide-08-12-2026/event/250064E9A45253E9",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "MINISTRY 'Farewell Australia'",
+    "venue": "Hindley St Music Hall",
+    "datetime": "2026-12-10T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/7cb/e270fe79-90d2-437a-a06b-603cabf557cb_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+    "link": "https://www.moshtix.com.au/v2/event/ministry-farewell-australia-/199954",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "The Australian Bee Gees",
+    "venue": "Thebarton Theatre",
+    "datetime": "2026-12-11T20:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/68d/7c72291e-be23-4e28-b2a5-278df7a0d68d_RETINA_PORTRAIT_16_9.jpg",
+    "link": "https://www.ticketmaster.com.au/the-australian-bee-gees-torrensville-11-12-2026/event/130064E6B8403FD2",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "HYBRID THEORY The Linkin Park Tribute Show (Portugal)",
+    "venue": "Thebarton Theatre",
+    "datetime": "2026-12-13T19:30:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/9b0/55db3606-5962-4128-b71c-3d660c4809b0_TABLET_LANDSCAPE_16_9.jpg",
+    "link": "https://www.ticketmaster.com.au/hybrid-theory-the-linkin-park-tribute-torrensville-13-12-2026/event/130064AF91B33DAD",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "Hindley Hall Pass",
+    "venue": "Hindley St Music Hall",
+    "datetime": "2026-12-31T19:30:00",
+    "end_datetime": "",
+    "category": [
+      "Other"
+    ],
+    "image": "https://s1.ticketm.net/dam/c/c09/cbee274e-eb99-4431-bfb0-21dee7684c09_105321_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+    "link": "https://www.ticketmaster.com.au/hindley-hall-pass-adelaide-31-12-2026/event/2500637BD6F6A1E8",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "Adelaide Rodeo",
+    "venue": "Adelaide Showground",
+    "datetime": "2027-01-08T16:00:00",
+    "end_datetime": "",
+    "category": [
+      "Sport"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/0a1/d7421e42-44aa-4cf7-a5c5-ccde2c74c0a1_SOURCE",
+    "link": "https://www.universe.com/events/adelaide-rodeo-tickets-23DVN0?ref=ticketmaster",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "Start Making Sense (Talking Heads Tribute) (USA)",
+    "venue": "The Gov",
+    "datetime": "2027-01-20T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/c37/d01be733-90b2-4fc8-a4df-3bb53e3ebc37_998451_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+    "link": "https://www.moshtix.com.au/v2/event/start-making-sense-talking-heads-tribute-usa-/198448",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "Troy Hawke - Never Stop, Never Change!",
+    "venue": "Thebarton Theatre",
+    "datetime": "2027-01-21T19:30:00",
+    "end_datetime": "",
+    "category": [
+      "Comedy"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/9b5/91296920-e6ce-4f3c-a09f-d1f6ec9e19b5_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+    "link": "https://www.ticketmaster.com.au/troy-hawke-never-stop-never-change-torrensville-21-01-2027/event/130064BBD54182CD",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "Reunion Festival",
+    "venue": "The Drive",
+    "datetime": "2027-01-23T14:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/312/2f3e005f-605a-4976-bd61-2581c9eaa312_RETINA_LANDSCAPE_16_9.jpg",
+    "link": "https://www.ticketmaster.com.au/reunion-festival-adelaide-23-01-2027/event/25006514CABE63D1",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "Beartooth: Pure Ecstasy World Tour - Australia",
+    "venue": "Thebarton Theatre",
+    "datetime": "2027-01-26T19:15:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/9bd/0e38e99a-8b54-494f-bfae-0c7a449c59bd_RETINA_PORTRAIT_16_9.jpg",
+    "link": "https://www.ticketmaster.com.au/beartooth-pure-ecstasy-world-tour-australia-torrensville-26-01-2027/event/130064AFC21C848C",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "An Evening with Lee Asher",
+    "venue": "Thebarton Theatre",
+    "datetime": "2027-01-27T19:30:00",
+    "end_datetime": "",
+    "category": [
+      "Other"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/b72/e95aa221-4566-4c58-80ed-22f2077e2b72_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+    "link": "https://www.ticketmaster.com.au/an-evening-with-lee-asher-torrensville-27-01-2027/event/13006539E495FC6F",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "Froth and Fury Fest 2027",
+    "venue": "Adelaide Showground",
+    "datetime": "2027-01-30T10:30:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/c92/384b9607-16a3-4e62-b481-8a67c8a4ac92_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+    "link": "https://www.moshtix.com.au/v2/event/froth-and-fury-fest-2027/197011",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "WILLIAM CRIGHTON & BEANS ON TOAST - Wild Folk'n Bush Psych tour",
+    "venue": "The Ed Castle Hotel",
+    "datetime": "2027-01-30T20:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/c/ab4/6367448e-7474-4650-bd2d-02a8f7166ab4_106161_RETINA_PORTRAIT_16_9.jpg",
+    "link": "https://www.moshtix.com.au/v2/event/william-crighton-beans-on-toast-wild-folk-n-bush-psych-tour/200622",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "Lizzy McAlpine - The Over Country Tour",
+    "venue": "Thebarton Theatre",
+    "datetime": "2027-02-02T19:30:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/e1d/03108161-0298-4622-8c79-804a02580e1d_RETINA_PORTRAIT_16_9.jpg",
+    "link": "https://www.ticketmaster.com.au/lizzy-mcalpine-the-over-country-tour-torrensville-02-02-2027/event/13006535A5ED6AC8",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "Lizzy McAlpine - The Over Country Tour",
+    "venue": "Thebarton Theatre",
+    "datetime": "2027-02-03T19:30:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/e1d/03108161-0298-4622-8c79-804a02580e1d_RETINA_PORTRAIT_16_9.jpg",
+    "link": "https://www.ticketmaster.com.au/lizzy-mcalpine-the-over-country-tour-torrensville-03-02-2027/event/13006535DDD5CEEA",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "The Billy Joel Experience 2027",
+    "venue": "Thebarton Theatre",
+    "datetime": "2027-02-05T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/eda/d547b834-97dc-4464-a2bc-05e6f6704eda_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+    "link": "https://www.ticketmaster.com.au/the-billy-joel-experience-2027-torrensville-05-02-2027/event/13006536A2FE5125",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "Joe Jackson Hope & Fury Australian & NZ Tour 2027",
+    "venue": "Thebarton Theatre",
+    "datetime": "2027-02-06T20:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/a20/efec3bf7-f090-40f2-b753-1ab73044da20_RETINA_LANDSCAPE_16_9.jpg",
+    "link": "https://www.ticketmaster.com.au/joe-jackson-hope-fury-australian-nz-torrensville-06-02-2027/event/130064DDE7686337",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "Bachman-Turner Overdrive - No Speed Limit Tour 2027",
+    "venue": "Thebarton Theatre",
+    "datetime": "2027-02-09T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/b78/c0b5ed88-df9a-4c29-98c3-e10fb2511b78_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+    "link": "https://www.ticketmaster.com.au/bachmanturner-overdrive-no-speed-limit-tour-torrensville-09-02-2027/event/13006530D0459C87",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "Sleep Theory (USA) Australian Tour",
+    "venue": "Thebarton Theatre",
+    "datetime": "2027-02-10T19:30:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/528/2abce715-c585-42e7-a512-6190f960b528_SOURCE",
+    "link": "https://www.ticketmaster.com.au/sleep-theory-usa-australian-tour-torrensville-10-02-2027/event/1300652FBEEC7E1F",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "Tom Harrington 'Australian Summer' Tour 27",
+    "venue": "The Ed Castle Hotel",
+    "datetime": "2027-02-12T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/c/779/d4bc7e11-1b50-4aa4-a2be-0a21569f5779_106531_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+    "link": "https://www.moshtix.com.au/v2/event/tom-harrington-australian-summer-tour-27/200450",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "Queen Forever Greatest Hits Tour - \"Don't Stop Us Now\"",
+    "venue": "Thebarton Theatre",
+    "datetime": "2027-02-13T19:30:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/43b/9b488be4-bdd8-45e2-a009-523dc53d943b_SOURCE",
+    "link": "https://www.ticketmaster.com.au/queen-forever-greatest-hits-tour-dont-torrensville-13-02-2027/event/13006519C42E418C",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "Randy Feltface - Gimmick",
+    "venue": "Thebarton Theatre",
+    "datetime": "2027-02-15T19:30:00",
+    "end_datetime": "",
+    "category": [
+      "Comedy"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/92e/769d540d-6383-4485-8913-cdaf45d2e92e_TABLET_LANDSCAPE_16_9.jpg",
+    "link": "https://www.ticketmaster.com.au/randy-feltface-gimmick-torrensville-15-02-2027/event/13006515C0E46B49",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "TEENAGE BOTTLEROCKET (USA) + BRENDAN KELLY (THE LAWRENCE ARMS) + MACH PELICAN (All Ages)",
+    "venue": "UniBar Adelaide",
+    "datetime": "2027-02-19T20:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/c/fbc/b293c0ad-c904-4215-bc59-8d7f2414dfbc_106141_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+    "link": "https://www.moshtix.com.au/v2/event/teenage-bottlerocket-usa-brendan-kelly-the-lawrence-arms-mach-pelican-all-ages-/198316",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "Countess Luann - The Love Tour",
+    "venue": "Thebarton Theatre",
+    "datetime": "2027-02-24T20:00:00",
+    "end_datetime": "",
+    "category": [
+      "Theatre"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/a35/434b6f7c-e98a-4c81-a92a-b97d5d76fa35_TABLET_LANDSCAPE_16_9.jpg",
+    "link": "https://www.ticketmaster.com.au/countess-luann-the-love-tour-torrensville-24-02-2027/event/1300650D8A8D2470",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "Will Varley & Dave Hause - Australian Tour 2027",
+    "venue": "The Ed Castle Hotel",
+    "datetime": "2027-02-26T19:30:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/806/d82b401f-8742-41d1-a4ce-715098a18806_SOURCE",
+    "link": "https://www.moshtix.com.au/v2/event/will-varley-dave-hause-australian-tour-2027/201252",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "SKERRYVORE 'Beautiful Mistakes' Album Tour (All Ages)",
+    "venue": "UniBar Adelaide",
+    "datetime": "2027-02-28T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/cff/23894e98-0d92-49c9-b5e6-b15fc85f2cff_1475201_RETINA_LANDSCAPE_16_9.jpg",
+    "link": "https://www.moshtix.com.au/v2/event/skerryvore-beautiful-mistakes-album-tour-all-ages-/200740",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "Smokie (UK) Greatest Hits Tour",
+    "venue": "Thebarton Theatre",
+    "datetime": "2027-03-02T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/d5a/ece39a36-ddae-4c34-bf75-ba663e78fd5a_SOURCE",
+    "link": "https://www.ticketmaster.com.au/smokie-uk-greatest-hits-tour-torrensville-02-03-2027/event/1300650CEBDA867A",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "Belinda Carlisle - G'Day & Goodbye",
+    "venue": "Thebarton Theatre",
+    "datetime": "2027-03-09T20:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/fd5/907f5441-aa8e-4f90-b671-ccddee00cfd5_RETINA_PORTRAIT_16_9.jpg",
+    "link": "https://www.ticketmaster.com.au/belinda-carlisle-gday-goodbye-torrensville-09-03-2027/event/1300653EC60CA880",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "19-Twenty + Inspector Cluzo (FR) (All Ages)",
+    "venue": "UniBar Adelaide",
+    "datetime": "2027-03-19T20:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/c7a/f23ba661-998f-45c3-9943-635e9fef7c7a_SOURCE",
+    "link": "https://www.moshtix.com.au/v2/event/19-twenty-inspector-cluzo-fr-all-ages-/199666",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "Kevin Bridges: Here If You Need Me",
+    "venue": "Thebarton Theatre",
+    "datetime": "2027-03-19T20:00:00",
+    "end_datetime": "",
+    "category": [
+      "Comedy"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/bc7/3c3eaab0-de58-40ba-8e3c-1d471cb21bc7_SOURCE",
+    "link": "https://www.ticketmaster.com.au/kevin-bridges-here-if-you-need-torrensville-19-03-2027/event/130064F08942260D",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "Kevin Bridges: Here If You Need Me",
+    "venue": "Thebarton Theatre",
+    "datetime": "2027-03-20T20:00:00",
+    "end_datetime": "",
+    "category": [
+      "Comedy"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/bc7/3c3eaab0-de58-40ba-8e3c-1d471cb21bc7_SOURCE",
+    "link": "https://www.ticketmaster.com.au/kevin-bridges-here-if-you-need-torrensville-20-03-2027/event/130064F099C93122",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "CAM COLE",
+    "venue": "The Ed Castle Hotel",
+    "datetime": "2027-03-24T20:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/c9e/379a8b58-90d5-4518-ab4c-499ccffd4c9e_TABLET_LANDSCAPE_16_9.jpg",
+    "link": "https://www.moshtix.com.au/v2/event/cam-cole/199989",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "Crash Test Dummies (Canada) The Career-Spanning Greatest Hits Tour",
+    "venue": "Thebarton Theatre",
+    "datetime": "2027-04-08T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/a3d/ac32b9d9-47b8-40ca-8ea2-067def907a3d_SOURCE",
+    "link": "https://www.ticketmaster.com.au/crash-test-dummies-canada-the-careerspanning-torrensville-08-04-2027/event/13006514D11770C3",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "Marcus Miller",
+    "venue": "Thebarton Theatre",
+    "datetime": "2027-04-18T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/b00/902c3ea1-438a-4d7d-998b-f28a1bc89b00_SOURCE",
+    "link": "https://www.ticketmaster.com.au/marcus-miller-torrensville-18-04-2027/event/13006507E1D8A9FE",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "BON JOVI - THE LAST ROCKSTAR",
+    "venue": "Thebarton Theatre",
+    "datetime": "2027-05-22T19:30:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/c/fbc/b293c0ad-c904-4215-bc59-8d7f2414dfbc_106141_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+    "link": "https://www.ticketmaster.com.au/bon-jovi-the-last-rockstar-torrensville-22-05-2027/event/13006542CD61C9E6",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "Bassem Youssef: The Belly of the Beast Tour",
+    "venue": "Thebarton Theatre",
+    "datetime": "2027-06-03T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Comedy"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/25b/81f21654-1caf-427a-9642-c092b608025b_SOURCE",
+    "link": "https://www.ticketmaster.com.au/bassem-youssef-the-belly-of-the-torrensville-03-06-2027/event/130064D3E2B37EC5",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "ABBA: Thank You For The Music",
+    "venue": "Thebarton Theatre",
+    "datetime": "2027-06-18T19:30:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/d83/6c8df320-3add-460a-9cff-ee2c5d51cd83_RETINA_LANDSCAPE_16_9.jpg",
+    "link": "https://www.ticketmaster.com.au/abba-thank-you-for-the-music-torrensville-18-06-2027/event/1300654B1E9435C6",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "Lano & Woodley in Space",
+    "venue": "Thebarton Theatre",
+    "datetime": "2027-06-19T18:30:00",
+    "end_datetime": "",
+    "category": [
+      "Theatre"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/c7d/0b955f33-627d-4c08-97a1-7db6f120ec7d_RETINA_PORTRAIT_16_9.jpg",
+    "link": "https://www.ticketmaster.com.au/lano-woodley-in-space-torrensville-19-06-2027/event/130065318CA8267D",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "Powderfinger - Live 2027",
+    "venue": "Ellis Park",
+    "datetime": "2027-10-15T17:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/c8a/e3bc492e-a17d-47b5-9caf-bab5ce32fc8a_RETINA_PORTRAIT_16_9.jpg",
+    "link": "https://www.ticketmaster.com.au/powderfinger-live-2027-adelaide-15-10-2027/event/13006547B82789D1",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "Powderfinger - Live 2027",
+    "venue": "Ellis Park",
+    "datetime": "2027-10-16T17:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/c8a/e3bc492e-a17d-47b5-9caf-bab5ce32fc8a_RETINA_PORTRAIT_16_9.jpg",
+    "link": "https://www.ticketmaster.com.au/powderfinger-live-2027-adelaide-16-10-2027/event/13006547DFEBB395",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "bp Adelaide Grand Final",
+    "venue": "Adelaide Street Circuit",
+    "datetime": "2026-11-26T00:00:00",
+    "end_datetime": "2026-11-29T23:59:59",
+    "category": [
+      "Sport"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/a9d/98815fb3-917a-44be-bc68-be7dd69c5a9d_RETINA_LANDSCAPE_16_9.jpg",
+    "link": "https://www.ticketmaster.com.au/AdelaideGrandFinal",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "Adelaide International 2027",
+    "venue": "The Drive",
+    "datetime": "2027-01-11T00:00:00",
+    "end_datetime": "2027-01-16T23:59:59",
+    "category": [
+      "Sport"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/1ac/6a028efc-de35-457d-bb68-eea462cd71ac_RETINA_PORTRAIT_16_9.jpg",
+    "link": "https://www.ticketmaster.com.au/adelaide-international-2027-day-session-adelaide-11-01-2027/event/25006538B53C1AFF",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
     "title": "Adelaide Film Festival",
     "venue": "Various locations",
     "datetime": "2026-10-14T00:00:00",
@@ -3275,18 +4019,6 @@
     "source": "South Australia Tourism Commission"
   },
   {
-    "title": "Meet the Maker: 10th Anniversary Botanic Rosé",
-    "venue": "Corner Hackney and Botanic Roads",
-    "datetime": "2026-10-16T17:00:00",
-    "end_datetime": "2026-10-16T19:00:00",
-    "category": [
-      "Food & Beverage"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/596a5b79f63dd521b27226ed48b62485.jpeg?mode=crop&width=900&height=506&rot=360",
-    "link": "https://southaustralia.com/products/adelaide/event/meet-the-maker-10th-anniversary-botanic-ros",
-    "source": "South Australia Tourism Commission"
-  },
-  {
     "title": "Michelle Nikou: Tell it slant",
     "venue": "490 North Terrace",
     "datetime": "2026-12-05T10:00:00",
@@ -3323,19 +4055,6 @@
     "source": "South Australia Tourism Commission"
   },
   {
-    "title": "Monet to Matisse Friday Nights: Noriko Tadano",
-    "venue": "North Terrace",
-    "datetime": "2026-10-16T17:30:00",
-    "end_datetime": "2026-10-16T20:30:00",
-    "category": [
-      "Music",
-      "Exhibitions"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/88813db095000216c1df81e2d54f0e16.jpeg?mode=crop&width=900&height=506&rot=360",
-    "link": "https://southaustralia.com/products/adelaide/event/monet-to-matisse-friday-nights-noriko-tadano",
-    "source": "South Australia Tourism Commission"
-  },
-  {
     "title": "OzAsia Festival 2026 |  Lastlings",
     "venue": "King William Road",
     "datetime": "2026-10-25T00:00:00",
@@ -3359,31 +4078,6 @@
     ],
     "image": "https://assets.atdw-online.com.au/images/37572a7597f0f9deacde3f16e885d853.jpeg?mode=crop&width=900&height=506&rot=360",
     "link": "https://southaustralia.com/products/adelaide/event/ozasia-festival-2026-maajela",
-    "source": "South Australia Tourism Commission"
-  },
-  {
-    "title": "OzAsia Festival|  Regurgitator",
-    "venue": "King William Road",
-    "datetime": "2026-10-16T19:30:00",
-    "end_datetime": "2026-10-16T20:30:00",
-    "category": [
-      "Festival",
-      "Music"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/a6e19d10f8e626a3e42fdd18ee9c3702.jpeg?mode=crop&width=900&height=506&rot=360",
-    "link": "https://southaustralia.com/products/adelaide/event/ozasia-festival-2026-regurgitato",
-    "source": "South Australia Tourism Commission"
-  },
-  {
-    "title": "Pattern and Colour of the Market",
-    "venue": "44-60 GOUGER ST",
-    "datetime": "2026-09-18T00:00:00",
-    "end_datetime": "2026-10-17T00:00:00",
-    "category": [
-      "Exhibitions"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/19b670e08e7698a7fbe0fafcfcac9a2c.jpeg?mode=crop&width=900&height=506&rot=360",
-    "link": "https://southaustralia.com/products/adelaide/event/pattern-and-colour-of-the-market",
     "source": "South Australia Tourism Commission"
   },
   {

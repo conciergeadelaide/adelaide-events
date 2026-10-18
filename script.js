@@ -7,6 +7,10 @@
 // ======================================
 
 var events = [];
+var filteredEventsForCalendar = [];
+var currentView = "cards";
+var visibleMonth = new Date(new Date().getFullYear(), new Date().getMonth(), 1);
+var selectedDay = "";
 
 var eventsContainer = document.getElementById("events");
 var searchInput = document.getElementById("search");
@@ -703,7 +707,229 @@ function sortEvents(eventList) {
         return 0;
     });
 
-    displayEvents(eventList);
+    filteredEventsForCalendar = eventList;
+    if (currentView === "calendar") {
+        eventCount.textContent = eventList.filter(isMajorCalendarEvent).length + " major events";
+        renderCalendar();
+    } else {
+        displayEvents(eventList);
+    }
+}
+
+// ======================================
+// MONTHLY CALENDAR
+// ======================================
+
+function dateKey(year, month, day) {
+    return year + "-" + String(month + 1).padStart(2, "0") + "-" + String(day).padStart(2, "0");
+}
+
+// Calendar is a curated overview. Cards continue to show every event.
+var majorCalendarVenues = [
+    "adelaide oval", "adelaide convention centre", "festival theatre",
+    "her majesty's theatre", "her majestys theatre", "adelaide entertainment centre",
+    "hindley st music hall", "coopers stadium", "norwood concert hall",
+    "immersive light and art", "thebarton theatre", "adelaide central market",
+    "the gov", "morphettville racecourse", "unibar", "uni bar"
+];
+var majorCalendarSources = [
+    "south australia tourism commission", "south australian tourism commission",
+    "southaustralia.com", "adelaide oval", "adelaide convention centre",
+    "adelaide entertainment centre", "hindley st music hall", "coopers stadium",
+    "immersive light and art", "candlelight", "fever", "the gov",
+    "morphettville racecourse", "adelaide central market", "norwood concert hall",
+    "thebarton theatre", "unibar", "uni bar"
+];
+var majorFestivalNames = [
+    "adelaide festival", "womadelaide", "illuminate adelaide",
+    "adelaide film festival", "adelaide equestrian festival",
+    "adelaide motorsport festival", "adelaide vegan festival", "gather round",
+    "adl fashion week", "adelaide fashion week", "adelaide grand final",
+    "adelaide motogp", "feast festival", "christmas pageant",
+    "nature festival", "sala festival", "santos tour down under",
+    "tour down under", "shannons adelaide rally", "south australia's history festival",
+    "south australias history festival", "tasting australia", "tarnanthi",
+    "liv golf", "ozasia festival", "adelaide cabaret festival",
+    "adelaide guitar festival", "dreambig children's festival",
+    "dreambig childrens festival", "adelaide writers' week",
+    "adelaide writers week", "adelaide jazz festival",
+    "adelaide fringe"
+];
+function normalizedCalendarText(value) {
+    return String(value || "").toLowerCase().replace(/[’‘]/g,"'").replace(/\s+/g," ").trim();
+}
+function includesAnyCalendarText(value, phrases) {
+    return phrases.some(function(phrase) { return value.indexOf(phrase) !== -1; });
+}
+function isFestivalOverview(event) {
+    var title = normalizedCalendarText(event.title);
+    // Fringe individual performances must not appear in the calendar.
+    if (title.indexOf("adelaide fringe") !== -1 || title === "fringe festival") {
+        return /^(?:the )?adelaide fringe(?: festival)?(?: 20\d{2})?$/.test(title) ||
+            title === "fringe festival";
+    }
+    return includesAnyCalendarText(title, majorFestivalNames);
+}
+function isMajorCalendarEvent(event) {
+    var title = normalizedCalendarText(event.title);
+    var venue = normalizedCalendarText(event.venue);
+    var source = normalizedCalendarText(event.source || event.source_name || event.source_url);
+    var url = normalizedCalendarText(event.url || event.link);
+    var category = normalizedCalendarText(getCategoryText(event));
+
+    // Include public political demonstrations with a known date, irrespective of venue.
+    var protest = /\b(protest|rally|demonstration|march for|peace march|climate strike|solidarity march|vigil)\b/.test(title) &&
+        !/\b(comedy|theatre|theater|concert|film|musical|tribute)\b/.test(category);
+    if (protest) return true;
+    if (isFestivalOverview(event)) return true;
+    // Do not let a Fringe performance in an approved venue bypass the Fringe rule.
+    if (title.indexOf("fringe") !== -1 && !isFestivalOverview(event)) return false;
+    if (venue.indexOf("rhino room") !== -1 || source.indexOf("rhino room") !== -1) {
+        return category.indexOf("comedy") !== -1;
+    }
+    // AFC is only eligible for events at Festival Theatre or Her Majesty's Theatre.
+    if (source.indexOf("adelaide festival centre") !== -1) {
+        return venue.indexOf("festival theatre") !== -1 ||
+            venue.indexOf("her majesty") !== -1;
+    }
+    if (includesAnyCalendarText(venue, majorCalendarVenues)) return true;
+    if (includesAnyCalendarText(source, majorCalendarSources)) return true;
+    if (url.indexOf("feverup.com") !== -1 &&
+        (title.indexOf("candlelight") !== -1 || category.indexOf("music") !== -1)) return true;
+    return false;
+}
+function calendarEventTitle(event) {
+    return event.title || "Untitled Event";
+}
+
+function eventsForDay(key) {
+    return filteredEventsForCalendar.filter(function(event) {
+        if (!isMajorCalendarEvent(event)) return false;
+        var start = getDatePart(getEventStart(event));
+        var end = getDatePart(getEventEnd(event)) || start;
+        return Boolean(start && start <= key && end >= key);
+    });
+}
+
+function showDay(key) {
+    selectedDay = key;
+    renderCalendar();
+    document.getElementById("calendar-details").scrollIntoView({behavior:"smooth",block:"nearest"});
+}
+
+function renderDayDetails() {
+    var panel = document.getElementById("calendar-details");
+    panel.replaceChildren();
+    panel.classList.toggle("hidden", !selectedDay);
+    if (!selectedDay) return;
+    var parts = selectedDay.split("-").map(Number);
+    var heading = document.createElement("h4");
+    heading.textContent = new Intl.DateTimeFormat("en-AU", {weekday:"long",day:"numeric",month:"long",year:"numeric"}).format(new Date(parts[0],parts[1]-1,parts[2]));
+    panel.appendChild(heading);
+    var matching = eventsForDay(selectedDay);
+    if (!matching.length) {
+        var empty = document.createElement("p");
+        empty.textContent = "No matching events on this day.";
+        panel.appendChild(empty);
+    }
+    matching.forEach(function(event) {
+        var row = document.createElement("div");
+        row.className = "calendar-detail";
+        var info = document.createElement("div");
+        var name = document.createElement("strong");
+        name.textContent = event.title || "Untitled Event";
+        var details = document.createElement("p");
+        details.textContent = formatDate(getEventStart(event)) + " · " + (event.venue || event.location || "Adelaide") + " · " + getCategoryText(event);
+        info.append(name,details);
+        row.appendChild(info);
+        var url = event.link || event.url;
+        if (url) {
+            var link = document.createElement("a");
+            link.href = url;
+            link.target = "_blank";
+            link.rel = "noopener noreferrer";
+            link.textContent = "View Event";
+            row.appendChild(link);
+        }
+        panel.appendChild(row);
+    });
+}
+
+function renderCalendar() {
+    if (currentView !== "calendar") return;
+    var year = visibleMonth.getFullYear();
+    var month = visibleMonth.getMonth();
+    document.getElementById("month-title").textContent = new Intl.DateTimeFormat("en-AU",{month:"long",year:"numeric"}).format(visibleMonth);
+    var grid = document.getElementById("calendar-grid");
+    grid.replaceChildren();
+    var offset = (new Date(year,month,1).getDay()+6)%7;
+    var days = new Date(year,month+1,0).getDate();
+    var total = Math.ceil((offset+days)/7)*7;
+    var today = new Date();
+    var todayKey = dateKey(today.getFullYear(),today.getMonth(),today.getDate());
+    for (var i=0; i<total; i++) {
+        var day = i-offset+1;
+        var cell = document.createElement("div");
+        cell.className = "calendar-cell";
+        if (day<1 || day>days) {
+            cell.classList.add("calendar-empty");
+            grid.appendChild(cell);
+            continue;
+        }
+        var key = dateKey(year,month,day);
+        if (key === todayKey) cell.classList.add("calendar-today");
+        if (key === selectedDay) cell.classList.add("calendar-selected");
+        var matching = eventsForDay(key);
+        var dateButton = document.createElement("button");
+        dateButton.type = "button";
+        dateButton.className = "calendar-day-number";
+        dateButton.textContent = day;
+        dateButton.setAttribute("aria-label", key+": "+matching.length+" events");
+        dateButton.addEventListener("click",(function(k){return function(){showDay(k);};})(key));
+        cell.appendChild(dateButton);
+        matching.slice(0,6).forEach(function(event){
+            var pill = document.createElement("button");
+            pill.type = "button";
+            pill.className = "calendar-event";
+            pill.textContent = calendarEventTitle(event);
+            pill.title = event.title || "Untitled Event";
+            pill.addEventListener("click",(function(k){return function(){showDay(k);};})(key));
+            cell.appendChild(pill);
+        });
+        if (matching.length>6) {
+            var more = document.createElement("button");
+            more.type = "button";
+            more.className = "calendar-more";
+            more.textContent = "+"+(matching.length-6)+" more";
+            more.addEventListener("click",(function(k){return function(){showDay(k);};})(key));
+            cell.appendChild(more);
+        }
+        grid.appendChild(cell);
+    }
+    renderDayDetails();
+}
+
+function setView(view) {
+    currentView = view;
+    var calendar = view === "calendar";
+    document.getElementById("calendar-view").classList.toggle("hidden",!calendar);
+    eventsContainer.classList.toggle("hidden",calendar);
+    document.getElementById("view-cards").classList.toggle("active",!calendar);
+    document.getElementById("view-calendar").classList.toggle("active",calendar);
+    noResults.classList.toggle("hidden",calendar || filteredEventsForCalendar.length>0);
+    if (calendar) renderCalendar();
+    else displayEvents(filteredEventsForCalendar);
+}
+
+document.getElementById("view-cards").addEventListener("click",function(){setView("cards");});
+document.getElementById("view-calendar").addEventListener("click",function(){setView("calendar");});
+document.getElementById("month-prev").addEventListener("click",function(){changeMonth(-1);});
+document.getElementById("month-next").addEventListener("click",function(){changeMonth(1);});
+document.getElementById("month-today").addEventListener("click",function(){visibleMonth=new Date(new Date().getFullYear(),new Date().getMonth(),1);selectedDay="";renderCalendar();});
+function changeMonth(delta) {
+    visibleMonth = new Date(visibleMonth.getFullYear(),visibleMonth.getMonth()+delta,1);
+    selectedDay = "";
+    renderCalendar();
 }
 
 // ======================================
