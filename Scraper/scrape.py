@@ -27,6 +27,8 @@ try:
         parse_lion_arts_factory,
         parse_south_australia_tourism,
         parse_ticketmaster_adelaide,
+        parse_experience_adelaide,
+        parse_moshtix_adelaide,
     )
 except ModuleNotFoundError:
     # Works when importing:
@@ -45,6 +47,8 @@ except ModuleNotFoundError:
         parse_lion_arts_factory,
         parse_south_australia_tourism,
         parse_ticketmaster_adelaide,
+        parse_experience_adelaide,
+        parse_moshtix_adelaide,
     )
 
 
@@ -459,6 +463,9 @@ def scrape_source(source):
     name = source["name"]
     url = source["url"]
 
+    if name == "Moshtix Adelaide CBD":
+        return parse_moshtix_adelaide()
+
     # ----------------------------------------
     # Ticketmaster Adelaide (official API)
     # ----------------------------------------
@@ -471,6 +478,17 @@ def scrape_source(source):
 
     if name == "South Australia Tourism Commission":
         return parse_south_australia_tourism(None, url)
+
+    # Experience Adelaide blocks automated HTTP access on some networks.
+    # Only use the explicitly saved HTML snapshot when available.
+    # If unavailable, preserve any previously collected records.
+    if name == "Experience Adelaide":
+        snapshot = os.path.join(BASE_DIR, "Experience Adelaide _ What's on in Adelaide.html")
+        if not os.path.isfile(snapshot):
+            raise RuntimeError("Saved HTML snapshot not found; HTTP 403 remains unresolved")
+        with open(snapshot, "r", encoding="utf-8") as handle:
+            soup = BeautifulSoup(handle.read(), "lxml")
+        return parse_experience_adelaide(soup, url)
 
     # ----------------------------------------
     # Adelaide Oval
@@ -586,7 +604,7 @@ def source_domains(source_name):
     """
     domains = set()
 
-    for source in SOURCES:
+    for source in list(SOURCES) + [{"name": "Moshtix Adelaide CBD", "url": "https://www.moshtix.com.au/v2/search"}]:
         if source.get("name") != source_name:
             continue
 
@@ -829,7 +847,7 @@ def main():
     # Scrape all configured sources
     # ----------------------------------------
 
-    for source in SOURCES:
+    for source in list(SOURCES) + [{"name": "Moshtix Adelaide CBD", "url": "https://www.moshtix.com.au/v2/search"}]:
 
         name = source["name"]
 
@@ -1026,7 +1044,7 @@ def main():
     final_seen = set()
 
     # Prefer official fresh records to Ticketmaster for identical keys.
-    for event in sorted(all_new_events, key=lambda e: e.get("source") == "Ticketmaster Adelaide"):
+    for event in sorted(all_new_events, key=lambda e: e.get("source") in ("Ticketmaster Adelaide", "Moshtix Adelaide CBD")):
 
         key = event_key(event)
 
@@ -1050,6 +1068,22 @@ def main():
         deduplicated_final_events.append(
             event
         )
+
+    # Moshtix is a ticketing aggregator: prefer official venue records.
+    # Compare normalized title, venue, date, and non-conflicting times.
+    moshtix = [e for e in deduplicated_final_events if e.get("source") == "Moshtix Adelaide CBD"]
+    non_moshtix = [e for e in deduplicated_final_events if e.get("source") != "Moshtix Adelaide CBD"]
+    official_for_moshtix = [e for e in non_moshtix if e.get("source") not in
+                            ("Ticketmaster Adelaide", "South Australia Tourism Commission")]
+    kept_moshtix = []
+    skipped_moshtix = 0
+    for candidate in moshtix:
+        if any(_same_event(candidate, existing) for existing in official_for_moshtix):
+            skipped_moshtix += 1
+        else:
+            kept_moshtix.append(candidate)
+    print(f"Moshtix: {skipped_moshtix} official-source overlaps excluded")
+    deduplicated_final_events = non_moshtix + kept_moshtix
 
     deduplicated_final_events = filter_ticketmaster_events(deduplicated_final_events)
 
@@ -1166,6 +1200,54 @@ def main():
             kept_tourism.append(event)
 
     final_events = non_tourism + kept_tourism
+
+    # Experience Adelaide is an aggregator: prefer official venues and
+    # existing Ticketmaster/tourism listings for the same named event.
+    # Compare overlapping calendar ranges, not just the first day.
+    def experience_identity(value):
+        name = comparable_title(value)
+        if name.startswith("ozasia festival "):
+            name = re.sub(r"^ozasia festival(?: 20\\d{2})? ", "", name)
+        if name.startswith("adelaide international"):
+            name = re.sub(r"\\s+2027$", "", name)
+        aliases = {"moon lantern at lucky dumpling market":
+                   "moon lanterns at lucky dumpling market"}
+        return aliases.get(name, name)
+
+    def overlaps(a, b):
+        a_start = _date(a)
+        b_start = _date(b)
+        a_end = str(a.get("end_datetime") or "")[:10] or a_start
+        b_end = str(b.get("end_datetime") or "")[:10] or b_start
+        return bool(a_start and b_start and a_start <= b_end and b_start <= a_end)
+
+    def experience_same(a, b):
+        first = experience_identity(a.get("title", ""))
+        second = experience_identity(b.get("title", ""))
+        if not first or not second or not overlaps(a, b):
+            return False
+        # Never collapse different named festival activities.
+        if first != second and not (
+            len(first) >= 18 and len(second) >= 18
+            and SequenceMatcher(None, first, second).ratio() >= 0.94
+        ):
+            return False
+        return same_performance(a, b)
+
+    authoritative = [e for e in final_events
+                     if e.get("source") != "Experience Adelaide"]
+    experience = [e for e in final_events
+                  if e.get("source") == "Experience Adelaide"]
+    kept_experience = []
+    skipped_experience = 0
+    for event in experience:
+        if any(experience_same(event, other)
+               for other in authoritative + kept_experience):
+            skipped_experience += 1
+        else:
+            kept_experience.append(event)
+    final_events = authoritative + kept_experience
+    print(f"Experience Adelaide overlaps excluded: {skipped_experience}")
     print(f"Tourism duplicates excluded: {tourism_duplicates}")
 
     final_duplicates_removed = (
@@ -1258,7 +1340,7 @@ def main():
 
     print()
 
-    if "--preview-report" in sys.argv:
+    if "--preview-report" in sys.argv or "--preview" in sys.argv:
         write_preview_report(existing_events, final_events)
         print("DRY RUN: events.json was NOT changed.")
         return
@@ -1279,4 +1361,10 @@ def main():
 
 
 if __name__ == "__main__":
+    allowed = {"--preview-report", "--preview", "--dry-run"}
+    unknown = [arg for arg in sys.argv[1:] if arg not in allowed]
+    if unknown:
+        print(f"ERROR: Unknown option(s): {', '.join(unknown)}")
+        print("Use --preview, --preview-report, or --dry-run.")
+        sys.exit(2)
     main()

@@ -1,6 +1,6 @@
 import json
 import re
-from datetime import datetime
+from datetime import datetime, timedelta
 from urllib.parse import urljoin
 
 import requests
@@ -377,12 +377,15 @@ def parse_adelaide_oval(soup, source_url):
         else:
             year = today.year
 
-            # Adelaide Oval's listing omits the year. It is an upcoming-events
-            # page, so a month/day already passed this year belongs to next year.
+            # Adelaide Oval often omits the year. A recently started event
+            # can remain listed for days after its start, so do NOT move it
+            # into next year merely because its date was a few days ago.
+            # Dates much further in the past are treated as next-year listings.
+            # This is an inference; explicit years always take precedence.
             try:
                 candidate = datetime(year, month, day)
                 today_date = datetime(today.year, today.month, today.day)
-                if candidate < today_date:
+                if candidate < today_date - timedelta(days=45):
                     year += 1
             except ValueError:
                 return ""
@@ -2249,4 +2252,227 @@ def parse_ticketmaster_adelaide(api_key):
         if not items or page + 1 >= pages.get("totalPages", 1):
             break
     print("Ticketmaster Adelaide events collected:", len(results))
+    return results
+
+
+# ============================================================
+# EXPERIENCE ADELAIDE (HTML event cards)
+# ============================================================
+
+def parse_experience_adelaide(soup, source_url):
+    """Extract directory cards; do not guess missing dates or times."""
+    from urllib.parse import urljoin
+    seen = set()
+    events = []
+    months = {
+        "jan": 1, "feb": 2, "mar": 3, "apr": 4, "may": 5, "jun": 6,
+        "jul": 7, "aug": 8, "sep": 9, "oct": 10, "nov": 11, "dec": 12
+    }
+
+    def date_from_text(value):
+        match = re.search(r"\b(\d{1,2})\s+([A-Za-z]+)\s+(20\d{2})\b", value)
+        if not match:
+            return ""
+        try:
+            return datetime(int(match[3]), months[match[2].lower()[:3]],
+                            int(match[1])).strftime("%Y-%m-%dT00:00:00")
+        except (ValueError, KeyError):
+            return ""
+
+    def category_for(title, raw):
+        t = re.sub(r"[^a-z0-9]+", " ", title.lower())
+        if "grand final parade" in t: return ["Festival"]
+        if "christmas pageant" in t: return ["Family"]
+        if any(x in t for x in ("tour down under", "adelaide international",
+                                "colour frenzy", "grand final")): return ["Sport"]
+        if "good music month" in t: return ["Music"]
+        if any(x in t for x in ("taste gouger", "distillery sessions",
+                                "melbourne cup on vardon", "huami")): return ["Food & Beverage"]
+        if any(x in t for x in ("feast feastival", "italian festival", "ozasia festival")): return ["Festival"]
+        if "pinkstachio" in t: return ["Club/Party"]
+        if "moon lantern" in t or "hong kong dragon" in t: return ["Festival"]
+        if "lucky dumpling market" in t: return ["Festival", "Food & Beverage"]
+        mapping = {"sports and fitness": "Sport", "arts and culture": "Arts & Culture",
+                   "music and concerts": "Music", "courses and workshops": "Workshop",
+                   "bars and clubs": "Club/Party", "kids and family": "Family"}
+        return [mapping.get(raw.lower().strip(), "Other")]
+
+    for card in soup.select('[data-directory-type="events"]'):
+        def val(selector):
+            element = card.select_one(selector)
+            return element.get_text(" ", strip=True) if element else ""
+
+        title = val(".event-title")
+        date_parts = re.split(r"\s+[-–]\s+", val(".detail-date"), maxsplit=1)
+        start = date_from_text(date_parts[0])
+        end = date_from_text(date_parts[1]) if len(date_parts) > 1 else ""
+        link = card.select_one("a.thumb-link[href]")
+        if not (title and start and link):
+            continue
+        url = urljoin(source_url, link["href"]).split("#", 1)[0]
+        if url in seen:
+            continue
+        seen.add(url)
+        image_element = card.select_one(".img-top")
+        style = image_element.get("style", "") if image_element else ""
+        image_match=re.search(r'background-image:\s*url\([\'\"]?([^\'\")]+)',style)
+        events.append({
+            "title": title, "venue": val(".location-address") or "Adelaide",
+            "date": start, "end_date": end, "category": category_for(title, val(".event-cat")),
+            "image": urljoin(source_url, image_match[1]) if image_match else "",
+            "url": url,
+        })
+    return events
+
+
+# ============================================================
+# MOSHTIX — SA search pages + The Ed Castle venue page
+# ============================================================
+
+def parse_moshtix_adelaide():
+    """Collect verified Adelaide CBD listings; fail safely on incomplete pages."""
+    from html import unescape
+    from urllib.parse import urlparse, urljoin
+
+    session = requests.Session()
+    session.headers.update({"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/140.0.0.0 Safari/537.36"})
+    base = "https://www.moshtix.com.au"
+    search = base + "/v2/search"
+    ed = base + "/v2/venues/the-ed-castle-sa/10424"
+    seen_ids = set()
+    results = []
+
+    # Strictly identified city venues/addresses. Postcode 5000 by itself
+    # is not enough to prove CBD location. Add new venues after verification.
+    verified_venues = {
+        "the ed castle", "jive", "jive adelaide", "lion arts factory",
+        "hindley st music hall", "hindley street music hall", "the austral hotel",
+        "div de", "unibar adelaide", "unibar", "the gov", # the gov is explicitly excluded below
+    }
+    verified_streets = {
+        "233 currie st", "233 currie street", "181 hindley st", "181 hindley street",
+        "68 north terrace", "149 hindley st", "149 hindley street",
+        "205 rundle street", "205 rundle st",
+    }
+    excluded_names = {"the gov", "governor hindmarsh hotel"}
+
+    def normalized(text):
+        return " ".join(re.sub(r"[^a-z0-9]+", " ", unescape(str(text)).casefold()).split())
+
+    def city_location(location):
+        if not isinstance(location, dict):
+            return False
+        address = location.get("address") or {}
+        if not isinstance(address, dict):
+            return False
+        venue = normalized(location.get("name", ""))
+        street = normalized(address.get("streetAddress", ""))
+        locality = normalized(address.get("addressLocality", ""))
+        postcode = str(address.get("postalCode", "")).strip()
+        if venue in excluded_names:
+            return False
+        if venue in {"unibar", "unibar adelaide"} and postcode == "5005":
+            return True
+        if postcode != "5000":
+            return False
+        if any(x in street for x in verified_streets):
+            return True
+        return (locality == "adelaide" and bool(street)) or (venue in verified_venues and locality in {"adelaide", "hindley street"})
+
+    def flatten(data):
+        if isinstance(data, list):
+            for item in data:
+                yield from flatten(item)
+        elif isinstance(data, dict):
+            if data.get("@type") in ("MusicEvent", "Event", "Festival", "TheaterEvent", "DanceEvent", "ComedyEvent"):
+                yield data
+            if "@graph" in data:
+                yield from flatten(data["@graph"])
+
+    def collect(soup, page_url, ed_only=False):
+        count = 0
+        for script in soup.select('script[type="application/ld+json"]'):
+            try:
+                data = json.loads(script.string or script.get_text())
+            except (ValueError, TypeError):
+                continue
+            for event in flatten(data):
+                location = event.get("location") or {}
+                if not city_location(location):
+                    continue
+                if ed_only and normalized(location.get("name", "")) != "the ed castle":
+                    continue
+                title = unescape(str(event.get("name", ""))).strip()
+                start = str(event.get("startDate", "")).strip()
+                link = urljoin(page_url, str(event.get("url", "")))
+                match = re.search(r"/v2/event/[^/]+/(\d+)", link)
+                if not match or not title or not re.match(r"^20\d{2}-\d{2}-\d{2}", start):
+                    continue
+                event_id = match.group(1)
+                if event_id in seen_ids:
+                    continue
+                if re.search(r"\b(membership|gift voucher|gift card)\b", title, re.I):
+                    continue
+                if event.get("eventStatus") in ("EventCancelled", "EventPostponed"):
+                    continue
+                seen_ids.add(event_id)
+                venue = unescape(str(location.get("name", ""))).strip()
+                aliases = {
+                    "jive adelaide": "Jive",
+                    "lion arts factory adelaide": "Lion Arts Factory",
+                    "hindley st music hall adelaide": "Hindley Street Music Hall",
+                    "hindley st music hall": "Hindley Street Music Hall",
+                }
+                venue = aliases.get(normalized(venue), venue)
+                image = event.get("image") or ""
+                if isinstance(image, list):
+                    image = image[0] if image else ""
+                if isinstance(image, dict):
+                    image = image.get("url", "")
+                image = urljoin(base, str(image)).replace("http://www.moshtix.com.au/", "https://www.moshtix.com.au/")
+                results.append({
+                    "title": title,
+                    "venue": venue,
+                    "date": start,
+                    "end_date": str(event.get("endDate") or ""),
+                    "category": ["Music"] if event.get("@type") == "MusicEvent" else categorise_event(title),
+                    "image": image,
+                    "url": link,
+                })
+                count += 1
+        return count
+
+    def get_page(url, params=None):
+        response = session.get(url, params=params, timeout=30)
+        response.raise_for_status()
+        return BeautifulSoup(response.text, "lxml")
+
+    # Search first, including all pagination. Fail the source if any page
+    # errors, so existing Moshtix events are preserved by scrape.py.
+    first = get_page(search, {"StateId": 5, "TimePeriod": 6, "Page": 1})
+    page_numbers = [1]
+    for a in first.find_all("a", href=True):
+        m = re.search(r"[?&]Page=(\d+)", a["href"], re.I)
+        if m:
+            page_numbers.append(int(m.group(1)))
+    last_page = max(page_numbers)
+    if last_page > 100:
+        raise RuntimeError("Unexpected Moshtix pagination; refusing incomplete scrape")
+    for page in range(1, last_page + 1):
+        soup = first if page == 1 else get_page(search, {"StateId": 5, "TimePeriod": 6, "Page": page})
+        blocks = soup.select('script[type="application/ld+json"]')
+        if not blocks:
+            raise RuntimeError(f"Moshtix search page {page} had no structured data")
+        found = collect(soup, search)
+        print(f"    Moshtix search page {page}/{last_page}: {found} CBD events")
+
+    ed_soup = get_page(ed)
+    if not ed_soup.select('script[type="application/ld+json"]'):
+        raise RuntimeError("The Ed Castle structured data missing")
+    ed_count = collect(ed_soup, ed, ed_only=True)
+    total_ed = sum(normalized(x["venue"]) == "the ed castle" for x in results)
+    print(f"    The Ed Castle: {total_ed} unique events ({ed_count} newly collected)")
+    print(f"    Moshtix: {len(results)} unique verified CBD events")
+    if not results:
+        raise RuntimeError("No verified Moshtix CBD events; preserving existing")
     return results
