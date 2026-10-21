@@ -106,6 +106,38 @@
                 </select>
             </div>
 
+
+            <div class="filter-box">
+                <label for="hide-long-events">
+                    Event duration
+                </label>
+
+                <label
+                    for="hide-long-events"
+                    style="
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                        cursor: pointer;
+                        line-height: 1.4;
+                        padding: 10px 0;
+                    "
+                >
+                    <input
+                        type="checkbox"
+                        id="hide-long-events"
+                        style="
+                            width: 18px;
+                            height: 18px;
+                            flex-shrink: 0;
+                            margin: 0;
+                            cursor: pointer;
+                        "
+                    >
+                    Hide events lasting more than 7 days
+                </label>
+            </div>
+
         </section>
 
 
@@ -116,22 +148,100 @@
                 <span id="event-count"></span>
             </div>
 
-            <div class="results-actions"><div class="view-toggle"><button id="view-cards" class="active" type="button">Cards</button><button id="view-calendar" type="button">Calendar</button></div><button
-                id="clear-filters"
-                class="clear-button"
-            >
-                Clear filters
-            </button></div>
+            <div class="results-actions">
+
+                <div class="view-toggle">
+                    <button
+                        id="view-cards"
+                        class="active"
+                        type="button"
+                    >
+                        Cards
+                    </button>
+
+                    <button
+                        id="view-calendar"
+                        type="button"
+                    >
+                        Calendar
+                    </button>
+                </div>
+
+                <button
+                    id="clear-filters"
+                    class="clear-button"
+                    type="button"
+                >
+                    Clear filters
+                </button>
+
+            </div>
 
         </section>
 
 
-        <section id="calendar-view" class="calendar-section hidden"><p class="calendar-intro">Major events, festivals and public rallies. For the complete listings, switch to Cards.</p>
-            <div class="calendar-toolbar"><button id="month-prev" type="button" aria-label="Previous month">‹</button><h3 id="month-title"></h3><button id="month-next" type="button" aria-label="Next month">›</button><button id="month-today" type="button">This month</button></div>
-            <div class="calendar-weekdays"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>
-            <div id="calendar-grid" class="calendar-grid"></div>
-            <div id="calendar-details" class="calendar-details hidden" aria-live="polite"></div>
+        <section
+            id="calendar-view"
+            class="calendar-section hidden"
+        >
+
+            <p class="calendar-intro">
+                Major events, festivals and public rallies.
+                For the complete listings, switch to Cards.
+            </p>
+
+            <div class="calendar-toolbar">
+
+                <button
+                    id="month-prev"
+                    type="button"
+                    aria-label="Previous month"
+                >
+                    ‹
+                </button>
+
+                <h3 id="month-title"></h3>
+
+                <button
+                    id="month-next"
+                    type="button"
+                    aria-label="Next month"
+                >
+                    ›
+                </button>
+
+                <button
+                    id="month-today"
+                    type="button"
+                >
+                    This month
+                </button>
+
+            </div>
+
+            <div class="calendar-weekdays">
+                <span>Mon</span>
+                <span>Tue</span>
+                <span>Wed</span>
+                <span>Thu</span>
+                <span>Fri</span>
+                <span>Sat</span>
+                <span>Sun</span>
+            </div>
+
+            <div
+                id="calendar-grid"
+                class="calendar-grid"
+            ></div>
+
+            <div
+                id="calendar-details"
+                class="calendar-details hidden"
+                aria-live="polite"
+            ></div>
+
         </section>
+
 
         <section
             id="events"
@@ -148,7 +258,9 @@
 
             <h3>No events found</h3>
 
-            <p>Try changing your search or filters.</p>
+            <p>
+                Try changing your search or filters.
+            </p>
 
         </section>
 
