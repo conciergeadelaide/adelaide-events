@@ -631,9 +631,10 @@ def ticketmaster_event_id(link):
 
 
 def thebarton_official_posters():
-    """Return event-ID -> verified, full-resolution official image URL.
+    """Return verified official poster URLs keyed by Ticketmaster event ID.
 
-    Failure is non-fatal: existing event images are preserved.
+    The theatre's gallery can link to events at OTHER venues, so this function
+    deliberately discovers images only. It does not invent event metadata.
     """
     try:
         soup = fetch_page(THEBARTON_HOMEPAGE)
@@ -641,43 +642,56 @@ def thebarton_official_posters():
         print(f"Thebarton posters: homepage unavailable ({exc}); keeping existing images")
         return {}
 
+    from concurrent.futures import ThreadPoolExecutor, as_completed
+    from urllib.parse import urljoin, urlparse
+
+    # Collect all gallery candidates. Some IDs have both a landscape banner
+    # and a portrait/square event poster; prefer the latter when available.
     candidates = {}
     for anchor in soup.find_all("a", href=True):
         event_id = ticketmaster_event_id(anchor.get("href"))
         if not event_id:
             continue
-        img = anchor.find("img")
-        if img is None:
-            continue
-        src = str(img.get("data-src") or img.get("src") or "").strip()
-        if not src.startswith("https://thebartontheatre.com.au/wp-content/uploads/"):
-            continue
-        # WordPress thumbnails such as -300x300 are generated from this original.
-        original = WORDPRESS_THUMBNAIL.sub("", src)
-        # Retain the first unique candidate for each event ID.
-        candidates.setdefault(event_id, original)
+        for img in anchor.find_all("img"):
+            for attribute in ("data-full-image", "data-src", "src"):
+                raw = str(img.get(attribute) or "").strip()
+                if not raw or raw.startswith("data:"):
+                    continue
+                image_url = urljoin(THEBARTON_HOMEPAGE, raw)
+                parsed = urlparse(image_url)
+                if (parsed.hostname or "").lower() not in (
+                    "thebartontheatre.com.au", "www.thebartontheatre.com.au"
+                ) or not parsed.path.startswith("/wp-content/uploads/"):
+                    continue
+                original = WORDPRESS_THUMBNAIL.sub("", image_url)
+                # Deduplicate URLs while preserving the gallery's ordering.
+                group = candidates.setdefault(event_id, [])
+                if original not in group:
+                    group.append(original)
 
-    # Verify independent images concurrently rather than waiting for each
-    # sequential HEAD request. Each worker owns its HTTP request.
-    from concurrent.futures import ThreadPoolExecutor, as_completed
+    def image_priority(url):
+        filename = urlparse(url).path.lower()
+        # A wide 'banner' image is less suitable for vertically styled cards.
+        return ("banner" in filename or "1680x638" in filename,)
 
     def verify_poster(item):
-        event_id, image_url = item
-        try:
-            with requests.Session() as session:
-                session.headers.update(HEADERS)
-                response = session.head(image_url, timeout=12, allow_redirects=True)
-                if response.status_code in (403, 405):
-                    response.close()
-                    response = session.get(image_url, timeout=12, stream=True)
-                try:
-                    content_type = response.headers.get("Content-Type", "").lower()
-                    if response.ok and content_type.startswith("image/"):
-                        return event_id, image_url
-                finally:
-                    response.close()
-        except requests.RequestException:
-            pass
+        event_id, image_urls = item
+        for image_url in sorted(image_urls, key=image_priority):
+            try:
+                with requests.Session() as session:
+                    session.headers.update(HEADERS)
+                    response = session.head(image_url, timeout=12, allow_redirects=True)
+                    if response.status_code in (403, 405):
+                        response.close()
+                        response = session.get(image_url, timeout=12, stream=True)
+                    try:
+                        content_type = response.headers.get("Content-Type", "").lower()
+                        if response.ok and content_type.startswith("image/"):
+                            return event_id, image_url
+                    finally:
+                        response.close()
+            except requests.RequestException:
+                continue
         return event_id, None
 
     verified = {}
@@ -695,26 +709,37 @@ def thebarton_official_posters():
 
 
 def enrich_thebarton_images(events):
-    """Update only matched Thebarton Theatre images, without adding events."""
-    targets = [
-        event for event in events
-        if "thebarton" in _venue_name(event.get("venue"))
-        and ticketmaster_event_id(event.get("link") or event.get("url"))
-    ]
+    """Match official images by Ticketmaster ID across ALL venue records.
+
+    No event is created, removed, re-venued or re-dated by poster discovery.
+    This avoids duplicating the theatre website's links to Norwood shows.
+    """
+    targets = {}
+    for event in events:
+        event_id = ticketmaster_event_id(event.get("link") or event.get("url"))
+        if event_id:
+            targets.setdefault(event_id, []).append(event)
+
     if not targets:
-        print("Thebarton posters: no eligible events to enrich")
+        print("Thebarton posters: no Ticketmaster-linked events to enrich")
         return
 
     posters = thebarton_official_posters()
     updated = 0
-    for event in targets:
-        event_id = ticketmaster_event_id(event.get("link") or event.get("url"))
-        official_image = posters.get(event_id)
-        if official_image and event.get("image") != official_image:
-            event["image"] = official_image
-            updated += 1
+    matched_ids = set()
+    for event_id, official_image in posters.items():
+        for event in targets.get(event_id, []):
+            matched_ids.add(event_id)
+            if event.get("image") != official_image:
+                event["image"] = official_image
+                updated += 1
 
-    print(f"Thebarton posters: {updated} images updated across {len(targets)} eligible events")
+    unmatched = sorted(set(posters) - matched_ids)
+    print(f"Thebarton posters: {updated} images updated; "
+          f"{len(matched_ids)} event IDs matched across all venues")
+    if unmatched:
+        print("Thebarton posters: unmatched Ticketmaster IDs "
+              "(not added without verified date/venue): " + ", ".join(unmatched))
 
 
 def source_domains(source_name):
@@ -1503,7 +1528,7 @@ def main(only_source=None):
                 venue_names_normalised += 1
     print(f"Victoria Square venue names standardised: {venue_names_normalised}")
 
-    # Enrich existing Ticketmaster events only after final deduplication.
+    # Match official Thebarton posters by Ticketmaster ID after final deduplication.
     enrich_thebarton_images(final_events)
     print(f"Experience Adelaide overlaps excluded: {skipped_experience}")
     print(f"Tourism duplicates excluded: {tourism_duplicates}")

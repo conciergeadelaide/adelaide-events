@@ -3945,7 +3945,7 @@
     "category": [
       "Music"
     ],
-    "image": "https://s1.ticketm.net/dam/a/ce1/41b86c8f-2eb5-4735-8274-21e3123c9ce1_RETINA_PORTRAIT_16_9.jpg",
+    "image": "https://thebartontheatre.com.au/wp-content/uploads/2025/12/Creedence-NORWOOD-21-Nov-26.png",
     "link": "https://www.ticketmaster.com.au/creedence-clearwater-collective-norwood-21-11-2026/event/1300637293CB6041",
     "source": "Ticketmaster Adelaide"
   },
@@ -5231,18 +5231,6 @@
     "source": "Humanitix Adelaide and Regions"
   },
   {
-    "title": "Origins",
-    "venue": "Tatachilla Lutheran College Stadium",
-    "datetime": "2026-11-08T15:00:00+1030",
-    "end_datetime": "2026-11-08T17:30:00+1030",
-    "category": [
-      "Other"
-    ],
-    "image": "https://images.humanitix.com/i/AK6pJp3FQOSh1Rhc788x@seo-500.jpg",
-    "link": "https://events.humanitix.com/big-sing-2026",
-    "source": "Humanitix Adelaide and Regions"
-  },
-  {
     "title": "BrontÃ« EP Release show",
     "venue": "Noori on the Midcoast",
     "datetime": "2026-11-13T19:30:00+1030",
@@ -5276,6 +5264,18 @@
     ],
     "image": "https://images.humanitix.com/i/2441c7f3-f904-400d-99ce-8e2aa12c80eb.jpg@seo-500.jpg",
     "link": "https://events.humanitix.com/daniel-champagne-live-at-mount-barker-town-hall-family-friendly-concert",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "Shedding Light on Dark Skies: Light pollution, wildlife and the Carrickalinga story",
+    "venue": "Aldinga Arts Eco Village",
+    "datetime": "2026-11-09T19:00:00+1030",
+    "end_datetime": "2026-11-09T20:30:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/7477c48f-f47f-4460-8044-103e7078b7fb.jpg@seo-500.jpg",
+    "link": "https://events.humanitix.com/darkskies",
     "source": "Humanitix Adelaide and Regions"
   },
   {
