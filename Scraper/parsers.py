@@ -2255,6 +2255,61 @@ def parse_ticketmaster_adelaide(api_key):
     return results
 
 
+
+# ============================================================
+# THEBARTON THEATRE — VERIFIED TICKETMASTER DISCOVERY
+# ============================================================
+
+def parse_thebarton_theatre(soup, source_url, api_key):
+    """Match the theatre's linked Ticketmaster IDs to verified Adelaide API events.
+
+    The homepage also promotes shows at other venues. Only events whose API
+    venue is Thebarton Theatre are returned as theatre-source records.
+    No dates, titles, or venues are inferred from image filenames.
+    """
+    import re
+    from urllib.parse import urlparse
+
+    linked_ids = set()
+    for anchor in soup.find_all("a", href=True):
+        match = re.search(r"/event/([A-Za-z0-9]+)", anchor["href"], re.I)
+        if match:
+            linked_ids.add(match.group(1).upper())
+
+    print(f"    Thebarton homepage Ticketmaster IDs: {len(linked_ids)}")
+    if not linked_ids:
+        return []
+    if not api_key:
+        print("    Thebarton: Ticketmaster API key missing; preserving existing")
+        return []
+
+    # Reuse the established regional API parser and its verified local dates,
+    # SA location checks, event classifications and booking URLs.
+    discovered = parse_ticketmaster_adelaide(api_key)
+    events = []
+    matched = set()
+    other_venues = 0
+    for event in discovered:
+        match = re.search(r"/event/([A-Za-z0-9]+)", str(event.get("url", "")), re.I)
+        if not match:
+            continue
+        event_id = match.group(1).upper()
+        if event_id not in linked_ids:
+            continue
+        matched.add(event_id)
+        venue = re.sub(r"[^a-z0-9]+", " ", str(event.get("venue", "")).casefold()).strip()
+        if venue not in ("thebarton theatre", "thebarton theater"):
+            other_venues += 1
+            continue
+        events.append(event)
+
+    print(f"    Thebarton: {len(events)} verified theatre events; "
+          f"{other_venues} linked events at other venues")
+    print(f"    Thebarton: {len(linked_ids - matched)} homepage IDs not found "
+          "in the regional API (not invented)")
+    return events
+
+
 # ============================================================
 # EXPERIENCE ADELAIDE (HTML event cards)
 # ============================================================

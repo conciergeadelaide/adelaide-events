@@ -32,6 +32,7 @@ try:
         parse_lion_arts_factory,
         parse_south_australia_tourism,
         parse_ticketmaster_adelaide,
+        parse_thebarton_theatre,
         parse_experience_adelaide,
         parse_moshtix_adelaide,
         parse_allevents_victoria_square,
@@ -53,6 +54,7 @@ except ModuleNotFoundError:
         parse_lion_arts_factory,
         parse_south_australia_tourism,
         parse_ticketmaster_adelaide,
+        parse_thebarton_theatre,
         parse_experience_adelaide,
         parse_moshtix_adelaide,
         parse_allevents_victoria_square,
@@ -489,6 +491,15 @@ def scrape_source(source):
         return parse_ticketmaster_adelaide(os.environ.get("TICKETMASTER_API_KEY", ""))
 
     # ----------------------------------------
+    # Thebarton Theatre (official links + verified Ticketmaster metadata)
+    # ----------------------------------------
+    if name == "Thebarton Theatre":
+        return parse_thebarton_theatre(
+            fetch_page(url), url,
+            os.environ.get("TICKETMASTER_API_KEY", "")
+        )
+
+    # ----------------------------------------
     # South Australia Tourism Commission
     # ----------------------------------------
 
@@ -781,6 +792,9 @@ def event_belongs_to_source(event, source_name):
 
     if explicit_source == wanted:
         return True
+
+    if source_name == "Thebarton Theatre" and explicit_source:
+        return False
 
     # Humanitix sources share the same event URL domain. Never classify
     # a Nineteen Ten host event as a general-directory event (or vice versa).
