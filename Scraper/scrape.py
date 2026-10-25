@@ -657,22 +657,38 @@ def thebarton_official_posters():
         # Retain the first unique candidate for each event ID.
         candidates.setdefault(event_id, original)
 
-    verified = {}
-    with requests.Session() as session:
-        session.headers.update(HEADERS)
-        for event_id, image_url in candidates.items():
-            try:
+    # Verify independent images concurrently rather than waiting for each
+    # sequential HEAD request. Each worker owns its HTTP request.
+    from concurrent.futures import ThreadPoolExecutor, as_completed
+
+    def verify_poster(item):
+        event_id, image_url = item
+        try:
+            with requests.Session() as session:
+                session.headers.update(HEADERS)
                 response = session.head(image_url, timeout=12, allow_redirects=True)
-                # Some image servers disable HEAD: try a streamed GET.
                 if response.status_code in (403, 405):
                     response.close()
                     response = session.get(image_url, timeout=12, stream=True)
-                content_type = response.headers.get("Content-Type", "").lower()
-                if response.ok and content_type.startswith("image/"):
+                try:
+                    content_type = response.headers.get("Content-Type", "").lower()
+                    if response.ok and content_type.startswith("image/"):
+                        return event_id, image_url
+                finally:
+                    response.close()
+        except requests.RequestException:
+            pass
+        return event_id, None
+
+    verified = {}
+    if candidates:
+        with ThreadPoolExecutor(max_workers=6) as executor:
+            futures = [executor.submit(verify_poster, item)
+                       for item in candidates.items()]
+            for future in as_completed(futures):
+                event_id, image_url = future.result()
+                if image_url:
                     verified[event_id] = image_url
-                response.close()
-            except requests.RequestException:
-                pass
 
     print(f"Thebarton posters: {len(candidates)} linked, {len(verified)} verified originals")
     return verified
@@ -974,6 +990,32 @@ def main(only_source=None):
         configured_sources = matches
         print(f"SINGLE-SOURCE TEST: {matches[0]['name']}")
         print("Only this source will be fetched. events.json will not be changed.\n")
+
+    # Optional quick mode: skip generic sites that returned zero events
+    # in the last verified full run. Skipped sources retain their records.
+    # Run without --quick regularly to discover new events at these sites.
+    if "--quick" in sys.argv and only_source is None:
+        known_empty_generic_sources = {
+            "Adelaide Symphony Orchestra", "Nineteen Ten",
+            "State Opera South Australia", "Nexus Arts",
+            "Dom Polski Centre", "Kings of Comedy",
+            "Adelaide Repertory Theatre",
+            "State Theatre Company South Australia",
+            "South Australian Museum", "Adelaide Botanic Gardens",
+            "Adelaide Cemetery Tours", "ACE Gallery",
+            "Adelaide Central Market", "David Roche Foundation",
+            "The Gov", "Trinity Sessions", "Morphettville Racecourse",
+            "Gilles at the Grounds", "Holden Street Theatres",
+            "Baroque Hall", "Arkaba Hotel", "Rhino Room",
+            "National Trust SA", "MOD.", "SAMSTAG Museum",
+            "Kerry Packer Civic Gallery",
+        }
+        skipped = [s["name"] for s in configured_sources
+                   if s["name"] in known_empty_generic_sources]
+        configured_sources = [s for s in configured_sources
+                              if s["name"] not in known_empty_generic_sources]
+        print(f"QUICK MODE: skipping {len(skipped)} previously empty/error sources.")
+        print("Their existing events are preserved; use a normal full run to recheck them.\\n")
 
     for source in configured_sources:
 
@@ -1579,7 +1621,7 @@ def main(only_source=None):
 if __name__ == "__main__":
     # Parse --only NAME and --only=NAME without treating the source name
     # as an unknown command-line option.
-    allowed = {"--preview-report", "--preview", "--dry-run"}
+    allowed = {"--preview-report", "--preview", "--dry-run", "--quick"}
     args = sys.argv[1:]
     only_source = None
     unknown = []
@@ -1605,6 +1647,6 @@ if __name__ == "__main__":
         index += 1
     if unknown:
         print(f"ERROR: Unknown option(s): {', '.join(unknown)}")
-        print("Use --preview, --preview-report, --dry-run, or --only SOURCE_NAME.")
+        print("Use --preview, --preview-report, --dry-run, --quick, or --only SOURCE_NAME.")
         sys.exit(2)
     main(only_source=only_source)
