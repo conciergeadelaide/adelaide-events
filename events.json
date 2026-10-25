@@ -5144,5 +5144,18 @@
     "image": "https://assets.atdw-online.com.au/images/5d325759b5f0b58d218f9ed79297a3a6.jpeg?rect=0%2C1560%2C4160%2C3120&w=450&h=335&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhOTdhMzNlNDZmMTlhMmQ0OTcyZjkyYSIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
     "link": "https://www.experienceadelaide.com.au/whats-on/pinkstachio-reignight-pres/",
     "source": "Experience Adelaide"
+  },
+  {
+    "title": "Walk for Respect",
+    "venue": "Victoria Square / Tarntanyangga",
+    "datetime": "2026-11-07T09:00:00+10:30",
+    "end_datetime": "2026-11-07T14:00:00+10:30",
+    "category": [
+      "Talks & Conferences",
+      "Family"
+    ],
+    "image": "https://cdn-az.allevents.in/events1/banners/6705d0181f0eed447b5eb9d1e7343194f9a96c8c813955fc8aa7d0ad1600bd1b-rimg-w1200-h800-dcf8f8f8-gmir?v=1789916282",
+    "link": "https://allevents.in/adelaide/walk-for-respect/200030718965602",
+    "source": "AllEvents Victoria Square"
   }
 ]

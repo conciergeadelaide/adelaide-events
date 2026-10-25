@@ -2480,3 +2480,138 @@ def parse_moshtix_adelaide():
     if not results:
         raise RuntimeError("No verified Moshtix CBD events; preserving existing")
     return results
+
+
+# ============================================================
+# ALLEVENTS — VICTORIA SQUARE ONLY
+# ============================================================
+
+def parse_allevents_victoria_square(soup, source_url):
+    """Import only verified events physically held in Victoria Square.
+
+    AllEvents' venue landing pages also show unrelated nearby events.
+    Therefore every candidate's individual page must confirm its venue.
+    If the website changes its HTML, return zero and let scrape.py
+    preserve existing records rather than guessing.
+    """
+    from urllib.parse import urlparse
+    from datetime import timezone
+
+    def is_square(name):
+        value = re.sub(r"[^a-z0-9]+", " ", str(name or "").casefold()).strip()
+        # Match the public square itself, not hotels and offices whose
+        # street address happens to contain "Victoria Square".
+        return bool(re.fullmatch(
+            r"(?:victoria (?:square|sq)|tarntanyangga)"
+            r"(?: (?:tarntanyangga|victoria (?:square|sq)|adelaide|sa|"
+            r"south australia|australia|5000))*", value
+        ))
+
+    def schema_events(node):
+        if isinstance(node, list):
+            for child in node:
+                yield from schema_events(child)
+        elif isinstance(node, dict):
+            kind = node.get("@type", "")
+            types = kind if isinstance(kind, list) else [kind]
+            if any(str(t).lower().endswith("event") for t in types):
+                yield node
+            for key in ("@graph", "itemListElement"):
+                if key in node:
+                    yield from schema_events(node[key])
+            if "item" in node:
+                yield from schema_events(node["item"])
+
+    def location_names(location):
+        if isinstance(location, list):
+            return [n for item in location for n in location_names(item)]
+        if isinstance(location, dict):
+            return [str(location.get("name") or "")]
+        return [str(location or "")]
+
+    # AllEvents listing cards link to /adelaide/<event-slug>/<numeric-id>.
+    # Do not follow the site's "events near" and recommended venue links.
+    candidates = []
+    seen = set()
+    for a in soup.select("a[href]"):
+        href = urljoin(source_url, a.get("href", "")).split("#")[0].split("?")[0]
+        parsed = urlparse(href)
+        if parsed.hostname not in ("allevents.in", "www.allevents.in"):
+            continue
+        if not re.fullmatch(r"/adelaide/[^/]+/\d{8,}", parsed.path):
+            continue
+        if href not in seen:
+            seen.add(href)
+            candidates.append(href)
+
+    session = requests.Session()
+    session.headers.update({"User-Agent":
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) "
+        "Chrome/140.0.0.0 Safari/537.36"})
+    results = []
+    for href in candidates[:100]:
+        try:
+            response = session.get(href, timeout=20)
+            response.raise_for_status()
+            detail = BeautifulSoup(response.text, "lxml")
+        except requests.RequestException:
+            continue
+
+        for script in detail.find_all("script", type="application/ld+json"):
+            try:
+                payload = json.loads(script.string or script.get_text())
+            except (ValueError, TypeError):
+                continue
+            for item in schema_events(payload):
+                locations = location_names(item.get("location"))
+                if not any(is_square(name) for name in locations):
+                    continue
+                title = str(item.get("name") or "").strip()
+                raw_date = str(item.get("startDate") or "").strip()
+                if not title or not re.match(r"^20\d\d-\d\d-\d\d", raw_date):
+                    continue
+                try:
+                    date_part = datetime.fromisoformat(
+                        raw_date.replace("Z", "+00:00")
+                    )
+                    # Avoid comparing timezone-aware against naive.
+                    if date_part.date() < datetime.now().date():
+                        continue
+                except ValueError:
+                    continue
+
+                date = raw_date
+                # Existing event schema expects ISO datetime with T.
+                if len(date) == 10:
+                    date += "T00:00:00"
+                end = str(item.get("endDate") or "")
+                if end and len(end) == 10:
+                    end += "T23:59:59"
+                picture = item.get("image") or ""
+                if isinstance(picture, list):
+                    picture = picture[0] if picture else ""
+                if isinstance(picture, dict):
+                    picture = picture.get("url") or picture.get("contentUrl") or ""
+                event_url = str(item.get("url") or href)
+                if urlparse(event_url).hostname not in ("allevents.in", "www.allevents.in"):
+                    event_url = href
+                results.append({
+                    "title": title,
+                    "venue": "Victoria Square / Tarntanyangga",
+                    "date": date,
+                    "end_date": end,
+                    "category": categorise_event(title, str(item.get("description") or "")[:300]),
+                    "image": urljoin(href, str(picture)) if picture else "",
+                    "url": event_url,
+                })
+                break
+
+    # Prevent repeated listing links from generating duplicate records.
+    unique = {}
+    for event in results:
+        key = (event["title"].casefold(), event["date"][:10])
+        unique.setdefault(key, event)
+    print(f"    AllEvents: {len(candidates)} event links, "
+          f"{len(unique)} verified Victoria Square events")
+    return list(unique.values())

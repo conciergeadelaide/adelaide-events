@@ -29,6 +29,7 @@ try:
         parse_ticketmaster_adelaide,
         parse_experience_adelaide,
         parse_moshtix_adelaide,
+        parse_allevents_victoria_square,
     )
 except ModuleNotFoundError:
     # Works when importing:
@@ -49,6 +50,7 @@ except ModuleNotFoundError:
         parse_ticketmaster_adelaide,
         parse_experience_adelaide,
         parse_moshtix_adelaide,
+        parse_allevents_victoria_square,
     )
 
 
@@ -466,6 +468,9 @@ def scrape_source(source):
     if name == "Moshtix Adelaide CBD":
         return parse_moshtix_adelaide()
 
+    if name == "AllEvents Victoria Square":
+        return parse_allevents_victoria_square(fetch_page(url), url)
+
     # ----------------------------------------
     # Ticketmaster Adelaide (official API)
     # ----------------------------------------
@@ -691,7 +696,7 @@ def source_domains(source_name):
     """
     domains = set()
 
-    for source in list(SOURCES) + [{"name": "Moshtix Adelaide CBD", "url": "https://www.moshtix.com.au/v2/search"}]:
+    for source in list(SOURCES) + [{"name": "Moshtix Adelaide CBD", "url": "https://www.moshtix.com.au/v2/search"}, {"name": "AllEvents Victoria Square", "url": "https://allevents.in/adelaide/victoria%20square"}]:
         if source.get("name") != source_name:
             continue
 
@@ -934,7 +939,7 @@ def main():
     # Scrape all configured sources
     # ----------------------------------------
 
-    for source in list(SOURCES) + [{"name": "Moshtix Adelaide CBD", "url": "https://www.moshtix.com.au/v2/search"}]:
+    for source in list(SOURCES) + [{"name": "Moshtix Adelaide CBD", "url": "https://www.moshtix.com.au/v2/search"}, {"name": "AllEvents Victoria Square", "url": "https://allevents.in/adelaide/victoria%20square"}]:
 
         name = source["name"]
 
@@ -1334,6 +1339,36 @@ def main():
         else:
             kept_experience.append(event)
     final_events = authoritative + kept_experience
+
+    # AllEvents is an aggregator: retain official and previously curated
+    # records where the same Victoria Square event is already listed.
+    # Compare date, distinctive title and known times. Do not merge
+    # different named activities at a festival.
+    square_events = [e for e in final_events
+                     if e.get("source") == "AllEvents Victoria Square"]
+    other_events = [e for e in final_events
+                    if e.get("source") != "AllEvents Victoria Square"]
+    kept_square = []
+    skipped_square = 0
+    for candidate in square_events:
+        title = comparable_title(candidate.get("title", ""))
+        same_day = [e for e in other_events + kept_square
+                    if overlaps(candidate, e)]
+        duplicate = any(
+            (title == comparable_title(other.get("title", ""))
+             or (len(title) >= 18
+                 and len(comparable_title(other.get("title", ""))) >= 18
+                 and SequenceMatcher(None, title,
+                     comparable_title(other.get("title", ""))).ratio() >= 0.94))
+            and same_performance(candidate, other)
+            for other in same_day
+        )
+        if duplicate:
+            skipped_square += 1
+        else:
+            kept_square.append(candidate)
+    final_events = other_events + kept_square
+    print(f"AllEvents Victoria Square overlaps excluded: {skipped_square}")
 
     # Enrich existing Ticketmaster events only after final deduplication.
     enrich_thebarton_images(final_events)
