@@ -5157,5 +5157,341 @@
     "image": "https://cdn-az.allevents.in/events1/banners/6705d0181f0eed447b5eb9d1e7343194f9a96c8c813955fc8aa7d0ad1600bd1b-rimg-w1200-h800-dcf8f8f8-gmir?v=1789916282",
     "link": "https://allevents.in/adelaide/walk-for-respect/200030718965602",
     "source": "AllEvents Victoria Square"
+  },
+  {
+    "title": "La BohÃ¨me Club",
+    "venue": "Nineteen Ten",
+    "datetime": "2026-11-07T19:00:00+1030",
+    "end_datetime": "2026-11-07T22:30:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/6eaa8951-9043-4d25-838d-d33d1c9c6f1d.png@seo-500.jpg",
+    "link": "https://events.humanitix.com/la-boheme-club-bazq98et",
+    "source": "Humanitix Nineteen Ten"
+  },
+  {
+    "title": "NYE Diamonds & Pearls Soiree",
+    "venue": "Nineteen Ten",
+    "datetime": "2026-12-31T20:00:00+1030",
+    "end_datetime": "2027-01-01T01:00:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/1b5fdfbc-0b9b-4f83-9a63-e7d140e718a8.png@seo-500.jpg",
+    "link": "https://events.humanitix.com/nye-diamonds-and-pearls-soiree",
+    "source": "Humanitix Nineteen Ten"
+  },
+  {
+    "title": "The Haunted Hotel II",
+    "venue": "Nineteen Ten",
+    "datetime": "2026-10-31T18:30:00+1030",
+    "end_datetime": "2026-10-31T21:00:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/x3eETB9Tl62ctnaqwQqg@seo-500.jpg",
+    "link": "https://events.humanitix.com/the-haunted-hotel-ii",
+    "source": "Humanitix Nineteen Ten"
+  },
+  {
+    "title": "Wonderfully Terrible Halloween",
+    "venue": "Nineteen Ten",
+    "datetime": "2026-10-30T19:30:00+1030",
+    "end_datetime": "2026-10-30T23:00:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/928ac65b-26d1-4ba3-a0ec-55485a261504.png@seo-500.jpg",
+    "link": "https://events.humanitix.com/wonderfully-terrible-halloween",
+    "source": "Humanitix Nineteen Ten"
+  },
+  {
+    "title": "2026 SA ASSA Christmas Connect",
+    "venue": "The Holdfast Hotel, Glenelg",
+    "datetime": "2026-11-11T17:30:00+1030",
+    "end_datetime": "2026-11-11T20:30:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/b8823acc-3b00-472c-a90e-52c210230a2f.jpg@seo-500.jpg",
+    "link": "https://events.humanitix.com/2026-sa-assa-christmas-connect",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "Adelaide Hills Ready-Set-Connect",
+    "venue": "Adelaide Hills Convention Centre",
+    "datetime": "2026-11-11T10:00:00+1030",
+    "end_datetime": "2026-11-11T12:30:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/22c47748-5c18-44f3-a9b0-80a8d23e8fb3.jpg@seo-500.jpg",
+    "link": "https://events.humanitix.com/adelaide-hills-ready-set-connect",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "Origins",
+    "venue": "Tatachilla Lutheran College Stadium",
+    "datetime": "2026-11-08T15:00:00+1030",
+    "end_datetime": "2026-11-08T17:30:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/AK6pJp3FQOSh1Rhc788x@seo-500.jpg",
+    "link": "https://events.humanitix.com/big-sing-2026",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "BrontÃ« EP Release show",
+    "venue": "Noori on the Midcoast",
+    "datetime": "2026-11-13T19:30:00+1030",
+    "end_datetime": "2026-11-13T23:30:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/667b6bf0-ecc5-4829-aff7-ed49be430152.png@seo-500.jpg",
+    "link": "https://events.humanitix.com/bronte-ep-release-show",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "Daniel Champagne LIVE at Aldinga Institute Hall (Family Friendly Concert) [SOLD OUT]",
+    "venue": "Aldinga Institute Hall",
+    "datetime": "2026-11-20T19:30:00+1030",
+    "end_datetime": "2026-11-20T20:45:00+1030",
+    "category": [
+      "Music"
+    ],
+    "image": "https://images.humanitix.com/i/2441c7f3-f904-400d-99ce-8e2aa12c80eb.jpg@seo-500.jpg",
+    "link": "https://events.humanitix.com/daniel-champagne-live-at-aldinga-institute-hall-family-friendly-concert",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "Daniel Champagne LIVE at Mount Barker Town Hall (Family Friendly Concert)",
+    "venue": "Mount Barker Town Hall",
+    "datetime": "2026-11-21T19:30:00+1030",
+    "end_datetime": "2026-11-21T20:45:00+1030",
+    "category": [
+      "Music"
+    ],
+    "image": "https://images.humanitix.com/i/2441c7f3-f904-400d-99ce-8e2aa12c80eb.jpg@seo-500.jpg",
+    "link": "https://events.humanitix.com/daniel-champagne-live-at-mount-barker-town-hall-family-friendly-concert",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "Estara Inclusive Beach Days",
+    "venue": "Glenelg Beach",
+    "datetime": "2027-01-10T10:00:00+1030",
+    "end_datetime": "2027-01-10T14:00:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/f8b741ec-c5dc-48b3-84d0-3b31ae692328.png@seo-500.jpg",
+    "link": "https://events.humanitix.com/estara-inclusive-beach-days",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "Estara Inclusive Beach Days",
+    "venue": "Glenelg Beach",
+    "datetime": "2027-01-23T10:00:00+1030",
+    "end_datetime": "2027-01-23T15:00:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/f8b741ec-c5dc-48b3-84d0-3b31ae692328.png@seo-500.jpg",
+    "link": "https://events.humanitix.com/estara-inclusive-beach-days",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "Estara Inclusive Beach Days",
+    "venue": "Glenelg Beach",
+    "datetime": "2027-02-05T10:00:00+1030",
+    "end_datetime": "2027-02-05T15:00:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/f8b741ec-c5dc-48b3-84d0-3b31ae692328.png@seo-500.jpg",
+    "link": "https://events.humanitix.com/estara-inclusive-beach-days",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "Estara Inclusive Beach Days",
+    "venue": "Glenelg Beach",
+    "datetime": "2027-02-21T10:00:00+1030",
+    "end_datetime": "2027-02-21T15:00:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/f8b741ec-c5dc-48b3-84d0-3b31ae692328.png@seo-500.jpg",
+    "link": "https://events.humanitix.com/estara-inclusive-beach-days",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "Estara Inclusive Beach Days",
+    "venue": "Glenelg Beach",
+    "datetime": "2027-03-06T10:00:00+1030",
+    "end_datetime": "2027-03-06T15:00:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/f8b741ec-c5dc-48b3-84d0-3b31ae692328.png@seo-500.jpg",
+    "link": "https://events.humanitix.com/estara-inclusive-beach-days",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "Gunson Street Party",
+    "venue": "Gunson Street",
+    "datetime": "2026-10-30T16:00:00+1030",
+    "end_datetime": "2026-10-30T21:00:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/e2fd3b06-af5e-4210-93a8-b7c13b9f5808.jpg@seo-500.jpg",
+    "link": "https://events.humanitix.com/gunson-street-party",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "High Tea by the Sea: Share the Joy",
+    "venue": "Stamford Grand Adelaide",
+    "datetime": "2026-11-14T13:00:00+1030",
+    "end_datetime": "2026-11-14T15:30:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/425d56ee-f93b-4c8c-b5a5-cd2d62c7c27f.jpg@seo-500.jpg",
+    "link": "https://events.humanitix.com/high-tea-by-the-sea-share-the-joy",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "ICONS ONLY - Adelaide",
+    "venue": "Mary's Poppin",
+    "datetime": "2026-11-27T18:00:00+1030",
+    "end_datetime": "2026-11-27T22:00:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/1ad030a9-3f14-407a-b775-20a344afcf78.jpg@seo-500.jpg",
+    "link": "https://events.humanitix.com/icons-adl",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "Ignite Christmas Dinner 2026: Women's Christmas Dinner at Glenelg, Adelaide",
+    "venue": "Ellenika",
+    "datetime": "2026-12-04T18:00:00+1030",
+    "end_datetime": "2026-12-04T22:30:00+1030",
+    "category": [
+      "Food & Beverage"
+    ],
+    "image": "https://images.humanitix.com/i/f11e1db8-5d09-4827-8a0d-18f6e8ba432b.jpg@seo-500.jpg",
+    "link": "https://events.humanitix.com/ignite-christmas-dinner-2026-women-s-christmas-dinner-at-glenelg-adelaide",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "Orange Breakfast - in recognition of the 16 Days of Activism against gender based violence",
+    "venue": "3 Dumas St",
+    "datetime": "2026-11-26T09:00:00+1030",
+    "end_datetime": "2026-11-26T10:30:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/98e00d5e-996d-4f2b-8a59-7fb78a8915f6.png@seo-500.jpg",
+    "link": "https://events.humanitix.com/orange-breakfast-in-recognition-of-the-16-days-of-activism-against-gender-based-violence",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "Poppin Corks 2027 - Adelaide",
+    "venue": "Sidewood Estate Restaurant",
+    "datetime": "2027-02-27T13:00:00+1030",
+    "end_datetime": "2027-02-27T20:00:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/59a7944d-9021-42df-b350-f423d53a73f4.jpg@seo-500.jpg",
+    "link": "https://events.humanitix.com/poppincorks",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "Poppin Out 2026 - Adelaide",
+    "venue": "Mary's Poppin",
+    "datetime": "2026-11-07T17:00:00+1030",
+    "end_datetime": "2026-11-07T23:00:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/4c846d55-ee9a-4c0a-a578-787099b58138.jpg@seo-500.jpg",
+    "link": "https://events.humanitix.com/poppinout26",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "Sidebyside Festival 2027",
+    "venue": "Helen Mayo Park",
+    "datetime": "2027-01-30T12:00:00+1030",
+    "end_datetime": "2027-01-31T01:00:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/f04d0431-9e4a-4fc9-9aef-cfab5abc32c0.jpg@seo-500.jpg",
+    "link": "https://events.humanitix.com/sidebyside-2027",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "SINGLES Night 30+ @ Prancing Pony Adel. Hills",
+    "venue": "Prancing Pony Brewery",
+    "datetime": "2026-11-28T19:00:00+1030",
+    "end_datetime": "2026-11-28T21:30:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/c7d6d81a-9801-4df6-93a5-1e55543e377f.png@seo-500.jpg",
+    "link": "https://events.humanitix.com/singles-night-3-prancing-pony-adel-hills",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "STOP THE CHOP ROAD SHOW AT GLENELG",
+    "venue": "Glenelg Town Hall",
+    "datetime": "2026-10-31T13:00:00+1030",
+    "end_datetime": "2026-10-31T14:00:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/240d410b-c761-4db1-b4b4-838246d95ac5.jpg@seo-500.jpg",
+    "link": "https://events.humanitix.com/stop-the-chop-road-show-at-glenelg",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "THE FULL+ RUNRISE // Adelaide - 14th NOV 2026",
+    "venue": "Chalk Hill Wines",
+    "datetime": "2026-11-14T04:15:00+1030",
+    "end_datetime": "2026-11-14T08:00:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/bf20131e-01ef-429f-a610-442ee3ed25a2.png@seo-500.jpg",
+    "link": "https://events.humanitix.com/the-full-runrise-adelaide-14th-nov-2026",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "The Wild Folk presents Soulful Sundays",
+    "venue": "Soul House Social Club",
+    "datetime": "2026-10-25T14:00:00+1030",
+    "end_datetime": "2026-10-25T18:00:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/7854a01c-1383-494f-b0c5-09aecc636af8.png@seo-500.jpg",
+    "link": "https://events.humanitix.com/the-wild-folk-presents-soulful-sundays",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "VIP Frame Styleshow Colonnades",
+    "venue": "Eyes & Vision Colonnades",
+    "datetime": "2026-10-29T09:00:00+1030",
+    "end_datetime": "2026-10-29T19:00:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/5d9a0674-28f1-448c-86de-4246cc491135.png@seo-500.jpg",
+    "link": "https://events.humanitix.com/vip-frame-styleshow-colonnades",
+    "source": "Humanitix Adelaide and Regions"
   }
 ]

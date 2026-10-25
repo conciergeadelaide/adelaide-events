@@ -11,6 +11,11 @@ from urllib.parse import urlparse
 from bs4 import BeautifulSoup
 
 try:
+    from humanitix import scrape_humanitix
+except ModuleNotFoundError:
+    from Scraper.humanitix import scrape_humanitix
+
+try:
     # Works when running:
     # python Scraper\scrape.py
     from config import SOURCES
@@ -465,6 +470,12 @@ def scrape_source(source):
     name = source["name"]
     url = source["url"]
 
+    if name == "Humanitix Nineteen Ten":
+        return scrape_humanitix(host_only=True)
+
+    if name == "Humanitix Adelaide and Regions":
+        return scrape_humanitix(host_only=False)
+
     if name == "Moshtix Adelaide CBD":
         return parse_moshtix_adelaide()
 
@@ -696,7 +707,7 @@ def source_domains(source_name):
     """
     domains = set()
 
-    for source in list(SOURCES) + [{"name": "Moshtix Adelaide CBD", "url": "https://www.moshtix.com.au/v2/search"}, {"name": "AllEvents Victoria Square", "url": "https://allevents.in/adelaide/victoria%20square"}]:
+    for source in list(SOURCES) + [{"name": "Moshtix Adelaide CBD", "url": "https://www.moshtix.com.au/v2/search"}, {"name": "AllEvents Victoria Square", "url": "https://allevents.in/adelaide/victoria%20square"}, {"name": "Humanitix Nineteen Ten", "url": "https://events.humanitix.com/host/nineteentenadl"}, {"name": "Humanitix Adelaide and Regions", "url": "https://humanitix.com/au/events/au--sa--adelaide"}]:
         if source.get("name") != source_name:
             continue
 
@@ -729,6 +740,11 @@ def event_belongs_to_source(event, source_name):
 
     if explicit_source == wanted:
         return True
+
+    # Humanitix sources share the same event URL domain. Never classify
+    # a Nineteen Ten host event as a general-directory event (or vice versa).
+    if source_name.startswith("Humanitix "):
+        return False
 
     # Do not return False merely because an older record has a
     # different/missing source label. Its official URL may still
@@ -916,7 +932,7 @@ def write_preview_report(existing_events, proposed_events):
     print("events.json was NOT changed.")
 
 
-def main():
+def main(only_source=None):
 
     print("========================================")
     print(" Adelaide Events Scraper")
@@ -939,7 +955,27 @@ def main():
     # Scrape all configured sources
     # ----------------------------------------
 
-    for source in list(SOURCES) + [{"name": "Moshtix Adelaide CBD", "url": "https://www.moshtix.com.au/v2/search"}, {"name": "AllEvents Victoria Square", "url": "https://allevents.in/adelaide/victoria%20square"}]:
+    # Single-source test mode: never write events.json or run global cleanup.
+    configured_sources = list(SOURCES) + [
+        {"name": "Moshtix Adelaide CBD", "url": "https://www.moshtix.com.au/v2/search"},
+        {"name": "AllEvents Victoria Square", "url": "https://allevents.in/adelaide/victoria%20square"},
+        {"name": "Humanitix Nineteen Ten", "url": "https://events.humanitix.com/host/nineteentenadl"},
+        {"name": "Humanitix Adelaide and Regions", "url": "https://humanitix.com/au/events/au--sa--adelaide"},
+    ]
+    if only_source is not None:
+        matches = [s for s in configured_sources
+                   if s["name"].casefold() == only_source.strip().casefold()]
+        if not matches:
+            print(f"ERROR: Unknown source: {only_source}")
+            print("Available sources:")
+            for s in configured_sources:
+                print("  " + s["name"])
+            return
+        configured_sources = matches
+        print(f"SINGLE-SOURCE TEST: {matches[0]['name']}")
+        print("Only this source will be fetched. events.json will not be changed.\n")
+
+    for source in configured_sources:
 
         name = source["name"]
 
@@ -1038,6 +1074,15 @@ def main():
                 f"fresh {fresh_count}, "
                 f"REJECTED - preserved existing"
             )
+
+    if only_source is not None:
+        print("\n----------------------------------------")
+        print(f"Source tested: {configured_sources[0]['name']}")
+        print(f"New records collected: {len(all_new_events)}")
+        print(f"Source accepted: {bool(accepted_sources)}")
+        print(f"Existing events retained: {len(existing_events)}")
+        print("SINGLE-SOURCE TEST COMPLETE: events.json was NOT changed.")
+        return
 
     # ----------------------------------------
     # Deduplicate newly scraped events only
@@ -1370,6 +1415,36 @@ def main():
     final_events = other_events + kept_square
     print(f"AllEvents Victoria Square overlaps excluded: {skipped_square}")
 
+    # Humanitix is an event platform, not a venue authority. Prefer existing
+    # venue/official entries for the same performance, date and venue.
+    humanitix_sources = {"Humanitix Nineteen Ten", "Humanitix Adelaide and Regions"}
+    humanitix_events = [e for e in final_events if e.get("source") in humanitix_sources]
+    non_humanitix = [e for e in final_events if e.get("source") not in humanitix_sources]
+    retained_humanitix = []
+    humanitix_overlaps = 0
+    for candidate in humanitix_events:
+        candidate_title = comparable_title(candidate.get("title", ""))
+        duplicate = False
+        for other in non_humanitix + retained_humanitix:
+            if not overlaps(candidate, other):
+                continue
+            if _venue_name(candidate.get("venue")) != _venue_name(other.get("venue")):
+                continue
+            other_title = comparable_title(other.get("title", ""))
+            if candidate_title == other_title or (
+                len(candidate_title) >= 18 and len(other_title) >= 18
+                and SequenceMatcher(None, candidate_title, other_title).ratio() >= 0.94
+            ):
+                if same_performance(candidate, other):
+                    duplicate = True
+                    break
+        if duplicate:
+            humanitix_overlaps += 1
+        else:
+            retained_humanitix.append(candidate)
+    final_events = non_humanitix + retained_humanitix
+    print(f"Humanitix overlaps excluded: {humanitix_overlaps}")
+
     # Standardise Victoria Square venue labels across every source,
     # including older imported records with alternate spelling/case.
     victoria_aliases = {
@@ -1502,10 +1577,34 @@ def main():
 
 
 if __name__ == "__main__":
+    # Parse --only NAME and --only=NAME without treating the source name
+    # as an unknown command-line option.
     allowed = {"--preview-report", "--preview", "--dry-run"}
-    unknown = [arg for arg in sys.argv[1:] if arg not in allowed]
+    args = sys.argv[1:]
+    only_source = None
+    unknown = []
+    index = 0
+    while index < len(args):
+        arg = args[index]
+        if arg == "--only":
+            if only_source is not None or index + 1 >= len(args) or args[index + 1].startswith("--"):
+                print("ERROR: --only requires exactly one source name.")
+                sys.exit(2)
+            only_source = args[index + 1]
+            index += 2
+            continue
+        if arg.startswith("--only="):
+            if only_source is not None or not arg[len("--only="):].strip():
+                print("ERROR: --only requires exactly one source name.")
+                sys.exit(2)
+            only_source = arg[len("--only="):]
+            index += 1
+            continue
+        if arg not in allowed:
+            unknown.append(arg)
+        index += 1
     if unknown:
         print(f"ERROR: Unknown option(s): {', '.join(unknown)}")
-        print("Use --preview, --preview-report, or --dry-run.")
+        print("Use --preview, --preview-report, --dry-run, or --only SOURCE_NAME.")
         sys.exit(2)
-    main()
+    main(only_source=only_source)

@@ -104,14 +104,6 @@ SOURCES = [
         "url": "https://www.ace.gallery/whats-on/exhibitions"
     },
     {
-        "name": "St Peters Cathedral",
-        "url": "http://www.stpeters-cathedral.org.au/events/"
-    },
-    {
-        "name": "St Francis Xavier Cathedral",
-        "url": "https://www.adelcathparish.org/news-and-events/events-1"
-    },
-    {
         "name": "Adelaide Central Market",
         "url": "https://adelaidecentralmarket.com.au/whats-on/"
     },
