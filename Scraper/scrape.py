@@ -1370,6 +1370,22 @@ def main():
     final_events = other_events + kept_square
     print(f"AllEvents Victoria Square overlaps excluded: {skipped_square}")
 
+    # Standardise Victoria Square venue labels across every source,
+    # including older imported records with alternate spelling/case.
+    victoria_aliases = {
+        "victoria square / tartanyangga",
+        "victoria square / tartntanyangga",
+        "victoria square / tarntanyangga",
+    }
+    venue_names_normalised = 0
+    for event in final_events:
+        current_venue = str(event.get("venue", "")).strip()
+        if current_venue.casefold() in victoria_aliases:
+            if current_venue != "Victoria Square / Tarntanyangga":
+                event["venue"] = "Victoria Square / Tarntanyangga"
+                venue_names_normalised += 1
+    print(f"Victoria Square venue names standardised: {venue_names_normalised}")
+
     # Enrich existing Ticketmaster events only after final deduplication.
     enrich_thebarton_images(final_events)
     print(f"Experience Adelaide overlaps excluded: {skipped_experience}")
