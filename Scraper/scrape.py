@@ -598,6 +598,93 @@ def scrape_source(source):
     )
 
 
+
+# ------------------------------------------------------------
+# Thebarton Theatre official-poster enrichment
+# ------------------------------------------------------------
+
+THEBARTON_HOMEPAGE = "https://thebartontheatre.com.au/"
+TICKETMASTER_EVENT_ID = re.compile(r"/event/([A-Za-z0-9]+)", re.I)
+WORDPRESS_THUMBNAIL = re.compile(r"-\d+x\d+(?=\.[A-Za-z0-9]+(?:$|\?))")
+
+
+def ticketmaster_event_id(link):
+    """Extract the stable Ticketmaster event ID from either URL format."""
+    match = TICKETMASTER_EVENT_ID.search(str(link or ""))
+    return match.group(1).upper() if match else ""
+
+
+def thebarton_official_posters():
+    """Return event-ID -> verified, full-resolution official image URL.
+
+    Failure is non-fatal: existing event images are preserved.
+    """
+    try:
+        soup = fetch_page(THEBARTON_HOMEPAGE)
+    except Exception as exc:
+        print(f"Thebarton posters: homepage unavailable ({exc}); keeping existing images")
+        return {}
+
+    candidates = {}
+    for anchor in soup.find_all("a", href=True):
+        event_id = ticketmaster_event_id(anchor.get("href"))
+        if not event_id:
+            continue
+        img = anchor.find("img")
+        if img is None:
+            continue
+        src = str(img.get("data-src") or img.get("src") or "").strip()
+        if not src.startswith("https://thebartontheatre.com.au/wp-content/uploads/"):
+            continue
+        # WordPress thumbnails such as -300x300 are generated from this original.
+        original = WORDPRESS_THUMBNAIL.sub("", src)
+        # Retain the first unique candidate for each event ID.
+        candidates.setdefault(event_id, original)
+
+    verified = {}
+    with requests.Session() as session:
+        session.headers.update(HEADERS)
+        for event_id, image_url in candidates.items():
+            try:
+                response = session.head(image_url, timeout=12, allow_redirects=True)
+                # Some image servers disable HEAD: try a streamed GET.
+                if response.status_code in (403, 405):
+                    response.close()
+                    response = session.get(image_url, timeout=12, stream=True)
+                content_type = response.headers.get("Content-Type", "").lower()
+                if response.ok and content_type.startswith("image/"):
+                    verified[event_id] = image_url
+                response.close()
+            except requests.RequestException:
+                pass
+
+    print(f"Thebarton posters: {len(candidates)} linked, {len(verified)} verified originals")
+    return verified
+
+
+def enrich_thebarton_images(events):
+    """Update only matched Thebarton Theatre images, without adding events."""
+    targets = [
+        event for event in events
+        if "thebarton" in _venue_name(event.get("venue"))
+        and ticketmaster_event_id(event.get("link") or event.get("url"))
+    ]
+    if not targets:
+        print("Thebarton posters: no eligible events to enrich")
+        return
+
+    posters = thebarton_official_posters()
+    updated = 0
+    for event in targets:
+        event_id = ticketmaster_event_id(event.get("link") or event.get("url"))
+        official_image = posters.get(event_id)
+        if official_image and event.get("image") != official_image:
+            event["image"] = official_image
+            updated += 1
+
+    print(f"Thebarton posters: {updated} images updated across {len(targets)} eligible events")
+
+
 def source_domains(source_name):
     """
     Return the official hostname(s) configured for a source.
@@ -1247,6 +1334,9 @@ def main():
         else:
             kept_experience.append(event)
     final_events = authoritative + kept_experience
+
+    # Enrich existing Ticketmaster events only after final deduplication.
+    enrich_thebarton_images(final_events)
     print(f"Experience Adelaide overlaps excluded: {skipped_experience}")
     print(f"Tourism duplicates excluded: {tourism_duplicates}")
 
