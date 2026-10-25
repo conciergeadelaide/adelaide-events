@@ -1,17 +1,5 @@
 [
   {
-    "title": "Sheffield Shield: SA v QLD",
-    "venue": "Adelaide Oval",
-    "datetime": "2026-10-19T10:30:00",
-    "end_datetime": "2026-10-22T23:59:59",
-    "category": [
-      "Sport"
-    ],
-    "image": "https://www.adelaideoval.com.au/wp-content/uploads/event/2025/07/3.png",
-    "link": "https://www.adelaideoval.com.au/events/sheffield-shield-sa-v-qld-2/",
-    "source": "Adelaide Oval"
-  },
-  {
     "title": "Sheffield Shield: SA v WA",
     "venue": "Adelaide Oval",
     "datetime": "2026-10-28T10:30:00",
@@ -257,101 +245,15 @@
     "source": "Adelaide Festival Centre"
   },
   {
-    "title": "Creative Writing with Gabrielle Wang",
-    "venue": "Online",
-    "datetime": "2026-10-21T00:00:00",
-    "end_datetime": "2026-10-22T00:00:00",
-    "category": [
-      "Workshop",
-      "Talks & Conferences"
-    ],
-    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/09-Sep/Creative-Writing-with-Gabrielle-Wang/Created-Writing-with-Gabrielle-Wang-4_2026-07-16-053641_lldt.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
-    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/creative-writing-with-gabrielle-wang",
-    "source": "Adelaide Festival Centre"
-  },
-  {
-    "title": "TYPÓ",
-    "venue": "OzAsia Festival Stage at Lucky Dumpling Market",
-    "datetime": "2026-10-22T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/10-Oct/TYP%C3%93/typo-band-1136x994.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
-    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/typo-band",
-    "source": "Adelaide Festival Centre"
-  },
-  {
     "title": "Carmen",
     "venue": "Her Majesty's Theatre",
-    "datetime": "2026-10-22T00:00:00",
-    "end_datetime": "2026-10-24T00:00:00",
+    "datetime": "2026-10-24T00:00:00",
+    "end_datetime": "",
     "category": [
       "Theatre"
     ],
     "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/10-Oct/Carmen/sosa-afc-carmen-opera-2026-1136x994px.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
     "link": "https://www.adelaidefestivalcentre.com.au/whats-on/carmen-2026",
-    "source": "Adelaide Festival Centre"
-  },
-  {
-    "title": "Sashi Perera's Night School",
-    "venue": "Dunstan Playhouse",
-    "datetime": "2026-10-23T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Comedy"
-    ],
-    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/09-Sep/Sashi-Pereras-Night-School/sashi-perera-night-school-afc-website-1136x994_2026-08-10-063306_bpho_2026-08-13-011603_ubbn.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
-    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/sashi-pereras-night-school",
-    "source": "Adelaide Festival Centre"
-  },
-  {
-    "title": "Maajela",
-    "venue": "OzAsia Festival Stage at Lucky Dumpling Market",
-    "datetime": "2026-10-23T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/10-Oct/Maajela/Maajela-1136-x-994-Website-Images.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
-    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/maajela",
-    "source": "Adelaide Festival Centre"
-  },
-  {
-    "title": "OzAsia Festival’s Weekend of Words",
-    "venue": "Adelaide Festival Centre",
-    "datetime": "2026-10-24T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Festival",
-      "Talks & Conferences"
-    ],
-    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/10-Oct/OzAsia-Festival%E2%80%99s-Weekend-of-Words/WOW-2560x1280-1.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
-    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/weekend-of-words-2026",
-    "source": "Adelaide Festival Centre"
-  },
-  {
-    "title": "The Greatest Debate",
-    "venue": "Dunstan Playhouse",
-    "datetime": "2026-10-24T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Comedy"
-    ],
-    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/10-Oct/The-Greatest-Debate/greatest-debate-afc-website-v3-1136x994.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
-    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/that-you-should-all-go-back-where-you-came-from",
-    "source": "Adelaide Festival Centre"
-  },
-  {
-    "title": "SUN DER",
-    "venue": "OzAsia Festival Stage at Lucky Dumpling Market",
-    "datetime": "2026-10-24T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/10-Oct/SUN-DER/sun_der_ozasia_lucky_dumpling_market_stage_1136x994.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
-    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/sun-der",
     "source": "Adelaide Festival Centre"
   },
   {
@@ -448,6 +350,18 @@
     ],
     "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/11-Nov/John-Edward/John-Edward-2026-Adelaide-1136-%C3%97-994-px-1.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
     "link": "https://www.adelaidefestivalcentre.com.au/whats-on/john-edward-2026",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "Wrestling with Tomorrow",
+    "venue": "Drama Centre Rehearsal Room",
+    "datetime": "2026-11-11T00:00:00",
+    "end_datetime": "2026-11-13T00:00:00",
+    "category": [
+      "Theatre"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/11-Nov/Wrestling-with-Tomorrow/Wrestling-with-Tomorrow-1136x994px.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/wrestling-with-tomorrow",
     "source": "Adelaide Festival Centre"
   },
   {
@@ -704,15 +618,27 @@
     "source": "Adelaide Festival Centre"
   },
   {
-    "title": "New Years Eve Long Dining Experience",
+    "title": "New Years Eve Celebration Dinner",
     "venue": "Angry Penguin",
     "datetime": "2026-12-31T00:00:00",
     "end_datetime": "",
     "category": [
-      "Food & Beverage"
+      "Other"
     ],
     "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/10-Oct/New-Years-Eve-Long-Dining-Experience/image-5.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
     "link": "https://www.adelaidefestivalcentre.com.au/whats-on/new-years-eve-long-dining-experience",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "New Year's Eve Party",
+    "venue": "Banquet Room",
+    "datetime": "2026-12-31T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/10-Oct/New-Years-Eve-Party/fireworks_1136x994.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/new-years-eve-party-2026",
     "source": "Adelaide Festival Centre"
   },
   {
@@ -937,6 +863,19 @@
     "source": "Adelaide Festival Centre"
   },
   {
+    "title": "A Beautiful Noise",
+    "venue": "Her Majesty's Theatre",
+    "datetime": "2027-05-23T00:00:00",
+    "end_datetime": "2027-06-20T00:00:00",
+    "category": [
+      "Theatre",
+      "Music"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2027/05-May/A-Beautiful-Noise/1136-x-994_Prod-Image_FA.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/a-beautiful-noise-the-neil-diamond-musical",
+    "source": "Adelaide Festival Centre"
+  },
+  {
     "title": "Aladdin",
     "venue": "Dunstan Playhouse",
     "datetime": "2027-07-02T00:00:00",
@@ -972,30 +911,6 @@
     "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2027/09-Sep/Everly-Brothers-Roy-Orbison/1136x994-1.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
     "link": "https://www.adelaidefestivalcentre.com.au/whats-on/everly-brothers-roy-orbison-2027",
     "source": "Adelaide Festival Centre"
-  },
-  {
-    "title": "Old Mervs",
-    "venue": "Hindley Street Music Hall",
-    "datetime": "2026-10-23T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://dynamicmedia.livenationinternational.com/s/s/y/56b46094-3397-461f-a77c-49f74b0eb920.jpg?format=webp&width=3840&quality=75",
-    "link": "https://www.hindleymusichall.com.au/all-events/old-mervs-tickets-ae1488974",
-    "source": "Hindley St Music Hall"
-  },
-  {
-    "title": "Project Hardstyle presents: Hardstyle Halloween ft: The Noisemakers Sickmode & Krowdexx Australian Tour",
-    "venue": "Hindley Street Music Hall",
-    "datetime": "2026-10-24T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://dynamicmedia.livenationinternational.com/j/a/e/ee861abf-3ebf-474a-9678-96617ac7483e.png",
-    "link": "https://www.hindleymusichall.com.au/all-events/project-hardstyle-tickets-ae1629967",
-    "source": "Hindley St Music Hall"
   },
   {
     "title": "Stand Atlantic \"GODBREATH\" Australian Tour",
@@ -1214,6 +1129,18 @@
     "source": "Hindley St Music Hall"
   },
   {
+    "title": "Dinosaur Jr",
+    "venue": "Hindley Street Music Hall",
+    "datetime": "2027-01-24T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://dynamicmedia.livenationinternational.com/l/y/r/59ad4c0b-4345-40b6-8d6c-05791d7bafd7.jpg",
+    "link": "https://www.hindleymusichall.com.au/all-events/dinosaur-jr-tickets-ae3854",
+    "source": "Hindley St Music Hall"
+  },
+  {
     "title": "Max McNown 'Slow Down, Down Under Tour'",
     "venue": "Hindley Street Music Hall",
     "datetime": "2027-02-04T00:00:00",
@@ -1283,6 +1210,18 @@
     ],
     "image": "https://dynamicmedia.livenationinternational.com/s/h/w/44982146-0e6b-48c6-a409-a8b2112a93ef.jpg",
     "link": "https://www.hindleymusichall.com.au/all-events/president-tickets-ae1599180",
+    "source": "Hindley St Music Hall"
+  },
+  {
+    "title": "José González",
+    "venue": "Hindley Street Music Hall",
+    "datetime": "2027-02-24T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://dynamicmedia.livenationinternational.com/j/o/z/e719763d-61cd-460e-8d35-8dd6bbee4ef9.png",
+    "link": "https://www.hindleymusichall.com.au/all-events/jose-gonzalez-tickets-ae59",
     "source": "Hindley St Music Hall"
   },
   {
@@ -1516,7 +1455,7 @@
   {
     "title": "Two Door Cinema Club",
     "venue": "Adelaide Entertainment Centre",
-    "datetime": "2026-11-18T19:15:00",
+    "datetime": "2026-11-18T20:00:00",
     "end_datetime": "",
     "category": [
       "Music"
@@ -1946,6 +1885,18 @@
     "source": "Adelaide Entertainment Centre"
   },
   {
+    "title": "Craig David",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2027-05-26T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/10/CraigDavid_2027_Ticketek_UmbrellaPageBanner_1050x520.jpg",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/craig-david/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
     "title": "How To Train Your Dragon 2 In Concert",
     "venue": "Adelaide Entertainment Centre",
     "datetime": "2027-06-05T18:00:00",
@@ -2210,42 +2161,6 @@
     "source": "Coopers Stadium"
   },
   {
-    "title": "Bob Evans - Suburban Songbook 20th Anniversary Tour",
-    "venue": "Lion Arts Factory",
-    "datetime": "2026-10-22T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://www.moshtix.com.au/uploads/810df314-c8ca-4ca3-824e-ed802744a433xoriginal",
-    "link": "https://www.moshtix.com.au/v2/event/bob-evans-suburban-songbook-20th-anniversary-tour/196655?ref=RSS_LAF_RSS&skin=LAF20",
-    "source": "Lion Arts Factory"
-  },
-  {
-    "title": "TONIX EP Release Party + EU Tour Benefit (18+)",
-    "venue": "Lion Arts Factory",
-    "datetime": "2026-10-23T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://www.moshtix.com.au/uploads/40fa8649-bfa6-4afb-8469-9f0055a25f72xoriginal",
-    "link": "https://www.moshtix.com.au/v2/event/tonix-ep-release-party-eu-tour-benefit-18/199592?ref=RSS_LAF_RSS&skin=LAF20",
-    "source": "Lion Arts Factory"
-  },
-  {
-    "title": "NO CIGAR 'Aussie Tour' With Special Guests",
-    "venue": "Lion Arts Factory",
-    "datetime": "2026-10-24T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://www.moshtix.com.au/uploads/4d4d7ab9-a01f-41ca-a505-3b6b07563e34xoriginal",
-    "link": "https://www.moshtix.com.au/v2/event/no-cigar-aussie-tour-with-special-guests/197142?ref=RSS_LAF_RSS&skin=LAF20",
-    "source": "Lion Arts Factory"
-  },
-  {
     "title": "Eloise",
     "venue": "Lion Arts Factory",
     "datetime": "2026-10-25T00:00:00",
@@ -2361,7 +2276,7 @@
     "category": [
       "Music"
     ],
-    "image": "https://www.moshtix.com.au/uploads/ea0101b5-b092-4a2e-b126-c1347a72c836x600x600",
+    "image": "https://www.moshtix.com.au/uploads/ea0101b5-b092-4a2e-b126-c1347a72c836x140x140",
     "link": "https://www.moshtix.com.au/v2/event/a-club-of-thorns-and-roses-adelaide/193720?ref=RSS_LAF_RSS&skin=LAF20",
     "source": "Lion Arts Factory"
   },
@@ -2518,7 +2433,7 @@
     "category": [
       "Music"
     ],
-    "image": "https://www.moshtix.com.au/uploads/3b92f601-e63d-4480-9d09-2ea4bed14731x600x600",
+    "image": "https://www.moshtix.com.au/uploads/3b92f601-e63d-4480-9d09-2ea4bed14731x140x140",
     "link": "https://www.moshtix.com.au/v2/event/culture-wars/195449?ref=RSS_LAF_RSS&skin=LAF20",
     "source": "Lion Arts Factory"
   },
@@ -2765,8 +2680,8 @@
   {
     "title": "Sea to Soil",
     "venue": "Immersive Light and Art (ILA)",
-    "datetime": "2026-10-23T00:00:00",
-    "end_datetime": "2026-11-07T23:59:59",
+    "datetime": "2027-10-23T00:00:00",
+    "end_datetime": "2027-11-07T23:59:59",
     "category": [
       "Food & Beverage"
     ],
@@ -2789,7 +2704,7 @@
   {
     "title": "Daryl Austin: The Long View",
     "venue": "Adelaide Town Hall",
-    "datetime": "2026-10-21T00:00:00",
+    "datetime": "2026-10-26T00:00:00",
     "end_datetime": "",
     "category": [
       "Arts & Culture"
@@ -2801,25 +2716,13 @@
   {
     "title": "Adelaide Town Hall Live Music Rehearsal Space",
     "venue": "Adelaide Town Hall",
-    "datetime": "2026-10-21T00:00:00",
+    "datetime": "2026-10-26T00:00:00",
     "end_datetime": "",
     "category": [
       "Music"
     ],
     "image": "https://assets.atdw-online.com.au/images/8cb4942a73f40dee5536a9a3c74f1767.jpeg?rect=0%2C0%2C1600%2C1200&w=1280&h=1024&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhOTExNDI4OWUyZWE3ZWY2MmU5Yjg2NyIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
     "link": "https://www.adelaidetownhall.com.au/events/adelaide-town-hall-live-music-rehearsal-space/",
-    "source": "Adelaide Town Hall"
-  },
-  {
-    "title": "Melodies of Worlds Beyong",
-    "venue": "Adelaide Town Hall",
-    "datetime": "2026-10-23T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Sport"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/ba6c68e68268a8217918d215e42fcda9.jpeg?rect=0%2C0%2C1600%2C1200&w=1280&h=1024&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhY2VlNTQyNjVjZjVjOWQ0ZmI5M2FiNiIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
-    "link": "https://www.adelaidetownhall.com.au/events/melodies-of-worlds-beyong/",
     "source": "Adelaide Town Hall"
   },
   {
@@ -3013,90 +2916,6 @@
     "image": "https://assets.atdw-online.com.au/images/c2cb5b1c9b815c771cebee7ee811ce12.jpeg?rect=0%2C0%2C2048%2C1536&w=1280&h=1024&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhYzRlNzlkYmYwN2Q1MDY3YTUwYjBkMiIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
     "link": "https://www.adelaidetownhall.com.au/events/vision-by-vision-musica-viva-australia-in-adelaide/",
     "source": "Adelaide Town Hall"
-  },
-  {
-    "title": "FUTURE SOUNDS 2026 I A FREE ENTRY, ALL AGES FESTIVAL OF NEW SA MUSIC",
-    "venue": "UniBar Adelaide",
-    "datetime": "2026-10-17T17:00:00",
-    "end_datetime": "2026-10-23T23:30:00",
-    "category": [
-      "Music"
-    ],
-    "image": "https://www.moshtix.com.au/uploads/3509c31f-9be4-4195-97ba-a3b69ca9a6bdx600x600",
-    "link": "https://www.moshtix.com.au/v2/event/future-sounds-2026-i-a-free-entry-all-ages-festival-of-new-sa-music/199720",
-    "source": "Moshtix Adelaide CBD"
-  },
-  {
-    "title": "Lizzie Hosking 'Mother is Medusa' Launch",
-    "venue": "Jive",
-    "datetime": "2026-10-22T18:00:00",
-    "end_datetime": "2026-10-22T19:00:00",
-    "category": [
-      "Music"
-    ],
-    "image": "https://www.moshtix.com.au/uploads/fad45216-9b59-44f1-ab7b-7fe7fe4536f6x600x600",
-    "link": "https://www.moshtix.com.au/v2/event/lizzie-hosking-mother-is-medusa-launch/200634",
-    "source": "Moshtix Adelaide CBD"
-  },
-  {
-    "title": "Cheeky Leash 'How Much Love Have I Got Left' Aus & NZ Album Tour",
-    "venue": "Jive",
-    "datetime": "2026-10-23T19:00:00",
-    "end_datetime": "2026-10-23T20:00:00",
-    "category": [
-      "Music"
-    ],
-    "image": "https://www.moshtix.com.au/uploads/eaad3722-3eba-4c8e-9a13-b54da0809a6bx600x600",
-    "link": "https://www.moshtix.com.au/v2/event/cheeky-leash-how-much-love-have-i-got-left-aus-nz-album-tour/199005",
-    "source": "Moshtix Adelaide CBD"
-  },
-  {
-    "title": "Nerve - Growing Pains - AUS Album Tour ‘26 (18+)",
-    "venue": "The Austral Hotel",
-    "datetime": "2026-10-23T20:00:00",
-    "end_datetime": "2026-10-23T23:30:00",
-    "category": [
-      "Music"
-    ],
-    "image": "https://www.moshtix.com.au/uploads/8386fc1b-2beb-4bf5-a9b3-7d679edf481dx600x600",
-    "link": "https://www.moshtix.com.au/v2/event/nerve-growing-pains-aus-album-tour-‘26-18/198188",
-    "source": "Moshtix Adelaide CBD"
-  },
-  {
-    "title": "Inhibit & The Collective present TURNO (UK)",
-    "venue": "DIV-DE",
-    "datetime": "2026-10-23T22:00:00",
-    "end_datetime": "2026-10-24T04:00:00",
-    "category": [
-      "Music"
-    ],
-    "image": "https://www.moshtix.com.au/uploads/63aec1c4-4d43-4c05-8660-6bd217236661x600x600",
-    "link": "https://www.moshtix.com.au/v2/event/inhibit-the-collective-present-turno-uk/199746",
-    "source": "Moshtix Adelaide CBD"
-  },
-  {
-    "title": "Vlads 'Finding Foreverland' Tour",
-    "venue": "Jive",
-    "datetime": "2026-10-24T19:00:00",
-    "end_datetime": "2026-10-24T20:00:00",
-    "category": [
-      "Music"
-    ],
-    "image": "https://www.moshtix.com.au/uploads/a714006c-5fd8-4db7-b044-2a72438ec9b2x600x600",
-    "link": "https://www.moshtix.com.au/v2/event/vlads-finding-foreverland-tour/199075",
-    "source": "Moshtix Adelaide CBD"
-  },
-  {
-    "title": "DIV-DE Presents. NO CHASA",
-    "venue": "DIV-DE",
-    "datetime": "2026-10-24T22:00:00",
-    "end_datetime": "2026-10-25T05:00:00",
-    "category": [
-      "Music"
-    ],
-    "image": "https://www.moshtix.com.au/uploads/0b72afd3-1e64-4929-9293-052747147b83x600x600",
-    "link": "https://www.moshtix.com.au/v2/event/div-de-presents-no-chasa/201766",
-    "source": "Moshtix Adelaide CBD"
   },
   {
     "title": "The Buoys - Concrete Cowboy Tour",
@@ -3651,6 +3470,18 @@
     "source": "Moshtix Adelaide CBD"
   },
   {
+    "title": "MOLLY ROCKET ‘BUZZ BOX’ TOUR",
+    "venue": "The Hotel Metro",
+    "datetime": "2026-12-05T21:00:00",
+    "end_datetime": "2026-12-05T23:30:00",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.moshtix.com.au/uploads/a16a6496-6e45-4820-ba44-5890790ad96ax600x600",
+    "link": "https://www.moshtix.com.au/v2/event/molly-rocket-‘buzz-box’-tour/201754",
+    "source": "Moshtix Adelaide CBD"
+  },
+  {
     "title": "Nepathya-Live in Adelaide 2026",
     "venue": "Hindley Street Music Hall",
     "datetime": "2026-12-07T19:00:00",
@@ -3732,6 +3563,18 @@
     ],
     "image": "https://www.moshtix.com.au/uploads/5efc0a9d-9b1f-4586-9ad4-111d9eb995f8x600x600",
     "link": "https://www.moshtix.com.au/v2/event/flook/201681",
+    "source": "Moshtix Adelaide CBD"
+  },
+  {
+    "title": "MCMLXXVII: Big Petes 50th B'Day Celebration Show",
+    "venue": "Rhino Room, ADL",
+    "datetime": "2027-01-09T20:00:00",
+    "end_datetime": "2027-01-10T00:00:00",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.moshtix.com.au/uploads/087139b5-79fe-4792-9dfc-daa44ba5b7b4x600x600",
+    "link": "https://www.moshtix.com.au/v2/event/mcmlxxvii-big-petes-50th-bday-celebration-show/201887",
     "source": "Moshtix Adelaide CBD"
   },
   {
@@ -3867,6 +3710,18 @@
     "source": "Moshtix Adelaide CBD"
   },
   {
+    "title": "Hard-Ons with Jerry A — Adelaide",
+    "venue": "The Ed Castle",
+    "datetime": "2027-03-05T19:30:00",
+    "end_datetime": "2027-03-05T23:30:00",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.moshtix.com.au/uploads/62e141d4-eb19-487e-a841-c2b307d0c672x600x600",
+    "link": "https://www.moshtix.com.au/v2/event/hard-ons-with-jerry-a-—-adelaide/201675",
+    "source": "Moshtix Adelaide CBD"
+  },
+  {
     "title": "PINTGLASS ‘Fly In F#ck Off’ Australian Tour 2027 with guests Body Prison",
     "venue": "The Ed Castle",
     "datetime": "2027-03-18T19:30:00",
@@ -3925,54 +3780,6 @@
     "image": "https://www.moshtix.com.au/uploads/a067ff92-fb63-477f-a96a-48fc01aa403cx600x600",
     "link": "https://www.moshtix.com.au/v2/event/naethan-apollo-australia-2027-adelaide/201386",
     "source": "Moshtix Adelaide CBD"
-  },
-  {
-    "title": "Port Adelaide v Collingwood - 2026 NAB AFLW Season 11",
-    "venue": "Alberton Oval",
-    "datetime": "2026-10-23T18:35:00",
-    "end_datetime": "",
-    "category": [
-      "Sport"
-    ],
-    "image": "https://s1.ticketm.net/dam/a/245/aab048fa-f0a7-4dd0-9b72-e3de4590b245_RETINA_LANDSCAPE_16_9.jpg",
-    "link": "https://www.ticketmaster.com.au/port-adelaide-v-collingwood-2026-nab-alberton-23-10-2026/event/250064E9C6617BB2",
-    "source": "Ticketmaster Adelaide"
-  },
-  {
-    "title": "Don McLean American Pie 55th Anniversary Tour",
-    "venue": "Thebarton Theatre",
-    "datetime": "2026-10-23T19:30:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://s1.ticketm.net/dam/a/011/aa46e2fb-6059-4925-9f58-264c1b154011_SOURCE",
-    "link": "https://www.ticketmaster.com.au/don-mclean-american-pie-55th-anniversary-torrensville-23-10-2026/event/13006477C04D556A",
-    "source": "Ticketmaster Adelaide"
-  },
-  {
-    "title": "Inhibit & The Collective present TURNO (UK)",
-    "venue": "149 Hindley",
-    "datetime": "2026-10-23T22:00:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://s1.ticketm.net/dam/c/df8/81eadad8-4449-412e-a2b1-3d8bbb78edf8_106181_RETINA_PORTRAIT_16_9.jpg",
-    "link": "https://www.moshtix.com.au/v2/event/inhibit-the-collective-present-turno-uk-/199746",
-    "source": "Ticketmaster Adelaide"
-  },
-  {
-    "title": "Greg Davies: Full Fat Legend",
-    "venue": "Thebarton Theatre",
-    "datetime": "2026-10-24T20:00:00",
-    "end_datetime": "",
-    "category": [
-      "Comedy"
-    ],
-    "image": "https://s1.ticketm.net/dam/a/9e9/ce8ea1f3-1f2a-4f39-a965-03d01482a9e9_RETINA_LANDSCAPE_16_9.jpg",
-    "link": "https://www.ticketmaster.com.au/greg-davies-full-fat-legend-torrensville-24-10-2026/event/13006457860C49A3",
-    "source": "Ticketmaster Adelaide"
   },
   {
     "title": "Khan Saab",
@@ -4068,18 +3875,6 @@
     ],
     "image": "https://s1.ticketm.net/dam/a/4cd/4e5357fb-19cc-456f-97a4-45417ae444cd_TABLET_LANDSCAPE_LARGE_16_9.jpg",
     "link": "https://www.moshtix.com.au/v2/event/party-dozen-21-bum-salute-album-tour/200117",
-    "source": "Ticketmaster Adelaide"
-  },
-  {
-    "title": "Northlane 'The Anemoia Experience' 2026",
-    "venue": "Thebarton Theatre",
-    "datetime": "2026-11-08T19:00:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://s1.ticketm.net/dam/a/6fa/573ccb86-f0c1-458e-bdb8-18e7c13666fa_TABLET_LANDSCAPE_LARGE_16_9.jpg",
-    "link": "https://www.ticketmaster.com.au/northlane-the-anemoia-experience-2026-torrensville-08-11-2026/event/130064FFC3916FE1",
     "source": "Ticketmaster Adelaide"
   },
   {
@@ -4181,7 +3976,7 @@
   {
     "title": "ANN WILSON & TRIPSITTER - The Voice Of Heart",
     "venue": "Thebarton Theatre",
-    "datetime": "2026-11-26T18:30:00",
+    "datetime": "2026-11-26T19:00:00",
     "end_datetime": "",
     "category": [
       "Music"
@@ -4599,6 +4394,18 @@
     "source": "Ticketmaster Adelaide"
   },
   {
+    "title": "Amyl and the Sniffers",
+    "venue": "Thebarton Theatre",
+    "datetime": "2027-03-10T19:30:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/7cf/92191f0b-0db0-4b66-ae93-be9e78e0d7cf_RETINA_PORTRAIT_16_9.jpg",
+    "link": "https://www.ticketmaster.com.au/amyl-and-the-sniffers-torrensville-10-03-2027/event/130065540FA2C907",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
     "title": "Slow Pilot (Belgium) - Performing the songs of Jeff Buckley",
     "venue": "The Gov",
     "datetime": "2027-03-13T19:00:00",
@@ -4767,18 +4574,6 @@
     "source": "Ticketmaster Adelaide"
   },
   {
-    "title": "Adventure Reels Film Tour Adelaide",
-    "venue": "141 Goodwood Road",
-    "datetime": "2026-10-21T19:00:00",
-    "end_datetime": "2026-10-21T22:00:00",
-    "category": [
-      "Film"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/08c07d1c0c90c217b03cf95ee622d133_2g4pccf_3zg9ozh.jpeg?mode=crop&width=900&height=506&rot=360",
-    "link": "https://southaustralia.com/products/adelaide/event/adventure-reels-film-tour-adelaide",
-    "source": "South Australia Tourism Commission"
-  },
-  {
     "title": "Australian Geographic Nature Photographer of the Year",
     "venue": "North Terrace",
     "datetime": "2026-08-29T10:00:00",
@@ -4788,30 +4583,6 @@
     ],
     "image": "https://assets.atdw-online.com.au/images/90188170dee0f13f8411b982360ad696.jpeg?mode=crop&width=900&height=506&rot=360",
     "link": "https://southaustralia.com/products/adelaide/event/australian-geographic-nature-photographer-of-the-year",
-    "source": "South Australia Tourism Commission"
-  },
-  {
-    "title": "Calm Seas – Sanctuary Series",
-    "venue": "91 Hindley Street",
-    "datetime": "2026-10-23T00:00:00",
-    "end_datetime": "2026-10-24T00:00:00",
-    "category": [
-      "Music"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/3e56a34131490a9b443c68e5b9728f4b_yscnipw.jpeg?mode=crop&width=900&height=506&rot=360",
-    "link": "https://southaustralia.com/products/adelaide/event/calm-seas-sanctuary-series",
-    "source": "South Australia Tourism Commission"
-  },
-  {
-    "title": "Clos Saint Jean Wine Dinner",
-    "venue": "1 Station Road",
-    "datetime": "2026-10-21T18:30:00",
-    "end_datetime": "2026-10-21T21:30:00",
-    "category": [
-      "Food & Beverage"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/eb81fdafdc85dd1f6def02b6a399c48d.jpeg?mode=crop&width=900&height=506&rot=360",
-    "link": "https://southaustralia.com/products/adelaide/event/clos-saint-jean-wine-dinner",
     "source": "South Australia Tourism Commission"
   },
   {
@@ -5012,18 +4783,6 @@
     "source": "South Australia Tourism Commission"
   },
   {
-    "title": "Monet to Matisse Exhibition Tours - Premium Tours",
-    "venue": "North Terrace",
-    "datetime": "2026-08-12T09:00:00",
-    "end_datetime": "2026-10-21T10:00:00",
-    "category": [
-      "Exhibitions"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/904da6c740d088184bdb46a3d95eacf7.jpeg?mode=crop&width=900&height=506&rot=360",
-    "link": "https://southaustralia.com/products/adelaide/event/monet-to-matisse-exhibition-tours-premium-tours",
-    "source": "South Australia Tourism Commission"
-  },
-  {
     "title": "OzAsia Festival 2026 |  Lastlings",
     "venue": "King William Road",
     "datetime": "2026-10-25T00:00:00",
@@ -5046,18 +4805,6 @@
     ],
     "image": "https://assets.atdw-online.com.au/images/18baa6d82ba9e73d360614cc702983b2.jpeg?mode=crop&width=900&height=506&rot=360",
     "link": "https://southaustralia.com/products/adelaide/event/rooftop-raclette-at-merrymaker-rooftop-bar",
-    "source": "South Australia Tourism Commission"
-  },
-  {
-    "title": "Salon des Refusés 2026",
-    "venue": "241 Melbourne Street",
-    "datetime": "2026-08-14T10:00:00",
-    "end_datetime": "2026-10-24T16:00:00",
-    "category": [
-      "Other"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/f3a2b6c3f3aa55d970973e443e412330.jpeg?mode=crop&width=900&height=506&rot=360",
-    "link": "https://southaustralia.com/products/adelaide/event/salon-des-refuss-2026",
     "source": "South Australia Tourism Commission"
   },
   {
@@ -5276,6 +5023,30 @@
     ],
     "image": "https://assets.atdw-online.com.au/images/ba423730c4282ab88052fc5eb8ef7272.jpeg?rect=427%2C0%2C1707%2C1280&w=450&h=335&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhYzcxMzg0ZTg2OGY4ZGMzOTQ0MjhlYyIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
     "link": "https://www.experienceadelaide.com.au/whats-on/huami-1st-birthday/",
+    "source": "Experience Adelaide"
+  },
+  {
+    "title": "OzAsia Festival 2026 |  Maajela",
+    "venue": "OzAsia Festival Stage at Lucky Dumpling Market",
+    "datetime": "2026-10-23T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Festival"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/37572a7597f0f9deacde3f16e885d853.jpeg?rect=0%2C0%2C1600%2C1200&w=450&h=335&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhODdiNGEzYWEyNDRmYWY3NWU2YTdlMCIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
+    "link": "https://www.experienceadelaide.com.au/whats-on/ozasia-festival-2026-maajela/",
+    "source": "Experience Adelaide"
+  },
+  {
+    "title": "OzAsia Festival’s Weekend of Words",
+    "venue": "OzAsia Festival Stage at Lucky Dumpling Market",
+    "datetime": "2026-10-23T00:00:00",
+    "end_datetime": "2026-10-24T00:00:00",
+    "category": [
+      "Festival"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/b1e3b17f7cc7021ad8d91a74ddad8b0f.jpeg?rect=0%2C0%2C1600%2C1200&w=450&h=335&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhODdjMzVkM2U4NjE3M2E1ZTg0OWRjMyIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
+    "link": "https://www.experienceadelaide.com.au/whats-on/ozasia-festivals-weekend-of-words/",
     "source": "Experience Adelaide"
   },
   {

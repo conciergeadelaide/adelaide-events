@@ -2430,6 +2430,10 @@ def parse_moshtix_adelaide():
                 if isinstance(image, dict):
                     image = image.get("url", "")
                 image = urljoin(base, str(image)).replace("http://www.moshtix.com.au/", "https://www.moshtix.com.au/")
+                # Moshtix JSON-LD commonly supplies a tiny 140x140 thumbnail.
+                # The same CDN artwork is available at 600x600; preserve the
+                # rest of the URL unchanged (including any query parameters).
+                image = re.sub(r"x140x140(?=\D|$)", "x600x600", image, flags=re.I)
                 results.append({
                     "title": title,
                     "venue": venue,
