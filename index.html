@@ -44,6 +44,8 @@
         </section>
 
 
+        <!-- SEARCH AND FILTERS -->
+
         <section class="controls">
 
             <div class="search-box">
@@ -77,21 +79,63 @@
             </div>
 
 
-            <div class="filter-box">
-                <label for="category-filter">Category</label>
+            <!-- MULTIPLE CATEGORY SELECTION -->
 
-                <select id="category-filter">
-                    <option value="all">All categories</option>
-                </select>
+            <div class="filter-box">
+                <label id="category-label">
+                    Category
+                </label>
+
+                <div
+                    id="category-multiselect"
+                    class="category-multiselect"
+                >
+
+                    <button
+                        id="category-filter"
+                        class="category-filter-button"
+                        type="button"
+                        aria-labelledby="category-label category-filter"
+                        aria-expanded="false"
+                        aria-controls="category-options"
+                    >
+                        All categories
+                    </button>
+
+                    <div
+                        id="category-options"
+                        class="category-options hidden"
+                    >
+                        <!-- Category checkboxes appear here -->
+                    </div>
+
+                </div>
             </div>
 
 
             <div class="filter-box">
-                <label for="venue-filter">Venue</label>
+                <label id="venue-label">Venue</label>
 
-                <select id="venue-filter">
-                    <option value="all">All venues</option>
-                </select>
+                <div id="venue-multiselect" class="venue-multiselect">
+                    <button id="venue-filter" class="venue-filter-button"
+                            type="button"
+                            aria-labelledby="venue-label venue-filter"
+                            aria-expanded="false"
+                            aria-controls="venue-options">
+                        All venues
+                    </button>
+
+                    <div id="venue-options" class="venue-options hidden">
+                        <input id="venue-search" type="search"
+                               placeholder="Search venues..."
+                               aria-label="Search venues"
+                               autocomplete="off">
+                        <div id="venue-checkboxes"></div>
+                        <p id="venue-no-results" class="venue-no-results hidden">
+                            No matching venues
+                        </p>
+                    </div>
+                </div>
             </div>
 
 
@@ -99,13 +143,26 @@
                 <label for="sort">Sort</label>
 
                 <select id="sort">
-                    <option value="date-asc">Date — soonest first</option>
-                    <option value="date-desc">Date — latest first</option>
-                    <option value="title">Event name</option>
-                    <option value="venue">Venue</option>
+                    <option value="date-asc">
+                        Date — soonest first
+                    </option>
+
+                    <option value="date-desc">
+                        Date — latest first
+                    </option>
+
+                    <option value="title">
+                        Event name
+                    </option>
+
+                    <option value="venue">
+                        Venue
+                    </option>
                 </select>
             </div>
 
+
+            <!-- EVENT DURATION FILTER -->
 
             <div class="filter-box">
                 <label for="hide-long-events">
@@ -123,6 +180,7 @@
                         padding: 10px 0;
                     "
                 >
+
                     <input
                         type="checkbox"
                         id="hide-long-events"
@@ -134,23 +192,32 @@
                             cursor: pointer;
                         "
                     >
+
                     Hide events lasting more than 7 days
+
                 </label>
             </div>
 
         </section>
 
 
+        <!-- RESULTS HEADER -->
+
         <section class="results-header">
 
             <div>
-                <span class="results-label">UPCOMING EVENTS</span>
+                <span class="results-label">
+                    UPCOMING EVENTS
+                </span>
+
                 <span id="event-count"></span>
             </div>
+
 
             <div class="results-actions">
 
                 <div class="view-toggle">
+
                     <button
                         id="view-cards"
                         class="active"
@@ -165,7 +232,9 @@
                     >
                         Calendar
                     </button>
+
                 </div>
+
 
                 <button
                     id="clear-filters"
@@ -180,6 +249,8 @@
         </section>
 
 
+        <!-- MONTHLY CALENDAR -->
+
         <section
             id="calendar-view"
             class="calendar-section hidden"
@@ -189,6 +260,7 @@
                 Major events, festivals and public rallies.
                 For the complete listings, switch to Cards.
             </p>
+
 
             <div class="calendar-toolbar">
 
@@ -200,7 +272,9 @@
                     ‹
                 </button>
 
+
                 <h3 id="month-title"></h3>
+
 
                 <button
                     id="month-next"
@@ -210,6 +284,7 @@
                     ›
                 </button>
 
+
                 <button
                     id="month-today"
                     type="button"
@@ -218,6 +293,7 @@
                 </button>
 
             </div>
+
 
             <div class="calendar-weekdays">
                 <span>Mon</span>
@@ -229,10 +305,12 @@
                 <span>Sun</span>
             </div>
 
+
             <div
                 id="calendar-grid"
                 class="calendar-grid"
             ></div>
+
 
             <div
                 id="calendar-details"
@@ -243,6 +321,8 @@
         </section>
 
 
+        <!-- EVENT CARDS -->
+
         <section
             id="events"
             class="events-grid"
@@ -250,6 +330,8 @@
             <!-- Event cards appear here -->
         </section>
 
+
+        <!-- NO RESULTS -->
 
         <section
             id="no-results"
@@ -267,15 +349,20 @@
     </main>
 
 
+    <!-- FOOTER -->
+
     <footer class="site-footer">
 
         <div class="footer-inner">
 
             <div>
-                <span class="brand-name">CONCIERGE</span>
+                <span class="brand-name">
+                    CONCIERGE
+                </span>
 
                 <p>Adelaide Events Guide</p>
             </div>
+
 
             <div class="footer-note">
                 <p>

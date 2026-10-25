@@ -21,7 +21,16 @@ var searchInput = document.getElementById("search");
 var dateFromInput = document.getElementById("date-from");
 var dateToInput = document.getElementById("date-to");
 var categoryFilter = document.getElementById("category-filter");
+var categoryOptions = document.getElementById("category-options");
+var categoryMultiselect = document.getElementById("category-multiselect");
+var selectedCategories = [];
 var venueFilter = document.getElementById("venue-filter");
+var venueMultiselect = document.getElementById("venue-multiselect");
+var venueOptions = document.getElementById("venue-options");
+var venueSearch = document.getElementById("venue-search");
+var venueCheckboxes = document.getElementById("venue-checkboxes");
+var venueNoResults = document.getElementById("venue-no-results");
+var selectedVenues = [];
 var sortSelect = document.getElementById("sort");
 var hideLongEventsInput = document.getElementById("hide-long-events");
 var eventCount = document.getElementById("event-count");
@@ -222,7 +231,7 @@ function formatEventDate(event) {
 }
 
 // ======================================
-// NEW: EVENT DURATION FILTER
+// EVENT DURATION FILTER
 // ======================================
 
 // Counts calendar days inclusively.
@@ -301,6 +310,77 @@ function getCategoryText(event) {
 }
 
 // ======================================
+// STANDARDISE VENUE NAMES
+// ======================================
+
+function canonicalVenue(value) {
+    var name = String(value || "").trim();
+
+    if (/^the ed castle(?: hotel)?$/i.test(name)) {
+        return "The Ed Castle";
+    }
+    if (/^(?:div-de|divide(?:,\s*adelaide)?)$/i.test(name)) {
+        return "DIV-DE";
+    }
+    if (/^hindley (?:st|street) music hall$/i.test(name)) {
+        return "Hindley Street Music Hall";
+    }
+    if (/^various venues accross south australia$/i.test(name) ||
+        /^various venues across south australia$/i.test(name)) {
+        return "Various";
+    }
+    return name;
+}
+
+function updateCategoryLabel() {
+    categoryFilter.textContent = selectedCategories.length === 0
+        ? "All categories"
+        : selectedCategories.length === 1
+            ? selectedCategories[0]
+            : selectedCategories.length + " categories selected";
+}
+
+function closeCategoryOptions() {
+    categoryOptions.classList.add("hidden");
+    categoryFilter.setAttribute("aria-expanded", "false");
+}
+
+function updateVenueLabel() {
+    venueFilter.textContent = selectedVenues.length === 0
+        ? "All venues"
+        : selectedVenues.length === 1
+            ? selectedVenues[0]
+            : selectedVenues.length + " venues selected";
+}
+
+function closeVenueOptions() {
+    venueOptions.classList.add("hidden");
+    venueFilter.setAttribute("aria-expanded", "false");
+}
+
+function filterVenueChoices() {
+    var query = venueSearch.value.toLowerCase().trim();
+    var visibleCount = 0;
+
+    venueCheckboxes.querySelectorAll(".venue-option").forEach(function(option) {
+        var venueName = option.dataset.venue || "";
+        var checkbox = option.querySelector('input[type="checkbox"]');
+
+        var matchesSearch = venueName.toLowerCase().includes(query);
+        var isSelected = checkbox && checkbox.checked;
+
+        var shouldShow = matchesSearch || isSelected;
+
+        option.classList.toggle("hidden", !shouldShow);
+
+        if (shouldShow) {
+            visibleCount++;
+        }
+    });
+
+    venueNoResults.classList.toggle("hidden", visibleCount > 0);
+}
+// ======================================
 // VENUE HELPERS
 // ======================================
 
@@ -361,7 +441,6 @@ function isActualVenue(value) {
         "various venues",
         "multiple locations",
         "multiple venues",
-        "various",
         "tba",
         "tbc",
         "to be confirmed",
@@ -556,11 +635,14 @@ function displayEvents(eventList) {
 // ======================================
 
 function populateFilters() {
-    categoryFilter.innerHTML =
-        "<option value='all'>All categories</option>";
+    categoryOptions.replaceChildren();
+    selectedCategories = [];
+    updateCategoryLabel();
 
-    venueFilter.innerHTML =
-        "<option value='all'>All venues</option>";
+    venueCheckboxes.replaceChildren();
+    selectedVenues = [];
+    venueSearch.value = "";
+    updateVenueLabel();
 
     var categories = [
         "Arts & Culture",
@@ -609,18 +691,67 @@ function populateFilters() {
     });
 
     categories.forEach(function(category) {
-        var option = document.createElement("option");
-        option.value = category;
-        option.textContent = category;
-        categoryFilter.appendChild(option);
+        var option = document.createElement("label");
+        option.className = "category-option";
+
+        var checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.value = category;
+
+        var text = document.createElement("span");
+        text.textContent = category;
+
+        checkbox.addEventListener("change", function() {
+            if (checkbox.checked) {
+                if (selectedCategories.indexOf(category) === -1) {
+                    selectedCategories.push(category);
+                }
+            } else {
+                selectedCategories = selectedCategories.filter(
+                    function(value) {
+                        return value !== category;
+                    }
+                );
+            }
+
+            updateCategoryLabel();
+            applyFilters();
+        });
+
+        option.appendChild(checkbox);
+        option.appendChild(text);
+        categoryOptions.appendChild(option);
     });
 
     venues.forEach(function(venue) {
-        var option = document.createElement("option");
-        option.value = venue;
-        option.textContent = venue;
-        venueFilter.appendChild(option);
+        var option = document.createElement("label");
+        option.className = "venue-option";
+        option.dataset.venue = venue;
+
+        var checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.value = venue;
+
+        var text = document.createElement("span");
+        text.textContent = venue;
+
+        checkbox.addEventListener("change", function() {
+            if (checkbox.checked) {
+                if (!selectedVenues.includes(venue)) selectedVenues.push(venue);
+            } else {
+                selectedVenues = selectedVenues.filter(function(value) {
+                    return value !== venue;
+                });
+            }
+            updateVenueLabel();
+            applyFilters();
+        });
+
+        option.appendChild(checkbox);
+        option.appendChild(text);
+        venueCheckboxes.appendChild(option);
     });
+    filterVenueChoices();
 
     console.log(
         "Venue dropdown:",
@@ -640,8 +771,6 @@ function applyFilters() {
     var dateFrom = dateFromInput.value;
     var dateTo = dateToInput.value;
 
-    var selectedCategory = categoryFilter.value;
-    var selectedVenue = venueFilter.value;
 
     var hideLongEvents =
         hideLongEventsInput &&
@@ -687,18 +816,25 @@ function applyFilters() {
                     eventStartString <= dateTo
                 );
 
+            // Match ANY selected category.
+            // No selections means all categories.
+
+            var eventCategories =
+                getEventCategories(event);
+
             var matchesCategory =
-                selectedCategory === "all" ||
-                getEventCategories(event).indexOf(
-                    selectedCategory
-                ) !== -1;
+                selectedCategories.length === 0 ||
+                selectedCategories.some(
+                    function(category) {
+                        return eventCategories.indexOf(
+                            category
+                        ) !== -1;
+                    }
+                );
 
             var matchesVenue =
-                selectedVenue === "all" ||
-                event.venue === selectedVenue;
-
-            // NEW: Hide events longer than 7 days
-            // only when the checkbox is checked.
+                selectedVenues.length === 0 ||
+                selectedVenues.includes(event.venue);
 
             var matchesDuration =
                 !hideLongEvents ||
@@ -792,6 +928,7 @@ var majorCalendarVenues = [
     "her majestys theatre",
     "adelaide entertainment centre",
     "hindley st music hall",
+    "hindley street music hall",
     "coopers stadium",
     "norwood concert hall",
     "immersive light and art",
@@ -811,6 +948,7 @@ var majorCalendarSources = [
     "adelaide convention centre",
     "adelaide entertainment centre",
     "hindley st music hall",
+    "hindley street music hall",
     "coopers stadium",
     "immersive light and art",
     "candlelight",
@@ -1112,6 +1250,11 @@ function renderDayDetails() {
     });
 }
 
+
+// ======================================
+// RENDER MONTHLY CALENDAR
+// ======================================
+
 function renderCalendar() {
     if (currentView !== "calendar") {
         return;
@@ -1261,6 +1404,10 @@ function renderCalendar() {
     renderDayDetails();
 }
 
+// ======================================
+// CHANGE BETWEEN CARDS AND CALENDAR
+// ======================================
+
 function setView(view) {
     currentView = view;
 
@@ -1323,7 +1470,7 @@ function changeMonth(delta) {
 }
 
 // ======================================
-// CALENDAR BUTTON LISTENERS
+// VIEW BUTTONS
 // ======================================
 
 document.getElementById(
@@ -1343,6 +1490,10 @@ document.getElementById(
         setView("calendar");
     }
 );
+
+// ======================================
+// CALENDAR NAVIGATION
+// ======================================
 
 document.getElementById(
     "month-prev"
@@ -1380,6 +1531,44 @@ document.getElementById(
 );
 
 // ======================================
+// CATEGORY DROPDOWN
+// ======================================
+
+categoryFilter.addEventListener(
+    "click",
+    function() {
+        var isHidden =
+            categoryOptions.classList.contains("hidden");
+
+        if (isHidden) {
+            closeVenueOptions();
+        }
+
+        categoryOptions.classList.toggle(
+            "hidden",
+            !isHidden
+        );
+
+        categoryFilter.setAttribute(
+            "aria-expanded",
+            isHidden ? "true" : "false"
+        );
+    }
+);
+
+document.addEventListener(
+    "click",
+    function(event) {
+        if (
+            categoryMultiselect &&
+            !categoryMultiselect.contains(event.target)
+        ) {
+            closeCategoryOptions();
+        }
+    }
+);
+
+// ======================================
 // CLEAR ALL FILTERS
 // ======================================
 
@@ -1388,11 +1577,34 @@ function clearAllFilters() {
     dateFromInput.value = "";
     dateToInput.value = "";
 
-    categoryFilter.value = "all";
-    venueFilter.value = "all";
+    selectedCategories = [];
+
+    if (categoryOptions) {
+        categoryOptions.querySelectorAll(
+            'input[type="checkbox"]'
+        ).forEach(function(checkbox) {
+            checkbox.checked = false;
+        });
+    }
+
+    updateCategoryLabel();
+    closeCategoryOptions();
+
+    selectedVenues = [];
+
+    venueCheckboxes.querySelectorAll(
+        'input[type="checkbox"]'
+    ).forEach(function(checkbox) {
+        checkbox.checked = false;
+    });
+
+    venueSearch.value = "";
+    filterVenueChoices();
+    updateVenueLabel();
+    closeVenueOptions();
+
     sortSelect.value = "date-asc";
 
-    // Reset the new duration filter.
     if (hideLongEventsInput) {
         hideLongEventsInput.checked = false;
     }
@@ -1419,23 +1631,67 @@ dateToInput.addEventListener(
     applyFilters
 );
 
-categoryFilter.addEventListener(
-    "change",
-    applyFilters
-);
+// ======================================
+// VENUE DROPDOWN
+// ======================================
 
 venueFilter.addEventListener(
-    "change",
-    applyFilters
+    "click",
+    function() {
+        var opening =
+            venueOptions.classList.contains("hidden");
+
+        if (opening) {
+            closeCategoryOptions();
+        }
+
+        venueOptions.classList.toggle(
+            "hidden",
+            !opening
+        );
+
+        venueFilter.setAttribute(
+            "aria-expanded",
+            opening ? "true" : "false"
+        );
+
+        if (opening) {
+            venueSearch.focus();
+        }
+    }
+);
+
+venueSearch.addEventListener(
+    "input",
+    filterVenueChoices
+);
+
+document.addEventListener(
+    "click",
+    function(event) {
+        if (
+            venueMultiselect &&
+            !venueMultiselect.contains(event.target)
+        ) {
+            closeVenueOptions();
+        }
+    }
+);
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+        if (event.key === "Escape") {
+            closeVenueOptions();
+            closeCategoryOptions();
+        }
+    }
 );
 
 sortSelect.addEventListener(
     "change",
     applyFilters
 );
-
-// NEW: Apply filters whenever the
-// duration checkbox changes.
 
 if (hideLongEventsInput) {
     hideLongEventsInput.addEventListener(
@@ -1471,6 +1727,17 @@ fetch("events.json")
             events.length,
             "events"
         );
+
+        // ==================================
+        // STANDARDISE VENUE NAMES
+        // ==================================
+
+        events.forEach(function(event) {
+            if (event.venue) {
+                event.venue =
+                    canonicalVenue(event.venue);
+            }
+        });
 
         // ==================================
         // REMOVE EVENTS THAT HAVE FINISHED
@@ -1525,7 +1792,6 @@ fetch("events.json")
         );
 
         events = [];
-
         populateFilters();
-        displayEvents([]);
+        applyFilters();
     });
