@@ -332,6 +332,25 @@ function canonicalVenue(value) {
     return name;
 }
 
+// Adelaide Symphony Orchestra is an organiser, not a physical venue.
+// Expose it as a special choice in the existing Venue filter while
+// retaining the actual performance location on each event card.
+var ASO_FILTER_LABEL = "Adelaide Symphony Orchestra";
+
+function isAdelaideSymphonyEvent(event) {
+    var source = String(event.source || event.source_name || "")
+        .trim().toLowerCase();
+    var sourceUrl = String(event.source_url || "").toLowerCase();
+    var eventUrl = String(event.link || event.url || "").toLowerCase();
+    var organiser = String(event.organiser || event.organizer || "")
+        .trim().toLowerCase();
+
+    return source === "adelaide symphony orchestra" ||
+        organiser === "adelaide symphony orchestra" ||
+        /(?:^|\/)aso\.com\.au(?:\/|$)/.test(sourceUrl.replace(/^https?:\/\//, "")) ||
+        /(?:^|\/)aso\.com\.au(?:\/|$)/.test(eventUrl.replace(/^https?:\/\//, ""));
+}
+
 function updateCategoryLabel() {
     categoryFilter.textContent = selectedCategories.length === 0
         ? "All categories"
@@ -682,6 +701,13 @@ function populateFilters() {
         }
     });
 
+    // ASO performances take place at multiple real venues.
+    // Offer one organiser-based selection without rewriting venue data.
+    if (events.some(isAdelaideSymphonyEvent) &&
+        venues.indexOf(ASO_FILTER_LABEL) === -1) {
+        venues.push(ASO_FILTER_LABEL);
+    }
+
     categories.sort(function(a, b) {
         return a.localeCompare(b);
     });
@@ -834,7 +860,9 @@ function applyFilters() {
 
             var matchesVenue =
                 selectedVenues.length === 0 ||
-                selectedVenues.includes(event.venue);
+                selectedVenues.includes(event.venue) ||
+                (selectedVenues.includes(ASO_FILTER_LABEL) &&
+                    isAdelaideSymphonyEvent(event));
 
             var matchesDuration =
                 !hideLongEvents ||
