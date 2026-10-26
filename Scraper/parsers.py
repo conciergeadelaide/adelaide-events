@@ -3377,3 +3377,204 @@ def parse_government_house(soup, source_url):
 
     print(f"    Government House: {len(events)} confirmed dated public activities")
     return events
+
+
+# ============================================================
+# NEXUS ARTS — official event pages
+# ============================================================
+
+def parse_nexus_arts(soup, source_url):
+    """Collect dated Nexus Arts performances and exhibitions.
+
+    Discover links from What's On, then verify dates on each detail page.
+    Never guess a year or publish undated announcements.
+    """
+    from datetime import date as _date
+    from urllib.parse import urlparse
+
+    session = requests.Session()
+    session.headers.update({"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/140.0.0.0 Safari/537.36"})
+    today = _date.today()
+    events = []
+    candidates = {}
+    # Nexus uses /events/<slug>/ detail URLs, not /whats-on/<slug>/.
+    # Inspect all anchors because its cards are not necessarily inside <main>.
+    for page_number in range(1, 5):
+        url = source_url if page_number == 1 else source_url.rstrip('/') + f'/page/{page_number}/'
+        if page_number == 1:
+            page = soup
+        else:
+            try:
+                response = session.get(url, timeout=20)
+                if not response.ok:
+                    break
+                page = BeautifulSoup(response.text, 'lxml')
+            except requests.RequestException:
+                break
+        added = 0
+        for anchor in page.find_all('a', href=True):
+            href = normalise_url(anchor.get('href'), url).split('#', 1)[0].split('?', 1)[0]
+            parsed = urlparse(href)
+            if parsed.hostname not in ('nexusarts.org.au', 'www.nexusarts.org.au'):
+                continue
+            if not re.match(r'^/events/[^/]+/?$', parsed.path, re.I):
+                continue
+            if href not in candidates:
+                candidates[href] = ''
+                added += 1
+        if page_number > 1 and added == 0:
+            break
+    # Homepage also features upcoming official events when listing pagination
+    # is incomplete. This is discovery only; each detail page is verified.
+    try:
+        home = session.get('https://nexusarts.org.au/', timeout=20)
+        if home.ok:
+            for anchor in BeautifulSoup(home.text, 'lxml').find_all('a', href=True):
+                href = normalise_url(anchor.get('href'), 'https://nexusarts.org.au/')
+                href = href.split('#', 1)[0].split('?', 1)[0]
+                parsed = urlparse(href)
+                if parsed.hostname in ('nexusarts.org.au', 'www.nexusarts.org.au') and re.match(r'^/events/[^/]+/?$', parsed.path, re.I):
+                    candidates.setdefault(href, '')
+    except requests.RequestException:
+        pass
+    print(f'    Nexus Arts: {len(candidates)} candidate event links')
+
+    def metadata(page, key):
+        tag = page.find('meta', attrs={'property': key}) or page.find('meta', attrs={'name': key})
+        return str(tag.get('content', '')).strip() if tag else ''
+
+    def parse_explicit_date(value):
+        value = ' '.join(str(value or '').split())
+        # ISO date or datetime, retaining confirmed clock time.
+        match = re.search(r'\b(20\d{2})-(\d{2})-(\d{2})(?:[T ](\d{2}):(\d{2}))?', value)
+        if match:
+            try:
+                return datetime(int(match[1]), int(match[2]), int(match[3]), int(match[4] or 0), int(match[5] or 0))
+            except ValueError:
+                return None
+        month_names = '|'.join(MONTHS)
+        match = re.search(r'\b(\d{1,2})\s+(' + month_names + r')\s*,?\s*(20\d{2})\b', value, re.I)
+        if match:
+            try:
+                return datetime(int(match[3]), MONTHS[match[2].lower()], int(match[1]))
+            except ValueError:
+                return None
+        match = re.search(r'\b(' + month_names + r')\s+(\d{1,2}),?\s+(20\d{2})\b', value, re.I)
+        if match:
+            try:
+                return datetime(int(match[3]), MONTHS[match[1].lower()], int(match[2]))
+            except ValueError:
+                return None
+        return None
+
+    seen = set()
+    for event_url, listing_context in list(candidates.items())[:100]:
+        try:
+            response = session.get(event_url, timeout=20)
+            response.raise_for_status()
+            page = BeautifulSoup(response.text, 'lxml')
+        except requests.RequestException as exc:
+            print(f'    Nexus Arts: skipped inaccessible page {event_url}: {exc}')
+            continue
+        main = page.find('main') or page.find('article') or page
+        heading = main.find('h1') or page.find('h1')
+        title = ' '.join(heading.stripped_strings) if heading else metadata(page, 'og:title')
+        title = re.sub(r'\s*[|–-]\s*Nexus Arts\s*$', '', title, flags=re.I).strip()
+        if not title:
+            continue
+        text = ' '.join(main.stripped_strings)
+        structured = []
+        for script in page.find_all('script', type='application/ld+json'):
+            try:
+                data = json.loads(script.string or script.get_text())
+            except (ValueError, TypeError):
+                continue
+            queue = [data]
+            while queue:
+                item = queue.pop()
+                if isinstance(item, list):
+                    queue.extend(item)
+                elif isinstance(item, dict):
+                    typ = item.get('@type', '')
+                    if typ == 'Event' or isinstance(typ, list) and 'Event' in typ:
+                        structured.append(item)
+                    if '@graph' in item:
+                        queue.append(item['@graph'])
+        starts = []
+        for item in structured:
+            dt = parse_explicit_date(item.get('startDate'))
+            if dt:
+                starts.append((dt, parse_explicit_date(item.get('endDate')), item))
+        if not starts:
+            # Nexus event pages label their date as "When 12 Nov - 18 Dec 2026".
+            # Extract that field rather than parsing unrelated page text.
+            when_match = re.search(r'\bWhen\s+(.{0,90}?)\s+Where\b', text, re.I)
+            when_text = when_match.group(1) if when_match else ''
+            months_short = {'jan':1,'feb':2,'mar':3,'apr':4,'may':5,'jun':6,
+                            'jul':7,'aug':8,'sep':9,'sept':9,'oct':10,'nov':11,'dec':12}
+            def nexus_short_date(day, month, year):
+                try:
+                    return datetime(int(year), months_short[month.lower()[:4] if month.lower()[:4]=='sept' else month.lower()[:3]], int(day))
+                except (ValueError, KeyError):
+                    return None
+            range_match = re.search(r'(\d{1,2})\s+([A-Za-z]{3,9})\s*[-–—]\s*(\d{1,2})\s+([A-Za-z]{3,9})\s+(20\d{2})', when_text)
+            same_month = re.search(r'(\d{1,2})\s*[-–—]\s*(\d{1,2})\s+([A-Za-z]{3,9})\s+(20\d{2})', when_text)
+            single = re.search(r'(\d{1,2})\s+([A-Za-z]{3,9})\s+(20\d{2})', when_text)
+            if range_match:
+                start = nexus_short_date(range_match[1], range_match[2], range_match[5])
+                end = nexus_short_date(range_match[3], range_match[4], range_match[5])
+            elif same_month:
+                start = nexus_short_date(same_month[1], same_month[3], same_month[4])
+                end = nexus_short_date(same_month[2], same_month[3], same_month[4])
+            elif single:
+                start = nexus_short_date(single[1], single[2], single[3])
+                end = None
+            else:
+                start = end = None
+            if start:
+                starts.append((start, end, {}))
+        if not starts:
+            # Date must be explicitly present in the event content; do not
+            # fall back to unrelated footer or site-wide calendar dates.
+            # No verified event date: skip this page.
+            pass
+        for start, end, item in starts:
+            if (end or start).date() < today:
+                continue
+            item_title = str(item.get('name') or title).strip()
+            if item_title:
+                title_to_use = item_title
+            else:
+                title_to_use = title
+            location = item.get('location') or {}
+            if isinstance(location, dict):
+                venue = str(location.get('name') or '').strip()
+            else:
+                venue = ''
+            if not venue or venue.casefold() in ('nexus arts', 'nexus'):
+                venue = 'Nexus Arts Gallery' if re.search(r'\b(exhibition|gallery)\b', title_to_use + ' ' + text[:500], re.I) else 'Nexus Arts Venue'
+            image = item.get('image') or metadata(page, 'og:image') or metadata(page, 'twitter:image')
+            if isinstance(image, list):
+                image = image[0] if image else ''
+            if isinstance(image, dict):
+                image = image.get('url') or image.get('contentUrl') or ''
+            image = normalise_url(str(image or ''), event_url)
+            if any(x in image.lower() for x in ('logo', 'favicon', 'placeholder')):
+                image = ''
+            if not image:
+                image = get_image(main, event_url)
+            if 'gallery' in venue.lower() or re.search(r'\bexhibition\b', title_to_use, re.I):
+                category = ['Exhibitions']
+            elif re.search(r'\b(workshop|masterclass)\b', title_to_use, re.I):
+                category = ['Conferences/Workshops/Expos']
+            else:
+                category = ['Music'] if re.search(r'\b(music|concert|gig|jazz|live|interplay)\b', title_to_use + ' ' + text[:300], re.I) else categorise_event(title_to_use)
+            key = (title_to_use.casefold(), start.isoformat(), venue.casefold())
+            if key in seen:
+                continue
+            seen.add(key)
+            events.append({'title': title_to_use, 'venue': venue, 'date': start.isoformat(timespec='seconds'),
+                           'end_date': end.isoformat(timespec='seconds') if end else '',
+                           'category': category, 'image': image, 'url': event_url})
+    print(f'    Nexus Arts: {len(events)} verified dated events')
+    return events
