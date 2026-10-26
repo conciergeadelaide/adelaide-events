@@ -855,7 +855,7 @@ def source_domains(source_name):
     """
     domains = set()
 
-    for source in list(SOURCES) + [{"name": "Moshtix Adelaide CBD", "url": "https://www.moshtix.com.au/v2/search"}, {"name": "AllEvents Victoria Square", "url": "https://allevents.in/adelaide/victoria%20square"}, {"name": "Humanitix Nineteen Ten", "url": "https://events.humanitix.com/host/nineteentenadl"}, {"name": "Humanitix Adelaide and Regions", "url": "https://humanitix.com/au/events/au--sa--adelaide"}]:
+    for source in list(SOURCES) + [{"name": "Moshtix Adelaide CBD", "url": "https://www.moshtix.com.au/v2/search"}, {"name": "Humanitix Nineteen Ten", "url": "https://events.humanitix.com/host/nineteentenadl"}, {"name": "Humanitix Adelaide and Regions", "url": "https://humanitix.com/au/events/au--sa--adelaide"}]:
         if source.get("name") != source_name:
             continue
 
@@ -1112,7 +1112,6 @@ def main(only_source=None):
     # Single-source test mode: never write events.json or run global cleanup.
     configured_sources = list(SOURCES) + [
         {"name": "Moshtix Adelaide CBD", "url": "https://www.moshtix.com.au/v2/search"},
-        {"name": "AllEvents Victoria Square", "url": "https://allevents.in/adelaide/victoria%20square"},
         {"name": "Humanitix Nineteen Ten", "url": "https://events.humanitix.com/host/nineteentenadl"},
         {"name": "Humanitix Adelaide and Regions", "url": "https://humanitix.com/au/events/au--sa--adelaide"},
     ]
@@ -1814,6 +1813,22 @@ def main(only_source=None):
     final_events = [event for event in final_events
                     if not is_cancelled_secret_garden(event)]
     print(f"Cancelled Secret Garden listings excluded: {cancelled_count - len(final_events)}")
+
+    # Permanently exclude unreliable AllEvents records, including legacy preserved ones.
+    def _is_allevents(event):
+        from urllib.parse import urlparse
+        source = str(event.get("source", "")).lower()
+        link = str(event.get("link") or event.get("url") or "")
+        host = (urlparse(link).hostname or "").lower()
+        return "allevents" in source or host == "allevents.in" or host.endswith(".allevents.in")
+    removed_allevents = sum(_is_allevents(e) for e in final_events)
+    final_events = [e for e in final_events if not _is_allevents(e)]
+    print(f"AllEvents records excluded permanently: {removed_allevents}")
+
+    # Use an honest local placeholder until verified official images are available.
+    for event in final_events:
+        if event.get("source") == "State Theatre Company South Australia":
+            event["image"] = "assets/state-theatre-placeholder.svg"
 
     # Match official Thebarton posters by Ticketmaster ID after final deduplication.
     enrich_thebarton_images(final_events)

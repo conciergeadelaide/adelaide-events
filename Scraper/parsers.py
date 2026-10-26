@@ -4059,6 +4059,7 @@ def parse_state_theatre_company(soup, source_url):
                 if candidate.startswith(('https://','http://')) and 'statetheatrecompany.com.au' in urlparse(candidate).netloc:
                     image = candidate
                     break
+        image = image or 'assets/state-theatre-placeholder.svg'
         events.append({
             'title': title, 'venue': venue,
             'date': start.isoformat() + 'T00:00:00',
