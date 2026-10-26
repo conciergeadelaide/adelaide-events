@@ -22,6 +22,7 @@ try:
     from parsers import (
         parse_json_ld,
         parse_the_drive,
+        parse_adelaide_symphony_orchestra,
         parse_adelaide_oval,
         parse_adelaide_convention_centre,
         parse_adelaide_festival_centre,
@@ -45,6 +46,7 @@ except ModuleNotFoundError:
     from Scraper.parsers import (
         parse_json_ld,
         parse_the_drive,
+        parse_adelaide_symphony_orchestra,
         parse_adelaide_oval,
         parse_adelaide_convention_centre,
         parse_adelaide_festival_centre,
@@ -252,6 +254,10 @@ def clean_event(event, source_name):
 
 def event_key(event):
 
+    # ASO may schedule multiple distinct performances on the same date.
+    session_key = (str(event.get("datetime", ""))
+                   if event.get("source") == "Adelaide Symphony Orchestra"
+                   else str(event.get("datetime", ""))[:10])
     return (
         str(
             event.get("title", "")
@@ -261,9 +267,7 @@ def event_key(event):
             event.get("venue", "")
         ).lower().strip(),
 
-        str(
-            event.get("datetime", "")
-        )[:10],
+        session_key,
     )
 
 
@@ -304,6 +308,7 @@ def _venue_name(value):
         "98 port rd": "adelaide entertainment centre",
         "98 port road": "adelaide entertainment centre",
         "the gov": "governor hindmarsh hotel",
+        "rhino room adl": "rhino room",
     }
     return aliases.get(name, name)
 
@@ -518,6 +523,9 @@ def scrape_source(source):
         with open(snapshot, "r", encoding="utf-8") as handle:
             soup = BeautifulSoup(handle.read(), "lxml")
         return parse_experience_adelaide(soup, url)
+
+    if name == "Adelaide Symphony Orchestra":
+        return parse_adelaide_symphony_orchestra(fetch_page(url), url)
 
     # The Drive: use current /whatson, not the stale /events archive.
     if name == "The Drive":
@@ -1042,7 +1050,7 @@ def main(only_source=None):
     # Run without --quick regularly to discover new events at these sites.
     if "--quick" in sys.argv and only_source is None:
         known_empty_generic_sources = {
-            "Adelaide Symphony Orchestra", "Nineteen Ten",
+            "Nineteen Ten",
             "State Opera South Australia", "Nexus Arts",
             "Dom Polski Centre", "Kings of Comedy",
             "Adelaide Repertory Theatre",
@@ -1242,10 +1250,10 @@ def main(only_source=None):
             event
         )
 
-    # Recover confirmed start times for The Drive from existing Ticketmaster
-    # records when the venue provides a calendar date but no clock time.
-    # Only match the same venue, calendar day and recognisably same title;
-    # do not combine separate performances or use midnight as a real time.
+    # Preserve previously verified The Drive start times when the official
+    # listing supplies only a date. First prefer the same official event URL;
+    # otherwise accept one unambiguous same-title/date/venue match. This also
+    # supports earlier runs that already replaced Ticketmaster records.
     def _drive_title(value):
         title = str(value or "").casefold().replace("&", " and ")
         title = re.sub(r"\b20\d{2}\b", " ", title)
@@ -1260,9 +1268,10 @@ def main(only_source=None):
         if not fresh_dt.endswith("T00:00:00"):
             continue
         fresh_title = _drive_title(fresh.get("title"))
-        matches = []
+        fresh_link = str(fresh.get("link") or "").rstrip("/").casefold()
+        candidates = []
         for old in existing_events:
-            if old.get("source") != "Ticketmaster Adelaide":
+            if old.get("source") not in ("The Drive", "Ticketmaster Adelaide"):
                 continue
             if _venue_name(old.get("venue")) != _venue_name(fresh.get("venue")):
                 continue
@@ -1274,17 +1283,22 @@ def main(only_source=None):
             old_title = _drive_title(old.get("title"))
             if not fresh_title or not old_title:
                 continue
-            if (fresh_title == old_title or
+            if not (fresh_title == old_title or
                     (min(len(fresh_title), len(old_title)) >= 9 and
                      (fresh_title in old_title or old_title in fresh_title))):
-                matches.append(old)
-        # Ambiguous matches are intentionally left alone.
-        if len(matches) == 1:
-            fresh["datetime"] = matches[0]["datetime"]
+                continue
+            old_link = str(old.get("link") or "").rstrip("/").casefold()
+            exact_link = bool(fresh_link and old_link == fresh_link)
+            candidates.append((exact_link, old_dt))
+        exact = {dt for same_link, dt in candidates if same_link}
+        times = exact if exact else {dt for _, dt in candidates}
+        # Never guess when different confirmed times conflict.
+        if len(times) == 1:
+            fresh["datetime"] = times.pop()
             drive_times_recovered += 1
     if drive_times_recovered:
-        print(f"The Drive: restored {drive_times_recovered} confirmed "
-              "Ticketmaster start times")
+        print(f"The Drive: preserved {drive_times_recovered} previously "
+              "verified start times")
 
     # Add newly scraped events.
 
@@ -1395,6 +1409,23 @@ def main(only_source=None):
         deduplicated_final_events.append(
             event
         )
+
+    # ASO performs at many venues. Prefer the orchestra's own listing over
+    # another source for the SAME performance, never over another session.
+    aso_events = [e for e in deduplicated_final_events
+                  if e.get("source") == "Adelaide Symphony Orchestra"]
+    other_events = [e for e in deduplicated_final_events
+                    if e.get("source") != "Adelaide Symphony Orchestra"]
+    aso_overlaps = 0
+    if aso_events:
+        retained = []
+        for candidate in other_events:
+            if any(_same_event(candidate, aso) for aso in aso_events):
+                aso_overlaps += 1
+            else:
+                retained.append(candidate)
+        deduplicated_final_events = aso_events + retained
+    print(f"ASO: {aso_overlaps} same-performance cross-source overlaps excluded")
 
     # Moshtix is a ticketing aggregator: prefer official venue records.
     # Compare normalized title, venue, date, and non-conflicting times.
@@ -1649,6 +1680,14 @@ def main(only_source=None):
                 event["venue"] = "Victoria Square / Tarntanyangga"
                 venue_names_normalised += 1
     print(f"Victoria Square venue names standardised: {venue_names_normalised}")
+
+    # Canonical Rhino Room label for all sources, including legacy records.
+    rhino_renamed = 0
+    for event in final_events:
+        if str(event.get("venue", "")).strip().casefold() == "rhino room, adl":
+            event["venue"] = "Rhino Room"
+            rhino_renamed += 1
+    print(f"Rhino Room venue names standardised: {rhino_renamed}")
 
     # Match official Thebarton posters by Ticketmaster ID after final deduplication.
     enrich_thebarton_images(final_events)

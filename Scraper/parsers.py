@@ -2795,3 +2795,137 @@ def parse_the_drive(soup, source_url):
                        "url": url})
     print(f"    The Drive: {len(candidates)} candidate pages; {len(events)} verified current events; {rejected} stale/undated excluded")
     return events
+
+
+# ============================================================
+# ADELAIDE SYMPHONY ORCHESTRA — INDIVIDUAL SESSIONS
+# ============================================================
+
+def parse_adelaide_symphony_orchestra(soup, source_url):
+    """Extract confirmed, individually dated ASO performances.
+
+    Do not invent a year or venue. One event record per session, including
+    multiple performances on the same date at different confirmed times.
+    """
+    from urllib.parse import urlparse
+    from datetime import date
+
+    today = datetime.now().date()
+    domain = "aso.com.au"
+    urls = []
+    seen = set()
+    for anchor in soup.find_all("a", href=True):
+        url = urljoin(source_url, anchor["href"]).split("#", 1)[0].split("?", 1)[0]
+        parsed = urlparse(url)
+        if (parsed.hostname or "").lower().removeprefix("www.") != domain:
+            continue
+        if not re.fullmatch(r"/events/[^/]+/?", parsed.path):
+            continue
+        key = url.rstrip("/").lower()
+        if key not in seen:
+            seen.add(key)
+            urls.append(url)
+
+    session = requests.Session()
+    session.headers.update({"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/140.0 Safari/537.36"})
+    events = []
+    errors = 0
+    missing = 0
+    # Only complete dates and explicit session times are accepted.
+    date_pattern = re.compile(
+        r"\b(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun)(?:day)?\s+"
+        r"(\d{1,2})\s+"
+        r"(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)[a-z]*\s+"
+        r"(20\d{2}),?\s+(\d{1,2}:\d{2}\s*(?:am|pm))\b", re.I)
+    months = {"jan":1,"feb":2,"mar":3,"apr":4,"may":5,"jun":6,
+              "jul":7,"aug":8,"sep":9,"sept":9,"oct":10,"nov":11,"dec":12}
+    for url in urls:
+        try:
+            response = session.get(url, timeout=25)
+            response.raise_for_status()
+            detail = BeautifulSoup(response.text, "lxml")
+        except requests.RequestException as exc:
+            errors += 1
+            print(f"    ASO detail ERROR: {url} ({exc})")
+            continue
+
+        heading = detail.find("h1")
+        title = heading.get_text(" ", strip=True) if heading else ""
+        if not title:
+            missing += 1
+            continue
+        # ASO event pages explicitly identify the venue with 'Where'.
+        venue = ""
+        for node in detail.find_all(string=re.compile(r"^\s*Where\s*$", re.I)):
+            parent = node.parent
+            if parent is None:
+                continue
+            candidate = parent.get_text(" ", strip=True)
+            if candidate.casefold() == "where" and parent.parent:
+                candidate = parent.parent.get_text(" ", strip=True)
+            candidate = re.sub(r"^Where\s*", "", candidate, flags=re.I).strip(" :-")
+            candidate = re.split(r"\bPrices\b", candidate, maxsplit=1, flags=re.I)[0].strip()
+            if candidate and candidate.casefold() != "where" and len(candidate) < 100:
+                venue = candidate
+                break
+        if not venue:
+            # The visible event page often renders 'Where VENUE' as one item.
+            for node in detail.find_all(["li", "p", "div", "span"]):
+                candidate = node.get_text(" ", strip=True)
+                match = re.fullmatch(r"Where\s+(.{3,85})", candidate, re.I)
+                if match and "Prices" not in match.group(1):
+                    venue = match.group(1).strip()
+                    break
+        if not venue:
+            missing += 1
+            print(f"    ASO missing venue: {title}")
+            continue
+        venue = re.sub(r"\s+", " ", venue).replace("’", "'")
+        image = ""
+        for attr, value in (("property", "og:image"), ("name", "twitter:image")):
+            meta = detail.find("meta", attrs={attr:value})
+            if meta and meta.get("content"):
+                image = urljoin(url, meta["content"].strip())
+                break
+        if not image:
+            # Use a labelled hero, not an unrelated 'you might also like' image.
+            img = detail.find("img", alt=re.compile(re.escape(title), re.I))
+            if img:
+                image = urljoin(url, img.get("data-src") or img.get("src") or "")
+
+        # Restrict dates to the event's booking information, before the
+        # description / 'You might also like' recommendations.
+        content = detail.find("main") or detail.find("article") or detail.body or detail
+        parts = list(content.stripped_strings)
+        title_index = next((i for i,t in enumerate(parts) if t.strip() == title), None)
+        if title_index is None:
+            missing += 1
+            continue
+        tail = parts[title_index + 1:]
+        stop = next((i for i,t in enumerate(tail) if re.search(
+            r"Book this concert as part of a package|You might also like|Venue Accessibility", t, re.I)), len(tail))
+        tail = tail[:stop]
+        # Limit to booking header: descriptions may mention historical dates.
+        session_text = " ".join(tail[:min(len(tail), 220)])
+        found = set()
+        for match in date_pattern.finditer(session_text):
+            try:
+                mon = match.group(2).lower()[:3]
+                dt = datetime.strptime(match.group(4).replace(" ", "").lower(), "%I:%M%p")
+                day = datetime(int(match.group(3)), months[mon], int(match.group(1)), dt.hour, dt.minute)
+            except (ValueError, KeyError):
+                continue
+            if day.date() < today:
+                continue
+            iso = day.isoformat(timespec="seconds")
+            if iso in found:
+                continue
+            found.add(iso)
+            events.append({"title":title,"venue":venue,"date":iso,"end_date":"",
+                           "category":["Music"],"image":image,"url":url})
+        if not found:
+            missing += 1
+            print(f"    ASO no confirmed future sessions: {title}")
+    print(f"    ASO: {len(urls)} event pages, {len(events)} verified sessions; "
+          f"{errors} page errors, {missing} without usable session/venue")
+    return events
