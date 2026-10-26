@@ -1242,6 +1242,64 @@ def main(only_source=None):
     )
 
     # ----------------------------------------
+    # Preserve unmatched upcoming/ongoing records
+    # ----------------------------------------
+    # An accepted scraper can miss individual events even when its total
+    # count is healthy (for example, directory pagination changes).
+    # Keep such records for manual review rather than silently deleting
+    # them. A later run can still replace them when matching data returns.
+    # Past events are not restored. Matching URLs or exact identities
+    # indicate a refreshed or re-venued event, not a missing one.
+    from datetime import date
+
+    today = date.today().isoformat()
+
+    def _is_upcoming_or_ongoing(event):
+        start = str(event.get("datetime") or event.get("date") or "")[:10]
+        end = str(event.get("end_datetime") or event.get("end_date") or "")[:10]
+        last_day = end if end >= start else start
+        return bool(re.fullmatch(r"\d{4}-\d{2}-\d{2}", last_day)
+                    and last_day >= today)
+
+    def _event_url_identity(event):
+        raw = str(event.get("link") or event.get("url") or "").strip()
+        if not raw:
+            return ""
+        parsed = urlparse(raw)
+        hostname = (parsed.hostname or "").lower().removeprefix("www.")
+        path = parsed.path.rstrip("/").lower()
+        return hostname + path if hostname and path else ""
+
+    # Compare against both new and already-retained records, so a
+    # source change or venue correction does not restore an old copy.
+    current_keys = {event_key(e) for e in final_events}
+    current_urls = {_event_url_identity(e) for e in final_events}
+    current_urls.discard("")
+    preserved_missing = []
+    for old_event in existing_events:
+        if not any(event_belongs_to_source(old_event, source)
+                   for source in accepted_sources):
+            continue
+        if not _is_upcoming_or_ongoing(old_event):
+            continue
+        key = event_key(old_event)
+        url_key = _event_url_identity(old_event)
+        if key in current_keys or (url_key and url_key in current_urls):
+            continue
+        final_events.append(old_event)
+        preserved_missing.append(old_event)
+        current_keys.add(key)
+        if url_key:
+            current_urls.add(url_key)
+
+    if preserved_missing:
+        print(f"Preserved {len(preserved_missing)} unmatched future/ongoing "
+              "events from accepted sources (review for cancellations).")
+        for event in preserved_missing:
+            print("  PRESERVED: " + str(event.get("title", ""))
+                  + " | " + str(event.get("datetime", ""))[:10])
+
+    # ----------------------------------------
     # Final exact-event deduplication
     # ----------------------------------------
     #
@@ -1309,8 +1367,7 @@ def main(only_source=None):
     # source, including any sources added in the future. Prefer the
     # venue/organiser listing where the evidence supports a match.
     # Keep distinct performances and avoid speculative title matches.
-    import re
-    from difflib import SequenceMatcher
+    # re and SequenceMatcher are imported at module level.
 
     def comparable_title(value):
         value = str(value).casefold().replace("&", " and ")
