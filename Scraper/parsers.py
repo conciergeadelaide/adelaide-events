@@ -3578,3 +3578,169 @@ def parse_nexus_arts(soup, source_url):
                            'category': category, 'image': image, 'url': event_url})
     print(f'    Nexus Arts: {len(events)} verified dated events')
     return events
+
+
+# ============================================================
+# DOM POLSKI CENTRE — Squarespace Events
+# ============================================================
+
+def parse_dom_polski_centre(soup, source_url):
+    """Discover official event pages and verify dates before adding records.
+
+    Supports Squarespace event collections with /whats-on/<slug> links,
+    machine-readable <time> attributes, and event date-range displays.
+    """
+    from datetime import date as _date
+    from urllib.parse import urlparse
+    from html import unescape
+
+    session = requests.Session()
+    session.headers.update({"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/140.0.0.0 Safari/537.36"})
+    base = source_url.rstrip('/') + '/'
+    host = urlparse(base).netloc.removeprefix('www.')
+    candidates = {}
+    for anchor in soup.find_all('a', href=True):
+        link = urljoin(base, anchor.get('href', '')).split('#')[0].split('?')[0].rstrip('/')
+        parsed = urlparse(link)
+        if parsed.netloc.removeprefix('www.') != host:
+            continue
+        path = parsed.path.strip('/').split('/')
+        if len(path) != 2 or path[0] != 'whats-on' or not path[1]:
+            continue
+        if path[1] in ('calendar', 'events', 'archive', 'page'):
+            continue
+        candidates.setdefault(link, ' '.join(anchor.stripped_strings).strip())
+
+    print(f'    Dom Polski Centre: {len(candidates)} candidate event links')
+    events = []
+    failed = 0
+
+    def metadata(page, name):
+        tag = page.find('meta', attrs={'property': name}) or page.find('meta', attrs={'name': name})
+        return str(tag.get('content', '')).strip() if tag else ''
+
+    def iso_datetime(raw):
+        raw = str(raw or '').strip()
+        match = re.match(r'^(20\d{2}-\d{2}-\d{2})(?:[T ](\d{2}:\d{2})(?::(\d{2}))?)?', raw)
+        if not match:
+            return ''
+        try:
+            dt = datetime.strptime(match.group(1), '%Y-%m-%d')
+            if match.group(2):
+                return f'{dt.date().isoformat()}T{match.group(2)}:{match.group(3) or "00"}'
+            return f'{dt.date().isoformat()}T00:00:00'
+        except ValueError:
+            return ''
+
+    def visible_dates(text):
+        """Only use dates explicitly showing a four-digit year."""
+        months = r'Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:t(?:ember)?)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?'
+        found = []
+        for match in re.finditer(rf'\b(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)?\s*,?\s*(\d{{1,2}})\s+({months})\s*,?\s*(20\d{{2}})\b', text, re.I):
+            try:
+                month = match.group(2)[:3].lower()
+                number = {'jan':1,'feb':2,'mar':3,'apr':4,'may':5,'jun':6,'jul':7,'aug':8,'sep':9,'oct':10,'nov':11,'dec':12}[month]
+                day = datetime(int(match.group(3)), number, int(match.group(1)))
+                found.append(day.isoformat() + 'T00:00:00')
+            except (ValueError, KeyError):
+                pass
+        return found
+
+    def image_for(page, url):
+        for candidate in [metadata(page, 'og:image'), metadata(page, 'twitter:image')]:
+            if candidate and not any(x in candidate.lower() for x in ('favicon', 'logo', 'placeholder')):
+                return urljoin(url, candidate)
+        for element in page.select('article img, .eventitem img, .event-image img'):
+            raw = element.get('data-src') or element.get('src') or ''
+            if raw and not raw.startswith('data:'):
+                return urljoin(url, raw)
+        return ''
+
+    for link, card_title in list(candidates.items())[:100]:
+        try:
+            response = session.get(link, timeout=25)
+            response.raise_for_status()
+            page = BeautifulSoup(response.text, 'lxml')
+        except requests.RequestException as exc:
+            failed += 1
+            print(f'    Dom Polski Centre: page unavailable {link}: {exc}')
+            continue
+
+        main = page.select_one('article.eventitem, article, .eventitem, main, #page') or page
+        heading = main.find('h1') or page.find('h1')
+        title = ' '.join(heading.stripped_strings).strip() if heading else ''
+        if not title:
+            title = metadata(page, 'og:title').split(' | ')[0].strip() or card_title
+        title = unescape(title)
+        if not title:
+            continue
+
+        start = end = ''
+        # Prefer Squarespace's event-specific structured metadata.
+        for script in page.find_all('script', type='application/ld+json'):
+            try:
+                data = json.loads(script.string or script.get_text())
+            except (ValueError, TypeError):
+                continue
+            queue = [data]
+            while queue:
+                item = queue.pop()
+                if isinstance(item, list):
+                    queue.extend(item)
+                elif isinstance(item, dict):
+                    queue.extend(x for k, x in item.items() if k in ('@graph', 'mainEntity', 'itemListElement') and isinstance(x, (list, dict)))
+                    types = item.get('@type', [])
+                    types = types if isinstance(types, list) else [types]
+                    if 'Event' in types:
+                        start = iso_datetime(item.get('startDate')) or start
+                        end = iso_datetime(item.get('endDate')) or end
+        if not start:
+            for element in main.select('time[datetime], [itemprop="startDate"][content], .eventitem-meta-date time'):
+                start = iso_datetime(element.get('datetime') or element.get('content'))
+                if start:
+                    break
+        # Squarespace stores event timestamps in <time class="event-date"> and
+        # uses <time> elements for start and end of multi-day events.
+        if not start:
+            for element in main.select('[data-start-date], [data-start], [data-event-start-date]'):
+                start = iso_datetime(element.get('data-start-date') or element.get('data-start') or element.get('data-event-start-date'))
+                if start:
+                    break
+        text = ' '.join(main.stripped_strings)
+        if not start:
+            dates = visible_dates(text[:1400])
+            if dates:
+                start = dates[0]
+                if len(dates) > 1 and dates[1] > start:
+                    end = dates[1]
+        if not start:
+            continue
+        # Reject past events only after checking an explicit end date.
+        if (end or start)[:10] < _date.today().isoformat():
+            continue
+        if end and end[:10] < start[:10]:
+            end = ''
+        # If structured data didn't provide a range, inspect explicitly
+        # labelled end-date time elements, never infer from unrelated text.
+        if not end:
+            for element in main.select('[itemprop="endDate"], time.eventitem-meta-date-end'):
+                end = iso_datetime(element.get('datetime') or element.get('content'))
+                if end:
+                    break
+        if end and end[:10] < start[:10]:
+            end = ''
+        lower = title.casefold()
+        if 'boxing' in lower or 'championship' in lower:
+            category = ['Sport']
+        elif 'dance' in lower or 'swing' in lower:
+            category = ['Dance']
+        elif 'meeting' in lower or 'club night' in lower:
+            category = ['Community']
+        else:
+            category = categorise_event(title, text[:350])
+        events.append({'title': title, 'venue': 'Dom Polski Centre',
+                       'date': start, 'end_date': end, 'category': category,
+                       'image': image_for(page, link), 'url': link})
+
+    print(f'    Dom Polski Centre: {len(events)} verified dated events; {failed} inaccessible pages')
+    return events
