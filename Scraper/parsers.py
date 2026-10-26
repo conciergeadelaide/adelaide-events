@@ -3991,6 +3991,9 @@ def parse_adelaide_repertory_theatre(soup, source_url):
 # STATE THEATRE COMPANY SOUTH AUSTRALIA — OFFICIAL SHOW PAGES
 # ============================================================
 
+
+STATE_THEATRE_OFFICIAL_IMAGES = {'An Iliad': 'assets/state-theatre/An-Iliad-Portrait-600x800-c-default.jpg', 'The Dark Matter of Usulal': 'assets/state-theatre/Dark-Matter-of-Usulal-Portrait-600x800-c-default.jpg', 'Summer of the Seventeenth Doll': 'assets/state-theatre/Seventeenth-Doll-Portrait-600x800-c-default.jpg', 'A Guide to Success In the Workplace': 'assets/state-theatre/Success-in-the-Workplace-Portrait-600x800-c-default.jpg', 'Evil Hour': 'assets/state-theatre/Evil-Hour-Portrait-600x800-c-default.jpg', 'Snappy': 'assets/state-theatre/Snappy-Portrait-600x800-c-default.jpg', 'The Bookbinder of Jericho': 'assets/state-theatre/Bookbinder-of-Jericho-Portrait-600x800-c-default.jpg', 'Squid': 'assets/state-theatre/Squid-Portrait-600x800-c-default.jpg'}
+
 def parse_state_theatre_company(soup, source_url):
     """Parse dated production cards from a saved official upcoming-shows page.
 
@@ -4059,7 +4062,7 @@ def parse_state_theatre_company(soup, source_url):
                 if candidate.startswith(('https://','http://')) and 'statetheatrecompany.com.au' in urlparse(candidate).netloc:
                     image = candidate
                     break
-        image = image or 'assets/state-theatre-placeholder.svg'
+        image = STATE_THEATRE_OFFICIAL_IMAGES.get(title, image or 'assets/state-theatre-placeholder.svg')
         events.append({
             'title': title, 'venue': venue,
             'date': start.isoformat() + 'T00:00:00',

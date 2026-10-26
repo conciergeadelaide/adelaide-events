@@ -30,6 +30,7 @@ try:
         parse_kings_of_comedy,
         parse_adelaide_repertory_theatre,
         parse_state_theatre_company,
+        STATE_THEATRE_OFFICIAL_IMAGES,
         parse_adelaide_oval,
         parse_adelaide_convention_centre,
         parse_adelaide_festival_centre,
@@ -62,6 +63,7 @@ except ModuleNotFoundError:
         parse_kings_of_comedy,
         parse_adelaide_repertory_theatre,
         parse_state_theatre_company,
+        STATE_THEATRE_OFFICIAL_IMAGES,
         parse_adelaide_oval,
         parse_adelaide_convention_centre,
         parse_adelaide_festival_centre,
@@ -1825,10 +1827,13 @@ def main(only_source=None):
     final_events = [e for e in final_events if not _is_allevents(e)]
     print(f"AllEvents records excluded permanently: {removed_allevents}")
 
-    # Use an honest local placeholder until verified official images are available.
+    # Use the official production portraits saved from the State Theatre 2027 season.
+    # Keep images in this repository so GitHub Pages does not depend on hotlinks.
     for event in final_events:
         if event.get("source") == "State Theatre Company South Australia":
-            event["image"] = "assets/state-theatre-placeholder.svg"
+            official_image = STATE_THEATRE_OFFICIAL_IMAGES.get(event.get("title", ""))
+            if official_image:
+                event["image"] = official_image
 
     # Match official Thebarton posters by Ticketmaster ID after final deduplication.
     enrich_thebarton_images(final_events)
