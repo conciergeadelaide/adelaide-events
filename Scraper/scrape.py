@@ -21,6 +21,7 @@ try:
     from config import SOURCES
     from parsers import (
         parse_json_ld,
+        parse_the_drive,
         parse_adelaide_oval,
         parse_adelaide_convention_centre,
         parse_adelaide_festival_centre,
@@ -43,6 +44,7 @@ except ModuleNotFoundError:
     from Scraper.config import SOURCES
     from Scraper.parsers import (
         parse_json_ld,
+        parse_the_drive,
         parse_adelaide_oval,
         parse_adelaide_convention_centre,
         parse_adelaide_festival_centre,
@@ -516,6 +518,11 @@ def scrape_source(source):
         with open(snapshot, "r", encoding="utf-8") as handle:
             soup = BeautifulSoup(handle.read(), "lxml")
         return parse_experience_adelaide(soup, url)
+
+    # The Drive: use current /whatson, not the stale /events archive.
+    if name == "The Drive":
+        current_url = "https://www.thedriveadelaide.com.au/whatson"
+        return parse_the_drive(fetch_page(current_url), current_url)
 
     # ----------------------------------------
     # Adelaide Oval
@@ -1234,6 +1241,50 @@ def main(only_source=None):
         final_events.append(
             event
         )
+
+    # Recover confirmed start times for The Drive from existing Ticketmaster
+    # records when the venue provides a calendar date but no clock time.
+    # Only match the same venue, calendar day and recognisably same title;
+    # do not combine separate performances or use midnight as a real time.
+    def _drive_title(value):
+        title = str(value or "").casefold().replace("&", " and ")
+        title = re.sub(r"\b20\d{2}\b", " ", title)
+        title = re.sub(r"[^a-z0-9]+", " ", title)
+        return " ".join(title.split())
+
+    drive_times_recovered = 0
+    for fresh in all_new_events:
+        if fresh.get("source") != "The Drive":
+            continue
+        fresh_dt = str(fresh.get("datetime") or "")
+        if not fresh_dt.endswith("T00:00:00"):
+            continue
+        fresh_title = _drive_title(fresh.get("title"))
+        matches = []
+        for old in existing_events:
+            if old.get("source") != "Ticketmaster Adelaide":
+                continue
+            if _venue_name(old.get("venue")) != _venue_name(fresh.get("venue")):
+                continue
+            old_dt = str(old.get("datetime") or "")
+            if old_dt[:10] != fresh_dt[:10] or len(old_dt) < 19:
+                continue
+            if old_dt[11:19] == "00:00:00":
+                continue
+            old_title = _drive_title(old.get("title"))
+            if not fresh_title or not old_title:
+                continue
+            if (fresh_title == old_title or
+                    (min(len(fresh_title), len(old_title)) >= 9 and
+                     (fresh_title in old_title or old_title in fresh_title))):
+                matches.append(old)
+        # Ambiguous matches are intentionally left alone.
+        if len(matches) == 1:
+            fresh["datetime"] = matches[0]["datetime"]
+            drive_times_recovered += 1
+    if drive_times_recovered:
+        print(f"The Drive: restored {drive_times_recovered} confirmed "
+              "Ticketmaster start times")
 
     # Add newly scraped events.
 

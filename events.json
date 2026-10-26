@@ -2511,6 +2511,42 @@
     "source": "Thebarton Theatre"
   },
   {
+    "title": "A Perfect Circle",
+    "venue": "The Drive",
+    "datetime": "2026-12-04T19:45:00",
+    "end_datetime": "",
+    "category": [
+      "Other"
+    ],
+    "image": "https://www.thedriveadelaide.com.au/wp-content/uploads/2026/03/APC_3_505-copy.jpg",
+    "link": "https://www.thedriveadelaide.com.au/events/a-perfect-circle/",
+    "source": "The Drive"
+  },
+  {
+    "title": "Spacey Jane",
+    "venue": "The Drive",
+    "datetime": "2026-12-06T19:15:00",
+    "end_datetime": "",
+    "category": [
+      "Other"
+    ],
+    "image": "https://www.thedriveadelaide.com.au/wp-content/uploads/2021/12/2426x1365-player-version-1024x576.png",
+    "link": "https://www.thedriveadelaide.com.au/events/spacey-jane/",
+    "source": "The Drive"
+  },
+  {
+    "title": "Queens of the Stone Age 2026",
+    "venue": "The Drive",
+    "datetime": "2026-12-08T18:35:00",
+    "end_datetime": "",
+    "category": [
+      "Other"
+    ],
+    "image": "https://www.thedriveadelaide.com.au/wp-content/uploads/2021/12/2426x1365-player-version-1024x576.png",
+    "link": "https://www.thedriveadelaide.com.au/events/queens-of-the-stone-age-2026/",
+    "source": "The Drive"
+  },
+  {
     "title": "Crooked Colours 'Dirt Road Gold' Album Tour",
     "venue": "Lion Arts Factory",
     "datetime": "2026-10-30T00:00:00",
@@ -3349,6 +3385,18 @@
     ],
     "image": "https://www.moshtix.com.au/uploads/8358a959-9e8e-4b20-ac82-1ae82ca8a416x600x600",
     "link": "https://www.moshtix.com.au/v2/event/halloween/201501",
+    "source": "Moshtix Adelaide CBD"
+  },
+  {
+    "title": "DIV-DE Presents. Denim B2B Samuel",
+    "venue": "DIV-DE",
+    "datetime": "2026-10-31T22:00:00",
+    "end_datetime": "2026-11-01T05:00:00",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.moshtix.com.au/uploads/a8849368-a46b-48f5-ba0e-154e94bc532cx600x600",
+    "link": "https://www.moshtix.com.au/v2/event/div-de-presents-denim-b2b-samuel/201960",
     "source": "Moshtix Adelaide CBD"
   },
   {
@@ -4276,18 +4324,6 @@
     "source": "Ticketmaster Adelaide"
   },
   {
-    "title": "A Perfect Circle",
-    "venue": "The Drive",
-    "datetime": "2026-12-04T19:45:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://s1.ticketm.net/dam/a/e9f/43342585-439b-4045-89ca-327847ed4e9f_TABLET_LANDSCAPE_LARGE_16_9.jpg",
-    "link": "https://www.ticketmaster.com.au/a-perfect-circle-adelaide-04-12-2026/event/2500646BEE0E6D51",
-    "source": "Ticketmaster Adelaide"
-  },
-  {
     "title": "Zarna Garg: The Million Dollar Excuses Tour",
     "venue": "Norwood Concert Hall",
     "datetime": "2026-12-05T16:00:00",
@@ -4309,30 +4345,6 @@
     ],
     "image": "https://s1.ticketm.net/dam/a/0cf/cd61e66f-cfd9-4afa-8901-20cdd39f00cf_SOURCE",
     "link": "https://www.ticketmaster.com.au/an-evening-with-cat-power-adelaide-05-12-2026/event/250064C8EDB7BDC5",
-    "source": "Ticketmaster Adelaide"
-  },
-  {
-    "title": "Spacey Jane | Heading Back Down Under Australian Tour",
-    "venue": "The Drive",
-    "datetime": "2026-12-06T19:15:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://s1.ticketm.net/dam/a/91d/beb66a26-d09c-4a50-a8df-d1241ec8991d_RETINA_PORTRAIT_16_9.jpg",
-    "link": "https://www.ticketmaster.com.au/spacey-jane-heading-back-down-under-adelaide-06-12-2026/event/250064ABC7EF2D19",
-    "source": "Ticketmaster Adelaide"
-  },
-  {
-    "title": "Queens of the Stone Age",
-    "venue": "The Drive",
-    "datetime": "2026-12-08T18:35:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://s1.ticketm.net/dam/a/ade/41dae045-5042-4874-9c95-2a1a20dbeade_SOURCE",
-    "link": "https://www.ticketmaster.com.au/queens-of-the-stone-age-adelaide-08-12-2026/event/250064E9A45253E9",
     "source": "Ticketmaster Adelaide"
   },
   {
@@ -5375,6 +5387,18 @@
     "source": "Humanitix Adelaide and Regions"
   },
   {
+    "title": "80s Quiz Night & Disco",
+    "venue": "Mclaren Vale Institute Hall",
+    "datetime": "2026-10-29T18:00:00+1030",
+    "end_datetime": "2026-10-29T21:30:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/9eda85e2-d3ff-458c-ba08-5170ae5c6d81.jpg@seo-500.jpg",
+    "link": "https://events.humanitix.com/80s-quiz-night-and-disco",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
     "title": "Adelaide Hills Ready-Set-Connect",
     "venue": "Adelaide Hills Convention Centre",
     "datetime": "2026-11-11T10:00:00+1030",
@@ -5408,18 +5432,6 @@
     ],
     "image": "https://images.humanitix.com/i/667b6bf0-ecc5-4829-aff7-ed49be430152.png@seo-500.jpg",
     "link": "https://events.humanitix.com/bronte-ep-release-show",
-    "source": "Humanitix Adelaide and Regions"
-  },
-  {
-    "title": "Colonnades: ACOTAR 6 Early Store Openings at QBD Books",
-    "venue": "QBD Books Colonnades",
-    "datetime": "2026-10-27T08:00:00+1030",
-    "end_datetime": "2026-10-27T09:00:00+1030",
-    "category": [
-      "Other"
-    ],
-    "image": "https://images.humanitix.com/i/b286977f-491b-4270-9cdf-03dc44c5daab.jpg@seo-500.jpg",
-    "link": "https://events.humanitix.com/colonnades-acotar-6-early-store-openings-at-qbd-books",
     "source": "Humanitix Adelaide and Regions"
   },
   {
@@ -5552,18 +5564,6 @@
     ],
     "image": "https://images.humanitix.com/i/2e1e1b26-2b4f-4300-b8ed-e0e7dbca4192.jpg@seo-500.jpg",
     "link": "https://events.humanitix.com/lipsync-adl",
-    "source": "Humanitix Adelaide and Regions"
-  },
-  {
-    "title": "Minus18 Queer FormalÂ® Adelaide 2026",
-    "venue": "Adelaide Town Hall",
-    "datetime": "2026-11-06T18:30:00+1030",
-    "end_datetime": "2026-11-06T22:00:00+1030",
-    "category": [
-      "Other"
-    ],
-    "image": "https://images.humanitix.com/i/d2ae72aa-bb62-4873-ba3d-7e2ceb925be9.png@seo-500.jpg",
-    "link": "https://events.humanitix.com/minus18-queer-formal-r-adelaide-2026",
     "source": "Humanitix Adelaide and Regions"
   },
   {
@@ -5718,8 +5718,8 @@
     "category": [
       "Other"
     ],
-    "image": "https://images.humanitix.com/i/bf848b95-b5c0-4960-80b8-d4b72f2d3778.jpg@seo-500.jpg",
-    "link": "https://events.humanitix.com/sweat-your-prayers-5rhythms-aldinga",
+    "image": "https://images.humanitix.com/i/f27318b4-8513-4f8b-a00c-7a694b963df8.jpg@seo-500.jpg",
+    "link": "https://events.humanitix.com/sweat-your-prayers-5rhythms",
     "source": "Humanitix Adelaide and Regions"
   },
   {
@@ -5730,8 +5730,20 @@
     "category": [
       "Other"
     ],
-    "image": "https://images.humanitix.com/i/bf848b95-b5c0-4960-80b8-d4b72f2d3778.jpg@seo-500.jpg",
-    "link": "https://events.humanitix.com/sweat-your-prayers-5rhythms-aldinga",
+    "image": "https://images.humanitix.com/i/f27318b4-8513-4f8b-a00c-7a694b963df8.jpg@seo-500.jpg",
+    "link": "https://events.humanitix.com/sweat-your-prayers-5rhythms",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "'Sweat Your Prayers' 5Rhythms McLaren Vale",
+    "venue": "McLaren Vale Institute Hall",
+    "datetime": "2027-02-07T10:00:00+1030",
+    "end_datetime": "2027-02-07T12:00:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/f27318b4-8513-4f8b-a00c-7a694b963df8.jpg@seo-500.jpg",
+    "link": "https://events.humanitix.com/sweat-your-prayers-5rhythms",
     "source": "Humanitix Adelaide and Regions"
   },
   {
@@ -5744,6 +5756,30 @@
     ],
     "image": "https://images.humanitix.com/i/2b7ff63d-2808-470b-9329-88073e9381b7.png@seo-500.jpg",
     "link": "https://events.humanitix.com/the-full-runrise-adelaide-14th-nov-2026",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "Colonnades: ACOTAR 6 Early Store Openings at QBD Books",
+    "venue": "QBD Books Colonnades",
+    "datetime": "2026-10-27T08:00:00+1030",
+    "end_datetime": "2026-10-27T09:00:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/b286977f-491b-4270-9cdf-03dc44c5daab.jpg@seo-500.jpg",
+    "link": "https://events.humanitix.com/colonnades-acotar-6-early-store-openings-at-qbd-books",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "Minus18 Queer FormalÂ® Adelaide 2026",
+    "venue": "Adelaide Town Hall",
+    "datetime": "2026-11-06T18:30:00+1030",
+    "end_datetime": "2026-11-06T22:00:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/d2ae72aa-bb62-4873-ba3d-7e2ceb925be9.png@seo-500.jpg",
+    "link": "https://events.humanitix.com/minus18-queer-formal-r-adelaide-2026",
     "source": "Humanitix Adelaide and Regions"
   },
   {

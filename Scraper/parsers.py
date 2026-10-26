@@ -2670,3 +2670,128 @@ def parse_allevents_victoria_square(soup, source_url):
     print(f"    AllEvents: {len(candidates)} event links, "
           f"{len(unique)} verified Victoria Square events")
     return list(unique.values())
+
+
+
+# ============================================================
+# THE DRIVE — CURRENT WHAT'S ON ONLY
+# ============================================================
+
+def parse_the_drive(soup, source_url):
+    """Read The Drive's current listing, verifying dates on detail pages.
+
+    Deliberately reject missing years and old dates. Never infer a future
+    year from a month/day on a stale page.
+    """
+    from urllib.parse import urlparse
+    from datetime import date
+
+    root = "https://www.thedriveadelaide.com.au"
+    today = datetime.now().date()
+    session = requests.Session()
+    session.headers.update({"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/140.0 Safari/537.36"})
+    candidates = {}
+    for heading in soup.find_all(["h2", "h3", "h4", "h5"]):
+        anchor = heading.find("a", href=True) or heading.find_parent("a", href=True)
+        if anchor is None:
+            parent = heading.parent
+            if parent is not None:
+                anchor = parent.find("a", href=True)
+        if anchor is None:
+            continue
+        title = heading.get_text(" ", strip=True)
+        url = urljoin(source_url, anchor.get("href", "")).split("#")[0]
+        parsed = urlparse(url)
+        if not title or parsed.netloc.lower().removeprefix("www.") != "thedriveadelaide.com.au":
+            continue
+        if parsed.path.rstrip("/") in ("", "/whatson", "/events", "/past-events"):
+            continue
+        candidates[url] = title
+
+    events = []
+    rejected = 0
+    for url, listing_title in candidates.items():
+        try:
+            response = session.get(url, timeout=20)
+            response.raise_for_status()
+            detail = BeautifulSoup(response.text, "lxml")
+        except requests.RequestException as exc:
+            print(f"    The Drive detail unavailable: {url} ({exc})")
+            continue
+
+        title = listing_title
+        heading = detail.find("h1")
+        if heading and heading.get_text(" ", strip=True):
+            title = heading.get_text(" ", strip=True)
+        if not title or "past event" in title.casefold():
+            continue
+
+        # Only structured event dates or explicit four-digit years are valid.
+        start = ""
+        end = ""
+        image = ""
+        for tag in detail.find_all("script", type="application/ld+json"):
+            try:
+                raw = json.loads(tag.string or tag.get_text())
+            except (ValueError, TypeError):
+                continue
+            def walk(obj):
+                if isinstance(obj, list):
+                    for v in obj:
+                        yield from walk(v)
+                elif isinstance(obj, dict):
+                    if obj.get("@type") == "Event" or (isinstance(obj.get("@type"), list) and "Event" in obj["@type"]):
+                        yield obj
+                    for k in ("@graph", "mainEntity", "itemListElement"):
+                        if k in obj:
+                            yield from walk(obj[k])
+            for item in walk(raw):
+                raw_start = str(item.get("startDate") or "")
+                if re.match(r"^20\d{2}-\d{2}-\d{2}", raw_start):
+                    start = raw_start
+                    end = str(item.get("endDate") or "")
+                    im = item.get("image") or ""
+                    image = im[0] if isinstance(im, list) and im else (im if isinstance(im, str) else "")
+                    break
+            if start:
+                break
+
+        if not start:
+            # Event detail content only; avoid footer/related-event dates.
+            content = detail.find("article") or detail.find("main") or detail
+            for tag in content.find_all("time"):
+                value = str(tag.get("datetime") or tag.get_text(" ", strip=True))
+                if re.search(r"20\d{2}", value):
+                    start = parse_date_text(value)
+                    if start:
+                        break
+            if not start:
+                text = content.get_text(" ", strip=True)
+                start = parse_date_text(text[:2200])
+
+        try:
+            day = datetime.fromisoformat(start[:10]).date()
+        except (ValueError, TypeError):
+            rejected += 1
+            continue
+        if day < today:
+            try:
+                last = datetime.fromisoformat(end[:10]).date()
+            except (ValueError, TypeError):
+                last = day
+            if last < today:
+                rejected += 1
+                continue
+
+        if not image:
+            meta = detail.find("meta", attrs={"property": "og:image"})
+            image = str(meta.get("content") or "") if meta else ""
+        if image and any(x in image.casefold() for x in ("favicon", "logo")):
+            image = ""
+        category = ["Sport"] if any(w in title.casefold() for w in ("tennis", "volleyball", "championship", "finals", "league")) else categorise_event(title)
+        events.append({"title": title, "venue": "The Drive", "date": start,
+                       "end_date": end if end[:10] != start[:10] else "",
+                       "category": category, "image": urljoin(url, image) if image else "",
+                       "url": url})
+    print(f"    The Drive: {len(candidates)} candidate pages; {len(events)} verified current events; {rejected} stale/undated excluded")
+    return events
