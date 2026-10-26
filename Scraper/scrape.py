@@ -27,6 +27,8 @@ try:
         parse_government_house,
         parse_nexus_arts,
         parse_dom_polski_centre,
+        parse_kings_of_comedy,
+        parse_adelaide_repertory_theatre,
         parse_adelaide_oval,
         parse_adelaide_convention_centre,
         parse_adelaide_festival_centre,
@@ -56,6 +58,8 @@ except ModuleNotFoundError:
         parse_government_house,
         parse_nexus_arts,
         parse_dom_polski_centre,
+        parse_kings_of_comedy,
+        parse_adelaide_repertory_theatre,
         parse_adelaide_oval,
         parse_adelaide_convention_centre,
         parse_adelaide_festival_centre,
@@ -571,6 +575,12 @@ def scrape_source(source):
         with open(snapshot, "r", encoding="utf-8") as handle:
             soup = BeautifulSoup(handle.read(), "lxml")
         return parse_experience_adelaide(soup, url)
+
+    if name == "Kings of Comedy":
+        return parse_kings_of_comedy(fetch_page(url), url)
+
+    if name == "Adelaide Repertory Theatre":
+        return parse_adelaide_repertory_theatre(fetch_page(url), url)
 
     if name == "Dom Polski Centre":
         return parse_dom_polski_centre(fetch_page(url), url)
@@ -1114,7 +1124,6 @@ def main(only_source=None):
     if "--quick" in sys.argv and only_source is None:
         known_empty_generic_sources = {
             "Nineteen Ten",
-            "Kings of Comedy",
             "Adelaide Repertory Theatre",
             "State Theatre Company South Australia",
             "South Australian Museum", "Adelaide Botanic Gardens",

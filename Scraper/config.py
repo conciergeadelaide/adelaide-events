@@ -73,7 +73,7 @@ SOURCES = [
     },
     {
         "name": "Kings of Comedy",
-        "url": "https://www.koc.lol/adelaide/"
+        "url": "https://koc.lol/comedy-club-adelaide/"
     },
     {
         "name": "Adelaide Repertory Theatre",

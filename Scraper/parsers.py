@@ -3744,3 +3744,244 @@ def parse_dom_polski_centre(soup, source_url):
 
     print(f'    Dom Polski Centre: {len(events)} verified dated events; {failed} inaccessible pages')
     return events
+
+
+# ============================================================
+# KINGS OF COMEDY — ADELAIDE ONLY
+# ============================================================
+
+def parse_kings_of_comedy(soup, source_url):
+    """Discover booking links, accept only independently dated Adelaide shows.
+
+    This parser deliberately does not fabricate weekly dates from promotional
+    text. Eventbrite or official event pages must expose actual Event metadata.
+    """
+    from urllib.parse import urlparse, urlunparse
+    from datetime import timezone
+
+    session = requests.Session()
+    session.headers.update({
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                      "AppleWebKit/537.36 (KHTML, like Gecko) "
+                      "Chrome/140.0.0.0 Safari/537.36",
+    })
+    now = datetime.now().date()
+    links = []
+    seen_links = set()
+
+    def add_link(value):
+        if not value:
+            return
+        link = urljoin(source_url, str(value).strip())
+        parsed = urlparse(link)
+        host = (parsed.hostname or "").casefold()
+        path = parsed.path.casefold()
+        if not (host == "eventbrite.com" or host.endswith(".eventbrite.com")
+                or host == "eventbrite.com.au" or host.endswith(".eventbrite.com.au")
+                or host in ("koc.lol", "www.koc.lol")):
+            return
+        if host in ("koc.lol", "www.koc.lol") and not any(
+                word in path for word in ("/event", "/show", "/comedy-club-adelaide")):
+            return
+        if host in ("koc.lol", "www.koc.lol") and path.rstrip("/") == urlparse(source_url).path.rstrip("/").casefold():
+            return
+        # Keep booking parameters only where needed; remove fragment.
+        link = urlunparse(parsed._replace(fragment=""))
+        key = link.split("?", 1)[0].rstrip("/").casefold()
+        if key not in seen_links:
+            seen_links.add(key)
+            links.append(link)
+
+    for anchor in soup.find_all("a", href=True):
+        add_link(anchor.get("href"))
+    for element in soup.select("[data-url], [data-href]"):
+        add_link(element.get("data-url") or element.get("data-href"))
+    for match in re.findall(r'https?[^\s"\'<>]+', str(soup)):
+        if "eventbrite" in match.casefold():
+            add_link(match.replace("&amp;", "&"))
+
+    print(f"    Kings of Comedy: {len(links)} candidate booking/event links")
+    events = []
+    failures = 0
+    rejected = 0
+    for link in links[:70]:
+        try:
+            response = session.get(link, timeout=22)
+            response.raise_for_status()
+            page = BeautifulSoup(response.text, "lxml")
+        except requests.RequestException:
+            failures += 1
+            continue
+
+        # Event metadata can be nested in @graph or a top-level list.
+        objects = []
+        def walk(value):
+            if isinstance(value, list):
+                for entry in value:
+                    walk(entry)
+            elif isinstance(value, dict):
+                types = value.get("@type", [])
+                types = [types] if isinstance(types, str) else types
+                if any(str(t).casefold().endswith("event") for t in types):
+                    objects.append(value)
+                if "@graph" in value:
+                    walk(value["@graph"])
+        for script in page.find_all("script", type="application/ld+json"):
+            try:
+                walk(json.loads(script.string or script.get_text()))
+            except (ValueError, TypeError):
+                continue
+
+        for item in objects:
+            title = str(item.get("name") or "").strip()
+            start = str(item.get("startDate") or "").strip()
+            location = item.get("location") or {}
+            locations = location if isinstance(location, list) else [location]
+            location_texts = []
+            venue = ""
+            for loc in locations:
+                if isinstance(loc, dict):
+                    name = str(loc.get("name") or "").strip()
+                    address = loc.get("address") or {}
+                    address_text = " ".join(str(v) for v in address.values()) if isinstance(address, dict) else str(address)
+                    location_texts.append(f"{name} {address_text}")
+                    if name and not venue:
+                        venue = name
+                else:
+                    location_texts.append(str(loc))
+            location_text = " ".join(location_texts).casefold()
+            # Require explicit Adelaide evidence in event location or title;
+            # reject other Australian cities and online-only shows.
+            if not ("adelaide" in location_text or "south australia" in location_text
+                    or " sa 5000" in location_text or "adelaide" in title.casefold()):
+                rejected += 1
+                continue
+            if any(x in location_text for x in ("melbourne", "sydney", "brisbane", "perth wa", "gold coast", "online event")):
+                rejected += 1
+                continue
+            try:
+                start_dt = datetime.fromisoformat(start.replace("Z", "+00:00"))
+            except ValueError:
+                rejected += 1
+                continue
+            if start_dt.date() < now or not title:
+                rejected += 1
+                continue
+            end = str(item.get("endDate") or "").strip()
+            if end:
+                try:
+                    datetime.fromisoformat(end.replace("Z", "+00:00"))
+                except ValueError:
+                    end = ""
+            image = item.get("image") or ""
+            if isinstance(image, list):
+                image = image[0] if image else ""
+            if isinstance(image, dict):
+                image = image.get("url") or ""
+            if not image:
+                meta = page.find("meta", property="og:image")
+                image = meta.get("content", "") if meta else ""
+            events.append({
+                "title": title,
+                "venue": venue or "Kings of Comedy Adelaide",
+                "date": start,
+                "end_date": end,
+                "category": ["Comedy"],
+                "image": urljoin(link, str(image)) if image else "",
+                "url": str(item.get("url") or link),
+            })
+    unique = {}
+    for event in events:
+        key = (event["title"].casefold(), event["venue"].casefold(), event["date"])
+        unique.setdefault(key, event)
+    print(f"    Kings of Comedy: {len(unique)} verified Adelaide shows; "
+          f"{rejected} excluded/undated; {failures} inaccessible pages")
+    if not links:
+        print("    Kings of Comedy: no booking links in static HTML; "
+              "page may require browser rendering or external ticketing discovery")
+    return list(unique.values())
+
+
+# ============================================================
+# ADELAIDE REPERTORY THEATRE — OFFICIAL CURRENT PRODUCTION
+# ============================================================
+
+def parse_adelaide_repertory_theatre(soup, source_url):
+    """Use the official homepage's CURRENT PRODUCTION only.
+
+    One dated season is represented as a single range event; the published
+    session timetable is not used to invent individual performance dates.
+    Auditions, old season archives and undated productions are excluded.
+    """
+    from datetime import date
+    from urllib.parse import urljoin
+
+    main = soup.find('main') or soup
+    text = ' '.join(main.stripped_strings)
+    marker = re.search(r'\bCURRENT\s+PRODUCTION\b', text, re.I)
+    if not marker:
+        print('    Adelaide Rep: no current-production section found')
+        return []
+    section = text[marker.end():marker.end()+3200]
+    season = re.search(r'\bSeason\s*:\s*(.{0,110})', section, re.I)
+    if not season:
+        print('    Adelaide Rep: no published season dates')
+        return []
+    # Accept a *fully specified* day range and year, not a year inferred
+    # from the current date or an audition notice.
+    dates = re.search(
+        r'\b(\d{1,2})\s*[–—-]\s*(\d{1,2})\s+'
+        r'(January|February|March|April|May|June|July|August|September|October|November|December)'
+        r'\s+(20\d{2})\b', season.group(1), re.I)
+    if not dates:
+        print('    Adelaide Rep: current production has no verified full date range')
+        return []
+    months = {m.lower(): i for i, m in enumerate(
+        ('January','February','March','April','May','June','July','August',
+         'September','October','November','December'), 1)}
+    try:
+        first = date(int(dates.group(4)), months[dates.group(3).lower()], int(dates.group(1)))
+        last = date(int(dates.group(4)), months[dates.group(3).lower()], int(dates.group(2)))
+    except ValueError:
+        return []
+    if last < date.today() or first > last:
+        print('    Adelaide Rep: current production already ended or invalid')
+        return []
+
+    # The homepage uses an h2 for the current production's name.
+    heading = None
+    for h in main.find_all(['h1','h2','h3','h4']):
+        if 'current production' in h.get_text(' ', strip=True).casefold():
+            heading = h.find_next(['h1','h2','h3','h4'])
+            break
+    if not heading:
+        print('    Adelaide Rep: no current production title found')
+        return []
+    title = heading.get_text(' ', strip=True)
+    if not title or title.casefold() in ('current production','2026 season'):
+        return []
+
+    image = ''
+    # Search nearby preceding poster before title, not unrelated page images.
+    for element in heading.find_all_previous('img', limit=4):
+        candidate = element.get('data-src') or element.get('src') or ''
+        if candidate and not candidate.startswith('data:') and not any(
+                x in candidate.lower() for x in ('logo', 'icon', 'avatar')):
+            image = urljoin(source_url, candidate)
+            break
+    if not image:
+        meta = soup.find('meta', attrs={'property':'og:image'})
+        if meta:
+            image = urljoin(source_url, meta.get('content') or '')
+
+    event = {
+        'title': title,
+        'venue': 'Arts Theatre',
+        'date': first.isoformat() + 'T00:00:00',
+        'end_date': last.isoformat() + 'T23:59:59',
+        'category': ['Theatre'],
+        'image': image,
+        'url': source_url,
+    }
+    print(f'    Adelaide Rep: verified {title} ({first} to {last}); 1 production')
+    return [event]
