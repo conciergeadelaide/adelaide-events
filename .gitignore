@@ -1,0 +1,19 @@
+# Python temporary files
+__pycache__/
+*.pyc
+*.pyo
+
+# Backup and preview files
+*.bak
+*.backup
+events-before-*.json
+events-preview-report.json
+events_test_backup.json
+experience-adelaide-preview*.json
+
+# Saved website pages and resources
+Experience Adelaide*/
+*What's on in Adelaide*.html
+
+# Temporary test scripts
+test_*.py
