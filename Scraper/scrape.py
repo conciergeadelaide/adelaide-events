@@ -38,6 +38,7 @@ try:
         parse_experience_adelaide,
         parse_moshtix_adelaide,
         parse_allevents_victoria_square,
+        parse_allevents_adelaide_and_surrounds,
     )
 except ModuleNotFoundError:
     # Works when importing:
@@ -62,6 +63,7 @@ except ModuleNotFoundError:
         parse_experience_adelaide,
         parse_moshtix_adelaide,
         parse_allevents_victoria_square,
+        parse_allevents_adelaide_and_surrounds,
     )
 
 
@@ -488,6 +490,9 @@ def scrape_source(source):
     if name == "Moshtix Adelaide CBD":
         return parse_moshtix_adelaide()
 
+    if name == "AllEvents Adelaide and Surrounds":
+        return parse_allevents_adelaide_and_surrounds(fetch_page(url), url)
+
     if name == "AllEvents Victoria Square":
         return parse_allevents_victoria_square(fetch_page(url), url)
 
@@ -815,6 +820,9 @@ def event_belongs_to_source(event, source_name):
     # a Nineteen Ten host event as a general-directory event (or vice versa).
     if source_name.startswith("Humanitix "):
         return False
+
+    if source_name.startswith("AllEvents ") and explicit_source:
+        return explicit_source == wanted
 
     # Do not return False merely because an older record has a
     # different/missing source label. Its official URL may still
@@ -1385,7 +1393,7 @@ def main(only_source=None):
     final_seen = set()
 
     # Prefer official fresh records to Ticketmaster for identical keys.
-    for event in sorted(all_new_events, key=lambda e: e.get("source") in ("Ticketmaster Adelaide", "Moshtix Adelaide CBD")):
+    for event in sorted(all_new_events, key=lambda e: e.get("source") in ("Ticketmaster Adelaide", "Moshtix Adelaide CBD", "AllEvents Adelaide and Surrounds")):
 
         key = event_key(event)
 
@@ -1634,6 +1642,36 @@ def main(only_source=None):
             kept_square.append(candidate)
     final_events = other_events + kept_square
     print(f"AllEvents Victoria Square overlaps excluded: {skipped_square}")
+
+    # Broad AllEvents is an aggregator. Prefer EVERY other source, including
+    # other ticket platforms and previously curated events. Different dates,
+    # venues or verified session times must remain separate.
+    broad_source = "AllEvents Adelaide and Surrounds"
+    broad_events = [e for e in final_events if e.get("source") == broad_source]
+    other_events = [e for e in final_events if e.get("source") != broad_source]
+    kept_broad = []
+    broad_overlaps = 0
+    for candidate in broad_events:
+        title = comparable_title(candidate.get("title", ""))
+        duplicate = False
+        for other in other_events + kept_broad:
+            if not overlaps(candidate, other):
+                continue
+            other_title = comparable_title(other.get("title", ""))
+            if not (title == other_title or
+                    (len(title) >= 18 and len(other_title) >= 18 and
+                     SequenceMatcher(None, title, other_title).ratio() >= 0.94)):
+                continue
+            if (_venue_name(candidate.get("venue")) == _venue_name(other.get("venue"))
+                    and same_performance(candidate, other)):
+                duplicate = True
+                break
+        if duplicate:
+            broad_overlaps += 1
+        else:
+            kept_broad.append(candidate)
+    final_events = other_events + kept_broad
+    print(f"AllEvents Adelaide and Surrounds overlaps excluded: {broad_overlaps}")
 
     # Humanitix is an event platform, not a venue authority. Prefer existing
     # venue/official entries for the same performance, date and venue.

@@ -2929,3 +2929,155 @@ def parse_adelaide_symphony_orchestra(soup, source_url):
     print(f"    ASO: {len(urls)} event pages, {len(events)} verified sessions; "
           f"{errors} page errors, {missing} without usable session/venue")
     return events
+
+
+# ============================================================
+# ALLEVENTS ADELAIDE AND SURROUNDS — VERIFIED DETAIL PAGES
+# ============================================================
+
+def parse_allevents_adelaide_and_surrounds(soup, source_url):
+    """Discover AllEvents listings and verify their individual event metadata.
+
+    Broad directory pages contain suggestions from other states and past events;
+    neither a listing title nor its city label is sufficient evidence. Only
+    confirmed Adelaide/nearby South Australian locations are accepted.
+    """
+    from urllib.parse import urlparse
+    from concurrent.futures import ThreadPoolExecutor, as_completed
+    from datetime import date
+
+    listing_urls = [
+        source_url.rstrip('/'),
+        'https://allevents.in/adelaide/bonython',
+        'https://allevents.in/adelaide/bonython%20park',
+        'https://allevents.in/adelaide/events',
+    ]
+    session = requests.Session()
+    session.headers.update({'User-Agent':
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
+        'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36'})
+    pages = [(source_url, soup)]
+    for listing_url in listing_urls[1:]:
+        try:
+            response = session.get(listing_url, timeout=25)
+            response.raise_for_status()
+            pages.append((listing_url, BeautifulSoup(response.text, 'lxml')))
+        except requests.RequestException as exc:
+            print(f'    AllEvents listing unavailable: {listing_url} ({exc})')
+
+    def iter_events(node):
+        if isinstance(node, list):
+            for child in node:
+                yield from iter_events(child)
+        elif isinstance(node, dict):
+            kinds = node.get('@type', [])
+            kinds = kinds if isinstance(kinds, list) else [kinds]
+            if any(str(kind).casefold().endswith('event') for kind in kinds):
+                yield node
+            for key in ('@graph', 'itemListElement', 'item'):
+                if key in node:
+                    yield from iter_events(node[key])
+
+    def event_location(node):
+        if isinstance(node, list):
+            return [value for part in node for value in event_location(part)]
+        if isinstance(node, dict):
+            address = node.get('address') or {}
+            if isinstance(address, dict):
+                address_text = ' '.join(str(address.get(k) or '') for k in
+                    ('streetAddress', 'addressLocality', 'addressRegion', 'postalCode', 'addressCountry'))
+            else:
+                address_text = str(address)
+            return [(str(node.get('name') or '').strip(), address_text.strip())]
+        return [(str(node or '').strip(), '')]
+
+    def local_location(venue, address):
+        text = f'{venue} {address}'.casefold()
+        # A recognisable SA place is required; the site's Adelaide URL alone
+        # does not establish where a recommended event is actually held.
+        excluded = re.search(r'\b(?:vic|victoria|nsw|new south wales|qld|queensland|wa|western australia|tas|tasmania|nt|northern territory|act|canberra)\b', text)
+        if excluded:
+            return False
+        if re.search(r'\b(?:adelaide|north adelaide|port adelaide|glenelg|norwood|unley|prospect|thebarton|hindmarsh|bowden|mile end|west lakes|henley beach|brighton|semaphore|grange|modbury|marion|morphettville|mclaren vale|hahndorf|mount barker|mt barker|bonython|tulya wardli|tarntanyangga|victoria square|south australia)\b', text):
+            return True
+        if re.search(r'\bSA\s*5\d{3}\b', f'{venue} {address}'):
+            return True
+        return False
+
+    links = set()
+    for listing_url, listing in pages:
+        for anchor in listing.select('a[href]'):
+            href = urljoin(listing_url, anchor.get('href', '')).split('#')[0].split('?')[0]
+            parsed = urlparse(href)
+            if (parsed.hostname or '').lower() not in ('allevents.in', 'www.allevents.in'):
+                continue
+            # Individual event URLs have a numeric ID; exclude directory pages.
+            if re.fullmatch(r'/[^/]+/[^/]+/\d{8,}', parsed.path):
+                links.add(href)
+
+    def fetch_detail(href):
+        try:
+            response = session.get(href, timeout=22)
+            response.raise_for_status()
+            detail = BeautifulSoup(response.text, 'lxml')
+        except requests.RequestException:
+            return []
+        found = []
+        for script in detail.find_all('script', type='application/ld+json'):
+            try:
+                data = json.loads(script.string or script.get_text())
+            except (ValueError, TypeError):
+                continue
+            for item in iter_events(data):
+                title = str(item.get('name') or '').strip()
+                start = str(item.get('startDate') or '').strip()
+                if not title or not re.match(r'^20\d{2}-\d{2}-\d{2}', start):
+                    continue
+                try:
+                    if datetime.fromisoformat(start.replace('Z', '+00:00')).date() < date.today():
+                        continue
+                except ValueError:
+                    continue
+                locations = event_location(item.get('location'))
+                verified = [(venue, address) for venue, address in locations
+                            if venue and local_location(venue, address)]
+                if not verified:
+                    continue
+                venue, address = verified[0]
+                # Avoid generic city labels as venue names.
+                if venue.casefold() in ('adelaide', 'south australia', 'sa'):
+                    continue
+                end = str(item.get('endDate') or '')
+                if len(start) == 10:
+                    start += 'T00:00:00'
+                if len(end) == 10:
+                    end += 'T23:59:59'
+                image = item.get('image') or ''
+                if isinstance(image, list):
+                    image = image[0] if image else ''
+                if isinstance(image, dict):
+                    image = image.get('url') or image.get('contentUrl') or ''
+                found.append({
+                    'title': title, 'venue': venue, 'date': start,
+                    'end_date': end,
+                    'category': categorise_event(title, str(item.get('description') or '')[:300]),
+                    'image': urljoin(href, str(image)) if image else '',
+                    'url': href,
+                })
+        return found
+
+    results = []
+    with ThreadPoolExecutor(max_workers=5) as executor:
+        futures = [executor.submit(fetch_detail, href) for href in sorted(links)[:350]]
+        for future in as_completed(futures):
+            results.extend(future.result())
+    unique = {}
+    for event in results:
+        key = (re.sub(r'[^a-z0-9]+', ' ', event['title'].casefold()).strip(),
+               event['date'], re.sub(r'[^a-z0-9]+', ' ', event['venue'].casefold()).strip())
+        unique.setdefault(key, event)
+    bonython = sum(bool(re.search(r'bonython|tulya wardli', e['venue'], re.I))
+                   for e in unique.values())
+    print(f'    AllEvents Adelaide: {len(pages)} listing pages, {len(links)} detail links, '
+          f'{len(unique)} verified local events ({bonython} Bonython)')
+    return list(unique.values())
