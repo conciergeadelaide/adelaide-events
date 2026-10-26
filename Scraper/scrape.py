@@ -23,6 +23,7 @@ try:
         parse_json_ld,
         parse_the_drive,
         parse_adelaide_symphony_orchestra,
+        parse_state_opera_south_australia,
         parse_adelaide_oval,
         parse_adelaide_convention_centre,
         parse_adelaide_festival_centre,
@@ -48,6 +49,7 @@ except ModuleNotFoundError:
         parse_json_ld,
         parse_the_drive,
         parse_adelaide_symphony_orchestra,
+        parse_state_opera_south_australia,
         parse_adelaide_oval,
         parse_adelaide_convention_centre,
         parse_adelaide_festival_centre,
@@ -174,6 +176,41 @@ def save_events(events):
     print(
         f"Saved {len(events)} events."
     )
+
+
+# Venue aliases are applied to both newly scraped and retained records.
+# This keeps the public Venue filter consistent across future runs.
+VENUE_ALIASES = {
+    "adel ent cent - theatre": "Adelaide Entertainment Centre",
+    "lucky dumpling market, elder park": "Elder Park",
+    "ellis park - tampawardli - city west": "Ellis Park",
+}
+
+# Specific cancelled event IDs, not a blanket title-based ban. This avoids
+# accidentally removing unrelated future performances with similar names.
+CANCELLED_EVENT_IDS = {
+    "3300029954876416",  # Secret Garden in Adelaide
+    "200030161153327",   # Secret Garden Live in Hindmarsh 2026
+}
+
+
+def standardise_venue(event):
+    venue = str(event.get("venue") or "").strip()
+    canonical = VENUE_ALIASES.get(venue.casefold())
+    if canonical and canonical != venue:
+        event["venue"] = canonical
+        return True
+    return False
+
+
+def is_cancelled_secret_garden(event):
+    link = str(event.get("link") or event.get("url") or "")
+    parsed = urlparse(link)
+    hostname = (parsed.hostname or "").lower()
+    if hostname not in ("allevents.in", "www.allevents.in"):
+        return False
+    event_id = parsed.path.rstrip("/").split("/")[-1]
+    return event_id in CANCELLED_EVENT_IDS
 
 
 def clean_event(event, source_name):
@@ -528,6 +565,9 @@ def scrape_source(source):
         with open(snapshot, "r", encoding="utf-8") as handle:
             soup = BeautifulSoup(handle.read(), "lxml")
         return parse_experience_adelaide(soup, url)
+
+    if name == "State Opera South Australia":
+        return parse_state_opera_south_australia(fetch_page(url), url)
 
     if name == "Adelaide Symphony Orchestra":
         return parse_adelaide_symphony_orchestra(fetch_page(url), url)
@@ -1059,7 +1099,7 @@ def main(only_source=None):
     if "--quick" in sys.argv and only_source is None:
         known_empty_generic_sources = {
             "Nineteen Ten",
-            "State Opera South Australia", "Nexus Arts",
+            "Nexus Arts",
             "Dom Polski Centre", "Kings of Comedy",
             "Adelaide Repertory Theatre",
             "State Theatre Company South Australia",
@@ -1117,6 +1157,9 @@ def main(only_source=None):
             )
 
             if cleaned:
+                standardise_venue(cleaned)
+                if is_cancelled_secret_garden(cleaned):
+                    continue
 
                 cleaned_events.append(
                     cleaned
@@ -1726,6 +1769,18 @@ def main(only_source=None):
             event["venue"] = "Rhino Room"
             rhino_renamed += 1
     print(f"Rhino Room venue names standardised: {rhino_renamed}")
+
+    # Apply venue aliases to every record, including preserved old events.
+    # Do this after matching so the source-specific duplicate rules stay intact.
+    venue_updates = sum(standardise_venue(event) for event in final_events)
+    print(f"Additional venue names standardised: {venue_updates}")
+
+    # Suppress the two specifically identified cancelled Secret Garden listings,
+    # including old records restored by the unmatched-event safety logic.
+    cancelled_count = len(final_events)
+    final_events = [event for event in final_events
+                    if not is_cancelled_secret_garden(event)]
+    print(f"Cancelled Secret Garden listings excluded: {cancelled_count - len(final_events)}")
 
     # Match official Thebarton posters by Ticketmaster ID after final deduplication.
     enrich_thebarton_images(final_events)

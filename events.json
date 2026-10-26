@@ -985,7 +985,7 @@
   },
   {
     "title": "Moon Lanterns at Lucky Dumpling Market",
-    "venue": "Lucky Dumpling Market, Elder Park",
+    "venue": "Elder Park",
     "datetime": "2026-10-09T00:00:00",
     "end_datetime": "2026-11-01T00:00:00",
     "category": [
@@ -3832,6 +3832,32 @@
     "source": "Immersive Light and Art"
   },
   {
+    "title": "GOLDEN VOICES",
+    "venue": "St Peter'S Cathedral",
+    "datetime": "2026-11-13T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Theatre",
+      "Music"
+    ],
+    "image": "",
+    "link": "https://www.stateopera.com.au/productions/2026/golden-voices",
+    "source": "State Opera South Australia"
+  },
+  {
+    "title": "TRIALS & TRANSFORMATIONS",
+    "venue": "Ukaria Cultural Centre",
+    "datetime": "2026-11-22T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Theatre",
+      "Music"
+    ],
+    "image": "",
+    "link": "https://www.stateopera.com.au/productions/2026/trials-and-transformations",
+    "source": "State Opera South Australia"
+  },
+  {
     "title": "Daryl Austin: The Long View",
     "venue": "Adelaide Town Hall",
     "datetime": "2026-10-26T00:00:00",
@@ -6108,6 +6134,45 @@
     "source": "AllEvents Adelaide and Surrounds"
   },
   {
+    "title": "A Very MADE Christmas: Traditional Wreath Edition",
+    "venue": "79 Unley Road, Parkside, SA, Australia",
+    "datetime": "2026-11-14T14:00:00+10:30",
+    "end_datetime": "2026-11-14T17:00:00+10:30",
+    "category": [
+      "Festival",
+      "Workshop"
+    ],
+    "image": "https://cdn-az.allevents.in/events10/banners/2d3017e1dd991a0e8f5fa8172071a40272d7c8b53b58e3c6b60fa02af56dd70d-rimg-w1200-h1200-dce8e8d8-gmir?v=1792970537",
+    "link": "https://allevents.in/adelaide/a-very-made-christmas-traditional-wreath-edition/200030911633217",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "5 Seconds of Summer - EVERYONE'S A STAR! World Tour",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2026-11-04T19:30:00+10:30",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://cdn-az.allevents.in/events6/banners/172ca7203f7f9d73dc8b7b1f03cc1341e6d71dc8385955dd3b3353ee845e4fe4-rimg-w668-h350-dcf8f8f8-gmir?v=1788046422",
+    "link": "https://allevents.in/adelaide/5-seconds-of-summer-everyones-a-star-world-tour/200030631229942",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "618 FEST 2026 // DAY OF CONTEMPT + 10 MORE BANDS // ALL AGES // LION ARTS FACTORY",
+    "venue": "68 North Ter, Adelaide SA 5000, Australia",
+    "datetime": "2026-11-21T14:30:00+10:30",
+    "end_datetime": "",
+    "category": [
+      "Festival",
+      "Music",
+      "Arts & Culture"
+    ],
+    "image": "https://cdn-az.allevents.in/events5/banners/c4eddf41a772e0cc37a0195a2f8d75e241e158c1851a166c146485630d7d99fe-rimg-w1200-h628-dc181818-gmir?v=1790703791",
+    "link": "https://allevents.in/adelaide/618-fest-2026-day-of-contempt-10-more-bands-all-ages-lion-arts-factory/200030752187812",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
     "title": "Aboriginal Spirit Colour Fun Run 2026",
     "venue": "Bonython Park",
     "datetime": "2026-11-07T11:00:00+10:30",
@@ -6120,18 +6185,6 @@
     "source": "AllEvents Adelaide and Surrounds"
   },
   {
-    "title": "2026 Latino Grooves Showcase",
-    "venue": "Scott Theatre",
-    "datetime": "2026-11-07T18:30:00+10:30",
-    "end_datetime": "",
-    "category": [
-      "Theatre"
-    ],
-    "image": "https://cdn-az.allevents.in/events3/banners/e74776043770f2799154d711e4ba36cbd46985fcc6096289e43a69f384592071-rimg-w1200-h628-dc080808-gmir?v=1786745510",
-    "link": "https://allevents.in/adelaide/2026-latino-grooves-showcase/200029411871123",
-    "source": "AllEvents Adelaide and Surrounds"
-  },
-  {
     "title": "Adelaide: The End of the World (A Feel Good Comedy)",
     "venue": "Adelaide Comedy",
     "datetime": "2026-11-04T19:00:00+10:30",
@@ -6141,31 +6194,6 @@
     ],
     "image": "https://cdn-az.allevents.in/events4/banners/f10c3175fb787a137ea523d4e15eaed8ae6052def7b0de0bb5e82e3f0dbe1ac9-rimg-w1125-h294-dc080838-gmir?v=1788240386",
     "link": "https://allevents.in/adelaide/adelaide-the-end-of-the-world-a-feel-good-comedy/200030529805702",
-    "source": "AllEvents Adelaide and Surrounds"
-  },
-  {
-    "title": "2026 Adelaide Polo Classic",
-    "venue": "Ellis Park – Tampawardli – City West",
-    "datetime": "2026-12-11T15:00:00+10:30",
-    "end_datetime": "2026-12-11T23:45:00+10:30",
-    "category": [
-      "Workshop"
-    ],
-    "image": "https://cdn-az.allevents.in/events5/banners/58aebf7e3bb836a61e916419fa44fed8eb6a0cceb1a25aae2a254fbed7d3e60d-rimg-w1080-h1920-dca8c8e8-gmir?v=1788723705",
-    "link": "https://allevents.in/adelaide/2026-adelaide-polo-classic/200030027815157",
-    "source": "AllEvents Adelaide and Surrounds"
-  },
-  {
-    "title": "Air Supply in Adelaide",
-    "venue": "AEC THEATRE",
-    "datetime": "2026-12-10T19:30:00+10:30",
-    "end_datetime": "2026-12-10T21:30:00+10:30",
-    "category": [
-      "Theatre",
-      "Arts & Culture"
-    ],
-    "image": "https://cdn-az.allevents.in/events9/banners/17666440-7d09-11f1-957f-f1f06462340d-rimg-w1200-h675-dc1b1a1c-gmir.webp?v=1783761342",
-    "link": "https://allevents.in/adelaide/air-supply-in-adelaide/3300030389952143",
     "source": "AllEvents Adelaide and Surrounds"
   },
   {
@@ -6193,18 +6221,6 @@
     "source": "AllEvents Adelaide and Surrounds"
   },
   {
-    "title": "An Evening with Dave Hole",
-    "venue": "59 Port Rd , Hindmarsh, SA, Australia, South Australia 5007",
-    "datetime": "2026-11-05T17:00:00+10:30",
-    "end_datetime": "",
-    "category": [
-      "Other"
-    ],
-    "image": "https://cdn-az.allevents.in/events3/banners/2c2bb54e40a3e80a542b9fe07d29df99dc25dd78cc07a36bcdc84c660efee39b-rimg-w1200-h628-dc080808-gmir?v=1789110920",
-    "link": "https://allevents.in/adelaide/an-evening-with-dave-hole/200030685871521",
-    "source": "AllEvents Adelaide and Surrounds"
-  },
-  {
     "title": "Allen Carr's Easyway to Stop Smoking Seminar - Adelaide",
     "venue": "Glandore Community Centre, Adelaide",
     "datetime": "2026-11-14T10:00:00+10:30",
@@ -6229,6 +6245,18 @@
     "source": "AllEvents Adelaide and Surrounds"
   },
   {
+    "title": "Athelstone Brigade Open Day",
+    "venue": "Athelstone CFS Station",
+    "datetime": "2026-11-08T14:00:00+10:30",
+    "end_datetime": "2026-11-08T17:00:00+10:30",
+    "category": [
+      "Family"
+    ],
+    "image": "https://cdn-az.allevents.in/events2/banners/7da4923587f4f5af2df4308526e9137e1f8969fdbf8dfcb5793a58e04da5b354-rimg-w1200-h628-dc082858-gmir?v=1792970508",
+    "link": "https://allevents.in/adelaide/athelstone-brigade-open-day/200030911628950",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
     "title": "Back to the 90's - Adelaide (Launch Event)",
     "venue": "Atlantis Lounge Bar",
     "datetime": "2026-11-14T21:00:00+10:30",
@@ -6239,43 +6267,6 @@
     ],
     "image": "https://cdn-az.allevents.in/events7/banners/4d1fa78cc2e20541f2a74cbbfe199271c46025c5f4b0e95e5213abdde60832ac-rimg-w1200-h628-dcf8f8f8-gmir.jpg?v=1787261180",
     "link": "https://allevents.in/adelaide/back-to-the-90s-adelaide-launch-event/100001998400001199",
-    "source": "AllEvents Adelaide and Surrounds"
-  },
-  {
-    "title": "Bare: a pop opera",
-    "venue": "The Parks Theatre",
-    "datetime": "2026-11-05T19:00:00+10:30",
-    "end_datetime": "2026-11-07T21:30:00+10:30",
-    "category": [
-      "Theatre",
-      "Music"
-    ],
-    "image": "https://cdn-az.allevents.in/events10/banners/7d6e55819c0a724b4dd766a55794a9582a58061e2df0204c3137544f84645c84-rimg-w1200-h1697-dc181818-gmir?v=1792970513",
-    "link": "https://allevents.in/adelaide/bare-a-pop-opera/200030911629454",
-    "source": "AllEvents Adelaide and Surrounds"
-  },
-  {
-    "title": "Bjorn Again - Adelaide, SA - The Worlds Number 1 ABBA Show",
-    "venue": "Her Majesty's Theatre",
-    "datetime": "2026-11-21T20:00:00+10:30",
-    "end_datetime": "",
-    "category": [
-      "Arts & Culture"
-    ],
-    "image": "https://cdn-az.allevents.in/events6/banners/2a6fb6a36a3b21e01e6124707363368492390b993050ae7bb2cb9d0e3cddb968-rimg-w1200-h628-dc080808-gmir?v=1788431170",
-    "link": "https://allevents.in/adelaide/bjorn-again-adelaide-sa-the-worlds-number-1-abba-show/200030026416553",
-    "source": "AllEvents Adelaide and Surrounds"
-  },
-  {
-    "title": "BJORN AGAIN - ADELAIDE, SA (2PM SHOW) - The World's No.1 ABBA Tribute Show",
-    "venue": "Her Majesty's Theatre",
-    "datetime": "2026-11-21T14:00:00+10:30",
-    "end_datetime": "",
-    "category": [
-      "Arts & Culture"
-    ],
-    "image": "https://cdn-az.allevents.in/events2/banners/2392e5398f394de46f7ef4ab3614093da1835ed0ef03eb233482de5518ab2ede-rimg-w1200-h628-dc080808-gmir?v=1788319821",
-    "link": "https://allevents.in/adelaide/bjorn-again-adelaide-sa-2pm-show-the-worlds-no1-abba-tribute-show/200030614989932",
     "source": "AllEvents Adelaide and Surrounds"
   },
   {
@@ -6293,6 +6284,30 @@
     "source": "AllEvents Adelaide and Surrounds"
   },
   {
+    "title": "BJORN AGAIN - ADELAIDE, SA (2PM SHOW) - The World's No.1 ABBA Tribute Show",
+    "venue": "Her Majesty's Theatre",
+    "datetime": "2026-11-21T14:00:00+10:30",
+    "end_datetime": "",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://cdn-az.allevents.in/events2/banners/2392e5398f394de46f7ef4ab3614093da1835ed0ef03eb233482de5518ab2ede-rimg-w1200-h628-dc080808-gmir?v=1788319821",
+    "link": "https://allevents.in/adelaide/bjorn-again-adelaide-sa-2pm-show-the-worlds-no1-abba-tribute-show/200030614989932",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "Bjorn Again - Adelaide, SA - The Worlds Number 1 ABBA Show",
+    "venue": "Her Majesty's Theatre",
+    "datetime": "2026-11-21T20:00:00+10:30",
+    "end_datetime": "",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://cdn-az.allevents.in/events6/banners/2a6fb6a36a3b21e01e6124707363368492390b993050ae7bb2cb9d0e3cddb968-rimg-w1200-h628-dc080808-gmir?v=1788431170",
+    "link": "https://allevents.in/adelaide/bjorn-again-adelaide-sa-the-worlds-number-1-abba-show/200030026416553",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
     "title": "Bootcamp",
     "venue": "Goldenfields Reserve, Golden Grove Sa 5125",
     "datetime": "2026-10-31T08:15:00+10:30",
@@ -6302,18 +6317,6 @@
     ],
     "image": "https://cdn-az.allevents.in/events7/banners/22701965c08aa65075c7140248bb0254e034fe6889383f7efe903a9481b779ce-rimg-w940-h788-dc181828-gmir?v=1792970529",
     "link": "https://allevents.in/adelaide/bootcamp/200030911631409",
-    "source": "AllEvents Adelaide and Surrounds"
-  },
-  {
-    "title": "Cakes &amp; Prosecco",
-    "venue": "My Cloud Nine",
-    "datetime": "2026-10-30T19:00:00+10:30",
-    "end_datetime": "2026-10-30T21:00:00+10:30",
-    "category": [
-      "Arts & Culture"
-    ],
-    "image": "https://cdn-az.allevents.in/events8/banners/230c911683f53e6aeba7b8ccfae3f51fab607b496cf4ec88978c3843d250bc6a-rimg-w1080-h1350-dc180808-gmir?v=1792912154",
-    "link": "https://allevents.in/adelaide/cakes-and-prosecco/200030906384215",
     "source": "AllEvents Adelaide and Surrounds"
   },
   {
@@ -6330,27 +6333,16 @@
     "source": "AllEvents Adelaide and Surrounds"
   },
   {
-    "title": "Claude Code Day · Adelaide",
-    "venue": "Studio Safari",
-    "datetime": "2026-10-30T09:30:00+10:30",
-    "end_datetime": "2026-10-30T15:30:00+10:30",
+    "title": "Charlie Puth in Adelaide",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2026-11-15T09:00:00+11:00",
+    "end_datetime": "2026-11-15T11:00:00+11:00",
     "category": [
+      "Talks & Conferences",
       "Arts & Culture"
     ],
-    "image": "https://cdn2.allevents.in/thumbs/thumb6adda3cc4e330.jpg",
-    "link": "https://allevents.in/adelaide/claude-code-day-·-adelaide/80002970981364",
-    "source": "AllEvents Adelaide and Surrounds"
-  },
-  {
-    "title": "Craft-A-Noon - for crafty social folk!",
-    "venue": "163 Gouger Street, Adelaide, SA, Australia",
-    "datetime": "2026-11-17T13:00:00+10:30",
-    "end_datetime": "2026-11-17T16:00:00+10:30",
-    "category": [
-      "Other"
-    ],
-    "image": "https://cdn-az.allevents.in/events9/banners/c53bfdb811d1c318a70f9c8cb54b656497a2980bbbc743674f31d46388150e55-rimg-w1200-h628-dcd8a868-gmir?v=1792912154",
-    "link": "https://allevents.in/adelaide/craft-a-noon-for-crafty-social-folk/200030906384014",
+    "image": "https://cdn-az.allevents.in/events1/banners/5c521f30-7508-11f1-a6ed-5146a8713f7b-rimg-w1200-h675-dc780603-gmir.webp?v=1782881419",
+    "link": "https://allevents.in/adelaide/charlie-puth-in-adelaide/3300030335766420",
     "source": "AllEvents Adelaide and Surrounds"
   },
   {
@@ -6368,16 +6360,15 @@
     "source": "AllEvents Adelaide and Surrounds"
   },
   {
-    "title": "Charlie Puth in Adelaide",
-    "venue": "Adelaide Entertainment Centre",
-    "datetime": "2026-11-15T09:00:00+11:00",
-    "end_datetime": "2026-11-15T11:00:00+11:00",
+    "title": "Chiodos in Hindmarsh",
+    "venue": "The Gov - The Venue",
+    "datetime": "2026-11-26T19:00:00+10:30",
+    "end_datetime": "2026-11-26T21:00:00+10:30",
     "category": [
-      "Talks & Conferences",
-      "Arts & Culture"
+      "Talks & Conferences"
     ],
-    "image": "https://cdn-az.allevents.in/events1/banners/5c521f30-7508-11f1-a6ed-5146a8713f7b-rimg-w1200-h675-dc780603-gmir.webp?v=1782881419",
-    "link": "https://allevents.in/adelaide/charlie-puth-in-adelaide/3300030335766420",
+    "image": "https://cdn-az.allevents.in/events10/banners/c40cbf70-8e00-11f1-a33a-f7150662a5aa-rimg-w1200-h675-dcb8b8b8-gmir.webp?v=1785626972",
+    "link": "https://allevents.in/adelaide/chiodos-in-hindmarsh/3300030493668932",
     "source": "AllEvents Adelaide and Surrounds"
   },
   {
@@ -6405,6 +6396,18 @@
     "source": "AllEvents Adelaide and Surrounds"
   },
   {
+    "title": "em4. X MYST Halloween | ADELAIDE | 2 NIGHTS | OCT 30 + 31",
+    "venue": "SURGE NIGHTCLUB",
+    "datetime": "2026-10-30T22:00:00+10:30",
+    "end_datetime": "2026-11-01T04:00:00+10:30",
+    "category": [
+      "Other"
+    ],
+    "image": "https://cdn-az.allevents.in/events5/banners/dfd638f561d3b2623d9b9e0fed0a6b2064bab6b6a9a13ae2a13faaf1c85e1046-rimg-w1200-h600-dc282828-gmir.jpg?v=1789973298",
+    "link": "https://allevents.in/adelaide/em4-x-myst-halloween-adelaide-2-nights-oct-30-31/100002001742825677",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
     "title": "DISCO INFERNO at GINGERS SAT 9TH MAY",
     "venue": "109 Goodwood Rd, Goodwood SA 5034, Australia",
     "datetime": "2026-10-31T18:00:00+10:30",
@@ -6414,6 +6417,731 @@
     ],
     "image": "https://cdn-az.allevents.in/events1/banners/cec8e40f4a93f883088e1bbbcd4b741628b49de225f3c4af469a2c52d6840c50-rimg-w1024-h1536-dc080808-gmir?v=1788431279",
     "link": "https://allevents.in/adelaide/disco-inferno-at-gingers-sat-9th-may/200030511985429",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "END OF DAYS ADELAIDE",
+    "venue": "Cloisters - University Of Adelaide",
+    "datetime": "2026-10-31T17:30:00+10:30",
+    "end_datetime": "",
+    "category": [
+      "Other"
+    ],
+    "image": "https://cdn-az.allevents.in/events3/banners/2c2ce5589b7a49b306fa4ad3e5adc866a94efc733d91b6bbc3f9b59cd507fb6e-rimg-w1200-h628-dc282828-gmir?v=1788403588",
+    "link": "https://allevents.in/adelaide/end-of-days-adelaide/200030511961537",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "FASTING: The Ultimate Panacea October 2026 - Adelaide",
+    "venue": "Hotel Grand Chancellor Adelaide",
+    "datetime": "2026-10-26T18:30:00+10:30",
+    "end_datetime": "2026-10-26T21:30:00+10:30",
+    "category": [
+      "Other"
+    ],
+    "image": "https://cdn-az.allevents.in/events3/banners/930f9d3d36e3c0f9dca361e62834ea5b3a878af06a3fb36b1b6e72195b49ec09-rimg-w1200-h675-dc98c8e8-gmir.jpg?v=1788585458",
+    "link": "https://allevents.in/adelaide/fasting-the-ultimate-panacea-october-2026-adelaide/100001999485329445",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "Forest Roadshow — Tarntanya / Adelaide, SA (Kaurna Country)",
+    "venue": "Immersive Light and Art",
+    "datetime": "2026-11-21T18:30:00+10:30",
+    "end_datetime": "2026-11-21T20:30:00+10:30",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://cdn-az.allevents.in/events2/banners/1fe39cac9f877a968a7bbcc85a936278e72ebda3a9fb79fdcac025a266b53efe-rimg-w1200-h628-dc7868a8-gmir?v=1792970525",
+    "link": "https://allevents.in/adelaide/forest-roadshow-tarntanya-adelaide-sa-kaurna-country/200030911631307",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "FOO FIGHTERS • ADELAIDE • COOPERS STADIUM • NOV 17 2026",
+    "venue": "Coopers Stadium",
+    "datetime": "2026-11-18T15:00:00+10:30",
+    "end_datetime": "",
+    "category": [
+      "Other"
+    ],
+    "image": "https://cdn-az.allevents.in/events6/banners/9a69e9a58b2e874d683e0955794f64833dd1bb487a1938b3e06639f99d3ae6f1-rimg-w1193-h1483-dcf8f8f8-gmir?v=1789650635",
+    "link": "https://allevents.in/adelaide/foo-fighters-•-adelaide-•-coopers-stadium-•-nov-17-2026/200030710422329",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "Flow into Summer: 4 Weeks of Qigong for Energy, Ease &amp; Connection",
+    "venue": "South Tce, Adelaide SA 5000, Australia",
+    "datetime": "2026-11-11T18:00:00+10:30",
+    "end_datetime": "2026-11-11T19:00:00+10:30",
+    "category": [
+      "Other"
+    ],
+    "image": "https://cdn-az.allevents.in/events3/banners/d9278ef7a3b7863ccc39aea2898528ba45bad68b1067f711060ae812dc780b9e-rimg-w1200-h600-dcb8d8f8-gmir?v=1792935707",
+    "link": "https://allevents.in/adelaide/flow-into-summer-4-weeks-of-qigong-for-energy-ease-and-connection/200030907180248",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "Foo Fighters in Hindmarsh",
+    "venue": "Adelaide, SA, Australia",
+    "datetime": "2026-11-17T17:30:00+09:30",
+    "end_datetime": "2026-11-17T19:30:00+09:30",
+    "category": [
+      "Theatre",
+      "Music",
+      "Arts & Culture"
+    ],
+    "image": "https://cdn-az.allevents.in/events9/banners/7a40ed70-0f03-11f1-ba8b-3f5afee59419-rimg-w1200-h675-dc020304-gmir.webp?v=1771664303",
+    "link": "https://allevents.in/adelaide/foo-fighters-in-hindmarsh/3300029706020824",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "Gilibanga Gathering 2026",
+    "venue": "Old Port Rd, Royal Park SA 5014, Australia",
+    "datetime": "2026-10-26T16:30:00+10:30",
+    "end_datetime": "2026-10-29T11:30:00+10:30",
+    "category": [
+      "Talks & Conferences",
+      "Arts & Culture"
+    ],
+    "image": "https://cdn-az.allevents.in/events5/banners/f542b7ba157d33f8ca057adf260e748d7909361f10c1c81ff883536795036565-rimg-w1200-h457-dcf8f8f8-gmir?v=1788046432",
+    "link": "https://allevents.in/adelaide/gilibanga-gathering-2026/200030631232054",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "Georgie Carroll - Infectious - Adelaide",
+    "venue": "Her Majesty's Theatre",
+    "datetime": "2026-11-06T20:00:00+10:30",
+    "end_datetime": "",
+    "category": [
+      "Comedy"
+    ],
+    "image": "https://cdn-az.allevents.in/events3/banners/ed5a052265ca1c5c560111aa8c7ed142ef50b2d2a1c7a36a189b78fc5be85588-rimg-w1200-h628-dc289848-gmir?v=1787204891",
+    "link": "https://allevents.in/adelaide/georgie-carroll-infectious-adelaide/200030287316934",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "Halloween Flash Party 2026",
+    "venue": "195 Sturt Street, Adelaide, SA, Australia",
+    "datetime": "2026-10-30T17:00:00+10:30",
+    "end_datetime": "2026-10-31T18:00:00+10:30",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://cdn-az.allevents.in/events10/banners/1a0862fdd85ac8da007b2826d9d5541f66c763260bb1524797698240215d8603-rimg-w1200-h625-dc080808-gmir?v=1792970516",
+    "link": "https://allevents.in/adelaide/halloween-flash-party-2026/200030911629857",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "Halloween Spooktacular at the Norwood Hotel!",
+    "venue": "Norwood Hotel",
+    "datetime": "2026-10-31T20:00:00+10:30",
+    "end_datetime": "",
+    "category": [
+      "Music",
+      "Arts & Culture"
+    ],
+    "image": "https://cdn-az.allevents.in/events3/banners/44811950372adfb9108b8f82150c7b97de352aca1008965945a5356082f8ec31-rimg-w1200-h644-dc080808-gmir?v=1788657826",
+    "link": "https://allevents.in/adelaide/halloween-spooktacular-at-the-norwood-hotel/200030498329223",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "Greatest Hits",
+    "venue": "Adelaide West Uniting Church",
+    "datetime": "2026-11-07T19:00:00+10:30",
+    "end_datetime": "2026-11-07T21:30:00+10:30",
+    "category": [
+      "Music"
+    ],
+    "image": "https://cdn-az.allevents.in/events2/banners/a4f1fff6b163521952fa03c3e41a16ef3f905ff10aa07d9c7dbe140d0a722f98-rimg-w1080-h719-dcf8f8f8-gmir?v=1792970536",
+    "link": "https://allevents.in/adelaide/greatest-hits/200030911633117",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "HER MAJESTY'S THEATRE ADELAIDE | KATE CEBERANO - AUSTRALIAN MADE TOUR 2026",
+    "venue": "Her Majesty's Theatre",
+    "datetime": "2026-11-07T19:00:00+10:30",
+    "end_datetime": "",
+    "category": [
+      "Theatre",
+      "Music",
+      "Arts & Culture"
+    ],
+    "image": "https://cdn-az.allevents.in/events10/banners/895b81b27887b7c61d0001e45dbc26ee1f4d8740dc54706efa07484f9f7bb596-rimg-w851-h315-dc38b8b8-gmir?v=1788560458",
+    "link": "https://allevents.in/adelaide/her-majestys-theatre-adelaide-kate-ceberano-australian-made-tour-2026/200030388762312",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "Hot Pilates Teacher Training",
+    "venue": "173 Grote Street, Adelaide, SA, Australia, South Australia 5000",
+    "datetime": "2026-11-14T09:00:00+10:30",
+    "end_datetime": "",
+    "category": [
+      "Other"
+    ],
+    "image": "https://cdn-az.allevents.in/events3/banners/1d964419b5b1abe027f40d5cbae3ebf2c8a1abcf5dd3a5ad77a1299e0157b18c-rimg-w1080-h1350-dc080808-gmir?v=1792913655",
+    "link": "https://allevents.in/adelaide/hot-pilates-teacher-training/200030906423615",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "Iron Maiden in Adelaide",
+    "venue": "Adelaide Entertainment Centre Arena",
+    "datetime": "2026-11-11T18:30:00+10:30",
+    "end_datetime": "2026-11-11T20:30:00+10:30",
+    "category": [
+      "Other"
+    ],
+    "image": "https://cdn-az.allevents.in/events1/banners/85bb52c0-1463-11f1-89f1-09c30f73298b-rimg-w1200-h675-dc050507-gmir.webp?v=1772255310",
+    "link": "https://allevents.in/adelaide/iron-maiden-in-adelaide/3300029745923131",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "Jacob Jackman Hosts Laugh Lab ft. Emily Grace",
+    "venue": "131 Pirie Street, Adelaide, SA, Australia",
+    "datetime": "2026-10-26T19:30:00+10:30",
+    "end_datetime": "2026-10-26T21:30:00+10:30",
+    "category": [
+      "Comedy"
+    ],
+    "image": "https://cdn-az.allevents.in/events6/banners/d18b3df60e66b93bb08e51b5f09868eeb722fd92425b4fae11cfba84f048eb3c-rimg-w1200-h676-dcf8c8d8-gmir?v=1792610476",
+    "link": "https://allevents.in/adelaide/jacob-jackman-hosts-laugh-lab-ft-emily-grace/200030872076316",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "JOE AVATI in Adelaide – GOOD OLD DAYS TOUR - Variety Charity",
+    "venue": "246 Fosters Road, Oakden, SA, Australia, South Australia 5086",
+    "datetime": "2026-11-27T18:00:00+10:30",
+    "end_datetime": "",
+    "category": [
+      "Food & Beverage",
+      "Comedy",
+      "Music",
+      "Arts & Culture"
+    ],
+    "image": "https://cdn-az.allevents.in/events3/banners/d4b2dfedbba1b99a56034070a62acb7f35bb0a5b7add952dfcceb83fa6fb9526-rimg-w1200-h675-dc080808-gmir?v=1788638837",
+    "link": "https://allevents.in/adelaide/joe-avati-in-adelaide-good-old-days-tour-variety-charity/200030663255718",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "Less Than Jake - 'Circus Down Under' Tour | Adelaide",
+    "venue": "Hindley St Music Hall",
+    "datetime": "2026-10-31T19:00:00+10:30",
+    "end_datetime": "",
+    "category": [
+      "Theatre",
+      "Music"
+    ],
+    "image": "https://cdn-az.allevents.in/events3/banners/548044018a01bec020295e3694759074e7484be5e48f860b2026135d2fa803b4-rimg-w1200-h628-dcf8e8d8-gmir?v=1788431122",
+    "link": "https://allevents.in/adelaide/less-than-jake-circus-down-under-tour-adelaide/200029936263730",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "Kim Wilde (UK) - CLOSER TOUR || The Gov",
+    "venue": "59 Port Rd , Hindmarsh, SA, Australia, South Australia 5007",
+    "datetime": "2026-11-24T19:00:00+10:30",
+    "end_datetime": "",
+    "category": [
+      "Family",
+      "Music",
+      "Arts & Culture"
+    ],
+    "image": "https://cdn-az.allevents.in/events3/banners/775ebe3c87c2a63219396d9aaa20ba86bafb7c90c58d36b8f578839e4ef1e195-rimg-w600-h300-dcf8f8f8-gmir?v=1787284611",
+    "link": "https://allevents.in/adelaide/kim-wilde-uk-closer-tour-the-gov/200029803308044",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "Kim Wilde in Adelaide",
+    "venue": "The Gov",
+    "datetime": "2026-11-24T19:00:00+10:30",
+    "end_datetime": "2026-11-24T21:00:00+10:30",
+    "category": [
+      "Sport",
+      "Family"
+    ],
+    "image": "https://cdn-az.allevents.in/events2/banners/baf93570-13c7-11f1-89f1-09c30f73298b-rimg-w1200-h675-dcfbfdfd-gmir.webp?v=1772188398",
+    "link": "https://allevents.in/adelaide/kim-wilde-in-adelaide/3300029740694718",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "🏇✨ MELBOURNE CUP 2026 AT THE FOUNDERS! ✨🏇",
+    "venue": "246 Fosters Road, Oakden, SA, Australia, South Australia 5086",
+    "datetime": "2026-11-03T12:00:00+10:30",
+    "end_datetime": "",
+    "category": [
+      "Food & Beverage",
+      "Music"
+    ],
+    "image": "https://cdn-az.allevents.in/events7/banners/a43c67198db8228424fcc30cec993be22fec23984e42dd12f882278bff7dc405-rimg-w940-h788-dc08b8d8-gmir?v=1792970525",
+    "link": "https://allevents.in/adelaide/melbourne-cup-2026-at-the-founders/200030911631205",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "Melbourne Cup 2026",
+    "venue": "MrsQ Loft Wine Bar",
+    "datetime": "2026-11-03T12:00:00+10:30",
+    "end_datetime": "2026-11-03T15:30:00+10:30",
+    "category": [
+      "Food & Beverage"
+    ],
+    "image": "https://cdn-az.allevents.in/events10/banners/e9ecbb698454205c184696326ccd42beb52bf830402bb7f306281934ef29d014-rimg-w1200-h600-dcf8f8f8-gmir.jpg?v=1788817567",
+    "link": "https://allevents.in/adelaide/melbourne-cup-2026/100001999871312932",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "Musical bingo",
+    "venue": "Sports n social club Mount compass",
+    "datetime": "2026-11-01T17:00:00+10:30",
+    "end_datetime": "2026-11-01T19:30:00+10:30",
+    "category": [
+      "Theatre",
+      "Music"
+    ],
+    "image": "https://cdn-az.allevents.in/events2/banners/eedc70255bdbfa94d5e70d0a8034e58fe65f788d94e826fd7bc893688714c5b9-rimg-w1170-h1743-dc081848-gmir?v=1792970523",
+    "link": "https://allevents.in/adelaide/musical-bingo/200030911631003",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "NEVER ENDING 80S - JUST WANNA HAVE FUN! DRESS UP PARTY! || The Gov, Adelaide",
+    "venue": "59 Port Rd , Hindmarsh, SA, Australia, South Australia 5007",
+    "datetime": "2026-12-05T19:30:00+10:30",
+    "end_datetime": "",
+    "category": [
+      "Music",
+      "Arts & Culture"
+    ],
+    "image": "https://cdn-az.allevents.in/events6/banners/5f9add6744b049694c30989834ac8e5f87abd36f68136682a84c225bf2a3bb31-rimg-w1055-h528-dcf8f8f8-gmir?v=1788211678",
+    "link": "https://allevents.in/adelaide/never-ending-80s-just-wanna-have-fun-dress-up-party-the-gov-adelaide/200030639206659",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "Mutya's Family Night - Taste of Ilocano Cuisine",
+    "venue": "277 Rundle Street Adelaide 5000",
+    "datetime": "2026-10-28T17:00:00+10:30",
+    "end_datetime": "2026-10-28T21:00:00+10:30",
+    "category": [
+      "Food & Beverage",
+      "Family"
+    ],
+    "image": "https://cdn-az.allevents.in/events5/banners/1bad9f1450108854266414eff45409c61a6c1694267c8ff29264aeb4de6c3c99-rimg-w1200-h901-dc082808-gmir?v=1792970513",
+    "link": "https://allevents.in/adelaide/mutyas-family-night-taste-of-ilocano-cuisine/200030911629253",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "Picnic in the Park",
+    "venue": "Whitmore Square, Adelaide SA 5000, Australia",
+    "datetime": "2026-11-22T11:00:00+10:30",
+    "end_datetime": "2026-11-22T21:00:00+10:30",
+    "category": [
+      "Food & Beverage",
+      "Workshop",
+      "Theatre",
+      "Music"
+    ],
+    "image": "https://cdn-az.allevents.in/events4/banners/0e680fd5b6630d35aa9d13fbd08f911ba9f24425d1e5c438188a30261fb4d355-rimg-w1200-h600-dcf8a8c8-gmir?v=1790184458",
+    "link": "https://allevents.in/adelaide/picnic-in-the-park/200030729666639",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "Opening Night - Street Party!",
+    "venue": "54 Hyde St, Adelaide SA 5000, Australia",
+    "datetime": "2026-10-30T18:00:00+10:30",
+    "end_datetime": "2026-10-30T23:00:00+10:30",
+    "category": [
+      "Family",
+      "Festival",
+      "Theatre",
+      "Music",
+      "Arts & Culture"
+    ],
+    "image": "https://cdn-az.allevents.in/events3/banners/9ee0916be7aa77e5b5f8a3f0c6a069827dce71b2d08bf3e2535a069d29d621e3-rimg-w1000-h500-dc080808-gmir?v=1790184761",
+    "link": "https://allevents.in/adelaide/opening-night-street-party/200030729707642",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "Pop Up Class: Girls Just Wanna Have Fun!",
+    "venue": "Goodwood Community Centre",
+    "datetime": "2026-11-01T10:30:00+10:30",
+    "end_datetime": "",
+    "category": [
+      "Workshop",
+      "Theatre",
+      "Music"
+    ],
+    "image": "https://cdn-az.allevents.in/events5/banners/44385bf1349c6c8df531c51e1467ca39b9f1027a132249a4d8f22860343890b0-rimg-w1200-h800-dc181828-gmir?v=1792970535",
+    "link": "https://allevents.in/adelaide/pop-up-class-girls-just-wanna-have-fun/200030911632815",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "P.O.D. // Adelaide // Good Things Festival Sideshow // The Gov",
+    "venue": "The Gov",
+    "datetime": "2026-12-01T19:00:00+10:30",
+    "end_datetime": "",
+    "category": [
+      "Festival"
+    ],
+    "image": "https://cdn-az.allevents.in/events9/banners/648fbf33571d7ccb697149af8969c7c574d4d2b1d756c9d01ca07cbc63042285-rimg-w1200-h628-dc080808-gmir?v=1789738577",
+    "link": "https://allevents.in/adelaide/pod-adelaide-good-things-festival-sideshow-the-gov/200030713501019",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "REALM OF HORRORS II",
+    "venue": "Woodshed",
+    "datetime": "2026-10-31T16:00:00+10:30",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://cdn-az.allevents.in/events8/banners/0c2d6fd8210dbcc3ba7d5bae0a64d76993c0f863fad1b3a3759c4f30f1e5de87-rimg-w1200-h628-dc685848-gmir?v=1786697260",
+    "link": "https://allevents.in/adelaide/realm-of-horrors-ii/200030245933113",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "Prospect Christmas Fair in Partnership with Coffee N Chrome",
+    "venue": "Menzies Cres, Prospect SA 5082, Australia",
+    "datetime": "2026-12-05T15:00:00+10:30",
+    "end_datetime": "2026-12-05T21:00:00+10:30",
+    "category": [
+      "Food & Beverage",
+      "Family",
+      "Arts & Culture"
+    ],
+    "image": "https://cdn-az.allevents.in/events9/banners/c7c20474802ec6812185698a4e3127a46e2e9783ecf8890dd23d14b6467a3b31-rimg-w1200-h800-dc081818-gmir?v=1792970514",
+    "link": "https://allevents.in/adelaide/prospect-christmas-fair-in-partnership-with-coffee-n-chrome/200030911629354",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "Ride For Her - Nov 15",
+    "venue": "Bonython Park",
+    "datetime": "2026-11-15T08:00:00+10:30",
+    "end_datetime": "",
+    "category": [
+      "Community"
+    ],
+    "image": "https://cdn-az.allevents.in/events4/banners/5809578c0f5a9ab23fce439292227d4bb63a4b58fd1f41ae701bd36e75de06b7-rimg-w600-h400-dc483858-gmir?v=1788431213",
+    "link": "https://allevents.in/adelaide/ride-for-her-nov-15/200029523928914",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "RU PRETTY ENUFF AUS' TOUR ADELAIDE",
+    "venue": "North Terrace, Adelaide",
+    "datetime": "2026-11-05T18:30:00+10:30",
+    "end_datetime": "2026-11-05T23:25:00+10:30",
+    "category": [
+      "Music",
+      "Arts & Culture"
+    ],
+    "image": "https://cdn-az.allevents.in/events8/banners/8065b6d6ebb8fa792626cfc4898c9434acab59402ca6dcacc23490f78a72da59-rimg-w1080-h1080-dc080808-gmir?v=1787205100",
+    "link": "https://allevents.in/adelaide/ru-pretty-enuff-aus-tour-adelaide/200030117457249",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "Spyrious with Abolished and Ouroboric",
+    "venue": "North Adelaide railway station",
+    "datetime": "2026-11-28T18:00:00+10:30",
+    "end_datetime": "",
+    "category": [
+      "Talks & Conferences",
+      "Music",
+      "Arts & Culture"
+    ],
+    "image": "https://cdn-az.allevents.in/events9/banners/98631ec67255eb0ada6c91463dc7ff4f24849094c69865daa8a990972265583b-rimg-w1200-h1697-dc080808-gmir?v=1792950396",
+    "link": "https://allevents.in/adelaide/spyrious-with-abolished-and-ouroboric/200030908732237",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "Social Mahjong - 2nd Friday each month",
+    "venue": "163 Gouger Street, Adelaide, SA, Australia, South Australia 5000",
+    "datetime": "2026-11-13T18:00:00+10:30",
+    "end_datetime": "",
+    "category": [
+      "Theatre"
+    ],
+    "image": "https://cdn-az.allevents.in/events8/banners/e5bc7584e838cb876d3b76c8d1d058895da7ac4a7c6178280d239ae0a2a5fda5-rimg-w896-h1200-dc080808-gmir?v=1792928118",
+    "link": "https://allevents.in/adelaide/social-mahjong-2nd-friday-each-month/200030906911518",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "Scott Kelly - The Sky is Not the Limit: Lessons from a Year in Space [ADELAIDE]",
+    "venue": "Adelaide Convention Centre",
+    "datetime": "2026-11-18T18:00:00+10:30",
+    "end_datetime": "",
+    "category": [
+      "Other"
+    ],
+    "image": "https://cdn-az.allevents.in/events2/banners/31d16ec7b3781ec1a4329564d408bf1ac423bda348d5b6d7efff61e7cabe7c12-rimg-w1200-h628-dc080808-gmir?v=1788639935",
+    "link": "https://allevents.in/adelaide/scott-kelly-the-sky-is-not-the-limit-lessons-from-a-year-in-space-adelaide/200030137719342",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "Stand Atlantic &quot;GODBREATH&quot; Australian Tour",
+    "venue": "Hindley St Music Hall",
+    "datetime": "2026-10-29T19:00:00+10:30",
+    "end_datetime": "2026-10-30T03:00:00+10:30",
+    "category": [
+      "Music"
+    ],
+    "image": "https://cdn-az.allevents.in/events6/banners/49cdd1bd4214ffe09436b1f64f2672ce21944750c82afaa84c9225c127ca75f0-rimg-w1024-h576-dc080808-gmir.jpg?v=1787674264",
+    "link": "https://allevents.in/adelaide/stand-atlantic-godbreath-australian-tour/210007171521418",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "Supanova 2026 - Adelaide",
+    "venue": "Adelaide Showground",
+    "datetime": "2026-10-30T10:00:00+10:30",
+    "end_datetime": "2026-11-01T16:00:00+10:30",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://cdn-az.allevents.in/events1/banners/01cb9193a1628c67688abf71b476b3aecea14ca95b723f49dc1be64a510e56e8-rimg-w1000-h523-dc080808-gmir?v=1787210934",
+    "link": "https://allevents.in/adelaide/supanova-2026-adelaide/200030403267227",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "Taking Back Saturday Halloween: Emo &amp; Pop Punk Party - Adelaide",
+    "venue": "68 North Terrace, Adelaide SA 5000",
+    "datetime": "2026-10-31T21:00:00+10:30",
+    "end_datetime": "",
+    "category": [
+      "Theatre",
+      "Arts & Culture"
+    ],
+    "image": "https://cdn-az.allevents.in/events4/banners/e0e7fbd561f3b5273f6b04e80798ca336a6127ad76bc62f7bf3982618f562cd0-rimg-w1200-h628-dcf83838-gmir?v=1787177628",
+    "link": "https://allevents.in/adelaide/taking-back-saturday-halloween-emo-and-pop-punk-party-adelaide/200030533320904",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "The AUES Eng Ball 2026",
+    "venue": "Plant 4 Bowden",
+    "datetime": "2026-11-07T19:00:00+10:30",
+    "end_datetime": "2026-11-07T23:59:00+10:30",
+    "category": [
+      "Food & Beverage"
+    ],
+    "image": "https://cdn-az.allevents.in/events2/banners/ba68e0ce891e9bcd7a4436875b4f614799e159cb70e99cb437cc07872b4df7f4-rimg-w1200-h628-dcf8e8d8-gmir?v=1787763412",
+    "link": "https://allevents.in/adelaide/the-aues-eng-ball-2026/200030576201456",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "The Fall of Troy in Adelaide",
+    "venue": "The Gov",
+    "datetime": "2026-11-10T19:00:00+10:30",
+    "end_datetime": "2026-11-10T21:00:00+10:30",
+    "category": [
+      "Other"
+    ],
+    "image": "https://cdn-az.allevents.in/events4/banners/071b73b0-7e02-11f1-a0f0-b3fc05930e16-rimg-w1200-h675-dceeecdb-gmir.webp?v=1783868260",
+    "link": "https://allevents.in/adelaide/the-fall-of-troy-in-adelaide/3300030396155941",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "The Fright Crawl | Adelaide Halloween Day Bar Crawl 2026 | Sat, Oct 31",
+    "venue": "trap.",
+    "datetime": "2026-10-31T13:00:00+10:30",
+    "end_datetime": "2026-10-31T20:00:00+10:30",
+    "category": [
+      "Music",
+      "Arts & Culture"
+    ],
+    "image": "https://cdn-az.allevents.in/events2/banners/f89cf1bb05fe92e8cf786d983eb6a7dfe44eb8795ae35adaf798e7963f6d4bda-rimg-w1200-h600-dc080808-gmir.jpg?v=1787829347",
+    "link": "https://allevents.in/adelaide/the-fright-crawl-adelaide-halloween-day-bar-crawl-2026-sat-oct-31/100001998580335584",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "The Changing Face of Neurodiversity with Mark Le Messurier",
+    "venue": "47-49 Beach St, Grange, SA, Australia, South Australia 5022",
+    "datetime": "2026-11-04T18:30:00+10:30",
+    "end_datetime": "2026-11-04T20:30:00+10:30",
+    "category": [
+      "Sport",
+      "Family",
+      "Workshop"
+    ],
+    "image": "https://cdn-az.allevents.in/events9/banners/bff01f4b3bf8a6404357c65d8bf3f673286f0bcc6b60e0e03d13b2ee3d21d3d2-rimg-w1200-h675-dcf8f8f8-gmir?v=1792970528",
+    "link": "https://allevents.in/adelaide/the-changing-face-of-neurodiversity-with-mark-le-messurier/200030911631611",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "The Fright Crawl | Adelaide's #1 Halloween Bar Crawl 2026 | Sat, Oct 31",
+    "venue": "West Oak Hotel",
+    "datetime": "2026-10-31T19:30:00+10:30",
+    "end_datetime": "2026-11-01T02:00:00+10:30",
+    "category": [
+      "Music"
+    ],
+    "image": "https://cdn-az.allevents.in/events8/banners/587d7dcb6b5955077aaf4af4c728ccc81c26d966944cd111b09e663a0f2917a4-rimg-w1200-h600-dc080818-gmir.jpg?v=1787829433",
+    "link": "https://allevents.in/adelaide/the-fright-crawl-adelaides-1-halloween-bar-crawl-2026-sat-oct-31/100001998580347620",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "The Lincoln’s &amp; Lucky Seven",
+    "venue": "Colonel Light Gardens Community RSL",
+    "datetime": "2026-11-20T19:00:00+10:30",
+    "end_datetime": "",
+    "category": [
+      "Food & Beverage",
+      "Theatre"
+    ],
+    "image": "https://cdn-az.allevents.in/events10/banners/4e1d6df601e88dbb54c5bfd047fc00a49526bdc2a9c37394b0efef0642e16c75-rimg-w1200-h434-dcf8f8f8-gmir?v=1792970522",
+    "link": "https://allevents.in/adelaide/the-lincolns-and-lucky-seven/200030911630902",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "The Fright Crawl | Adelaide's Hottest Halloween Bar Crawl 2026 | Fri, Oct 30",
+    "venue": "La Moka",
+    "datetime": "2026-10-30T19:30:00+10:30",
+    "end_datetime": "2026-10-31T02:00:00+10:30",
+    "category": [
+      "Music"
+    ],
+    "image": "https://cdn-az.allevents.in/events9/banners/698d130c81f0ad7932005ab52be49e8017fdbd6eac30784ec7fd5ec4d10bff55-rimg-w1200-h600-dc080808-gmir.jpg?v=1787829450",
+    "link": "https://allevents.in/adelaide/the-fright-crawl-adelaides-hottest-halloween-bar-crawl-2026-fri-oct-30/100001998580324551",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "The Pub Test Trivia @ The Wakefield",
+    "venue": "The Wakefield Hotel",
+    "datetime": "2026-10-29T18:00:00+10:30",
+    "end_datetime": "2026-10-29T19:30:00+10:30",
+    "category": [
+      "Other"
+    ],
+    "image": "https://cdn-az.allevents.in/events10/banners/fb50efd3c9f34a934b3027ec607458fee45315bd2198d1aa6da615b310732678-rimg-w1200-h675-dc384838-gmir?v=1792970533",
+    "link": "https://allevents.in/adelaide/the-pub-test-trivia-the-wakefield/200030911632313",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "The Pink Pop Party - Adelaide",
+    "venue": "Atlantis Lounge Bar",
+    "datetime": "2026-11-08T13:00:00+10:30",
+    "end_datetime": "2026-11-08T16:00:00+10:30",
+    "category": [
+      "Family",
+      "Arts & Culture"
+    ],
+    "image": "https://cdn-az.allevents.in/events10/banners/25b0bacacbd59e12c162c4495e1fda46f5208039a1f758d2eaf53ce9d632454c-rimg-w1200-h600-dcf8f8f8-gmir.jpg?v=1786322885",
+    "link": "https://allevents.in/adelaide/the-pink-pop-party-adelaide/100001996918982432",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "When Chai Met Toast in Adelaide",
+    "venue": "The Edinburgh Castle Hotel",
+    "datetime": "2026-10-31T20:00:00+10:30",
+    "end_datetime": "2026-10-31T22:00:00+10:30",
+    "category": [
+      "Other"
+    ],
+    "image": "https://cdn-az.allevents.in/events7/banners/7e0a8fe0-81d3-11f1-a0f0-b3fc05930e16-rimg-w1200-h675-dc031916-gmir.webp?v=1784288078",
+    "link": "https://allevents.in/adelaide/when-chai-met-toast-in-adelaide/3300030416892538",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "WSW MegaMania Adelaide - Live Pro Wrestling",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2026-10-31T18:30:00+10:30",
+    "end_datetime": "",
+    "category": [
+      "Sport",
+      "Music",
+      "Arts & Culture"
+    ],
+    "image": "https://cdn-az.allevents.in/events1/banners/1dafdcd0e53057f02400bd80f8cb6e8bd2f633e19e05e54285ec3e9545586d62-rimg-w1200-h450-dc080808-gmir?v=1787204785",
+    "link": "https://allevents.in/adelaide/wsw-megamania-adelaide-live-pro-wrestling/200029903528836",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "2026 Latino Grooves Showcase",
+    "venue": "Scott Theatre",
+    "datetime": "2026-11-07T18:30:00+10:30",
+    "end_datetime": "",
+    "category": [
+      "Theatre"
+    ],
+    "image": "https://cdn-az.allevents.in/events3/banners/e74776043770f2799154d711e4ba36cbd46985fcc6096289e43a69f384592071-rimg-w1200-h628-dc080808-gmir?v=1786745510",
+    "link": "https://allevents.in/adelaide/2026-latino-grooves-showcase/200029411871123",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "2026 Adelaide Polo Classic",
+    "venue": "Ellis Park",
+    "datetime": "2026-12-11T15:00:00+10:30",
+    "end_datetime": "2026-12-11T23:45:00+10:30",
+    "category": [
+      "Workshop"
+    ],
+    "image": "https://cdn-az.allevents.in/events5/banners/58aebf7e3bb836a61e916419fa44fed8eb6a0cceb1a25aae2a254fbed7d3e60d-rimg-w1080-h1920-dca8c8e8-gmir?v=1788723705",
+    "link": "https://allevents.in/adelaide/2026-adelaide-polo-classic/200030027815157",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "Air Supply in Adelaide",
+    "venue": "AEC THEATRE",
+    "datetime": "2026-12-10T19:30:00+10:30",
+    "end_datetime": "2026-12-10T21:30:00+10:30",
+    "category": [
+      "Theatre",
+      "Arts & Culture"
+    ],
+    "image": "https://cdn-az.allevents.in/events9/banners/17666440-7d09-11f1-957f-f1f06462340d-rimg-w1200-h675-dc1b1a1c-gmir.webp?v=1783761342",
+    "link": "https://allevents.in/adelaide/air-supply-in-adelaide/3300030389952143",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "An Evening with Dave Hole",
+    "venue": "59 Port Rd , Hindmarsh, SA, Australia, South Australia 5007",
+    "datetime": "2026-11-05T17:00:00+10:30",
+    "end_datetime": "",
+    "category": [
+      "Other"
+    ],
+    "image": "https://cdn-az.allevents.in/events3/banners/2c2bb54e40a3e80a542b9fe07d29df99dc25dd78cc07a36bcdc84c660efee39b-rimg-w1200-h628-dc080808-gmir?v=1789110920",
+    "link": "https://allevents.in/adelaide/an-evening-with-dave-hole/200030685871521",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "Bare: a pop opera",
+    "venue": "The Parks Theatre",
+    "datetime": "2026-11-05T19:00:00+10:30",
+    "end_datetime": "2026-11-07T21:30:00+10:30",
+    "category": [
+      "Theatre",
+      "Music"
+    ],
+    "image": "https://cdn-az.allevents.in/events10/banners/7d6e55819c0a724b4dd766a55794a9582a58061e2df0204c3137544f84645c84-rimg-w1200-h1697-dc181818-gmir?v=1792970513",
+    "link": "https://allevents.in/adelaide/bare-a-pop-opera/200030911629454",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "Cakes &amp; Prosecco",
+    "venue": "My Cloud Nine",
+    "datetime": "2026-10-30T19:00:00+10:30",
+    "end_datetime": "2026-10-30T21:00:00+10:30",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://cdn-az.allevents.in/events8/banners/230c911683f53e6aeba7b8ccfae3f51fab607b496cf4ec88978c3843d250bc6a-rimg-w1080-h1350-dc180808-gmir?v=1792912154",
+    "link": "https://allevents.in/adelaide/cakes-and-prosecco/200030906384215",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "Claude Code Day · Adelaide",
+    "venue": "Studio Safari",
+    "datetime": "2026-10-30T09:30:00+10:30",
+    "end_datetime": "2026-10-30T15:30:00+10:30",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://cdn2.allevents.in/thumbs/thumb6adda3cc4e330.jpg",
+    "link": "https://allevents.in/adelaide/claude-code-day-·-adelaide/80002970981364",
+    "source": "AllEvents Adelaide and Surrounds"
+  },
+  {
+    "title": "Craft-A-Noon - for crafty social folk!",
+    "venue": "163 Gouger Street, Adelaide, SA, Australia",
+    "datetime": "2026-11-17T13:00:00+10:30",
+    "end_datetime": "2026-11-17T16:00:00+10:30",
+    "category": [
+      "Other"
+    ],
+    "image": "https://cdn-az.allevents.in/events9/banners/c53bfdb811d1c318a70f9c8cb54b656497a2980bbbc743674f31d46388150e55-rimg-w1200-h628-dcd8a868-gmir?v=1792912154",
+    "link": "https://allevents.in/adelaide/craft-a-noon-for-crafty-social-folk/200030906384014",
     "source": "AllEvents Adelaide and Surrounds"
   },
   {
@@ -6458,105 +7186,6 @@
     "source": "AllEvents Adelaide and Surrounds"
   },
   {
-    "title": "em4. X MYST Halloween | ADELAIDE | 2 NIGHTS | OCT 30 + 31",
-    "venue": "SURGE NIGHTCLUB",
-    "datetime": "2026-10-30T22:00:00+10:30",
-    "end_datetime": "2026-11-01T04:00:00+10:30",
-    "category": [
-      "Other"
-    ],
-    "image": "https://cdn-az.allevents.in/events5/banners/dfd638f561d3b2623d9b9e0fed0a6b2064bab6b6a9a13ae2a13faaf1c85e1046-rimg-w1200-h600-dc282828-gmir.jpg?v=1789973298",
-    "link": "https://allevents.in/adelaide/em4-x-myst-halloween-adelaide-2-nights-oct-30-31/100002001742825677",
-    "source": "AllEvents Adelaide and Surrounds"
-  },
-  {
-    "title": "FASTING: The Ultimate Panacea October 2026 - Adelaide",
-    "venue": "Hotel Grand Chancellor Adelaide",
-    "datetime": "2026-10-26T18:30:00+10:30",
-    "end_datetime": "2026-10-26T21:30:00+10:30",
-    "category": [
-      "Other"
-    ],
-    "image": "https://cdn-az.allevents.in/events3/banners/930f9d3d36e3c0f9dca361e62834ea5b3a878af06a3fb36b1b6e72195b49ec09-rimg-w1200-h675-dc98c8e8-gmir.jpg?v=1788585458",
-    "link": "https://allevents.in/adelaide/fasting-the-ultimate-panacea-october-2026-adelaide/100001999485329445",
-    "source": "AllEvents Adelaide and Surrounds"
-  },
-  {
-    "title": "END OF DAYS ADELAIDE",
-    "venue": "Cloisters - University Of Adelaide",
-    "datetime": "2026-10-31T17:30:00+10:30",
-    "end_datetime": "",
-    "category": [
-      "Other"
-    ],
-    "image": "https://cdn-az.allevents.in/events3/banners/2c2ce5589b7a49b306fa4ad3e5adc866a94efc733d91b6bbc3f9b59cd507fb6e-rimg-w1200-h628-dc282828-gmir?v=1788403588",
-    "link": "https://allevents.in/adelaide/end-of-days-adelaide/200030511961537",
-    "source": "AllEvents Adelaide and Surrounds"
-  },
-  {
-    "title": "Flow into Summer: 4 Weeks of Qigong for Energy, Ease &amp; Connection",
-    "venue": "South Tce, Adelaide SA 5000, Australia",
-    "datetime": "2026-11-11T18:00:00+10:30",
-    "end_datetime": "2026-11-11T19:00:00+10:30",
-    "category": [
-      "Other"
-    ],
-    "image": "https://cdn-az.allevents.in/events3/banners/d9278ef7a3b7863ccc39aea2898528ba45bad68b1067f711060ae812dc780b9e-rimg-w1200-h600-dcb8d8f8-gmir?v=1792935707",
-    "link": "https://allevents.in/adelaide/flow-into-summer-4-weeks-of-qigong-for-energy-ease-and-connection/200030907180248",
-    "source": "AllEvents Adelaide and Surrounds"
-  },
-  {
-    "title": "Foo Fighters in Hindmarsh",
-    "venue": "Adelaide, SA, Australia",
-    "datetime": "2026-11-17T17:30:00+09:30",
-    "end_datetime": "2026-11-17T19:30:00+09:30",
-    "category": [
-      "Theatre",
-      "Music",
-      "Arts & Culture"
-    ],
-    "image": "https://cdn-az.allevents.in/events9/banners/7a40ed70-0f03-11f1-ba8b-3f5afee59419-rimg-w1200-h675-dc020304-gmir.webp?v=1771664303",
-    "link": "https://allevents.in/adelaide/foo-fighters-in-hindmarsh/3300029706020824",
-    "source": "AllEvents Adelaide and Surrounds"
-  },
-  {
-    "title": "FOO FIGHTERS • ADELAIDE • COOPERS STADIUM • NOV 17 2026",
-    "venue": "Coopers Stadium",
-    "datetime": "2026-11-18T15:00:00+10:30",
-    "end_datetime": "",
-    "category": [
-      "Other"
-    ],
-    "image": "https://cdn-az.allevents.in/events6/banners/9a69e9a58b2e874d683e0955794f64833dd1bb487a1938b3e06639f99d3ae6f1-rimg-w1193-h1483-dcf8f8f8-gmir?v=1789650635",
-    "link": "https://allevents.in/adelaide/foo-fighters-•-adelaide-•-coopers-stadium-•-nov-17-2026/200030710422329",
-    "source": "AllEvents Adelaide and Surrounds"
-  },
-  {
-    "title": "Georgie Carroll - Infectious - Adelaide",
-    "venue": "Her Majesty's Theatre",
-    "datetime": "2026-11-06T20:00:00+10:30",
-    "end_datetime": "",
-    "category": [
-      "Comedy"
-    ],
-    "image": "https://cdn-az.allevents.in/events3/banners/ed5a052265ca1c5c560111aa8c7ed142ef50b2d2a1c7a36a189b78fc5be85588-rimg-w1200-h628-dc289848-gmir?v=1787204891",
-    "link": "https://allevents.in/adelaide/georgie-carroll-infectious-adelaide/200030287316934",
-    "source": "AllEvents Adelaide and Surrounds"
-  },
-  {
-    "title": "Gilibanga Gathering 2026",
-    "venue": "Old Port Rd, Royal Park SA 5014, Australia",
-    "datetime": "2026-10-26T16:30:00+10:30",
-    "end_datetime": "2026-10-29T11:30:00+10:30",
-    "category": [
-      "Talks & Conferences",
-      "Arts & Culture"
-    ],
-    "image": "https://cdn-az.allevents.in/events5/banners/f542b7ba157d33f8ca057adf260e748d7909361f10c1c81ff883536795036565-rimg-w1200-h457-dcf8f8f8-gmir?v=1788046432",
-    "link": "https://allevents.in/adelaide/gilibanga-gathering-2026/200030631232054",
-    "source": "AllEvents Adelaide and Surrounds"
-  },
-  {
     "title": "GiveGlobal Adelaide: Final Dinner &amp; Giving Vote",
     "venue": "Adelaide, SA, Australia, South Australia",
     "datetime": "2026-11-10T18:00:00+10:30",
@@ -6566,43 +7195,6 @@
     ],
     "image": "https://cdn-az.allevents.in/events2/banners/cea135b8f2011563017c2345052d7cc27d710aaed69bda22b43547b6e7a6d98a-rimg-w1200-h1006-dcf8f8e8-gmir?v=1792955348",
     "link": "https://allevents.in/adelaide/giveglobal-adelaide-final-dinner-and-giving-vote/200030909091109",
-    "source": "AllEvents Adelaide and Surrounds"
-  },
-  {
-    "title": "Halloween Flash Party 2026",
-    "venue": "195 Sturt Street, Adelaide, SA, Australia",
-    "datetime": "2026-10-30T17:00:00+10:30",
-    "end_datetime": "2026-10-31T18:00:00+10:30",
-    "category": [
-      "Arts & Culture"
-    ],
-    "image": "https://cdn-az.allevents.in/events10/banners/1a0862fdd85ac8da007b2826d9d5541f66c763260bb1524797698240215d8603-rimg-w1200-h625-dc080808-gmir?v=1792970516",
-    "link": "https://allevents.in/adelaide/halloween-flash-party-2026/200030911629857",
-    "source": "AllEvents Adelaide and Surrounds"
-  },
-  {
-    "title": "Greatest Hits",
-    "venue": "Adelaide West Uniting Church",
-    "datetime": "2026-11-07T19:00:00+10:30",
-    "end_datetime": "2026-11-07T21:30:00+10:30",
-    "category": [
-      "Music"
-    ],
-    "image": "https://cdn-az.allevents.in/events2/banners/a4f1fff6b163521952fa03c3e41a16ef3f905ff10aa07d9c7dbe140d0a722f98-rimg-w1080-h719-dcf8f8f8-gmir?v=1792970536",
-    "link": "https://allevents.in/adelaide/greatest-hits/200030911633117",
-    "source": "AllEvents Adelaide and Surrounds"
-  },
-  {
-    "title": "Halloween Spooktacular at the Norwood Hotel!",
-    "venue": "Norwood Hotel",
-    "datetime": "2026-10-31T20:00:00+10:30",
-    "end_datetime": "",
-    "category": [
-      "Music",
-      "Arts & Culture"
-    ],
-    "image": "https://cdn-az.allevents.in/events3/banners/44811950372adfb9108b8f82150c7b97de352aca1008965945a5356082f8ec31-rimg-w1200-h644-dc080808-gmir?v=1788657826",
-    "link": "https://allevents.in/adelaide/halloween-spooktacular-at-the-norwood-hotel/200030498329223",
     "source": "AllEvents Adelaide and Surrounds"
   },
   {
@@ -6633,45 +7225,6 @@
     "source": "AllEvents Adelaide and Surrounds"
   },
   {
-    "title": "Iron Maiden in Adelaide",
-    "venue": "Adelaide Entertainment Centre Arena",
-    "datetime": "2026-11-11T18:30:00+10:30",
-    "end_datetime": "2026-11-11T20:30:00+10:30",
-    "category": [
-      "Other"
-    ],
-    "image": "https://cdn-az.allevents.in/events1/banners/85bb52c0-1463-11f1-89f1-09c30f73298b-rimg-w1200-h675-dc050507-gmir.webp?v=1772255310",
-    "link": "https://allevents.in/adelaide/iron-maiden-in-adelaide/3300029745923131",
-    "source": "AllEvents Adelaide and Surrounds"
-  },
-  {
-    "title": "Jacob Jackman Hosts Laugh Lab ft. Emily Grace",
-    "venue": "131 Pirie Street, Adelaide, SA, Australia",
-    "datetime": "2026-10-26T19:30:00+10:30",
-    "end_datetime": "2026-10-26T21:30:00+10:30",
-    "category": [
-      "Comedy"
-    ],
-    "image": "https://cdn-az.allevents.in/events6/banners/d18b3df60e66b93bb08e51b5f09868eeb722fd92425b4fae11cfba84f048eb3c-rimg-w1200-h676-dcf8c8d8-gmir?v=1792610476",
-    "link": "https://allevents.in/adelaide/jacob-jackman-hosts-laugh-lab-ft-emily-grace/200030872076316",
-    "source": "AllEvents Adelaide and Surrounds"
-  },
-  {
-    "title": "JOE AVATI in Adelaide – GOOD OLD DAYS TOUR - Variety Charity",
-    "venue": "246 Fosters Road, Oakden, SA, Australia, South Australia 5086",
-    "datetime": "2026-11-27T18:00:00+10:30",
-    "end_datetime": "",
-    "category": [
-      "Food & Beverage",
-      "Comedy",
-      "Music",
-      "Arts & Culture"
-    ],
-    "image": "https://cdn-az.allevents.in/events3/banners/d4b2dfedbba1b99a56034070a62acb7f35bb0a5b7add952dfcceb83fa6fb9526-rimg-w1200-h675-dc080808-gmir?v=1788638837",
-    "link": "https://allevents.in/adelaide/joe-avati-in-adelaide-good-old-days-tour-variety-charity/200030663255718",
-    "source": "AllEvents Adelaide and Surrounds"
-  },
-  {
     "title": "Khoá Tiếng Anh Online",
     "venue": "Tarndanya, South Australia, Australia",
     "datetime": "2026-10-26T20:00:00+10:30",
@@ -6681,46 +7234,6 @@
     ],
     "image": "https://cdn-az.allevents.in/events7/banners/2d3271ade4758543437c64e8ce0d10a91cc103020b6e8e7416bfec72c0abce1a-rimg-w1200-h675-dcf8f8f8-gmir?v=1792970555",
     "link": "https://allevents.in/adelaide/khoá-tiếng-anh-online/200030911637336",
-    "source": "AllEvents Adelaide and Surrounds"
-  },
-  {
-    "title": "Kim Wilde in Adelaide",
-    "venue": "The Gov",
-    "datetime": "2026-11-24T19:00:00+10:30",
-    "end_datetime": "2026-11-24T21:00:00+10:30",
-    "category": [
-      "Sport",
-      "Family"
-    ],
-    "image": "https://cdn-az.allevents.in/events2/banners/baf93570-13c7-11f1-89f1-09c30f73298b-rimg-w1200-h675-dcfbfdfd-gmir.webp?v=1772188398",
-    "link": "https://allevents.in/adelaide/kim-wilde-in-adelaide/3300029740694718",
-    "source": "AllEvents Adelaide and Surrounds"
-  },
-  {
-    "title": "Less Than Jake - 'Circus Down Under' Tour | Adelaide",
-    "venue": "Hindley St Music Hall",
-    "datetime": "2026-10-31T19:00:00+10:30",
-    "end_datetime": "",
-    "category": [
-      "Theatre",
-      "Music"
-    ],
-    "image": "https://cdn-az.allevents.in/events3/banners/548044018a01bec020295e3694759074e7484be5e48f860b2026135d2fa803b4-rimg-w1200-h628-dcf8e8d8-gmir?v=1788431122",
-    "link": "https://allevents.in/adelaide/less-than-jake-circus-down-under-tour-adelaide/200029936263730",
-    "source": "AllEvents Adelaide and Surrounds"
-  },
-  {
-    "title": "Kim Wilde (UK) - CLOSER TOUR || The Gov",
-    "venue": "59 Port Rd , Hindmarsh, SA, Australia, South Australia 5007",
-    "datetime": "2026-11-24T19:00:00+10:30",
-    "end_datetime": "",
-    "category": [
-      "Family",
-      "Music",
-      "Arts & Culture"
-    ],
-    "image": "https://cdn-az.allevents.in/events3/banners/775ebe3c87c2a63219396d9aaa20ba86bafb7c90c58d36b8f578839e4ef1e195-rimg-w600-h300-dcf8f8f8-gmir?v=1787284611",
-    "link": "https://allevents.in/adelaide/kim-wilde-uk-closer-tour-the-gov/200029803308044",
     "source": "AllEvents Adelaide and Surrounds"
   },
   {
@@ -6736,18 +7249,6 @@
     "source": "AllEvents Adelaide and Surrounds"
   },
   {
-    "title": "Melbourne Cup 2026",
-    "venue": "MrsQ Loft Wine Bar",
-    "datetime": "2026-11-03T12:00:00+10:30",
-    "end_datetime": "2026-11-03T15:30:00+10:30",
-    "category": [
-      "Food & Beverage"
-    ],
-    "image": "https://cdn-az.allevents.in/events10/banners/e9ecbb698454205c184696326ccd42beb52bf830402bb7f306281934ef29d014-rimg-w1200-h600-dcf8f8f8-gmir.jpg?v=1788817567",
-    "link": "https://allevents.in/adelaide/melbourne-cup-2026/100001999871312932",
-    "source": "AllEvents Adelaide and Surrounds"
-  },
-  {
     "title": "MELBOURNE CUP LUNCH",
     "venue": "700 Lower North East Road, Paradise, SA, Australia, South Australia 5075",
     "datetime": "2026-11-03T11:30:00+10:30",
@@ -6757,99 +7258,6 @@
     ],
     "image": "https://cdn-az.allevents.in/events7/banners/8b07470f9a6428920628285c1adc3ddcb3fac58f3a885ae8062f38cd229672ca-rimg-w1200-h675-dcc8e8f8-gmir?v=1790184293",
     "link": "https://allevents.in/adelaide/melbourne-cup-lunch/200030729640154",
-    "source": "AllEvents Adelaide and Surrounds"
-  },
-  {
-    "title": "Mutya's Family Night - Taste of Ilocano Cuisine",
-    "venue": "277 Rundle Street Adelaide 5000",
-    "datetime": "2026-10-28T17:00:00+10:30",
-    "end_datetime": "2026-10-28T21:00:00+10:30",
-    "category": [
-      "Food & Beverage",
-      "Family"
-    ],
-    "image": "https://cdn-az.allevents.in/events5/banners/1bad9f1450108854266414eff45409c61a6c1694267c8ff29264aeb4de6c3c99-rimg-w1200-h901-dc082808-gmir?v=1792970513",
-    "link": "https://allevents.in/adelaide/mutyas-family-night-taste-of-ilocano-cuisine/200030911629253",
-    "source": "AllEvents Adelaide and Surrounds"
-  },
-  {
-    "title": "Opening Night - Street Party!",
-    "venue": "54 Hyde St, Adelaide SA 5000, Australia",
-    "datetime": "2026-10-30T18:00:00+10:30",
-    "end_datetime": "2026-10-30T23:00:00+10:30",
-    "category": [
-      "Family",
-      "Festival",
-      "Theatre",
-      "Music",
-      "Arts & Culture"
-    ],
-    "image": "https://cdn-az.allevents.in/events3/banners/9ee0916be7aa77e5b5f8a3f0c6a069827dce71b2d08bf3e2535a069d29d621e3-rimg-w1000-h500-dc080808-gmir?v=1790184761",
-    "link": "https://allevents.in/adelaide/opening-night-street-party/200030729707642",
-    "source": "AllEvents Adelaide and Surrounds"
-  },
-  {
-    "title": "Prospect Christmas Fair in Partnership with Coffee N Chrome",
-    "venue": "Menzies Cres, Prospect SA 5082, Australia",
-    "datetime": "2026-12-05T15:00:00+10:30",
-    "end_datetime": "2026-12-05T21:00:00+10:30",
-    "category": [
-      "Food & Beverage",
-      "Family",
-      "Arts & Culture"
-    ],
-    "image": "https://cdn-az.allevents.in/events9/banners/c7c20474802ec6812185698a4e3127a46e2e9783ecf8890dd23d14b6467a3b31-rimg-w1200-h800-dc081818-gmir?v=1792970514",
-    "link": "https://allevents.in/adelaide/prospect-christmas-fair-in-partnership-with-coffee-n-chrome/200030911629354",
-    "source": "AllEvents Adelaide and Surrounds"
-  },
-  {
-    "title": "REALM OF HORRORS II",
-    "venue": "Woodshed",
-    "datetime": "2026-10-31T16:00:00+10:30",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://cdn-az.allevents.in/events8/banners/0c2d6fd8210dbcc3ba7d5bae0a64d76993c0f863fad1b3a3759c4f30f1e5de87-rimg-w1200-h628-dc685848-gmir?v=1786697260",
-    "link": "https://allevents.in/adelaide/realm-of-horrors-ii/200030245933113",
-    "source": "AllEvents Adelaide and Surrounds"
-  },
-  {
-    "title": "Ride For Her - Nov 15",
-    "venue": "Bonython Park",
-    "datetime": "2026-11-15T08:00:00+10:30",
-    "end_datetime": "",
-    "category": [
-      "Community"
-    ],
-    "image": "https://cdn-az.allevents.in/events4/banners/5809578c0f5a9ab23fce439292227d4bb63a4b58fd1f41ae701bd36e75de06b7-rimg-w600-h400-dc483858-gmir?v=1788431213",
-    "link": "https://allevents.in/adelaide/ride-for-her-nov-15/200029523928914",
-    "source": "AllEvents Adelaide and Surrounds"
-  },
-  {
-    "title": "Secret Garden in Adelaide",
-    "venue": "Adel Ent Cent - Theatre",
-    "datetime": "2026-11-14T20:00:00+11:00",
-    "end_datetime": "2026-11-14T22:00:00+11:00",
-    "category": [
-      "Theatre"
-    ],
-    "image": "https://cdn-az.allevents.in/events10/banners/aca842b0-39b8-11f1-bd1f-f1e10f03be6f-rimg-w1200-h675-dcffffff-gmir.webp?v=1776360076",
-    "link": "https://allevents.in/adelaide/secret-garden-in-adelaide/3300029954876416",
-    "source": "AllEvents Adelaide and Surrounds"
-  },
-  {
-    "title": "Secret Garden Live in Hindmarsh 2026 | Adelaide Entertainment Centre",
-    "venue": "Adelaide Entertainment Centre",
-    "datetime": "2026-11-15T05:00:00+10:30",
-    "end_datetime": "",
-    "category": [
-      "Theatre",
-      "Music",
-      "Arts & Culture"
-    ],
-    "image": "https://cdn-az.allevents.in/events8/banners/c98629467f3ab6690e274d12fe50fc30ef0a0f1b992976da15b42b2ca0a8878a-rimg-w1200-h630-dc081818-gmir?v=1787183957",
-    "link": "https://allevents.in/adelaide/secret-garden-live-in-hindmarsh-2026-adelaide-entertainment-centre/200030161153327",
     "source": "AllEvents Adelaide and Surrounds"
   },
   {
@@ -6865,67 +7273,6 @@
     "source": "AllEvents Adelaide and Surrounds"
   },
   {
-    "title": "Social Mahjong - 2nd Friday each month",
-    "venue": "163 Gouger Street, Adelaide, SA, Australia, South Australia 5000",
-    "datetime": "2026-11-13T18:00:00+10:30",
-    "end_datetime": "",
-    "category": [
-      "Theatre"
-    ],
-    "image": "https://cdn-az.allevents.in/events8/banners/e5bc7584e838cb876d3b76c8d1d058895da7ac4a7c6178280d239ae0a2a5fda5-rimg-w896-h1200-dc080808-gmir?v=1792928118",
-    "link": "https://allevents.in/adelaide/social-mahjong-2nd-friday-each-month/200030906911518",
-    "source": "AllEvents Adelaide and Surrounds"
-  },
-  {
-    "title": "Stand Atlantic &quot;GODBREATH&quot; Australian Tour",
-    "venue": "Hindley St Music Hall",
-    "datetime": "2026-10-29T19:00:00+10:30",
-    "end_datetime": "2026-10-30T03:00:00+10:30",
-    "category": [
-      "Music"
-    ],
-    "image": "https://cdn-az.allevents.in/events6/banners/49cdd1bd4214ffe09436b1f64f2672ce21944750c82afaa84c9225c127ca75f0-rimg-w1024-h576-dc080808-gmir.jpg?v=1787674264",
-    "link": "https://allevents.in/adelaide/stand-atlantic-godbreath-australian-tour/210007171521418",
-    "source": "AllEvents Adelaide and Surrounds"
-  },
-  {
-    "title": "Taking Back Saturday Halloween: Emo &amp; Pop Punk Party - Adelaide",
-    "venue": "68 North Terrace, Adelaide SA 5000",
-    "datetime": "2026-10-31T21:00:00+10:30",
-    "end_datetime": "",
-    "category": [
-      "Theatre",
-      "Arts & Culture"
-    ],
-    "image": "https://cdn-az.allevents.in/events4/banners/e0e7fbd561f3b5273f6b04e80798ca336a6127ad76bc62f7bf3982618f562cd0-rimg-w1200-h628-dcf83838-gmir?v=1787177628",
-    "link": "https://allevents.in/adelaide/taking-back-saturday-halloween-emo-and-pop-punk-party-adelaide/200030533320904",
-    "source": "AllEvents Adelaide and Surrounds"
-  },
-  {
-    "title": "Supanova 2026 - Adelaide",
-    "venue": "Adelaide Showground",
-    "datetime": "2026-10-30T10:00:00+10:30",
-    "end_datetime": "2026-11-01T16:00:00+10:30",
-    "category": [
-      "Arts & Culture"
-    ],
-    "image": "https://cdn-az.allevents.in/events1/banners/01cb9193a1628c67688abf71b476b3aecea14ca95b723f49dc1be64a510e56e8-rimg-w1000-h523-dc080808-gmir?v=1787210934",
-    "link": "https://allevents.in/adelaide/supanova-2026-adelaide/200030403267227",
-    "source": "AllEvents Adelaide and Surrounds"
-  },
-  {
-    "title": "The AUES Eng Ball 2026",
-    "venue": "Plant 4 Bowden",
-    "datetime": "2026-11-07T19:00:00+10:30",
-    "end_datetime": "2026-11-07T23:59:00+10:30",
-    "category": [
-      "Food & Beverage"
-    ],
-    "image": "https://cdn-az.allevents.in/events2/banners/ba68e0ce891e9bcd7a4436875b4f614799e159cb70e99cb437cc07872b4df7f4-rimg-w1200-h628-dcf8e8d8-gmir?v=1787763412",
-    "link": "https://allevents.in/adelaide/the-aues-eng-ball-2026/200030576201456",
-    "source": "AllEvents Adelaide and Surrounds"
-  },
-  {
     "title": "The Church in Adelaide",
     "venue": "Thebarton Theatre",
     "datetime": "2026-11-28T19:30:00+10:30",
@@ -6938,94 +7285,6 @@
     ],
     "image": "https://cdn-az.allevents.in/events6/banners/f4629780-5af7-11f1-bbac-d988f58088f7-rimg-w1200-h675-dc070504-gmir.webp?v=1780015643",
     "link": "https://allevents.in/adelaide/the-church-in-adelaide/3300030152337423",
-    "source": "AllEvents Adelaide and Surrounds"
-  },
-  {
-    "title": "The Fall of Troy in Adelaide",
-    "venue": "The Gov",
-    "datetime": "2026-11-10T19:00:00+10:30",
-    "end_datetime": "2026-11-10T21:00:00+10:30",
-    "category": [
-      "Other"
-    ],
-    "image": "https://cdn-az.allevents.in/events4/banners/071b73b0-7e02-11f1-a0f0-b3fc05930e16-rimg-w1200-h675-dceeecdb-gmir.webp?v=1783868260",
-    "link": "https://allevents.in/adelaide/the-fall-of-troy-in-adelaide/3300030396155941",
-    "source": "AllEvents Adelaide and Surrounds"
-  },
-  {
-    "title": "The Fright Crawl | Adelaide's #1 Halloween Bar Crawl 2026 | Sat, Oct 31",
-    "venue": "West Oak Hotel",
-    "datetime": "2026-10-31T19:30:00+10:30",
-    "end_datetime": "2026-11-01T02:00:00+10:30",
-    "category": [
-      "Music"
-    ],
-    "image": "https://cdn-az.allevents.in/events8/banners/587d7dcb6b5955077aaf4af4c728ccc81c26d966944cd111b09e663a0f2917a4-rimg-w1200-h600-dc080818-gmir.jpg?v=1787829433",
-    "link": "https://allevents.in/adelaide/the-fright-crawl-adelaides-1-halloween-bar-crawl-2026-sat-oct-31/100001998580347620",
-    "source": "AllEvents Adelaide and Surrounds"
-  },
-  {
-    "title": "The Fright Crawl | Adelaide Halloween Day Bar Crawl 2026 | Sat, Oct 31",
-    "venue": "trap.",
-    "datetime": "2026-10-31T13:00:00+10:30",
-    "end_datetime": "2026-10-31T20:00:00+10:30",
-    "category": [
-      "Music",
-      "Arts & Culture"
-    ],
-    "image": "https://cdn-az.allevents.in/events2/banners/f89cf1bb05fe92e8cf786d983eb6a7dfe44eb8795ae35adaf798e7963f6d4bda-rimg-w1200-h600-dc080808-gmir.jpg?v=1787829347",
-    "link": "https://allevents.in/adelaide/the-fright-crawl-adelaide-halloween-day-bar-crawl-2026-sat-oct-31/100001998580335584",
-    "source": "AllEvents Adelaide and Surrounds"
-  },
-  {
-    "title": "The Fright Crawl | Adelaide's Hottest Halloween Bar Crawl 2026 | Fri, Oct 30",
-    "venue": "La Moka",
-    "datetime": "2026-10-30T19:30:00+10:30",
-    "end_datetime": "2026-10-31T02:00:00+10:30",
-    "category": [
-      "Music"
-    ],
-    "image": "https://cdn-az.allevents.in/events9/banners/698d130c81f0ad7932005ab52be49e8017fdbd6eac30784ec7fd5ec4d10bff55-rimg-w1200-h600-dc080808-gmir.jpg?v=1787829450",
-    "link": "https://allevents.in/adelaide/the-fright-crawl-adelaides-hottest-halloween-bar-crawl-2026-fri-oct-30/100001998580324551",
-    "source": "AllEvents Adelaide and Surrounds"
-  },
-  {
-    "title": "The Pink Pop Party - Adelaide",
-    "venue": "Atlantis Lounge Bar",
-    "datetime": "2026-11-08T13:00:00+10:30",
-    "end_datetime": "2026-11-08T16:00:00+10:30",
-    "category": [
-      "Family",
-      "Arts & Culture"
-    ],
-    "image": "https://cdn-az.allevents.in/events10/banners/25b0bacacbd59e12c162c4495e1fda46f5208039a1f758d2eaf53ce9d632454c-rimg-w1200-h600-dcf8f8f8-gmir.jpg?v=1786322885",
-    "link": "https://allevents.in/adelaide/the-pink-pop-party-adelaide/100001996918982432",
-    "source": "AllEvents Adelaide and Surrounds"
-  },
-  {
-    "title": "When Chai Met Toast in Adelaide",
-    "venue": "The Edinburgh Castle Hotel",
-    "datetime": "2026-10-31T20:00:00+10:30",
-    "end_datetime": "2026-10-31T22:00:00+10:30",
-    "category": [
-      "Other"
-    ],
-    "image": "https://cdn-az.allevents.in/events7/banners/7e0a8fe0-81d3-11f1-a0f0-b3fc05930e16-rimg-w1200-h675-dc031916-gmir.webp?v=1784288078",
-    "link": "https://allevents.in/adelaide/when-chai-met-toast-in-adelaide/3300030416892538",
-    "source": "AllEvents Adelaide and Surrounds"
-  },
-  {
-    "title": "WSW MegaMania Adelaide - Live Pro Wrestling",
-    "venue": "Adelaide Entertainment Centre",
-    "datetime": "2026-10-31T18:30:00+10:30",
-    "end_datetime": "",
-    "category": [
-      "Sport",
-      "Music",
-      "Arts & Culture"
-    ],
-    "image": "https://cdn-az.allevents.in/events1/banners/1dafdcd0e53057f02400bd80f8cb6e8bd2f633e19e05e54285ec3e9545586d62-rimg-w1200-h450-dc080808-gmir?v=1787204785",
-    "link": "https://allevents.in/adelaide/wsw-megamania-adelaide-live-pro-wrestling/200029903528836",
     "source": "AllEvents Adelaide and Surrounds"
   },
   {
@@ -7269,6 +7528,18 @@
     "source": "Humanitix Adelaide and Regions"
   },
   {
+    "title": "Minus18 Queer FormalÂ® Adelaide 2026",
+    "venue": "Adelaide Town Hall",
+    "datetime": "2026-11-06T18:30:00+1030",
+    "end_datetime": "2026-11-06T22:00:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/d2ae72aa-bb62-4873-ba3d-7e2ceb925be9.png@seo-500.jpg",
+    "link": "https://events.humanitix.com/minus18-queer-formal-r-adelaide-2026",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
     "title": "Orange Breakfast - in recognition of the 16 Days of Activism against gender based violence",
     "venue": "3 Dumas St",
     "datetime": "2026-11-26T09:00:00+1030",
@@ -7458,18 +7729,6 @@
     ],
     "image": "https://images.humanitix.com/i/2b7ff63d-2808-470b-9329-88073e9381b7.png@seo-500.jpg",
     "link": "https://events.humanitix.com/the-full-runrise-adelaide-14th-nov-2026",
-    "source": "Humanitix Adelaide and Regions"
-  },
-  {
-    "title": "Minus18 Queer FormalÂ® Adelaide 2026",
-    "venue": "Adelaide Town Hall",
-    "datetime": "2026-11-06T18:30:00+1030",
-    "end_datetime": "2026-11-06T22:00:00+1030",
-    "category": [
-      "Other"
-    ],
-    "image": "https://images.humanitix.com/i/d2ae72aa-bb62-4873-ba3d-7e2ceb925be9.png@seo-500.jpg",
-    "link": "https://events.humanitix.com/minus18-queer-formal-r-adelaide-2026",
     "source": "Humanitix Adelaide and Regions"
   },
   {

@@ -57,7 +57,7 @@ SOURCES = [
     },
     {
         "name": "State Opera South Australia",
-        "url": "https://stateopera.com.au/"
+        "url": "https://www.stateopera.com.au/productions"
     },
     {
         "name": "Adelaide Town Hall",

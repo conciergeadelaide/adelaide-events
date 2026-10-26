@@ -3081,3 +3081,176 @@ def parse_allevents_adelaide_and_surrounds(soup, source_url):
     print(f'    AllEvents Adelaide: {len(pages)} listing pages, {len(links)} detail links, '
           f'{len(unique)} verified local events ({bonython} Bonython)')
     return list(unique.values())
+
+
+# ============================================================
+# STATE OPERA SOUTH AUSTRALIA — SA performances only
+# ============================================================
+
+def parse_state_opera_south_australia(soup, source_url):
+    """Discover production detail pages and accept only SA-located performances.
+
+    Conservative by design: a missing/unrecognised venue is NOT proof that an
+    event is in South Australia. Do not guess a year, location or performance
+    time. A production date range is a single listing unless individual
+    performance sessions are explicitly published in structured event data.
+    """
+    from urllib.parse import urlparse
+    from datetime import date as calendar_date
+
+    session = requests.Session()
+    session.headers.update({
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                      "AppleWebKit/537.36 Chrome/140.0.0.0 Safari/537.36",
+    })
+    known_sa_venues = {
+        "her majesty's theatre", "her majesty’s theatre", "festival theatre",
+        "dunstan playhouse", "space theatre", "adelaide festival centre",
+        "st peter's cathedral", "st peter’s cathedral", "st peters cathedral",
+        "ukaria cultural centre", "ukaria", "barossa arts centre",
+        "adelaide town hall", "nexus arts", "adelaide entertainment centre",
+        "elder hall", "adelaide concert hall", "adelaide oval",
+    }
+    other_state_pattern = re.compile(
+        r"\b(?:NSW|VIC|QLD|WA|TAS|NT|ACT|New South Wales|Victoria|"
+        r"Queensland|Western Australia|Tasmania|Northern Territory|"
+        r"Canberra|Melbourne|Sydney|Brisbane|Perth|Hobart|Darwin|"
+        r"London|Hong Kong|New Zealand)\b", re.I)
+
+    def plain(value):
+        return " ".join(str(value or "").replace("\xa0", " ").split())
+
+    def is_sa(venue, address):
+        venue = plain(venue)
+        address = plain(address)
+        if other_state_pattern.search(venue + " " + address):
+            return False
+        if venue.casefold() in known_sa_venues:
+            return True
+        # Require an explicit SA address, not the organisation's postal address.
+        return bool(re.search(r"\b(?:South Australia|SA\s*5\d{3})\b", address, re.I))
+
+    def get_structured(page):
+        result = []
+        def visit(node):
+            if isinstance(node, list):
+                for part in node: visit(part)
+            elif isinstance(node, dict):
+                kinds = node.get("@type", [])
+                kinds = kinds if isinstance(kinds, list) else [kinds]
+                if any(str(k).split("/")[-1] in ("Event", "MusicEvent", "TheaterEvent") for k in kinds):
+                    result.append(node)
+                if "@graph" in node: visit(node["@graph"])
+        for script in page.select('script[type="application/ld+json"]'):
+            try: visit(json.loads(script.string or script.get_text()))
+            except (ValueError, TypeError): pass
+        return result
+
+    def structured_location(obj):
+        loc = obj.get("location") or {}
+        if isinstance(loc, list): loc = next((x for x in loc if isinstance(x, dict)), {})
+        if not isinstance(loc, dict): return "", ""
+        venue = plain(loc.get("name"))
+        addr = loc.get("address") or {}
+        if isinstance(addr, dict):
+            address = " ".join(plain(addr.get(k)) for k in (
+                "streetAddress", "addressLocality", "addressRegion", "postalCode", "addressCountry"))
+        else: address = plain(addr)
+        return venue, address
+
+    def iso_date(raw):
+        raw = plain(raw)
+        if not re.match(r"^20\d\d-\d\d-\d\d(?:$|T)", raw): return ""
+        try: calendar_date.fromisoformat(raw[:10])
+        except ValueError: return ""
+        return raw[:19] if "T" in raw and len(raw) >= 19 else raw[:10] + "T00:00:00"
+
+    urls = set()
+    for link in soup.select('a[href]'):
+        url = normalise_url(link.get('href'), source_url).split('#')[0].split('?')[0].rstrip('/')
+        parsed = urlparse(url)
+        if parsed.hostname not in ('stateopera.com.au', 'www.stateopera.com.au'): continue
+        if re.fullmatch(r'/productions/20\d\d/[^/]+', parsed.path, re.I): urls.add(url)
+    if not urls:
+        print('    State Opera: no production detail links found; preserving existing events')
+        return []
+
+    results = []
+    seen = set()
+    failed = 0
+    outside = 0
+    undated = 0
+    for url in sorted(urls):
+        try:
+            response = session.get(url, timeout=25)
+            response.raise_for_status()
+            page = BeautifulSoup(response.text, 'lxml')
+        except requests.RequestException as exc:
+            failed += 1
+            print(f'    State Opera detail error: {url} -> {exc}')
+            continue
+        h1 = page.find('h1')
+        title = plain(h1.get_text(' ', strip=True)) if h1 else ''
+        if not title: continue
+        image_tag = page.find('meta', attrs={'property':'og:image'})
+        image = normalise_url(image_tag.get('content'), url) if image_tag else ''
+        structured = get_structured(page)
+        added = 0
+        for item in structured:
+            venue, address = structured_location(item)
+            if not is_sa(venue, address):
+                outside += 1
+                continue
+            start = iso_date(item.get('startDate'))
+            if not start:
+                undated += 1
+                continue
+            if start[:10] < calendar_date.today().isoformat(): continue
+            end = iso_date(item.get('endDate'))
+            if end and end < start: end = ''
+            key = (title.casefold(), venue.casefold(), start)
+            if key in seen: continue
+            seen.add(key)
+            results.append({'title': title, 'venue': venue, 'date': start,
+                'end_date': end if end != start else '',
+                'category': ['Theatre', 'Music'], 'image': image,
+                'url': url})
+            added += 1
+        if added: continue
+
+        # When Event JSON-LD is absent, accept the production's visible
+        # date range ONLY if the venue is explicitly a recognised SA venue.
+        # This is one production listing, not fabricated daily performances.
+        text = plain(page.get_text(' ', strip=True))
+        venue = next((v for v in sorted(known_sa_venues, key=len, reverse=True)
+                      if re.search(r'(?<!\w)' + re.escape(v) + r'(?!\w)', text, re.I)), '')
+        if not venue:
+            outside += 1
+            continue
+        # The header contains the year and start date; never infer a year.
+        date_match = re.search(r'\b(\d{1,2})\s+(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\s+(20\d{2})\s*[–—-]\s*(\d{1,2})\s+(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\s+(20\d{2})\b', text, re.I)
+        single_match = re.search(r'\b(\d{1,2})\s+(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\s+(20\d{2})\b', text, re.I)
+        if not date_match and not single_match:
+            undated += 1
+            continue
+        def as_iso(day, month, year):
+            months = ['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec']
+            try: return calendar_date(int(year), months.index(month[:3].lower()) + 1, int(day)).isoformat()
+            except (ValueError, IndexError): return ''
+        m = date_match or single_match
+        start_day = as_iso(m.group(1), m.group(2), m.group(3))
+        end_day = as_iso(m.group(4), m.group(5), m.group(6)) if date_match else ''
+        if not start_day or (end_day and end_day < start_day): continue
+        if (end_day or start_day) < calendar_date.today().isoformat(): continue
+        key = (title.casefold(), venue.casefold(), start_day)
+        if key in seen: continue
+        seen.add(key)
+        results.append({'title': title, 'venue': venue.title() if venue == venue.lower() else venue,
+            'date': start_day + 'T00:00:00',
+            'end_date': end_day + 'T23:59:59' if end_day and end_day != start_day else '',
+            'category': ['Theatre', 'Music'], 'image': image, 'url': url})
+    print(f'    State Opera: {len(urls)} production pages, {len(results)} SA listings, '
+          f'{outside} unverified/outside-SA, {undated} undated, {failed} page errors')
+    if failed:
+        raise RuntimeError('State Opera production pages incomplete; preserve previous records')
+    return results
