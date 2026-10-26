@@ -81,7 +81,7 @@ SOURCES = [
     },
     {
         "name": "State Theatre Company South Australia",
-        "url": "https://statetheatrecompany.com.au/upcoming-shows/"
+        "url": "https://statetheatrecompany.com.au/shows/"
     },
     {
         "name": "South Australian Museum",

@@ -29,6 +29,7 @@ try:
         parse_dom_polski_centre,
         parse_kings_of_comedy,
         parse_adelaide_repertory_theatre,
+        parse_state_theatre_company,
         parse_adelaide_oval,
         parse_adelaide_convention_centre,
         parse_adelaide_festival_centre,
@@ -60,6 +61,7 @@ except ModuleNotFoundError:
         parse_dom_polski_centre,
         parse_kings_of_comedy,
         parse_adelaide_repertory_theatre,
+        parse_state_theatre_company,
         parse_adelaide_oval,
         parse_adelaide_convention_centre,
         parse_adelaide_festival_centre,
@@ -581,6 +583,15 @@ def scrape_source(source):
 
     if name == "Adelaide Repertory Theatre":
         return parse_adelaide_repertory_theatre(fetch_page(url), url)
+
+    if name == "State Theatre Company South Australia":
+        snapshot = os.path.join(os.path.dirname(__file__), 'state_theatre_upcoming.html')
+        if not os.path.isfile(snapshot):
+            raise RuntimeError('State Theatre saved HTML missing: Scraper/state_theatre_upcoming.html')
+        print('    State Theatre: using saved browser HTML snapshot (not live)')
+        with open(snapshot, 'r', encoding='utf-8') as handle:
+            soup = BeautifulSoup(handle.read(), 'lxml')
+        return parse_state_theatre_company(soup, url)
 
     if name == "Dom Polski Centre":
         return parse_dom_polski_centre(fetch_page(url), url)
@@ -1125,7 +1136,6 @@ def main(only_source=None):
         known_empty_generic_sources = {
             "Nineteen Ten",
             "Adelaide Repertory Theatre",
-            "State Theatre Company South Australia",
             "South Australian Museum", "Adelaide Botanic Gardens",
             "Adelaide Cemetery Tours", "ACE Gallery",
             "Adelaide Central Market", "David Roche Foundation",

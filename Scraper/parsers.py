@@ -3985,3 +3985,86 @@ def parse_adelaide_repertory_theatre(soup, source_url):
     }
     print(f'    Adelaide Rep: verified {title} ({first} to {last}); 1 production')
     return [event]
+
+
+# ============================================================
+# STATE THEATRE COMPANY SOUTH AUSTRALIA — OFFICIAL SHOW PAGES
+# ============================================================
+
+def parse_state_theatre_company(soup, source_url):
+    """Parse dated production cards from a saved official upcoming-shows page.
+
+    No requests to protected individual pages. Never invent image URLs from
+    browser-local downloaded asset paths.
+    """
+    from datetime import date
+    from urllib.parse import urljoin, urlparse
+
+    months = {m[:3].lower(): i for i, m in enumerate(
+        ('January','February','March','April','May','June','July','August',
+         'September','October','November','December'), 1)}
+    pattern = re.compile(
+        r"^(\d{1,2})\s+(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)"
+        r"\s*[–—-]\s*(\d{1,2})\s+"
+        r"(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+(20\d{2})$", re.I)
+    valid_venues = {
+        'Dunstan Playhouse, Adelaide Festival Centre': 'Dunstan Playhouse',
+        'Odeon Theatre': 'Odeon Theatre',
+        'Main Theatre, Adelaide College of the Arts': 'Main Theatre, Adelaide College of the Arts',
+        'Space Theatre, Adelaide Festival Centre': 'Space Theatre',
+        'X Space, Adelaide College of the Arts': 'X Space, Adelaide College of the Arts',
+    }
+    events = []
+    seen = set()
+    for card in soup.select('a.showsGrid_item[href]'):
+        heading = card.select_one('h3.showsGrid_item_title')
+        details = card.select_one('.showsGrid_item_dates')
+        if not heading or not details:
+            continue
+        title = heading.get_text(' ', strip=True)
+        lines = [x.strip() for x in details.stripped_strings if x.strip()]
+        if len(lines) < 2:
+            continue
+        match = pattern.fullmatch(lines[0])
+        if not match:
+            print(f'    State Theatre skipped (unrecognised dates): {title}: {lines[0]}')
+            continue
+        venue = valid_venues.get(lines[1])
+        if not venue:
+            print(f'    State Theatre skipped (unknown venue): {title}: {lines[1]}')
+            continue
+        try:
+            year = int(match.group(5))
+            start = date(year, months[match.group(2).lower()], int(match.group(1)))
+            end = date(year, months[match.group(4).lower()], int(match.group(3)))
+        except ValueError:
+            continue
+        if end < date.today() or end < start:
+            continue
+        link = urljoin(source_url, card['href']).split('#')[0].split('?')[0]
+        parsed = urlparse(link)
+        if parsed.hostname not in ('statetheatrecompany.com.au','www.statetheatrecompany.com.au') or not re.fullmatch(r'/shows/[^/]+/?', parsed.path):
+            continue
+        key = (title.casefold(), start.isoformat())
+        if key in seen:
+            continue
+        seen.add(key)
+        # Browser-saved image paths are local files, not usable on GitHub Pages.
+        # Only accept an explicitly absolute official web image URL.
+        image = ''
+        img = card.find('img')
+        if img:
+            for attr in ('data-src','src'):
+                candidate = str(img.get(attr) or '')
+                if candidate.startswith(('https://','http://')) and 'statetheatrecompany.com.au' in urlparse(candidate).netloc:
+                    image = candidate
+                    break
+        events.append({
+            'title': title, 'venue': venue,
+            'date': start.isoformat() + 'T00:00:00',
+            'end_date': end.isoformat() + 'T23:59:59',
+            'category': ['Theatre'], 'image': image, 'url': link,
+        })
+        print(f'    State Theatre: {title} | {start} to {end} | {venue}')
+    print(f'    State Theatre: {len(events)} verified upcoming productions from saved official page')
+    return events
