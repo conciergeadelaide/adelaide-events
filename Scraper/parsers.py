@@ -3254,3 +3254,126 @@ def parse_state_opera_south_australia(soup, source_url):
     if failed:
         raise RuntimeError('State Opera production pages incomplete; preserve previous records')
     return results
+
+
+# ============================================================
+# GOVERNMENT HOUSE - PUBLIC VISITOR EVENTS ONLY
+# ============================================================
+
+def parse_government_house(soup, source_url):
+    """Read confirmed Government House tour dates; never infer recurring dates."""
+    from datetime import date
+    from urllib.parse import urljoin
+
+    base = "https://www.governor.sa.gov.au"
+    lunch_url = base + "/vice-regal/lunch-on-the-lawns"
+    open_url = base + "/vice-regal/government-house-open-day"
+    fallback_booking = "https://ghadelaide.eventsair.com/garden-tours-26/registrations-2026"
+    today = date.today()
+    session = requests.Session()
+    session.headers.update({"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/140.0.0.0 Safari/537.36"})
+    events = []
+
+    def page_text(page):
+        main = page.find("main") or page.find("article") or page
+        return " ".join(main.stripped_strings)
+
+    def page_image(page, url):
+        for key in ("og:image", "twitter:image"):
+            tag = page.find("meta", attrs={"property": key}) or page.find("meta", attrs={"name": key})
+            candidate = tag.get("content", "") if tag else ""
+            if candidate and not any(x in candidate.lower() for x in ("logo", "favicon", "icon", "crown")):
+                return urljoin(url, candidate)
+        return ""
+
+    def fetch(url):
+        response = session.get(url, timeout=30)
+        response.raise_for_status()
+        return BeautifulSoup(response.text, "lxml")
+
+    def add(title, day, start_hour, start_minute, end_hour, end_minute, url, image):
+        if day < today:
+            return
+        start = datetime(day.year, day.month, day.day, start_hour, start_minute)
+        end = datetime(day.year, day.month, day.day, end_hour, end_minute)
+        events.append({
+            "title": title, "venue": "Government House",
+            "date": start.isoformat(timespec="seconds"),
+            "end_date": end.isoformat(timespec="seconds"),
+            "category": ["Community"], "image": image, "url": url,
+        })
+
+    lunch_text = page_text(soup)
+    image = page_image(soup, lunch_url)
+    # Find the official registration link, rather than assuming it stays at a 2026 URL.
+    booking_urls = []
+    for anchor in soup.find_all("a", href=True):
+        href = urljoin(lunch_url, anchor["href"])
+        if "ghadelaide.eventsair.com" in href.lower() and "garden-tour" in href.lower():
+            if href not in booking_urls:
+                booking_urls.append(href)
+    if not booking_urls:
+        booking_urls = [fallback_booking]
+
+    for booking_url in booking_urls:
+        try:
+            booking_page = fetch(booking_url)
+        except requests.RequestException as exc:
+            print(f"    Government House: unable to read tour registration dates: {exc}")
+            continue
+        booking_text = page_text(booking_page)
+        # The official form uses 'Register for Friday, 6 November 2026 Full'.
+        # Capture the status before the next date or field label.
+        pattern = (r"Register\s+for\s+(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)"
+                   r"\s*,?\s*(\d{1,2})\s+"
+                   r"(January|February|March|April|May|June|July|August|September|October|November|December)"
+                   r"\s+(20\d{2})\b")
+        matches = list(re.finditer(pattern, booking_text, re.I))
+        print(f"    Government House: {len(matches)} dated tour options found in registration form")
+        for idx, match in enumerate(matches):
+            weekday, day_num, month_name, year_num = match.groups()
+            try:
+                day = date(int(year_num), MONTHS[month_name.lower()], int(day_num))
+            except ValueError:
+                continue
+            if day.strftime("%A").lower() != weekday.lower():
+                print(f"    Government House: skipped weekday mismatch: {match.group(0)}")
+                continue
+            tail_end = matches[idx + 1].start() if idx + 1 < len(matches) else min(len(booking_text), match.end() + 80)
+            status_text = booking_text[match.end():tail_end][:80]
+            full = bool(re.search(r"\bfull\b|\bfully\s+booked\b", status_text, re.I))
+            title = "Government House Garden Tour (Fully Booked)" if full else "Government House Garden Tour"
+            if not any(e["date"].startswith(day.isoformat()) and "Garden Tour" in e["title"] for e in events):
+                add(title, day, 10, 45, 11, 45, booking_url, image)
+
+    print("    Government House: no Lunch on the Lawns dates inferred without a dated announcement")
+
+    try:
+        open_page = fetch(open_url)
+        open_text = page_text(open_page)
+        # An undated announcement supersedes unrelated dates elsewhere on the page.
+        unannounced = bool(re.search(
+            r"(?:next|upcoming)\s+(?:Government\s+House\s+)?Open\s+Day.{0,120}"
+            r"(?:announced\s+soon|yet\s+to\s+be\s+announced|to\s+be\s+announced|TBA)",
+            open_text, re.I))
+        if unannounced:
+            print("    Government House: next Open Day not yet announced")
+        else:
+            # Require a date explicitly in an Open Day announcement, not merely
+            # another date in a sidebar or site footer.
+            for match in re.finditer(
+                r"\b(?:Government\s+House\s+)?Open\s+Day\b.{0,100}?"
+                r"(\d{1,2})\s+(January|February|March|April|May|June|July|August|September|October|November|December)\s+(20\d{2})\b",
+                open_text, re.I):
+                try:
+                    day = date(int(match.group(3)), MONTHS[match.group(2).lower()], int(match.group(1)))
+                except ValueError:
+                    continue
+                if day >= today:
+                    # Unknown hours: omit event rather than publishing midnight as opening time.
+                    print(f"    Government House: Open Day {day} found, but hours require verification; not added")
+    except requests.RequestException as exc:
+        print(f"    Government House: Open Day page unavailable: {exc}")
+
+    print(f"    Government House: {len(events)} confirmed dated public activities")
+    return events

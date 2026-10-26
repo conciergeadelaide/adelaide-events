@@ -177,3 +177,6 @@ SOURCES.append({"name": "Ticketmaster Adelaide", "url": "https://app.ticketmaste
 
 # Regional AllEvents discovery, including Bonython Park.
 SOURCES.append({"name": "AllEvents Adelaide and Surrounds", "url": "https://allevents.in/adelaide"})
+
+# Government House public visitor activities.
+SOURCES.append({"name": "Government House", "url": "https://www.governor.sa.gov.au/vice-regal/lunch-on-the-lawns"})

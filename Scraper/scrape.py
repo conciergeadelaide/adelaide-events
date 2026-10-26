@@ -24,6 +24,7 @@ try:
         parse_the_drive,
         parse_adelaide_symphony_orchestra,
         parse_state_opera_south_australia,
+        parse_government_house,
         parse_adelaide_oval,
         parse_adelaide_convention_centre,
         parse_adelaide_festival_centre,
@@ -50,6 +51,7 @@ except ModuleNotFoundError:
         parse_the_drive,
         parse_adelaide_symphony_orchestra,
         parse_state_opera_south_australia,
+        parse_government_house,
         parse_adelaide_oval,
         parse_adelaide_convention_centre,
         parse_adelaide_festival_centre,
@@ -565,6 +567,9 @@ def scrape_source(source):
         with open(snapshot, "r", encoding="utf-8") as handle:
             soup = BeautifulSoup(handle.read(), "lxml")
         return parse_experience_adelaide(soup, url)
+
+    if name == "Government House":
+        return parse_government_house(fetch_page(url), url)
 
     if name == "State Opera South Australia":
         return parse_state_opera_south_australia(fetch_page(url), url)
