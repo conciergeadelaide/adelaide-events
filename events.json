@@ -4020,7 +4020,7 @@
       "Theatre",
       "Music"
     ],
-    "image": "",
+    "image": "https://www.stateopera.com.au/_image?href=http%3A%2F%2Fcms%2Fpublic%2Fassets%2Fgoldenvoices.png&w=1508&h=1508&q=70&f=webp",
     "link": "https://www.stateopera.com.au/productions/2026/golden-voices",
     "source": "State Opera South Australia"
   },
@@ -4033,7 +4033,7 @@
       "Theatre",
       "Music"
     ],
-    "image": "",
+    "image": "https://www.stateopera.com.au/_image?href=http%3A%2F%2Fcms%2Fpublic%2Fassets%2Ftrials-n-transformations-2.png&w=1508&h=1508&q=70&f=webp",
     "link": "https://www.stateopera.com.au/productions/2026/trials-and-transformations",
     "source": "State Opera South Australia"
   },
@@ -4282,8 +4282,8 @@
   {
     "title": "Australian Geographic Nature Photographer of the Year Exhibition",
     "venue": "South Australian Museum",
-    "datetime": "2026-08-29T10:00:00",
-    "end_datetime": "2027-02-14T17:00:00",
+    "datetime": "2026-08-29T00:00:00",
+    "end_datetime": "2027-02-14T23:59:59",
     "category": [
       "Exhibitions"
     ],
@@ -5609,6 +5609,18 @@
     ],
     "image": "https://s1.ticketm.net/dam/c/fbc/b293c0ad-c904-4215-bc59-8d7f2414dfbc_106141_TABLET_LANDSCAPE_LARGE_16_9.jpg",
     "link": "https://www.moshtix.com.au/v2/event/dream-on-dreamer-hope-heartbound-revival-tour-all-ages-/200081",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "RU Pretty Enuff Australian Tour ‘26",
+    "venue": "Lion Arts Factory",
+    "datetime": "2026-11-05T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/c/fbc/b293c0ad-c904-4215-bc59-8d7f2414dfbc_106141_RETINA_PORTRAIT_16_9.jpg",
+    "link": "https://www.moshtix.com.au/v2/event/ru-pretty-enuff-australian-tour-26/195437",
     "source": "Ticketmaster Adelaide"
   },
   {

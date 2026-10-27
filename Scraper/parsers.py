@@ -3192,8 +3192,135 @@ def parse_state_opera_south_australia(soup, source_url):
         h1 = page.find('h1')
         title = plain(h1.get_text(' ', strip=True)) if h1 else ''
         if not title: continue
-        image_tag = page.find('meta', attrs={'property':'og:image'})
-        image = normalise_url(image_tag.get('content'), url) if image_tag else ''
+        # Prefer the production's own artwork over site-wide social imagery.
+        # State Opera pages can omit og:image and use responsive <picture>,
+        # lazy-loaded <img>, or CSS background images for their hero.
+        def production_artwork(page, page_url):
+            from urllib.parse import urlparse
+
+            def usable(candidate):
+                candidate = str(candidate or '').strip().strip('\"\'')
+                if not candidate or candidate.startswith(('data:', 'blob:', '#')):
+                    return ''
+                absolute = normalise_url(candidate, page_url)
+                parsed = urlparse(absolute)
+                if parsed.scheme not in ('http', 'https'):
+                    return ''
+                lowered = parsed.path.casefold()
+                if any(term in lowered for term in (
+                    'logo', 'favicon', 'icon-', 'placeholder', 'default-image',
+                    'jubilee-fund', 'partner', 'sponsor', 'donate', 'footer',
+                )):
+                    return ''
+                return absolute
+
+            def srcset_largest(value):
+                options = []
+                for entry in str(value or '').split(','):
+                    parts = entry.strip().split()
+                    if not parts:
+                        continue
+                    weight = 0
+                    if len(parts) > 1:
+                        descriptor = parts[-1].lower()
+                        try:
+                            if descriptor.endswith('w'):
+                                weight = float(descriptor[:-1])
+                            elif descriptor.endswith('x'):
+                                weight = float(descriptor[:-1]) * 1000
+                        except ValueError:
+                            pass
+                    options.append((weight, parts[0]))
+                for _, candidate in sorted(options, reverse=True):
+                    found = usable(candidate)
+                    if found:
+                        return found
+                return ''
+
+            def from_element(element):
+                if element.name == 'picture':
+                    for img in element.select('img'):
+                        result = from_element(img)
+                        if result:
+                            return result
+                    for source in element.select('source'):
+                        result = from_element(source)
+                        if result:
+                            return result
+                for attr in ('data-srcset', 'srcset'):
+                    found = srcset_largest(element.get(attr))
+                    if found:
+                        return found
+                for attr in ('data-src', 'data-lazy-src', 'data-original', 'src'):
+                    found = usable(element.get(attr))
+                    if found:
+                        return found
+                for attr in ('style', 'data-bg', 'data-background-image'):
+                    value = str(element.get(attr) or '')
+                    match = re.search(r'url\(\s*[\"\']?([^\"\')]+)', value, re.I)
+                    found = usable(match.group(1) if match else value if attr != 'style' else '')
+                    if found:
+                        return found
+                return ''
+
+            # Hero / primary production content comes before other page images.
+            selectors = (
+                'main [class*="hero"] picture', 'main [class*="hero"] img',
+                'main [class*="banner"] picture', 'main [class*="banner"] img',
+                '[class*="production-hero"] picture', '[class*="production-hero"] img',
+                'main picture', 'main img',
+                'main [style*="background-image"]',
+                '[class*="hero"] [style*="background-image"]',
+            )
+            for selector in selectors:
+                for element in page.select(selector):
+                    # Exclude artwork in the page's footer and promotional sections.
+                    if element.find_parent(('footer', 'nav')):
+                        continue
+                    found = from_element(element)
+                    if found:
+                        return found
+
+            # Structured data may provide artwork when no visible hero exists.
+            for script in page.select('script[type="application/ld+json"]'):
+                try:
+                    data = json.loads(script.string or script.get_text())
+                except (ValueError, TypeError):
+                    continue
+                nodes = data if isinstance(data, list) else [data]
+                while nodes:
+                    item = nodes.pop(0)
+                    if not isinstance(item, dict):
+                        continue
+                    graph = item.get('@graph')
+                    if isinstance(graph, list):
+                        nodes.extend(graph)
+                    elif isinstance(graph, dict):
+                        nodes.append(graph)
+                    kinds = item.get('@type', [])
+                    kinds = kinds if isinstance(kinds, list) else [kinds]
+                    if not any(str(k).split('/')[-1] in
+                               ('Event', 'MusicEvent', 'TheaterEvent') for k in kinds):
+                        continue
+                    value = item.get('image')
+                    values = value if isinstance(value, list) else [value]
+                    for candidate in values:
+                        if isinstance(candidate, dict):
+                            candidate = candidate.get('url') or candidate.get('contentUrl')
+                        found = usable(candidate)
+                        if found:
+                            return found
+
+            for attrs in ({'property': 'og:image'},
+                          {'name': 'twitter:image'},
+                          {'property': 'twitter:image'}):
+                tag = page.find('meta', attrs=attrs)
+                found = usable(tag.get('content')) if tag else ''
+                if found:
+                    return found
+            return ''
+
+        image = production_artwork(page, url)
         structured = get_structured(page)
         added = 0
         for item in structured:
