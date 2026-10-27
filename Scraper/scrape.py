@@ -32,7 +32,6 @@ try:
         parse_state_theatre_company,
         parse_south_australian_museum,
         parse_art_gallery_south_australia,
-        parse_adelaide_botanic_gardens,
         STATE_THEATRE_OFFICIAL_IMAGES,
         parse_adelaide_oval,
         parse_adelaide_convention_centre,
@@ -68,7 +67,6 @@ except ModuleNotFoundError:
         parse_state_theatre_company,
         parse_south_australian_museum,
         parse_art_gallery_south_australia,
-        parse_adelaide_botanic_gardens,
         STATE_THEATRE_OFFICIAL_IMAGES,
         parse_adelaide_oval,
         parse_adelaide_convention_centre,
@@ -150,6 +148,38 @@ def load_existing_events():
 
 
 def save_events(events):
+    # Keep a separate archive of past events from earlier successful runs.
+    # Do not change the current events.json merge/deduplication rules.
+    from datetime import date
+    archive_file = os.path.join(BASE_DIR, "historical_events.json")
+    today_key = date.today().isoformat()
+    def is_past(record):
+        end = str(record.get("end_datetime") or record.get("end_date") or record.get("datetime") or record.get("date") or "")[:10]
+        return bool(end and end < today_key)
+    def archive_key(record):
+        return tuple(str(record.get(k) or "").strip().casefold() for k in ("title", "venue", "datetime", "link"))
+    archived = []
+    for file_path in (archive_file, EVENTS_FILE):
+        if os.path.isfile(file_path):
+            try:
+                with open(file_path, encoding="utf-8") as source:
+                    records = json.load(source)
+                if isinstance(records, list):
+                    archived.extend(r for r in records if isinstance(r, dict) and is_past(r))
+            except (OSError, ValueError) as exc:
+                print(f"WARNING: Cannot read history from {file_path}: {exc}")
+    archived.extend(r for r in events if isinstance(r, dict) and is_past(r))
+    unique_archive = {archive_key(record): record for record in archived}
+    if unique_archive:
+        tmp_archive = archive_file + ".tmp"
+        with open(tmp_archive, "w", encoding="utf-8") as output:
+            json.dump(list(unique_archive.values()), output, ensure_ascii=False, indent=2)
+        os.replace(tmp_archive, archive_file)
+        print(f"Historical archive: {len(unique_archive)} past events retained.")
+
+    from festival_tags import assign_festivals
+    events = [assign_festivals(event) for event in events]
+
 
     # Create a backup before changing
     # the live database.
@@ -604,9 +634,6 @@ def scrape_source(source):
 
     if name == "Adelaide Repertory Theatre":
         return parse_adelaide_repertory_theatre(fetch_page(url), url)
-
-    if name == "Adelaide Botanic Gardens":
-        return parse_adelaide_botanic_gardens(fetch_page(url), url)
 
     if name == "Art Gallery of South Australia":
         return parse_art_gallery_south_australia(fetch_page(url), url)

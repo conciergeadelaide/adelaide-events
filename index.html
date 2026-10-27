@@ -113,6 +113,19 @@
             </div>
 
 
+            <!-- FESTIVAL MULTI-SELECT -->
+            <div class="filter-box">
+                <label id="festival-label">Festival</label>
+                <div id="festival-multiselect" class="festival-multiselect">
+                    <button id="festival-filter" class="festival-filter-button"
+                            type="button" aria-labelledby="festival-label festival-filter"
+                            aria-expanded="false" aria-controls="festival-options">
+                        All festivals
+                    </button>
+                    <div id="festival-options" class="festival-options hidden"></div>
+                </div>
+            </div>
+
             <div class="filter-box">
                 <label id="venue-label">Venue</label>
 
@@ -161,6 +174,15 @@
                 </select>
             </div>
 
+
+            <!-- PAST EVENTS FILTER -->
+            <div class="filter-box">
+                <label for="past-events-only">Event history</label>
+                <label class="past-events-label" for="past-events-only">
+                    <input type="checkbox" id="past-events-only">
+                    Show past events only
+                </label>
+            </div>
 
             <!-- EVENT DURATION FILTER -->
 

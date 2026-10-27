@@ -1,0 +1,107 @@
+[
+  {
+    "title": "Daryl Austin: The Long View",
+    "venue": "Adelaide Town Hall",
+    "datetime": "2026-10-26T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/ce325ec0ae82abe35267143ffbebdab7.jpeg?rect=0%2C83%2C2953%2C2215&w=1280&h=1024&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjY5ZmE5M2ZjYzhiYTQzYmU3NDY1ZDAyNiIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
+    "link": "https://www.adelaidetownhall.com.au/events/daryl-austin-the-long-view/",
+    "source": "Adelaide Town Hall"
+  },
+  {
+    "title": "Adelaide Town Hall Live Music Rehearsal Space",
+    "venue": "Adelaide Town Hall",
+    "datetime": "2026-10-26T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/8cb4942a73f40dee5536a9a3c74f1767.jpeg?rect=0%2C0%2C1600%2C1200&w=1280&h=1024&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhOTExNDI4OWUyZWE3ZWY2MmU5Yjg2NyIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
+    "link": "https://www.adelaidetownhall.com.au/events/adelaide-town-hall-live-music-rehearsal-space/",
+    "source": "Adelaide Town Hall"
+  },
+  {
+    "title": "Adelaide Film Festival",
+    "venue": "Various venues",
+    "datetime": "2026-10-14T00:00:00",
+    "end_datetime": "2026-10-25T00:00:00",
+    "category": [
+      "Family"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/ea4d4c7f26029b71fd8a4b0df60bdcee.jpeg?rect=457%2C0%2C7300%2C5475&w=450&h=335&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjYyMDU5ZTdhNDgyN2E5ZTcwZmFlYzQ5MSIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
+    "link": "https://www.experienceadelaide.com.au/whats-on/adelaide-film-festival/",
+    "source": "Experience Adelaide",
+    "festival": [
+      "Adelaide Film Festival"
+    ]
+  },
+  {
+    "title": "Adelaide Colour Frenzy 5k Fun Walk/Run",
+    "venue": "Bonython Park",
+    "datetime": "2026-10-25T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Sport"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/253f7bd7256b2a39512e1a8af30a35fa_1kq1x9p.jpeg?rect=114%2C0%2C1820%2C1365&w=450&h=335&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhNDVkODQ1Yjg4ZjdkNTY0ZjY1MjdmNiIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
+    "link": "https://www.experienceadelaide.com.au/whats-on/adelaide-colour-frenzy-5k-fun-walk-run/",
+    "source": "Experience Adelaide"
+  },
+  {
+    "title": "Huami 1st Birthday",
+    "venue": "Huami",
+    "datetime": "2026-10-22T00:00:00",
+    "end_datetime": "2026-10-25T00:00:00",
+    "category": [
+      "Food & Beverage"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/ba423730c4282ab88052fc5eb8ef7272.jpeg?rect=427%2C0%2C1707%2C1280&w=450&h=335&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhYzcxMzg0ZTg2OGY4ZGMzOTQ0MjhlYyIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
+    "link": "https://www.experienceadelaide.com.au/whats-on/huami-1st-birthday/",
+    "source": "Experience Adelaide"
+  },
+  {
+    "title": "OzAsia Festival 2026 |  Maajela",
+    "venue": "OzAsia Festival Stage at Lucky Dumpling Market",
+    "datetime": "2026-10-23T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Festival"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/37572a7597f0f9deacde3f16e885d853.jpeg?rect=0%2C0%2C1600%2C1200&w=450&h=335&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhODdiNGEzYWEyNDRmYWY3NWU2YTdlMCIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
+    "link": "https://www.experienceadelaide.com.au/whats-on/ozasia-festival-2026-maajela/",
+    "source": "Experience Adelaide",
+    "festival": [
+      "OzAsia Festival"
+    ]
+  },
+  {
+    "title": "OzAsia Festival’s Weekend of Words",
+    "venue": "OzAsia Festival Stage at Lucky Dumpling Market",
+    "datetime": "2026-10-23T00:00:00",
+    "end_datetime": "2026-10-24T00:00:00",
+    "category": [
+      "Festival"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/b1e3b17f7cc7021ad8d91a74ddad8b0f.jpeg?rect=0%2C0%2C1600%2C1200&w=450&h=335&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhODdjMzVkM2U4NjE3M2E1ZTg0OWRjMyIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
+    "link": "https://www.experienceadelaide.com.au/whats-on/ozasia-festivals-weekend-of-words/",
+    "source": "Experience Adelaide",
+    "festival": [
+      "OzAsia Festival"
+    ]
+  },
+  {
+    "title": "Pinkstachio Reig\"Night\" Pre's",
+    "venue": "Parco",
+    "datetime": "2026-10-24T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Club/Party"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/5d325759b5f0b58d218f9ed79297a3a6.jpeg?rect=0%2C1560%2C4160%2C3120&w=450&h=335&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhOTdhMzNlNDZmMTlhMmQ0OTcyZjkyYSIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
+    "link": "https://www.experienceadelaide.com.au/whats-on/pinkstachio-reignight-pres/",
+    "source": "Experience Adelaide"
+  }
+]

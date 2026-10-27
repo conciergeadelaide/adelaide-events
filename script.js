@@ -7,6 +7,8 @@
 // ======================================
 
 var events = [];
+var historicalEvents = [];
+var pastEventsOnlyInput = document.getElementById("past-events-only");
 var filteredEventsForCalendar = [];
 var currentView = "cards";
 var visibleMonth = new Date(
@@ -31,6 +33,30 @@ var venueSearch = document.getElementById("venue-search");
 var venueCheckboxes = document.getElementById("venue-checkboxes");
 var venueNoResults = document.getElementById("venue-no-results");
 var selectedVenues = [];
+var festivalFilter = document.getElementById("festival-filter");
+var festivalOptions = document.getElementById("festival-options");
+var festivalMultiselect = document.getElementById("festival-multiselect");
+var selectedFestivals = [];
+
+function getEventFestivals(event) {
+    if (Array.isArray(event.festival)) return event.festival.filter(Boolean);
+    if (typeof event.festival === "string" && event.festival) return [event.festival];
+    return [];
+}
+
+function updateFestivalLabel() {
+    festivalFilter.textContent = selectedFestivals.length === 0
+        ? "All festivals"
+        : selectedFestivals.length === 1
+            ? selectedFestivals[0]
+            : selectedFestivals.length + " festivals selected";
+}
+
+function closeFestivalOptions() {
+    festivalOptions.classList.add("hidden");
+    festivalFilter.setAttribute("aria-expanded", "false");
+}
+
 var sortSelect = document.getElementById("sort");
 var hideLongEventsInput = document.getElementById("hide-long-events");
 var eventCount = document.getElementById("event-count");
@@ -679,6 +705,34 @@ function populateFilters() {
         "Workshop"
     ];
 
+    festivalOptions.replaceChildren();
+    selectedFestivals = [];
+    updateFestivalLabel();
+    var festivals = Array.from(new Set(events.flatMap(getEventFestivals))).sort(
+        function(a, b) { return a.localeCompare(b); }
+    );
+    festivals.forEach(function(festival) {
+        var option = document.createElement("label");
+        option.className = "festival-option";
+        var checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.value = festival;
+        var text = document.createElement("span");
+        text.textContent = festival;
+        checkbox.addEventListener("change", function() {
+            if (checkbox.checked) {
+                if (!selectedFestivals.includes(festival)) selectedFestivals.push(festival);
+            } else {
+                selectedFestivals = selectedFestivals.filter(function(x) { return x !== festival; });
+            }
+            updateFestivalLabel();
+            applyFilters();
+        });
+        option.appendChild(checkbox);
+        option.appendChild(text);
+        festivalOptions.appendChild(option);
+    });
+
     var venues = [];
 
     events.forEach(function(event) {
@@ -802,7 +856,9 @@ function applyFilters() {
         hideLongEventsInput &&
         hideLongEventsInput.checked;
 
-    var filteredEvents = events.filter(
+    var todayKey = dateKey(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
+    var sourceEvents = pastEventsOnlyInput && pastEventsOnlyInput.checked ? historicalEvents : events;
+    var filteredEvents = sourceEvents.filter(
         function(event) {
             var eventStartString = getDatePart(
                 getEventStart(event)
@@ -811,6 +867,9 @@ function applyFilters() {
             var eventEndString = getDatePart(
                 getEventEnd(event)
             ) || eventStartString;
+
+            var isPast = Boolean(eventEndString && eventEndString < todayKey);
+            if (pastEventsOnlyInput && pastEventsOnlyInput.checked ? !isPast : isPast) return false;
 
             var searchableText = (
                 (event.title || "") +
@@ -864,6 +923,11 @@ function applyFilters() {
                 (selectedVenues.includes(ASO_FILTER_LABEL) &&
                     isAdelaideSymphonyEvent(event));
 
+            var matchesFestival = selectedFestivals.length === 0 ||
+                selectedFestivals.some(function(festival) {
+                    return getEventFestivals(event).includes(festival);
+                });
+
             var matchesDuration =
                 !hideLongEvents ||
                 !isEventLongerThanSevenDays(event);
@@ -874,6 +938,7 @@ function applyFilters() {
                 matchesTo &&
                 matchesCategory &&
                 matchesVenue &&
+                matchesFestival &&
                 matchesDuration
             );
         }
@@ -1562,6 +1627,22 @@ document.getElementById(
 // CATEGORY DROPDOWN
 // ======================================
 
+festivalFilter.addEventListener("click", function() {
+    var opening = festivalOptions.classList.contains("hidden");
+    if (opening) {
+        closeCategoryOptions();
+        closeVenueOptions();
+    }
+    festivalOptions.classList.toggle("hidden", !opening);
+    festivalFilter.setAttribute("aria-expanded", opening ? "true" : "false");
+});
+document.addEventListener("click", function(event) {
+    if (!festivalMultiselect.contains(event.target)) closeFestivalOptions();
+});
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") closeFestivalOptions();
+});
+
 categoryFilter.addEventListener(
     "click",
     function() {
@@ -1570,6 +1651,7 @@ categoryFilter.addEventListener(
 
         if (isHidden) {
             closeVenueOptions();
+            closeFestivalOptions();
         }
 
         categoryOptions.classList.toggle(
@@ -1618,6 +1700,13 @@ function clearAllFilters() {
     updateCategoryLabel();
     closeCategoryOptions();
 
+    selectedFestivals = [];
+    festivalOptions.querySelectorAll('input[type="checkbox"]').forEach(function(checkbox) {
+        checkbox.checked = false;
+    });
+    updateFestivalLabel();
+    closeFestivalOptions();
+
     selectedVenues = [];
 
     venueCheckboxes.querySelectorAll(
@@ -1632,6 +1721,8 @@ function clearAllFilters() {
     closeVenueOptions();
 
     sortSelect.value = "date-asc";
+
+    if (pastEventsOnlyInput) pastEventsOnlyInput.checked = false;
 
     if (hideLongEventsInput) {
         hideLongEventsInput.checked = false;
@@ -1671,6 +1762,7 @@ venueFilter.addEventListener(
 
         if (opening) {
             closeCategoryOptions();
+            closeFestivalOptions();
         }
 
         venueOptions.classList.toggle(
@@ -1728,6 +1820,8 @@ if (hideLongEventsInput) {
     );
 }
 
+if (pastEventsOnlyInput) pastEventsOnlyInput.addEventListener("change", applyFilters);
+
 clearFiltersButton.addEventListener(
     "click",
     clearAllFilters
@@ -1737,89 +1831,52 @@ clearFiltersButton.addEventListener(
 // LOAD EVENTS.JSON
 // ======================================
 
-fetch("events.json")
-    .then(function(response) {
-        if (!response.ok) {
-            throw new Error(
-                "Could not load events.json"
-            );
-        }
-
+// Load the current database and a separate historical archive.
+// A missing archive is normal on first installation.
+Promise.all([
+    fetch("events.json").then(function(response) {
+        if (!response.ok) throw new Error("Could not load events.json");
         return response.json();
-    })
-    .then(function(data) {
-        events = Array.isArray(data) ? data : [];
-
-        console.log(
-            "events.json loaded:",
-            events.length,
-            "events"
-        );
-
-        // ==================================
-        // STANDARDISE VENUE NAMES
-        // ==================================
-
-        events.forEach(function(event) {
-            if (event.venue) {
-                event.venue =
-                    canonicalVenue(event.venue);
-            }
-        });
-
-        // ==================================
-        // REMOVE EVENTS THAT HAVE FINISHED
-        // ==================================
-
-        var today = new Date();
-
-        var todayString =
-            today.getFullYear() +
-            "-" +
-            String(
-                today.getMonth() + 1
-            ).padStart(2, "0") +
-            "-" +
-            String(
-                today.getDate()
-            ).padStart(2, "0");
-
-        events = events.filter(function(event) {
-            var effectiveEnd = getEventEnd(event);
-
-            if (!effectiveEnd) {
-                return true;
-            }
-
-            var endDateString = getDatePart(
-                effectiveEnd
-            );
-
-            if (!endDateString) {
-                return true;
-            }
-
-            // Keep events until the end
-            // of their final calendar day.
-
-            return endDateString >= todayString;
-        });
-
-        console.log(
-            "Upcoming/current events:",
-            events.length
-        );
-
-        populateFilters();
-        applyFilters();
-    })
-    .catch(function(error) {
-        console.error(
-            "Error loading events.json:",
-            error
-        );
-
-        events = [];
-        populateFilters();
-        applyFilters();
+    }),
+    fetch("historical_events.json").then(function(response) {
+        if (!response.ok) return [];
+        return response.json();
+    }).catch(function() { return []; })
+]).then(function(results) {
+    var current = Array.isArray(results[0]) ? results[0] : [];
+    var archive = Array.isArray(results[1]) ? results[1] : [];
+    var today = new Date();
+    var todayString = dateKey(today.getFullYear(), today.getMonth(), today.getDate());
+    function isPast(event) {
+        var end = getDatePart(getEventEnd(event));
+        return Boolean(end && end < todayString);
+    }
+    function key(event) {
+        return [event.title || "", event.venue || "", getEventStart(event), event.link || event.url || ""].join("|").toLowerCase();
+    }
+    var seen = new Set();
+    historicalEvents = archive.concat(current).filter(function(event) {
+        if (!isPast(event)) return false;
+        var id = key(event);
+        if (seen.has(id)) return false;
+        seen.add(id);
+        return true;
     });
+    events = current.filter(function(event) { return !isPast(event); });
+    events.concat(historicalEvents).forEach(function(event) {
+        if (event.venue) event.venue = canonicalVenue(event.venue);
+    });
+    // Build dropdown choices using both current and historical records.
+    var upcoming = events;
+    events = upcoming.concat(historicalEvents);
+    populateFilters();
+    events = upcoming;
+    console.log("Current events:", events.length, "Historical events:", historicalEvents.length);
+    applyFilters();
+}).catch(function(error) {
+    console.error("Error loading event data:", error);
+    events = [];
+    historicalEvents = [];
+    populateFilters();
+    applyFilters();
+});

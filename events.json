@@ -993,7 +993,10 @@
     ],
     "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/08-Aug/Hong-Kong-Dragon/hong-kong-dragon-afc-website-1136x994.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
     "link": "https://www.adelaidefestivalcentre.com.au/whats-on/hong-kong-dragon-2026",
-    "source": "Adelaide Festival Centre"
+    "source": "Adelaide Festival Centre",
+    "festival": [
+      "OzAsia Festival"
+    ]
   },
   {
     "title": "Lucky Dumpling Market",
@@ -1007,7 +1010,10 @@
     ],
     "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/10-Oct/Lucky-Dumpling-Market/LDM-afc-website-1136x994.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
     "link": "https://www.adelaidefestivalcentre.com.au/whats-on/lucky-dumpling-market-2026",
-    "source": "Adelaide Festival Centre"
+    "source": "Adelaide Festival Centre",
+    "festival": [
+      "OzAsia Festival"
+    ]
   },
   {
     "title": "Moon Lanterns at Lucky Dumpling Market",
@@ -1022,7 +1028,10 @@
     ],
     "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/09-Sep/Moon-Lanterns-at-Lucky-Dumpling-Market/moon-lanterns-afc-website-1136x994.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
     "link": "https://www.adelaidefestivalcentre.com.au/whats-on/moon-lanterns-at-lucky-dumpling-market",
-    "source": "Adelaide Festival Centre"
+    "source": "Adelaide Festival Centre",
+    "festival": [
+      "OzAsia Festival"
+    ]
   },
   {
     "title": "Ceramic Tile Painting Workshop with Jake Yang",
@@ -1034,7 +1043,10 @@
     ],
     "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/10-Oct/Ceramic-Tile-Painting-Workshop-with-Jake-Yang/Jake-Yang_Fire-Horse_OzAsia-Festival_AFC_1136x994-2.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
     "link": "https://www.adelaidefestivalcentre.com.au/whats-on/ceramic-tile-painting-workshop-with-jake-yang",
-    "source": "Adelaide Festival Centre"
+    "source": "Adelaide Festival Centre",
+    "festival": [
+      "OzAsia Festival"
+    ]
   },
   {
     "title": "AZIZA",
@@ -4917,7 +4929,10 @@
     ],
     "image": "https://cdn.environment.sa.gov.au/img/eyJidWNrZXQiOiJlbnZzYS1idWNrZXQiLCJrZXkiOiJib3RhbmljZ2FyZGVucy9pbWFnZXMvd29tYWQtMjYuanBnIiwiZWRpdHMiOnsid2VicCI6eyJxdWFsaXR5Ijo4Mn0sInJlc2l6ZSI6eyJ3aWR0aCI6MTIwMCwiaGVpZ2h0Ijo4MDAsImZpdCI6ImNvdmVyIn19fQ==",
     "link": "https://www.botanicgardens.sa.gov.au/whats-on/womadelaide",
-    "source": "Adelaide Botanic Gardens"
+    "source": "Adelaide Botanic Gardens",
+    "festival": [
+      "WOMADelaide"
+    ]
   },
   {
     "title": "Cultural Garden Tours",
@@ -6430,7 +6445,10 @@
     ],
     "image": "https://s1.ticketm.net/dam/a/312/2f3e005f-605a-4976-bd61-2581c9eaa312_RETINA_LANDSCAPE_16_9.jpg",
     "link": "https://www.ticketmaster.com.au/reunion-festival-adelaide-23-01-2027/event/25006514CABE63D1",
-    "source": "Ticketmaster Adelaide"
+    "source": "Ticketmaster Adelaide",
+    "festival": [
+      "Reunion Festival"
+    ]
   },
   {
     "title": "Froth and Fury Fest 2027",
@@ -6682,7 +6700,10 @@
     ],
     "image": "https://assets.atdw-online.com.au/images/5781053a787c920f368a9782cebf82b5.jpeg?mode=crop&width=900&height=506&rot=360",
     "link": "https://southaustralia.com/products/adelaide/event/2026-multicultural-festival",
-    "source": "South Australia Tourism Commission"
+    "source": "South Australia Tourism Commission",
+    "festival": [
+      "2026 Multicultural Festival"
+    ]
   },
   {
     "title": "Amora Hotel Adelaide Festive 2026",
@@ -7109,7 +7130,10 @@
     ],
     "image": "https://assets.atdw-online.com.au/images/ea4d4c7f26029b71fd8a4b0df60bdcee.jpeg?rect=457%2C0%2C7300%2C5475&w=450&h=335&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjYyMDU5ZTdhNDgyN2E5ZTcwZmFlYzQ5MSIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
     "link": "https://www.experienceadelaide.com.au/whats-on/adelaide-film-festival/",
-    "source": "Experience Adelaide"
+    "source": "Experience Adelaide",
+    "festival": [
+      "Adelaide Film Festival"
+    ]
   },
   {
     "title": "National Pharmacies Christmas Pageant",
@@ -7157,7 +7181,10 @@
     ],
     "image": "https://assets.atdw-online.com.au/images/0f90f01fd9c352b7cd05a775056a9613.jpeg?rect=389%2C0%2C6229%2C4672&w=450&h=335&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhYzcwNTA4NDYzNWM0MzMyYjQzZDc4NyIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
     "link": "https://www.experienceadelaide.com.au/whats-on/adelaide-italian-festival/",
-    "source": "Experience Adelaide"
+    "source": "Experience Adelaide",
+    "festival": [
+      "Adelaide Italian Festival"
+    ]
   },
   {
     "title": "Adelaide Town Hall Christmas Concert",
@@ -7193,7 +7220,10 @@
     ],
     "image": "https://assets.atdw-online.com.au/images/37572a7597f0f9deacde3f16e885d853.jpeg?rect=0%2C0%2C1600%2C1200&w=450&h=335&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhODdiNGEzYWEyNDRmYWY3NWU2YTdlMCIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
     "link": "https://www.experienceadelaide.com.au/whats-on/ozasia-festival-2026-maajela/",
-    "source": "Experience Adelaide"
+    "source": "Experience Adelaide",
+    "festival": [
+      "OzAsia Festival"
+    ]
   },
   {
     "title": "OzAsia Festival’s Weekend of Words",
@@ -7205,7 +7235,10 @@
     ],
     "image": "https://assets.atdw-online.com.au/images/b1e3b17f7cc7021ad8d91a74ddad8b0f.jpeg?rect=0%2C0%2C1600%2C1200&w=450&h=335&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhODdjMzVkM2U4NjE3M2E1ZTg0OWRjMyIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
     "link": "https://www.experienceadelaide.com.au/whats-on/ozasia-festivals-weekend-of-words/",
-    "source": "Experience Adelaide"
+    "source": "Experience Adelaide",
+    "festival": [
+      "OzAsia Festival"
+    ]
   },
   {
     "title": "Feast Feastival: Opening Night – Street Party!",
@@ -7289,7 +7322,10 @@
     ],
     "image": "https://assets.atdw-online.com.au/images/79a0af143dc9f20bf9b3b4160281b3e6.jpeg?rect=0%2C0%2C1600%2C1200&w=450&h=335&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhODY5MzNkZjMzZjM5MzA0NzM2NTEzYSIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
     "link": "https://www.experienceadelaide.com.au/whats-on/ozasia-festival/",
-    "source": "Experience Adelaide"
+    "source": "Experience Adelaide",
+    "festival": [
+      "OzAsia Festival"
+    ]
   },
   {
     "title": "La BohÃ¨me Club",
@@ -7577,7 +7613,10 @@
     ],
     "image": "https://images.humanitix.com/i/f04d0431-9e4a-4fc9-9aef-cfab5abc32c0.jpg@seo-500.jpg",
     "link": "https://events.humanitix.com/sidebyside-2027",
-    "source": "Humanitix Adelaide and Regions"
+    "source": "Humanitix Adelaide and Regions",
+    "festival": [
+      "Sidebyside Festival"
+    ]
   },
   {
     "title": "Single Lesbian, Bi & Queer Women @ No.6 East - City",
