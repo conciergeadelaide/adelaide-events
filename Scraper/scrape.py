@@ -31,6 +31,7 @@ try:
         parse_adelaide_repertory_theatre,
         parse_state_theatre_company,
         parse_south_australian_museum,
+        parse_art_gallery_south_australia,
         STATE_THEATRE_OFFICIAL_IMAGES,
         parse_adelaide_oval,
         parse_adelaide_convention_centre,
@@ -65,6 +66,7 @@ except ModuleNotFoundError:
         parse_adelaide_repertory_theatre,
         parse_state_theatre_company,
         parse_south_australian_museum,
+        parse_art_gallery_south_australia,
         STATE_THEATRE_OFFICIAL_IMAGES,
         parse_adelaide_oval,
         parse_adelaide_convention_centre,
@@ -600,6 +602,9 @@ def scrape_source(source):
 
     if name == "Adelaide Repertory Theatre":
         return parse_adelaide_repertory_theatre(fetch_page(url), url)
+
+    if name == "Art Gallery of South Australia":
+        return parse_art_gallery_south_australia(fetch_page(url), url)
 
     if name == "South Australian Museum":
         museum_url = "https://whatson.samuseum.sa.gov.au/"

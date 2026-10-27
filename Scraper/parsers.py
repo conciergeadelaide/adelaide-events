@@ -4385,3 +4385,158 @@ def parse_south_australian_museum(soup, source_url):
                        'image': image, 'url': url})
     print(f'    South Australian Museum: {len(urls)} detail links, {len(result)} verified dated events')
     return result
+
+
+# ============================================================
+# ART GALLERY OF SOUTH AUSTRALIA (AGSA)
+# ============================================================
+
+def parse_art_gallery_south_australia(soup, source_url):
+    """Read AGSA's official AJAX calendar; never infer dates for undated items."""
+    import calendar
+    import html as html_lib
+    from datetime import date, datetime, timedelta
+
+    page_html = html_lib.unescape(str(soup))
+    token_match = re.search(r"csrfToken\s*:\s*['\"]([^'\"]+)", page_html)
+    if not token_match:
+        raise RuntimeError("AGSA calendar CSRF token not found")
+
+    session = requests.Session()
+    session.headers.update({"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/140.0 Safari/537.36"})
+    # A fresh GET establishes the CSRF cookie required by Django.
+    response = session.get(source_url, timeout=30)
+    response.raise_for_status()
+    token_match = re.search(r"csrfToken\s*:\s*['\"]([^'\"]+)", html_lib.unescape(response.text))
+    if not token_match:
+        raise RuntimeError("AGSA calendar CSRF token missing from live page")
+    token = token_match.group(1)
+    response = session.post(
+        urljoin(source_url, "/calendar-api/events/"),
+        data={"csrfmiddlewaretoken": token, "date_range": "anytime", "event_category": ""},
+        headers={"Referer": source_url, "Origin": "https://www.agsa.sa.gov.au", "X-Requested-With": "XMLHttpRequest"},
+        timeout=40,
+    )
+    response.raise_for_status()
+    payload = response.json()
+    if not payload.get("success") or not isinstance(payload.get("html"), str):
+        raise RuntimeError("AGSA calendar returned no valid event HTML")
+    return parse_agsa_calendar_html(payload["html"])
+
+
+def parse_agsa_calendar_html(calendar_html, today=None):
+    """Parse the actual HTML returned by AGSA's calendar API.
+
+    Keeps separate dated activities; expands explicit weekly recurrence only.
+    Undated, daily and ongoing listings are skipped rather than guessed.
+    """
+    from datetime import date, datetime, timedelta
+
+    today = today or date.today()
+    soup = BeautifulSoup(calendar_html, "lxml")
+    months = {m.lower(): i for i, m in enumerate(
+        ("", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
+    ) if m}
+    month_pattern = r"Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec"
+    date_pattern = re.compile(r"(\d{1,2})\s+(" + month_pattern + r")[a-z]*\s*(20\d{2})?", re.I)
+    weekday_names = {name.lower(): idx for idx, name in enumerate(
+        ("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
+    )}
+
+    def parse_dates(label):
+        label = re.sub(r"\s+", " ", label).strip()
+        matches = list(date_pattern.finditer(label))
+        if not matches:
+            return []
+        year_hint = next((int(m.group(3)) for m in matches if m.group(3)), None)
+        if not year_hint:
+            return []
+        parsed = []
+        for idx, match in enumerate(matches[:2]):
+            day, month = int(match.group(1)), months[match.group(2)[:3].lower()]
+            year = int(match.group(3)) if match.group(3) else year_hint
+            # A range such as '15 May - 28 Feb 2027' starts the previous year.
+            if idx == 0 and not match.group(3) and len(matches) > 1:
+                last = matches[1]
+                if (month, day) > (months[last.group(2)[:3].lower()], int(last.group(1))):
+                    year -= 1
+            try:
+                parsed.append(date(year, month, day))
+            except ValueError:
+                return []
+        if len(parsed) == 2 and parsed[1] < parsed[0]:
+            return []
+        recurring = re.search(r"\bEvery\s+(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\b", label, re.I)
+        if recurring and len(parsed) == 2:
+            weekday = weekday_names[recurring.group(1).lower()]
+            current = parsed[0] + timedelta(days=(weekday - parsed[0].weekday()) % 7)
+            result = []
+            while current <= parsed[1] and len(result) < 120:
+                if current >= today:
+                    result.append((current, None))
+                current += timedelta(days=7)
+            return result
+        if len(parsed) == 2:
+            if parsed[1] < today:
+                return []
+            # One record for a date-span exhibition, not a record every day.
+            return [(max(parsed[0], today), parsed[1])]
+        return [(parsed[0], None)] if parsed[0] >= today else []
+
+    events = []
+    seen = set()
+    skipped = []
+    cards = soup.select("li.events-list__item")
+    if not cards:
+        raise RuntimeError("AGSA API response contained no event cards")
+    for card in cards:
+        title_node = card.select_one(".page-promo__title")
+        anchor = card.select_one("a.page-promo__link[href]")
+        if not title_node or not anchor:
+            continue
+        title = title_node.get_text(" ", strip=True)
+        date_node = card.select_one(".page-promo__data.human-date")
+        date_label = date_node.get_text(" ", strip=True) if date_node else ""
+        dates = parse_dates(date_label)
+        if not dates:
+            skipped.append((title, date_label))
+            continue
+        url = urljoin("https://www.agsa.sa.gov.au", anchor["href"])
+        image_node = card.select_one(".page-promo__thumb img")
+        image = ""
+        if image_node:
+            image = image_node.get("data-src", "")
+            if not image:
+                srcset = image_node.get("data-srcset", "")
+                if srcset:
+                    image = srcset.strip().split()[0]
+            if image.startswith("data:"):
+                image = ""
+        label_node = card.select_one(".page-promo__pre-title")
+        label = label_node.get_text(" ", strip=True) if label_node else ""
+        categories = categorise_event(title, label)
+        if "Exhibition" in label:
+            categories = ["Arts & Culture"]
+        elif "Talks" in label:
+            categories = ["Talks & Conferences"]
+        elif "Kids" in label:
+            categories = ["Family"] + [c for c in categories if c != "Family"]
+        elif "Workshop" in label:
+            categories = ["Workshop"] + [c for c in categories if c != "Workshop"]
+        elif categories == ["Other"]:
+            categories = ["Arts & Culture"]
+        for start, end in dates:
+            key = (title.casefold(), start.isoformat(), url.rstrip("/"))
+            if key in seen:
+                continue
+            seen.add(key)
+            record = {
+                "title": title, "venue": "Art Gallery of South Australia",
+                "date": start.isoformat() + "T00:00:00",
+                "category": categories, "image": image, "url": url,
+            }
+            if end and end > start:
+                record["end_date"] = end.isoformat() + "T23:59:59"
+            events.append(record)
+    print(f"    AGSA API: {len(cards)} listings, {len(events)} dated records, {len(skipped)} undated/past listings skipped")
+    return events

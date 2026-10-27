@@ -2799,6 +2799,18 @@
     "source": "Adelaide Entertainment Centre"
   },
   {
+    "title": "Thunderbirds V Swifts",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2027-04-17T14:30:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/10/WebImageSmallBanner_1050x520px_V1.jpg",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/thunderbirds-v-swifts-4/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
     "title": "Delta Goodrem",
     "venue": "Adelaide Entertainment Centre",
     "datetime": "2027-04-19T19:00:00",
@@ -2808,6 +2820,18 @@
     ],
     "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/07/DeltaGoodrem_1050x520_tk.jpg",
     "link": "https://www.adelaideentertainmentcentre.com.au/events/delta-goodrem-4/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "Thunderbirds V Lightning",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2027-05-01T18:30:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/10/WebImageSmallBanner_1050x520px_V1.jpg",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/thunderbirds-v-lightning-4/",
     "source": "Adelaide Entertainment Centre"
   },
   {
@@ -2823,6 +2847,18 @@
     "source": "Adelaide Entertainment Centre"
   },
   {
+    "title": "Thunderbirds V Mavericks",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2027-05-16T14:30:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/10/WebImageSmallBanner_1050x520px_V1.jpg",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/thunderbirds-v-mavericks-4/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
     "title": "UB40",
     "venue": "Adelaide Entertainment Centre",
     "datetime": "2027-05-19T19:30:00",
@@ -2832,6 +2868,18 @@
     ],
     "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/07/ub40_aec_1050x520.jpg",
     "link": "https://www.adelaideentertainmentcentre.com.au/events/ub40-2/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "Thunderbirds V Firebirds",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2027-05-23T12:30:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/10/WebImageSmallBanner_1050x520px_V1.jpg",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/thunderbirds-v-firebirds-4/",
     "source": "Adelaide Entertainment Centre"
   },
   {
@@ -2859,6 +2907,18 @@
     "source": "Adelaide Entertainment Centre"
   },
   {
+    "title": "Thunderbirds V Vixens",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2027-06-06T14:30:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/10/WebImageSmallBanner_1050x520px_V1.jpg",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/thunderbirds-v-vixens-4/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
     "title": "Urzila Carlson",
     "venue": "Adelaide Entertainment Centre",
     "datetime": "2027-06-18T19:00:00",
@@ -2871,6 +2931,18 @@
     "source": "Adelaide Entertainment Centre"
   },
   {
+    "title": "Thunderbirds V Sirens",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2027-06-19T18:30:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/10/WebImageSmallBanner_1050x520px_V1.jpg",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/thunderbirds-v-sirens/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
     "title": "ICEHOUSE",
     "venue": "Adelaide Entertainment Centre",
     "datetime": "2027-07-03T19:00:00",
@@ -2880,6 +2952,18 @@
     ],
     "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/09/ICEHOUSE_1050x520_adel.jpg",
     "link": "https://www.adelaideentertainmentcentre.com.au/events/icehouse/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "Thunderbirds V Fever",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2027-07-04T12:30:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/10/WebImageSmallBanner_1050x520px_V1.jpg",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/thunderbirds-v-fever-4/",
     "source": "Adelaide Entertainment Centre"
   },
   {
@@ -4184,6 +4268,18 @@
     "source": "Dom Polski Centre"
   },
   {
+    "title": "Steel Magnolias",
+    "venue": "Arts Theatre",
+    "datetime": "2027-05-16T00:00:00",
+    "end_datetime": "2027-05-29T23:59:59",
+    "category": [
+      "Theatre"
+    ],
+    "image": "https://adelaiderep.com/wp-content/uploads/2026/10/Steel-Magnolia-Sml-1.jpg",
+    "link": "https://adelaiderep.com/",
+    "source": "Adelaide Repertory Theatre"
+  },
+  {
     "title": "An Iliad",
     "venue": "Dunstan Playhouse",
     "datetime": "2027-01-29T00:00:00",
@@ -4328,6 +4424,358 @@
     "source": "South Australian Museum"
   },
   {
+    "title": "The Studio: Make An Impression",
+    "venue": "Art Gallery of South Australia",
+    "datetime": "2026-10-27T00:00:00",
+    "end_datetime": "2026-11-08T23:59:59",
+    "category": [
+      "Family"
+    ],
+    "image": "https://thumbor.ixchosted.com/BFBv4zSm5IZ9ZxuB2dbuUoI4gBU=/full-fit-in/800x0/filters:format(webp)/https://agsa-prod.s3.amazonaws.com/media/dd/images/AGSA_Studio_Example.7da4b8f.jpg",
+    "link": "https://www.agsa.sa.gov.au/whats-on/ongoing-programs/studio/the-studio-make-an-impression/",
+    "source": "Art Gallery of South Australia"
+  },
+  {
+    "title": "Monet to Matisse Friday Nights",
+    "venue": "Art Gallery of South Australia",
+    "datetime": "2026-10-30T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://thumbor.ixchosted.com/o3EVVyrgE6qzAraCxMwq04A0o4w=/800x0/filters:format(webp)/https://agsa-prod.s3.amazonaws.com/media/dd/images/149542-260715_MtM_People_in_Exhibition_Photo_Henry_Trumble_2000px_127.567cad3.jpg",
+    "link": "https://www.agsa.sa.gov.au/whats-on/exhibitions/monet-to-matisse-defying-tradition/monet-to-matisse-friday-nights/",
+    "source": "Art Gallery of South Australia"
+  },
+  {
+    "title": "Monet to Matisse Friday Nights",
+    "venue": "Art Gallery of South Australia",
+    "datetime": "2026-11-06T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://thumbor.ixchosted.com/o3EVVyrgE6qzAraCxMwq04A0o4w=/800x0/filters:format(webp)/https://agsa-prod.s3.amazonaws.com/media/dd/images/149542-260715_MtM_People_in_Exhibition_Photo_Henry_Trumble_2000px_127.567cad3.jpg",
+    "link": "https://www.agsa.sa.gov.au/whats-on/exhibitions/monet-to-matisse-defying-tradition/monet-to-matisse-friday-nights/",
+    "source": "Art Gallery of South Australia"
+  },
+  {
+    "title": "Monet to Matisse Friday Nights",
+    "venue": "Art Gallery of South Australia",
+    "datetime": "2026-11-13T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://thumbor.ixchosted.com/o3EVVyrgE6qzAraCxMwq04A0o4w=/800x0/filters:format(webp)/https://agsa-prod.s3.amazonaws.com/media/dd/images/149542-260715_MtM_People_in_Exhibition_Photo_Henry_Trumble_2000px_127.567cad3.jpg",
+    "link": "https://www.agsa.sa.gov.au/whats-on/exhibitions/monet-to-matisse-defying-tradition/monet-to-matisse-friday-nights/",
+    "source": "Art Gallery of South Australia"
+  },
+  {
+    "title": "Tuesday Talk - Russell Kelty discusses Impressions of Japan in Europe",
+    "venue": "Art Gallery of South Australia",
+    "datetime": "2026-10-27T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Talks & Conferences"
+    ],
+    "image": "https://thumbor.ixchosted.com/spf_PRpJFaAKmrztizfux-jroTw=/full-fit-in/800x0/filters:format(webp)/https://agsa-prod.s3.amazonaws.com/media/dd/images/19009-HQ-427G38.5f4222f.jpg",
+    "link": "https://www.agsa.sa.gov.au/whats-on/event-calendar/tuesday-talk-russell-kelty-discusses-impressions-of-japan-in-europe/",
+    "source": "Art Gallery of South Australia"
+  },
+  {
+    "title": "Art of the Install - Monet to Matisse: Defying Tradition",
+    "venue": "Art Gallery of South Australia",
+    "datetime": "2026-10-29T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music",
+      "Arts & Culture"
+    ],
+    "image": "https://thumbor.ixchosted.com/QnyXYeswWuX5XvzRZ3_XYQ5S6Go=/fit-in/800x0/filters:format(webp)/https://agsa-prod.s3.amazonaws.com/media/dd/images/147331-Monet_to_Matisse_Out_of_copyright_EDIT_4000PX_10.6a5b3b1.jpg",
+    "link": "https://www.agsa.sa.gov.au/whats-on/event-calendar/art-of-the-install-monet-to-matisse-defying-tradition/",
+    "source": "Art Gallery of South Australia"
+  },
+  {
+    "title": "Monet to Matisse Friday Nights: Kara Manansala",
+    "venue": "Art Gallery of South Australia",
+    "datetime": "2026-10-30T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://thumbor.ixchosted.com/uoboExaZRgpvRdX5hPp4FzMk00M=/full-fit-in/800x0/filters:format(webp)/https://agsa-prod.s3.amazonaws.com/media/dd/images/KARA_003_-_ASHLEIGH_NOORDHOEK.d51eeb4.jpg",
+    "link": "https://www.agsa.sa.gov.au/whats-on/exhibitions/monet-to-matisse-defying-tradition/monet-to-matisse-friday-nights/monet-to-matisse-friday-nights-kara-manansala/",
+    "source": "Art Gallery of South Australia"
+  },
+  {
+    "title": "Start at the Gallery: Music & Masterpieces",
+    "venue": "Art Gallery of South Australia",
+    "datetime": "2026-11-01T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Family",
+      "Music",
+      "Arts & Culture"
+    ],
+    "image": "https://thumbor.ixchosted.com/OSj-TzMU8yY3c6ffBr8iU2QHQVI=/full-fit-in/800x0/filters:format(webp)/https://agsa-prod.s3.amazonaws.com/media/dd/images/20261004_START_Photo_Carney_Sims_SRGB_2000px_DSD09867.03df3eb.jpg",
+    "link": "https://www.agsa.sa.gov.au/whats-on/event-calendar/start-at-the-gallery-music-masterpieces/",
+    "source": "Art Gallery of South Australia"
+  },
+  {
+    "title": "On the Terrace 2026",
+    "venue": "Art Gallery of South Australia",
+    "datetime": "2026-11-01T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://thumbor.ixchosted.com/e4ptl4czFNeFWyklH1DdOx8naVA=/800x0/filters:format(webp)/https://agsa-prod.s3.amazonaws.com/media/dd/images/OTT25-215-Austral-Harmony-Elinor-Warwick-Jane-Downer-Kim-Worley.8f855bc.jpg",
+    "link": "https://www.agsa.sa.gov.au/whats-on/event-calendar/on-the-terrace-2026/",
+    "source": "Art Gallery of South Australia"
+  },
+  {
+    "title": "Tuesday Talk - Tansy Curtin gives her closing remarks on Monet to Matisse: Defying Tradition",
+    "venue": "Art Gallery of South Australia",
+    "datetime": "2026-11-03T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Talks & Conferences"
+    ],
+    "image": "https://thumbor.ixchosted.com/KDCHTDK1tgsSeJHcyMfSmGz1HJA=/800x0/filters:format(webp)/https://agsa-prod.s3.amazonaws.com/media/dd/images/150073-260731_MtM_Oisima_Photo_Saige_Prime_2000px_SRGB_DSB00808.58b42f9.jpg",
+    "link": "https://www.agsa.sa.gov.au/whats-on/event-calendar/tuesday-talk-tansy-curtin-gives-her-closing-remarks-on-monet-to-matisse-defying-tradition/",
+    "source": "Art Gallery of South Australia"
+  },
+  {
+    "title": "Monet to Matisse Friday Nights: Ella Ion",
+    "venue": "Art Gallery of South Australia",
+    "datetime": "2026-11-06T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://thumbor.ixchosted.com/g7v4_Rmno99Xr0jngd5ZrjMIwhg=/800x0/filters:format(webp)/https://agsa-prod.s3.amazonaws.com/media/dd/images/280415_ELLA_ION_PRESS_STUDIO_2025_PHOTO-IZZIEAUSTIN_21_1_2000PX_AdobeRGB.c0fab90.jpg",
+    "link": "https://www.agsa.sa.gov.au/whats-on/exhibitions/monet-to-matisse-defying-tradition/monet-to-matisse-friday-nights/monet-to-matisse-friday-nights-ella-ion/",
+    "source": "Art Gallery of South Australia"
+  },
+  {
+    "title": "Tuesday Talk - Elle Freak discusses the work of Grace Cossington Smith",
+    "venue": "Art Gallery of South Australia",
+    "datetime": "2026-11-10T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Talks & Conferences"
+    ],
+    "image": "https://thumbor.ixchosted.com/cbo6a2XfXNg6KkQDjMukOJST-OQ=/800x0/filters:format(webp)/https://agsa-prod.s3.amazonaws.com/media/dd/images/77755-HQ-20172P9.95274c9.jpg",
+    "link": "https://www.agsa.sa.gov.au/whats-on/event-calendar/tuesday-talk-elle-freak-discusses-the-work-of-grace-cossington-smith/",
+    "source": "Art Gallery of South Australia"
+  },
+  {
+    "title": "Monet to Matisse Friday Nights - Aaronak",
+    "venue": "Art Gallery of South Australia",
+    "datetime": "2026-11-13T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://thumbor.ixchosted.com/ce1qhOUPvA_RSv4rxq5KSRbFkN4=/full-fit-in/800x0/filters:format(webp)/https://agsa-prod.s3.amazonaws.com/media/dd/images/att.3zaDBfe-_cq7NISyquB1FyRZVOkuUXgZtFKyLXU8xDY.3963131.jpg",
+    "link": "https://www.agsa.sa.gov.au/whats-on/exhibitions/monet-to-matisse-defying-tradition/monet-to-matisse-friday-nights/monet-to-matisse-friday-nights-aaronak/",
+    "source": "Art Gallery of South Australia"
+  },
+  {
+    "title": "Monet's Birthday Party",
+    "venue": "Art Gallery of South Australia",
+    "datetime": "2026-11-14T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://thumbor.ixchosted.com/RwssUAvpu3_A5oyaOzty7nnnEv8=/0x135:1333x1791/full-fit-in/800x0/filters:format(webp)/https://agsa-prod.s3.amazonaws.com/media/dd/images/261007_MtM_Preview_Night_Photo_Meaghan_Coles_2000px_SRGB_249.ac034ed.jpg",
+    "link": "https://www.agsa.sa.gov.au/whats-on/event-calendar/members-claude-monets-birthday-celebration/",
+    "source": "Art Gallery of South Australia"
+  },
+  {
+    "title": "Tuesday Talk - Ashlyn-Jade Schwenke discusses Botanical Illustrations on display in Gallery 1",
+    "venue": "Art Gallery of South Australia",
+    "datetime": "2026-11-17T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Talks & Conferences"
+    ],
+    "image": "https://thumbor.ixchosted.com/xLKCnNmBGXX1AR6UIOjqgCbT5IQ=/full-fit-in/800x0/filters:format(webp)/https://agsa-prod.s3.amazonaws.com/media/dd/images/9286-HQ-885P25A.da5ccb1.jpg",
+    "link": "https://www.agsa.sa.gov.au/whats-on/event-calendar/tuesday-talk-ashlyn-jade-schwenke-discusses-botanical-illustrations-on-display-in-gallery-1/",
+    "source": "Art Gallery of South Australia"
+  },
+  {
+    "title": "Tuesday Talk - Rebecca Evans discusses new and recent acquisitions",
+    "venue": "Art Gallery of South Australia",
+    "datetime": "2026-11-24T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Talks & Conferences"
+    ],
+    "image": "https://thumbor.ixchosted.com/2kI09QLzDSy83R7PcXFI0obAJlQ=/full-fit-in/800x0/filters:format(webp)/https://agsa-prod.s3.amazonaws.com/media/dd/images/72943-EX-HQ-20172A102.7f64657.jpg",
+    "link": "https://www.agsa.sa.gov.au/whats-on/event-calendar/tuesday-talk-rebecca-evans-discusses-new-and-recent-acquisitions/",
+    "source": "Art Gallery of South Australia"
+  },
+  {
+    "title": "Start at the Gallery: Sewing Stories",
+    "venue": "Art Gallery of South Australia",
+    "datetime": "2026-12-06T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Family",
+      "Arts & Culture"
+    ],
+    "image": "https://thumbor.ixchosted.com/mEIe2vcH-La91RTSPLWHqhqVidY=/full-fit-in/800x0/filters:format(webp)/https://agsa-prod.s3.amazonaws.com/media/dd/images/010625_Start_-_Luminous_Landscapes_Saige_Prime_RGB_DSB00118_2000PX_Adobe_RBG.58eee27.jpg",
+    "link": "https://www.agsa.sa.gov.au/whats-on/event-calendar/start-at-the-gallery-sewing-stories/",
+    "source": "Art Gallery of South Australia"
+  },
+  {
+    "title": "Neo Haus",
+    "venue": "Art Gallery of South Australia",
+    "datetime": "2026-12-12T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Workshop"
+    ],
+    "image": "https://thumbor.ixchosted.com/7CRHjEbOb9mMTDK_HPPEKVkrFVA=/800x0/filters:format(webp)/https://agsa-prod.s3.amazonaws.com/media/dd/images/260411_NEO_Yield_Strength_Photo_Clare_Elvia_SRGB_2000px_058.4567767.jpg",
+    "link": "https://www.agsa.sa.gov.au/whats-on/event-calendar/neo-december-2026/",
+    "source": "Art Gallery of South Australia"
+  },
+  {
+    "title": "AGSA Screen Wavelength",
+    "venue": "Art Gallery of South Australia",
+    "datetime": "2026-10-27T00:00:00",
+    "end_datetime": "2027-07-04T23:59:59",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://thumbor.ixchosted.com/QcrWVCRuNyyJlnT-DmJHOzoDCzY=/800x0/filters:format(webp)/https://agsa-prod.s3.amazonaws.com/media/dd/images/115699-EX-WR-20225MV2_STILL1.5fe892d.jpg",
+    "link": "https://www.agsa.sa.gov.au/whats-on/exhibitions/agsa-screen-wavelength/",
+    "source": "Art Gallery of South Australia"
+  },
+  {
+    "title": "CIPX Kaurna Miyurna (Critical Indigenous Photographic Exchange with the Kaurna Community)",
+    "venue": "Art Gallery of South Australia",
+    "datetime": "2026-10-27T00:00:00",
+    "end_datetime": "2026-11-01T23:59:59",
+    "category": [
+      "Community"
+    ],
+    "image": "https://thumbor.ixchosted.com/uY61gZFuL7IxFMd7qw9o2H-_OV0=/full-fit-in/800x0/filters:format(webp)/https://agsa-prod.s3.amazonaws.com/media/dd/images/MICKEY1.386bf20.jpg",
+    "link": "https://www.agsa.sa.gov.au/whats-on/exhibitions/cipx-kaurna-miyurna-critical-indigenous-photographic-exchange-with-the-kaurna-community/",
+    "source": "Art Gallery of South Australia"
+  },
+  {
+    "title": "Dressed Up: Fashion & Photography 1850s to 1920s",
+    "venue": "Art Gallery of South Australia",
+    "datetime": "2026-12-05T00:00:00",
+    "end_datetime": "2027-03-21T23:59:59",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://thumbor.ixchosted.com/YVerADW9ZYTqyP_ylN3fbCLhtS0=/full-fit-in/800x0/filters:format(webp)/https://agsa-prod.s3.amazonaws.com/media/dd/images/129366-HQ-863A93Aa-c_05_04-10-23.cdb0233.jpg",
+    "link": "https://www.agsa.sa.gov.au/whats-on/exhibitions/dressed-up-fashion-photography/",
+    "source": "Art Gallery of South Australia"
+  },
+  {
+    "title": "Floating Worlds: Prints from Osaka & Kyoto",
+    "venue": "Art Gallery of South Australia",
+    "datetime": "2027-01-30T00:00:00",
+    "end_datetime": "2027-04-18T23:59:59",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://thumbor.ixchosted.com/MWEHZZWMr52JgML6K3NVUzvhmzE=/224x238:5251x7686/full-fit-in/800x0/filters:format(webp)/https://agsa-prod.s3.amazonaws.com/media/dd/images/WR_20262G42_79807_1.de2a99e.tif",
+    "link": "https://www.agsa.sa.gov.au/whats-on/exhibitions/floating-worlds-prints-from-osaka-and-kyoto/",
+    "source": "Art Gallery of South Australia"
+  },
+  {
+    "title": "James Tylor: Turrangka...in the shadows",
+    "venue": "Art Gallery of South Australia",
+    "datetime": "2026-10-27T00:00:00",
+    "end_datetime": "2026-11-01T23:59:59",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://thumbor.ixchosted.com/LGir7Kwg8sM-VisUYvRi5Pfdbgo=/full-fit-in/800x0/filters:format(webp)/https://agsa-prod.s3.amazonaws.com/media/dd/images/Vanished_From_an_Untouched_Landscape_102018_Inkjet_print_on_hahnemuhle_paper_with_hole_removed_to_a_black_velvet_void__50x50cm_2000PX.276573e.jpg",
+    "link": "https://www.agsa.sa.gov.au/whats-on/exhibitions/james-tylor-turrangkain-the-shadows/",
+    "source": "Art Gallery of South Australia"
+  },
+  {
+    "title": "Melting Point: Wati Wai!",
+    "venue": "Art Gallery of South Australia",
+    "datetime": "2027-10-22T00:00:00",
+    "end_datetime": "2028-01-16T23:59:59",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://thumbor.ixchosted.com/OuA0jzrehX36Xhl4-jOVFU1o_tU=/full-fit-in/800x0/filters:format(webp)/https://agsa-prod.s3.amazonaws.com/media/dd/images/Walter_Hampton_and_Mark_Doolan_collecting_metal_from_a_car_wreck_2027_Mimili_project_photo__Meg_Hansen_2000PX_AdobeRGB.9293a6a.jpg",
+    "link": "https://www.agsa.sa.gov.au/whats-on/exhibitions/melting-point-wati-wai/",
+    "source": "Art Gallery of South Australia"
+  },
+  {
+    "title": "Michelle Nikou: Tell it slant",
+    "venue": "Art Gallery of South Australia",
+    "datetime": "2026-12-05T00:00:00",
+    "end_datetime": "2027-03-21T23:59:59",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://thumbor.ixchosted.com/EiO3TkRJFDirAGnV1YPlAOQLmy4=/full-fit-in/800x0/filters:format(webp)/https://agsa-prod.s3.amazonaws.com/media/dd/images/250924_2026_Program_Guildhouse_Michelle_Nikou_202412113_Michelle_Nikou_Adobe_RGB_4000px_Photo_Saul_Steed_0Z2Y4155.160dc4b.jpg",
+    "link": "https://www.agsa.sa.gov.au/whats-on/exhibitions/michelle-nikou-tell-it-slant/",
+    "source": "Art Gallery of South Australia"
+  },
+  {
+    "title": "Monet to Matisse: Defying Tradition",
+    "venue": "Art Gallery of South Australia",
+    "datetime": "2026-10-27T00:00:00",
+    "end_datetime": "2026-11-15T23:59:59",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://thumbor.ixchosted.com/o5RV0Pa5B7MITaBIP3f89GTvKuQ=/15x27:3985x3743/fit-in/800x0/filters:format(webp)/https://agsa-prod.s3.amazonaws.com/media/dd/images/144332-1981_54primary.8d122f8.jpg",
+    "link": "https://www.agsa.sa.gov.au/whats-on/exhibitions/monet-to-matisse-defying-tradition/",
+    "source": "Art Gallery of South Australia"
+  },
+  {
+    "title": "Tarnanthi on Tour: Too Deadly",
+    "venue": "Art Gallery of South Australia",
+    "datetime": "2026-10-27T00:00:00",
+    "end_datetime": "2028-12-03T23:59:59",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://thumbor.ixchosted.com/7qGZH4-FAZdrXN9vyixhxKAMsk8=/full-fit-in/800x0/filters:format(webp)/https://agsa-prod.s3.amazonaws.com/media/dd/images/HQ-20236P36_4000PX.908162d.jpg",
+    "link": "https://www.agsa.sa.gov.au/whats-on/exhibitions/tarnanthi-on-tour-too-deadly/",
+    "source": "Art Gallery of South Australia"
+  },
+  {
+    "title": "Two Islands, One Thread: The Art and Cultures of Lombok & Bali",
+    "venue": "Art Gallery of South Australia",
+    "datetime": "2026-10-27T00:00:00",
+    "end_datetime": "2027-02-28T23:59:59",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://thumbor.ixchosted.com/4Aa7A29qo4qMFOrgok8vVLEQXDA=/800x0/filters:format(webp)/https://agsa-prod.s3.amazonaws.com/media/dd/images/144607-HQ_20214A20_67854_01_003401_2000px.00af27a.jpg",
+    "link": "https://www.agsa.sa.gov.au/whats-on/exhibitions/two-islands-one-thread-textiles-of-lombok-bali/",
+    "source": "Art Gallery of South Australia"
+  },
+  {
+    "title": "Yunupiŋu: Seven Sisters",
+    "venue": "Art Gallery of South Australia",
+    "datetime": "2027-10-22T00:00:00",
+    "end_datetime": "2028-01-16T23:59:59",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://thumbor.ixchosted.com/N1EC-cqynGbl3CYRGskiiCEU9vw=/231x373:1074x1602/full-fit-in/800x0/filters:format(webp)/https://agsa-prod.s3.amazonaws.com/media/dd/images/HQ_3165_000089_2000PX_AdobeRGB.71ddbee.jpg",
+    "link": "https://www.agsa.sa.gov.au/whats-on/exhibitions/yunupi%C5%8Bu-seven-sisters/",
+    "source": "Art Gallery of South Australia"
+  },
+  {
     "title": "Government House Garden Tour (Fully Booked)",
     "venue": "Government House",
     "datetime": "2026-11-06T10:45:00",
@@ -4386,18 +4834,6 @@
     "image": "",
     "link": "https://ghadelaide.eventsair.com/garden-tours-26/registrations-2026",
     "source": "Government House"
-  },
-  {
-    "title": "Steel Magnolias",
-    "venue": "Arts Theatre",
-    "datetime": "2027-05-16T00:00:00",
-    "end_datetime": "2027-05-29T23:59:59",
-    "category": [
-      "Theatre"
-    ],
-    "image": "https://adelaiderep.com/wp-content/uploads/2026/10/Steel-Magnolia-Sml-1.jpg",
-    "link": "https://adelaiderep.com/",
-    "source": "Adelaide Repertory Theatre"
   },
   {
     "title": "Daryl Austin: The Long View",
@@ -6240,18 +6676,6 @@
     "source": "South Australia Tourism Commission"
   },
   {
-    "title": "Michelle Nikou: Tell it slant",
-    "venue": "490 North Terrace",
-    "datetime": "2026-12-05T10:00:00",
-    "end_datetime": "2027-03-21T17:00:00",
-    "category": [
-      "Exhibitions"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/856d746ab77d4e8d13f78a72965afc0d.jpeg?mode=crop&width=900&height=506&rot=360",
-    "link": "https://southaustralia.com/products/adelaide/event/michelle-nikou-tell-it-slant",
-    "source": "South Australia Tourism Commission"
-  },
-  {
     "title": "Morgan Jay",
     "venue": "98 Port Road",
     "datetime": "2026-11-01T19:00:00",
@@ -6446,18 +6870,6 @@
     "source": "Experience Adelaide"
   },
   {
-    "title": "Monet to Matisse: Defying Tradition",
-    "venue": "Art Gallery of South Australia",
-    "datetime": "2026-07-11T00:00:00",
-    "end_datetime": "2026-11-15T00:00:00",
-    "category": [
-      "Arts & Culture"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/86dd0d7010ef96e370837d1081dff371.jpeg?rect=111%2C0%2C1779%2C1334&w=450&h=335&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjY5MzIxMTRlOGYwOThkNzc1Y2UzYTYyNCIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
-    "link": "https://www.experienceadelaide.com.au/whats-on/monet-to-matisse-defying-tradition/",
-    "source": "Experience Adelaide"
-  },
-  {
     "title": "National Pharmacies Christmas Pageant",
     "venue": "South Terrace",
     "datetime": "2026-11-14T00:00:00",
@@ -6602,18 +7014,6 @@
     "source": "Experience Adelaide"
   },
   {
-    "title": "CIPX Kaurna Miyurna (Critical Indigenous Photographic Exchange with the Kaurna Community)",
-    "venue": "Art Gallery of South Australia",
-    "datetime": "2026-07-23T00:00:00",
-    "end_datetime": "2026-11-01T00:00:00",
-    "category": [
-      "Arts & Culture"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/937db7b6a2dfb24a9fd788ed05d64552.jpeg?rect=1%2C207%2C1600%2C1200&w=450&h=335&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhNjFhYzQ5OWEzNGU3MTE3YjMxNTlmMyIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
-    "link": "https://www.experienceadelaide.com.au/whats-on/cipx-kaurna-miyurna-critical-indigenous-photographic-exchange-with-the-kaurna-community/",
-    "source": "Experience Adelaide"
-  },
-  {
     "title": "Distillery Sessions at Gilbert Street",
     "venue": "Prohibition Liquor Co. Gilbert Street",
     "datetime": "2026-09-18T00:00:00",
@@ -6734,15 +7134,15 @@
     "source": "Humanitix Adelaide and Regions"
   },
   {
-    "title": "BrontÃ« EP Release show",
-    "venue": "Noori on the Midcoast",
-    "datetime": "2026-11-13T19:30:00+1030",
-    "end_datetime": "2026-11-13T23:30:00+1030",
+    "title": "Origins",
+    "venue": "Tatachilla Lutheran College Stadium",
+    "datetime": "2026-11-08T15:00:00+1030",
+    "end_datetime": "2026-11-08T17:30:00+1030",
     "category": [
       "Other"
     ],
-    "image": "https://images.humanitix.com/i/667b6bf0-ecc5-4829-aff7-ed49be430152.png@seo-500.jpg",
-    "link": "https://events.humanitix.com/bronte-ep-release-show",
+    "image": "https://images.humanitix.com/i/AK6pJp3FQOSh1Rhc788x@seo-500.jpg",
+    "link": "https://events.humanitix.com/big-sing-2026",
     "source": "Humanitix Adelaide and Regions"
   },
   {
@@ -6767,18 +7167,6 @@
     ],
     "image": "https://images.humanitix.com/i/2441c7f3-f904-400d-99ce-8e2aa12c80eb.jpg@seo-500.jpg",
     "link": "https://events.humanitix.com/daniel-champagne-live-at-mount-barker-town-hall-family-friendly-concert",
-    "source": "Humanitix Adelaide and Regions"
-  },
-  {
-    "title": "Shedding Light on Dark Skies: Light pollution, wildlife and the Carrickalinga story",
-    "venue": "Aldinga Arts Eco Village",
-    "datetime": "2026-11-09T19:00:00+1030",
-    "end_datetime": "2026-11-09T20:30:00+1030",
-    "category": [
-      "Other"
-    ],
-    "image": "https://images.humanitix.com/i/7477c48f-f47f-4460-8044-103e7078b7fb.jpg@seo-500.jpg",
-    "link": "https://events.humanitix.com/darkskies",
     "source": "Humanitix Adelaide and Regions"
   },
   {
@@ -6914,18 +7302,6 @@
     "source": "Humanitix Adelaide and Regions"
   },
   {
-    "title": "Minus18 Queer FormalÂ® Adelaide 2026",
-    "venue": "Adelaide Town Hall",
-    "datetime": "2026-11-06T18:30:00+1030",
-    "end_datetime": "2026-11-06T22:00:00+1030",
-    "category": [
-      "Other"
-    ],
-    "image": "https://images.humanitix.com/i/d2ae72aa-bb62-4873-ba3d-7e2ceb925be9.png@seo-500.jpg",
-    "link": "https://events.humanitix.com/minus18-queer-formal-r-adelaide-2026",
-    "source": "Humanitix Adelaide and Regions"
-  },
-  {
     "title": "Orange Breakfast - in recognition of the 16 Days of Activism against gender based violence",
     "venue": "3 Dumas St",
     "datetime": "2026-11-26T09:00:00+1030",
@@ -6962,6 +7338,18 @@
     "source": "Humanitix Adelaide and Regions"
   },
   {
+    "title": "Single Lesbian, Bi & Queer Women @ No.6 East - City",
+    "venue": "No.6 East",
+    "datetime": "2026-11-22T15:00:00+1030",
+    "end_datetime": "2026-11-22T18:00:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/ee3a27c4-242d-49f1-90de-e6a5cdcd6e31.png@seo-500.jpg",
+    "link": "https://events.humanitix.com/single-lesbian-bi-and-queer-women-no-6-east-city",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
     "title": "SINGLES Night 30+ @ Prancing Pony Adel. Hills",
     "venue": "Prancing Pony Brewery",
     "datetime": "2026-11-28T19:00:00+1030",
@@ -6986,6 +7374,42 @@
     "source": "Humanitix Adelaide and Regions"
   },
   {
+    "title": "'Sweat Your Prayers' 5Rhythms McLaren Vale",
+    "venue": "McLaren Vale Institute Hall",
+    "datetime": "2026-11-01T10:00:00+1030",
+    "end_datetime": "2026-11-01T12:00:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/f27318b4-8513-4f8b-a00c-7a694b963df8.jpg@seo-500.jpg",
+    "link": "https://events.humanitix.com/sweat-your-prayers-5rhythms",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "'Sweat Your Prayers' 5Rhythms McLaren Vale",
+    "venue": "McLaren Vale Institute Hall",
+    "datetime": "2026-12-06T10:00:00+1030",
+    "end_datetime": "2026-12-06T12:00:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/f27318b4-8513-4f8b-a00c-7a694b963df8.jpg@seo-500.jpg",
+    "link": "https://events.humanitix.com/sweat-your-prayers-5rhythms",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "'Sweat Your Prayers' 5Rhythms McLaren Vale",
+    "venue": "McLaren Vale Institute Hall",
+    "datetime": "2027-02-07T10:00:00+1030",
+    "end_datetime": "2027-02-07T12:00:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/f27318b4-8513-4f8b-a00c-7a694b963df8.jpg@seo-500.jpg",
+    "link": "https://events.humanitix.com/sweat-your-prayers-5rhythms",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
     "title": "THE FULL+ RUNRISE // Adelaide - 14th NOV 2026",
     "venue": "Chalk Hill Wines",
     "datetime": "2026-11-14T04:15:00+1030",
@@ -6998,6 +7422,42 @@
     "source": "Humanitix Adelaide and Regions"
   },
   {
+    "title": "BrontÃ« EP Release show",
+    "venue": "Noori on the Midcoast",
+    "datetime": "2026-11-13T19:30:00+1030",
+    "end_datetime": "2026-11-13T23:30:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/667b6bf0-ecc5-4829-aff7-ed49be430152.png@seo-500.jpg",
+    "link": "https://events.humanitix.com/bronte-ep-release-show",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "Shedding Light on Dark Skies: Light pollution, wildlife and the Carrickalinga story",
+    "venue": "Aldinga Arts Eco Village",
+    "datetime": "2026-11-09T19:00:00+1030",
+    "end_datetime": "2026-11-09T20:30:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/7477c48f-f47f-4460-8044-103e7078b7fb.jpg@seo-500.jpg",
+    "link": "https://events.humanitix.com/darkskies",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "Minus18 Queer FormalÂ® Adelaide 2026",
+    "venue": "Adelaide Town Hall",
+    "datetime": "2026-11-06T18:30:00+1030",
+    "end_datetime": "2026-11-06T22:00:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/d2ae72aa-bb62-4873-ba3d-7e2ceb925be9.png@seo-500.jpg",
+    "link": "https://events.humanitix.com/minus18-queer-formal-r-adelaide-2026",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
     "title": "2026 SA ASSA Christmas Connect",
     "venue": "The Holdfast Hotel, Glenelg",
     "datetime": "2026-11-11T17:30:00+1030",
@@ -7007,18 +7467,6 @@
     ],
     "image": "https://images.humanitix.com/i/b8823acc-3b00-472c-a90e-52c210230a2f.jpg@seo-500.jpg",
     "link": "https://events.humanitix.com/2026-sa-assa-christmas-connect",
-    "source": "Humanitix Adelaide and Regions"
-  },
-  {
-    "title": "Origins",
-    "venue": "Tatachilla Lutheran College Stadium",
-    "datetime": "2026-11-08T15:00:00+1030",
-    "end_datetime": "2026-11-08T17:30:00+1030",
-    "category": [
-      "Other"
-    ],
-    "image": "https://images.humanitix.com/i/AK6pJp3FQOSh1Rhc788x@seo-500.jpg",
-    "link": "https://events.humanitix.com/big-sing-2026",
     "source": "Humanitix Adelaide and Regions"
   },
   {
@@ -7115,18 +7563,6 @@
     ],
     "image": "https://images.humanitix.com/i/e51be05b-50ca-4e4a-8d3b-5e418da6e41d.png@seo-500.jpg",
     "link": "https://events.humanitix.com/sunday-at-the-cedars",
-    "source": "Humanitix Adelaide and Regions"
-  },
-  {
-    "title": "'Sweat Your Prayers' 5Rhythms McLaren Vale",
-    "venue": "McLaren Vale Institute Hall",
-    "datetime": "2026-11-01T10:00:00+1030",
-    "end_datetime": "2026-11-01T12:00:00+1030",
-    "category": [
-      "Other"
-    ],
-    "image": "https://images.humanitix.com/i/f27318b4-8513-4f8b-a00c-7a694b963df8.jpg@seo-500.jpg",
-    "link": "https://events.humanitix.com/sweat-your-prayers-5rhythms",
     "source": "Humanitix Adelaide and Regions"
   },
   {
