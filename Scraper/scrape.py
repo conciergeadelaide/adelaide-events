@@ -21,6 +21,7 @@ try:
     from config import SOURCES
     from parsers import (
         parse_json_ld,
+        parse_ace_gallery,
         parse_the_drive,
         parse_adelaide_symphony_orchestra,
         parse_state_opera_south_australia,
@@ -56,6 +57,7 @@ except ModuleNotFoundError:
     from Scraper.config import SOURCES
     from Scraper.parsers import (
         parse_json_ld,
+        parse_ace_gallery,
         parse_the_drive,
         parse_adelaide_symphony_orchestra,
         parse_state_opera_south_australia,
@@ -629,6 +631,9 @@ def scrape_source(source):
             soup = BeautifulSoup(handle.read(), "lxml")
         return parse_experience_adelaide(soup, url)
 
+    if name == "ACE Gallery":
+        return parse_ace_gallery(fetch_page("https://ace.gallery/"), url)
+
     if name == "Kings of Comedy":
         return parse_kings_of_comedy(fetch_page(url), url)
 
@@ -1194,7 +1199,7 @@ def main(only_source=None):
             "Nineteen Ten",
             "Adelaide Repertory Theatre",
             "Adelaide Botanic Gardens",
-            "Adelaide Cemetery Tours", "ACE Gallery",
+            "Adelaide Cemetery Tours",
             "Adelaide Central Market", "David Roche Foundation",
             "The Gov", "Trinity Sessions", "Morphettville Racecourse",
             "Gilles at the Grounds", "Holden Street Theatres",

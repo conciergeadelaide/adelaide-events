@@ -4788,6 +4788,141 @@
     "source": "Art Gallery of South Australia"
   },
   {
+    "title": "Stephanie Doddridge: Tools for Quiet Activism",
+    "venue": "Adelaide Contemporary Experimental (ACE)",
+    "datetime": "2026-07-25T00:00:00",
+    "end_datetime": "2027-01-31T23:59:59",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://ace.gallery/img/asset/YXNzZXRzLzAxLXdlYnJlcy1hY2VfbGFuYWFkYW1zX3dlYi0wMTU5Ny5qcGc=?w=900",
+    "link": "https://ace.gallery/whats-on/exhibitions/tools-for-quiet-activism",
+    "source": "ACE Gallery"
+  },
+  {
+    "title": "Leaves: Eco-Anxiety",
+    "venue": "Adelaide Contemporary Experimental (ACE)",
+    "datetime": "2026-09-11T00:00:00",
+    "end_datetime": "2026-12-05T23:59:59",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://ace.gallery/img/asset/YXNzZXRzL2xlYXZlcy1lY28tYW54aWV0eS1oZXJvLS1sb3dyZXMuanBn?w=900",
+    "link": "https://ace.gallery/whats-on/exhibitions/leaves-eco-anxiety",
+    "source": "ACE Gallery"
+  },
+  {
+    "title": "'Leaves: Eco-Anxiety' Artist Sharing: Alycia Bennett and Florian Cinco",
+    "venue": "Adelaide Contemporary Experimental (ACE)",
+    "datetime": "2026-11-03T12:30:00",
+    "end_datetime": "",
+    "category": [
+      "Talks & Conferences",
+      "Arts & Culture"
+    ],
+    "image": "https://ace.gallery/img/asset/YXNzZXRzL2FseS1mbG9yaWFuLmpwZw==?w=900",
+    "link": "https://ace.gallery/whats-on/live-programs/leaves-eco-anxiety-artist-talk-alycia-florian",
+    "source": "ACE Gallery"
+  },
+  {
+    "title": "Modern Mysticism",
+    "venue": "Adelaide Contemporary Experimental (ACE)",
+    "datetime": "2026-11-07T13:00:00",
+    "end_datetime": "",
+    "category": [
+      "Sport",
+      "Talks & Conferences",
+      "Arts & Culture"
+    ],
+    "image": "https://ace.gallery/img/asset/YXNzZXRzL2FjZV9lY29hbnhpZXR5X2xhbmFhZGFtc193ZWItMDU5NjYuanBn?w=900",
+    "link": "https://ace.gallery/whats-on/live-programs/leaves-eco-anxiety-artist-talk-emiko",
+    "source": "ACE Gallery"
+  },
+  {
+    "title": "Shan Michaels: Can Touch This",
+    "venue": "Adelaide Contemporary Experimental (ACE)",
+    "datetime": "2026-11-19T00:00:00",
+    "end_datetime": "2026-12-19T23:59:59",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://ace.gallery/img/asset/YXNzZXRzL2FjZV9wdXNoLXB1bGxfaW5zdGFsbC1waG90b2dyYXBoeV9tYXk5LTIwMjVfLTI1Nl9sb3Jlcy0oMSktMTc0ODkxMTUzNi5qcGc=?w=900",
+    "link": "https://ace.gallery/whats-on/exhibitions/can-touch-this-metro-arts",
+    "source": "ACE Gallery"
+  },
+  {
+    "title": "Opening Night – Shan Michaels: Can Touch This",
+    "venue": "Adelaide Contemporary Experimental (ACE)",
+    "datetime": "2026-11-19T18:00:00",
+    "end_datetime": "",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://ace.gallery/img/asset/YXNzZXRzL2FjZV9wdXNoLXB1bGxfaW5zdGFsbC1waG90b2dyYXBoeV9tYXk5LTIwMjVfLTI1Nl9sb3Jlcy0oMSktMTc0ODkxMTUzNi5qcGc=?w=900",
+    "link": "https://ace.gallery/whats-on/live-programs/shan-michaels-can-touch-this-opening",
+    "source": "ACE Gallery"
+  },
+  {
+    "title": "Government House Garden Tour (Fully Booked)",
+    "venue": "Government House",
+    "datetime": "2026-11-06T10:45:00",
+    "end_datetime": "2026-11-06T11:45:00",
+    "category": [
+      "Community"
+    ],
+    "image": "",
+    "link": "https://ghadelaide.eventsair.com/garden-tours-26/registrations-2026",
+    "source": "Government House"
+  },
+  {
+    "title": "Government House Garden Tour (Fully Booked)",
+    "venue": "Government House",
+    "datetime": "2026-12-04T10:45:00",
+    "end_datetime": "2026-12-04T11:45:00",
+    "category": [
+      "Community"
+    ],
+    "image": "",
+    "link": "https://ghadelaide.eventsair.com/garden-tours-26/registrations-2026",
+    "source": "Government House"
+  },
+  {
+    "title": "Government House Garden Tour (Fully Booked)",
+    "venue": "Government House",
+    "datetime": "2027-01-08T10:45:00",
+    "end_datetime": "2027-01-08T11:45:00",
+    "category": [
+      "Community"
+    ],
+    "image": "",
+    "link": "https://ghadelaide.eventsair.com/garden-tours-26/registrations-2026",
+    "source": "Government House"
+  },
+  {
+    "title": "Government House Garden Tour (Fully Booked)",
+    "venue": "Government House",
+    "datetime": "2027-02-05T10:45:00",
+    "end_datetime": "2027-02-05T11:45:00",
+    "category": [
+      "Community"
+    ],
+    "image": "",
+    "link": "https://ghadelaide.eventsair.com/garden-tours-26/registrations-2026",
+    "source": "Government House"
+  },
+  {
+    "title": "Government House Garden Tour (Fully Booked)",
+    "venue": "Government House",
+    "datetime": "2027-03-05T10:45:00",
+    "end_datetime": "2027-03-05T11:45:00",
+    "category": [
+      "Community"
+    ],
+    "image": "",
+    "link": "https://ghadelaide.eventsair.com/garden-tours-26/registrations-2026",
+    "source": "Government House"
+  },
+  {
     "title": "Wildlife Photographer of the Year",
     "venue": "Adelaide Botanic Garden",
     "datetime": "2026-09-25T00:00:00",
@@ -5006,66 +5141,6 @@
     "image": "https://cdn.environment.sa.gov.au/img/eyJidWNrZXQiOiJlbnZzYS1idWNrZXQiLCJrZXkiOiJib3RhbmljZ2FyZGVucy9pbWFnZXMvTUxCRy1QbGFudC1TYWxlLWJ1eWVycy5qcGciLCJlZGl0cyI6eyJ3ZWJwIjp7InF1YWxpdHkiOjgyfSwicmVzaXplIjp7IndpZHRoIjoxMjAwLCJoZWlnaHQiOjgwMCwiZml0IjoiY292ZXIifX19",
     "link": "https://www.botanicgardens.sa.gov.au/whats-on/plant-sale-at-mount-lofty",
     "source": "Adelaide Botanic Gardens"
-  },
-  {
-    "title": "Government House Garden Tour (Fully Booked)",
-    "venue": "Government House",
-    "datetime": "2026-11-06T10:45:00",
-    "end_datetime": "2026-11-06T11:45:00",
-    "category": [
-      "Community"
-    ],
-    "image": "",
-    "link": "https://ghadelaide.eventsair.com/garden-tours-26/registrations-2026",
-    "source": "Government House"
-  },
-  {
-    "title": "Government House Garden Tour (Fully Booked)",
-    "venue": "Government House",
-    "datetime": "2026-12-04T10:45:00",
-    "end_datetime": "2026-12-04T11:45:00",
-    "category": [
-      "Community"
-    ],
-    "image": "",
-    "link": "https://ghadelaide.eventsair.com/garden-tours-26/registrations-2026",
-    "source": "Government House"
-  },
-  {
-    "title": "Government House Garden Tour (Fully Booked)",
-    "venue": "Government House",
-    "datetime": "2027-01-08T10:45:00",
-    "end_datetime": "2027-01-08T11:45:00",
-    "category": [
-      "Community"
-    ],
-    "image": "",
-    "link": "https://ghadelaide.eventsair.com/garden-tours-26/registrations-2026",
-    "source": "Government House"
-  },
-  {
-    "title": "Government House Garden Tour (Fully Booked)",
-    "venue": "Government House",
-    "datetime": "2027-02-05T10:45:00",
-    "end_datetime": "2027-02-05T11:45:00",
-    "category": [
-      "Community"
-    ],
-    "image": "",
-    "link": "https://ghadelaide.eventsair.com/garden-tours-26/registrations-2026",
-    "source": "Government House"
-  },
-  {
-    "title": "Government House Garden Tour (Fully Booked)",
-    "venue": "Government House",
-    "datetime": "2027-03-05T10:45:00",
-    "end_datetime": "2027-03-05T11:45:00",
-    "category": [
-      "Community"
-    ],
-    "image": "",
-    "link": "https://ghadelaide.eventsair.com/garden-tours-26/registrations-2026",
-    "source": "Government House"
   },
   {
     "title": "Daryl Austin: The Long View",

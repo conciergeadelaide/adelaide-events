@@ -4619,3 +4619,135 @@ def parse_adelaide_botanic_gardens(soup, source_url):
                         "category":category,"image":image,"url":url})
     print(f"    Botanic Gardens: {len(seen)} verified dated event cards")
     return results
+
+
+# ============================================================
+# ADELAIDE CONTEMPORARY EXPERIMENTAL (ACE GALLERY)
+# ============================================================
+
+def parse_ace_gallery(soup, source_url):
+    """Collect verified, dated ACE exhibitions and live programs.
+
+    Discover official detail pages, then read the displayed When/date range.
+    Return [] on failure; existing records are protected by scrape.py.
+    """
+    from datetime import date
+    from urllib.parse import urlparse
+    from concurrent.futures import ThreadPoolExecutor, as_completed
+
+    base = "https://ace.gallery/"
+    session = requests.Session()
+    session.headers.update({"User-Agent": "Mozilla/5.0 (compatible; AdelaideEvents/1.0)"})
+    links = set()
+    listing_pages = [soup]
+    for path in ("whats-on", "whats-on/exhibitions", "whats-on/live-programs"):
+        try:
+            response = session.get(urljoin(base, path), timeout=20)
+            response.raise_for_status()
+            listing_pages.append(BeautifulSoup(response.text, "lxml"))
+        except requests.RequestException as exc:
+            print(f"    ACE listing {path}: {exc}")
+
+    for listing in listing_pages:
+        for anchor in listing.select("a[href]"):
+            link = urljoin(base, anchor.get("href", "")).split("#")[0].split("?")[0].rstrip("/")
+            parsed = urlparse(link)
+            if parsed.hostname not in ("ace.gallery", "www.ace.gallery"):
+                continue
+            parts = parsed.path.strip("/").split("/")
+            if len(parts) == 3 and parts[0] == "whats-on" and parts[1] in ("exhibitions", "live-programs") and parts[2]:
+                links.add(link)
+
+    print(f"    ACE: {len(links)} official detail links discovered")
+    months = {name.lower(): i for i, name in enumerate(
+        ("January", "February", "March", "April", "May", "June",
+         "July", "August", "September", "October", "November", "December"), 1)}
+    month_pattern = "|".join(months)
+    date_pattern = re.compile(
+        rf"\b(\d{{1,2}})\s+({month_pattern})\s*(?:20\d{{2}})?"
+        rf"(?:\s*(?:-|–|—|to)\s*(\d{{1,2}})\s+({month_pattern})\s*(20\d{{2}}))?", re.I)
+    single_pattern = re.compile(rf"\b(\d{{1,2}})\s+({month_pattern})\s+(20\d{{2}})\b", re.I)
+    today = date.today()
+
+    def extract(url):
+        try:
+            response = session.get(url, timeout=25)
+            response.raise_for_status()
+            page = BeautifulSoup(response.text, "lxml")
+        except requests.RequestException:
+            return None
+        h1 = page.find("h1")
+        title = " ".join(h1.stripped_strings).strip() if h1 else ""
+        if not title:
+            return None
+        # Only the short heading/When area is eligible for dates. Avoid
+        # dates embedded in artist biographies, articles or related links.
+        main = page.find("main") or page
+        text = " ".join(main.stripped_strings)
+        when = re.search(r"\bWhen\b", text, re.I)
+        candidates = []
+        if when:
+            candidates.append(text[when.end():when.end()+250])
+        candidates.append(text[:min(450, len(text))])
+        start = end = None
+        for candidate in candidates:
+            range_match = date_pattern.search(candidate)
+            if range_match and range_match.group(3) and range_match.group(5):
+                d1, m1, d2, m2, year = range_match.groups()
+                year = int(year)
+                try:
+                    end = date(year, months[m2.lower()], int(d2))
+                    start_year = year - 1 if (months[m1.lower()], int(d1)) > (end.month, end.day) else year
+                    start = date(start_year, months[m1.lower()], int(d1))
+                    break
+                except ValueError:
+                    pass
+            single = single_pattern.search(candidate)
+            if single:
+                d, m, y = single.groups()
+                try:
+                    start = end = date(int(y), months[m.lower()], int(d))
+                    break
+                except ValueError:
+                    pass
+        if not start or not end or end < today:
+            return None
+        image = ""
+        for attr, key in (("property", "og:image"), ("name", "twitter:image")):
+            meta = page.find("meta", attrs={attr:key})
+            if meta and meta.get("content"):
+                image = urljoin(url, meta["content"]); break
+        if not image:
+            image = get_image(main, url)
+        if image and ("favicon" in image.lower() or "logo" in image.lower()):
+            image = ""
+        category = ["Arts & Culture"]
+        if "/live-programs/" in url:
+            category = categorise_event(title, text[:300])
+            if category == ["Other"]:
+                category = ["Arts & Culture"]
+        # ACE's 'When' block sometimes shows an explicit start time.
+        time_match = re.search(r"\b(\d{1,2})(?::(\d{2}))?\s*(am|pm)\b",
+                               candidates[0][:140] if candidates else "", re.I)
+        hour = minute = 0
+        if time_match and start == end:
+            hour = int(time_match.group(1)) % 12 + (12 if time_match.group(3).lower() == "pm" else 0)
+            minute = int(time_match.group(2) or 0)
+        return {"title": title, "venue": "Adelaide Contemporary Experimental (ACE)",
+                "date": f"{start.isoformat()}T{hour:02d}:{minute:02d}:00",
+                "end_date": end.isoformat()+"T23:59:59" if end > start else "",
+                "category": category, "image": image, "url": url}
+
+    events = []
+    with ThreadPoolExecutor(max_workers=5) as pool:
+        futures = [pool.submit(extract, link) for link in sorted(links)]
+        for future in as_completed(futures):
+            try:
+                event = future.result()
+                if event:
+                    events.append(event)
+            except Exception as exc:
+                print(f"    ACE detail warning: {exc}")
+    events.sort(key=lambda e: (e["date"], e["title"]))
+    print(f"    ACE: {len(events)} verified current/future events")
+    return events
