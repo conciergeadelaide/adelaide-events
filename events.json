@@ -4776,6 +4776,223 @@
     "source": "Art Gallery of South Australia"
   },
   {
+    "title": "Wildlife Photographer of the Year",
+    "venue": "Adelaide Botanic Garden",
+    "datetime": "2026-09-25T00:00:00",
+    "end_datetime": "2027-01-31T23:59:59",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://cdn.environment.sa.gov.au/img/eyJidWNrZXQiOiJlbnZzYS1idWNrZXQiLCJrZXkiOiJib3RhbmljZ2FyZGVucy9pbWFnZXMvV1BZLTI2LTI3L2MtQmlkeXV0LUthbGl0YS1XaWxkbGlmZS1QaG90b2dyYXBoZXItb2YtdGhlLVllYXItaW1hZ2UtNTAuanBnIiwiZWRpdHMiOnsid2VicCI6eyJxdWFsaXR5Ijo4Mn0sInJlc2l6ZSI6eyJ3aWR0aCI6MTIwMCwiaGVpZ2h0Ijo4MDAsImZpdCI6ImNvdmVyIn19fQ==",
+    "link": "https://www.botanicgardens.sa.gov.au/whats-on/wildlife-photographer-of-the-year",
+    "source": "Adelaide Botanic Gardens"
+  },
+  {
+    "title": "Tools for Quiet Activism: Stephanie Doddridge",
+    "venue": "Adelaide Botanic Garden",
+    "datetime": "2026-07-25T00:00:00",
+    "end_datetime": "2027-01-31T23:59:59",
+    "category": [
+      "Community"
+    ],
+    "image": "https://cdn.environment.sa.gov.au/img/eyJidWNrZXQiOiJlbnZzYS1idWNrZXQiLCJrZXkiOiJib3RhbmljZ2FyZGVucy9pbWFnZXMvMDEtV0VCUkVTLUFDRV9MYW5hQWRhbXNfd2ViLTAxNTk3LmpwZyIsImVkaXRzIjp7IndlYnAiOnsicXVhbGl0eSI6ODJ9LCJyZXNpemUiOnsid2lkdGgiOjEyMDAsImhlaWdodCI6Nzk5LCJmaXQiOiJjb3ZlciJ9fX0=",
+    "link": "https://www.botanicgardens.sa.gov.au/whats-on/tools-for-quiet-activism-stephanie-doddridge",
+    "source": "Adelaide Botanic Gardens"
+  },
+  {
+    "title": "The Wild Side Photography Competition",
+    "venue": "Adelaide Botanic Garden",
+    "datetime": "2026-09-25T00:00:00",
+    "end_datetime": "2027-01-31T23:59:59",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://cdn.environment.sa.gov.au/img/eyJidWNrZXQiOiJlbnZzYS1idWNrZXQiLCJrZXkiOiJib3RhbmljZ2FyZGVucy9pbWFnZXMvV2lsZC1TaWRlLVBob3RvZ3JhcGh5LWNvbXBldGl0aW9uLnBuZyIsImVkaXRzIjp7IndlYnAiOnsicXVhbGl0eSI6ODJ9LCJyZXNpemUiOnsid2lkdGgiOjEyMDAsImhlaWdodCI6MTAwNSwiZml0IjoiY292ZXIifSwic2hhcnBlbiI6dHJ1ZX19",
+    "link": "https://www.botanicgardens.sa.gov.au/whats-on/the-wild-side-photographic-competition",
+    "source": "Adelaide Botanic Gardens"
+  },
+  {
+    "title": "Leaf Litter Critters",
+    "venue": "Adelaide Botanic Garden",
+    "datetime": "2026-09-25T00:00:00",
+    "end_datetime": "2027-01-31T23:59:59",
+    "category": [
+      "Community"
+    ],
+    "image": "https://cdn.environment.sa.gov.au/img/eyJidWNrZXQiOiJlbnZzYS1idWNrZXQiLCJrZXkiOiJib3RhbmljZ2FyZGVucy9pbWFnZXMvV1BZL0xlYWYtbGl0dGVyLWNyaXR0ZXItYXNzZXRzLTIzMjAteC0xNjgwLXB4LmpwZyIsImVkaXRzIjp7IndlYnAiOnsicXVhbGl0eSI6ODJ9LCJyZXNpemUiOnsid2lkdGgiOjEyMDAsImhlaWdodCI6ODY4LCJmaXQiOiJjb3ZlciJ9fX0=",
+    "link": "https://www.botanicgardens.sa.gov.au/whats-on/leaf-litter-critters",
+    "source": "Adelaide Botanic Gardens"
+  },
+  {
+    "title": "Forest Bathing",
+    "venue": "Adelaide Botanic Garden",
+    "datetime": "2026-10-18T00:00:00",
+    "end_datetime": "2026-11-01T23:59:59",
+    "category": [
+      "Community"
+    ],
+    "image": "https://cdn.environment.sa.gov.au/img/eyJidWNrZXQiOiJlbnZzYS1idWNrZXQiLCJrZXkiOiJib3RhbmljZ2FyZGVucy9pbWFnZXMvbGVhZl9RdWlldGx5LVdpbGQuanBnIiwiZWRpdHMiOnsid2VicCI6eyJxdWFsaXR5Ijo4Mn0sInJlc2l6ZSI6eyJ3aWR0aCI6MTIwMCwiaGVpZ2h0IjoxNTk4LCJmaXQiOiJjb3ZlciJ9fX0=",
+    "link": "https://www.botanicgardens.sa.gov.au/whats-on/forest-bathing",
+    "source": "Adelaide Botanic Gardens"
+  },
+  {
+    "title": "Queer Botany",
+    "venue": "Adelaide Botanic Garden",
+    "datetime": "2026-11-03T00:00:00",
+    "end_datetime": "2026-11-07T23:59:59",
+    "category": [
+      "Community"
+    ],
+    "image": "https://cdn.environment.sa.gov.au/img/eyJidWNrZXQiOiJlbnZzYS1idWNrZXQiLCJrZXkiOiJib3RhbmljZ2FyZGVucy9pbWFnZXMvUXVlZXJCb3RhbnlfRmVhc3RGZXN0aXZhbF8zMTI1eDI1MzEuanBnIiwiZWRpdHMiOnsid2VicCI6eyJxdWFsaXR5Ijo4Mn0sInJlc2l6ZSI6eyJ3aWR0aCI6MTIwMCwiaGVpZ2h0Ijo5NzEsImZpdCI6ImNvdmVyIn19fQ==",
+    "link": "https://www.botanicgardens.sa.gov.au/whats-on/queer-botany",
+    "source": "Adelaide Botanic Gardens"
+  },
+  {
+    "title": "ICOM NATHIST Conference",
+    "venue": "Adelaide Botanic Garden",
+    "datetime": "2026-11-09T00:00:00",
+    "end_datetime": "2026-11-13T23:59:59",
+    "category": [
+      "Talks & Conferences"
+    ],
+    "image": "https://cdn.environment.sa.gov.au/img/eyJidWNrZXQiOiJlbnZzYS1idWNrZXQiLCJrZXkiOiJib3RhbmljZ2FyZGVucy9pbWFnZXMvSUNPTS0xMjAweDkwMC1CR1NILXdlYnNpdGUtdGlsZS0yLnBuZyIsImVkaXRzIjp7IndlYnAiOnsicXVhbGl0eSI6ODJ9LCJyZXNpemUiOnsid2lkdGgiOjEyMDAsImhlaWdodCI6OTAwLCJmaXQiOiJjb3ZlciJ9LCJzaGFycGVuIjp0cnVlfX0=",
+    "link": "https://www.botanicgardens.sa.gov.au/whats-on/icom-nathist-conference",
+    "source": "Adelaide Botanic Gardens"
+  },
+  {
+    "title": "Home School Learning Day: Spring in the Garden",
+    "venue": "Adelaide Botanic Garden",
+    "datetime": "2026-11-12T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Community"
+    ],
+    "image": "https://cdn.environment.sa.gov.au/img/eyJidWNrZXQiOiJlbnZzYS1idWNrZXQiLCJrZXkiOiJib3RhbmljZ2FyZGVucy9pbWFnZXMvSU1HXzgzMjkuSlBHIiwiZWRpdHMiOnsid2VicCI6eyJxdWFsaXR5Ijo4Mn0sInJlc2l6ZSI6eyJ3aWR0aCI6MTIwMCwiaGVpZ2h0Ijo4MDAsImZpdCI6ImNvdmVyIn19fQ==",
+    "link": "https://www.botanicgardens.sa.gov.au/whats-on/home-school-learning-day-spring-in-the-garden",
+    "source": "Adelaide Botanic Gardens"
+  },
+  {
+    "title": "Nature-based wellbeing: Mindfulness in the Gardens",
+    "venue": "Adelaide Botanic Garden",
+    "datetime": "2026-11-20T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Community"
+    ],
+    "image": "https://cdn.environment.sa.gov.au/img/eyJidWNrZXQiOiJlbnZzYS1idWNrZXQiLCJrZXkiOiJib3RhbmljZ2FyZGVucy9pbWFnZXMvRFNDMDA5NDlfMjAyNS0xMC0yOC0wNjA3MTZfYWN6di5KUEciLCJlZGl0cyI6eyJ3ZWJwIjp7InF1YWxpdHkiOjgyfSwicmVzaXplIjp7IndpZHRoIjoxMjAwLCJoZWlnaHQiOjE4MDAsImZpdCI6ImNvdmVyIn19fQ==",
+    "link": "https://www.botanicgardens.sa.gov.au/whats-on/mindfulness-abg",
+    "source": "Adelaide Botanic Gardens"
+  },
+  {
+    "title": "Nature-based wellbeing: Introduction to Nature Journaling",
+    "venue": "Adelaide Botanic Garden",
+    "datetime": "2026-11-21T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Community"
+    ],
+    "image": "https://cdn.environment.sa.gov.au/img/eyJidWNrZXQiOiJlbnZzYS1idWNrZXQiLCJrZXkiOiJib3RhbmljZ2FyZGVucy9pbWFnZXMvTkpfTUxCRy5wbmciLCJlZGl0cyI6eyJ3ZWJwIjp7InF1YWxpdHkiOjgyfSwicmVzaXplIjp7IndpZHRoIjoxMjAwLCJoZWlnaHQiOjg2OCwiZml0IjoiY292ZXIifX19",
+    "link": "https://www.botanicgardens.sa.gov.au/whats-on/introduction-to-nature-journaling",
+    "source": "Adelaide Botanic Gardens"
+  },
+  {
+    "title": "Nature-based Wellbeing: Botanical Balms and Oil Infusions",
+    "venue": "Adelaide Botanic Garden",
+    "datetime": "2026-11-22T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Community"
+    ],
+    "image": "https://cdn.environment.sa.gov.au/img/eyJidWNrZXQiOiJlbnZzYS1idWNrZXQiLCJrZXkiOiJib3RhbmljZ2FyZGVucy9pbWFnZXMvQm90YW5pY2FsLUJhbG1zLXdlYi0zLmpwZyIsImVkaXRzIjp7IndlYnAiOnsicXVhbGl0eSI6ODJ9LCJyZXNpemUiOnsid2lkdGgiOjEyMDAsImhlaWdodCI6MTU5MywiZml0IjoiY292ZXIifX19",
+    "link": "https://www.botanicgardens.sa.gov.au/whats-on/botanical-balms",
+    "source": "Adelaide Botanic Gardens"
+  },
+  {
+    "title": "WOMADelaide",
+    "venue": "Adelaide Botanic Garden",
+    "datetime": "2027-03-05T00:00:00",
+    "end_datetime": "2027-03-08T23:59:59",
+    "category": [
+      "Community"
+    ],
+    "image": "https://cdn.environment.sa.gov.au/img/eyJidWNrZXQiOiJlbnZzYS1idWNrZXQiLCJrZXkiOiJib3RhbmljZ2FyZGVucy9pbWFnZXMvd29tYWQtMjYuanBnIiwiZWRpdHMiOnsid2VicCI6eyJxdWFsaXR5Ijo4Mn0sInJlc2l6ZSI6eyJ3aWR0aCI6MTIwMCwiaGVpZ2h0Ijo4MDAsImZpdCI6ImNvdmVyIn19fQ==",
+    "link": "https://www.botanicgardens.sa.gov.au/whats-on/womadelaide",
+    "source": "Adelaide Botanic Gardens"
+  },
+  {
+    "title": "Cultural Garden Tours",
+    "venue": "Adelaide Botanic Garden",
+    "datetime": "2026-10-09T00:00:00",
+    "end_datetime": "2027-12-31T23:59:59",
+    "category": [
+      "Music",
+      "Arts & Culture"
+    ],
+    "image": "https://cdn.environment.sa.gov.au/img/eyJidWNrZXQiOiJlbnZzYS1idWNrZXQiLCJrZXkiOiJib3RhbmljZ2FyZGVucy9pbWFnZXMvTmF0aXZlLVBsYW50LVRyYWlsLVRlYXNlci5wbmciLCJlZGl0cyI6eyJ3ZWJwIjp7InF1YWxpdHkiOjgyfSwicmVzaXplIjp7IndpZHRoIjoxMjAwLCJoZWlnaHQiOjEyMDAsImZpdCI6ImNvdmVyIn0sInNoYXJwZW4iOnRydWV9fQ==",
+    "link": "https://www.botanicgardens.sa.gov.au/whats-on/cultural-garden-tours",
+    "source": "Adelaide Botanic Gardens"
+  },
+  {
+    "title": "Free guided walks - Adelaide Botanic Garden",
+    "venue": "Adelaide Botanic Garden",
+    "datetime": "2026-10-09T00:00:00",
+    "end_datetime": "2027-12-31T23:59:59",
+    "category": [
+      "Community"
+    ],
+    "image": "https://cdn.environment.sa.gov.au/img/eyJidWNrZXQiOiJlbnZzYS1idWNrZXQiLCJrZXkiOiJib3RhbmljZ2FyZGVucy9pbWFnZXMvRmljdXMtd2Fsay1pbWFnZS1JRC0xMjE2MjYtY3JlZGl0LVNvdXRoLUF1c3RyYWxpYW4tVG91cmlzbS1Db21taXNzaW9uLmpwZyIsImVkaXRzIjp7IndlYnAiOnsicXVhbGl0eSI6ODJ9LCJyZXNpemUiOnsid2lkdGgiOjEyMDAsImhlaWdodCI6MTIwMCwiZml0IjoiY292ZXIifX19",
+    "link": "https://www.botanicgardens.sa.gov.au/whats-on/free-guided-walks-adelaide-botanic-garden-2",
+    "source": "Adelaide Botanic Gardens"
+  },
+  {
+    "title": "Free guided walks - Botanic Park",
+    "venue": "Botanic Park",
+    "datetime": "2026-10-09T00:00:00",
+    "end_datetime": "2027-12-31T23:59:59",
+    "category": [
+      "Community"
+    ],
+    "image": "https://cdn.environment.sa.gov.au/img/eyJidWNrZXQiOiJlbnZzYS1idWNrZXQiLCJrZXkiOiJib3RhbmljZ2FyZGVucy9pbWFnZXMvVHJlZXMtaW4tQm90YW5pYy1QYXJrLWRpZ2l0YWwuanBnIiwiZWRpdHMiOnsid2VicCI6eyJxdWFsaXR5Ijo4Mn0sInJlc2l6ZSI6eyJ3aWR0aCI6MTIwMCwiaGVpZ2h0Ijo5MDAsImZpdCI6ImNvdmVyIn0sInNoYXJwZW4iOnRydWV9fQ==",
+    "link": "https://www.botanicgardens.sa.gov.au/whats-on/free-guided-walks-adelaide-botanic-garden",
+    "source": "Adelaide Botanic Gardens"
+  },
+  {
+    "title": "Free guided walks - Mount Lofty",
+    "venue": "Mount Lofty Botanic Garden",
+    "datetime": "2026-10-09T00:00:00",
+    "end_datetime": "2027-12-31T23:59:59",
+    "category": [
+      "Community"
+    ],
+    "image": "https://cdn.environment.sa.gov.au/img/eyJidWNrZXQiOiJlbnZzYS1idWNrZXQiLCJrZXkiOiJib3RhbmljZ2FyZGVucy9pbWFnZXMvTUxCRy1HYXJkZW4tR3VpZGUtc3F1YXJlLmpwZyIsImVkaXRzIjp7IndlYnAiOnsicXVhbGl0eSI6ODJ9LCJyZXNpemUiOnsid2lkdGgiOjEyMDAsImhlaWdodCI6MTIwMCwiZml0IjoiY292ZXIifX19",
+    "link": "https://www.botanicgardens.sa.gov.au/whats-on/free-guided-walks-mt-lofty-2",
+    "source": "Adelaide Botanic Gardens"
+  },
+  {
+    "title": "Free guided walks - Wittunga",
+    "venue": "Wittunga Botanic Garden",
+    "datetime": "2026-10-09T00:00:00",
+    "end_datetime": "2027-12-31T23:59:59",
+    "category": [
+      "Community"
+    ],
+    "image": "https://cdn.environment.sa.gov.au/img/eyJidWNrZXQiOiJlbnZzYS1idWNrZXQiLCJrZXkiOiJib3RhbmljZ2FyZGVucy9pbWFnZXMvRnJlZS1ndWlkZWQtd2Fsa3MtV2l0dHVuZ2EucG5nIiwiZWRpdHMiOnsid2VicCI6eyJxdWFsaXR5Ijo4Mn0sInJlc2l6ZSI6eyJ3aWR0aCI6MTIwMCwiaGVpZ2h0Ijo4ODEsImZpdCI6ImNvdmVyIn0sInNoYXJwZW4iOnRydWV9fQ==",
+    "link": "https://www.botanicgardens.sa.gov.au/whats-on/free-guided-walks-wittunga",
+    "source": "Adelaide Botanic Gardens"
+  },
+  {
+    "title": "Plant sale at Mount Lofty",
+    "venue": "Mount Lofty Botanic Garden",
+    "datetime": "2025-03-23T00:00:00",
+    "end_datetime": "2026-11-22T23:59:59",
+    "category": [
+      "Community"
+    ],
+    "image": "https://cdn.environment.sa.gov.au/img/eyJidWNrZXQiOiJlbnZzYS1idWNrZXQiLCJrZXkiOiJib3RhbmljZ2FyZGVucy9pbWFnZXMvTUxCRy1QbGFudC1TYWxlLWJ1eWVycy5qcGciLCJlZGl0cyI6eyJ3ZWJwIjp7InF1YWxpdHkiOjgyfSwicmVzaXplIjp7IndpZHRoIjoxMjAwLCJoZWlnaHQiOjgwMCwiZml0IjoiY292ZXIifX19",
+    "link": "https://www.botanicgardens.sa.gov.au/whats-on/plant-sale-at-mount-lofty",
+    "source": "Adelaide Botanic Gardens"
+  },
+  {
     "title": "Government House Garden Tour (Fully Booked)",
     "venue": "Government House",
     "datetime": "2026-11-06T10:45:00",
@@ -6480,6 +6697,19 @@
     "source": "South Australia Tourism Commission"
   },
   {
+    "title": "CIPX Kaurna Miyurna (Critical Indigenous Photographic Exchange with the Kaurna Community)",
+    "venue": "490 North Terrace",
+    "datetime": "2026-07-23T00:00:00",
+    "end_datetime": "2026-11-01T00:00:00",
+    "category": [
+      "Exhibitions",
+      "First Nations"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/937db7b6a2dfb24a9fd788ed05d64552.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/cipx-kaurna-miyurna-critical-indigenous-photographic-exchange-with-the-kaurna-community",
+    "source": "South Australia Tourism Commission"
+  },
+  {
     "title": "Cutback by Scott Pyle",
     "venue": "175 St Vincent St",
     "datetime": "2026-09-30T11:00:00",
@@ -6673,6 +6903,18 @@
     ],
     "image": "https://assets.atdw-online.com.au/images/911e6b1bc5052b7e426d27d05098c42f.jpeg?mode=crop&width=900&height=506&rot=360",
     "link": "https://southaustralia.com/products/adelaide/event/kate-smith-property-semaphore-street-fair",
+    "source": "South Australia Tourism Commission"
+  },
+  {
+    "title": "Monet to Matisse: Defying Tradition",
+    "venue": "North Terrace",
+    "datetime": "2026-07-11T10:00:00",
+    "end_datetime": "2026-11-15T17:00:00",
+    "category": [
+      "Exhibitions"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/86dd0d7010ef96e370837d1081dff371.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/monet-to-matisse-defying-tradition",
     "source": "South Australia Tourism Commission"
   },
   {

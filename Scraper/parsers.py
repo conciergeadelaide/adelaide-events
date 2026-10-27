@@ -4540,3 +4540,82 @@ def parse_agsa_calendar_html(calendar_html, today=None):
             events.append(record)
     print(f"    AGSA API: {len(cards)} listings, {len(events)} dated records, {len(skipped)} undated/past listings skipped")
     return events
+
+
+# ============================================================
+# BOTANIC GARDENS OF SOUTH AUSTRALIA
+# ============================================================
+
+def parse_adelaide_botanic_gardens(soup, source_url):
+    """Read official What's On cards; preserve date ranges and real artwork."""
+    from datetime import date
+    from urllib.parse import urlparse
+
+    results = []
+    seen = set()
+    today = date.today()
+    for heading in soup.select("h3"):
+        anchor = heading.find_parent("a", href=True)
+        if not anchor:
+            continue
+        url = normalise_url(anchor.get("href"), source_url).split("#", 1)[0]
+        path = urlparse(url).path.rstrip("/")
+        if not path.startswith("/whats-on/") or path == "/whats-on" or url in seen:
+            continue
+        # The event card's main wrapper contains its title, calendar and picture.
+        card = heading
+        for _ in range(5):
+            if card.parent is None:
+                break
+            card = card.parent
+            if card.select_one('img[alt="Calendar icon"]'):
+                break
+        calendar_icon = card.select_one('img[alt="Calendar icon"]')
+        if not calendar_icon:
+            continue
+        calendar_row = calendar_icon.find_parent("div", class_=lambda c: c and "flex" in c)
+        if not calendar_row:
+            continue
+        dates_text = " ".join(calendar_row.stripped_strings)
+        matches = list(re.finditer(r"\b(\d{1,2})\s+(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)[a-z]*\s+(20\d{2})\b", dates_text, re.I))
+        if not matches:
+            continue
+        def as_iso(match):
+            value = parse_date_text(match.group(0))
+            return value[:10] if value else ""
+        start = as_iso(matches[0])
+        end = as_iso(matches[1]) if len(matches) > 1 else ""
+        if not start or (end or start) < today.isoformat():
+            continue
+        title = " ".join(heading.stripped_strings)
+        if not title:
+            continue
+        # Find the card's original image URL in its responsive source srcset.
+        image = ""
+        picture = card.select_one("picture")
+        if picture:
+            for source in picture.select("source[srcset]"):
+                srcset = source.get("srcset", "")
+                candidate = srcset.split(",", 1)[0].strip().split(" ", 1)[0]
+                if candidate.startswith("http"):
+                    image = candidate
+                    break
+        if not image:
+            img = card.select_one("img[src^='https://']")
+            if img:
+                image = img.get("src", "")
+        # Prefer the venue label over the umbrella source name.
+        venue = "Adelaide Botanic Garden"
+        for label in ("Mount Lofty", "Wittunga", "Botanic Park", "Adelaide"):
+            if label.lower() in title.lower() or label.lower() in card.get_text(" ", strip=True)[:100]:
+                venue = {"Mount Lofty":"Mount Lofty Botanic Garden", "Wittunga":"Wittunga Botanic Garden", "Botanic Park":"Botanic Park", "Adelaide":"Adelaide Botanic Garden"}[label]
+                break
+        category = categorise_event(title)
+        if category == ["Other"]:
+            category = ["Arts & Culture"] if any(x in title.lower() for x in ("photograph", "exhibition", "art")) else ["Community"]
+        seen.add(url)
+        results.append({"title":title,"venue":venue,"date":start+"T00:00:00",
+                        "end_date":end+"T23:59:59" if end and end > start else "",
+                        "category":category,"image":image,"url":url})
+    print(f"    Botanic Gardens: {len(seen)} verified dated event cards")
+    return results
