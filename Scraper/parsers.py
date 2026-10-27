@@ -4072,3 +4072,189 @@ def parse_state_theatre_company(soup, source_url):
         print(f'    State Theatre: {title} | {start} to {end} | {venue}')
     print(f'    State Theatre: {len(events)} verified upcoming productions from saved official page')
     return events
+
+
+# ============================================================
+# SOUTH AUSTRALIAN MUSEUM - OFFICIAL WHAT'S ON
+# ============================================================
+
+def parse_south_australian_museum(soup, source_url):
+    """Collect dated Museum events, using their own page dates and artwork."""
+    from datetime import date
+    from urllib.parse import urlparse
+
+    session = requests.Session()
+    session.headers.update({"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/140.0.0.0 Safari/537.36"})
+    urls, seen = [], set()
+    for anchor in soup.select('a[href]'):
+        url = normalise_url(anchor.get('href'), source_url).split('#')[0].split('?')[0]
+        parsed = urlparse(url)
+        if parsed.hostname != 'whatson.samuseum.sa.gov.au' or not parsed.path.startswith('/events/'):
+            continue
+        if url not in seen:
+            seen.add(url)
+            urls.append(url)
+
+    month_pattern = (r'(?:January|February|March|April|May|June|July|August|'
+                     r'September|October|November|December|Jan|Feb|Mar|Apr|Jun|'
+                     r'Jul|Aug|Sep|Sept|Oct|Nov|Dec)')
+    month_numbers = {name.lower(): number for number, name in enumerate(
+        ('January', 'February', 'March', 'April', 'May', 'June', 'July',
+         'August', 'September', 'October', 'November', 'December'), 1)}
+    month_numbers.update({name[:3].lower(): number for name, number in
+                          list(month_numbers.items())})
+    month_numbers['sept'] = 9
+
+    def as_iso(day, month, year, end=False):
+        try:
+            return datetime(int(year), month_numbers[month.lower()], int(day),
+                            23 if end else 0, 59 if end else 0,
+                            59 if end else 0).isoformat()
+        except (ValueError, KeyError):
+            return ''
+
+    def parse_dates(value):
+        """Recognise explicitly dated spans; do not infer missing years."""
+        value = ' '.join(str(value or '').replace('\xa0', ' ').replace('–', '-')
+                         .replace('—', '-').split())
+        m = re.search(rf'\b(\d{{1,2}})\s+({month_pattern})\s+(20\d{{2}})\s*'
+                      rf'-\s*(\d{{1,2}})\s+({month_pattern})\s+(20\d{{2}})\b', value, re.I)
+        if m:
+            d1, mo1, y1, d2, mo2, y2 = m.groups()
+            return as_iso(d1, mo1, y1), as_iso(d2, mo2, y2, True)
+        m = re.search(rf'\b(\d{{1,2}})\s+({month_pattern})\s*-\s*'
+                      rf'(\d{{1,2}})\s+({month_pattern})\s+(20\d{{2}})\b', value, re.I)
+        if m:
+            d1, mo1, d2, mo2, year = m.groups()
+            start = as_iso(d1, mo1, year)
+            end_year = int(year) + (month_numbers[mo1.lower()] > month_numbers[mo2.lower()])
+            return start, as_iso(d2, mo2, end_year, True)
+        m = re.search(rf'\b(\d{{1,2}})\s*-\s*(\d{{1,2}})\s+'
+                      rf'({month_pattern})\s+(20\d{{2}})\b', value, re.I)
+        if m:
+            d1, d2, month, year = m.groups()
+            return as_iso(d1, month, year), as_iso(d2, month, year, True)
+        m = re.search(rf'\b(\d{{1,2}})\s+({month_pattern})\s+(20\d{{2}})\b', value, re.I)
+        if m:
+            day, month, year = m.groups()
+            return as_iso(day, month, year), ''
+        m = re.search(rf'\b({month_pattern})\s+(\d{{1,2}}),?\s+(20\d{{2}})\b', value, re.I)
+        if m:
+            month, day, year = m.groups()
+            return as_iso(day, month, year), ''
+        return '', ''
+
+    def image_url(value, base):
+        value = str(value or '').strip()
+        if not value or value.startswith(('data:', 'blob:')):
+            return ''
+        url = normalise_url(value, base)
+        path = urlparse(url).path.lower()
+        if not path.endswith(('.jpg', '.jpeg', '.png', '.webp', '.avif')):
+            return ''
+        if any(bad in path for bad in ('vectors-wrapper', 'logo', 'favicon',
+                                       'placeholder', 'icon-', 'sprite', 'arrow',
+                                       'payment', 'social-', 'badge', 'brandmark')):
+            return ''
+        return url
+
+    def event_image(detail, url):
+        """Prefer the event's main hero, never the Webflow SVG placeholder."""
+        main = detail.find('main') or detail
+        candidates = []
+        for element in main.find_all(['img', 'source']):
+            for attr in ('data-src', 'data-lazy-src', 'data-original', 'src',
+                         'data-srcset', 'srcset'):
+                raw = element.get(attr)
+                if not raw:
+                    continue
+                # The first srcset entry is usually an actual Webflow image.
+                first = str(raw).split(',')[0].strip().split(' ')[0]
+                candidate = image_url(first, url)
+                if candidate:
+                    alt = str(element.get('alt') or '').lower()
+                    score = 2 if any(term in alt for term in ('event', 'exhibition', 'poster')) else 0
+                    score += 1 if element.find_parent(['header', 'figure', 'picture']) else 0
+                    candidates.append((score, candidate))
+        for element in main.find_all(attrs={'style': True}):
+            match = re.search(r'background-image\s*:\s*url\([\'\"]?([^\'\")]+)',
+                              str(element.get('style')), re.I)
+            if match:
+                candidate = image_url(match.group(1), url)
+                if candidate:
+                    candidates.append((1, candidate))
+        # Meta images are a fallback; some pages expose a generic SVG there.
+        for attr, value in (('property', 'og:image'), ('name', 'twitter:image')):
+            meta = detail.find('meta', attrs={attr: value})
+            candidate = image_url(meta.get('content'), url) if meta else ''
+            if candidate:
+                candidates.append((0, candidate))
+        return sorted(enumerate(candidates), key=lambda x: (-x[1][0], x[0]))[0][1][1] if candidates else ''
+
+    result = []
+    for url in urls:
+        try:
+            response = session.get(url, timeout=25)
+            response.raise_for_status()
+            detail = BeautifulSoup(response.text, 'lxml')
+        except requests.RequestException as exc:
+            print(f'    Museum detail ERROR: {url} -> {exc}')
+            continue
+        title_tag = detail.title
+        title = title_tag.get_text(' ', strip=True).split(' | ')[0].strip() if title_tag else ''
+        if not title:
+            og = detail.find('meta', attrs={'property': 'og:title'})
+            title = str(og.get('content') or '').split(' | ')[0].strip() if og else ''
+        if not title or title.lower().startswith(('access guide:', 'professional development for teachers', 'museum in a box')):
+            continue
+
+        main = detail.find('main') or detail
+        page_text = ' '.join(main.get_text(' ', strip=True).split())
+        start, end = '', ''
+        # The page's labelled Dates field is more authoritative than an
+        # unrelated offer, a footer date, or a news item.
+        labelled = re.search(r'\b(?:Exhibition details\s+)?Dates?\s*:\s*(.{0,160})',
+                             page_text, re.I)
+        if labelled:
+            start, end = parse_dates(labelled.group(1))
+        if not start:
+            for item in parse_json_ld(detail, url):
+                candidate = str(item.get('date') or '')
+                if re.fullmatch(r'20\d{2}-\d{2}-\d{2}(?:T.*)?', candidate):
+                    start = candidate[:10] + 'T00:00:00'
+                    candidate_end = str(item.get('end_date') or '')
+                    if re.match(r'20\d{2}-\d{2}-\d{2}', candidate_end):
+                        end = candidate_end[:10] + 'T23:59:59'
+                    break
+        if not start:
+            # Search the event introduction only, not navigation/related events.
+            start, end = parse_dates(page_text[:1400])
+        if not start:
+            print(f'    Museum skipped (no confirmed dated event): {title}')
+            continue
+        if end and end[:10] < start[:10]:
+            end = ''
+        if (end or start)[:10] < date.today().isoformat():
+            continue
+        # Nonconsecutive dates (e.g. tours on 3 and 7 November) must not
+        # become a continuous 3-7 November exhibition. Keep a single
+        # verified occurrence rather than inventing an uninterrupted range.
+        image = event_image(detail, url)
+        if not image:
+            print(f'    Museum no event artwork found: {title}')
+        lower = title.lower()
+        if 'exhibition' in lower or 'on display' in page_text[:350].lower():
+            category = ['Exhibitions']
+        elif 'tour' in lower:
+            category = ['Talks']
+        elif 'conference' in lower:
+            category = ['Conferences/Workshops/Expos']
+        elif 'on the terrace' in lower or 'concert' in lower:
+            category = ['Music']
+        else:
+            category = ['Other']
+        result.append({'title': title, 'venue': 'South Australian Museum',
+                       'date': start, 'end_date': end, 'category': category,
+                       'image': image, 'url': url})
+    print(f'    South Australian Museum: {len(urls)} detail links, {len(result)} verified dated events')
+    return result

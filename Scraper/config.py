@@ -85,7 +85,7 @@ SOURCES = [
     },
     {
         "name": "South Australian Museum",
-        "url": "https://www.samuseum.sa.gov.au/events"
+        "url": "https://whatson.samuseum.sa.gov.au/"
     },
     {
         "name": "Art Gallery of South Australia",
@@ -175,7 +175,8 @@ SOURCES = [
 # Ticketmaster Adelaide listings (requires TICKETMASTER_API_KEY environment variable)
 SOURCES.append({"name": "Ticketmaster Adelaide", "url": "https://app.ticketmaster.com/discovery/v2/events.json"})
 
-# AllEvents.in intentionally disabled due to unreliable dates and duplicates.
+# Regional AllEvents discovery, including Bonython Park.
+SOURCES.append({"name": "AllEvents Adelaide and Surrounds", "url": "https://allevents.in/adelaide"})
 
 # Government House public visitor activities.
 SOURCES.append({"name": "Government House", "url": "https://www.governor.sa.gov.au/vice-regal/lunch-on-the-lawns"})

@@ -30,6 +30,7 @@ try:
         parse_kings_of_comedy,
         parse_adelaide_repertory_theatre,
         parse_state_theatre_company,
+        parse_south_australian_museum,
         STATE_THEATRE_OFFICIAL_IMAGES,
         parse_adelaide_oval,
         parse_adelaide_convention_centre,
@@ -63,6 +64,7 @@ except ModuleNotFoundError:
         parse_kings_of_comedy,
         parse_adelaide_repertory_theatre,
         parse_state_theatre_company,
+        parse_south_australian_museum,
         STATE_THEATRE_OFFICIAL_IMAGES,
         parse_adelaide_oval,
         parse_adelaide_convention_centre,
@@ -225,6 +227,19 @@ def is_cancelled_secret_garden(event):
         return False
     event_id = parsed.path.rstrip("/").split("/")[-1]
     return event_id in CANCELLED_EVENT_IDS
+
+
+def is_explicitly_cancelled(event):
+    """Exclude listings whose titles explicitly announce cancellation.
+
+    Only a leading status marker is considered; ordinary titles containing
+    the word 'cancelled' elsewhere are not automatically discarded.
+    """
+    title = str(event.get("title") or "").strip()
+    return bool(re.match(
+        r"^(?:\[\s*cancelled\s*\]|cancelled\s*(?:[|:—–-]|$))",
+        title, flags=re.IGNORECASE
+    ))
 
 
 def clean_event(event, source_name):
@@ -585,6 +600,10 @@ def scrape_source(source):
 
     if name == "Adelaide Repertory Theatre":
         return parse_adelaide_repertory_theatre(fetch_page(url), url)
+
+    if name == "South Australian Museum":
+        museum_url = "https://whatson.samuseum.sa.gov.au/"
+        return parse_south_australian_museum(fetch_page(museum_url), museum_url)
 
     if name == "State Theatre Company South Australia":
         snapshot = os.path.join(os.path.dirname(__file__), 'state_theatre_upcoming.html')
@@ -1137,7 +1156,7 @@ def main(only_source=None):
         known_empty_generic_sources = {
             "Nineteen Ten",
             "Adelaide Repertory Theatre",
-            "South Australian Museum", "Adelaide Botanic Gardens",
+            "Adelaide Botanic Gardens",
             "Adelaide Cemetery Tours", "ACE Gallery",
             "Adelaide Central Market", "David Roche Foundation",
             "The Gov", "Trinity Sessions", "Morphettville Racecourse",
@@ -1425,6 +1444,15 @@ def main(only_source=None):
     current_keys = {event_key(e) for e in final_events}
     current_urls = {_event_url_identity(e) for e in final_events}
     current_urls.discard("")
+    # Humanitix recurring bookings can have several independently dated
+    # sessions under ONE URL. A refreshed session on one date must not
+    # suppress an older, still-upcoming session on another date.
+    current_humanitix_sessions = {
+        (_event_url_identity(e), _date(e))
+        for e in final_events
+        if str(e.get("source", "")).startswith("Humanitix ")
+        and _event_url_identity(e) and _date(e)
+    }
     preserved_missing = []
     for old_event in existing_events:
         if not any(event_belongs_to_source(old_event, source)
@@ -1434,13 +1462,24 @@ def main(only_source=None):
             continue
         key = event_key(old_event)
         url_key = _event_url_identity(old_event)
-        if key in current_keys or (url_key and url_key in current_urls):
+        is_humanitix = str(old_event.get("source", "")).startswith("Humanitix ")
+        if is_humanitix:
+            # Match recurring sessions by booking URL AND calendar date.
+            # Different dates are different events even with the same URL.
+            already_refreshed = bool(
+                url_key and (url_key, _date(old_event)) in current_humanitix_sessions
+            )
+        else:
+            already_refreshed = bool(url_key and url_key in current_urls)
+        if key in current_keys or already_refreshed:
             continue
         final_events.append(old_event)
         preserved_missing.append(old_event)
         current_keys.add(key)
         if url_key:
             current_urls.add(url_key)
+            if is_humanitix:
+                current_humanitix_sessions.add((url_key, _date(old_event)))
 
     if preserved_missing:
         print(f"Preserved {len(preserved_missing)} unmatched future/ongoing "
@@ -1632,11 +1671,58 @@ def main(only_source=None):
     for event in non_tourism:
         by_date.setdefault(str(event.get("datetime", ""))[:10], []).append(event)
 
+    # Museum-specific aliases: the official site may add "Exhibition" or a
+    # year to the title, while SATC may list a street or "Various locations".
+    # Require the same start date AND one of these distinctive event identities;
+    # never use a loose match for other Museum events or festival activities.
+    def museum_tourism_match(tourism_event, official_event):
+        if official_event.get("source") != "South Australian Museum":
+            return False
+        if _date(tourism_event) != _date(official_event):
+            return False
+        a = comparable_title(tourism_event.get("title", ""))
+        b = comparable_title(official_event.get("title", ""))
+        identities = (
+            "australian geographic nature photographer of the year",
+            "on the terrace",
+        )
+        for identity in identities:
+            if a == identity and (b == identity or b.startswith(identity + " ")):
+                return True
+        return False
+
+    # Preserve SATC's published times when the official Museum listing
+    # supplies only midnight placeholders. Do not alter a known official time.
+    museum_times_recovered = 0
+    for official in non_tourism:
+        if official.get("source") != "South Australian Museum":
+            continue
+        matches = [t for t in tourism if museum_tourism_match(t, official)]
+        if len(matches) != 1:
+            continue
+        satc = matches[0]
+        official_start = str(official.get("datetime") or "")
+        satc_start = str(satc.get("datetime") or "")
+        if official_start.endswith("T00:00:00") and _time(satc):
+            official["datetime"] = satc_start
+            museum_times_recovered += 1
+        official_end = str(official.get("end_datetime") or "")
+        satc_end = str(satc.get("end_datetime") or "")
+        if satc_end and _time(satc if not satc_end else {"datetime": satc_end}):
+            if not official_end:
+                # Same-day events may have no end_date in the Museum feed.
+                official["end_datetime"] = satc_end
+            elif official_end[:10] == satc_end[:10] and official_end.endswith("T23:59:59"):
+                official["end_datetime"] = satc_end
+    if museum_times_recovered:
+        print(f"Museum: recovered {museum_times_recovered} SATC start times")
+
     kept_tourism = []
     tourism_duplicates = 0
     for event in tourism:
         same_day = by_date.get(str(event.get("datetime", ""))[:10], [])
-        if any(tourism_matches_official(event, original) for original in same_day):
+        if any(tourism_matches_official(event, original) or
+               museum_tourism_match(event, original) for original in same_day):
             tourism_duplicates += 1
         else:
             kept_tourism.append(event)
@@ -1815,6 +1901,13 @@ def main(only_source=None):
     final_events = [event for event in final_events
                     if not is_cancelled_secret_garden(event)]
     print(f"Cancelled Secret Garden listings excluded: {cancelled_count - len(final_events)}")
+
+    # Remove explicitly cancelled listings, including older records restored
+    # by the preservation safeguard. This is source-independent and applies
+    # to both fresh and retained events.
+    explicitly_cancelled = sum(is_explicitly_cancelled(e) for e in final_events)
+    final_events = [e for e in final_events if not is_explicitly_cancelled(e)]
+    print(f"Explicitly cancelled listings excluded: {explicitly_cancelled}")
 
     # Permanently exclude unreliable AllEvents records, including legacy preserved ones.
     def _is_allevents(event):
