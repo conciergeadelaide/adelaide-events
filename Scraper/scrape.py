@@ -22,6 +22,7 @@ try:
     from parsers import (
         parse_json_ld,
         parse_ace_gallery,
+        parse_fever_candlelight,
         parse_the_drive,
         parse_adelaide_symphony_orchestra,
         parse_state_opera_south_australia,
@@ -58,6 +59,7 @@ except ModuleNotFoundError:
     from Scraper.parsers import (
         parse_json_ld,
         parse_ace_gallery,
+        parse_fever_candlelight,
         parse_the_drive,
         parse_adelaide_symphony_orchestra,
         parse_state_opera_south_australia,
@@ -630,6 +632,9 @@ def scrape_source(source):
         with open(snapshot, "r", encoding="utf-8") as handle:
             soup = BeautifulSoup(handle.read(), "lxml")
         return parse_experience_adelaide(soup, url)
+
+    if name == "Fever Candlelight Adelaide":
+        return parse_fever_candlelight(fetch_page(url), url)
 
     if name == "ACE Gallery":
         return parse_ace_gallery(fetch_page("https://ace.gallery/"), url)

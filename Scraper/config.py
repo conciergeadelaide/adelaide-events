@@ -180,3 +180,6 @@ SOURCES.append({"name": "AllEvents Adelaide and Surrounds", "url": "https://alle
 
 # Government House public visitor activities.
 SOURCES.append({"name": "Government House", "url": "https://www.governor.sa.gov.au/vice-regal/lunch-on-the-lawns"})
+
+# Fever official Adelaide Candlelight concert catalogue
+SOURCES.append({"name": "Fever Candlelight Adelaide", "url": "https://feverup.com/en/adelaide/candlelight"})

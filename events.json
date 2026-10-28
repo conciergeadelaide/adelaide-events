@@ -792,18 +792,6 @@
     "source": "Adelaide Symphony Orchestra"
   },
   {
-    "title": "Izzy Gizmo",
-    "venue": "Brighton Concert Hall",
-    "datetime": "2026-10-27T12:00:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://aso.lbcdn.io/uploads/2026/10/Izzie-Gizmo.jpg",
-    "link": "https://www.aso.com.au/events/izzy-gizmo/",
-    "source": "Adelaide Symphony Orchestra"
-  },
-  {
     "title": "Sheffield Shield: SA v WA",
     "venue": "Adelaide Oval",
     "datetime": "2026-10-28T10:30:00",
@@ -818,7 +806,7 @@
   {
     "title": "Robbie Williams: BRITPOP World Tour",
     "venue": "Adelaide Oval",
-    "datetime": "2026-11-07T18:00:00",
+    "datetime": "2026-11-07T18:30:00",
     "end_datetime": "",
     "category": [
       "Music"
@@ -1166,18 +1154,6 @@
     ],
     "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/11-Nov/Lawrence-Mooney/lawrence-mooney-full-moon-party-feature-2026.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
     "link": "https://www.adelaidefestivalcentre.com.au/whats-on/lawrence-mooney-full-moon-party",
-    "source": "Adelaide Festival Centre"
-  },
-  {
-    "title": "Create Your Own Dinosaur",
-    "venue": "Artspace",
-    "datetime": "2026-11-14T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Family"
-    ],
-    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/11-Nov/Create-Your-Own-Dinosaur/Create_your_own_dinosaur_with_Erth_AFC_workshop_website-image_1136x994.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
-    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/create-your-own-dinosaur-with-erth",
     "source": "Adelaide Festival Centre"
   },
   {
@@ -2098,7 +2074,7 @@
     "category": [
       "Music"
     ],
-    "image": "https://dynamicmedia.livenationinternational.com/l/y/r/59ad4c0b-4345-40b6-8d6c-05791d7bafd7.jpg",
+    "image": "https://dynamicmedia.livenationinternational.com/l/y/r/59ad4c0b-4345-40b6-8d6c-05791d7bafd7.jpg?format=webp&width=3840&quality=75",
     "link": "https://www.hindleymusichall.com.au/all-events/dinosaur-jr-tickets-ae3854",
     "source": "Hindley St Music Hall"
   },
@@ -2134,7 +2110,7 @@
     "category": [
       "Music"
     ],
-    "image": "https://dynamicmedia.livenationinternational.com/h/m/d/bf9f0cd7-c057-405e-ab6f-8b0a66f6624f.jpg",
+    "image": "https://dynamicmedia.livenationinternational.com/h/m/d/bf9f0cd7-c057-405e-ab6f-8b0a66f6624f.jpg?format=webp&width=3840&quality=75",
     "link": "https://www.hindleymusichall.com.au/all-events/silverstein-tickets-ae976",
     "source": "Hindley St Music Hall"
   },
@@ -2703,6 +2679,30 @@
     "source": "Adelaide Entertainment Centre"
   },
   {
+    "title": "Marilyn Manson",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2027-02-24T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/10/MarilynManson-AECT-Web-Image-Small-Banner-1050x520-1.jpg",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/marilyn-manson/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "Weezer",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2027-02-26T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/10/weezer_aec_1050x520.jpg",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/weezer/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
     "title": "Empire Of The Sun",
     "venue": "Adelaide Entertainment Centre",
     "datetime": "2027-03-02T19:15:00",
@@ -3029,7 +3029,7 @@
   {
     "title": "Adelaide United v Melbourne Victory",
     "venue": "Coopers Stadium",
-    "datetime": "2026-11-08T16:30:00",
+    "datetime": "2026-11-08T14:00:00",
     "end_datetime": "",
     "category": [
       "Sport"
@@ -3334,7 +3334,7 @@
     "category": [
       "Music"
     ],
-    "image": "https://thebartontheatre.com.au/wp-content/uploads/2026/07/0977db74-ec19-46c8-b59b-ff4bdb22edd7.png",
+    "image": "https://thebartontheatre.com.au/wp-content/uploads/2026/08/Thebarton-Events-2026-08-17T112536.838.png",
     "link": "https://www.ticketmaster.com.au/beartooth-pure-ecstasy-world-tour-australia-torrensville-26-01-2027/event/130064AFC21C848C",
     "source": "Thebarton Theatre"
   },
@@ -3832,6 +3832,18 @@
     "source": "Lion Arts Factory"
   },
   {
+    "title": "The Chats Australia Tour 2026",
+    "venue": "Lion Arts Factory",
+    "datetime": "2026-12-10T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.moshtix.com.au/uploads/09840b8f-0cb9-4699-9bdd-2b5b1f08b663xoriginal",
+    "link": "https://www.moshtix.com.au/v2/event/the-chats-australia-tour-2026/201417?ref=RSS_LAF_RSS&skin=LAF20",
+    "source": "Lion Arts Factory"
+  },
+  {
     "title": "Where's the Pope? Last Beers, Last BBQ, Last Chance",
     "venue": "Lion Arts Factory",
     "datetime": "2026-12-12T00:00:00",
@@ -3964,6 +3976,18 @@
     "source": "Lion Arts Factory"
   },
   {
+    "title": "Bloodbath (SWE) Return to Australia",
+    "venue": "Lion Arts Factory",
+    "datetime": "2027-02-28T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.moshtix.com.au/uploads/35eba701-6304-41cc-b591-2822401974c5xoriginal",
+    "link": "https://www.moshtix.com.au/v2/event/bloodbath-swe-return-to-australia/199321?ref=RSS_LAF_RSS&skin=LAF20",
+    "source": "Lion Arts Factory"
+  },
+  {
     "title": "C.O.F.F.I.N ‘Out In Oslo’ Australian Tour — Adelaide",
     "venue": "Lion Arts Factory",
     "datetime": "2027-03-13T00:00:00",
@@ -4050,7 +4074,7 @@
   {
     "title": "Architecture in Music",
     "venue": "Immersive Light and Art (ILA)",
-    "datetime": "2026-11-12T00:00:00",
+    "datetime": "2026-11-13T00:00:00",
     "end_datetime": "2026-12-05T23:59:59",
     "category": [
       "Arts & Culture"
@@ -4438,7 +4462,7 @@
   {
     "title": "The Studio: Make An Impression",
     "venue": "Art Gallery of South Australia",
-    "datetime": "2026-10-27T00:00:00",
+    "datetime": "2026-10-28T00:00:00",
     "end_datetime": "2026-11-08T23:59:59",
     "category": [
       "Family"
@@ -4481,18 +4505,6 @@
     ],
     "image": "https://thumbor.ixchosted.com/o3EVVyrgE6qzAraCxMwq04A0o4w=/800x0/filters:format(webp)/https://agsa-prod.s3.amazonaws.com/media/dd/images/149542-260715_MtM_People_in_Exhibition_Photo_Henry_Trumble_2000px_127.567cad3.jpg",
     "link": "https://www.agsa.sa.gov.au/whats-on/exhibitions/monet-to-matisse-defying-tradition/monet-to-matisse-friday-nights/",
-    "source": "Art Gallery of South Australia"
-  },
-  {
-    "title": "Tuesday Talk - Russell Kelty discusses Impressions of Japan in Europe",
-    "venue": "Art Gallery of South Australia",
-    "datetime": "2026-10-27T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Talks & Conferences"
-    ],
-    "image": "https://thumbor.ixchosted.com/spf_PRpJFaAKmrztizfux-jroTw=/full-fit-in/800x0/filters:format(webp)/https://agsa-prod.s3.amazonaws.com/media/dd/images/19009-HQ-427G38.5f4222f.jpg",
-    "link": "https://www.agsa.sa.gov.au/whats-on/event-calendar/tuesday-talk-russell-kelty-discusses-impressions-of-japan-in-europe/",
     "source": "Art Gallery of South Australia"
   },
   {
@@ -4658,7 +4670,7 @@
   {
     "title": "AGSA Screen Wavelength",
     "venue": "Art Gallery of South Australia",
-    "datetime": "2026-10-27T00:00:00",
+    "datetime": "2026-10-28T00:00:00",
     "end_datetime": "2027-07-04T23:59:59",
     "category": [
       "Arts & Culture"
@@ -4670,8 +4682,8 @@
   {
     "title": "CIPX Kaurna Miyurna (Critical Indigenous Photographic Exchange with the Kaurna Community)",
     "venue": "Art Gallery of South Australia",
-    "datetime": "2026-10-27T00:00:00",
-    "end_datetime": "2026-11-01T23:59:59",
+    "datetime": "2026-10-28T00:00:00",
+    "end_datetime": "2027-03-21T23:59:59",
     "category": [
       "Community"
     ],
@@ -4706,7 +4718,7 @@
   {
     "title": "James Tylor: Turrangka...in the shadows",
     "venue": "Art Gallery of South Australia",
-    "datetime": "2026-10-27T00:00:00",
+    "datetime": "2026-10-28T00:00:00",
     "end_datetime": "2026-11-01T23:59:59",
     "category": [
       "Arts & Culture"
@@ -4742,7 +4754,7 @@
   {
     "title": "Monet to Matisse: Defying Tradition",
     "venue": "Art Gallery of South Australia",
-    "datetime": "2026-10-27T00:00:00",
+    "datetime": "2026-10-28T00:00:00",
     "end_datetime": "2026-11-15T23:59:59",
     "category": [
       "Arts & Culture"
@@ -4754,7 +4766,7 @@
   {
     "title": "Tarnanthi on Tour: Too Deadly",
     "venue": "Art Gallery of South Australia",
-    "datetime": "2026-10-27T00:00:00",
+    "datetime": "2026-10-28T00:00:00",
     "end_datetime": "2028-12-03T23:59:59",
     "category": [
       "Arts & Culture"
@@ -4766,7 +4778,7 @@
   {
     "title": "Two Islands, One Thread: The Art and Cultures of Lombok & Bali",
     "venue": "Art Gallery of South Australia",
-    "datetime": "2026-10-27T00:00:00",
+    "datetime": "2026-10-28T00:00:00",
     "end_datetime": "2027-02-28T23:59:59",
     "category": [
       "Arts & Culture"
@@ -4921,6 +4933,282 @@
     "image": "",
     "link": "https://ghadelaide.eventsair.com/garden-tours-26/registrations-2026",
     "source": "Government House"
+  },
+  {
+    "title": "Candlelight: Featuring Mozart, Bach, and Timeless Composers",
+    "venue": "St Peter's Cathedral",
+    "datetime": "2026-10-30T18:30:00+10:30",
+    "end_datetime": "2026-10-30T19:30:00+10:30",
+    "category": [
+      "Music"
+    ],
+    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/501c10e8-058a-11f0-9508-fa8a84692968.jpg",
+    "link": "https://feverup.com/m/390146",
+    "source": "Fever Candlelight Adelaide"
+  },
+  {
+    "title": "Candlelight: Tribute to TOOL",
+    "venue": "The Meeting Hall",
+    "datetime": "2026-11-06T18:30:00+10:30",
+    "end_datetime": "2026-11-06T19:30:00+10:30",
+    "category": [
+      "Music"
+    ],
+    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/5dd71566-f7c4-11f0-ba82-b24207bafaca.jpg",
+    "link": "https://feverup.com/m/634559",
+    "source": "Fever Candlelight Adelaide"
+  },
+  {
+    "title": "Candlelight: Ed Sheeran & Coldplay",
+    "venue": "The Meeting Hall",
+    "datetime": "2026-11-06T20:30:00+10:30",
+    "end_datetime": "2026-11-06T21:30:00+10:30",
+    "category": [
+      "Music"
+    ],
+    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/cef040e6-1f76-11f0-99d8-76e4fa916312.jpg",
+    "link": "https://feverup.com/m/473344",
+    "source": "Fever Candlelight Adelaide"
+  },
+  {
+    "title": "Candlelight: Tribute to Queen",
+    "venue": "St Peter's Cathedral",
+    "datetime": "2026-11-20T16:30:00+10:30",
+    "end_datetime": "2026-11-20T17:30:00+10:30",
+    "category": [
+      "Music"
+    ],
+    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/9830311a-1940-11f0-90df-56c21721c770.jpg",
+    "link": "https://feverup.com/m/410900",
+    "source": "Fever Candlelight Adelaide"
+  },
+  {
+    "title": "Candlelight: Featuring Vivaldi's Four Seasons and More",
+    "venue": "St Peter's Cathedral",
+    "datetime": "2026-11-20T18:30:00+10:30",
+    "end_datetime": "2026-11-20T19:29:59+10:30",
+    "category": [
+      "Music"
+    ],
+    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/7c807528-1ab3-11f0-9eff-324ba1e3eb01.jpg",
+    "link": "https://feverup.com/m/390147",
+    "source": "Fever Candlelight Adelaide"
+  },
+  {
+    "title": "Candlelight: The Best of Hans Zimmer",
+    "venue": "Capri Theatre",
+    "datetime": "2026-11-28T18:30:00+10:30",
+    "end_datetime": "2026-11-28T19:29:57+10:30",
+    "category": [
+      "Music"
+    ],
+    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/e2d3636e-1395-11f0-baa7-66dc5d784391.jpg",
+    "link": "https://feverup.com/m/343249",
+    "source": "Fever Candlelight Adelaide"
+  },
+  {
+    "title": "Candlelight: Coldplay & Imagine Dragons",
+    "venue": "Capri Theatre",
+    "datetime": "2026-11-28T20:30:00+10:30",
+    "end_datetime": "2026-11-28T21:35:00+10:30",
+    "category": [
+      "Music"
+    ],
+    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/5718543c-139b-11f0-ab75-e64c279228cb.jpg",
+    "link": "https://feverup.com/m/178759",
+    "source": "Fever Candlelight Adelaide"
+  },
+  {
+    "title": "Candlelight: Tribute to TOOL",
+    "venue": "The Meeting Hall",
+    "datetime": "2026-12-04T20:30:00+10:30",
+    "end_datetime": "2026-12-04T21:30:00+10:30",
+    "category": [
+      "Music"
+    ],
+    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/5dd71566-f7c4-11f0-ba82-b24207bafaca.jpg",
+    "link": "https://feverup.com/m/634559",
+    "source": "Fever Candlelight Adelaide"
+  },
+  {
+    "title": "Candlelight: Featuring Mozart, Bach, and Timeless Composers",
+    "venue": "St Peter's Cathedral",
+    "datetime": "2026-12-10T18:30:00+10:30",
+    "end_datetime": "2026-12-10T19:30:00+10:30",
+    "category": [
+      "Music"
+    ],
+    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/501c10e8-058a-11f0-9508-fa8a84692968.jpg",
+    "link": "https://feverup.com/m/390146",
+    "source": "Fever Candlelight Adelaide"
+  },
+  {
+    "title": "Candlelight: Tribute to The Beatles",
+    "venue": "St Peter's Cathedral",
+    "datetime": "2026-12-10T20:30:00+10:30",
+    "end_datetime": "2026-12-10T21:30:00+10:30",
+    "category": [
+      "Music"
+    ],
+    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/b2ee49a2-1a93-11f0-aa80-c25aaa6cf640.jpg",
+    "link": "https://feverup.com/m/765905",
+    "source": "Fever Candlelight Adelaide"
+  },
+  {
+    "title": "Candlelight: Featuring Vivaldi's Four Seasons and More",
+    "venue": "St Peter's Cathedral",
+    "datetime": "2026-12-12T16:30:00+10:30",
+    "end_datetime": "2026-12-12T17:29:59+10:30",
+    "category": [
+      "Music"
+    ],
+    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/7c807528-1ab3-11f0-9eff-324ba1e3eb01.jpg",
+    "link": "https://feverup.com/m/390147",
+    "source": "Fever Candlelight Adelaide"
+  },
+  {
+    "title": "Candlelight: Tribute to Queen",
+    "venue": "St Peter's Cathedral",
+    "datetime": "2026-12-12T20:30:00+10:30",
+    "end_datetime": "2026-12-12T21:30:00+10:30",
+    "category": [
+      "Music"
+    ],
+    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/9830311a-1940-11f0-90df-56c21721c770.jpg",
+    "link": "https://feverup.com/m/410900",
+    "source": "Fever Candlelight Adelaide"
+  },
+  {
+    "title": "Candlelight: Tribute to TOOL",
+    "venue": "The Meeting Hall",
+    "datetime": "2026-12-18T18:30:00+10:30",
+    "end_datetime": "2026-12-18T19:30:00+10:30",
+    "category": [
+      "Music"
+    ],
+    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/5dd71566-f7c4-11f0-ba82-b24207bafaca.jpg",
+    "link": "https://feverup.com/m/634559",
+    "source": "Fever Candlelight Adelaide"
+  },
+  {
+    "title": "Candlelight: Tribute to Fleetwood Mac",
+    "venue": "The Meeting Hall",
+    "datetime": "2026-12-18T20:30:00+10:30",
+    "end_datetime": "2026-12-18T21:35:00+10:30",
+    "category": [
+      "Music"
+    ],
+    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/5c2e82a6-1f77-11f0-9fc3-b6302f1836c4.jpg",
+    "link": "https://feverup.com/m/119409",
+    "source": "Fever Candlelight Adelaide"
+  },
+  {
+    "title": "Candlelight: The World of Joe Hisaishi",
+    "venue": "The Meeting Hall",
+    "datetime": "2026-12-19T18:30:00+10:30",
+    "end_datetime": "2026-12-19T19:29:57+10:30",
+    "category": [
+      "Music"
+    ],
+    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/db2de808-212a-11f0-b79c-7a11fc7247bd.jpg",
+    "link": "https://feverup.com/m/166478",
+    "source": "Fever Candlelight Adelaide"
+  },
+  {
+    "title": "Candlelight: Ed Sheeran & Coldplay",
+    "venue": "The Meeting Hall",
+    "datetime": "2026-12-19T20:30:00+10:30",
+    "end_datetime": "2026-12-19T21:30:00+10:30",
+    "category": [
+      "Music"
+    ],
+    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/cef040e6-1f76-11f0-99d8-76e4fa916312.jpg",
+    "link": "https://feverup.com/m/473344",
+    "source": "Fever Candlelight Adelaide"
+  },
+  {
+    "title": "Candlelight: Christmas Classics",
+    "venue": "Capri Theatre",
+    "datetime": "2026-12-23T18:00:00+10:30",
+    "end_datetime": "2026-12-23T19:00:00+10:30",
+    "category": [
+      "Music"
+    ],
+    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/1cd38944-3f93-11f0-9f27-f6015fffcc12.jpg",
+    "link": "https://feverup.com/m/254727",
+    "source": "Fever Candlelight Adelaide"
+  },
+  {
+    "title": "Candlelight: Tribute to Michael Jackson",
+    "venue": "Brougham Place Uniting Church",
+    "datetime": "2027-01-09T20:30:00+10:30",
+    "end_datetime": "2027-01-09T21:30:00+10:30",
+    "category": [
+      "Music"
+    ],
+    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/73893830-1917-11f0-af90-de92939c34e1.jpg",
+    "link": "https://feverup.com/m/812815",
+    "source": "Fever Candlelight Adelaide"
+  },
+  {
+    "title": "Candlelight: Featuring Vivaldi's Four Seasons and More",
+    "venue": "St Peter's Cathedral",
+    "datetime": "2027-01-23T18:30:00+10:30",
+    "end_datetime": "2027-01-23T19:29:59+10:30",
+    "category": [
+      "Music"
+    ],
+    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/7c807528-1ab3-11f0-9eff-324ba1e3eb01.jpg",
+    "link": "https://feverup.com/m/390147",
+    "source": "Fever Candlelight Adelaide"
+  },
+  {
+    "title": "Candlelight: Tribute to Queen",
+    "venue": "St Peter's Cathedral",
+    "datetime": "2027-01-23T20:30:00+10:30",
+    "end_datetime": "2027-01-23T21:30:00+10:30",
+    "category": [
+      "Music"
+    ],
+    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/9830311a-1940-11f0-90df-56c21721c770.jpg",
+    "link": "https://feverup.com/m/410900",
+    "source": "Fever Candlelight Adelaide"
+  },
+  {
+    "title": "Candlelight: Coldplay & Imagine Dragons",
+    "venue": "Capri Theatre",
+    "datetime": "2027-02-19T20:30:00+10:30",
+    "end_datetime": "2027-02-19T21:35:00+10:30",
+    "category": [
+      "Music"
+    ],
+    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/5718543c-139b-11f0-ab75-e64c279228cb.jpg",
+    "link": "https://feverup.com/m/178759",
+    "source": "Fever Candlelight Adelaide"
+  },
+  {
+    "title": "Candlelight: Tribute to Queen",
+    "venue": "St Peter's Cathedral",
+    "datetime": "2027-03-13T20:30:00+10:30",
+    "end_datetime": "2027-03-13T21:30:00+10:30",
+    "category": [
+      "Music"
+    ],
+    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/9830311a-1940-11f0-90df-56c21721c770.jpg",
+    "link": "https://feverup.com/m/410900",
+    "source": "Fever Candlelight Adelaide"
+  },
+  {
+    "title": "Candlelight: Tribute to Michael Jackson",
+    "venue": "Brougham Place Uniting Church",
+    "datetime": "2027-03-27T20:30:00+10:30",
+    "end_datetime": "2027-03-27T21:30:00+10:30",
+    "category": [
+      "Music"
+    ],
+    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/73893830-1917-11f0-af90-de92939c34e1.jpg",
+    "link": "https://feverup.com/m/812815",
+    "source": "Fever Candlelight Adelaide"
   },
   {
     "title": "Wildlife Photographer of the Year",
@@ -5587,6 +5875,18 @@
     "source": "Moshtix Adelaide CBD"
   },
   {
+    "title": "DIV-DE Presents. OOTS",
+    "venue": "DIV-DE",
+    "datetime": "2026-11-07T22:00:00",
+    "end_datetime": "2026-11-08T05:00:00",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.moshtix.com.au/uploads/2a8ee528-f7bb-4c21-862f-4ac7f8a6823ax600x600",
+    "link": "https://www.moshtix.com.au/v2/event/div-de-presents-oots/202058",
+    "source": "Moshtix Adelaide CBD"
+  },
+  {
     "title": "TAKE ME TIME MACHINE 'Please Me' SINGLE LAUNCH w/ SUNDAY + AVROIE (18+)",
     "venue": "The Austral Hotel",
     "datetime": "2026-11-13T20:00:00",
@@ -5644,6 +5944,18 @@
     ],
     "image": "https://www.moshtix.com.au/uploads/fd7f2cdd-8879-493a-87fa-fd923af820f5x600x600",
     "link": "https://www.moshtix.com.au/v2/event/stormy-lou-paint-stains-single-launch/201278",
+    "source": "Moshtix Adelaide CBD"
+  },
+  {
+    "title": "DIV-DE Presents. ISGWAN",
+    "venue": "DIV-DE",
+    "datetime": "2026-11-14T22:00:00",
+    "end_datetime": "2026-11-15T05:00:00",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.moshtix.com.au/uploads/0a2efdc0-9483-4616-bfa1-d9e0537495dbx600x600",
+    "link": "https://www.moshtix.com.au/v2/event/div-de-presents-isgwan/202059",
     "source": "Moshtix Adelaide CBD"
   },
   {
@@ -5803,6 +6115,18 @@
     "source": "Moshtix Adelaide CBD"
   },
   {
+    "title": "DIV-DE Presents. NEWTONE",
+    "venue": "DIV-DE",
+    "datetime": "2026-11-28T22:00:00",
+    "end_datetime": "2026-11-29T05:00:00",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.moshtix.com.au/uploads/ff6d3433-ed75-413f-9dd3-4c3b0bffcc29x600x600",
+    "link": "https://www.moshtix.com.au/v2/event/div-de-presents-newtone/201981",
+    "source": "Moshtix Adelaide CBD"
+  },
+  {
     "title": "Locked Shut (USA)",
     "venue": "Jive",
     "datetime": "2026-12-01T19:00:00",
@@ -5935,6 +6259,18 @@
     "source": "Moshtix Adelaide CBD"
   },
   {
+    "title": "DIV-DE Presents. CRYBABY",
+    "venue": "DIV-DE",
+    "datetime": "2026-12-05T22:00:00",
+    "end_datetime": "2026-12-06T05:00:00",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.moshtix.com.au/uploads/590f37a7-0868-4563-98eb-d63639cc4391x600x600",
+    "link": "https://www.moshtix.com.au/v2/event/div-de-presents-crybaby/201982",
+    "source": "Moshtix Adelaide CBD"
+  },
+  {
     "title": "Nepathya-Live in Adelaide 2026",
     "venue": "Hindley Street Music Hall",
     "datetime": "2026-12-07T19:00:00",
@@ -5944,6 +6280,18 @@
     ],
     "image": "https://www.moshtix.com.au/uploads/dae76bdc-5c63-4e4b-8f68-fcb288988822x600x600",
     "link": "https://www.moshtix.com.au/v2/event/nepathya-live-in-adelaide-2026/200900",
+    "source": "Moshtix Adelaide CBD"
+  },
+  {
+    "title": "The Chats Australia Tour 2026",
+    "venue": "Jive",
+    "datetime": "2026-12-09T19:00:00",
+    "end_datetime": "2026-12-09T23:30:00",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.moshtix.com.au/uploads/8fd2da5a-604b-4a0f-8a7a-52b1b21bd44ax600x600",
+    "link": "https://www.moshtix.com.au/v2/event/the-chats-australia-tour-2026/201494",
     "source": "Moshtix Adelaide CBD"
   },
   {
@@ -5992,6 +6340,18 @@
     ],
     "image": "https://www.moshtix.com.au/uploads/4249fb3a-ad28-4f59-837c-79427f42e7eex600x600",
     "link": "https://www.moshtix.com.au/v2/event/ashley-naylors-t-rex-mas/201916",
+    "source": "Moshtix Adelaide CBD"
+  },
+  {
+    "title": "DIV-DE Presents. ANDRE ZIMMER",
+    "venue": "DIV-DE",
+    "datetime": "2026-12-12T22:00:00",
+    "end_datetime": "2026-12-13T05:00:00",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.moshtix.com.au/uploads/fba9f419-1b34-47e3-8171-e8baa36c785bx600x600",
+    "link": "https://www.moshtix.com.au/v2/event/div-de-presents-andre-zimmer/201983",
     "source": "Moshtix Adelaide CBD"
   },
   {
@@ -6793,19 +7153,6 @@
     "source": "South Australia Tourism Commission"
   },
   {
-    "title": "CIPX Kaurna Miyurna (Critical Indigenous Photographic Exchange with the Kaurna Community)",
-    "venue": "490 North Terrace",
-    "datetime": "2026-07-23T00:00:00",
-    "end_datetime": "2026-11-01T00:00:00",
-    "category": [
-      "Exhibitions",
-      "First Nations"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/937db7b6a2dfb24a9fd788ed05d64552.jpeg?mode=crop&width=900&height=506&rot=360",
-    "link": "https://southaustralia.com/products/adelaide/event/cipx-kaurna-miyurna-critical-indigenous-photographic-exchange-with-the-kaurna-community",
-    "source": "South Australia Tourism Commission"
-  },
-  {
     "title": "Cutback by Scott Pyle",
     "venue": "175 St Vincent St",
     "datetime": "2026-09-30T11:00:00",
@@ -7002,18 +7349,6 @@
     "source": "South Australia Tourism Commission"
   },
   {
-    "title": "Monet to Matisse: Defying Tradition",
-    "venue": "North Terrace",
-    "datetime": "2026-07-11T10:00:00",
-    "end_datetime": "2026-11-15T17:00:00",
-    "category": [
-      "Exhibitions"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/86dd0d7010ef96e370837d1081dff371.jpeg?mode=crop&width=900&height=506&rot=360",
-    "link": "https://southaustralia.com/products/adelaide/event/monet-to-matisse-defying-tradition",
-    "source": "South Australia Tourism Commission"
-  },
-  {
     "title": "Morgan Jay",
     "venue": "98 Port Road",
     "datetime": "2026-11-01T19:00:00",
@@ -7102,11 +7437,11 @@
     "title": "Studio Tours",
     "venue": "154 Angas Street",
     "datetime": "2026-01-30T16:30:00",
-    "end_datetime": "2026-11-17T17:15:00",
+    "end_datetime": "2027-07-27T17:15:00",
     "category": [
       "Exhibitions"
     ],
-    "image": "https://assets.atdw-online.com.au/images/4e8697773ef0d42d355e0504a6a2d61b.jpeg?mode=crop&width=900&height=506&rot=360",
+    "image": "https://assets.atdw-online.com.au/images/e1abf423907eaaeef92ef12bdf9fcf79.jpeg?mode=crop&width=900&height=506&rot=360",
     "link": "https://southaustralia.com/products/adelaide/event/studio-tours-at-the-mill",
     "source": "South Australia Tourism Commission"
   },
@@ -7208,6 +7543,21 @@
     "source": "Experience Adelaide",
     "festival": [
       "Adelaide Film Festival"
+    ]
+  },
+  {
+    "title": "OzAsia Festival",
+    "venue": "Adelaide Festival Centre",
+    "datetime": "2026-10-09T00:00:00",
+    "end_datetime": "2026-11-01T00:00:00",
+    "category": [
+      "Festival"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/79a0af143dc9f20bf9b3b4160281b3e6.jpeg?rect=0%2C0%2C1600%2C1200&w=450&h=335&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhODY5MzNkZjMzZjM5MzA0NzM2NTEzYSIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
+    "link": "https://www.experienceadelaide.com.au/whats-on/ozasia-festival/",
+    "source": "Experience Adelaide",
+    "festival": [
+      "OzAsia Festival"
     ]
   },
   {
@@ -7352,6 +7702,18 @@
     "source": "Experience Adelaide"
   },
   {
+    "title": "Create Your Own Dinosaur",
+    "venue": "Artspace",
+    "datetime": "2026-11-14T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Other"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/794416881ebb700485638e19649d2dc1.jpeg?rect=0%2C0%2C1600%2C1200&w=450&h=335&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhODI4ZTU0MWU2ZWVhNjEzZDRmZjQ3OCIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
+    "link": "https://www.experienceadelaide.com.au/whats-on/create-your-own-dinosaur/",
+    "source": "Experience Adelaide"
+  },
+  {
     "title": "Santos Tour Down Under",
     "venue": "Santos Tour Down Under",
     "datetime": "2027-01-16T00:00:00",
@@ -7386,21 +7748,6 @@
     "image": "https://assets.atdw-online.com.au/images/5d325759b5f0b58d218f9ed79297a3a6.jpeg?rect=0%2C1560%2C4160%2C3120&w=450&h=335&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhOTdhMzNlNDZmMTlhMmQ0OTcyZjkyYSIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
     "link": "https://www.experienceadelaide.com.au/whats-on/pinkstachio-reignight-pres/",
     "source": "Experience Adelaide"
-  },
-  {
-    "title": "OzAsia Festival",
-    "venue": "Adelaide Festival Centre",
-    "datetime": "2026-10-09T00:00:00",
-    "end_datetime": "2026-11-01T00:00:00",
-    "category": [
-      "Festival"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/79a0af143dc9f20bf9b3b4160281b3e6.jpeg?rect=0%2C0%2C1600%2C1200&w=450&h=335&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhODY5MzNkZjMzZjM5MzA0NzM2NTEzYSIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
-    "link": "https://www.experienceadelaide.com.au/whats-on/ozasia-festival/",
-    "source": "Experience Adelaide",
-    "festival": [
-      "OzAsia Festival"
-    ]
   },
   {
     "title": "La BohÃ¨me Club",
@@ -7451,6 +7798,18 @@
     "source": "Humanitix Nineteen Ten"
   },
   {
+    "title": "10x10 Adelaide | Thursday 29 October 2026",
+    "venue": "55 Currie St - Ground Floor Auditorium",
+    "datetime": "2026-10-29T17:30:00+1030",
+    "end_datetime": "2026-10-29T20:30:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/82297833-c1ac-42fe-a00e-e20692cbf450.png@seo-500.jpg",
+    "link": "https://events.humanitix.com/10x10-adelaide-or-thursday-29-october-2026",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
     "title": "80s Quiz Night & Disco",
     "venue": "Mclaren Vale Institute Hall",
     "datetime": "2026-10-29T18:00:00+1030",
@@ -7460,18 +7819,6 @@
     ],
     "image": "https://images.humanitix.com/i/9eda85e2-d3ff-458c-ba08-5170ae5c6d81.jpg@seo-500.jpg",
     "link": "https://events.humanitix.com/80s-quiz-night-and-disco",
-    "source": "Humanitix Adelaide and Regions"
-  },
-  {
-    "title": "An Evening with Simon Nasht (Free Event)",
-    "venue": "Hills Christian Community School (Middle School Building)",
-    "datetime": "2026-10-29T18:30:00+1030",
-    "end_datetime": "2026-10-29T20:30:00+1030",
-    "category": [
-      "Other"
-    ],
-    "image": "https://images.humanitix.com/i/878989c2-0bdc-4749-888e-19ce9da68c6f.png@seo-500.jpg",
-    "link": "https://events.humanitix.com/a-evening-with-simon-nasht",
     "source": "Humanitix Adelaide and Regions"
   },
   {
@@ -7523,6 +7870,18 @@
     "source": "Humanitix Adelaide and Regions"
   },
   {
+    "title": "Hunt and Brew ðððªð¡ðð¥ððð ð¦ð¨ð ð ðð¥ ðð¨ð¦&ð¡ð­ ð§ð¢ð¨ð¥ // Glenelg Beach, ADELAIDE - 2nd Jan 2027",
+    "venue": "Glenelg Beach",
+    "datetime": "2027-01-02T04:45:00+1030",
+    "end_datetime": "2027-01-02T06:45:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/4a558e3a-c418-499b-8b84-637dc1767710.png@seo-500.jpg",
+    "link": "https://events.humanitix.com/dawnbreak-summer-aus-and-nz-tour-glenelg-beach-adelaide-2nd-jan-2027",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
     "title": "Day Moves",
     "venue": "Home of Plenty",
     "datetime": "2026-12-31T12:00:00+1030",
@@ -7532,18 +7891,6 @@
     ],
     "image": "https://images.humanitix.com/i/8b7f62e3-dbd4-4a0b-8b14-c3adc7a29fab.png@seo-500.jpg",
     "link": "https://events.humanitix.com/day-moves-2026",
-    "source": "Humanitix Adelaide and Regions"
-  },
-  {
-    "title": "End of Year Celebration - Adelaide",
-    "venue": "The Glenelg Club",
-    "datetime": "2026-11-19T17:30:00+1030",
-    "end_datetime": "2026-11-19T19:00:00+1030",
-    "category": [
-      "Other"
-    ],
-    "image": "https://images.humanitix.com/i/01cbd95c-6494-4382-a34f-380adf33f18f.jpg@seo-500.jpg",
-    "link": "https://events.humanitix.com/endofyearcelebration-adelaide-2026",
     "source": "Humanitix Adelaide and Regions"
   },
   {
@@ -7607,15 +7954,15 @@
     "source": "Humanitix Adelaide and Regions"
   },
   {
-    "title": "For the Love of Trees",
-    "venue": "Waverley Park Homestead",
-    "datetime": "2026-11-11T18:30:00+1030",
-    "end_datetime": "2026-11-11T21:00:00+1030",
+    "title": "HIGH FEVER FESTIVAL, VOL III, 2027",
+    "venue": "Three Brothers Arms Hotel",
+    "datetime": "2027-02-06T15:00:00+1030",
+    "end_datetime": "2027-02-07T12:00:00+1030",
     "category": [
       "Other"
     ],
-    "image": "https://images.humanitix.com/i/6819ff4d-6a21-467a-9753-249f7a2d7077.jpg@seo-500.jpg",
-    "link": "https://events.humanitix.com/for-the-love-of-trees",
+    "image": "https://images.humanitix.com/i/07bae87f-9447-4f29-9be6-e6a9f1ef7f24.jpg@seo-500.jpg",
+    "link": "https://events.humanitix.com/high-fever-festival-vol-3-2027",
     "source": "Humanitix Adelaide and Regions"
   },
   {
@@ -7628,6 +7975,18 @@
     ],
     "image": "https://images.humanitix.com/i/425d56ee-f93b-4c8c-b5a5-cd2d62c7c27f.jpg@seo-500.jpg",
     "link": "https://events.humanitix.com/high-tea-by-the-sea-share-the-joy",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "Hills Business - Strength in Diversity",
+    "venue": "Auchendarroch House",
+    "datetime": "2026-11-04T10:00:00+1030",
+    "end_datetime": "2026-11-04T12:00:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/ddb87ee7-9d8c-4cc3-8b1c-1f021a253909.jpg@seo-500.jpg",
+    "link": "https://events.humanitix.com/hills-business-strength-in-diversity",
     "source": "Humanitix Adelaide and Regions"
   },
   {
@@ -7652,18 +8011,6 @@
     ],
     "image": "https://images.humanitix.com/i/2e1e1b26-2b4f-4300-b8ed-e0e7dbca4192.jpg@seo-500.jpg",
     "link": "https://events.humanitix.com/lipsync-adl",
-    "source": "Humanitix Adelaide and Regions"
-  },
-  {
-    "title": "Orange Breakfast - in recognition of the 16 Days of Activism against gender based violence",
-    "venue": "3 Dumas St",
-    "datetime": "2026-11-26T09:00:00+1030",
-    "end_datetime": "2026-11-26T10:30:00+1030",
-    "category": [
-      "Other"
-    ],
-    "image": "https://images.humanitix.com/i/98e00d5e-996d-4f2b-8a59-7fb78a8915f6.png@seo-500.jpg",
-    "link": "https://events.humanitix.com/orange-breakfast-in-recognition-of-the-16-days-of-activism-against-gender-based-violence",
     "source": "Humanitix Adelaide and Regions"
   },
   {
@@ -7694,18 +8041,6 @@
     ]
   },
   {
-    "title": "Single Lesbian, Bi & Queer Women @ No.6 East - City",
-    "venue": "No.6 East",
-    "datetime": "2026-11-22T15:00:00+1030",
-    "end_datetime": "2026-11-22T18:00:00+1030",
-    "category": [
-      "Other"
-    ],
-    "image": "https://images.humanitix.com/i/ee3a27c4-242d-49f1-90de-e6a5cdcd6e31.png@seo-500.jpg",
-    "link": "https://events.humanitix.com/single-lesbian-bi-and-queer-women-no-6-east-city",
-    "source": "Humanitix Adelaide and Regions"
-  },
-  {
     "title": "SINGLES Night 30+ @ Prancing Pony Adel. Hills",
     "venue": "Prancing Pony Brewery",
     "datetime": "2026-11-28T19:00:00+1030",
@@ -7715,18 +8050,6 @@
     ],
     "image": "https://images.humanitix.com/i/c7d6d81a-9801-4df6-93a5-1e55543e377f.png@seo-500.jpg",
     "link": "https://events.humanitix.com/singles-night-3-prancing-pony-adel-hills",
-    "source": "Humanitix Adelaide and Regions"
-  },
-  {
-    "title": "STOP THE CHOP ROAD SHOW AT GLENELG",
-    "venue": "Wigley Reserve",
-    "datetime": "2026-10-31T13:00:00+1030",
-    "end_datetime": "2026-10-31T14:00:00+1030",
-    "category": [
-      "Other"
-    ],
-    "image": "https://images.humanitix.com/i/4d3d2c00-e0e6-43f8-bf94-76950e5f2af6.jpg@seo-500.jpg",
-    "link": "https://events.humanitix.com/stop-the-chop-road-show-at-glenelg",
     "source": "Humanitix Adelaide and Regions"
   },
   {
@@ -7775,6 +8098,78 @@
     ],
     "image": "https://images.humanitix.com/i/2b7ff63d-2808-470b-9329-88073e9381b7.png@seo-500.jpg",
     "link": "https://events.humanitix.com/the-full-runrise-adelaide-14th-nov-2026",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "An Evening with Simon Nasht (Free Event)",
+    "venue": "Hills Christian Community School (Middle School Building)",
+    "datetime": "2026-10-29T18:30:00+1030",
+    "end_datetime": "2026-10-29T20:30:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/878989c2-0bdc-4749-888e-19ce9da68c6f.png@seo-500.jpg",
+    "link": "https://events.humanitix.com/a-evening-with-simon-nasht",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "End of Year Celebration - Adelaide",
+    "venue": "The Glenelg Club",
+    "datetime": "2026-11-19T17:30:00+1030",
+    "end_datetime": "2026-11-19T19:00:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/01cbd95c-6494-4382-a34f-380adf33f18f.jpg@seo-500.jpg",
+    "link": "https://events.humanitix.com/endofyearcelebration-adelaide-2026",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "For the Love of Trees",
+    "venue": "Waverley Park Homestead",
+    "datetime": "2026-11-11T18:30:00+1030",
+    "end_datetime": "2026-11-11T21:00:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/6819ff4d-6a21-467a-9753-249f7a2d7077.jpg@seo-500.jpg",
+    "link": "https://events.humanitix.com/for-the-love-of-trees",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "Orange Breakfast - in recognition of the 16 Days of Activism against gender based violence",
+    "venue": "3 Dumas St",
+    "datetime": "2026-11-26T09:00:00+1030",
+    "end_datetime": "2026-11-26T10:30:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/98e00d5e-996d-4f2b-8a59-7fb78a8915f6.png@seo-500.jpg",
+    "link": "https://events.humanitix.com/orange-breakfast-in-recognition-of-the-16-days-of-activism-against-gender-based-violence",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "Single Lesbian, Bi & Queer Women @ No.6 East - City",
+    "venue": "No.6 East",
+    "datetime": "2026-11-22T15:00:00+1030",
+    "end_datetime": "2026-11-22T18:00:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/ee3a27c4-242d-49f1-90de-e6a5cdcd6e31.png@seo-500.jpg",
+    "link": "https://events.humanitix.com/single-lesbian-bi-and-queer-women-no-6-east-city",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "STOP THE CHOP ROAD SHOW AT GLENELG",
+    "venue": "Wigley Reserve",
+    "datetime": "2026-10-31T13:00:00+1030",
+    "end_datetime": "2026-10-31T14:00:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/4d3d2c00-e0e6-43f8-bf94-76950e5f2af6.jpg@seo-500.jpg",
+    "link": "https://events.humanitix.com/stop-the-chop-road-show-at-glenelg",
     "source": "Humanitix Adelaide and Regions"
   },
   {
@@ -7919,18 +8314,6 @@
     ],
     "image": "https://images.humanitix.com/i/e51be05b-50ca-4e4a-8d3b-5e418da6e41d.png@seo-500.jpg",
     "link": "https://events.humanitix.com/sunday-at-the-cedars",
-    "source": "Humanitix Adelaide and Regions"
-  },
-  {
-    "title": "Colonnades: ACOTAR 6 Early Store Openings at QBD Books",
-    "venue": "QBD Books Colonnades",
-    "datetime": "2026-10-27T08:00:00+1030",
-    "end_datetime": "2026-10-27T09:00:00+1030",
-    "category": [
-      "Other"
-    ],
-    "image": "https://images.humanitix.com/i/b286977f-491b-4270-9cdf-03dc44c5daab.jpg@seo-500.jpg",
-    "link": "https://events.humanitix.com/colonnades-acotar-6-early-store-openings-at-qbd-books",
     "source": "Humanitix Adelaide and Regions"
   },
   {

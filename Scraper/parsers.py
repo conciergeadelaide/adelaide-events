@@ -4751,3 +4751,163 @@ def parse_ace_gallery(soup, source_url):
     events.sort(key=lambda e: (e["date"], e["title"]))
     print(f"    ACE: {len(events)} verified current/future events")
     return events
+
+
+# ============================================================
+# FEVER CANDLELIGHT ADELAIDE
+# ============================================================
+
+def parse_fever_candlelight(soup, source_url):
+    """Read Fever's server-rendered ticket selector, with JSON-LD fallback.
+
+    Each bookable performance is unique by plan, start time, and venue;
+    ticket zones are not separate performances. The selector's nested level
+    tree provides dates and times, avoiding misleading first/last dates and
+    recommendations from other plans.
+    """
+    from concurrent.futures import ThreadPoolExecutor, as_completed
+    from datetime import datetime
+    import json
+    import re
+    from bs4 import BeautifulSoup
+
+    listing = str(soup)
+    ids = set(re.findall(r'/m/(\d{4,9})(?!\d)', listing))
+    for anchor in soup.select('a[href]'):
+        match = re.search(r'/m/(\d{4,9})(?:[/?#]|$)', anchor.get('href', ''))
+        if match:
+            ids.add(match.group(1))
+    print(f'    Fever: {len(ids)} unique event pages discovered')
+    if not ids:
+        return []
+
+    now = datetime.now().astimezone()
+
+    def read_one(plan_id):
+        url = f'https://feverup.com/m/{plan_id}'
+        try:
+            response = requests.get(url, headers={'User-Agent': 'Mozilla/5.0'}, timeout=25)
+            response.raise_for_status()
+            page = BeautifulSoup(response.text, 'lxml')
+        except requests.RequestException as exc:
+            return [], f'{plan_id}: {exc}', False
+
+        records = []
+        for tag in page.find_all('script', attrs={'type': 'application/ld+json'}):
+            try:
+                payload = json.loads(tag.string or tag.get_text())
+            except (ValueError, TypeError):
+                continue
+            records.extend(payload if isinstance(payload, list) else [payload])
+        details = None
+        for record in records:
+            if not isinstance(record, dict):
+                continue
+            kinds = record.get('@type', [])
+            if isinstance(kinds, str):
+                kinds = [kinds]
+            if 'Event' in kinds and 'candlelight' in str(record.get('name', '')).lower():
+                details = record
+                break
+        if not details:
+            return [], None, False
+
+        location = details.get('location') or {}
+        if isinstance(location, list):
+            location = location[0] if location else {}
+        venue = str(location.get('name') or '').strip() if isinstance(location, dict) else ''
+        address = location.get('address') or {} if isinstance(location, dict) else {}
+        locality = str(address.get('addressLocality') or '') if isinstance(address, dict) else ''
+        if not venue or (locality and 'adelaide' not in locality.lower()):
+            return [], None, False
+        title = str(details.get('name') or '').strip()
+        image = details.get('image') or ''
+        if isinstance(image, dict):
+            image = image.get('url') or image.get('contentUrl') or ''
+        if isinstance(image, list):
+            image = image[0] if image else ''
+
+        def make_event(start_raw, end_raw=''):
+            try:
+                start = datetime.fromisoformat(str(start_raw).replace('Z', '+00:00'))
+            except (ValueError, TypeError):
+                return None
+            if start.tzinfo is None or start.astimezone() < now:
+                return None
+            event = {'title': title, 'venue': venue, 'date': start.isoformat(),
+                     'category': ['Music'], 'image': str(image), 'url': url}
+            try:
+                end = datetime.fromisoformat(str(end_raw).replace('Z', '+00:00'))
+                if end > start:
+                    event['end_date'] = end.isoformat()
+            except (ValueError, TypeError):
+                pass
+            return event
+
+        # This is the plan-specific ticket selector state, not recommendation data.
+        selector_found = False
+        starts = {}
+        state_tag = page.find('script', id='serverapp-state')
+        if state_tag:
+            try:
+                state = json.loads(state_tag.string or state_tag.get_text())
+            except (ValueError, TypeError):
+                state = {}
+            if isinstance(state, dict):
+                for key, value in state.items():
+                    if not key.startswith('LEVEL_TICKET_SELECTOR_SESSIONS.') or not isinstance(value, dict):
+                        continue
+                    # Verify that the selector belongs to this exact plan.
+                    try:
+                        selector_args = json.loads(key.split('LEVEL_TICKET_SELECTOR_SESSIONS.', 1)[1].rstrip('.'))
+                    except (ValueError, TypeError):
+                        continue
+                    if str(selector_args.get('planId')) != str(plan_id):
+                        continue
+                    selector_found = True
+
+                    def walk(node):
+                        if not isinstance(node, dict):
+                            return
+                        if node.get('type') == 'session':
+                            for item in node.get('items') or []:
+                                if not isinstance(item, dict):
+                                    continue
+                                data = item.get('value') or {}
+                                if not isinstance(data, dict) or not data.get('has_available_tickets'):
+                                    continue
+                                if data.get('available_tickets') is not None and data['available_tickets'] <= 0:
+                                    continue
+                                start_raw = data.get('starts_at_iso')
+                                event = make_event(start_raw, data.get('ends_at_iso'))
+                                if event:
+                                    starts[event['date']] = event
+                        for item in node.get('items') or []:
+                            if isinstance(item, dict):
+                                walk(item.get('level'))
+                    walk(value.get('level'))
+                    break
+
+        if selector_found:
+            return list(starts.values()), None, True
+        # Fallback only when Fever does not provide the ticket selector state.
+        fallback = make_event(details.get('startDate'), details.get('endDate'))
+        return ([fallback] if fallback else []), None, False
+
+    events = []
+    failures = 0
+    selectors = 0
+    with ThreadPoolExecutor(max_workers=4) as executor:
+        futures = [executor.submit(read_one, plan_id) for plan_id in sorted(ids)]
+        for future in as_completed(futures):
+            found, error, selector_used = future.result()
+            if error:
+                failures += 1
+                print('    Fever warning:', error)
+            if selector_used:
+                selectors += 1
+            events.extend(found)
+    events.sort(key=lambda e: (e['date'], e['title'], e['venue']))
+    print(f'    Fever: {len(events)} upcoming bookable performances; '
+          f'{selectors} ticket selectors; {failures} page errors')
+    return events

@@ -33,10 +33,7 @@
     ],
     "image": "https://assets.atdw-online.com.au/images/ea4d4c7f26029b71fd8a4b0df60bdcee.jpeg?rect=457%2C0%2C7300%2C5475&w=450&h=335&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjYyMDU5ZTdhNDgyN2E5ZTcwZmFlYzQ5MSIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
     "link": "https://www.experienceadelaide.com.au/whats-on/adelaide-film-festival/",
-    "source": "Experience Adelaide",
-    "festival": [
-      "Adelaide Film Festival"
-    ]
+    "source": "Experience Adelaide"
   },
   {
     "title": "Adelaide Colour Frenzy 5k Fun Walk/Run",
@@ -72,10 +69,7 @@
     ],
     "image": "https://assets.atdw-online.com.au/images/37572a7597f0f9deacde3f16e885d853.jpeg?rect=0%2C0%2C1600%2C1200&w=450&h=335&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhODdiNGEzYWEyNDRmYWY3NWU2YTdlMCIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
     "link": "https://www.experienceadelaide.com.au/whats-on/ozasia-festival-2026-maajela/",
-    "source": "Experience Adelaide",
-    "festival": [
-      "OzAsia Festival"
-    ]
+    "source": "Experience Adelaide"
   },
   {
     "title": "OzAsia Festival’s Weekend of Words",
@@ -87,10 +81,7 @@
     ],
     "image": "https://assets.atdw-online.com.au/images/b1e3b17f7cc7021ad8d91a74ddad8b0f.jpeg?rect=0%2C0%2C1600%2C1200&w=450&h=335&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhODdjMzVkM2U4NjE3M2E1ZTg0OWRjMyIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
     "link": "https://www.experienceadelaide.com.au/whats-on/ozasia-festivals-weekend-of-words/",
-    "source": "Experience Adelaide",
-    "festival": [
-      "OzAsia Festival"
-    ]
+    "source": "Experience Adelaide"
   },
   {
     "title": "Pinkstachio Reig\"Night\" Pre's",
@@ -103,5 +94,41 @@
     "image": "https://assets.atdw-online.com.au/images/5d325759b5f0b58d218f9ed79297a3a6.jpeg?rect=0%2C1560%2C4160%2C3120&w=450&h=335&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhOTdhMzNlNDZmMTlhMmQ0OTcyZjkyYSIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
     "link": "https://www.experienceadelaide.com.au/whats-on/pinkstachio-reignight-pres/",
     "source": "Experience Adelaide"
+  },
+  {
+    "title": "Izzy Gizmo",
+    "venue": "Brighton Concert Hall",
+    "datetime": "2026-10-27T12:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://aso.lbcdn.io/uploads/2026/10/Izzie-Gizmo.jpg",
+    "link": "https://www.aso.com.au/events/izzy-gizmo/",
+    "source": "Adelaide Symphony Orchestra"
+  },
+  {
+    "title": "Tuesday Talk - Russell Kelty discusses Impressions of Japan in Europe",
+    "venue": "Art Gallery of South Australia",
+    "datetime": "2026-10-27T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Talks & Conferences"
+    ],
+    "image": "https://thumbor.ixchosted.com/spf_PRpJFaAKmrztizfux-jroTw=/full-fit-in/800x0/filters:format(webp)/https://agsa-prod.s3.amazonaws.com/media/dd/images/19009-HQ-427G38.5f4222f.jpg",
+    "link": "https://www.agsa.sa.gov.au/whats-on/event-calendar/tuesday-talk-russell-kelty-discusses-impressions-of-japan-in-europe/",
+    "source": "Art Gallery of South Australia"
+  },
+  {
+    "title": "Colonnades: ACOTAR 6 Early Store Openings at QBD Books",
+    "venue": "QBD Books Colonnades",
+    "datetime": "2026-10-27T08:00:00+1030",
+    "end_datetime": "2026-10-27T09:00:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/b286977f-491b-4270-9cdf-03dc44c5daab.jpg@seo-500.jpg",
+    "link": "https://events.humanitix.com/colonnades-acotar-6-early-store-openings-at-qbd-books",
+    "source": "Humanitix Adelaide and Regions"
   }
 ]
