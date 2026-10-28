@@ -4875,6 +4875,34 @@
     "source": "ACE Gallery"
   },
   {
+    "title": "The Art of Seafood: Fish for the Table",
+    "venue": "Adelaide Central Market",
+    "datetime": "2026-11-05T10:30:00",
+    "end_datetime": "",
+    "category": [
+      "Food & Beverage",
+      "Workshop",
+      "Arts & Culture"
+    ],
+    "image": "https://adelaidecentralmarket.com.au/site/wp-content/uploads/2026/09/Baked-Ora-King-Salmon-ingredients.jpg",
+    "link": "https://adelaidecentralmarket.com.au/event/the-art-of-seafood-fish-for-the-table/",
+    "source": "Adelaide Central Market"
+  },
+  {
+    "title": "The Art of Seafood: Christmas from the Sea",
+    "venue": "Adelaide Central Market",
+    "datetime": "2026-12-08T10:30:00",
+    "end_datetime": "",
+    "category": [
+      "Food & Beverage",
+      "Workshop",
+      "Arts & Culture"
+    ],
+    "image": "https://adelaidecentralmarket.com.au/site/wp-content/uploads/2026/09/Sauteed-Abalone-raw.jpg",
+    "link": "https://adelaidecentralmarket.com.au/event/the-art-of-seafood-christmas-from-the-sea/",
+    "source": "Adelaide Central Market"
+  },
+  {
     "title": "Government House Garden Tour (Fully Booked)",
     "venue": "Government House",
     "datetime": "2026-11-06T10:45:00",
@@ -7882,18 +7910,6 @@
     "source": "Humanitix Adelaide and Regions"
   },
   {
-    "title": "Day Moves",
-    "venue": "Home of Plenty",
-    "datetime": "2026-12-31T12:00:00+1030",
-    "end_datetime": "2027-01-01T02:00:00+1030",
-    "category": [
-      "Other"
-    ],
-    "image": "https://images.humanitix.com/i/8b7f62e3-dbd4-4a0b-8b14-c3adc7a29fab.png@seo-500.jpg",
-    "link": "https://events.humanitix.com/day-moves-2026",
-    "source": "Humanitix Adelaide and Regions"
-  },
-  {
     "title": "Estara Inclusive Beach Days",
     "venue": "Glenelg Beach",
     "datetime": "2027-01-10T10:00:00+1030",
@@ -7951,6 +7967,18 @@
     ],
     "image": "https://images.humanitix.com/i/f8b741ec-c5dc-48b3-84d0-3b31ae692328.png@seo-500.jpg",
     "link": "https://events.humanitix.com/estara-inclusive-beach-days",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "For the Love of Trees",
+    "venue": "Waverley Park Homestead",
+    "datetime": "2026-11-11T18:30:00+1030",
+    "end_datetime": "2026-11-11T21:00:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/6819ff4d-6a21-467a-9753-249f7a2d7077.jpg@seo-500.jpg",
+    "link": "https://events.humanitix.com/for-the-love-of-trees",
     "source": "Humanitix Adelaide and Regions"
   },
   {
@@ -8053,6 +8081,30 @@
     "source": "Humanitix Adelaide and Regions"
   },
   {
+    "title": "THE FULL+ RUNRISE // Adelaide - 14th NOV 2026",
+    "venue": "Chalk Hill Wines",
+    "datetime": "2026-11-14T04:15:00+1030",
+    "end_datetime": "2026-11-14T08:00:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/2b7ff63d-2808-470b-9329-88073e9381b7.png@seo-500.jpg",
+    "link": "https://events.humanitix.com/the-full-runrise-adelaide-14th-nov-2026",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "Day Moves",
+    "venue": "Home of Plenty",
+    "datetime": "2026-12-31T12:00:00+1030",
+    "end_datetime": "2027-01-01T02:00:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/8b7f62e3-dbd4-4a0b-8b14-c3adc7a29fab.png@seo-500.jpg",
+    "link": "https://events.humanitix.com/day-moves-2026",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
     "title": "'Sweat Your Prayers' 5Rhythms McLaren Vale",
     "venue": "McLaren Vale Institute Hall",
     "datetime": "2026-11-01T10:00:00+1030",
@@ -8089,18 +8141,6 @@
     "source": "Humanitix Adelaide and Regions"
   },
   {
-    "title": "THE FULL+ RUNRISE // Adelaide - 14th NOV 2026",
-    "venue": "Chalk Hill Wines",
-    "datetime": "2026-11-14T04:15:00+1030",
-    "end_datetime": "2026-11-14T08:00:00+1030",
-    "category": [
-      "Other"
-    ],
-    "image": "https://images.humanitix.com/i/2b7ff63d-2808-470b-9329-88073e9381b7.png@seo-500.jpg",
-    "link": "https://events.humanitix.com/the-full-runrise-adelaide-14th-nov-2026",
-    "source": "Humanitix Adelaide and Regions"
-  },
-  {
     "title": "An Evening with Simon Nasht (Free Event)",
     "venue": "Hills Christian Community School (Middle School Building)",
     "datetime": "2026-10-29T18:30:00+1030",
@@ -8122,18 +8162,6 @@
     ],
     "image": "https://images.humanitix.com/i/01cbd95c-6494-4382-a34f-380adf33f18f.jpg@seo-500.jpg",
     "link": "https://events.humanitix.com/endofyearcelebration-adelaide-2026",
-    "source": "Humanitix Adelaide and Regions"
-  },
-  {
-    "title": "For the Love of Trees",
-    "venue": "Waverley Park Homestead",
-    "datetime": "2026-11-11T18:30:00+1030",
-    "end_datetime": "2026-11-11T21:00:00+1030",
-    "category": [
-      "Other"
-    ],
-    "image": "https://images.humanitix.com/i/6819ff4d-6a21-467a-9753-249f7a2d7077.jpg@seo-500.jpg",
-    "link": "https://events.humanitix.com/for-the-love-of-trees",
     "source": "Humanitix Adelaide and Regions"
   },
   {

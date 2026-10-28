@@ -4911,3 +4911,89 @@ def parse_fever_candlelight(soup, source_url):
     print(f'    Fever: {len(events)} upcoming bookable performances; '
           f'{selectors} ticket selectors; {failures} page errors')
     return events
+
+
+# ============================================================
+# ADELAIDE CENTRAL MARKET — official Events Calendar
+# ============================================================
+
+def parse_adelaide_central_market(soup, source_url):
+    """Read confirmed upcoming events from the Market's official Tribe Events API.
+
+    Only dated API records are emitted; recurring promotional pages are not
+    expanded without independently verified individual occurrence dates.
+    """
+    from datetime import datetime
+    from html import unescape
+
+    api = "https://adelaidecentralmarket.com.au/wp-json/tribe/events/v1/events"
+    headers = {"User-Agent": "Mozilla/5.0 (compatible; AdelaideEvents/1.0)"}
+    today = datetime.now().date()
+    start_date = today.isoformat() + " 00:00:00"
+    events = []
+    seen = set()
+    total_pages = 1
+    page = 1
+
+    while page <= min(total_pages, 30):
+        try:
+            response = requests.get(api, params={
+                "start_date": start_date, "per_page": 50, "page": page
+            }, headers=headers, timeout=30)
+            response.raise_for_status()
+            payload = response.json()
+            if not isinstance(payload, dict) or not isinstance(payload.get("events"), list):
+                raise ValueError("Unexpected Market API response structure")
+        except (requests.RequestException, ValueError) as exc:
+            print(f"    Market API page {page} unavailable: {exc}")
+            # Return no records on a partial API failure to preserve existing
+            # records under the scraper's source safety policy.
+            return []
+
+        try:
+            total_pages = max(1, int(payload.get("total_pages", 1)))
+        except (TypeError, ValueError):
+            total_pages = 1
+
+        for item in payload["events"]:
+            if not isinstance(item, dict):
+                continue
+            title = unescape(BeautifulSoup(str(item.get("title") or ""), "html.parser").get_text(" ", strip=True))
+            date_raw = str(item.get("start_date") or "")
+            event_url = str(item.get("url") or "")
+            if not title or not event_url:
+                continue
+            try:
+                start = datetime.strptime(date_raw[:19], "%Y-%m-%d %H:%M:%S")
+            except ValueError:
+                continue
+            if start.date() < today:
+                continue
+            key = (str(item.get("id") or event_url), start.isoformat())
+            if key in seen:
+                continue
+            seen.add(key)
+
+            description = BeautifulSoup(str(item.get("description") or ""), "html.parser").get_text(" ", strip=True)
+            categories = categorise_event(title, description[:500])
+            if re.search(r"seafood|cooking|tasting|chef|food|market", title, re.I) and "Food & Beverage" not in categories:
+                categories = ["Food & Beverage"] + categories
+
+            image_data = item.get("image")
+            image = image_data.get("url", "") if isinstance(image_data, dict) else ""
+            if not isinstance(image, str):
+                image = ""
+            events.append({
+                "title": title,
+                "venue": "Adelaide Central Market",
+                "date": start.isoformat(timespec="seconds"),
+                "category": categories,
+                "image": image,
+                "url": event_url,
+                "source": "Adelaide Central Market",
+            })
+        page += 1
+
+    events.sort(key=lambda e: (e["date"], e["title"]))
+    print(f"    Market API: {len(events)} confirmed upcoming events across {page - 1} page(s)")
+    return events
