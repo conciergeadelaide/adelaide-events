@@ -57,6 +57,7 @@ try:
         parse_morphettville_racecourse,
         parse_gilles_at_the_grounds,
         parse_unibar_adelaide,
+        parse_arkaba_hotel,
         parse_allevents_victoria_square,
         parse_allevents_adelaide_and_surrounds,
     )
@@ -102,6 +103,7 @@ except ModuleNotFoundError:
         parse_morphettville_racecourse,
         parse_gilles_at_the_grounds,
         parse_unibar_adelaide,
+        parse_arkaba_hotel,
         parse_allevents_victoria_square,
         parse_allevents_adelaide_and_surrounds,
     )
@@ -612,6 +614,9 @@ def scrape_source(source):
 
     if name == "Morphettville Racecourse":
         return parse_morphettville_racecourse(fetch_page("https://morphettville.com.au/"), "https://morphettville.com.au/")
+
+    if name == "Arkaba Hotel":
+        return parse_arkaba_hotel(fetch_page(url), url)
 
     if name == "UniBar Adelaide":
         return parse_unibar_adelaide(fetch_page("https://www.unibaradl.com.au/"), "https://www.unibaradl.com.au/")
@@ -1247,7 +1252,7 @@ def main(only_source=None):
             "Adelaide Cemetery Tours",
             "Trinity Sessions", "Morphettville Racecourse",
             "Holden Street Theatres",
-            "Baroque Hall", "Arkaba Hotel", "Rhino Room",
+            "Baroque Hall", "Rhino Room",
             "National Trust SA", "MOD.", "SAMSTAG Museum",
             "Kerry Packer Civic Gallery",
         }

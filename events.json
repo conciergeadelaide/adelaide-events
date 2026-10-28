@@ -5023,18 +5023,6 @@
     "source": "Norwood Concert Hall"
   },
   {
-    "title": "Jenny and Joel Creasey Live",
-    "venue": "Norwood Concert Hall",
-    "datetime": "2026-11-08T20:00:00",
-    "end_datetime": "",
-    "category": [
-      "Comedy"
-    ],
-    "image": "https://www.norwoodconcerthall.com.au/file/resize/c600x600/39748_website_event_tile_template-3.png",
-    "link": "https://www.norwoodconcerthall.com.au/events/3615_jenny_and_joel_creasey_live",
-    "source": "Norwood Concert Hall"
-  },
-  {
     "title": "The Psychology of Cults",
     "venue": "Norwood Concert Hall",
     "datetime": "2026-12-07T19:30:00",
@@ -5563,6 +5551,266 @@
     "image": "https://static.wixstatic.com/media/c07c08_641396aa51fe4e3c9086b2fefd1e5608~mv2.jpg",
     "link": "https://moshtix.com.au/v2/event/19-twenty-inspector-cluzo-fr-all-ages/199666",
     "source": "UniBar Adelaide"
+  },
+  {
+    "title": "October Lounge Bar Live Music",
+    "venue": "Arkaba Hotel",
+    "datetime": "2026-10-01",
+    "end_datetime": "2026-10-31",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.arkabahotel.com.au/wp-content/uploads/2024/06/10-OCT-Arkaba-Live-Entertainment-WO.jpg",
+    "link": "https://www.arkabahotel.com.au/?bn_event=october-lounge-bar-live-music-2",
+    "source": "Arkaba Hotel"
+  },
+  {
+    "title": "Melbourne Cup | Downstairs",
+    "venue": "Arkaba Hotel",
+    "datetime": "2026-11-03",
+    "end_datetime": "",
+    "category": [
+      "Sport",
+      "Food & Beverage"
+    ],
+    "image": "https://www.arkabahotel.com.au/wp-content/uploads/2026/08/ARK-Melbourne-Cup_Downstairs_WO.jpg",
+    "link": "https://www.arkabahotel.com.au/?bn_event=melbourne-cup-downstairs-2",
+    "source": "Arkaba Hotel"
+  },
+  {
+    "title": "Melbourne Cup | Sportys",
+    "venue": "Arkaba Hotel",
+    "datetime": "2026-11-03",
+    "end_datetime": "",
+    "category": [
+      "Sport",
+      "Food & Beverage"
+    ],
+    "image": "https://www.arkabahotel.com.au/wp-content/uploads/2026/08/SP-Melbourne-Cup_WO.jpg",
+    "link": "https://www.arkabahotel.com.au/?bn_event=melbourne-cup-sportys-2",
+    "source": "Arkaba Hotel"
+  },
+  {
+    "title": "Melbourne Cup | Top of the Ark *Sold Out*",
+    "venue": "Arkaba Hotel",
+    "datetime": "2026-11-03",
+    "end_datetime": "",
+    "category": [
+      "Sport",
+      "Food & Beverage"
+    ],
+    "image": "https://www.arkabahotel.com.au/wp-content/uploads/2026/08/SOLD-OUT.png",
+    "link": "https://www.arkabahotel.com.au/?bn_event=melbourne-cup-top-of-the-ark",
+    "source": "Arkaba Hotel"
+  },
+  {
+    "title": "Saša Matić Live with Full Band",
+    "venue": "Arkaba Hotel",
+    "datetime": "2026-11-06",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.arkabahotel.com.au/wp-content/uploads/2026/10/WO-2026-11-06-Sasa-Matic.jpg",
+    "link": "https://www.arkabahotel.com.au/?bn_event=sasa-matic-live-with-full-band",
+    "source": "Arkaba Hotel"
+  },
+  {
+    "title": "Adelaide Silver Style",
+    "venue": "Arkaba Hotel",
+    "datetime": "2026-11-07",
+    "end_datetime": "",
+    "category": [
+      "Food & Beverage",
+      "Community"
+    ],
+    "image": "https://www.arkabahotel.com.au/wp-content/uploads/2026/09/ARK-Adelaide-Silver-Style_WO.jpg",
+    "link": "https://www.arkabahotel.com.au/?bn_event=adelaide-silver-style",
+    "source": "Arkaba Hotel"
+  },
+  {
+    "title": "Pink Pop Party | All Ages",
+    "venue": "Arkaba Hotel",
+    "datetime": "2026-11-08",
+    "end_datetime": "",
+    "category": [
+      "Music",
+      "Family"
+    ],
+    "image": "https://www.arkabahotel.com.au/wp-content/uploads/2026/09/WO-2026-11-08-Pink-Pop-Party.jpg",
+    "link": "https://www.arkabahotel.com.au/?bn_event=pink-pop-party-all-ages",
+    "source": "Arkaba Hotel"
+  },
+  {
+    "title": "No Scrubs: 90s + Early 00s Party | Adelaide",
+    "venue": "Arkaba Hotel",
+    "datetime": "2026-11-14",
+    "end_datetime": "",
+    "category": [
+      "Music",
+      "Club/Party"
+    ],
+    "image": "https://www.arkabahotel.com.au/wp-content/uploads/2026/10/WO-2026-11-14-No-Scrubs.jpg",
+    "link": "https://www.arkabahotel.com.au/?bn_event=no-scrubs-90s-early-00s-party-adelaide",
+    "source": "Arkaba Hotel"
+  },
+  {
+    "title": "Motown Connection’s 21st Birthday",
+    "venue": "Arkaba Hotel",
+    "datetime": "2026-11-27",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.arkabahotel.com.au/wp-content/uploads/2026/10/WO-2026-11-27-Motown-Connection.jpg",
+    "link": "https://www.arkabahotel.com.au/?bn_event=motown-connection-presents-the-best-of-motown-21st-birthday",
+    "source": "Arkaba Hotel"
+  },
+  {
+    "title": "Ultra Naté (USA) | Adelaide",
+    "venue": "Arkaba Hotel",
+    "datetime": "2026-11-28",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.arkabahotel.com.au/wp-content/uploads/2026/07/WO-2026-11-28-Ultra-Nate.jpg",
+    "link": "https://www.arkabahotel.com.au/?bn_event=ultra-nate-usa-adelaide",
+    "source": "Arkaba Hotel"
+  },
+  {
+    "title": "Broadway Sessions | November",
+    "venue": "Arkaba Hotel",
+    "datetime": "2026-11-29",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.arkabahotel.com.au/wp-content/uploads/2026/10/WO-2026-11-29-Broadway-Sessions-Nov.jpg",
+    "link": "https://www.arkabahotel.com.au/?bn_event=broadway-sessions-november",
+    "source": "Arkaba Hotel"
+  },
+  {
+    "title": "Christmas Dinner + Show",
+    "venue": "Arkaba Hotel",
+    "datetime": "2026-12-05",
+    "end_datetime": "2026-12-19",
+    "category": [
+      "Food & Beverage"
+    ],
+    "image": "https://www.arkabahotel.com.au/wp-content/uploads/2026/07/ARK-Christmas-Dinner-Show_WO.jpg",
+    "link": "https://www.arkabahotel.com.au/?bn_event=christmas-dinner-show",
+    "source": "Arkaba Hotel"
+  },
+  {
+    "title": "Swing Kings: Sir Richard Hadlee & Damien Fleming",
+    "venue": "Arkaba Hotel",
+    "datetime": "2026-12-15",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.arkabahotel.com.au/wp-content/uploads/2026/10/ARK-Swing-Kings_WO.jpg",
+    "link": "https://www.arkabahotel.com.au/?bn_event=swing-kings-an-evening-with-sir-richard-hadlee-damien-fleming",
+    "source": "Arkaba Hotel"
+  },
+  {
+    "title": "A Holly Dolly Christmas – With Kelly O’Brien",
+    "venue": "Arkaba Hotel",
+    "datetime": "2026-12-18",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.arkabahotel.com.au/wp-content/uploads/2026/05/WO-2026-12-18-A-Holly-Dolly-Christmas.jpg",
+    "link": "https://www.arkabahotel.com.au/?bn_event=a-holly-dolly-christmas-starring-kelly-obrien",
+    "source": "Arkaba Hotel"
+  },
+  {
+    "title": "Christmas Day Lunch | Top of the Ark",
+    "venue": "Arkaba Hotel",
+    "datetime": "2026-12-25",
+    "end_datetime": "",
+    "category": [
+      "Food & Beverage"
+    ],
+    "image": "https://www.arkabahotel.com.au/wp-content/uploads/2026/07/ARK-Christmas-Day_WO.jpg",
+    "link": "https://www.arkabahotel.com.au/?bn_event=christmas-day-lunch-top-of-the-ark-3",
+    "source": "Arkaba Hotel"
+  },
+  {
+    "title": "Christmas Day | Downstairs",
+    "venue": "Arkaba Hotel",
+    "datetime": "2026-12-25",
+    "end_datetime": "",
+    "category": [
+      "Food & Beverage"
+    ],
+    "image": "https://www.arkabahotel.com.au/wp-content/uploads/2026/07/ARK-Christmas-Day_Downstairs_WO.jpg",
+    "link": "https://www.arkabahotel.com.au/?bn_event=christmas-day-downstairs-2",
+    "source": "Arkaba Hotel"
+  },
+  {
+    "title": "Glitz & Glam New Year’s Eve – Top of the Ark",
+    "venue": "Arkaba Hotel",
+    "datetime": "2026-12-31",
+    "end_datetime": "",
+    "category": [
+      "Music",
+      "Club/Party"
+    ],
+    "image": "https://www.arkabahotel.com.au/wp-content/uploads/2026/10/WO-2026-12-31-NYE-Glitz-Glam-TOP.jpg",
+    "link": "https://www.arkabahotel.com.au/?bn_event=glitz-glam-new-years-eve-top-of-the-ark",
+    "source": "Arkaba Hotel"
+  },
+  {
+    "title": "Craig McLaughlan: Six String Stories | Adelaide",
+    "venue": "Arkaba Hotel",
+    "datetime": "2027-01-30",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.arkabahotel.com.au/wp-content/uploads/2026/10/WO-2027-01-30-Craig-McLachlan.jpg",
+    "link": "https://www.arkabahotel.com.au/?bn_event=craig-mclaughlan-six-string-stories-adelaide",
+    "source": "Arkaba Hotel"
+  },
+  {
+    "title": "Jack Gatto & Charlie Gaylard: ELVIS LIVE IN CONCERT",
+    "venue": "Arkaba Hotel",
+    "datetime": "2027-02-13",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.arkabahotel.com.au/wp-content/uploads/2026/09/WO-2027-02-13-Jack-Gatto-Elvis.jpg",
+    "link": "https://www.arkabahotel.com.au/?bn_event=jack-gatto-charlie-gaylard-elvis-live-in-concert",
+    "source": "Arkaba Hotel"
+  },
+  {
+    "title": "Casey Rocket (USA) – As Above, So Down Under",
+    "venue": "Arkaba Hotel",
+    "datetime": "2027-02-20",
+    "end_datetime": "",
+    "category": [
+      "Comedy"
+    ],
+    "image": "https://www.arkabahotel.com.au/wp-content/uploads/2026/10/WO-2026-02-20-FRINGE-Casey-Rocket.jpg",
+    "link": "https://www.arkabahotel.com.au/?bn_event=casey-rocket-usa-as-above-so-down-under",
+    "source": "Arkaba Hotel"
+  },
+  {
+    "title": "OPA! A Big Fat Greek Comedy & Music Variety Show Extravaganza",
+    "venue": "Arkaba Hotel",
+    "datetime": "2027-04-02",
+    "end_datetime": "",
+    "category": [
+      "Comedy",
+      "Music"
+    ],
+    "image": "https://www.arkabahotel.com.au/wp-content/uploads/2026/10/WO-2027-04-02-OPA-Greek-Comedy.jpg",
+    "link": "https://www.arkabahotel.com.au/?bn_event=opa-a-big-fat-greek-comedy-music-variety-show-extravaganza",
+    "source": "Arkaba Hotel"
   },
   {
     "title": "Government House Garden Tour (Fully Booked)",
@@ -7211,6 +7459,18 @@
     "image": "https://assets.atdw-online.com.au/images/c2cb5b1c9b815c771cebee7ee811ce12.jpeg?rect=0%2C0%2C2048%2C1536&w=1280&h=1024&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhYzRlNzlkYmYwN2Q1MDY3YTUwYjBkMiIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
     "link": "https://www.adelaidetownhall.com.au/events/vision-by-vision-musica-viva-australia-in-adelaide/",
     "source": "Adelaide Town Hall"
+  },
+  {
+    "title": "Jenny and Joel Creasey Live",
+    "venue": "Norwood Concert Hall",
+    "datetime": "2026-11-08T20:00:00",
+    "end_datetime": "",
+    "category": [
+      "Comedy"
+    ],
+    "image": "https://www.norwoodconcerthall.com.au/file/resize/c600x600/39748_website_event_tile_template-3.png",
+    "link": "https://www.norwoodconcerthall.com.au/events/3615_jenny_and_joel_creasey_live",
+    "source": "Norwood Concert Hall"
   },
   {
     "title": "New Year's Eve Party",

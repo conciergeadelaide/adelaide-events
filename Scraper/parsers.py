@@ -6024,3 +6024,145 @@ def parse_unibar_adelaide(soup, source_url):
     print(f"    UniBar Adelaide: {len(events)} upcoming dated gigs; "
           f"{sum(bool(e['image']) for e in events)} official posters")
     return events
+
+
+# ============================================================
+# ARKABA HOTEL - OFFICIAL WHAT'S ON EVENT CARDS
+# ============================================================
+
+def parse_arkaba_hotel(soup, source_url):
+    """Parse Arkaba's dated bn_event cards and their original lazy images.
+
+    The site's event cards use h4.event-title, div.time and event links
+    containing ?bn_event=. No date/year/time is fabricated: years are
+    determined by matching the published weekday and a near-future window.
+    A multi-day date RANGE is one event with an end date, not assumed to
+    be daily or weekly performances.
+    """
+    from datetime import date
+    from urllib.parse import urlparse, parse_qs
+
+    today = date.today()
+    events = []
+    seen = set()
+    weekday = {"mon": 0, "tue": 1, "wed": 2, "thu": 3,
+               "fri": 4, "sat": 5, "sun": 6}
+    months = {name[:3].lower(): number for name, number in MONTHS.items()}
+
+    def read_dates(raw):
+        text = " ".join(raw.replace("\xa0", " ").split())
+        # Example: Sat, 5-19 December; Thu, 1-Sat, 31 October
+        pattern = (r"^(Mon|Tue|Wed|Thu|Fri|Sat|Sun),?\s*"
+                   r"(\d{1,2})(?:\s*[-–]\s*(?:(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun),?\s*)?(\d{1,2}))?"
+                   r"\s+([A-Za-z]+)(?:\s+(20\d{2}))?$")
+        match = re.match(pattern, text, re.I)
+        if not match:
+            return None
+        dow, day, end_day, month_text, explicit_year = match.groups()
+        month = months.get(month_text[:3].lower())
+        if not month:
+            return None
+        years = [int(explicit_year)] if explicit_year else list(range(today.year - 1, today.year + 4))
+        candidates = []
+        for year in years:
+            try:
+                start = date(year, month, int(day))
+                end = date(year, month, int(end_day)) if end_day else start
+            except ValueError:
+                continue
+            if start.weekday() != weekday[dow.lower()[:3]] or end < start:
+                continue
+            if end < today:
+                continue
+            # Prefer nearest upcoming year; don't push an already elapsed
+            # date into the following year unless weekday corroborates it.
+            candidates.append((start, end))
+        return min(candidates, key=lambda item: item[0]) if candidates else None
+
+    for heading in soup.select("h4.event-title"):
+        title = " ".join(heading.stripped_strings).strip()
+        if not title:
+            continue
+        # Locate the smallest card containing this heading, its date,
+        # official image, and its unique bn_event detail-page link.
+        card = heading
+        for _ in range(7):
+            card = card.parent
+            if card is None:
+                break
+            if len(card.select("h4.event-title")) != 1:
+                continue
+            if card.select_one("div.time") and any(
+                "bn_event=" in str(a.get("href", ""))
+                for a in card.find_all("a", href=True)
+            ):
+                break
+        else:
+            continue
+        if card is None or len(card.select("h4.event-title")) != 1:
+            continue
+        date_tag = card.select_one("div.time")
+        if date_tag is None:
+            continue
+        span = read_dates(date_tag.get_text(" ", strip=True))
+        if not span:
+            continue
+        start, end = span
+        link = ""
+        for anchor in card.find_all("a", href=True):
+            candidate = normalise_url(anchor["href"], source_url)
+            parsed = urlparse(candidate)
+            if (parsed.hostname or "").lower().removeprefix("www.") != "arkabahotel.com.au":
+                continue
+            if parse_qs(parsed.query).get("bn_event"):
+                link = candidate
+                break
+        if not link:
+            continue
+        key = (link, start.isoformat())
+        if key in seen:
+            continue
+
+        image = ""
+        for img in card.find_all("img"):
+            candidate = (img.get("data-src") or img.get("data-lazy-src")
+                         or img.get("data-original") or img.get("src") or "").strip()
+            if (not candidate or candidate.startswith("data:")
+                    or "logo" in candidate.lower()):
+                continue
+            image = normalise_url(candidate, source_url)
+            break
+
+        lower = title.casefold()
+        if "melbourne cup" in lower:
+            categories = ["Sport", "Food & Beverage"]
+        elif any(word in lower for word in ("christmas day", "christmas dinner")):
+            categories = ["Food & Beverage"]
+        elif "comedy" in lower or "casey rocket" in lower:
+            categories = ["Comedy"]
+            if "music" in lower:
+                categories.append("Music")
+        elif "pink pop party" in lower:
+            categories = ["Music", "Family"]
+        elif "silver style" in lower:
+            categories = ["Food & Beverage", "Community"]
+        elif "new year" in lower or "party" in lower:
+            categories = ["Music", "Club/Party"]
+        else:
+            categories = ["Music"]
+
+        seen.add(key)
+        events.append({
+            "title": title,
+            "venue": "Arkaba Hotel",
+            "date": start.isoformat(),
+            "end_date": end.isoformat() if end > start else "",
+            "category": categories,
+            "image": image,
+            "url": link,
+        })
+
+    events.sort(key=lambda e: (e["date"], e["title"]))
+    print(f"    Arkaba Hotel: {len(events)} dated official event cards; "
+          f"{sum(bool(e['image']) for e in events)} official images")
+    return events
