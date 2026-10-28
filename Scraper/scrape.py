@@ -173,6 +173,47 @@ def load_existing_events():
         return []
 
 
+# Curated, event-specific category corrections. Applied at save time so they
+# also correct records retained when a source cannot be refreshed.
+# Booking URLs are matched by host and path (query strings are ignored).
+COMEDY_BOOKING_PATHS = {
+    ("ti.to", "/cypriot-smurf/adelaide"),
+    ("events.humanitix.com", "/do-you-know-who-i-am-by-daniel-fernandes"),
+    ("lewspears.com", "/products/spears-in-the-city-friday-27-november-8-30pm-adelaide"),
+    ("www.eventbrite.com.au", "/e/steve-hofstetter-at-rhino-room-adelaide-tickets-1985565084618"),
+    ("events.humanitix.com", "/drew-lynch-adelaide"),
+    ("events.humanitix.com", "/josh-wolf-touring-hard"),
+    ("events.humanitix.com", "/barry-castagnola-the-last-of-the-barrys"),
+}
+
+# Distinctive show/performer titles also cover aggregator records linking to
+# a different ticketing page. Avoid broad words such as "tour" or "Adelaide".
+COMEDY_TITLE_PATTERNS = (
+    r"\bcypriot\s+smurf\b",
+    r"\bdaniel\s+fernandes\b",
+    r"\bspears\s+in\s+the\s+city\b",
+    r"\bsteve\s+hofstetter\b",
+    r"\bdrew\s+lynch\b",
+    r"\bjosh\s+wolf\b",
+    r"\bbarry\s+castagnola\b",
+)
+
+
+def correct_comedy_category(event):
+    """Force only the seven identified stand-up shows into Comedy."""
+    title = str(event.get("title") or "")
+    link = str(event.get("link") or event.get("url") or "")
+    parsed = urlparse(link)
+    host = (parsed.hostname or "").casefold()
+    path = parsed.path.rstrip("/").casefold()
+    known_link = (host, path) in COMEDY_BOOKING_PATHS
+    known_title = any(re.search(pattern, title, re.I) for pattern in COMEDY_TITLE_PATTERNS)
+    if known_link or known_title:
+        event["category"] = ["Comedy"]
+        return True
+    return False
+
+
 def save_events(events):
     # Keep a separate archive of past events from earlier successful runs.
     # Do not change the current events.json merge/deduplication rules.
@@ -205,6 +246,8 @@ def save_events(events):
 
     from festival_tags import assign_festivals
     events = [assign_festivals(event) for event in events]
+    comedy_corrections = sum(correct_comedy_category(event) for event in events)
+    print(f"Comedy category corrections applied: {comedy_corrections}")
 
 
     # Create a backup before changing

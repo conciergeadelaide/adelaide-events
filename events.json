@@ -6022,7 +6022,7 @@
     "datetime": "2026-11-19T19:30:00",
     "end_datetime": "2026-11-19T21:00:00",
     "category": [
-      "Other"
+      "Comedy"
     ],
     "image": "https://rhinoroom.com.au/wp-content/uploads/2026/06/IMG_4073.jpeg",
     "link": "https://ti.to/cypriot-smurf/adelaide",
@@ -6070,7 +6070,7 @@
     "datetime": "2026-11-26T19:00:00",
     "end_datetime": "2026-11-26T20:00:00",
     "category": [
-      "Other"
+      "Comedy"
     ],
     "image": "https://rhinoroom.com.au/wp-content/uploads/2026/06/Screenshot-2026-06-03-at-1.32.58-pm.png",
     "link": "https://events.humanitix.com/do-you-know-who-i-am-by-daniel-fernandes",
@@ -6094,7 +6094,7 @@
     "datetime": "2026-11-27T20:30:00",
     "end_datetime": "2026-11-27T21:30:00",
     "category": [
-      "Other"
+      "Comedy"
     ],
     "image": "https://rhinoroom.com.au/wp-content/uploads/2026/08/LEWDECKHERO.jpeg",
     "link": "https://lewspears.com/products/spears-in-the-city-friday-27-november-8-30pm-adelaide",
@@ -6178,7 +6178,7 @@
     "datetime": "2027-01-24T19:30:00",
     "end_datetime": "2027-01-24T20:50:00",
     "category": [
-      "Music"
+      "Comedy"
     ],
     "image": "https://rhinoroom.com.au/wp-content/uploads/2026/10/JOSH-WOLF-CLEAN-300x300-1.jpg",
     "link": "https://events.humanitix.com/josh-wolf-touring-hard",
@@ -6190,7 +6190,7 @@
     "datetime": "2027-02-02T19:00:00",
     "end_datetime": "2027-02-02T20:00:00",
     "category": [
-      "Other"
+      "Comedy"
     ],
     "image": "https://rhinoroom.com.au/wp-content/uploads/2026/05/Steve-Hoftstter800x800_v1-copy.jpg",
     "link": "https://www.eventbrite.com/e/1985565084618?aff=oddtdtcreator",
@@ -6202,7 +6202,7 @@
     "datetime": "2027-02-10T19:30:00",
     "end_datetime": "2027-02-10T20:30:00",
     "category": [
-      "Music"
+      "Comedy"
     ],
     "image": "https://rhinoroom.com.au/wp-content/uploads/2026/09/DrewLynch-1080x1080-adl.jpg",
     "link": "https://events.humanitix.com/drew-lynch-adelaide",
@@ -6214,7 +6214,7 @@
     "datetime": "2027-04-13T19:00:00",
     "end_datetime": "2027-04-13T20:00:00",
     "category": [
-      "Other"
+      "Comedy"
     ],
     "image": "https://rhinoroom.com.au/wp-content/uploads/2026/10/BarryC-Rhino-Room-1080x1080-1.jpg",
     "link": "https://events.humanitix.com/barry-castagnola-the-last-of-the-barrys",
@@ -6422,6 +6422,18 @@
     ],
     "image": "https://cdn.prod.website-files.com/60ac6a3bfd35bf085579a7cf/6ab148e603887ab60afa65a2_Alex%20Cameron%202026%20ONE.jpg.jpeg",
     "link": "https://www.jivevenue.com/event/alex-cameron",
+    "source": "Jive"
+  },
+  {
+    "title": "Real Young & Lazy Horse – Australian Tour 2026",
+    "venue": "Jive",
+    "datetime": "2027-01-23T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://cdn.prod.website-files.com/60ac6a3bfd35bf085579a7cf/6adee897b6834c853e01e624_Screenshot%202026-10-26%20at%204.13.39%E2%80%AFpm.png",
+    "link": "https://www.jivevenue.com/event/real-young-lazy-horse",
     "source": "Jive"
   },
   {
