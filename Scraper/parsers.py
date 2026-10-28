@@ -6166,3 +6166,148 @@ def parse_arkaba_hotel(soup, source_url):
     print(f"    Arkaba Hotel: {len(events)} dated official event cards; "
           f"{sum(bool(e['image']) for e in events)} official images")
     return events
+
+
+# ============================================================
+# RHINO ROOM - PAGINATED OFFICIAL GIG GUIDE
+# ============================================================
+
+def parse_rhino_room(soup, source_url):
+    """Read the Rhino Room's own event cards, times, artwork and ticket links."""
+    from urllib.parse import urlsplit, urlunsplit
+
+    session = requests.Session()
+    session.headers.update({"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/140.0.0.0 Safari/537.36"})
+    today = datetime.now().date()
+    found = []
+    seen = set()
+    seen_pages = set()
+    page = 1
+    base_url = "https://rhinoroom.com.au/gig-guide/"
+
+    def field(card, selector):
+        node = card.select_one(selector)
+        return " ".join(node.stripped_strings).strip() if node else ""
+
+    while page <= 25:
+        page_url = base_url if page == 1 else f"{base_url}page/{page}/"
+        if page > 1:
+            try:
+                response = session.get(page_url, timeout=30)
+                if response.status_code in (404, 410):
+                    break
+                response.raise_for_status()
+                page_soup = BeautifulSoup(response.text, "lxml")
+            except Exception as exc:
+                print(f"    Rhino Room page {page} unavailable: {exc}")
+                break
+        else:
+            page_soup = soup
+
+        cards = page_soup.select(".events_grid .our_event")
+        signature = tuple(card.get("id", "") for card in cards)
+        if not cards or signature in seen_pages:
+            break
+        seen_pages.add(signature)
+        count = 0
+
+        for card in cards:
+            date_text = field(card, ".datentime .date") or field(card, ".show-dates .showdate")
+            start_text = field(card, ".datentime .start_time") or field(card, ".show-dates .start_time")
+            if not date_text:
+                continue
+            try:
+                start_day = datetime.strptime(date_text, "%a, %b %d, %Y")
+            except ValueError:
+                try:
+                    start_day = datetime.strptime(date_text, "%A, %B %d, %Y")
+                except ValueError:
+                    continue
+            if start_day.date() < today:
+                continue
+            start_time = None
+            if start_text:
+                for fmt in ("%I:%M %p", "%I %p"):
+                    try:
+                        start_time = datetime.strptime(start_text.strip().upper(), fmt).time()
+                        break
+                    except ValueError:
+                        pass
+            start = datetime.combine(start_day.date(), start_time).isoformat() if start_time else start_day.isoformat()
+
+            end = ""
+            end_day_text = field(card, ".show-dates .showenddate").lstrip("- ").strip()
+            end_time_text = field(card, ".show-dates .end_time").lstrip("- ").strip()
+            if end_day_text:
+                try:
+                    end_day = datetime.strptime(end_day_text, "%a, %b %d, %Y")
+                    if end_day.date() >= start_day.date():
+                        end_time = None
+                        for fmt in ("%I:%M %p", "%I %p"):
+                            try:
+                                end_time = datetime.strptime(end_time_text.upper(), fmt).time()
+                                break
+                            except ValueError:
+                                pass
+                        if end_time and (end_day.date() > start_day.date() or end_time > (start_time or datetime.min.time())):
+                            end = datetime.combine(end_day.date(), end_time).isoformat()
+                        elif end_day.date() > start_day.date():
+                            end = end_day.isoformat()
+                except ValueError:
+                    pass
+
+            # The card includes both an image link and a separate title link.
+            anchors = card.select("a[href]")
+            named_links = [a for a in anchors if a.get_text(" ", strip=True)]
+            title_anchor = max(named_links, key=lambda a: len(a.get_text(" ", strip=True)), default=None)
+            title = " ".join(title_anchor.stripped_strings).strip() if title_anchor else ""
+            if not title:
+                for selector in (".post-box h2", ".post-box h3", ".post-box h4", ".post-box .title"):
+                    title = field(card, selector)
+                    if title:
+                        break
+            if not title:
+                continue
+            ticket = title_anchor.get("href", "") if title_anchor else ""
+            if not ticket and anchors:
+                ticket = anchors[0].get("href", "")
+            ticket = normalise_url(ticket.strip(), page_url)
+            if not ticket:
+                continue
+            parts = urlsplit(ticket)
+            ticket = urlunsplit((parts.scheme, parts.netloc, parts.path.rstrip("/"), parts.query, ""))
+
+            img = card.select_one("img.wp-post-image") or card.select_one("img")
+            image = ""
+            if img:
+                raw = img.get("data-src") or img.get("src") or ""
+                if raw and not raw.startswith("data:"):
+                    image = normalise_url(raw, page_url)
+
+            venue_text = field(card, ".show-dates .venue") or field(card, ".post-box .venue")
+            if not venue_text:
+                # The venue label may be an unclassed sibling inside the card.
+                text = card.get_text(" ", strip=True).lower()
+                venue_text = "Lowlife Basement Bar" if "lowlife basement" in text else "Rhino Room"
+            venue = "Lowlife Basement Bar" if "lowlife" in venue_text.lower() else "Rhino Room"
+            key = (title.casefold(), start, venue.casefold())
+            if key in seen:
+                continue
+            seen.add(key)
+            lower = title.casefold()
+            if any(word in lower for word in ("comedy", "comedian", "standup", "stand-up", "open mic", "laugh lab", "jokers", "joke", "showcase", "friendly jordies", "rufus rice", "lucie pohl")):
+                category = ["Comedy"]
+            elif any(word in lower for word in ("party", "club", "dj", "halloween", "disney")):
+                category = ["Club/Party"]
+            elif any(word in lower for word in ("live", "band", "music", "tour", "rock")):
+                category = ["Music"]
+            else:
+                category = categorise_event(title)
+            found.append({"title": title, "venue": venue, "date": start, "end_date": end,
+                          "category": category, "image": image, "url": ticket})
+            count += 1
+        print(f"    Rhino Room page {page}: {len(cards)} cards, {count} new dated events")
+        page += 1
+
+    print(f"    Rhino Room: {len(found)} dated official events; {sum(bool(x['image']) for x in found)} official images")
+    return found
