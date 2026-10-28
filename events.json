@@ -3447,18 +3447,6 @@
     "source": "Thebarton Theatre"
   },
   {
-    "title": "Smokie (UK) Greatest Hits Tour",
-    "venue": "Thebarton Theatre",
-    "datetime": "2027-03-02T19:00:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://thebartontheatre.com.au/wp-content/uploads/2026/08/Thebarton-Events-2026-08-17T102708.022.png",
-    "link": "https://www.ticketmaster.com.au/smokie-uk-greatest-hits-tour-torrensville-02-03-2027/event/1300650CEBDA867A",
-    "source": "Thebarton Theatre"
-  },
-  {
     "title": "Belinda Carlisle - G'Day & Goodbye",
     "venue": "Thebarton Theatre",
     "datetime": "2027-03-09T20:00:00",
@@ -4927,28 +4915,520 @@
     "source": "David Roche Foundation"
   },
   {
-    "title": "Start Making Sense (Talking Heads Tribute) (USA)",
-    "venue": "The Gov",
-    "datetime": "2027-01-20T19:00:00",
-    "end_datetime": "2027-01-20T23:30:00",
+    "title": "Creedence Clearwater Collective",
+    "venue": "Norwood Concert Hall",
+    "datetime": "2026-11-21T00:00:00",
+    "end_datetime": "",
     "category": [
       "Music"
     ],
-    "image": "http://www.moshtix.com.au/uploads/d3482b52-6589-4c45-8697-2960c71caa40x600x600",
-    "link": "https://www.moshtix.com.au/v2/event/start-making-sense-talking-heads-tribute-usa/198448",
-    "source": "The Gov"
+    "image": "",
+    "link": "https://www.norwoodconcerthall.com.au/events/3279_creedence_clearwater_collective",
+    "source": "Norwood Concert Hall"
   },
   {
-    "title": "Slow Pilot (Belgium) - Performing the songs of Jeff Buckley",
-    "venue": "The Gov",
-    "datetime": "2027-03-13T19:00:00",
-    "end_datetime": "2027-03-13T23:30:00",
+    "title": "Des Bishop - Australia Tour",
+    "venue": "Norwood Concert Hall",
+    "datetime": "2026-11-12T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Comedy"
+    ],
+    "image": "",
+    "link": "https://www.norwoodconcerthall.com.au/events/3374_des_bishop__australia_tour",
+    "source": "Norwood Concert Hall"
+  },
+  {
+    "title": "Anthony Callea - The CONNECTION Tour",
+    "venue": "Norwood Concert Hall",
+    "datetime": "2026-11-20T19:30:00",
+    "end_datetime": "",
     "category": [
       "Music"
     ],
-    "image": "http://www.moshtix.com.au/uploads/e95a0fdc-ac16-4bd6-ac71-b32e32cfc773x600x600",
-    "link": "https://www.moshtix.com.au/v2/event/slow-pilot-belgium-performing-the-songs-of-jeff-buckley/201186",
-    "source": "The Gov"
+    "image": "",
+    "link": "https://www.norwoodconcerthall.com.au/events/3516_anthony_callea__the_connection_tour",
+    "source": "Norwood Concert Hall"
+  },
+  {
+    "title": "Classics and Confetti",
+    "venue": "Norwood Concert Hall",
+    "datetime": "2026-12-06T14:30:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "",
+    "link": "https://www.norwoodconcerthall.com.au/events/3554_classics_and_confetti",
+    "source": "Norwood Concert Hall"
+  },
+  {
+    "title": "An Evening with David Sedaris",
+    "venue": "Norwood Concert Hall",
+    "datetime": "2027-01-16T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Comedy"
+    ],
+    "image": "",
+    "link": "https://www.norwoodconcerthall.com.au/events/3573_an_evening_with_david_sedaris",
+    "source": "Norwood Concert Hall"
+  },
+  {
+    "title": "Dara Ó Briain Re:Creation",
+    "venue": "Norwood Concert Hall",
+    "datetime": "2026-11-06T20:00:00",
+    "end_datetime": "",
+    "category": [
+      "Comedy"
+    ],
+    "image": "",
+    "link": "https://www.norwoodconcerthall.com.au/events/3584_dara__briain_recreation",
+    "source": "Norwood Concert Hall"
+  },
+  {
+    "title": "Adam Kay Twas The Nightshift Before Christmas Live",
+    "venue": "Norwood Concert Hall",
+    "datetime": "2026-12-04T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Comedy"
+    ],
+    "image": "",
+    "link": "https://www.norwoodconcerthall.com.au/events/3585_adam_kay_twas_the_nightshift_before_christmas_live",
+    "source": "Norwood Concert Hall"
+  },
+  {
+    "title": "Pevan & Sarah in Adelaide '26",
+    "venue": "Norwood Concert Hall",
+    "datetime": "2026-11-13T10:30:00",
+    "end_datetime": "",
+    "category": [
+      "Family"
+    ],
+    "image": "",
+    "link": "https://www.norwoodconcerthall.com.au/events/3586_pevan_and_sarah_in_adelaide_26",
+    "source": "Norwood Concert Hall"
+  },
+  {
+    "title": "Jenny and Joel Creasey Live",
+    "venue": "Norwood Concert Hall",
+    "datetime": "2026-11-08T20:00:00",
+    "end_datetime": "",
+    "category": [
+      "Comedy"
+    ],
+    "image": "",
+    "link": "https://www.norwoodconcerthall.com.au/events/3615_jenny_and_joel_creasey_live",
+    "source": "Norwood Concert Hall"
+  },
+  {
+    "title": "The Psychology of Cults",
+    "venue": "Norwood Concert Hall",
+    "datetime": "2026-12-07T19:30:00",
+    "end_datetime": "",
+    "category": [
+      "Talks"
+    ],
+    "image": "",
+    "link": "https://www.norwoodconcerthall.com.au/events/3623_the_psychology_of_cults",
+    "source": "Norwood Concert Hall"
+  },
+  {
+    "title": "The Dollop Down Under 8",
+    "venue": "Norwood Concert Hall",
+    "datetime": "2026-11-11T19:30:00",
+    "end_datetime": "",
+    "category": [
+      "Comedy"
+    ],
+    "image": "",
+    "link": "https://www.norwoodconcerthall.com.au/events/3624_the_dollop_down_under_8",
+    "source": "Norwood Concert Hall"
+  },
+  {
+    "title": "The Legendary Andy Live in Adelaide 2026",
+    "venue": "Norwood Concert Hall",
+    "datetime": "2026-11-03T20:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "",
+    "link": "https://www.norwoodconcerthall.com.au/events/3625_the_legendary_andy_live_in_adelaide_2026",
+    "source": "Norwood Concert Hall"
+  },
+  {
+    "title": "Adam Kay Twas The Nightshift Before Christmas Live",
+    "venue": "Norwood Concert Hall",
+    "datetime": "2026-12-05T20:00:00",
+    "end_datetime": "",
+    "category": [
+      "Comedy"
+    ],
+    "image": "",
+    "link": "https://www.norwoodconcerthall.com.au/events/3645_adam_kay_twas_the_nightshift_before_christmas_live",
+    "source": "Norwood Concert Hall"
+  },
+  {
+    "title": "Zarna Garg: The Million Dollar Excuses Tour",
+    "venue": "Norwood Concert Hall",
+    "datetime": "2026-12-05T16:00:00",
+    "end_datetime": "",
+    "category": [
+      "Comedy"
+    ],
+    "image": "",
+    "link": "https://www.norwoodconcerthall.com.au/events/3670_zarna_garg_the_million_dollar_excuses_tour",
+    "source": "Norwood Concert Hall"
+  },
+  {
+    "title": "RuPaul's Drag Race LIP SYNC LIVE! 2027",
+    "venue": "Norwood Concert Hall",
+    "datetime": "2027-03-13T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Theatre"
+    ],
+    "image": "",
+    "link": "https://www.norwoodconcerthall.com.au/events/3679_rupauls_drag_race_lip_sync_live_2027",
+    "source": "Norwood Concert Hall"
+  },
+  {
+    "title": "Government House Garden Tour (Fully Booked)",
+    "venue": "Government House",
+    "datetime": "2026-11-06T10:45:00",
+    "end_datetime": "2026-11-06T11:45:00",
+    "category": [
+      "Community"
+    ],
+    "image": "",
+    "link": "https://ghadelaide.eventsair.com/garden-tours-26/registrations-2026",
+    "source": "Government House"
+  },
+  {
+    "title": "Government House Garden Tour (Fully Booked)",
+    "venue": "Government House",
+    "datetime": "2026-12-04T10:45:00",
+    "end_datetime": "2026-12-04T11:45:00",
+    "category": [
+      "Community"
+    ],
+    "image": "",
+    "link": "https://ghadelaide.eventsair.com/garden-tours-26/registrations-2026",
+    "source": "Government House"
+  },
+  {
+    "title": "Government House Garden Tour (Fully Booked)",
+    "venue": "Government House",
+    "datetime": "2027-01-08T10:45:00",
+    "end_datetime": "2027-01-08T11:45:00",
+    "category": [
+      "Community"
+    ],
+    "image": "",
+    "link": "https://ghadelaide.eventsair.com/garden-tours-26/registrations-2026",
+    "source": "Government House"
+  },
+  {
+    "title": "Government House Garden Tour (Fully Booked)",
+    "venue": "Government House",
+    "datetime": "2027-02-05T10:45:00",
+    "end_datetime": "2027-02-05T11:45:00",
+    "category": [
+      "Community"
+    ],
+    "image": "",
+    "link": "https://ghadelaide.eventsair.com/garden-tours-26/registrations-2026",
+    "source": "Government House"
+  },
+  {
+    "title": "Government House Garden Tour (Fully Booked)",
+    "venue": "Government House",
+    "datetime": "2027-03-05T10:45:00",
+    "end_datetime": "2027-03-05T11:45:00",
+    "category": [
+      "Community"
+    ],
+    "image": "",
+    "link": "https://ghadelaide.eventsair.com/garden-tours-26/registrations-2026",
+    "source": "Government House"
+  },
+  {
+    "title": "Candlelight: Featuring Mozart, Bach, and Timeless Composers",
+    "venue": "St Peter's Cathedral",
+    "datetime": "2026-10-30T18:30:00+10:30",
+    "end_datetime": "2026-10-30T19:30:00+10:30",
+    "category": [
+      "Music"
+    ],
+    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/501c10e8-058a-11f0-9508-fa8a84692968.jpg",
+    "link": "https://feverup.com/m/390146",
+    "source": "Fever Candlelight Adelaide"
+  },
+  {
+    "title": "Candlelight: Tribute to TOOL",
+    "venue": "The Meeting Hall",
+    "datetime": "2026-11-06T18:30:00+10:30",
+    "end_datetime": "2026-11-06T19:30:00+10:30",
+    "category": [
+      "Music"
+    ],
+    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/5dd71566-f7c4-11f0-ba82-b24207bafaca.jpg",
+    "link": "https://feverup.com/m/634559",
+    "source": "Fever Candlelight Adelaide"
+  },
+  {
+    "title": "Candlelight: Ed Sheeran & Coldplay",
+    "venue": "The Meeting Hall",
+    "datetime": "2026-11-06T20:30:00+10:30",
+    "end_datetime": "2026-11-06T21:30:00+10:30",
+    "category": [
+      "Music"
+    ],
+    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/cef040e6-1f76-11f0-99d8-76e4fa916312.jpg",
+    "link": "https://feverup.com/m/473344",
+    "source": "Fever Candlelight Adelaide"
+  },
+  {
+    "title": "Candlelight: Tribute to Queen",
+    "venue": "St Peter's Cathedral",
+    "datetime": "2026-11-20T16:30:00+10:30",
+    "end_datetime": "2026-11-20T17:30:00+10:30",
+    "category": [
+      "Music"
+    ],
+    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/9830311a-1940-11f0-90df-56c21721c770.jpg",
+    "link": "https://feverup.com/m/410900",
+    "source": "Fever Candlelight Adelaide"
+  },
+  {
+    "title": "Candlelight: Featuring Vivaldi's Four Seasons and More",
+    "venue": "St Peter's Cathedral",
+    "datetime": "2026-11-20T18:30:00+10:30",
+    "end_datetime": "2026-11-20T19:29:59+10:30",
+    "category": [
+      "Music"
+    ],
+    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/7c807528-1ab3-11f0-9eff-324ba1e3eb01.jpg",
+    "link": "https://feverup.com/m/390147",
+    "source": "Fever Candlelight Adelaide"
+  },
+  {
+    "title": "Candlelight: The Best of Hans Zimmer",
+    "venue": "Capri Theatre",
+    "datetime": "2026-11-28T18:30:00+10:30",
+    "end_datetime": "2026-11-28T19:29:57+10:30",
+    "category": [
+      "Music"
+    ],
+    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/e2d3636e-1395-11f0-baa7-66dc5d784391.jpg",
+    "link": "https://feverup.com/m/343249",
+    "source": "Fever Candlelight Adelaide"
+  },
+  {
+    "title": "Candlelight: Coldplay & Imagine Dragons",
+    "venue": "Capri Theatre",
+    "datetime": "2026-11-28T20:30:00+10:30",
+    "end_datetime": "2026-11-28T21:35:00+10:30",
+    "category": [
+      "Music"
+    ],
+    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/5718543c-139b-11f0-ab75-e64c279228cb.jpg",
+    "link": "https://feverup.com/m/178759",
+    "source": "Fever Candlelight Adelaide"
+  },
+  {
+    "title": "Candlelight: Tribute to TOOL",
+    "venue": "The Meeting Hall",
+    "datetime": "2026-12-04T20:30:00+10:30",
+    "end_datetime": "2026-12-04T21:30:00+10:30",
+    "category": [
+      "Music"
+    ],
+    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/5dd71566-f7c4-11f0-ba82-b24207bafaca.jpg",
+    "link": "https://feverup.com/m/634559",
+    "source": "Fever Candlelight Adelaide"
+  },
+  {
+    "title": "Candlelight: Featuring Mozart, Bach, and Timeless Composers",
+    "venue": "St Peter's Cathedral",
+    "datetime": "2026-12-10T18:30:00+10:30",
+    "end_datetime": "2026-12-10T19:30:00+10:30",
+    "category": [
+      "Music"
+    ],
+    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/501c10e8-058a-11f0-9508-fa8a84692968.jpg",
+    "link": "https://feverup.com/m/390146",
+    "source": "Fever Candlelight Adelaide"
+  },
+  {
+    "title": "Candlelight: Tribute to The Beatles",
+    "venue": "St Peter's Cathedral",
+    "datetime": "2026-12-10T20:30:00+10:30",
+    "end_datetime": "2026-12-10T21:30:00+10:30",
+    "category": [
+      "Music"
+    ],
+    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/b2ee49a2-1a93-11f0-aa80-c25aaa6cf640.jpg",
+    "link": "https://feverup.com/m/765905",
+    "source": "Fever Candlelight Adelaide"
+  },
+  {
+    "title": "Candlelight: Featuring Vivaldi's Four Seasons and More",
+    "venue": "St Peter's Cathedral",
+    "datetime": "2026-12-12T16:30:00+10:30",
+    "end_datetime": "2026-12-12T17:29:59+10:30",
+    "category": [
+      "Music"
+    ],
+    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/7c807528-1ab3-11f0-9eff-324ba1e3eb01.jpg",
+    "link": "https://feverup.com/m/390147",
+    "source": "Fever Candlelight Adelaide"
+  },
+  {
+    "title": "Candlelight: Tribute to Queen",
+    "venue": "St Peter's Cathedral",
+    "datetime": "2026-12-12T20:30:00+10:30",
+    "end_datetime": "2026-12-12T21:30:00+10:30",
+    "category": [
+      "Music"
+    ],
+    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/9830311a-1940-11f0-90df-56c21721c770.jpg",
+    "link": "https://feverup.com/m/410900",
+    "source": "Fever Candlelight Adelaide"
+  },
+  {
+    "title": "Candlelight: Tribute to TOOL",
+    "venue": "The Meeting Hall",
+    "datetime": "2026-12-18T18:30:00+10:30",
+    "end_datetime": "2026-12-18T19:30:00+10:30",
+    "category": [
+      "Music"
+    ],
+    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/5dd71566-f7c4-11f0-ba82-b24207bafaca.jpg",
+    "link": "https://feverup.com/m/634559",
+    "source": "Fever Candlelight Adelaide"
+  },
+  {
+    "title": "Candlelight: Tribute to Fleetwood Mac",
+    "venue": "The Meeting Hall",
+    "datetime": "2026-12-18T20:30:00+10:30",
+    "end_datetime": "2026-12-18T21:35:00+10:30",
+    "category": [
+      "Music"
+    ],
+    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/5c2e82a6-1f77-11f0-9fc3-b6302f1836c4.jpg",
+    "link": "https://feverup.com/m/119409",
+    "source": "Fever Candlelight Adelaide"
+  },
+  {
+    "title": "Candlelight: The World of Joe Hisaishi",
+    "venue": "The Meeting Hall",
+    "datetime": "2026-12-19T18:30:00+10:30",
+    "end_datetime": "2026-12-19T19:29:57+10:30",
+    "category": [
+      "Music"
+    ],
+    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/db2de808-212a-11f0-b79c-7a11fc7247bd.jpg",
+    "link": "https://feverup.com/m/166478",
+    "source": "Fever Candlelight Adelaide"
+  },
+  {
+    "title": "Candlelight: Ed Sheeran & Coldplay",
+    "venue": "The Meeting Hall",
+    "datetime": "2026-12-19T20:30:00+10:30",
+    "end_datetime": "2026-12-19T21:30:00+10:30",
+    "category": [
+      "Music"
+    ],
+    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/cef040e6-1f76-11f0-99d8-76e4fa916312.jpg",
+    "link": "https://feverup.com/m/473344",
+    "source": "Fever Candlelight Adelaide"
+  },
+  {
+    "title": "Candlelight: Christmas Classics",
+    "venue": "Capri Theatre",
+    "datetime": "2026-12-23T18:00:00+10:30",
+    "end_datetime": "2026-12-23T19:00:00+10:30",
+    "category": [
+      "Music"
+    ],
+    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/1cd38944-3f93-11f0-9f27-f6015fffcc12.jpg",
+    "link": "https://feverup.com/m/254727",
+    "source": "Fever Candlelight Adelaide"
+  },
+  {
+    "title": "Candlelight: Tribute to Michael Jackson",
+    "venue": "Brougham Place Uniting Church",
+    "datetime": "2027-01-09T20:30:00+10:30",
+    "end_datetime": "2027-01-09T21:30:00+10:30",
+    "category": [
+      "Music"
+    ],
+    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/73893830-1917-11f0-af90-de92939c34e1.jpg",
+    "link": "https://feverup.com/m/812815",
+    "source": "Fever Candlelight Adelaide"
+  },
+  {
+    "title": "Candlelight: Featuring Vivaldi's Four Seasons and More",
+    "venue": "St Peter's Cathedral",
+    "datetime": "2027-01-23T18:30:00+10:30",
+    "end_datetime": "2027-01-23T19:29:59+10:30",
+    "category": [
+      "Music"
+    ],
+    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/7c807528-1ab3-11f0-9eff-324ba1e3eb01.jpg",
+    "link": "https://feverup.com/m/390147",
+    "source": "Fever Candlelight Adelaide"
+  },
+  {
+    "title": "Candlelight: Tribute to Queen",
+    "venue": "St Peter's Cathedral",
+    "datetime": "2027-01-23T20:30:00+10:30",
+    "end_datetime": "2027-01-23T21:30:00+10:30",
+    "category": [
+      "Music"
+    ],
+    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/9830311a-1940-11f0-90df-56c21721c770.jpg",
+    "link": "https://feverup.com/m/410900",
+    "source": "Fever Candlelight Adelaide"
+  },
+  {
+    "title": "Candlelight: Coldplay & Imagine Dragons",
+    "venue": "Capri Theatre",
+    "datetime": "2027-02-19T20:30:00+10:30",
+    "end_datetime": "2027-02-19T21:35:00+10:30",
+    "category": [
+      "Music"
+    ],
+    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/5718543c-139b-11f0-ab75-e64c279228cb.jpg",
+    "link": "https://feverup.com/m/178759",
+    "source": "Fever Candlelight Adelaide"
+  },
+  {
+    "title": "Candlelight: Tribute to Queen",
+    "venue": "St Peter's Cathedral",
+    "datetime": "2027-03-13T20:30:00+10:30",
+    "end_datetime": "2027-03-13T21:30:00+10:30",
+    "category": [
+      "Music"
+    ],
+    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/9830311a-1940-11f0-90df-56c21721c770.jpg",
+    "link": "https://feverup.com/m/410900",
+    "source": "Fever Candlelight Adelaide"
+  },
+  {
+    "title": "Candlelight: Tribute to Michael Jackson",
+    "venue": "Brougham Place Uniting Church",
+    "datetime": "2027-03-27T20:30:00+10:30",
+    "end_datetime": "2027-03-27T21:30:00+10:30",
+    "category": [
+      "Music"
+    ],
+    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/73893830-1917-11f0-af90-de92939c34e1.jpg",
+    "link": "https://feverup.com/m/812815",
+    "source": "Fever Candlelight Adelaide"
   },
   {
     "title": "Shane Todd",
@@ -5827,342 +6307,6 @@
     "source": "The Gov"
   },
   {
-    "title": "Government House Garden Tour (Fully Booked)",
-    "venue": "Government House",
-    "datetime": "2026-11-06T10:45:00",
-    "end_datetime": "2026-11-06T11:45:00",
-    "category": [
-      "Community"
-    ],
-    "image": "https://www.governor.sa.gov.au/assets/_1400x846_crop_center-center_none/13610/Government-House-Adelaide-March-2023.webp",
-    "link": "https://ghadelaide.eventsair.com/garden-tours-26/registrations-2026",
-    "source": "Government House"
-  },
-  {
-    "title": "Government House Garden Tour (Fully Booked)",
-    "venue": "Government House",
-    "datetime": "2026-12-04T10:45:00",
-    "end_datetime": "2026-12-04T11:45:00",
-    "category": [
-      "Community"
-    ],
-    "image": "https://www.governor.sa.gov.au/assets/_1400x846_crop_center-center_none/13610/Government-House-Adelaide-March-2023.webp",
-    "link": "https://ghadelaide.eventsair.com/garden-tours-26/registrations-2026",
-    "source": "Government House"
-  },
-  {
-    "title": "Government House Garden Tour (Fully Booked)",
-    "venue": "Government House",
-    "datetime": "2027-01-08T10:45:00",
-    "end_datetime": "2027-01-08T11:45:00",
-    "category": [
-      "Community"
-    ],
-    "image": "https://www.governor.sa.gov.au/assets/_1400x846_crop_center-center_none/13610/Government-House-Adelaide-March-2023.webp",
-    "link": "https://ghadelaide.eventsair.com/garden-tours-26/registrations-2026",
-    "source": "Government House"
-  },
-  {
-    "title": "Government House Garden Tour (Fully Booked)",
-    "venue": "Government House",
-    "datetime": "2027-02-05T10:45:00",
-    "end_datetime": "2027-02-05T11:45:00",
-    "category": [
-      "Community"
-    ],
-    "image": "https://www.governor.sa.gov.au/assets/_1400x846_crop_center-center_none/13610/Government-House-Adelaide-March-2023.webp",
-    "link": "https://ghadelaide.eventsair.com/garden-tours-26/registrations-2026",
-    "source": "Government House"
-  },
-  {
-    "title": "Government House Garden Tour (Fully Booked)",
-    "venue": "Government House",
-    "datetime": "2027-03-05T10:45:00",
-    "end_datetime": "2027-03-05T11:45:00",
-    "category": [
-      "Community"
-    ],
-    "image": "https://www.governor.sa.gov.au/assets/_1400x846_crop_center-center_none/13610/Government-House-Adelaide-March-2023.webp",
-    "link": "https://ghadelaide.eventsair.com/garden-tours-26/registrations-2026",
-    "source": "Government House"
-  },
-  {
-    "title": "Candlelight: Featuring Mozart, Bach, and Timeless Composers",
-    "venue": "St Peter's Cathedral",
-    "datetime": "2026-10-30T18:30:00+10:30",
-    "end_datetime": "2026-10-30T19:30:00+10:30",
-    "category": [
-      "Music"
-    ],
-    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/501c10e8-058a-11f0-9508-fa8a84692968.jpg",
-    "link": "https://feverup.com/m/390146",
-    "source": "Fever Candlelight Adelaide"
-  },
-  {
-    "title": "Candlelight: Tribute to TOOL",
-    "venue": "The Meeting Hall",
-    "datetime": "2026-11-06T18:30:00+10:30",
-    "end_datetime": "2026-11-06T19:30:00+10:30",
-    "category": [
-      "Music"
-    ],
-    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/5dd71566-f7c4-11f0-ba82-b24207bafaca.jpg",
-    "link": "https://feverup.com/m/634559",
-    "source": "Fever Candlelight Adelaide"
-  },
-  {
-    "title": "Candlelight: Ed Sheeran & Coldplay",
-    "venue": "The Meeting Hall",
-    "datetime": "2026-11-06T20:30:00+10:30",
-    "end_datetime": "2026-11-06T21:30:00+10:30",
-    "category": [
-      "Music"
-    ],
-    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/cef040e6-1f76-11f0-99d8-76e4fa916312.jpg",
-    "link": "https://feverup.com/m/473344",
-    "source": "Fever Candlelight Adelaide"
-  },
-  {
-    "title": "Candlelight: Tribute to Queen",
-    "venue": "St Peter's Cathedral",
-    "datetime": "2026-11-20T16:30:00+10:30",
-    "end_datetime": "2026-11-20T17:30:00+10:30",
-    "category": [
-      "Music"
-    ],
-    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/9830311a-1940-11f0-90df-56c21721c770.jpg",
-    "link": "https://feverup.com/m/410900",
-    "source": "Fever Candlelight Adelaide"
-  },
-  {
-    "title": "Candlelight: Featuring Vivaldi's Four Seasons and More",
-    "venue": "St Peter's Cathedral",
-    "datetime": "2026-11-20T18:30:00+10:30",
-    "end_datetime": "2026-11-20T19:29:59+10:30",
-    "category": [
-      "Music"
-    ],
-    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/7c807528-1ab3-11f0-9eff-324ba1e3eb01.jpg",
-    "link": "https://feverup.com/m/390147",
-    "source": "Fever Candlelight Adelaide"
-  },
-  {
-    "title": "Candlelight: The Best of Hans Zimmer",
-    "venue": "Capri Theatre",
-    "datetime": "2026-11-28T18:30:00+10:30",
-    "end_datetime": "2026-11-28T19:29:57+10:30",
-    "category": [
-      "Music"
-    ],
-    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/e2d3636e-1395-11f0-baa7-66dc5d784391.jpg",
-    "link": "https://feverup.com/m/343249",
-    "source": "Fever Candlelight Adelaide"
-  },
-  {
-    "title": "Candlelight: Coldplay & Imagine Dragons",
-    "venue": "Capri Theatre",
-    "datetime": "2026-11-28T20:30:00+10:30",
-    "end_datetime": "2026-11-28T21:35:00+10:30",
-    "category": [
-      "Music"
-    ],
-    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/5718543c-139b-11f0-ab75-e64c279228cb.jpg",
-    "link": "https://feverup.com/m/178759",
-    "source": "Fever Candlelight Adelaide"
-  },
-  {
-    "title": "Candlelight: Tribute to TOOL",
-    "venue": "The Meeting Hall",
-    "datetime": "2026-12-04T20:30:00+10:30",
-    "end_datetime": "2026-12-04T21:30:00+10:30",
-    "category": [
-      "Music"
-    ],
-    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/5dd71566-f7c4-11f0-ba82-b24207bafaca.jpg",
-    "link": "https://feverup.com/m/634559",
-    "source": "Fever Candlelight Adelaide"
-  },
-  {
-    "title": "Candlelight: Featuring Mozart, Bach, and Timeless Composers",
-    "venue": "St Peter's Cathedral",
-    "datetime": "2026-12-10T18:30:00+10:30",
-    "end_datetime": "2026-12-10T19:30:00+10:30",
-    "category": [
-      "Music"
-    ],
-    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/501c10e8-058a-11f0-9508-fa8a84692968.jpg",
-    "link": "https://feverup.com/m/390146",
-    "source": "Fever Candlelight Adelaide"
-  },
-  {
-    "title": "Candlelight: Tribute to The Beatles",
-    "venue": "St Peter's Cathedral",
-    "datetime": "2026-12-10T20:30:00+10:30",
-    "end_datetime": "2026-12-10T21:30:00+10:30",
-    "category": [
-      "Music"
-    ],
-    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/b2ee49a2-1a93-11f0-aa80-c25aaa6cf640.jpg",
-    "link": "https://feverup.com/m/765905",
-    "source": "Fever Candlelight Adelaide"
-  },
-  {
-    "title": "Candlelight: Featuring Vivaldi's Four Seasons and More",
-    "venue": "St Peter's Cathedral",
-    "datetime": "2026-12-12T16:30:00+10:30",
-    "end_datetime": "2026-12-12T17:29:59+10:30",
-    "category": [
-      "Music"
-    ],
-    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/7c807528-1ab3-11f0-9eff-324ba1e3eb01.jpg",
-    "link": "https://feverup.com/m/390147",
-    "source": "Fever Candlelight Adelaide"
-  },
-  {
-    "title": "Candlelight: Tribute to Queen",
-    "venue": "St Peter's Cathedral",
-    "datetime": "2026-12-12T20:30:00+10:30",
-    "end_datetime": "2026-12-12T21:30:00+10:30",
-    "category": [
-      "Music"
-    ],
-    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/9830311a-1940-11f0-90df-56c21721c770.jpg",
-    "link": "https://feverup.com/m/410900",
-    "source": "Fever Candlelight Adelaide"
-  },
-  {
-    "title": "Candlelight: Tribute to TOOL",
-    "venue": "The Meeting Hall",
-    "datetime": "2026-12-18T18:30:00+10:30",
-    "end_datetime": "2026-12-18T19:30:00+10:30",
-    "category": [
-      "Music"
-    ],
-    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/5dd71566-f7c4-11f0-ba82-b24207bafaca.jpg",
-    "link": "https://feverup.com/m/634559",
-    "source": "Fever Candlelight Adelaide"
-  },
-  {
-    "title": "Candlelight: Tribute to Fleetwood Mac",
-    "venue": "The Meeting Hall",
-    "datetime": "2026-12-18T20:30:00+10:30",
-    "end_datetime": "2026-12-18T21:35:00+10:30",
-    "category": [
-      "Music"
-    ],
-    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/5c2e82a6-1f77-11f0-9fc3-b6302f1836c4.jpg",
-    "link": "https://feverup.com/m/119409",
-    "source": "Fever Candlelight Adelaide"
-  },
-  {
-    "title": "Candlelight: The World of Joe Hisaishi",
-    "venue": "The Meeting Hall",
-    "datetime": "2026-12-19T18:30:00+10:30",
-    "end_datetime": "2026-12-19T19:29:57+10:30",
-    "category": [
-      "Music"
-    ],
-    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/db2de808-212a-11f0-b79c-7a11fc7247bd.jpg",
-    "link": "https://feverup.com/m/166478",
-    "source": "Fever Candlelight Adelaide"
-  },
-  {
-    "title": "Candlelight: Ed Sheeran & Coldplay",
-    "venue": "The Meeting Hall",
-    "datetime": "2026-12-19T20:30:00+10:30",
-    "end_datetime": "2026-12-19T21:30:00+10:30",
-    "category": [
-      "Music"
-    ],
-    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/cef040e6-1f76-11f0-99d8-76e4fa916312.jpg",
-    "link": "https://feverup.com/m/473344",
-    "source": "Fever Candlelight Adelaide"
-  },
-  {
-    "title": "Candlelight: Christmas Classics",
-    "venue": "Capri Theatre",
-    "datetime": "2026-12-23T18:00:00+10:30",
-    "end_datetime": "2026-12-23T19:00:00+10:30",
-    "category": [
-      "Music"
-    ],
-    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/1cd38944-3f93-11f0-9f27-f6015fffcc12.jpg",
-    "link": "https://feverup.com/m/254727",
-    "source": "Fever Candlelight Adelaide"
-  },
-  {
-    "title": "Candlelight: Tribute to Michael Jackson",
-    "venue": "Brougham Place Uniting Church",
-    "datetime": "2027-01-09T20:30:00+10:30",
-    "end_datetime": "2027-01-09T21:30:00+10:30",
-    "category": [
-      "Music"
-    ],
-    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/73893830-1917-11f0-af90-de92939c34e1.jpg",
-    "link": "https://feverup.com/m/812815",
-    "source": "Fever Candlelight Adelaide"
-  },
-  {
-    "title": "Candlelight: Featuring Vivaldi's Four Seasons and More",
-    "venue": "St Peter's Cathedral",
-    "datetime": "2027-01-23T18:30:00+10:30",
-    "end_datetime": "2027-01-23T19:29:59+10:30",
-    "category": [
-      "Music"
-    ],
-    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/7c807528-1ab3-11f0-9eff-324ba1e3eb01.jpg",
-    "link": "https://feverup.com/m/390147",
-    "source": "Fever Candlelight Adelaide"
-  },
-  {
-    "title": "Candlelight: Tribute to Queen",
-    "venue": "St Peter's Cathedral",
-    "datetime": "2027-01-23T20:30:00+10:30",
-    "end_datetime": "2027-01-23T21:30:00+10:30",
-    "category": [
-      "Music"
-    ],
-    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/9830311a-1940-11f0-90df-56c21721c770.jpg",
-    "link": "https://feverup.com/m/410900",
-    "source": "Fever Candlelight Adelaide"
-  },
-  {
-    "title": "Candlelight: Coldplay & Imagine Dragons",
-    "venue": "Capri Theatre",
-    "datetime": "2027-02-19T20:30:00+10:30",
-    "end_datetime": "2027-02-19T21:35:00+10:30",
-    "category": [
-      "Music"
-    ],
-    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/5718543c-139b-11f0-ab75-e64c279228cb.jpg",
-    "link": "https://feverup.com/m/178759",
-    "source": "Fever Candlelight Adelaide"
-  },
-  {
-    "title": "Candlelight: Tribute to Queen",
-    "venue": "St Peter's Cathedral",
-    "datetime": "2027-03-13T20:30:00+10:30",
-    "end_datetime": "2027-03-13T21:30:00+10:30",
-    "category": [
-      "Music"
-    ],
-    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/9830311a-1940-11f0-90df-56c21721c770.jpg",
-    "link": "https://feverup.com/m/410900",
-    "source": "Fever Candlelight Adelaide"
-  },
-  {
-    "title": "Candlelight: Tribute to Michael Jackson",
-    "venue": "Brougham Place Uniting Church",
-    "datetime": "2027-03-27T20:30:00+10:30",
-    "end_datetime": "2027-03-27T21:30:00+10:30",
-    "category": [
-      "Music"
-    ],
-    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/73893830-1917-11f0-af90-de92939c34e1.jpg",
-    "link": "https://feverup.com/m/812815",
-    "source": "Fever Candlelight Adelaide"
-  },
-  {
     "title": "Wildlife Photographer of the Year",
     "venue": "Adelaide Botanic Garden",
     "datetime": "2026-09-25T00:00:00",
@@ -6597,6 +6741,18 @@
     "image": "https://assets.atdw-online.com.au/images/c2cb5b1c9b815c771cebee7ee811ce12.jpeg?rect=0%2C0%2C2048%2C1536&w=1280&h=1024&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhYzRlNzlkYmYwN2Q1MDY3YTUwYjBkMiIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
     "link": "https://www.adelaidetownhall.com.au/events/vision-by-vision-musica-viva-australia-in-adelaide/",
     "source": "Adelaide Town Hall"
+  },
+  {
+    "title": "Smokie (UK) Greatest Hits Tour",
+    "venue": "Thebarton Theatre",
+    "datetime": "2027-03-02T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://thebartontheatre.com.au/wp-content/uploads/2026/08/Thebarton-Events-2026-08-17T102708.022.png",
+    "link": "https://www.ticketmaster.com.au/smokie-uk-greatest-hits-tour-torrensville-02-03-2027/event/1300650CEBDA867A",
+    "source": "Thebarton Theatre"
   },
   {
     "title": "New Year's Eve Party",
@@ -7691,18 +7847,6 @@
     "source": "Ticketmaster Adelaide"
   },
   {
-    "title": "Jenny & Joel Creasey",
-    "venue": "Norwood Concert Hall",
-    "datetime": "2026-11-08T20:00:00",
-    "end_datetime": "",
-    "category": [
-      "Comedy"
-    ],
-    "image": "https://s1.ticketm.net/dam/a/db2/24e1ab5e-09b7-45fc-8c56-e2a9e1061db2_TABLET_LANDSCAPE_LARGE_16_9.jpg",
-    "link": "https://www.ticketmaster.com.au/jenny-joel-creasey-norwood-08-11-2026/event/130064FDCE4D7609",
-    "source": "Ticketmaster Adelaide"
-  },
-  {
     "title": "The Bootleg Beatles and their Orchestra In Concert",
     "venue": "Thebarton Theatre",
     "datetime": "2026-11-10T19:30:00",
@@ -7712,18 +7856,6 @@
     ],
     "image": "https://s1.ticketm.net/dam/a/3fb/bcffc8c6-1c1b-4b5d-af2e-89f2803c13fb_SOURCE",
     "link": "https://www.ticketmaster.com.au/the-bootleg-beatles-and-their-orchestra-torrensville-10-11-2026/event/130062DAFB1D3899",
-    "source": "Ticketmaster Adelaide"
-  },
-  {
-    "title": "Des Bishop",
-    "venue": "Norwood Concert Hall",
-    "datetime": "2026-11-12T19:00:00",
-    "end_datetime": "",
-    "category": [
-      "Comedy"
-    ],
-    "image": "https://s1.ticketm.net/dam/a/c2c/4a6a3dc6-002d-440f-ad3e-86fc71697c2c_RETINA_LANDSCAPE_16_9.jpg",
-    "link": "https://www.ticketmaster.com.au/des-bishop-norwood-12-11-2026/event/1300643EAD27908F",
     "source": "Ticketmaster Adelaide"
   },
   {
@@ -7739,18 +7871,6 @@
     "source": "Ticketmaster Adelaide"
   },
   {
-    "title": "Creedence Clearwater Collective",
-    "venue": "Norwood Concert Hall",
-    "datetime": "2026-11-21T20:00:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://thebartontheatre.com.au/wp-content/uploads/2025/12/Creedence-NORWOOD-21-Nov-26.png",
-    "link": "https://www.ticketmaster.com.au/creedence-clearwater-collective-norwood-21-11-2026/event/1300637293CB6041",
-    "source": "Ticketmaster Adelaide"
-  },
-  {
     "title": "MORTIIS + NYTT LAND + TiR - Southern Ritual",
     "venue": "The Ed Castle Hotel",
     "datetime": "2026-11-22T19:30:00",
@@ -7760,18 +7880,6 @@
     ],
     "image": "https://s1.ticketm.net/dam/a/2ba/4d70d0a6-2607-4388-ab5f-25a9694452ba_TABLET_LANDSCAPE_LARGE_16_9.jpg",
     "link": "https://www.moshtix.com.au/v2/event/mortiis-nytt-land-tir-southern-ritual/181171",
-    "source": "Ticketmaster Adelaide"
-  },
-  {
-    "title": "Zarna Garg: The Million Dollar Excuses Tour",
-    "venue": "Norwood Concert Hall",
-    "datetime": "2026-12-05T16:00:00",
-    "end_datetime": "",
-    "category": [
-      "Comedy"
-    ],
-    "image": "https://s1.ticketm.net/dam/a/5c2/8c540982-ef2b-4cc2-8deb-a8235e6de5c2_TABLET_LANDSCAPE_16_9.jpg",
-    "link": "https://www.ticketmaster.com.au/zarna-garg-the-million-dollar-excuses-norwood-05-12-2026/event/1300652A84BD24BF",
     "source": "Ticketmaster Adelaide"
   },
   {
@@ -7808,6 +7916,18 @@
     ],
     "image": "https://s1.ticketm.net/dam/a/0a1/d7421e42-44aa-4cf7-a5c5-ccde2c74c0a1_SOURCE",
     "link": "https://www.universe.com/events/adelaide-rodeo-tickets-23DVN0?ref=ticketmaster",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "Start Making Sense (Talking Heads Tribute) (USA)",
+    "venue": "The Gov",
+    "datetime": "2027-01-20T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/c37/d01be733-90b2-4fc8-a4df-3bb53e3ebc37_998451_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+    "link": "https://www.moshtix.com.au/v2/event/start-making-sense-talking-heads-tribute-usa-/198448",
     "source": "Ticketmaster Adelaide"
   },
   {
@@ -7931,6 +8051,18 @@
     ],
     "image": "https://s1.ticketm.net/dam/a/cff/23894e98-0d92-49c9-b5e6-b15fc85f2cff_1475201_RETINA_LANDSCAPE_16_9.jpg",
     "link": "https://www.moshtix.com.au/v2/event/skerryvore-beautiful-mistakes-album-tour-all-ages-/200740",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "Slow Pilot (Belgium) - Performing the songs of Jeff Buckley",
+    "venue": "The Gov",
+    "datetime": "2027-03-13T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/c/797/5e693c26-2881-4776-8f0c-3aa94bfa3797_106511_RETINA_PORTRAIT_16_9.jpg",
+    "link": "https://www.moshtix.com.au/v2/event/slow-pilot-belgium-performing-the-songs-of-jeff-buckley/201186",
     "source": "Ticketmaster Adelaide"
   },
   {

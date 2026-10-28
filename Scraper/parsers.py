@@ -3392,7 +3392,6 @@ def parse_government_house(soup, source_url):
     from datetime import date
     from urllib.parse import urljoin
 
-    government_house_image = "https://www.governor.sa.gov.au/assets/_1400x846_crop_center-center_none/13610/Government-House-Adelaide-March-2023.webp"
     base = "https://www.governor.sa.gov.au"
     lunch_url = base + "/vice-regal/lunch-on-the-lawns"
     open_url = base + "/vice-regal/government-house-open-day"
@@ -3428,7 +3427,7 @@ def parse_government_house(soup, source_url):
             "title": title, "venue": "Government House",
             "date": start.isoformat(timespec="seconds"),
             "end_date": end.isoformat(timespec="seconds"),
-            "category": ["Community"], "image": government_house_image, "url": url,
+            "category": ["Community"], "image": image, "url": url,
         })
 
     lunch_text = page_text(soup)
@@ -5364,65 +5363,73 @@ def parse_the_gov():
         print("    Gov Oztix venue search: " + ", ".join(
               f"{label} {count}" for label, count in venue_counts.items()))
 
-        # Apply the same independently audited eligibility criteria to each hit.
-        # Count exclusions by reason so a future site change is visible.
-        from collections import Counter
-        reasons = Counter()
+        gov_venue_ids = {2437, 4633}  # The Venue and Gibson Stage
+        gov_names = {"the gov the venue", "the gov the gibson stage",
+                     "the gov", "the gov front bar", "the gov main room"}
         unique_oztix = set()
+        rejected = 0
         for hit in all_hits:
             venue = hit.get("Venue") or {}
-            if not isinstance(venue, dict) or str(venue.get("Id") or "") not in ("2437", "4633"):
-                reasons["wrong venue"] += 1
+            if not isinstance(venue, dict):
+                rejected += 1
                 continue
-            if hit.get("IsCancelled"):
-                reasons["cancelled"] += 1
-                continue
-            if hit.get("IsPostponed"):
-                reasons["postponed"] += 1
-                continue
-            if hit.get("IsApproved") is False:
-                reasons["unapproved"] += 1
+            venue_name = re.sub(r"[^a-z0-9]+", " ",
+                                str(venue.get("Name", "")).casefold()).strip()
+            try:
+                venue_id = int(venue.get("Id") or 0)
+            except (ValueError, TypeError):
+                venue_id = 0
+            address = str(venue.get("Address", "")).casefold()
+            locality = str(venue.get("Locality", "")).casefold()
+            postcode = str(venue.get("Postcode", ""))
+            at_gov = (venue_id in gov_venue_ids or
+                      (venue_name in gov_names and "59 port" in address and
+                       ("hindmarsh" in locality or postcode == "5007")))
+            if not at_gov or hit.get("IsCancelled") or hit.get("IsPostponed") or hit.get("IsApproved") is False:
+                rejected += 1
                 continue
             title = unescape(str(hit.get("EventName") or "")).strip()
             if not title or re.search(r"\b(gift card|gift voucher|membership)\b", title, re.I):
-                reasons["missing/non-event title"] += 1
+                rejected += 1
                 continue
             try:
                 stamp = int(hit.get("DateStartUnix") or 0)
                 if stamp <= 0:
-                    raise ValueError("missing timestamp")
-                utc_start = datetime.fromtimestamp(stamp, timezone.utc)
+                    rejected += 1
+                    continue
                 try:
-                    local = utc_start.astimezone(ZoneInfo("Australia/Adelaide"))
+                    local = datetime.fromtimestamp(stamp, timezone.utc).astimezone(ZoneInfo("Australia/Adelaide"))
                 except Exception:
-                    # Same fixed-offset date interpretation as the independent
-                    # audit, used only if Windows has no timezone database.
-                    # Preserve calendar date and a sensible local clock.
-                    month = utc_start.month
-                    offset = timedelta(hours=10, minutes=30) if month in (10, 11, 12, 1, 2, 3) else timedelta(hours=9, minutes=30)
-                    local = utc_start.astimezone(timezone(offset))
-            except (ValueError, TypeError, OverflowError, OSError):
-                reasons["invalid date"] += 1
-                continue
-            if local.date() < today:
-                reasons["past date"] += 1
+                    # Windows Python may lack IANA tzdata. South Australian
+                    # DST: first Sunday in October through first Sunday in April.
+                    utc = datetime.fromtimestamp(stamp, timezone.utc)
+                    year = utc.year
+                    def first_sunday(year, month):
+                        d = datetime(year, month, 1)
+                        return 1 + ((6 - d.weekday()) % 7)
+                    dst_start = datetime(year, 10, first_sunday(year, 10), 2)
+                    dst_end = datetime(year, 4, first_sunday(year, 4), 3)
+                    local_standard = utc + timedelta(hours=9, minutes=30)
+                    dst = (local_standard >= dst_start if local_standard.month >= 10 else
+                           local_standard < dst_end if local_standard.month <= 4 else False)
+                    local = utc + timedelta(hours=10, minutes=30) if dst else local_standard
+                if local.date() < today:
+                    rejected += 1
+                    continue
+            except (ValueError, TypeError, OverflowError):
+                rejected += 1
                 continue
             url = str(hit.get("EventUrl") or "").strip()
             if urlparse(url).hostname not in {"tickets.oztix.com.au", "www.oztix.com.au", "oztix.com.au"}:
-                reasons["invalid URL"] += 1
+                rejected += 1
                 continue
             guid = str(hit.get("EventGuid") or hit.get("EventId") or "")
-            if not guid:
-                reasons["missing event ID"] += 1
-                continue
-            if guid in unique_oztix:
-                reasons["duplicate event ID"] += 1
+            if not guid or guid in unique_oztix:
                 continue
             unique_oztix.add(guid)
             start = local.strftime("%Y-%m-%dT%H:%M:%S")
             identity = (re.sub(r"[^a-z0-9]+", " ", title.casefold()).strip(), start[:10])
             if identity in seen:
-                reasons["duplicate title/date"] += 1
                 continue
             seen.add(identity)
             categories = [str(x).casefold() for x in (hit.get("Categories") or [])]
@@ -5437,14 +5444,115 @@ def parse_the_gov():
                             "image": str(hit.get("EventImage1") or hit.get("HomepageImage") or ""),
                             "url": url})
             counters["Oztix"] += 1
-            reasons["accepted"] += 1
         print(f"    Gov Oztix: {len(all_hits)} search results across {total_pages} venue-filtered page(s); "
-              f"{counters['Oztix']} new verified Gov events")
-        print("    Gov Oztix audit: " + ", ".join(f"{key} {value}" for key, value in sorted(reasons.items())))
-        if sum(reasons.values()) != len(all_hits):
-            raise RuntimeError("Oztix record accounting mismatch")
-    except (requests.RequestException, ValueError, KeyError, TypeError, RuntimeError) as exc:
+              f"{counters['Oztix']} new verified Gov events; {rejected} filtered")
+    except (requests.RequestException, ValueError, KeyError, TypeError) as exc:
         print(f"    Gov Oztix unavailable: {exc}")
 
     print(f"    The Gov: {len(results)} unique verified upcoming events")
+    return results
+
+
+# ============================================================
+# NORWOOD CONCERT HALL — official event detail pages
+# ============================================================
+
+def parse_norwood_concert_hall(soup, source_url):
+    """Read official venue listings and their individual verified detail pages.
+
+    Only links under /events/<numeric-id>_ are followed. If detail-page
+    verification fails, no event is invented from the listing alone.
+    """
+    from html import unescape
+    from urllib.parse import urlparse
+
+    base_host = urlparse(source_url).hostname
+    links = sorted({urljoin(source_url, a.get("href", ""))
+                    for a in soup.select("a[href]")
+                    if re.search(r"/events/\d+[_/-]", a.get("href", ""), re.I)
+                    and urlparse(urljoin(source_url, a.get("href", ""))).hostname == base_host})
+    if not links:
+        print("    Norwood Concert Hall: no official detail links found")
+        return []
+
+    session = requests.Session()
+    session.headers.update({"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                          "AppleWebKit/537.36 Chrome/140.0.0.0 Safari/537.36"})
+    today = datetime.now().date()
+    results, seen = [], set()
+
+    def first_meta(page, *selectors):
+        for selector in selectors:
+            tag = page.select_one(selector)
+            if tag:
+                value = tag.get("content") or tag.get("src") or ""
+                if value.strip():
+                    return urljoin(source_url, value.strip())
+        return ""
+
+    def category_for(title):
+        if re.search(r"\b(comedy|comedian|stand.up|dara|creasey|dollop|des bishop|adam kay|zarna garg|david sedaris)\b", title, re.I):
+            return ["Comedy"]
+        if re.search(r"\b(psychology|cult|lecture|conversation|talk)\b", title, re.I):
+            return ["Talks"]
+        if re.search(r"\b(pevan|sarah)\b", title, re.I):
+            return ["Family"]
+        if re.search(r"\b(drag race|lip sync)\b", title, re.I):
+            return ["Theatre"]
+        return ["Music"]
+
+    for link in links[:150]:
+        try:
+            response = session.get(link, timeout=25)
+            response.raise_for_status()
+            page = BeautifulSoup(response.text, "lxml")
+            heading = page.select_one("h1")
+            title = unescape(heading.get_text(" ", strip=True) if heading else "").strip()
+            if not title or title.casefold() in ("events", "norwood concert hall"):
+                continue
+            content = page.select_one("main") or page
+            text = " ".join(content.stripped_strings)
+            # Detail pages publish 'Date: Friday, 20 November 2026' and
+            # 'Time: 7:30pm — 9:40pm'. Match the date label, not other dates
+            # mentioned in event descriptions or ticket-sale notices.
+            date_match = re.search(
+                r"\bDate\s*:\s*(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)?\s*,?\s*"
+                r"(\d{1,2})\s+"
+                r"(January|February|March|April|May|June|July|August|September|October|November|December)"
+                r"\s+(20\d{2})\b", text, re.I)
+            if not date_match:
+                continue
+            day, month, year = date_match.groups()
+            try:
+                event_day = datetime.strptime(f"{day} {month} {year}", "%d %B %Y")
+            except ValueError:
+                continue
+            if event_day.date() < today:
+                continue
+            time_match = re.search(r"\bTime\s*:\s*(\d{1,2})(?::(\d{2}))?\s*(am|pm)\b", text, re.I)
+            if time_match:
+                hour, minute, period = time_match.groups()
+                hour = int(hour) % 12 + (12 if period.casefold() == "pm" else 0)
+                event_day = event_day.replace(hour=hour, minute=int(minute or 0))
+            else:
+                # A date-only event is valid; midnight means time unknown.
+                event_day = event_day.replace(hour=0, minute=0)
+            event_date = event_day.strftime("%Y-%m-%dT%H:%M:%S")
+            key = (re.sub(r"[^a-z0-9]+", " ", title.casefold()).strip(), event_date)
+            if key in seen:
+                continue
+            seen.add(key)
+            image = first_meta(page, 'meta[property="og:image"]', 'meta[name="twitter:image"]')
+            if not image:
+                image_tag = (page.select_one('main img[src]') or page.select_one('article img[src]'))
+                if image_tag:
+                    image = urljoin(link, image_tag.get("data-src") or image_tag.get("src") or "")
+            results.append({"title": title, "venue": "Norwood Concert Hall",
+                            "date": event_date, "category": category_for(title),
+                            "image": image, "url": link})
+        except requests.RequestException as exc:
+            print(f"    Norwood detail unavailable: {link} ({exc})")
+            continue
+    print(f"    Norwood Concert Hall: {len(links)} official detail links, "
+          f"{len(results)} verified upcoming events")
     return results
