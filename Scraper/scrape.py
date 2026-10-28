@@ -51,6 +51,7 @@ try:
         parse_thebarton_theatre,
         parse_experience_adelaide,
         parse_moshtix_adelaide,
+        parse_the_gov,
         parse_allevents_victoria_square,
         parse_allevents_adelaide_and_surrounds,
     )
@@ -90,6 +91,7 @@ except ModuleNotFoundError:
         parse_thebarton_theatre,
         parse_experience_adelaide,
         parse_moshtix_adelaide,
+        parse_the_gov,
         parse_allevents_victoria_square,
         parse_allevents_adelaide_and_surrounds,
     )
@@ -594,6 +596,9 @@ def scrape_source(source):
 
     if name == "Humanitix Adelaide and Regions":
         return scrape_humanitix(host_only=False)
+
+    if name == "The Gov":
+        return parse_the_gov()
 
     if name == "Moshtix Adelaide CBD":
         return parse_moshtix_adelaide()
@@ -1215,7 +1220,7 @@ def main(only_source=None):
             "Adelaide Repertory Theatre",
             "Adelaide Botanic Gardens",
             "Adelaide Cemetery Tours",
-            "The Gov", "Trinity Sessions", "Morphettville Racecourse",
+            "Trinity Sessions", "Morphettville Racecourse",
             "Gilles at the Grounds", "Holden Street Theatres",
             "Baroque Hall", "Arkaba Hotel", "Rhino Room",
             "National Trust SA", "MOD.", "SAMSTAG Museum",

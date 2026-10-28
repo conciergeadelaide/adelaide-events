@@ -3392,6 +3392,7 @@ def parse_government_house(soup, source_url):
     from datetime import date
     from urllib.parse import urljoin
 
+    government_house_image = "https://www.governor.sa.gov.au/assets/_1400x846_crop_center-center_none/13610/Government-House-Adelaide-March-2023.webp"
     base = "https://www.governor.sa.gov.au"
     lunch_url = base + "/vice-regal/lunch-on-the-lawns"
     open_url = base + "/vice-regal/government-house-open-day"
@@ -3427,7 +3428,7 @@ def parse_government_house(soup, source_url):
             "title": title, "venue": "Government House",
             "date": start.isoformat(timespec="seconds"),
             "end_date": end.isoformat(timespec="seconds"),
-            "category": ["Community"], "image": image, "url": url,
+            "category": ["Community"], "image": government_house_image, "url": url,
         })
 
     lunch_text = page_text(soup)
@@ -5155,3 +5156,295 @@ def parse_david_roche_gallery(soup, source_url):
     events.sort(key=lambda item: (item["date"], item["title"]))
     print(f"    Roche: {len(events)} verified upcoming exhibition/event records")
     return events
+
+
+# ============================================================
+# THE GOV — Moshtix venue listings + accessible Oztix records
+# ============================================================
+
+def parse_the_gov():
+    """Collect only verified events at The Gov, Hindmarsh.
+
+    Oztix's public search HTML is often a JavaScript shell. In that case
+    no events are inferred; Moshtix remains a valid independent source.
+    """
+    from html import unescape
+    from urllib.parse import urljoin
+
+    session = requests.Session()
+    session.headers.update({
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                      "AppleWebKit/537.36 Chrome/140.0.0.0 Safari/537.36",
+        "Accept-Language": "en-AU,en;q=0.9",
+    })
+    today = datetime.now().date()
+    results = []
+    seen = set()
+    counters = {"Moshtix": 0, "Oztix": 0}
+
+    def is_gov(location):
+        if isinstance(location, list):
+            return any(is_gov(x) for x in location)
+        if not isinstance(location, dict):
+            return False
+        name = re.sub(r"[^a-z0-9]+", " ", str(location.get("name", "")).casefold()).strip()
+        address = location.get("address") or {}
+        if isinstance(address, str):
+            street, locality, postcode = address.casefold(), "", ""
+        elif isinstance(address, dict):
+            street = str(address.get("streetAddress", "")).casefold()
+            locality = str(address.get("addressLocality", "")).casefold()
+            postcode = str(address.get("postalCode", ""))
+        else:
+            street, locality, postcode = "", "", ""
+        verified_name = name in {
+            "the gov", "the gov the venue", "the gov front bar",
+            "the gov main room", "governor hindmarsh hotel",
+            "the governor hindmarsh", "the governor hindmarsh hotel",
+        }
+        verified_address = "59 port" in street and ("hindmarsh" in locality or "5007" in postcode or "hindmarsh" in street)
+        return verified_name or verified_address
+
+    def objects(value):
+        if isinstance(value, list):
+            for x in value:
+                yield from objects(x)
+        elif isinstance(value, dict):
+            yield value
+            for x in value.values():
+                if isinstance(x, (list, dict)):
+                    yield from objects(x)
+
+    def add(event, origin, page_url):
+        types = event.get("@type", "")
+        if isinstance(types, list):
+            types = " ".join(types)
+        if not any(x in str(types).lower() for x in ("event", "concert")):
+            return
+        if not is_gov(event.get("location")):
+            return
+        title = unescape(str(event.get("name", ""))).strip()
+        start = str(event.get("startDate", "")).strip()
+        if not title or not re.match(r"^20\d{2}-\d{2}-\d{2}", start):
+            return
+        try:
+            if datetime.strptime(start[:10], "%Y-%m-%d").date() < today:
+                return
+        except ValueError:
+            return
+        status = str(event.get("eventStatus", "")).casefold()
+        if "cancel" in status or "postpon" in status:
+            return
+        if re.search(r"\b(gift card|gift voucher|membership)\b", title, re.I):
+            return
+        url = urljoin(page_url, str(event.get("url") or ""))
+        if not url.startswith("https://") or not any(host in url for host in ("moshtix.com.au", "oztix.com.au")):
+            return
+        image = event.get("image") or ""
+        if isinstance(image, list):
+            image = image[0] if image else ""
+        if isinstance(image, dict):
+            image = image.get("url", "")
+        image = urljoin(page_url, str(image)) if image else ""
+        image = re.sub(r"x140x140(?=\D|$)", "x600x600", image, flags=re.I)
+        identity = (re.sub(r"[^a-z0-9]+", " ", title.casefold()).strip(), start[:10])
+        if identity in seen:
+            return
+        seen.add(identity)
+        results.append({
+            "title": title,
+            "venue": "The Gov",
+            "date": start,
+            "end_date": str(event.get("endDate") or ""),
+            "category": ["Music"] if "music" in str(types).casefold() else categorise_event(title),
+            "image": image,
+            "url": url,
+        })
+        counters[origin] += 1
+
+    def extract(soup, origin, page_url):
+        for script in soup.select('script[type="application/ld+json"]'):
+            try:
+                payload = json.loads(script.string or script.get_text())
+            except (ValueError, TypeError):
+                continue
+            for obj in objects(payload):
+                add(obj, origin, page_url)
+
+    moshtix = "https://www.moshtix.com.au/v2/venues/the-gov-adelaide/923"
+    try:
+        response = session.get(moshtix, timeout=30)
+        response.raise_for_status()
+        soup = BeautifulSoup(response.text, "lxml")
+        extract(soup, "Moshtix", moshtix)
+        links = sorted({urljoin(moshtix, a.get("href", ""))
+                        for a in soup.find_all("a", href=True)
+                        if re.search(r"/v2/event/[^/]+/\d+", a.get("href", ""), re.I)})
+        # Some venue cards have no JSON-LD, but event detail pages do.
+        # Limit detail requests to actual links advertised on this venue page.
+        for link in links[:100]:
+            try:
+                detail = session.get(link, timeout=25)
+                if detail.ok:
+                    extract(BeautifulSoup(detail.text, "lxml"), "Moshtix", link)
+            except requests.RequestException:
+                continue
+        print(f"    Gov Moshtix: {len(links)} unique venue links, {counters['Moshtix']} verified upcoming events")
+    except requests.RequestException as exc:
+        print(f"    Gov Moshtix unavailable: {exc}")
+
+    # Oztix's publicly exposed Algolia event-guide search (same service as
+    # the official website). Configuration is read from its current JS bundle,
+    # not embedded as a permanent key in this project.
+    try:
+        from urllib.parse import urlparse
+        from datetime import timezone, timedelta
+        from zoneinfo import ZoneInfo
+
+        homepage = session.get("https://www.oztix.com.au/search/", timeout=30)
+        homepage.raise_for_status()
+        homepage_soup = BeautifulSoup(homepage.text, "lxml")
+        bundle_urls = [urljoin(homepage.url, tag.get("src", ""))
+                       for tag in homepage_soup.select("script[src]")
+                       if "/js/app." in tag.get("src", "")]
+        if not bundle_urls:
+            raise ValueError("Oztix app bundle not found")
+        bundle = session.get(bundle_urls[0], timeout=35)
+        bundle.raise_for_status()
+        def public_setting(key):
+            found = re.search(r"\b" + re.escape(key) + r':"([^"]+)"', bundle.text)
+            if not found:
+                raise ValueError("Oztix search setting missing: " + key)
+            return found.group(1)
+        app_id = public_setting("ALGOLIA_APPLICATION_ID")
+        public_key = public_setting("ALGOLIA_PERSONALISATION_API_KEY")
+        endpoint = "https://" + app_id.lower() + "-dsn.algolia.net/1/indexes/*/queries"
+        headers = {"X-Algolia-Application-Id": app_id,
+                   "X-Algolia-API-Key": public_key,
+                   "Content-Type": "application/json"}
+
+        # Search by exact verified Oztix venue IDs, rather than the broad
+        # keyword "the gov". Both filters were confirmed by live diagnostics.
+        # Search every page for each venue independently.
+        from urllib.parse import urlencode
+
+        def oztix_query(venue_id, page):
+            params = urlencode({"query": "", "filters": f"Venue.Id={venue_id}",
+                                "hitsPerPage": 100, "page": page})
+            payload = {"requests": [{"indexName": "prod_oztix_eventguide",
+                                     "params": params}]}
+            response = session.post(endpoint, headers=headers, json=payload, timeout=35)
+            response.raise_for_status()
+            sections = response.json().get("results", [])
+            if not sections:
+                raise ValueError(f"Oztix returned no results for venue {venue_id}")
+            if sections[0].get("message"):
+                raise ValueError(str(sections[0]["message"]))
+            return sections[0]
+
+        all_hits = []
+        venue_counts = {}
+        total_pages = 0
+        for venue_id, venue_label in ((2437, "The Venue"),
+                                      (4633, "Gibson Stage")):
+            first = oztix_query(venue_id, 0)
+            count = int(first.get("nbHits", 0))
+            pages = int(first.get("nbPages", 0))
+            if pages > 40:
+                raise ValueError(f"Unexpectedly large Oztix pagination for {venue_label}: {pages}")
+            venue_hits = list(first.get("hits", []))
+            for page in range(1, pages):
+                venue_hits.extend(oztix_query(venue_id, page).get("hits", []))
+            if len(venue_hits) < count:
+                raise ValueError(f"Incomplete Oztix search for {venue_label}: "
+                                 f"{len(venue_hits)} of {count} hits")
+            all_hits.extend(venue_hits)
+            venue_counts[venue_label] = len(venue_hits)
+            total_pages += max(pages, 1)
+        print("    Gov Oztix venue search: " + ", ".join(
+              f"{label} {count}" for label, count in venue_counts.items()))
+
+        # Apply the same independently audited eligibility criteria to each hit.
+        # Count exclusions by reason so a future site change is visible.
+        from collections import Counter
+        reasons = Counter()
+        unique_oztix = set()
+        for hit in all_hits:
+            venue = hit.get("Venue") or {}
+            if not isinstance(venue, dict) or str(venue.get("Id") or "") not in ("2437", "4633"):
+                reasons["wrong venue"] += 1
+                continue
+            if hit.get("IsCancelled"):
+                reasons["cancelled"] += 1
+                continue
+            if hit.get("IsPostponed"):
+                reasons["postponed"] += 1
+                continue
+            if hit.get("IsApproved") is False:
+                reasons["unapproved"] += 1
+                continue
+            title = unescape(str(hit.get("EventName") or "")).strip()
+            if not title or re.search(r"\b(gift card|gift voucher|membership)\b", title, re.I):
+                reasons["missing/non-event title"] += 1
+                continue
+            try:
+                stamp = int(hit.get("DateStartUnix") or 0)
+                if stamp <= 0:
+                    raise ValueError("missing timestamp")
+                utc_start = datetime.fromtimestamp(stamp, timezone.utc)
+                try:
+                    local = utc_start.astimezone(ZoneInfo("Australia/Adelaide"))
+                except Exception:
+                    # Same fixed-offset date interpretation as the independent
+                    # audit, used only if Windows has no timezone database.
+                    # Preserve calendar date and a sensible local clock.
+                    month = utc_start.month
+                    offset = timedelta(hours=10, minutes=30) if month in (10, 11, 12, 1, 2, 3) else timedelta(hours=9, minutes=30)
+                    local = utc_start.astimezone(timezone(offset))
+            except (ValueError, TypeError, OverflowError, OSError):
+                reasons["invalid date"] += 1
+                continue
+            if local.date() < today:
+                reasons["past date"] += 1
+                continue
+            url = str(hit.get("EventUrl") or "").strip()
+            if urlparse(url).hostname not in {"tickets.oztix.com.au", "www.oztix.com.au", "oztix.com.au"}:
+                reasons["invalid URL"] += 1
+                continue
+            guid = str(hit.get("EventGuid") or hit.get("EventId") or "")
+            if not guid:
+                reasons["missing event ID"] += 1
+                continue
+            if guid in unique_oztix:
+                reasons["duplicate event ID"] += 1
+                continue
+            unique_oztix.add(guid)
+            start = local.strftime("%Y-%m-%dT%H:%M:%S")
+            identity = (re.sub(r"[^a-z0-9]+", " ", title.casefold()).strip(), start[:10])
+            if identity in seen:
+                reasons["duplicate title/date"] += 1
+                continue
+            seen.add(identity)
+            categories = [str(x).casefold() for x in (hit.get("Categories") or [])]
+            if any("comedy" in x for x in categories):
+                category = "Comedy"
+            elif any("dance" in x or "dj" in x for x in categories):
+                category = "Club/Party"
+            else:
+                category = "Music"
+            results.append({"title": title, "venue": "The Gov", "date": start,
+                            "category": category,
+                            "image": str(hit.get("EventImage1") or hit.get("HomepageImage") or ""),
+                            "url": url})
+            counters["Oztix"] += 1
+            reasons["accepted"] += 1
+        print(f"    Gov Oztix: {len(all_hits)} search results across {total_pages} venue-filtered page(s); "
+              f"{counters['Oztix']} new verified Gov events")
+        print("    Gov Oztix audit: " + ", ".join(f"{key} {value}" for key, value in sorted(reasons.items())))
+        if sum(reasons.values()) != len(all_hits):
+            raise RuntimeError("Oztix record accounting mismatch")
+    except (requests.RequestException, ValueError, KeyError, TypeError, RuntimeError) as exc:
+        print(f"    Gov Oztix unavailable: {exc}")
+
+    print(f"    The Gov: {len(results)} unique verified upcoming events")
+    return results
