@@ -4903,6 +4903,30 @@
     "source": "Adelaide Central Market"
   },
   {
+    "title": "Inside Pompeii: Origins of a European Way of Life",
+    "venue": "David Roche Gallery",
+    "datetime": "2026-11-07T10:00:00",
+    "end_datetime": "2027-01-30T16:00:00",
+    "category": [
+      "Exhibition"
+    ],
+    "image": "https://www.rochegallery.com.au/app/uploads/2026/10/EU_DEL_AUS-Logo-white.png",
+    "link": "https://www.rochegallery.com.au/exhibitions/inside-pompeii-origins-of-a-european-way-of-life/",
+    "source": "David Roche Foundation"
+  },
+  {
+    "title": "Events",
+    "venue": "David Roche Gallery",
+    "datetime": "2026-11-12T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Other"
+    ],
+    "image": "https://www.rochegallery.com.au/app/uploads/2023/09/A_Feast_pos_RGB.png",
+    "link": "https://www.rochegallery.com.au/events/secret-pompeii/",
+    "source": "David Roche Foundation"
+  },
+  {
     "title": "Government House Garden Tour (Fully Booked)",
     "venue": "Government House",
     "datetime": "2026-11-06T10:45:00",
@@ -6733,7 +6757,7 @@
   {
     "title": "Dream on Dreamer - Hope/Heartbound Revival Tour (All Ages)",
     "venue": "UniBar Adelaide",
-    "datetime": "2026-11-01T19:30:00",
+    "datetime": "2026-11-01T20:00:00",
     "end_datetime": "",
     "category": [
       "Music"

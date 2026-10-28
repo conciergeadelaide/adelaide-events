@@ -24,6 +24,7 @@ try:
         parse_ace_gallery,
         parse_fever_candlelight,
         parse_adelaide_central_market,
+        parse_david_roche_gallery,
         parse_the_drive,
         parse_adelaide_symphony_orchestra,
         parse_state_opera_south_australia,
@@ -62,6 +63,7 @@ except ModuleNotFoundError:
         parse_ace_gallery,
         parse_fever_candlelight,
         parse_adelaide_central_market,
+        parse_david_roche_gallery,
         parse_the_drive,
         parse_adelaide_symphony_orchestra,
         parse_state_opera_south_australia,
@@ -634,6 +636,9 @@ def scrape_source(source):
         with open(snapshot, "r", encoding="utf-8") as handle:
             soup = BeautifulSoup(handle.read(), "lxml")
         return parse_experience_adelaide(soup, url)
+
+    if name == "David Roche Foundation":
+        return parse_david_roche_gallery(fetch_page("https://www.rochegallery.com.au/events/calendar/"), url)
 
     if name == "Adelaide Central Market":
         return parse_adelaide_central_market(fetch_page(url), url)
@@ -1210,7 +1215,6 @@ def main(only_source=None):
             "Adelaide Repertory Theatre",
             "Adelaide Botanic Gardens",
             "Adelaide Cemetery Tours",
-            "David Roche Foundation",
             "The Gov", "Trinity Sessions", "Morphettville Racecourse",
             "Gilles at the Grounds", "Holden Street Theatres",
             "Baroque Hall", "Arkaba Hotel", "Rhino Room",

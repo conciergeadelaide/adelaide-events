@@ -4997,3 +4997,161 @@ def parse_adelaide_central_market(soup, source_url):
     events.sort(key=lambda e: (e["date"], e["title"]))
     print(f"    Market API: {len(events)} confirmed upcoming events across {page - 1} page(s)")
     return events
+
+
+# ============================================================
+# DAVID ROCHE GALLERY — exhibitions and dated public programmes
+# ============================================================
+
+def parse_david_roche_gallery(soup, source_url):
+    """Collect confirmed exhibitions and one-off public events from official pages.
+
+    Keep the configured source name for continuity with existing events.json.
+    Ordinary recurring Fermoy House tours are deliberately excluded.
+    A single exhibition record covers the entire published date range.
+    """
+    from datetime import date
+
+    root = "https://www.rochegallery.com.au"
+    today = datetime.now().date()
+    headers = {"User-Agent": "Mozilla/5.0 (compatible; AdelaideEvents/1.0)"}
+    events = []
+    seen = set()
+    errors = 0
+
+    def read(url):
+        nonlocal errors
+        try:
+            response = requests.get(url, headers=headers, timeout=25)
+            response.raise_for_status()
+            return BeautifulSoup(response.text, "lxml")
+        except requests.RequestException as exc:
+            errors += 1
+            print(f"    Roche warning: {url}: {exc}")
+            return None
+
+    def extract_image(page, url):
+        tag = page.find("meta", attrs={"property": "og:image"})
+        if tag and tag.get("content"):
+            return urljoin(url, tag["content"])
+        return get_image(page, url) or ""
+
+    def add(title, start, url, category, end=None, page=None):
+        if not title or not url or (end or start).date() < today:
+            return
+        key = (title.casefold().strip(), start.isoformat())
+        if key in seen:
+            return
+        seen.add(key)
+        item = {"title": title.strip(), "venue": "David Roche Gallery",
+                "date": start.isoformat(timespec="seconds"),
+                "category": category, "image": extract_image(page, url) if page else "",
+                "url": url, "source": "David Roche Foundation"}
+        if end:
+            item["end_datetime"] = end.isoformat(timespec="seconds")
+        events.append(item)
+
+    def parse_day_month(text, year):
+        match = re.search(r"\b(\d{1,2})\s+(January|February|March|April|May|June|July|August|September|October|November|December)\b", text, re.I)
+        if not match:
+            return None
+        try:
+            return date(year, MONTHS[match.group(2).lower()], int(match.group(1)))
+        except ValueError:
+            return None
+
+    # Exhibition landing page provides canonical detail URLs.
+    exhibitions_url = root + "/exhibitions/"
+    listing = read(exhibitions_url)
+    if listing:
+        links = sorted({urljoin(exhibitions_url, a.get("href", ""))
+                        for a in listing.select('a[href]')
+                        if "/exhibitions/" in urljoin(exhibitions_url, a.get("href", ""))
+                        and urljoin(exhibitions_url, a.get("href", "")).rstrip("/") != exhibitions_url.rstrip("/")
+                        and urljoin(exhibitions_url, a.get("href", "")).startswith(root)})
+        for url in links[:30]:
+            page = read(url)
+            if not page:
+                continue
+            heading = page.find("h1") or page.find("h2") or page.find("h3")
+            title = heading.get_text(" ", strip=True) if heading else ""
+            if re.search(r"^(?:future|current|past)?\s*exhibitions?$", title, re.I):
+                heading = page.find("h3") or page.find("h2")
+                title = heading.get_text(" ", strip=True) if heading else title
+            text = page.get_text(" ", strip=True)[:4500]
+            # Exhibition dates often omit the start year. Require the end
+            # year to appear explicitly on the official calendar before inferring.
+            calendar_text = soup.get_text(" ", strip=True) if soup else ""
+            range_match = re.search(
+                r"(\d{1,2})\s+(January|February|March|April|May|June|July|August|September|October|November|December)\s*[–—-]\s*"
+                r"(\d{1,2})\s+(January|February|March|April|May|June|July|August|September|October|November|December)\s+(20\d{2})",
+                calendar_text, re.I)
+            if not range_match:
+                continue
+            d1, m1, d2, m2, end_year = range_match.groups()
+            end_year = int(end_year)
+            start_year = end_year - (MONTHS[m1.lower()] > MONTHS[m2.lower()])
+            try:
+                start = datetime(start_year, MONTHS[m1.lower()], int(d1), 10, 0)
+                end = datetime(end_year, MONTHS[m2.lower()], int(d2), 16, 0)
+            except ValueError:
+                continue
+            # Match the exhibition by its dates and title context, not another
+            # exhibition that happens to be linked in the archives.
+            if (f"{int(d1)} {m1}".lower() not in text.lower()
+                    or f"{int(d2)} {m2}".lower() not in text.lower()):
+                continue
+            if title and not re.search(r"past exhibitions|previous exhibitions|archive", title, re.I):
+                add(title, start, url, ["Exhibition"], end, page)
+
+    # Event listing: detail pages give unambiguous dated one-off programmes.
+    events_url = root + "/events/"
+    event_listing = read(events_url)
+    if event_listing:
+        urls = sorted({urljoin(events_url, a.get("href", ""))
+                       for a in event_listing.select('a[href]')
+                       if re.search(r"/events/[^/]+/?$", urljoin(events_url, a.get("href", "")))
+                       and urljoin(events_url, a.get("href", "")).rstrip("/") not in
+                       (events_url.rstrip("/"), (events_url + "calendar/").rstrip("/"))
+                       and urljoin(events_url, a.get("href", "")).startswith(root)})
+        for url in urls[:40]:
+            page = read(url)
+            if not page:
+                continue
+            heading = page.find("h1") or page.find("h2") or page.find("h3")
+            title = heading.get_text(" ", strip=True) if heading else ""
+            text = page.get_text(" ", strip=True)[:3500]
+            if not title or re.search(r"calendar|fermo[y]? house tour", title, re.I):
+                continue
+            # Require an explicit 4-digit year on the event page. Otherwise
+            # use a month/year heading from the official upcoming calendar.
+            explicit = re.search(r"\b(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)?\s*"
+                                 r"(\d{1,2})\s+(January|February|March|April|May|June|July|August|September|October|November|December)\s+(20\d{2})\b", text, re.I)
+            if explicit:
+                day, month, year = explicit.groups()
+                when = parse_day_month(day + " " + month, int(year))
+            else:
+                # Calendar headings such as NOVEMBER 2026 must corroborate
+                # the date; never infer the year merely from today's date.
+                calendar = soup.get_text("\n", strip=True) if soup else ""
+                month_year = re.search(r"\b(January|February|March|April|May|June|July|August|September|October|November|December)\s+(20\d{2})\b", calendar, re.I)
+                short = re.search(r"\b(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\s+(\d{1,2})\s*(?:,|\|)", text, re.I)
+                when = (parse_day_month(short.group(1) + " " + month_year.group(1), int(month_year.group(2)))
+                        if month_year and short else None)
+            if not when:
+                continue
+            time_match = re.search(r"\b(\d{1,2})(?::(\d{2}))?\s*(am|pm)\b", text, re.I)
+            hour, minute = 0, 0
+            if time_match:
+                hour = int(time_match.group(1)) % 12 + (12 if time_match.group(3).lower() == "pm" else 0)
+                minute = int(time_match.group(2) or 0)
+            add(title, datetime(when.year, when.month, when.day, hour, minute), url,
+                ["Talks"] if re.search(r"lecture|talk|pompeii", title, re.I) else ["Other"], page=page)
+
+    # Do not allow partial failures to replace a healthy existing source.
+    if errors:
+        print(f"    Roche: {errors} page errors; preserving existing records rather than partial replacement")
+        return []
+    events.sort(key=lambda item: (item["date"], item["title"]))
+    print(f"    Roche: {len(events)} verified upcoming exhibition/event records")
+    return events
