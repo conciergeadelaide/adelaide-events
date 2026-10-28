@@ -59,6 +59,7 @@ try:
         parse_unibar_adelaide,
         parse_arkaba_hotel,
         parse_rhino_room,
+        parse_jive,
         parse_allevents_victoria_square,
         parse_allevents_adelaide_and_surrounds,
     )
@@ -106,6 +107,7 @@ except ModuleNotFoundError:
         parse_unibar_adelaide,
         parse_arkaba_hotel,
         parse_rhino_room,
+        parse_jive,
         parse_allevents_victoria_square,
         parse_allevents_adelaide_and_surrounds,
     )
@@ -616,6 +618,9 @@ def scrape_source(source):
 
     if name == "Morphettville Racecourse":
         return parse_morphettville_racecourse(fetch_page("https://morphettville.com.au/"), "https://morphettville.com.au/")
+
+    if name == "Jive":
+        return parse_jive(fetch_page(url), url)
 
     if name == "Rhino Room":
         return parse_rhino_room(fetch_page(url), url)

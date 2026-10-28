@@ -6311,3 +6311,87 @@ def parse_rhino_room(soup, source_url):
 
     print(f"    Rhino Room: {len(found)} dated official events; {sum(bool(x['image']) for x in found)} official images")
     return found
+
+
+# ============================================================
+# JIVE — OFFICIAL WEBFLOW WHAT'S ON
+# ============================================================
+def parse_jive(soup, source_url):
+    """Collect official Jive event cards and verified detail-page start times."""
+    from urllib.parse import urlparse
+
+    session = requests.Session()
+    session.headers.update({"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/140.0.0.0 Safari/537.36"})
+    events = []
+    seen = set()
+    cards = soup.select(".collection-item-4.w-dyn-item")
+    if not cards:
+        print("    Jive: no official Webflow event cards found; preserving existing events")
+        return []
+
+    for card in cards:
+        date_el = card.select_one(".event-top h2.headingall")
+        artist_el = card.select_one(".event-top .bodycopy.uppercase")
+        show_el = card.select_one(".event-bottom h1.headingall")
+        link_el = card.select_one('a[href^="/event/"]') or card.select_one('a[href*="jivevenue.com/event/"]')
+        if not (date_el and artist_el and link_el):
+            continue
+        date_text = date_el.get_text(" ", strip=True)
+        date = parse_date_text(date_text)
+        if not date:
+            continue
+        artist = " ".join(artist_el.stripped_strings).strip()
+        show = " ".join(show_el.stripped_strings).strip() if show_el else ""
+        if not artist:
+            continue
+        title = artist
+        if show and show.casefold() not in artist.casefold() and show.casefold() not in ("live music", "live", "club night"):
+            title = artist + " – " + show
+        event_url = normalise_url(link_el.get("href", ""), source_url)
+        if urlparse(event_url).hostname not in ("www.jivevenue.com", "jivevenue.com") or "/event/" not in event_url:
+            continue
+        if event_url in seen:
+            continue
+        seen.add(event_url)
+
+        image = ""
+        image_el = card.select_one(".event-img-div")
+        if image_el:
+            match = re.search(r'background-image\s*:\s*url\(\s*[\"\']?([^\"\')]+)', str(image_el.get("style", "")), re.I)
+            if match:
+                image = normalise_url(match.group(1).strip(), source_url)
+
+        # Detail pages show the exact date/time in h1.headingall.
+        try:
+            response = session.get(event_url, timeout=20)
+            response.raise_for_status()
+            detail = BeautifulSoup(response.text, "lxml")
+            for heading in detail.select("h1.headingall"):
+                detail_text = heading.get_text(" ", strip=True)
+                dt_match = re.search(r"\b([A-Za-z]+\s+\d{1,2},\s+20\d{2})\s+(\d{1,2}:\d{2}\s*[AP]M)\b", detail_text, re.I)
+                if not dt_match:
+                    continue
+                try:
+                    parsed = datetime.strptime(dt_match.group(1) + " " + dt_match.group(2).upper().replace(" ", ""), "%B %d, %Y %I:%M%p")
+                    if parsed.date().isoformat() == date[:10]:
+                        date = parsed.isoformat(timespec="seconds")
+                        break
+                except ValueError:
+                    pass
+        except requests.RequestException as exc:
+            print(f"    Jive detail unavailable for {artist}: {exc}; using verified listing date")
+
+        kind_el = card.select_one(".event-bottom .heading-xs")
+        kind = kind_el.get_text(" ", strip=True).casefold() if kind_el else ""
+        if "club" in kind or "party" in kind or any(x in title.casefold() for x in ("rave", "halloween party", "dj set")):
+            category = ["Club/Party"]
+        else:
+            category = ["Music"]
+        events.append({"title": title, "venue": "Jive", "date": date,
+                       "end_date": "", "category": category,
+                       "image": image, "url": event_url})
+
+    print(f"    Jive: {len(cards)} official cards; {len(events)} dated events; "
+          f"{sum(bool(e['image']) for e in events)} official images; "
+          f"{sum(e['date'][11:16] != '00:00' for e in events)} verified start times")
+    return events
