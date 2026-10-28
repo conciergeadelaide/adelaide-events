@@ -5693,3 +5693,157 @@ def parse_trinity_sessions(soup, source_url):
     print(f"    Trinity Sessions: {len(headings)} headings, "
           f"{len(events)} verified upcoming performances")
     return events
+
+# ============================================================
+# MORPHETTVILLE RACECOURSE — OFFICIAL DATED LISTINGS
+# ============================================================
+
+def parse_morphettville_racecourse(soup, source_url):
+    """Collect dated public race days and public entertainment from official pages.
+
+    Avoid navigation-only links, undated promotional pages and private functions.
+    Each race day remains a distinct event. Never invent start times.
+    """
+    from urllib.parse import urlparse
+
+    base = "https://morphettville.com.au/"
+    session = requests.Session()
+    session.headers.update({"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/140.0 Safari/537.36"})
+    today = datetime.now().date()
+    events = []
+    seen = set()
+    pages = [(base, soup)]
+
+    for path in ("racing/", "upcoming-events/", "about/race-day-calendar-2/"):
+        url = urljoin(base, path)
+        try:
+            response = session.get(url, timeout=25)
+            response.raise_for_status()
+            pages.append((url, BeautifulSoup(response.text, "lxml")))
+        except requests.RequestException as exc:
+            print(f"    Morphettville listing unavailable: {url} ({exc})")
+
+    def tile_date(text):
+        value = " ".join(text.split())
+        # Race-day cards explicitly display a full year.
+        m = re.search(r"\b(\d{1,2})(?:st|nd|rd|th)?\s+"
+                      r"(January|February|March|April|May|June|July|August|September|October|November|December)"
+                      r"\s+(20\d{2})\b", value, re.I)
+        if m:
+            try:
+                return datetime(int(m.group(3)), MONTHS[m.group(2).lower()], int(m.group(1))).date().isoformat()
+            except ValueError:
+                return ""
+        # Upcoming Events cards sometimes show '29 Oct - 05 Dec' without a year.
+        # Use a rolling year only for a date in the current or next 12 months.
+        m = re.search(r"\b(\d{1,2})\s+"
+                      r"(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)\b", value, re.I)
+        if not m:
+            return ""
+        short = {"jan": 1, "feb": 2, "mar": 3, "apr": 4, "may": 5, "jun": 6,
+                 "jul": 7, "aug": 8, "sep": 9, "sept": 9, "oct": 10, "nov": 11, "dec": 12}
+        try:
+            candidate = datetime(today.year, short[m.group(2).lower()], int(m.group(1))).date()
+            if candidate < today - timedelta(days=45):
+                candidate = candidate.replace(year=candidate.year + 1)
+            return candidate.isoformat()
+        except ValueError:
+            return ""
+
+    def end_date(text, start):
+        m = re.search(r"\b\d{1,2}\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)"
+                      r"\s*[-–—]\s*(\d{1,2})\s+"
+                      r"(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)\b", text, re.I)
+        if not m or not start:
+            return ""
+        short = {"jan": 1, "feb": 2, "mar": 3, "apr": 4, "may": 5, "jun": 6,
+                 "jul": 7, "aug": 8, "sep": 9, "sept": 9, "oct": 10, "nov": 11, "dec": 12}
+        try:
+            first = datetime.fromisoformat(start).date()
+            year = first.year + (short[m.group(2).lower()] < first.month)
+            last = datetime(year, short[m.group(2).lower()], int(m.group(1))).date()
+            return last.isoformat() if last > first else ""
+        except ValueError:
+            return ""
+
+    def detail_image(url):
+        # Prefer artwork from the actual event detail page, not the site-wide banner.
+        if urlparse(url).netloc.lower() not in ("morphettville.com.au", "www.morphettville.com.au"):
+            return ""
+        try:
+            response = session.get(url, timeout=20)
+            response.raise_for_status()
+            detail = BeautifulSoup(response.text, "lxml")
+        except requests.RequestException:
+            return ""
+        for attr, value in (("property", "og:image"), ("name", "twitter:image")):
+            tag = detail.find("meta", attrs={attr: value})
+            candidate = str(tag.get("content") or "").strip() if tag else ""
+            if candidate and not any(word in candidate.lower() for word in ("logo", "favicon")):
+                return urljoin(url, candidate)
+        hero = detail.select_one(".hero img[src], .hero__item img[src], article img[src]")
+        return urljoin(url, hero.get("src")) if hero else ""
+
+    for page_url, page in pages:
+        for tile in page.select("li.tile.block-link"):
+            links = [a for a in tile.select("a[href]") if a.get("href")]
+            if not links:
+                continue
+            text = " ".join(tile.stripped_strings).strip()
+            if not text:
+                continue
+            start = tile_date(text)
+            if not start:
+                continue
+            finish = end_date(text, start)
+            if (finish or start) < today.isoformat():
+                continue
+            is_race = False
+            link = ""
+            for anchor in links:
+                candidate = urljoin(page_url, anchor.get("href"))
+                if "/feature-race-day/" in candidate.lower():
+                    link = candidate
+                    is_race = True
+                    break
+            if not link and "/upcoming-events/" in page_url:
+                for anchor in links:
+                    candidate = urljoin(page_url, anchor.get("href"))
+                    if urlparse(candidate).scheme in ("http", "https") and "#" not in candidate:
+                        link = candidate
+                        break
+            if not link:
+                continue
+            if is_race:
+                title = re.sub(r"^\s*(?:\d{1,2}(?:st|nd|rd|th)?\s+)?"
+                               r"(?:January|February|March|April|May|June|July|August|September|October|November|December)?"
+                               r"\s*(?:20\d{2})?\s*", "", text, count=1, flags=re.I)
+                title = re.sub(r"\s*(?:Read more|Book Now.*)$", "", title, flags=re.I).strip()
+                title = re.sub(r"\s*,?\s*(?:October|November|December|January|February|March|April|May|June|July|August|September)\s+\d{1,2}$", "", title, flags=re.I).strip()
+                if title.lower().startswith("race day") and len(title) > 35:
+                    title = title[:35].strip()
+                category = ["Sport"]
+            else:
+                title = re.sub(r"^\s*\d{1,2}\s+[A-Za-z]{3}\s*[-–—]\s*\d{1,2}\s+[A-Za-z]{3}\s*", "", text).strip()
+                title = re.sub(r"^\s*\d{1,2}\s+[A-Za-z]{3}\s*", "", title).strip()
+                if not title or title.lower() in ("upcoming events", "read more"):
+                    continue
+                category = categorise_event(title)
+                if category == ["Other"] and "greatest showman" in title.lower():
+                    category = ["Theatre"]
+            key = (title.casefold(), start, link.rstrip("/").casefold())
+            if key in seen:
+                continue
+            seen.add(key)
+            img = ""
+            picture = tile.find("img")
+            if picture:
+                img = urljoin(page_url, picture.get("data-src") or picture.get("src") or "")
+            if not img:
+                img = detail_image(link)
+            events.append({"title": title, "venue": "Morphettville Racecourse",
+                           "date": start + "T00:00:00",
+                           "end_date": finish + "T23:59:59" if finish else "",
+                           "category": category, "image": img, "url": link})
+    print(f"    Morphettville: {len(events)} verified dated public listings")
+    return events

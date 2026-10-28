@@ -5140,6 +5140,54 @@
     "source": "Trinity Sessions"
   },
   {
+    "title": "Victoria Derby Day, October 31 Read more",
+    "venue": "Morphettville Racecourse",
+    "datetime": "2026-10-31T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Sport"
+    ],
+    "image": "https://morphettville.com.au/content/uploads/Oaktree-42-scaled.jpg",
+    "link": "https://morphettville.com.au/feature-race-day/victorian-derby-day-october-31/",
+    "source": "Morphettville Racecourse"
+  },
+  {
+    "title": "Melbourne Cup Day, November 3 Read more",
+    "venue": "Morphettville Racecourse",
+    "datetime": "2026-11-03T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Sport"
+    ],
+    "image": "https://morphettville.com.au/content/uploads/Oaktree-076-1-scaled.jpg",
+    "link": "https://morphettville.com.au/feature-race-day/melbourne-cup-day-november-3/",
+    "source": "Morphettville Racecourse"
+  },
+  {
+    "title": "Champion Stakes Day, November 7 Read more",
+    "venue": "Morphettville Racecourse",
+    "datetime": "2026-11-07T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Sport"
+    ],
+    "image": "https://morphettville.com.au/content/uploads/Oaktree-178-scaled.jpg",
+    "link": "https://morphettville.com.au/feature-race-day/champion-stakes-day-november-7/",
+    "source": "Morphettville Racecourse"
+  },
+  {
+    "title": "The Greatest Showman Book Here",
+    "venue": "Morphettville Racecourse",
+    "datetime": "2026-10-29T00:00:00",
+    "end_datetime": "2026-12-05T23:59:59",
+    "category": [
+      "Theatre"
+    ],
+    "image": "https://morphettville.com.au/content/uploads/greatest_showman.jpg",
+    "link": "https://premier.ticketek.com.au/shows/Show.aspx?sh=COMEAADL26",
+    "source": "Morphettville Racecourse"
+  },
+  {
     "title": "Government House Garden Tour (Fully Booked)",
     "venue": "Government House",
     "datetime": "2026-11-06T10:45:00",
@@ -9170,18 +9218,6 @@
     "source": "Humanitix Adelaide and Regions"
   },
   {
-    "title": "Lip Sync LIVE! - Adelaide",
-    "venue": "Norwood Concert Hall",
-    "datetime": "2027-03-13T19:00:00+1030",
-    "end_datetime": "2027-03-13T22:30:00+1030",
-    "category": [
-      "Other"
-    ],
-    "image": "https://images.humanitix.com/i/2e1e1b26-2b4f-4300-b8ed-e0e7dbca4192.jpg@seo-500.jpg",
-    "link": "https://events.humanitix.com/lipsync-adl",
-    "source": "Humanitix Adelaide and Regions"
-  },
-  {
     "title": "North Metro Music Festival 2026",
     "venue": "Hewitson Theatre - STARplex",
     "datetime": "2026-10-28T19:00:00+1030",
@@ -9542,6 +9578,18 @@
     ],
     "image": "https://images.humanitix.com/i/5d9a0674-28f1-448c-86de-4246cc491135.png@seo-500.jpg",
     "link": "https://events.humanitix.com/vip-frame-styleshow-colonnades",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "Lip Sync LIVE! - Adelaide",
+    "venue": "Norwood Concert Hall",
+    "datetime": "2027-03-13T19:00:00+1030",
+    "end_datetime": "2027-03-13T22:30:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/2e1e1b26-2b4f-4300-b8ed-e0e7dbca4192.jpg@seo-500.jpg",
+    "link": "https://events.humanitix.com/lipsync-adl",
     "source": "Humanitix Adelaide and Regions"
   }
 ]
