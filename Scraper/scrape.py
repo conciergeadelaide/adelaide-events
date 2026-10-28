@@ -55,6 +55,7 @@ try:
         parse_norwood_concert_hall,
         parse_trinity_sessions,
         parse_morphettville_racecourse,
+        parse_gilles_at_the_grounds,
         parse_allevents_victoria_square,
         parse_allevents_adelaide_and_surrounds,
     )
@@ -98,6 +99,7 @@ except ModuleNotFoundError:
         parse_norwood_concert_hall,
         parse_trinity_sessions,
         parse_morphettville_racecourse,
+        parse_gilles_at_the_grounds,
         parse_allevents_victoria_square,
         parse_allevents_adelaide_and_surrounds,
     )
@@ -608,6 +610,9 @@ def scrape_source(source):
 
     if name == "Morphettville Racecourse":
         return parse_morphettville_racecourse(fetch_page("https://morphettville.com.au/"), "https://morphettville.com.au/")
+
+    if name == "Gilles at the Grounds":
+        return parse_gilles_at_the_grounds(fetch_page("https://gillesatthegrounds.com.au/"), "https://gillesatthegrounds.com.au/")
 
     if name == "Trinity Sessions":
         return parse_trinity_sessions(fetch_page(url), url)
@@ -1236,7 +1241,7 @@ def main(only_source=None):
             "Adelaide Botanic Gardens",
             "Adelaide Cemetery Tours",
             "Trinity Sessions", "Morphettville Racecourse",
-            "Gilles at the Grounds", "Holden Street Theatres",
+            "Holden Street Theatres",
             "Baroque Hall", "Arkaba Hotel", "Rhino Room",
             "National Trust SA", "MOD.", "SAMSTAG Museum",
             "Kerry Packer Civic Gallery",

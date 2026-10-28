@@ -4800,6 +4800,81 @@
     "source": "Art Gallery of South Australia"
   },
   {
+    "title": "Stephanie Doddridge: Tools for Quiet Activism",
+    "venue": "Adelaide Contemporary Experimental (ACE)",
+    "datetime": "2026-07-25T00:00:00",
+    "end_datetime": "2027-01-31T23:59:59",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://ace.gallery/img/asset/YXNzZXRzLzAxLXdlYnJlcy1hY2VfbGFuYWFkYW1zX3dlYi0wMTU5Ny5qcGc=?w=900",
+    "link": "https://ace.gallery/whats-on/exhibitions/tools-for-quiet-activism",
+    "source": "ACE Gallery"
+  },
+  {
+    "title": "Leaves: Eco-Anxiety",
+    "venue": "Adelaide Contemporary Experimental (ACE)",
+    "datetime": "2026-09-11T00:00:00",
+    "end_datetime": "2026-12-05T23:59:59",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://ace.gallery/img/asset/YXNzZXRzL2xlYXZlcy1lY28tYW54aWV0eS1oZXJvLS1sb3dyZXMuanBn?w=900",
+    "link": "https://ace.gallery/whats-on/exhibitions/leaves-eco-anxiety",
+    "source": "ACE Gallery"
+  },
+  {
+    "title": "'Leaves: Eco-Anxiety' Artist Sharing: Alycia Bennett and Florian Cinco",
+    "venue": "Adelaide Contemporary Experimental (ACE)",
+    "datetime": "2026-11-03T12:30:00",
+    "end_datetime": "",
+    "category": [
+      "Talks & Conferences",
+      "Arts & Culture"
+    ],
+    "image": "https://ace.gallery/img/asset/YXNzZXRzL2FseS1mbG9yaWFuLmpwZw==?w=900",
+    "link": "https://ace.gallery/whats-on/live-programs/leaves-eco-anxiety-artist-talk-alycia-florian",
+    "source": "ACE Gallery"
+  },
+  {
+    "title": "Modern Mysticism",
+    "venue": "Adelaide Contemporary Experimental (ACE)",
+    "datetime": "2026-11-07T13:00:00",
+    "end_datetime": "",
+    "category": [
+      "Sport",
+      "Talks & Conferences",
+      "Arts & Culture"
+    ],
+    "image": "https://ace.gallery/img/asset/YXNzZXRzL2FjZV9lY29hbnhpZXR5X2xhbmFhZGFtc193ZWItMDU5NjYuanBn?w=900",
+    "link": "https://ace.gallery/whats-on/live-programs/leaves-eco-anxiety-artist-talk-emiko",
+    "source": "ACE Gallery"
+  },
+  {
+    "title": "Shan Michaels: Can Touch This",
+    "venue": "Adelaide Contemporary Experimental (ACE)",
+    "datetime": "2026-11-19T00:00:00",
+    "end_datetime": "2026-12-19T23:59:59",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://ace.gallery/img/asset/YXNzZXRzL2FjZV9wdXNoLXB1bGxfaW5zdGFsbC1waG90b2dyYXBoeV9tYXk5LTIwMjVfLTI1Nl9sb3Jlcy0oMSktMTc0ODkxMTUzNi5qcGc=?w=900",
+    "link": "https://ace.gallery/whats-on/exhibitions/can-touch-this-metro-arts",
+    "source": "ACE Gallery"
+  },
+  {
+    "title": "Opening Night – Shan Michaels: Can Touch This",
+    "venue": "Adelaide Contemporary Experimental (ACE)",
+    "datetime": "2026-11-19T18:00:00",
+    "end_datetime": "",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://ace.gallery/img/asset/YXNzZXRzL2FjZV9wdXNoLXB1bGxfaW5zdGFsbC1waG90b2dyYXBoeV9tYXk5LTIwMjVfLTI1Nl9sb3Jlcy0oMSktMTc0ODkxMTUzNi5qcGc=?w=900",
+    "link": "https://ace.gallery/whats-on/live-programs/shan-michaels-can-touch-this-opening",
+    "source": "ACE Gallery"
+  },
+  {
     "title": "The Art of Seafood: Fish for the Table",
     "venue": "Adelaide Central Market",
     "datetime": "2026-11-05T10:30:00",
@@ -5188,6 +5263,104 @@
     "source": "Morphettville Racecourse"
   },
   {
+    "title": "Gilles at the Grounds Night Market",
+    "venue": "Adelaide Showground - Old Brick Dairy",
+    "datetime": "2026-10-31T15:00:00",
+    "end_datetime": "2026-10-31T21:00:00",
+    "category": [
+      "Community",
+      "Arts & Culture",
+      "Food & Beverage"
+    ],
+    "image": "https://gilles.lbcdn.io/uploads/0G6A3766-510x350.jpg",
+    "link": "https://gillesatthegrounds.com.au/",
+    "source": "Gilles at the Grounds"
+  },
+  {
+    "title": "Gilles at the Grounds Market",
+    "venue": "Adelaide Showground - Old Brick Dairy",
+    "datetime": "2026-11-01T09:00:00",
+    "end_datetime": "2026-11-01T15:00:00",
+    "category": [
+      "Community",
+      "Arts & Culture",
+      "Food & Beverage"
+    ],
+    "image": "https://gilles.lbcdn.io/uploads/0G6A3766-510x350.jpg",
+    "link": "https://gillesatthegrounds.com.au/",
+    "source": "Gilles at the Grounds"
+  },
+  {
+    "title": "Gilles at the Grounds Market",
+    "venue": "Adelaide Showground - Old Brick Dairy",
+    "datetime": "2026-11-15T09:00:00",
+    "end_datetime": "2026-11-15T15:00:00",
+    "category": [
+      "Community",
+      "Arts & Culture",
+      "Food & Beverage"
+    ],
+    "image": "https://gilles.lbcdn.io/uploads/0G6A3766-510x350.jpg",
+    "link": "https://gillesatthegrounds.com.au/",
+    "source": "Gilles at the Grounds"
+  },
+  {
+    "title": "Gilles at the Grounds Night Market",
+    "venue": "Adelaide Showground - Old Brick Dairy",
+    "datetime": "2026-12-05T15:00:00",
+    "end_datetime": "2026-12-05T21:00:00",
+    "category": [
+      "Community",
+      "Arts & Culture",
+      "Food & Beverage"
+    ],
+    "image": "https://gilles.lbcdn.io/uploads/0G6A3766-510x350.jpg",
+    "link": "https://gillesatthegrounds.com.au/",
+    "source": "Gilles at the Grounds"
+  },
+  {
+    "title": "Gilles at the Grounds Market",
+    "venue": "Adelaide Showground - Old Brick Dairy",
+    "datetime": "2026-12-06T09:00:00",
+    "end_datetime": "2026-12-06T15:00:00",
+    "category": [
+      "Community",
+      "Arts & Culture",
+      "Food & Beverage"
+    ],
+    "image": "https://gilles.lbcdn.io/uploads/0G6A3766-510x350.jpg",
+    "link": "https://gillesatthegrounds.com.au/",
+    "source": "Gilles at the Grounds"
+  },
+  {
+    "title": "Gilles at the Grounds Night Market",
+    "venue": "Adelaide Showground - Old Brick Dairy",
+    "datetime": "2026-12-19T15:00:00",
+    "end_datetime": "2026-12-19T21:00:00",
+    "category": [
+      "Community",
+      "Arts & Culture",
+      "Food & Beverage"
+    ],
+    "image": "https://gilles.lbcdn.io/uploads/0G6A3766-510x350.jpg",
+    "link": "https://gillesatthegrounds.com.au/",
+    "source": "Gilles at the Grounds"
+  },
+  {
+    "title": "Gilles at the Grounds Market",
+    "venue": "Adelaide Showground - Old Brick Dairy",
+    "datetime": "2026-12-20T09:00:00",
+    "end_datetime": "2026-12-20T15:00:00",
+    "category": [
+      "Community",
+      "Arts & Culture",
+      "Food & Beverage"
+    ],
+    "image": "https://gilles.lbcdn.io/uploads/0G6A3766-510x350.jpg",
+    "link": "https://gillesatthegrounds.com.au/",
+    "source": "Gilles at the Grounds"
+  },
+  {
     "title": "Government House Garden Tour (Fully Booked)",
     "venue": "Government House",
     "datetime": "2026-11-06T10:45:00",
@@ -5522,81 +5695,6 @@
     "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/73893830-1917-11f0-af90-de92939c34e1.jpg",
     "link": "https://feverup.com/m/812815",
     "source": "Fever Candlelight Adelaide"
-  },
-  {
-    "title": "Stephanie Doddridge: Tools for Quiet Activism",
-    "venue": "Adelaide Contemporary Experimental (ACE)",
-    "datetime": "2026-07-25T00:00:00",
-    "end_datetime": "2027-01-31T23:59:59",
-    "category": [
-      "Arts & Culture"
-    ],
-    "image": "https://ace.gallery/img/asset/YXNzZXRzLzAxLXdlYnJlcy1hY2VfbGFuYWFkYW1zX3dlYi0wMTU5Ny5qcGc=?w=900",
-    "link": "https://ace.gallery/whats-on/exhibitions/tools-for-quiet-activism",
-    "source": "ACE Gallery"
-  },
-  {
-    "title": "Leaves: Eco-Anxiety",
-    "venue": "Adelaide Contemporary Experimental (ACE)",
-    "datetime": "2026-09-11T00:00:00",
-    "end_datetime": "2026-12-05T23:59:59",
-    "category": [
-      "Arts & Culture"
-    ],
-    "image": "https://ace.gallery/img/asset/YXNzZXRzL2xlYXZlcy1lY28tYW54aWV0eS1oZXJvLS1sb3dyZXMuanBn?w=900",
-    "link": "https://ace.gallery/whats-on/exhibitions/leaves-eco-anxiety",
-    "source": "ACE Gallery"
-  },
-  {
-    "title": "'Leaves: Eco-Anxiety' Artist Sharing: Alycia Bennett and Florian Cinco",
-    "venue": "Adelaide Contemporary Experimental (ACE)",
-    "datetime": "2026-11-03T12:30:00",
-    "end_datetime": "",
-    "category": [
-      "Talks & Conferences",
-      "Arts & Culture"
-    ],
-    "image": "https://ace.gallery/img/asset/YXNzZXRzL2FseS1mbG9yaWFuLmpwZw==?w=900",
-    "link": "https://ace.gallery/whats-on/live-programs/leaves-eco-anxiety-artist-talk-alycia-florian",
-    "source": "ACE Gallery"
-  },
-  {
-    "title": "Modern Mysticism",
-    "venue": "Adelaide Contemporary Experimental (ACE)",
-    "datetime": "2026-11-07T13:00:00",
-    "end_datetime": "",
-    "category": [
-      "Sport",
-      "Talks & Conferences",
-      "Arts & Culture"
-    ],
-    "image": "https://ace.gallery/img/asset/YXNzZXRzL2FjZV9lY29hbnhpZXR5X2xhbmFhZGFtc193ZWItMDU5NjYuanBn?w=900",
-    "link": "https://ace.gallery/whats-on/live-programs/leaves-eco-anxiety-artist-talk-emiko",
-    "source": "ACE Gallery"
-  },
-  {
-    "title": "Shan Michaels: Can Touch This",
-    "venue": "Adelaide Contemporary Experimental (ACE)",
-    "datetime": "2026-11-19T00:00:00",
-    "end_datetime": "2026-12-19T23:59:59",
-    "category": [
-      "Arts & Culture"
-    ],
-    "image": "https://ace.gallery/img/asset/YXNzZXRzL2FjZV9wdXNoLXB1bGxfaW5zdGFsbC1waG90b2dyYXBoeV9tYXk5LTIwMjVfLTI1Nl9sb3Jlcy0oMSktMTc0ODkxMTUzNi5qcGc=?w=900",
-    "link": "https://ace.gallery/whats-on/exhibitions/can-touch-this-metro-arts",
-    "source": "ACE Gallery"
-  },
-  {
-    "title": "Opening Night – Shan Michaels: Can Touch This",
-    "venue": "Adelaide Contemporary Experimental (ACE)",
-    "datetime": "2026-11-19T18:00:00",
-    "end_datetime": "",
-    "category": [
-      "Arts & Culture"
-    ],
-    "image": "https://ace.gallery/img/asset/YXNzZXRzL2FjZV9wdXNoLXB1bGxfaW5zdGFsbC1waG90b2dyYXBoeV9tYXk5LTIwMjVfLTI1Nl9sb3Jlcy0oMSktMTc0ODkxMTUzNi5qcGc=?w=900",
-    "link": "https://ace.gallery/whats-on/live-programs/shan-michaels-can-touch-this-opening",
-    "source": "ACE Gallery"
   },
   {
     "title": "Shane Todd",

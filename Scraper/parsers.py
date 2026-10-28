@@ -5847,3 +5847,101 @@ def parse_morphettville_racecourse(soup, source_url):
                            "category": category, "image": img, "url": link})
     print(f"    Morphettville: {len(events)} verified dated public listings")
     return events
+
+
+# ============================================================
+# GILLES AT THE GROUNDS - OFFICIAL MARKET CALENDAR
+# ============================================================
+
+def parse_gilles_at_the_grounds(soup, source_url):
+    """Read the official Market Dates section; one event per dated session.
+
+    The organiser lists month headings followed by day numbers, without years.
+    A year is assigned only to dates reasonably close to the current season.
+    Times are based on the site's Saturday-night/Sunday-day schedule.
+    """
+    from bs4 import NavigableString
+    from calendar import monthrange
+
+    now = datetime.now().date()
+    month_lookup = {name.casefold(): number for name, number in MONTHS.items()}
+    month_lookup.update({name[:3].casefold(): number for name, number in MONTHS.items()})
+    headings = soup.find_all(re.compile(r"^h[1-6]$"))
+    heading = next((h for h in headings if re.search(r"^\s*market\s+dates\s*$", h.get_text(" ", strip=True), re.I)), None)
+    if heading is None:
+        print("    Gilles: official Market Dates heading not found")
+        return []
+
+    # Walk only text nodes after the Market Dates heading, stopping at the
+    # application form heading. This avoids past dates in the page footer/PDFs.
+    tokens = []
+    for node in heading.next_elements:
+        if node is heading:
+            continue
+        if getattr(node, "name", None) in ("h1", "h2", "h3", "h4", "h5", "h6"):
+            label = node.get_text(" ", strip=True).casefold()
+            if "apply for a stall" in label or "apply for stall" in label:
+                break
+        if isinstance(node, NavigableString):
+            parent = node.parent
+            if parent and parent.name in ("script", "style", "noscript"):
+                continue
+            value = " ".join(str(node).split())
+            if value:
+                tokens.append(value)
+        if len(tokens) > 350:
+            break
+
+    # Match month/day tokens, including layouts where month and dates appear
+    # in one text node. Do not infer arbitrary dates elsewhere on the page.
+    events = []
+    seen = set()
+    active_month = None
+    months_pattern = "|".join(re.escape(m) for m in MONTHS)
+    for token in tokens:
+        clean = token.strip().strip(":")
+        month = month_lookup.get(clean.casefold())
+        if month:
+            active_month = month
+            continue
+        if active_month is None:
+            continue
+        if not re.fullmatch(r"(?:[0-3]?\d(?:st|nd|rd|th)?(?:\s*[,/&-]\s*)?)+", clean, re.I):
+            continue
+        for day_str in re.findall(r"\b([0-3]?\d)(?:st|nd|rd|th)?\b", clean, re.I):
+            day = int(day_str)
+            if day < 1 or day > monthrange(now.year, active_month)[1]:
+                continue
+            try:
+                candidate = datetime(now.year, active_month, day).date()
+                if candidate < now - timedelta(days=45):
+                    candidate = datetime(now.year + 1, active_month, day).date()
+            except ValueError:
+                continue
+            if candidate < now or candidate > now + timedelta(days=400):
+                continue
+            # Official hours distinguish Saturday night from Sunday daytime.
+            if candidate.weekday() == 5:
+                start_hour, end_hour = 15, 21
+                title = "Gilles at the Grounds Night Market"
+            elif candidate.weekday() == 6:
+                start_hour, end_hour = 9, 15
+                title = "Gilles at the Grounds Market"
+            else:
+                # Don't invent trading hours for unexpected weekdays.
+                print(f"    Gilles: skipped unexpected weekday {candidate.isoformat()}")
+                continue
+            if candidate.isoformat() in seen:
+                continue
+            seen.add(candidate.isoformat())
+            events.append({
+                "title": title,
+                "venue": "Adelaide Showground - Old Brick Dairy",
+                "date": f"{candidate.isoformat()}T{start_hour:02d}:00:00",
+                "end_date": f"{candidate.isoformat()}T{end_hour:02d}:00:00",
+                "category": ["Community", "Arts & Culture", "Food & Beverage"],
+                "image": "https://gilles.lbcdn.io/uploads/0G6A3766-510x350.jpg",
+                "url": source_url,
+            })
+    print(f"    Gilles at the Grounds: {len(events)} dated market sessions")
+    return sorted(events, key=lambda event: event["date"])
