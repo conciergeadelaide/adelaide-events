@@ -56,6 +56,7 @@ try:
         parse_trinity_sessions,
         parse_morphettville_racecourse,
         parse_gilles_at_the_grounds,
+        parse_unibar_adelaide,
         parse_allevents_victoria_square,
         parse_allevents_adelaide_and_surrounds,
     )
@@ -100,6 +101,7 @@ except ModuleNotFoundError:
         parse_trinity_sessions,
         parse_morphettville_racecourse,
         parse_gilles_at_the_grounds,
+        parse_unibar_adelaide,
         parse_allevents_victoria_square,
         parse_allevents_adelaide_and_surrounds,
     )
@@ -610,6 +612,9 @@ def scrape_source(source):
 
     if name == "Morphettville Racecourse":
         return parse_morphettville_racecourse(fetch_page("https://morphettville.com.au/"), "https://morphettville.com.au/")
+
+    if name == "UniBar Adelaide":
+        return parse_unibar_adelaide(fetch_page("https://www.unibaradl.com.au/"), "https://www.unibaradl.com.au/")
 
     if name == "Gilles at the Grounds":
         return parse_gilles_at_the_grounds(fetch_page("https://gillesatthegrounds.com.au/"), "https://gillesatthegrounds.com.au/")

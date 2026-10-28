@@ -5945,3 +5945,82 @@ def parse_gilles_at_the_grounds(soup, source_url):
             })
     print(f"    Gilles at the Grounds: {len(events)} dated market sessions")
     return sorted(events, key=lambda event: event["date"])
+
+
+# ============================================================
+# UNIBAR ADELAIDE - OFFICIAL DATED GIGS
+# ============================================================
+
+def parse_unibar_adelaide(soup, source_url):
+    """Read the UniBar Wix gig cards; don't invent unlisted start times.
+
+    Each event's date, poster and Moshtix link are inside the same
+    comp-lso1f1yj-container. Wix's rendered thumbnail can be tiny, so
+    retain its original static media identifier for full-resolution artwork.
+    """
+    from urllib.parse import urlparse
+
+    today = datetime.now().date()
+    events = []
+    seen = set()
+    for card in soup.select("div.comp-lso1f1yj-container"):
+        date_tag = next((tag for tag in card.find_all(re.compile(r"^h[1-6]$"))
+                         if re.fullmatch(r"\d{1,2}\s+[A-Za-z]{3,9}\s+20\d{2}",
+                                         tag.get_text(" ", strip=True))), None)
+        if date_tag is None:
+            continue
+        try:
+            event_date = datetime.strptime(date_tag.get_text(" ", strip=True), "%d %b %Y").date()
+        except ValueError:
+            continue
+        if event_date < today:
+            continue
+
+        ticket = next((a for a in card.find_all("a", href=True)
+                       if "moshtix.com.au" in urlparse(a["href"]).netloc.lower()
+                       and "/event/" in urlparse(a["href"]).path), None)
+        if ticket is None:
+            continue
+        ticket_url = ticket["href"].strip()
+        if (event_date.isoformat(), ticket_url) in seen:
+            continue
+
+        # The official Wix card has one primary artist/title paragraph,
+        # followed by an optional tour name or support acts paragraph.
+        content = card.select_one("div.comp-lso1ex5n-container")
+        if content is None:
+            continue
+        paragraphs = [p.get_text(" ", strip=True) for p in content.find_all("p")]
+        paragraphs = [t for t in paragraphs if t and t.casefold() not in
+                      ("all ages", "18+", "tickets")]
+        if not paragraphs:
+            continue
+        title = paragraphs[0]
+        if len(paragraphs) > 1:
+            title += " - " + paragraphs[1]
+
+        poster = card.find("img", src=True)
+        image = ""
+        if poster is not None:
+            original = poster.get("src", "")
+            # Wix's media endpoint serves the full original without the
+            # thumbnail's /v1/fill/w_49... resize and AVIF conversion.
+            match = re.search(r"https://static\.wixstatic\.com/media/([^/?#]+)", original)
+            if match:
+                image = "https://static.wixstatic.com/media/" + match.group(1)
+            elif original.startswith("https://"):
+                image = original
+
+        seen.add((event_date.isoformat(), ticket_url))
+        events.append({
+            "title": title,
+            "venue": "UniBar Adelaide",
+            "date": event_date.isoformat(),
+            "category": ["Music"],
+            "image": image,
+            "url": ticket_url,
+        })
+    events.sort(key=lambda e: (e["date"], e["title"]))
+    print(f"    UniBar Adelaide: {len(events)} upcoming dated gigs; "
+          f"{sum(bool(e['image']) for e in events)} official posters")
+    return events
