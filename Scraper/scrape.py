@@ -53,6 +53,7 @@ try:
         parse_moshtix_adelaide,
         parse_the_gov,
         parse_norwood_concert_hall,
+        parse_trinity_sessions,
         parse_allevents_victoria_square,
         parse_allevents_adelaide_and_surrounds,
     )
@@ -94,6 +95,7 @@ except ModuleNotFoundError:
         parse_moshtix_adelaide,
         parse_the_gov,
         parse_norwood_concert_hall,
+        parse_trinity_sessions,
         parse_allevents_victoria_square,
         parse_allevents_adelaide_and_surrounds,
     )
@@ -601,6 +603,9 @@ def scrape_source(source):
 
     if name == "The Gov":
         return parse_the_gov()
+
+    if name == "Trinity Sessions":
+        return parse_trinity_sessions(fetch_page(url), url)
 
     if name == "Norwood Concert Hall":
         return parse_norwood_concert_hall(fetch_page(url), url)

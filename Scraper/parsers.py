@@ -5543,10 +5543,19 @@ def parse_norwood_concert_hall(soup, source_url):
                 continue
             seen.add(key)
             image = first_meta(page, 'meta[property="og:image"]', 'meta[name="twitter:image"]')
-            if not image:
-                image_tag = (page.select_one('main img[src]') or page.select_one('article img[src]'))
+            # Norwood's official artwork is in /file/resize/... image tags.
+            # These may sit outside <main>, and the site logo must not be used.
+            official_art = next((urljoin(link, tag.get("data-src") or tag.get("src") or "")
+                                 for tag in page.select('img[src], img[data-src]')
+                                 if "/file/resize/" in (tag.get("data-src") or tag.get("src") or "").lower()), "")
+            if official_art:
+                image = official_art
+            elif not image:
+                image_tag = page.select_one('main img[src], article img[src]')
                 if image_tag:
-                    image = urljoin(link, image_tag.get("data-src") or image_tag.get("src") or "")
+                    candidate = urljoin(link, image_tag.get("data-src") or image_tag.get("src") or "")
+                    if not candidate.lower().endswith('logo.svg'):
+                        image = candidate
             results.append({"title": title, "venue": "Norwood Concert Hall",
                             "date": event_date, "category": category_for(title),
                             "image": image, "url": link})
@@ -5556,3 +5565,131 @@ def parse_norwood_concert_hall(soup, source_url):
     print(f"    Norwood Concert Hall: {len(links)} official detail links, "
           f"{len(results)} verified upcoming events")
     return results
+
+
+# ============================================================
+# TRINITY SESSIONS — official Wix homepage concert listings
+# ============================================================
+
+def parse_trinity_sessions(soup, source_url):
+    """Read dated concerts from Trinity Sessions' official homepage.
+
+    Each event has a date heading followed by a concert title heading.
+    Multiple performances in one date heading become separate records.
+    Yearless dates are resolved in homepage order, with New Year rollover.
+    Never derive dates from descriptions or from the past-dates archive.
+    """
+    from html import unescape
+    from urllib.parse import urljoin
+    from datetime import date
+
+    now = datetime.now().date()
+    headings = soup.find_all(["h1", "h2", "h3", "h4"])
+    months = {name.lower(): number for number, name in enumerate(
+        ["January", "February", "March", "April", "May", "June", "July",
+         "August", "September", "October", "November", "December"], 1)}
+    weekdays = r"(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)"
+    month_names = "|".join(name.title() for name in months)
+    # Date headings can contain one or several performance dates.
+    date_pattern = re.compile(
+        rf"\b{weekdays}\s+(\d{{1,2}})\s+({month_names})\b"
+        rf"(?:\s+(20\d{{2}}))?"
+        rf"(?:\s+(\d{{1,2}})(?::(\d{{2}}))?\s*(am|pm))?", re.I)
+    # Some listings use 'Friday and Saturday 25 and 26 September 7.30pm'.
+    joint_pattern = re.compile(
+        rf"\b{weekdays}\s+and\s+{weekdays}\s+"
+        rf"(\d{{1,2}})\s+and\s+(\d{{1,2}})\s+({month_names})\b"
+        rf"(?:\s+(20\d{{2}}))?"
+        rf"(?:\s+(\d{{1,2}})(?::(\d{{2}}))?\s*(am|pm))?", re.I)
+    # Wix commonly prints '7.30pm' rather than '7:30pm'.
+    def heading_text(tag):
+        return " ".join(unescape(tag.get_text(" ", strip=True)).replace("\xa0", " ").split()).replace("7.30", "7:30")
+
+    def is_date_heading(text):
+        return bool(date_pattern.search(text) or joint_pattern.search(text))
+
+    def event_dates(text, previous):
+        raw = joint_pattern.search(text)
+        entries = []
+        if raw:
+            first, second, month, explicit, hh, mm, ampm = raw.groups()
+            entries = [(int(first), month, explicit, hh, mm, ampm),
+                       (int(second), month, explicit, hh, mm, ampm)]
+        else:
+            entries = [(int(day), month, explicit, hh, mm, ampm)
+                       for day, month, explicit, hh, mm, ampm in date_pattern.findall(text)]
+        parsed = []
+        for day, month, explicit, hh, mm, ampm in entries:
+            number = months[month.lower()]
+            if explicit:
+                year = int(explicit)
+            elif previous:
+                year = previous.year + (number < previous.month - 6)
+            else:
+                year = now.year + (number < now.month - 6)
+            try:
+                hour = int(hh) % 12 + (12 if ampm.lower() == "pm" else 0) if hh else 0
+                minute = int(mm or 0)
+                dt = datetime(year, number, day, hour, minute)
+            except ValueError:
+                continue
+            parsed.append(dt)
+            previous = dt.date()
+        return parsed, previous
+
+    events, seen = [], set()
+    previous = None
+    for index, heading in enumerate(headings):
+        text = heading_text(heading)
+        if not is_date_heading(text):
+            continue
+        dates, previous = event_dates(text, previous)
+        if not dates:
+            continue
+        # The immediately following heading is the concert name. Do not use
+        # body paragraphs (which can mention other artists and old dates).
+        if index + 1 >= len(headings):
+            continue
+        title_heading = headings[index + 1]
+        title = heading_text(title_heading)
+        if not title or is_date_heading(title) or len(title) > 180:
+            continue
+        image = ""
+        ticket_url = ""
+        # Only search content between this title and the next date heading.
+        for node in title_heading.next_elements:
+            if getattr(node, "name", None) in ("h1", "h2", "h3", "h4") and node is not title_heading:
+                if is_date_heading(heading_text(node)):
+                    break
+            if not getattr(node, "name", None):
+                continue
+            if node.name == "img" and not image:
+                candidate = (node.get("data-src") or node.get("src") or "").strip()
+                if candidate and not candidate.startswith("data:") and not any(
+                    bad in candidate.lower() for bad in ("logo", "icon", "placeholder")
+                ):
+                    image = urljoin(source_url, candidate)
+            if node.name == "a" and not ticket_url:
+                label = node.get_text(" ", strip=True).lower()
+                href = (node.get("href") or "").strip()
+                if href and ("buy tix" in label or "book" in label or "tickets" in label):
+                    ticket_url = urljoin(source_url, href)
+        for dt in dates:
+            if dt.date() < now:
+                continue
+            key = (title.casefold(), dt.isoformat())
+            if key in seen:
+                continue
+            seen.add(key)
+            events.append({
+                "title": title,
+                "venue": "Trinity Sessions",
+                "date": dt.isoformat(timespec="seconds"),
+                "end_date": "",
+                "category": ["Music"],
+                "image": image,
+                "url": ticket_url or source_url,
+            })
+    print(f"    Trinity Sessions: {len(headings)} headings, "
+          f"{len(events)} verified upcoming performances")
+    return events

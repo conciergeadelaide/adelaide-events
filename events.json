@@ -3447,6 +3447,18 @@
     "source": "Thebarton Theatre"
   },
   {
+    "title": "Smokie (UK) Greatest Hits Tour",
+    "venue": "Thebarton Theatre",
+    "datetime": "2027-03-02T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://thebartontheatre.com.au/wp-content/uploads/2026/08/Thebarton-Events-2026-08-17T102708.022.png",
+    "link": "https://www.ticketmaster.com.au/smokie-uk-greatest-hits-tour-torrensville-02-03-2027/event/1300650CEBDA867A",
+    "source": "Thebarton Theatre"
+  },
+  {
     "title": "Belinda Carlisle - G'Day & Goodbye",
     "venue": "Thebarton Theatre",
     "datetime": "2027-03-09T20:00:00",
@@ -4788,81 +4800,6 @@
     "source": "Art Gallery of South Australia"
   },
   {
-    "title": "Stephanie Doddridge: Tools for Quiet Activism",
-    "venue": "Adelaide Contemporary Experimental (ACE)",
-    "datetime": "2026-07-25T00:00:00",
-    "end_datetime": "2027-01-31T23:59:59",
-    "category": [
-      "Arts & Culture"
-    ],
-    "image": "https://ace.gallery/img/asset/YXNzZXRzLzAxLXdlYnJlcy1hY2VfbGFuYWFkYW1zX3dlYi0wMTU5Ny5qcGc=?w=900",
-    "link": "https://ace.gallery/whats-on/exhibitions/tools-for-quiet-activism",
-    "source": "ACE Gallery"
-  },
-  {
-    "title": "Leaves: Eco-Anxiety",
-    "venue": "Adelaide Contemporary Experimental (ACE)",
-    "datetime": "2026-09-11T00:00:00",
-    "end_datetime": "2026-12-05T23:59:59",
-    "category": [
-      "Arts & Culture"
-    ],
-    "image": "https://ace.gallery/img/asset/YXNzZXRzL2xlYXZlcy1lY28tYW54aWV0eS1oZXJvLS1sb3dyZXMuanBn?w=900",
-    "link": "https://ace.gallery/whats-on/exhibitions/leaves-eco-anxiety",
-    "source": "ACE Gallery"
-  },
-  {
-    "title": "'Leaves: Eco-Anxiety' Artist Sharing: Alycia Bennett and Florian Cinco",
-    "venue": "Adelaide Contemporary Experimental (ACE)",
-    "datetime": "2026-11-03T12:30:00",
-    "end_datetime": "",
-    "category": [
-      "Talks & Conferences",
-      "Arts & Culture"
-    ],
-    "image": "https://ace.gallery/img/asset/YXNzZXRzL2FseS1mbG9yaWFuLmpwZw==?w=900",
-    "link": "https://ace.gallery/whats-on/live-programs/leaves-eco-anxiety-artist-talk-alycia-florian",
-    "source": "ACE Gallery"
-  },
-  {
-    "title": "Modern Mysticism",
-    "venue": "Adelaide Contemporary Experimental (ACE)",
-    "datetime": "2026-11-07T13:00:00",
-    "end_datetime": "",
-    "category": [
-      "Sport",
-      "Talks & Conferences",
-      "Arts & Culture"
-    ],
-    "image": "https://ace.gallery/img/asset/YXNzZXRzL2FjZV9lY29hbnhpZXR5X2xhbmFhZGFtc193ZWItMDU5NjYuanBn?w=900",
-    "link": "https://ace.gallery/whats-on/live-programs/leaves-eco-anxiety-artist-talk-emiko",
-    "source": "ACE Gallery"
-  },
-  {
-    "title": "Shan Michaels: Can Touch This",
-    "venue": "Adelaide Contemporary Experimental (ACE)",
-    "datetime": "2026-11-19T00:00:00",
-    "end_datetime": "2026-12-19T23:59:59",
-    "category": [
-      "Arts & Culture"
-    ],
-    "image": "https://ace.gallery/img/asset/YXNzZXRzL2FjZV9wdXNoLXB1bGxfaW5zdGFsbC1waG90b2dyYXBoeV9tYXk5LTIwMjVfLTI1Nl9sb3Jlcy0oMSktMTc0ODkxMTUzNi5qcGc=?w=900",
-    "link": "https://ace.gallery/whats-on/exhibitions/can-touch-this-metro-arts",
-    "source": "ACE Gallery"
-  },
-  {
-    "title": "Opening Night – Shan Michaels: Can Touch This",
-    "venue": "Adelaide Contemporary Experimental (ACE)",
-    "datetime": "2026-11-19T18:00:00",
-    "end_datetime": "",
-    "category": [
-      "Arts & Culture"
-    ],
-    "image": "https://ace.gallery/img/asset/YXNzZXRzL2FjZV9wdXNoLXB1bGxfaW5zdGFsbC1waG90b2dyYXBoeV9tYXk5LTIwMjVfLTI1Nl9sb3Jlcy0oMSktMTc0ODkxMTUzNi5qcGc=?w=900",
-    "link": "https://ace.gallery/whats-on/live-programs/shan-michaels-can-touch-this-opening",
-    "source": "ACE Gallery"
-  },
-  {
     "title": "The Art of Seafood: Fish for the Table",
     "venue": "Adelaide Central Market",
     "datetime": "2026-11-05T10:30:00",
@@ -4922,7 +4859,7 @@
     "category": [
       "Music"
     ],
-    "image": "",
+    "image": "https://www.norwoodconcerthall.com.au/file/resize/c600x600/31094_600_x_600_px_ccc.jpg",
     "link": "https://www.norwoodconcerthall.com.au/events/3279_creedence_clearwater_collective",
     "source": "Norwood Concert Hall"
   },
@@ -4934,7 +4871,7 @@
     "category": [
       "Comedy"
     ],
-    "image": "",
+    "image": "https://www.norwoodconcerthall.com.au/file/resize/c600x600/31384_desbishop_1080x1080_adel.jpg",
     "link": "https://www.norwoodconcerthall.com.au/events/3374_des_bishop__australia_tour",
     "source": "Norwood Concert Hall"
   },
@@ -4946,7 +4883,7 @@
     "category": [
       "Music"
     ],
-    "image": "",
+    "image": "https://www.norwoodconcerthall.com.au/file/resize/c600x600/36487_520_x_460px.jpg",
     "link": "https://www.norwoodconcerthall.com.au/events/3516_anthony_callea__the_connection_tour",
     "source": "Norwood Concert Hall"
   },
@@ -4958,7 +4895,7 @@
     "category": [
       "Music"
     ],
-    "image": "",
+    "image": "https://www.norwoodconcerthall.com.au/file/resize/c600x600/39505_classics_and_confetti.png",
     "link": "https://www.norwoodconcerthall.com.au/events/3554_classics_and_confetti",
     "source": "Norwood Concert Hall"
   },
@@ -4970,7 +4907,7 @@
     "category": [
       "Comedy"
     ],
-    "image": "",
+    "image": "https://www.norwoodconcerthall.com.au/file/resize/c600x600/39576_sed_2027_norwood.png",
     "link": "https://www.norwoodconcerthall.com.au/events/3573_an_evening_with_david_sedaris",
     "source": "Norwood Concert Hall"
   },
@@ -4982,7 +4919,7 @@
     "category": [
       "Comedy"
     ],
-    "image": "",
+    "image": "https://www.norwoodconcerthall.com.au/file/resize/c600x600/39621_website_event_tile_template-1.png",
     "link": "https://www.norwoodconcerthall.com.au/events/3584_dara__briain_recreation",
     "source": "Norwood Concert Hall"
   },
@@ -4994,7 +4931,7 @@
     "category": [
       "Comedy"
     ],
-    "image": "",
+    "image": "https://www.norwoodconcerthall.com.au/file/resize/c600x600/39631_adamkay26-norwood-600x600.jpg",
     "link": "https://www.norwoodconcerthall.com.au/events/3585_adam_kay_twas_the_nightshift_before_christmas_live",
     "source": "Norwood Concert Hall"
   },
@@ -5006,7 +4943,7 @@
     "category": [
       "Family"
     ],
-    "image": "",
+    "image": "https://www.norwoodconcerthall.com.au/file/resize/c600x600/39624_ps_hero_shot_square1_1080x1080.png",
     "link": "https://www.norwoodconcerthall.com.au/events/3586_pevan_and_sarah_in_adelaide_26",
     "source": "Norwood Concert Hall"
   },
@@ -5018,7 +4955,7 @@
     "category": [
       "Comedy"
     ],
-    "image": "",
+    "image": "https://www.norwoodconcerthall.com.au/file/resize/c600x600/39748_website_event_tile_template-3.png",
     "link": "https://www.norwoodconcerthall.com.au/events/3615_jenny_and_joel_creasey_live",
     "source": "Norwood Concert Hall"
   },
@@ -5030,7 +4967,7 @@
     "category": [
       "Talks"
     ],
-    "image": "",
+    "image": "https://www.norwoodconcerthall.com.au/file/resize/c600x600/39761_cults_1600x1600_tegdimage.jpg",
     "link": "https://www.norwoodconcerthall.com.au/events/3623_the_psychology_of_cults",
     "source": "Norwood Concert Hall"
   },
@@ -5042,7 +4979,7 @@
     "category": [
       "Comedy"
     ],
-    "image": "",
+    "image": "https://www.norwoodconcerthall.com.au/file/resize/c600x600/39769_dollop_1080_x_1080.png",
     "link": "https://www.norwoodconcerthall.com.au/events/3624_the_dollop_down_under_8",
     "source": "Norwood Concert Hall"
   },
@@ -5054,7 +4991,7 @@
     "category": [
       "Music"
     ],
-    "image": "",
+    "image": "https://www.norwoodconcerthall.com.au/file/resize/c600x600/39772_website_event_tile_template-4.png",
     "link": "https://www.norwoodconcerthall.com.au/events/3625_the_legendary_andy_live_in_adelaide_2026",
     "source": "Norwood Concert Hall"
   },
@@ -5066,7 +5003,7 @@
     "category": [
       "Comedy"
     ],
-    "image": "",
+    "image": "https://www.norwoodconcerthall.com.au/file/resize/c600x600/39631_adamkay26-norwood-600x600.jpg",
     "link": "https://www.norwoodconcerthall.com.au/events/3645_adam_kay_twas_the_nightshift_before_christmas_live",
     "source": "Norwood Concert Hall"
   },
@@ -5078,7 +5015,7 @@
     "category": [
       "Comedy"
     ],
-    "image": "",
+    "image": "https://www.norwoodconcerthall.com.au/file/resize/c600x600/39979_zg-1080x1080_adl.jpg",
     "link": "https://www.norwoodconcerthall.com.au/events/3670_zarna_garg_the_million_dollar_excuses_tour",
     "source": "Norwood Concert Hall"
   },
@@ -5090,9 +5027,117 @@
     "category": [
       "Theatre"
     ],
-    "image": "",
+    "image": "https://www.norwoodconcerthall.com.au/file/resize/c600x600/event_image3679_lip-sync-live-final.jpg",
     "link": "https://www.norwoodconcerthall.com.au/events/3679_rupauls_drag_race_lip_sync_live_2027",
     "source": "Norwood Concert Hall"
+  },
+  {
+    "title": "Rick Price - The Call On Me Tour",
+    "venue": "Trinity Sessions",
+    "datetime": "2026-10-30T19:30:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://static.wixstatic.com/media/f86ca5_3880a6a98822490ea6d3d820621d0d54~mv2.jpg/v1/crop/x_0,y_59,w_2000,h_1882/fill/w_373,h_351,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/FB-Rick-Price-Trinity-Sessions.jpg",
+    "link": "https://www.trybooking.com/DMVXE",
+    "source": "Trinity Sessions"
+  },
+  {
+    "title": "Harp2Harp - Emma Horwood and Višnja",
+    "venue": "Trinity Sessions",
+    "datetime": "2026-11-06T19:30:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://static.wixstatic.com/media/f86ca5_97247dd63d104740b4d73a911982acf3~mv2.jpg/v1/crop/x_0,y_47,w_1577,h_1484/fill/w_373,h_351,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Harp2Harp_Looking_Hi_Res_Print%20sq.jpg",
+    "link": "https://www.trybooking.com/DOHZC",
+    "source": "Trinity Sessions"
+  },
+  {
+    "title": "Jack Jones",
+    "venue": "Trinity Sessions",
+    "datetime": "2026-11-08T16:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://static.wixstatic.com/media/f86ca5_456b6683e59e43c7bdd2e966107222b5~mv2.jpg/v1/fill/w_374,h_374,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Jack%20Jones%20med%20sq.jpg",
+    "link": "https://www.trybooking.com/DPJVL",
+    "source": "Trinity Sessions"
+  },
+  {
+    "title": "iOTA - Hours Disappear",
+    "venue": "Trinity Sessions",
+    "datetime": "2026-11-13T19:30:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://static.wixstatic.com/media/f86ca5_ec6ec5ce5c8f4693a12fca069302ee06~mv2.jpeg/v1/crop/x_0,y_44,w_1500,h_1412/fill/w_373,h_351,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/IOTA%20sq.jpeg",
+    "link": "https://www.trybooking.com/DOPCE",
+    "source": "Trinity Sessions"
+  },
+  {
+    "title": "Steve Balbi",
+    "venue": "Trinity Sessions",
+    "datetime": "2026-11-20T19:30:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://static.wixstatic.com/media/f86ca5_7c8549e52c3243dfad8b376e996f4592~mv2.jpg/v1/crop/x_0,y_32,w_1081,h_1017/fill/w_373,h_351,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/BALBI_NOV_2026_sq.jpg",
+    "link": "https://www.trybooking.com/DOXOS",
+    "source": "Trinity Sessions"
+  },
+  {
+    "title": "Darren Hanlon - Xmas 2026",
+    "venue": "Trinity Sessions",
+    "datetime": "2026-12-05T19:30:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://static.wixstatic.com/media/f86ca5_06ad34e661c940538f1c96ade20602c8~mv2.jpg/v1/crop/x_181,y_419,w_1433,h_1375/fill/w_373,h_358,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Darren%20Ireland%20sq.jpg",
+    "link": "https://www.trybooking.com/DPVCN",
+    "source": "Trinity Sessions"
+  },
+  {
+    "title": "Beccy Cole and Amber Joy Poulton - Queen and Queer",
+    "venue": "Trinity Sessions",
+    "datetime": "2027-01-29T19:30:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://static.wixstatic.com/media/f86ca5_edd31eede3044b4aadde5317912a64f1~mv2.jpg/v1/fill/w_373,h_406,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/wix%20image.jpg",
+    "link": "https://www.trybooking.com/DQYOX",
+    "source": "Trinity Sessions"
+  },
+  {
+    "title": "Lloyd Spiegel Trio",
+    "venue": "Trinity Sessions",
+    "datetime": "2027-02-27T19:30:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://static.wixstatic.com/media/f86ca5_04bb8d1aca4543f5885e783d170e735e~mv2.png/v1/fill/w_373,h_467,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Lloyd%20med%204%205.png",
+    "link": "https://www.trybooking.com/DPVBQ",
+    "source": "Trinity Sessions"
+  },
+  {
+    "title": "Grace Petrie - 2027 Tour",
+    "venue": "Trinity Sessions",
+    "datetime": "2027-02-28T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://static.wixstatic.com/media/f86ca5_617afb35a7484f718cb8c7c40498cdb3~mv2.jpg/v1/fill/w_373,h_373,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Grace%20Petrie%20-%20sq.jpg",
+    "link": "https://www.trybooking.com/DNXRL",
+    "source": "Trinity Sessions"
   },
   {
     "title": "Government House Garden Tour (Fully Booked)",
@@ -5429,6 +5474,81 @@
     "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/73893830-1917-11f0-af90-de92939c34e1.jpg",
     "link": "https://feverup.com/m/812815",
     "source": "Fever Candlelight Adelaide"
+  },
+  {
+    "title": "Stephanie Doddridge: Tools for Quiet Activism",
+    "venue": "Adelaide Contemporary Experimental (ACE)",
+    "datetime": "2026-07-25T00:00:00",
+    "end_datetime": "2027-01-31T23:59:59",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://ace.gallery/img/asset/YXNzZXRzLzAxLXdlYnJlcy1hY2VfbGFuYWFkYW1zX3dlYi0wMTU5Ny5qcGc=?w=900",
+    "link": "https://ace.gallery/whats-on/exhibitions/tools-for-quiet-activism",
+    "source": "ACE Gallery"
+  },
+  {
+    "title": "Leaves: Eco-Anxiety",
+    "venue": "Adelaide Contemporary Experimental (ACE)",
+    "datetime": "2026-09-11T00:00:00",
+    "end_datetime": "2026-12-05T23:59:59",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://ace.gallery/img/asset/YXNzZXRzL2xlYXZlcy1lY28tYW54aWV0eS1oZXJvLS1sb3dyZXMuanBn?w=900",
+    "link": "https://ace.gallery/whats-on/exhibitions/leaves-eco-anxiety",
+    "source": "ACE Gallery"
+  },
+  {
+    "title": "'Leaves: Eco-Anxiety' Artist Sharing: Alycia Bennett and Florian Cinco",
+    "venue": "Adelaide Contemporary Experimental (ACE)",
+    "datetime": "2026-11-03T12:30:00",
+    "end_datetime": "",
+    "category": [
+      "Talks & Conferences",
+      "Arts & Culture"
+    ],
+    "image": "https://ace.gallery/img/asset/YXNzZXRzL2FseS1mbG9yaWFuLmpwZw==?w=900",
+    "link": "https://ace.gallery/whats-on/live-programs/leaves-eco-anxiety-artist-talk-alycia-florian",
+    "source": "ACE Gallery"
+  },
+  {
+    "title": "Modern Mysticism",
+    "venue": "Adelaide Contemporary Experimental (ACE)",
+    "datetime": "2026-11-07T13:00:00",
+    "end_datetime": "",
+    "category": [
+      "Sport",
+      "Talks & Conferences",
+      "Arts & Culture"
+    ],
+    "image": "https://ace.gallery/img/asset/YXNzZXRzL2FjZV9lY29hbnhpZXR5X2xhbmFhZGFtc193ZWItMDU5NjYuanBn?w=900",
+    "link": "https://ace.gallery/whats-on/live-programs/leaves-eco-anxiety-artist-talk-emiko",
+    "source": "ACE Gallery"
+  },
+  {
+    "title": "Shan Michaels: Can Touch This",
+    "venue": "Adelaide Contemporary Experimental (ACE)",
+    "datetime": "2026-11-19T00:00:00",
+    "end_datetime": "2026-12-19T23:59:59",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://ace.gallery/img/asset/YXNzZXRzL2FjZV9wdXNoLXB1bGxfaW5zdGFsbC1waG90b2dyYXBoeV9tYXk5LTIwMjVfLTI1Nl9sb3Jlcy0oMSktMTc0ODkxMTUzNi5qcGc=?w=900",
+    "link": "https://ace.gallery/whats-on/exhibitions/can-touch-this-metro-arts",
+    "source": "ACE Gallery"
+  },
+  {
+    "title": "Opening Night – Shan Michaels: Can Touch This",
+    "venue": "Adelaide Contemporary Experimental (ACE)",
+    "datetime": "2026-11-19T18:00:00",
+    "end_datetime": "",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://ace.gallery/img/asset/YXNzZXRzL2FjZV9wdXNoLXB1bGxfaW5zdGFsbC1waG90b2dyYXBoeV9tYXk5LTIwMjVfLTI1Nl9sb3Jlcy0oMSktMTc0ODkxMTUzNi5qcGc=?w=900",
+    "link": "https://ace.gallery/whats-on/live-programs/shan-michaels-can-touch-this-opening",
+    "source": "ACE Gallery"
   },
   {
     "title": "Shane Todd",
@@ -6741,18 +6861,6 @@
     "image": "https://assets.atdw-online.com.au/images/c2cb5b1c9b815c771cebee7ee811ce12.jpeg?rect=0%2C0%2C2048%2C1536&w=1280&h=1024&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhYzRlNzlkYmYwN2Q1MDY3YTUwYjBkMiIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
     "link": "https://www.adelaidetownhall.com.au/events/vision-by-vision-musica-viva-australia-in-adelaide/",
     "source": "Adelaide Town Hall"
-  },
-  {
-    "title": "Smokie (UK) Greatest Hits Tour",
-    "venue": "Thebarton Theatre",
-    "datetime": "2027-03-02T19:00:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://thebartontheatre.com.au/wp-content/uploads/2026/08/Thebarton-Events-2026-08-17T102708.022.png",
-    "link": "https://www.ticketmaster.com.au/smokie-uk-greatest-hits-tour-torrensville-02-03-2027/event/1300650CEBDA867A",
-    "source": "Thebarton Theatre"
   },
   {
     "title": "New Year's Eve Party",
