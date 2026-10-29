@@ -6687,3 +6687,130 @@ def parse_jetty_road_glenelg(pages, source_url):
     if total_cards == 0:
         raise RuntimeError('Jetty Road Glenelg cards not found; preserve existing records')
     return results
+
+
+# ============================================================
+# OZTIX — ADELAIDE CBD AND NORTH ADELAIDE ONLY
+# ============================================================
+
+def parse_oztix_adelaide_city():
+    """Query Oztix's public event-guide index and verify venue postcode.
+
+    A text search alone is not a geographic filter. We search both locality
+    names, then accept ONLY venue postcodes 5000/5006 and corresponding
+    localities. Never infer a venue from the event title.
+    """
+    from urllib.parse import urlencode, urlparse
+    from datetime import timezone, timedelta, date
+    from html import unescape
+
+    session = requests.Session()
+    session.headers.update({"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/140.0 Safari/537.36"})
+    response = session.get("https://www.oztix.com.au/search/", timeout=30)
+    response.raise_for_status()
+    soup = BeautifulSoup(response.text, "lxml")
+    bundles = [urljoin(response.url, x.get("src", "")) for x in soup.select("script[src]")
+               if "/js/app." in x.get("src", "")]
+    if not bundles:
+        raise ValueError("Oztix app bundle not found")
+    bundle = session.get(bundles[0], timeout=35)
+    bundle.raise_for_status()
+
+    def setting(name):
+        match = re.search(r"\b" + re.escape(name) + r':"([^"]+)"', bundle.text)
+        if not match:
+            raise ValueError("Oztix public search setting missing: " + name)
+        return match.group(1)
+
+    app_id = setting("ALGOLIA_APPLICATION_ID")
+    api_key = setting("ALGOLIA_PERSONALISATION_API_KEY")
+    endpoint = "https://" + app_id.lower() + "-dsn.algolia.net/1/indexes/*/queries"
+    headers = {"X-Algolia-Application-Id": app_id,
+               "X-Algolia-API-Key": api_key,
+               "Content-Type": "application/json"}
+
+    def search(query, page):
+        params = urlencode({"query": query, "hitsPerPage": 100, "page": page})
+        payload = {"requests": [{"indexName": "prod_oztix_eventguide", "params": params}]}
+        r = session.post(endpoint, headers=headers, json=payload, timeout=35)
+        r.raise_for_status()
+        results = r.json().get("results", [])
+        if not results or results[0].get("message"):
+            raise ValueError("Oztix search failed: " + str(results[0].get("message") if results else "no results"))
+        return results[0]
+
+    hits = {}
+    pages_checked = 0
+    for query in ("Adelaide", "North Adelaide"):
+        first = search(query, 0)
+        pages = int(first.get("nbPages", 0))
+        if pages > 40:
+            raise ValueError(f"Oztix search for {query!r} requires {pages} pages; refusing incomplete pagination")
+        for page in range(pages):
+            batch = first if page == 0 else search(query, page)
+            pages_checked += 1
+            for hit in batch.get("hits", []):
+                guid = str(hit.get("EventGuid") or hit.get("EventId") or hit.get("objectID") or "")
+                if guid:
+                    hits[guid] = hit
+
+    def adelaide_local(stamp):
+        utc = datetime.fromtimestamp(int(stamp), timezone.utc)
+        try:
+            from zoneinfo import ZoneInfo
+            return utc.astimezone(ZoneInfo("Australia/Adelaide")).replace(tzinfo=None)
+        except Exception:
+            # Calculate DST using the first Sunday of October and April.
+            def first_sunday(y, m):
+                return 1 + (6 - datetime(y, m, 1).weekday()) % 7
+            local_standard = utc.replace(tzinfo=None) + timedelta(hours=9, minutes=30)
+            year = local_standard.year
+            start = datetime(year, 10, first_sunday(year, 10), 2)
+            end = datetime(year, 4, first_sunday(year, 4), 3)
+            dst = local_standard >= start or local_standard < end
+            return local_standard + (timedelta(hours=1) if dst else timedelta())
+
+    events = []
+    today = date.today()
+    rejected_location = 0
+    for hit in hits.values():
+        venue = hit.get("Venue") or {}
+        if not isinstance(venue, dict):
+            continue
+        postcode = str(venue.get("Postcode") or "").strip()
+        locality = re.sub(r"\s+", " ", str(venue.get("Locality") or "")).strip().casefold()
+        if postcode not in {"5000", "5006"} or locality not in {"adelaide", "north adelaide"}:
+            rejected_location += 1
+            continue
+        if hit.get("IsCancelled") or hit.get("IsPostponed") or hit.get("IsApproved") is False:
+            continue
+        title = unescape(str(hit.get("EventName") or "")).strip()
+        venue_name = unescape(str(venue.get("Name") or "")).strip()
+        if not title or not venue_name or re.search(r"\b(gift card|gift voucher|membership)\b", title, re.I):
+            continue
+        try:
+            local = adelaide_local(hit.get("DateStartUnix"))
+        except (ValueError, TypeError, OverflowError, OSError):
+            continue
+        if local.date() < today:
+            continue
+        url = str(hit.get("EventUrl") or "").strip()
+        if urlparse(url).hostname not in {"tickets.oztix.com.au", "www.oztix.com.au", "oztix.com.au"}:
+            continue
+        categories = [str(x).casefold() for x in (hit.get("Categories") or [])]
+        if any("comedy" in x for x in categories):
+            category = ["Comedy"]
+        elif any("dance" in x or "dj" in x or "club" in x for x in categories):
+            category = ["Club/Party"]
+        elif any("theatre" in x for x in categories):
+            category = ["Theatre"]
+        else:
+            category = ["Music"]
+        events.append({"title": title, "venue": venue_name,
+                       "date": local.strftime("%Y-%m-%dT%H:%M:%S"),
+                       "category": category,
+                       "image": str(hit.get("EventImage1") or hit.get("HomepageImage") or ""),
+                       "url": url})
+    print(f"    Oztix City: {pages_checked} search pages, {len(hits)} unique hits; "
+          f"{rejected_location} outside CBD/North Adelaide; {len(events)} verified upcoming events")
+    return events

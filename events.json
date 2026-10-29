@@ -7269,6 +7269,54 @@
     "source": "Jetty Road Glenelg"
   },
   {
+    "title": "TODD KEM - Adelaide show",
+    "venue": "The Grace Emily Hotel",
+    "datetime": "2026-10-29T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://assets.oztix.com.au/image/69cff891-f3b3-49c8-b9bb-fbd582fc0554.png?width=600&height=300",
+    "link": "https://tickets.oztix.com.au/outlet/event/6574028f-5003-4cef-bd38-b354f742b108?utm_source=Oztix&utm_medium=Website",
+    "source": "Oztix Adelaide City"
+  },
+  {
+    "title": "Meg Carlin \"Steady Goes\" FULL BAND SHOW - Adelaide (the Loft, Hindley St)",
+    "venue": "The Loft on Hindley",
+    "datetime": "2026-11-29T16:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://assets.oztix.com.au/image/868fd86f-4bd1-4048-8b88-4fa8d9c209f6.png?width=600&height=300",
+    "link": "https://tickets.oztix.com.au/outlet/event/f7caf39c-5282-44ee-b616-fc88a45eb014?utm_source=Oztix&utm_medium=Website",
+    "source": "Oztix Adelaide City"
+  },
+  {
+    "title": "Passenger - Wild Love Tour",
+    "venue": "Adelaide Town Hall",
+    "datetime": "2027-10-24T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://assets.oztix.com.au/image/a37607c3-fd43-41bb-838d-3da67239daa7.png?width=600&height=300",
+    "link": "https://tickets.oztix.com.au/outlet/event/a9e4e2e2-e196-4fdb-9001-19b732c73c5f?utm_source=Oztix&utm_medium=Website",
+    "source": "Oztix Adelaide City"
+  },
+  {
+    "title": "Alta Falls - ‘Don’t Make Me A Number’ EP Tour",
+    "venue": "Rhino Room, Adelaide",
+    "datetime": "2026-11-14T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://assets.oztix.com.au/image/1ded8d80-63cb-4596-959e-5f56930fd40a.png?width=600&height=300",
+    "link": "https://tickets.oztix.com.au/outlet/event/c9991252-441b-4c6a-a937-86f6422d9c13?utm_source=Oztix&utm_medium=Website",
+    "source": "Oztix Adelaide City"
+  },
+  {
     "title": "Shane Todd",
     "venue": "The Gov",
     "datetime": "2026-10-30T18:30:00",
@@ -10432,6 +10480,18 @@
     "source": "Humanitix Adelaide and Regions"
   },
   {
+    "title": "Shedding Light on Dark Skies: Light pollution, wildlife and the Carrickalinga story",
+    "venue": "Aldinga Arts Eco Village",
+    "datetime": "2026-11-09T19:00:00+1030",
+    "end_datetime": "2026-11-09T20:30:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/7477c48f-f47f-4460-8044-103e7078b7fb.jpg@seo-500.jpg",
+    "link": "https://events.humanitix.com/darkskies",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
     "title": "Hunt and Brew ðððªð¡ðð¥ððð ð¦ð¨ð ð ðð¥ ðð¨ð¦&ð¡ð­ ð§ð¢ð¨ð¥ // Glenelg Beach, ADELAIDE - 2nd Jan 2027",
     "venue": "Glenelg Beach",
     "datetime": "2027-01-02T04:45:00+1030",
@@ -10627,6 +10687,18 @@
     "source": "Humanitix Adelaide and Regions"
   },
   {
+    "title": "THE FULL+ RUNRISE // Adelaide - 14th NOV 2026",
+    "venue": "Chalk Hill Wines",
+    "datetime": "2026-11-14T04:15:00+1030",
+    "end_datetime": "2026-11-14T08:00:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/2b7ff63d-2808-470b-9329-88073e9381b7.png@seo-500.jpg",
+    "link": "https://events.humanitix.com/the-full-runrise-adelaide-14th-nov-2026",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
     "title": "'Sweat Your Prayers' 5Rhythms McLaren Vale",
     "venue": "McLaren Vale Institute Hall",
     "datetime": "2026-11-01T10:00:00+1030",
@@ -10660,18 +10732,6 @@
     ],
     "image": "https://images.humanitix.com/i/f27318b4-8513-4f8b-a00c-7a694b963df8.jpg@seo-500.jpg",
     "link": "https://events.humanitix.com/sweat-your-prayers-5rhythms",
-    "source": "Humanitix Adelaide and Regions"
-  },
-  {
-    "title": "THE FULL+ RUNRISE // Adelaide - 14th NOV 2026",
-    "venue": "Chalk Hill Wines",
-    "datetime": "2026-11-14T04:15:00+1030",
-    "end_datetime": "2026-11-14T08:00:00+1030",
-    "category": [
-      "Other"
-    ],
-    "image": "https://images.humanitix.com/i/2b7ff63d-2808-470b-9329-88073e9381b7.png@seo-500.jpg",
-    "link": "https://events.humanitix.com/the-full-runrise-adelaide-14th-nov-2026",
     "source": "Humanitix Adelaide and Regions"
   },
   {
@@ -10780,18 +10840,6 @@
     ],
     "image": "https://images.humanitix.com/i/667b6bf0-ecc5-4829-aff7-ed49be430152.png@seo-500.jpg",
     "link": "https://events.humanitix.com/bronte-ep-release-show",
-    "source": "Humanitix Adelaide and Regions"
-  },
-  {
-    "title": "Shedding Light on Dark Skies: Light pollution, wildlife and the Carrickalinga story",
-    "venue": "Aldinga Arts Eco Village",
-    "datetime": "2026-11-09T19:00:00+1030",
-    "end_datetime": "2026-11-09T20:30:00+1030",
-    "category": [
-      "Other"
-    ],
-    "image": "https://images.humanitix.com/i/7477c48f-f47f-4460-8044-103e7078b7fb.jpg@seo-500.jpg",
-    "link": "https://events.humanitix.com/darkskies",
     "source": "Humanitix Adelaide and Regions"
   },
   {

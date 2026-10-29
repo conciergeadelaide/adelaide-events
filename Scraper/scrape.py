@@ -63,6 +63,7 @@ try:
         parse_national_trust_sa,
         parse_carrick_hill,
         parse_jetty_road_glenelg,
+        parse_oztix_adelaide_city,
         parse_allevents_victoria_square,
         parse_allevents_adelaide_and_surrounds,
     )
@@ -114,6 +115,7 @@ except ModuleNotFoundError:
         parse_national_trust_sa,
         parse_carrick_hill,
         parse_jetty_road_glenelg,
+        parse_oztix_adelaide_city,
         parse_allevents_victoria_square,
         parse_allevents_adelaide_and_surrounds,
     )
@@ -667,6 +669,9 @@ def scrape_source(source):
 
     if name == "Morphettville Racecourse":
         return parse_morphettville_racecourse(fetch_page("https://morphettville.com.au/"), "https://morphettville.com.au/")
+
+    if name == "Oztix Adelaide City":
+        return parse_oztix_adelaide_city()
 
     if name == "Jetty Road Glenelg":
         listing_url = "https://www.jettyroadglenelg.com.au/whats-on"
@@ -1304,6 +1309,7 @@ def main(only_source=None):
     configured_sources = list(SOURCES) + [
         {"name": "Carrick Hill", "url": "https://www.carrickhill.sa.gov.au/visit/whats-on"},
         {"name": "Jetty Road Glenelg", "url": "https://www.jettyroadglenelg.com.au/whats-on"},
+        {"name": "Oztix Adelaide City", "url": "https://www.oztix.com.au/search/?states%5B0%5D=SA"},
         {"name": "Moshtix Adelaide CBD", "url": "https://www.moshtix.com.au/v2/search"},
         {"name": "Humanitix Nineteen Ten", "url": "https://events.humanitix.com/host/nineteentenadl"},
         {"name": "Humanitix Adelaide and Regions", "url": "https://humanitix.com/au/events/au--sa--adelaide"},
