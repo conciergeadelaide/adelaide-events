@@ -2881,17 +2881,16 @@ def parse_adelaide_symphony_orchestra(soup, source_url):
             print(f"    ASO missing venue: {title}")
             continue
         venue = re.sub(r"\s+", " ", venue).replace("’", "'")
-        image = ""
-        for attr, value in (("property", "og:image"), ("name", "twitter:image")):
-            meta = detail.find("meta", attrs={attr:value})
-            if meta and meta.get("content"):
-                image = urljoin(url, meta["content"].strip())
-                break
-        if not image:
-            # Use a labelled hero, not an unrelated 'you might also like' image.
-            img = detail.find("img", alt=re.compile(re.escape(title), re.I))
-            if img:
-                image = urljoin(url, img.get("data-src") or img.get("src") or "")
+        image = _official_event_artwork(detail, url, title)
+        # An animated GIF/WebP may be the site's motion hero. Prefer a
+        # labelled static image of this concert if the page provides one.
+        if image and image.lower().split("?", 1)[0].endswith(".gif"):
+            for img in detail.select('main img, article img'):
+                candidate = _official_event_artwork(
+                    BeautifulSoup(str(img), "lxml"), url, title)
+                if candidate and not candidate.lower().split("?", 1)[0].endswith(".gif"):
+                    image = candidate
+                    break
 
         # Restrict dates to the event's booking information, before the
         # description / 'You might also like' recommendations.
@@ -6848,6 +6847,8 @@ def parse_plant_4_bowden():
     today = date.today()
     horizon = today + timedelta(days=55)
     events = []
+    market_art = _official_event_artwork(whats_on, base + "/whats-on", allow_venue_photo=True)
+    bingo_art = _official_event_artwork(bingo, base + "/bingo", allow_venue_photo=True)
 
     def recurring(title, weekday, hour, minute, categories, link):
         for offset in range((horizon - today).days + 1):
@@ -6859,7 +6860,7 @@ def parse_plant_4_bowden():
                 "venue": "Plant 4 Bowden",
                 "date": datetime(day.year, day.month, day.day, hour, minute).isoformat(),
                 "category": categories,
-                "image": "",
+                "image": bingo_art if link == "/bingo" else market_art,
                 "url": base + link,
             })
 
@@ -6940,12 +6941,11 @@ def parse_plant_4_bowden():
         # Boot Scootin' edition, not the regular Wednesday game.
         if urlparse(link).path.rstrip("/") == "/musical-bingo-event":
             title = "Musical Bingo: Boot Scootin' Edition"
-        img = detail.find("meta", property="og:image")
-        image = img.get("content", "") if img else ""
+        image = _official_event_artwork(detail, link, title)
         events.append({"title": title, "venue": "Plant 4 Bowden",
                        "date": start.isoformat(),
                        "category": ["Music", "Community"] if "bingo" in title.lower() else categorise_event(title),
-                       "image": image if image.startswith("https://") else "",
+                       "image": image,
                        "url": link})
         special_count += 1
 
@@ -7506,6 +7506,50 @@ def parse_kerry_packer_civic_gallery():
     return list(unique.values())
 
 
+
+# Image selection for official event pages. Never use recommendation/footer imagery.
+def _official_event_artwork(soup, page_url, title="", allow_venue_photo=False):
+    from urllib.parse import urljoin
+    import re
+    def absolute(raw):
+        raw = str(raw or "").strip()
+        if not raw or raw.startswith(("data:", "blob:", "javascript:")):
+            return ""
+        result = urljoin(page_url, raw)
+        if any(bad in result.lower() for bad in ("favicon", "placeholder", "logo.", "default-og", "spacer", "pixel")):
+            return ""
+        if not re.search(r"\.(?:jpe?g|png|webp|gif)(?:[?#]|$)|(?:wixstatic|imgix|cloudinary|lbcdn)\.", result, re.I):
+            return ""
+        return result
+    def src(tag):
+        if not tag: return ""
+        for key in ("data-src", "data-original", "data-image", "data-lazy-src", "src", "content"):
+            val = absolute(tag.get(key))
+            if val: return val
+        for key in ("srcset", "data-srcset"):
+            entries = (tag.get(key) or "").split(",")
+            if entries:
+                val = absolute(entries[-1].strip().split()[0])
+                if val: return val
+        return ""
+    # Social preview usually describes this exact page, not a related event.
+    for selector in ('meta[property="og:image"]', 'meta[name="twitter:image"]', 'meta[property="twitter:image"]'):
+        val = src(soup.select_one(selector))
+        if val: return val
+    # Match the event's own hero/title image, never an arbitrary image.
+    if title:
+        words = [w for w in re.findall(r"[a-z0-9]+", title.lower()) if len(w) >= 4]
+        for tag in soup.select('main img, article img, [class*="hero"] img, [class*="banner"] img'):
+            desc = " ".join((tag.get("alt") or "", tag.get("title") or "")).lower()
+            if words and sum(w in desc for w in words) >= min(2,len(words)):
+                val = src(tag)
+                if val: return val
+    if allow_venue_photo:
+        for selector in ('main img', '[class*="hero"] img', '[class*="banner"] img'):
+            val = src(soup.select_one(selector))
+            if val: return val
+    return ""
+
 # ============================================================
 # THE DISTRICT AT SKYCITY — verified dated activities only
 # ============================================================
@@ -7577,14 +7621,8 @@ def parse_the_district_skycity():
                     return parsed
         return ""
 
-    def artwork(soup, url):
-        for selector, attr in (("meta[property='og:image']", "content"), ("main img", "src")):
-            tag = soup.select_one(selector)
-            if tag:
-                value = clean(tag.get(attr) or tag.get("data-src"))
-                if value and not any(x in value.lower() for x in ("favicon", "logo", "placeholder", "data:")):
-                    return urljoin(url, value)
-        return ""
+    def artwork(soup, url, title=""):
+        return _official_event_artwork(soup, url, title)
 
     candidates = set(known_details)
     listings_ok = 0
@@ -7637,7 +7675,9 @@ def parse_the_district_skycity():
         # if SkyCity's <main> omits it. Do not accept unrelated SkyCity events.
         district_confirmed = ("the district" in content.casefold()
                               or "the-district" in slug or "the district" in low)
-        if not title or not district_confirmed:
+        if (not title or not district_confirmed or
+                "we apologize for the inconvenience" in low or
+                "access denied" in low or "page not found" in low):
             offsite += 1
             continue
         if any(term in low for term in (
@@ -7647,7 +7687,7 @@ def parse_the_district_skycity():
         )):
             promos += 1
             continue
-        image = artwork(soup, url)
+        image = artwork(soup, url, title)
         if "wednesday trivia at the district" in low or "quiz meisters trivia at the district" in low:
             # Official detail confirms every Wednesday from 30 September,
             # 6pm-8pm. Generate only the next eight confirmed weekly instances.
