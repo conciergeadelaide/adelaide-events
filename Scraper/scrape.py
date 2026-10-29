@@ -21,6 +21,7 @@ try:
     from config import SOURCES
     from parsers import (
         parse_json_ld,
+        parse_a_day_on_the_green,
         parse_ace_gallery,
         parse_fever_candlelight,
         parse_adelaide_central_market,
@@ -79,6 +80,7 @@ except ModuleNotFoundError:
     from Scraper.config import SOURCES
     from Scraper.parsers import (
         parse_json_ld,
+        parse_a_day_on_the_green,
         parse_ace_gallery,
         parse_fever_candlelight,
         parse_adelaide_central_market,
@@ -829,6 +831,9 @@ def scrape_source(source):
 
     if name == "Government House":
         return parse_government_house(fetch_page(url), url)
+
+    if name == "A Day on the Green":
+        return parse_a_day_on_the_green(fetch_page(url), url)
 
     if name == "State Opera South Australia":
         return parse_state_opera_south_australia(fetch_page(url), url)

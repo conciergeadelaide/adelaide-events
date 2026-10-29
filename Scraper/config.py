@@ -183,3 +183,6 @@ SOURCES.append({"name": "Government House", "url": "https://www.governor.sa.gov.
 
 # Fever official Adelaide Candlelight concert catalogue
 SOURCES.append({"name": "Fever Candlelight Adelaide", "url": "https://feverup.com/en/adelaide/candlelight"})
+
+# Official outdoor concert promoter — SA events only.
+SOURCES.append({"name": "A Day on the Green", "url": "https://www.adayonthegreen.com.au/"})

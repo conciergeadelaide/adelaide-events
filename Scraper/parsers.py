@@ -7681,3 +7681,130 @@ def parse_the_district_skycity():
           f"{len(unique)} verified upcoming sessions; {past} past, {undated} undated, "
           f"{promos} promotions, {offsite} other venues, {errors} detail errors")
     return list(unique.values())
+
+
+# ============================================================
+# A DAY ON THE GREEN — discover artist tours and venue show pages
+# ============================================================
+
+def parse_a_day_on_the_green(soup, source_url):
+    """Discover artist tours, then verify each dated South Australian show.
+
+    A tour landing page is not an individual show: its other-state dates must
+    never be mistaken for an SA concert. Only venue-specific pages are saved.
+    """
+    from urllib.parse import urlparse
+    from datetime import date
+
+    session = requests.Session()
+    session.headers.update({"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/140.0 Safari/537.36"})
+    host = (urlparse(source_url).hostname or "").removeprefix("www.")
+    visited = set()
+    candidates = set()
+    queue = []
+    ignored = {"about", "contact", "faq", "faqs", "news", "privacy", "terms", "login", "register", "signup", "membership", "venues", "transport", "accessibility", "gallery", "search", "subscribe", "home"}
+
+    def add_links(page, base, depth):
+        for anchor in page.find_all("a", href=True):
+            href = normalise_url(anchor.get("href"), base).split("#", 1)[0].split("?", 1)[0].rstrip("/")
+            parsed = urlparse(href)
+            if parsed.scheme not in ("http", "https") or (parsed.hostname or "").removeprefix("www.") != host:
+                continue
+            parts = [x.lower() for x in parsed.path.strip("/").split("/") if x]
+            if not parts or len(parts) > 4 or parts[0] in ignored:
+                continue
+            if any(x.endswith((".pdf", ".jpg", ".png", ".webp")) for x in parts):
+                continue
+            # Site uses /boyziimen for tour landing and
+            # /currenttours/boyziimen/geelong for individual show pages.
+            if parts[0] == "currenttours" and len(parts) >= 3:
+                candidates.add(href)
+            elif depth == 0 and len(parts) <= 2 and not parts[-1].endswith(("-faqs", "-news")):
+                queue.append(href)
+            elif depth == 1 and parts[0] == "currenttours" and len(parts) >= 3:
+                candidates.add(href)
+
+    add_links(soup, source_url, 0)
+    # Artist landing pages expose venue-specific detail URLs.
+    for url in list(dict.fromkeys(queue))[:45]:
+        if url in visited:
+            continue
+        visited.add(url)
+        try:
+            r = session.get(url, timeout=20)
+            r.raise_for_status()
+            add_links(BeautifulSoup(r.text, "lxml"), r.url, 1)
+        except requests.RequestException as exc:
+            print(f"    A Day on the Green tour page unavailable: {url}: {exc}")
+
+    results = []
+    seen = set()
+    rejected = 0
+    sa_places = ("south australia", "adelaide", "barossa", "mclaren vale", "mclaren flat",
+                 "adelaide hills", "seppeltsfield", "tanunda", "nuriootpa", "langhorne creek",
+                 "mount barker", "clare valley", "mclaren", "rosemount", "peter lehmann")
+    other_states = ("victoria", "new south wales", "queensland", "western australia",
+                    "tasmania", "northern territory", "australian capital territory")
+
+    for url in sorted(candidates)[:100]:
+        try:
+            r = session.get(url, timeout=20)
+            r.raise_for_status()
+            page = BeautifulSoup(r.text, "lxml")
+        except requests.RequestException as exc:
+            print(f"    A Day on the Green show page unavailable: {url}: {exc}")
+            continue
+        # The opening part of an individual show page contains its own date,
+        # venue and locality. The lower 'All tour dates' section must not be
+        # used to verify a show location.
+        heading = page.find("h1")
+        if not heading:
+            rejected += 1
+            continue
+        title = " ".join(heading.stripped_strings).strip()
+        prelude = []
+        for element in page.find_all(["h1", "h2", "h3", "h4", "h5", "time"], limit=35):
+            value = " ".join(element.stripped_strings).strip()
+            if value:
+                prelude.append(value)
+        opening = " | ".join(prelude[:12])
+        if any(state in opening.casefold() for state in other_states) or re.search(r"\b(?:NSW|VIC|QLD|WA|TAS|NT|ACT)\b", opening):
+            rejected += 1
+            continue
+        if not (any(place in opening.casefold() for place in sa_places) or re.search(r"\bSA\b", opening)):
+            rejected += 1
+            continue
+        date_match = re.search(r"\b(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun)[a-z]*\s+(\d{1,2})\s+([A-Za-z]+)\s+(20\d{2})\b", opening, re.I)
+        dt = parse_date_text(" ".join(date_match.groups())) if date_match else ""
+        if not dt or dt[:10] < date.today().isoformat():
+            rejected += 1
+            continue
+        # The show page presents the venue in a heading immediately before
+        # the locality; don't use a tour name as a venue.
+        venue = ""
+        headings = [" ".join(x.stripped_strings).strip() for x in page.find_all(["h4", "h5"], limit=20)]
+        for i, value in enumerate(headings[:-1]):
+            if any(place in headings[i+1].casefold() for place in sa_places) or re.search(r"\bSA\b", headings[i+1]):
+                if value and not re.search(r"\b(?:tour|tickets|concert|dates)\b", value, re.I):
+                    venue = value
+                    break
+        if not venue:
+            rejected += 1
+            continue
+        image = ""
+        for attr in ({"property": "og:image"}, {"name": "twitter:image"}):
+            tag = page.find("meta", attrs=attr)
+            if tag and tag.get("content"):
+                image = normalise_url(tag["content"], r.url)
+                break
+        key = (title.casefold(), venue.casefold(), dt[:10])
+        if key in seen:
+            continue
+        seen.add(key)
+        results.append({"title": title, "venue": venue, "date": dt,
+                        "end_date": "", "category": ["Music"], "image": image, "url": r.url})
+
+    print(f"    A Day on the Green: {len(visited)} tour pages checked, "
+          f"{len(candidates)} candidate show pages, {len(results)} verified SA concerts "
+          f"({rejected} rejected)")
+    return results
