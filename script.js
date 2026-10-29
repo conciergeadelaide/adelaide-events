@@ -39,9 +39,17 @@ var festivalMultiselect = document.getElementById("festival-multiselect");
 var selectedFestivals = [];
 
 function getEventFestivals(event) {
-    if (Array.isArray(event.festival)) return event.festival.filter(Boolean);
-    if (typeof event.festival === "string" && event.festival) return [event.festival];
-    return [];
+    var festivals = Array.isArray(event.festival)
+        ? event.festival.filter(Boolean).slice()
+        : (typeof event.festival === "string" && event.festival ? [event.festival] : []);
+
+    // Treat the orchestra as a Festival-filter grouping, not a venue.
+    // This is derived from the source, so future scraped events work too.
+    if (isAdelaideSymphonyEvent(event) &&
+        festivals.indexOf("Adelaide Symphony Orchestra") === -1) {
+        festivals.push("Adelaide Symphony Orchestra");
+    }
+    return festivals;
 }
 
 function updateFestivalLabel() {
@@ -359,7 +367,7 @@ function canonicalVenue(value) {
 }
 
 // Adelaide Symphony Orchestra is an organiser, not a physical venue.
-// Expose it as a special choice in the existing Venue filter while
+// It is exposed in the Festival dropdown by getEventFestivals(), while
 // retaining the actual performance location on each event card.
 var ASO_FILTER_LABEL = "Adelaide Symphony Orchestra";
 
@@ -749,18 +757,13 @@ function populateFilters() {
         if (
             event.venue &&
             isActualVenue(event.venue) &&
+            event.venue.trim().toLowerCase() !== ASO_FILTER_LABEL.toLowerCase() &&
             venues.indexOf(event.venue) === -1
         ) {
             venues.push(event.venue);
         }
     });
 
-    // ASO performances take place at multiple real venues.
-    // Offer one organiser-based selection without rewriting venue data.
-    if (events.some(isAdelaideSymphonyEvent) &&
-        venues.indexOf(ASO_FILTER_LABEL) === -1) {
-        venues.push(ASO_FILTER_LABEL);
-    }
 
     categories.sort(function(a, b) {
         return a.localeCompare(b);
@@ -919,9 +922,7 @@ function applyFilters() {
 
             var matchesVenue =
                 selectedVenues.length === 0 ||
-                selectedVenues.includes(event.venue) ||
-                (selectedVenues.includes(ASO_FILTER_LABEL) &&
-                    isAdelaideSymphonyEvent(event));
+                selectedVenues.includes(event.venue);
 
             var matchesFestival = selectedFestivals.length === 0 ||
                 selectedFestivals.some(function(festival) {

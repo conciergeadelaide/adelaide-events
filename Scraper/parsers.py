@@ -3387,6 +3387,8 @@ def parse_state_opera_south_australia(soup, source_url):
 # GOVERNMENT HOUSE - PUBLIC VISITOR EVENTS ONLY
 # ============================================================
 
+GOVERNMENT_HOUSE_IMAGE = 'https://www.governor.sa.gov.au/assets/_1400x846_crop_center-center_none/13610/Government-House-Adelaide-March-2023.webp'
+
 def parse_government_house(soup, source_url):
     """Read confirmed Government House tour dates; never infer recurring dates."""
     from datetime import date
@@ -3427,7 +3429,7 @@ def parse_government_house(soup, source_url):
             "title": title, "venue": "Government House",
             "date": start.isoformat(timespec="seconds"),
             "end_date": end.isoformat(timespec="seconds"),
-            "category": ["Community"], "image": image, "url": url,
+            "category": ["Community"], "image": GOVERNMENT_HOUSE_IMAGE, "url": url,
         })
 
     lunch_text = page_text(soup)
