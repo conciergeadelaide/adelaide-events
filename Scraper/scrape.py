@@ -62,6 +62,7 @@ try:
         parse_jive,
         parse_national_trust_sa,
         parse_carrick_hill,
+        parse_jetty_road_glenelg,
         parse_allevents_victoria_square,
         parse_allevents_adelaide_and_surrounds,
     )
@@ -112,6 +113,7 @@ except ModuleNotFoundError:
         parse_jive,
         parse_national_trust_sa,
         parse_carrick_hill,
+        parse_jetty_road_glenelg,
         parse_allevents_victoria_square,
         parse_allevents_adelaide_and_surrounds,
     )
@@ -665,6 +667,17 @@ def scrape_source(source):
 
     if name == "Morphettville Racecourse":
         return parse_morphettville_racecourse(fetch_page("https://morphettville.com.au/"), "https://morphettville.com.au/")
+
+    if name == "Jetty Road Glenelg":
+        listing_url = "https://www.jettyroadglenelg.com.au/whats-on"
+        pages = [fetch_page(listing_url)]
+        # Page two is linked by the official listing. If temporarily unavailable,
+        # still use the first page without inventing any records.
+        try:
+            pages.append(fetch_page(listing_url + "/p2"))
+        except Exception as exc:
+            print(f"    Jetty Road page 2 unavailable: {exc}")
+        return parse_jetty_road_glenelg(pages, listing_url)
 
     if name == "Carrick Hill":
         listing_url = "https://www.carrickhill.sa.gov.au/visit/whats-on"
@@ -1290,6 +1303,7 @@ def main(only_source=None):
     # Single-source test mode: never write events.json or run global cleanup.
     configured_sources = list(SOURCES) + [
         {"name": "Carrick Hill", "url": "https://www.carrickhill.sa.gov.au/visit/whats-on"},
+        {"name": "Jetty Road Glenelg", "url": "https://www.jettyroadglenelg.com.au/whats-on"},
         {"name": "Moshtix Adelaide CBD", "url": "https://www.moshtix.com.au/v2/search"},
         {"name": "Humanitix Nineteen Ten", "url": "https://events.humanitix.com/host/nineteentenadl"},
         {"name": "Humanitix Adelaide and Regions", "url": "https://humanitix.com/au/events/au--sa--adelaide"},

@@ -7125,6 +7125,150 @@
     "source": "Carrick Hill"
   },
   {
+    "title": "3Minds in 2D",
+    "venue": "Bay Discovery Centre",
+    "datetime": "2026-10-29T10:00:00",
+    "end_datetime": "",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://www.holdfast.sa.gov.au/assets/resized/eventimages/1078110/BDC-Tutti-Arts-Exhibition-Hero-Image_W2000_upscale_Q100_P38-94-47-67_removeMetadata1_W400_H400_Q80_P38-94-47-67.jpg",
+    "link": "https://www.jettyroadglenelg.com.au/whats-on/3minds-in-2d",
+    "source": "Jetty Road Glenelg"
+  },
+  {
+    "title": "Tai Chi",
+    "venue": "Wigley Reserve",
+    "datetime": "2026-10-30T09:00:00",
+    "end_datetime": "",
+    "category": [
+      "Community"
+    ],
+    "image": "https://www.holdfast.sa.gov.au/assets/resized/eventimages/1087529/Tai-Chi-Class-Image_W2000_upscale_Q100_removeMetadata1_W400_H400_Q80_P50-50.jpg",
+    "link": "https://www.jettyroadglenelg.com.au/whats-on/tai-chi",
+    "source": "Jetty Road Glenelg"
+  },
+  {
+    "title": "Library Sensory Hour (Glenelg Library)",
+    "venue": "Glenelg Library",
+    "datetime": "2026-11-02T11:00:00",
+    "end_datetime": "",
+    "category": [
+      "Community"
+    ],
+    "image": "https://www.holdfast.sa.gov.au/assets/resized/eventimages/1072728/Screenshot-2026-07-21-162023_W2000_upscale_Q100_removeMetadata1_W400_H400_Q80_P50-50.png",
+    "link": "https://www.jettyroadglenelg.com.au/whats-on/sensory-hour",
+    "source": "Jetty Road Glenelg"
+  },
+  {
+    "title": "Glenelg Sensory Hour",
+    "venue": "Glenelg Library",
+    "datetime": "2026-11-02T11:00:00",
+    "end_datetime": "",
+    "category": [
+      "Family"
+    ],
+    "image": "https://www.holdfast.sa.gov.au/assets/resized/eventimages/886844/pexels-ivan-samkov_W2000_upscale_Q100_removeMetadata1_W400_H400_Q80_P50-50.jpg",
+    "link": "https://www.jettyroadglenelg.com.au/whats-on/sensory-hour-glenelg",
+    "source": "Jetty Road Glenelg"
+  },
+  {
+    "title": "Wriggle 'n' Rhyme",
+    "venue": "Glenelg Library",
+    "datetime": "2026-11-03T09:15:00",
+    "end_datetime": "",
+    "category": [
+      "Family"
+    ],
+    "image": "https://www.holdfast.sa.gov.au/assets/resized/eventimages/867695/Wriggle-N-Rhyme_W2000_upscale_Q100_removeMetadata1_W400_H400_Q80_P50-50.jpg",
+    "link": "https://www.jettyroadglenelg.com.au/whats-on/wriggle-n-rhyme-tuesday-glenelg",
+    "source": "Jetty Road Glenelg"
+  },
+  {
+    "title": "Toddler Time",
+    "venue": "Glenelg Library",
+    "datetime": "2026-11-03T10:00:00",
+    "end_datetime": "",
+    "category": [
+      "Family"
+    ],
+    "image": "https://www.holdfast.sa.gov.au/assets/resized/eventimages/798051/Toddler-Time_2025-09-30-232547_dwap_W2000_upscale_Q100_removeMetadata1_W400_H400_Q80_P50-50.jpg",
+    "link": "https://www.jettyroadglenelg.com.au/whats-on/toddler-time-10am-tuesday-at-glenelg-library-1",
+    "source": "Jetty Road Glenelg"
+  },
+  {
+    "title": "Glenelg Christmas Pageant",
+    "venue": "Jetty Road Glenelg",
+    "datetime": "2026-11-22T10:30:00",
+    "end_datetime": "",
+    "category": [
+      "Family"
+    ],
+    "image": "https://www.holdfast.sa.gov.au/assets/resized/generalimages/Jetty-Road-Glenelg/news-stories/1084542/Web-banner-Whats-On_W2000_upscale_Q100_removeMetadata1_W400_H400_Q80_P50-50.png",
+    "link": "https://www.jettyroadglenelg.com.au/whats-on/glenelg-christmas-pageant",
+    "source": "Jetty Road Glenelg"
+  },
+  {
+    "title": "Save our Saltmarsh Working Bee",
+    "venue": "Patawilya Reserve",
+    "datetime": "2026-11-24T09:30:00",
+    "end_datetime": "",
+    "category": [
+      "Community"
+    ],
+    "image": "https://www.holdfast.sa.gov.au/assets/resized/eventimages/1078222/Save-Our-Saltmarsh_W2000_upscale_Q100_removeMetadata1_W400_H400_Q80_P50-50.png",
+    "link": "https://www.jettyroadglenelg.com.au/whats-on/save-our-saltmarsh-working-bee",
+    "source": "Jetty Road Glenelg"
+  },
+  {
+    "title": "Author Talk with Joni Page",
+    "venue": "Glenelg Library",
+    "datetime": "2026-11-26T10:00:00",
+    "end_datetime": "",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://www.holdfast.sa.gov.au/assets/resized/eventimages/1090847/Author-and-books_W2000_upscale_Q100_removeMetadata1_W400_H400_Q80_P50-50.png",
+    "link": "https://www.jettyroadglenelg.com.au/whats-on/author-talk-with-joni-page",
+    "source": "Jetty Road Glenelg"
+  },
+  {
+    "title": "Monthly Waste Information  - Glenelg Library",
+    "venue": "Glenelg Library",
+    "datetime": "2026-12-15T10:00:00",
+    "end_datetime": "",
+    "category": [
+      "Community"
+    ],
+    "image": "https://www.holdfast.sa.gov.au/assets/resized/eventimages/892252/waste-stall_W2000_upscale_Q100_removeMetadata1_W400_H400_Q80_P50-50.png",
+    "link": "https://www.jettyroadglenelg.com.au/whats-on/waste-information-glenelg",
+    "source": "Jetty Road Glenelg"
+  },
+  {
+    "title": "The Bay Sheffield",
+    "venue": "Colley Reserve",
+    "datetime": "2026-12-27T12:00:00",
+    "end_datetime": "",
+    "category": [
+      "Sport"
+    ],
+    "image": "https://www.holdfast.sa.gov.au/assets/resized/eventimages/728653/Bay_Start_W2000_upscale_Q100_removeMetadata1_W400_H400_Q80_P50-50.png",
+    "link": "https://www.jettyroadglenelg.com.au/whats-on/the-bay-sheffield",
+    "source": "Jetty Road Glenelg"
+  },
+  {
+    "title": "Glenelg Ice Cream Festival",
+    "venue": "Jetty Road Glenelg",
+    "datetime": "2027-02-05T16:00:00",
+    "end_datetime": "",
+    "category": [
+      "Family"
+    ],
+    "image": "https://www.holdfast.sa.gov.au/assets/resized/eventimages/568424/GICF-Whatson-720px-x-457px-DIGITAL_W2000_upscale_Q100_P51-01-36-86_removeMetadata1_W400_H400_Q80_P51-01-36-86.png",
+    "link": "https://www.jettyroadglenelg.com.au/whats-on/glenelg-ice-cream-festival",
+    "source": "Jetty Road Glenelg"
+  },
+  {
     "title": "Shane Todd",
     "venue": "The Gov",
     "datetime": "2026-10-30T18:30:00",
@@ -10432,18 +10576,6 @@
     "source": "Humanitix Adelaide and Regions"
   },
   {
-    "title": "Music of the Middle Ages (400-1500) - Southern Vales tour!",
-    "venue": "McLaren Vale Hall",
-    "datetime": "2026-10-30T13:00:00+1030",
-    "end_datetime": "2026-10-30T14:30:00+1030",
-    "category": [
-      "Music"
-    ],
-    "image": "https://images.humanitix.com/i/63a2c986-c326-47cc-8abe-47d311aefbbd.png@seo-500.jpg",
-    "link": "https://events.humanitix.com/music-of-the-middle-ages-400-1500-southern-vales-tour",
-    "source": "Humanitix Adelaide and Regions"
-  },
-  {
     "title": "Poppin Corks 2027 - Adelaide",
     "venue": "Sidewood Estate Restaurant",
     "datetime": "2027-02-27T13:00:00+1030",
@@ -10495,6 +10627,42 @@
     "source": "Humanitix Adelaide and Regions"
   },
   {
+    "title": "'Sweat Your Prayers' 5Rhythms McLaren Vale",
+    "venue": "McLaren Vale Institute Hall",
+    "datetime": "2026-11-01T10:00:00+1030",
+    "end_datetime": "2026-11-01T12:00:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/f27318b4-8513-4f8b-a00c-7a694b963df8.jpg@seo-500.jpg",
+    "link": "https://events.humanitix.com/sweat-your-prayers-5rhythms",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "'Sweat Your Prayers' 5Rhythms McLaren Vale",
+    "venue": "McLaren Vale Institute Hall",
+    "datetime": "2026-12-06T10:00:00+1030",
+    "end_datetime": "2026-12-06T12:00:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/f27318b4-8513-4f8b-a00c-7a694b963df8.jpg@seo-500.jpg",
+    "link": "https://events.humanitix.com/sweat-your-prayers-5rhythms",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "'Sweat Your Prayers' 5Rhythms McLaren Vale",
+    "venue": "McLaren Vale Institute Hall",
+    "datetime": "2027-02-07T10:00:00+1030",
+    "end_datetime": "2027-02-07T12:00:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/f27318b4-8513-4f8b-a00c-7a694b963df8.jpg@seo-500.jpg",
+    "link": "https://events.humanitix.com/sweat-your-prayers-5rhythms",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
     "title": "THE FULL+ RUNRISE // Adelaide - 14th NOV 2026",
     "venue": "Chalk Hill Wines",
     "datetime": "2026-11-14T04:15:00+1030",
@@ -10504,6 +10672,18 @@
     ],
     "image": "https://images.humanitix.com/i/2b7ff63d-2808-470b-9329-88073e9381b7.png@seo-500.jpg",
     "link": "https://events.humanitix.com/the-full-runrise-adelaide-14th-nov-2026",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "Music of the Middle Ages (400-1500) - Southern Vales tour!",
+    "venue": "McLaren Vale Hall",
+    "datetime": "2026-10-30T13:00:00+1030",
+    "end_datetime": "2026-10-30T14:30:00+1030",
+    "category": [
+      "Music"
+    ],
+    "image": "https://images.humanitix.com/i/63a2c986-c326-47cc-8abe-47d311aefbbd.png@seo-500.jpg",
+    "link": "https://events.humanitix.com/music-of-the-middle-ages-400-1500-southern-vales-tour",
     "source": "Humanitix Adelaide and Regions"
   },
   {
@@ -10540,42 +10720,6 @@
     ],
     "image": "https://images.humanitix.com/i/AvLAOeCzRcqlu9yUbyCp@seo-500.jpg",
     "link": "https://events.humanitix.com/north-metro-music-festival-2026",
-    "source": "Humanitix Adelaide and Regions"
-  },
-  {
-    "title": "'Sweat Your Prayers' 5Rhythms McLaren Vale",
-    "venue": "McLaren Vale Institute Hall",
-    "datetime": "2026-11-01T10:00:00+1030",
-    "end_datetime": "2026-11-01T12:00:00+1030",
-    "category": [
-      "Other"
-    ],
-    "image": "https://images.humanitix.com/i/f27318b4-8513-4f8b-a00c-7a694b963df8.jpg@seo-500.jpg",
-    "link": "https://events.humanitix.com/sweat-your-prayers-5rhythms",
-    "source": "Humanitix Adelaide and Regions"
-  },
-  {
-    "title": "'Sweat Your Prayers' 5Rhythms McLaren Vale",
-    "venue": "McLaren Vale Institute Hall",
-    "datetime": "2026-12-06T10:00:00+1030",
-    "end_datetime": "2026-12-06T12:00:00+1030",
-    "category": [
-      "Other"
-    ],
-    "image": "https://images.humanitix.com/i/f27318b4-8513-4f8b-a00c-7a694b963df8.jpg@seo-500.jpg",
-    "link": "https://events.humanitix.com/sweat-your-prayers-5rhythms",
-    "source": "Humanitix Adelaide and Regions"
-  },
-  {
-    "title": "'Sweat Your Prayers' 5Rhythms McLaren Vale",
-    "venue": "McLaren Vale Institute Hall",
-    "datetime": "2027-02-07T10:00:00+1030",
-    "end_datetime": "2027-02-07T12:00:00+1030",
-    "category": [
-      "Other"
-    ],
-    "image": "https://images.humanitix.com/i/f27318b4-8513-4f8b-a00c-7a694b963df8.jpg@seo-500.jpg",
-    "link": "https://events.humanitix.com/sweat-your-prayers-5rhythms",
     "source": "Humanitix Adelaide and Regions"
   },
   {

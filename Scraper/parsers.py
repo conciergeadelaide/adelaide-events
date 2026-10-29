@@ -6573,3 +6573,117 @@ def parse_carrick_hill(soup, source_url):
     if not cards:
         raise RuntimeError('Carrick Hill event cards missing; retaining existing records')
     return results
+
+
+def parse_jetty_road_glenelg(pages, source_url):
+    """Collect confirmed event dates from official Jetty Road Glenelg listing cards.
+
+    Cards show only the first occurrence of recurring events. Further dates
+    require detail-page verification and are deliberately not inferred.
+    """
+    import re
+    from datetime import date, datetime
+    from urllib.parse import urlparse
+
+    if not isinstance(pages, (list, tuple)):
+        pages = [pages]
+    results, seen = [], set()
+    today = date.today()
+    total_cards = 0
+    months = {m.lower(): i for i, m in enumerate(
+        ('January', 'February', 'March', 'April', 'May', 'June',
+         'July', 'August', 'September', 'October', 'November', 'December'), 1)}
+    weekdays = ('Monday', 'Tuesday', 'Wednesday', 'Thursday',
+                'Friday', 'Saturday', 'Sunday')
+    category_map = {
+        'sports': ['Sport'], 'kids & family': ['Family'],
+        'arts & culture': ['Arts & Culture'], 'libraries': ['Community'],
+        'community': ['Community'], 'environment -green living': ['Community'],
+    }
+    for soup in pages:
+        cards = soup.select('.card.card--event')
+        total_cards += len(cards)
+        for card in cards:
+            title_el = card.select_one('a.card__title[href]')
+            if not title_el:
+                continue
+            title = title_el.get_text(' ', strip=True)
+            url = normalise_url(title_el.get('href', ''), source_url).split('#')[0]
+            parsed_url = urlparse(url)
+            if parsed_url.hostname not in ('jettyroadglenelg.com.au', 'www.jettyroadglenelg.com.au'):
+                continue
+            if not parsed_url.path.startswith('/whats-on/') or not title:
+                continue
+            vals = [el.get_text(' ', strip=True) for el in card.select('.datalist__value')]
+            if not vals:
+                continue
+            date_text = vals[0]
+            # An 'until' date is an end date, not a verified session date.
+            if re.search(r'\b(until|through|daily from)\b', date_text, re.I):
+                continue
+            # The listing's explicit weekday guards against assigning the wrong
+            # year to dates that omit it. No guessed recurring sessions.
+            match = re.search(r'\b(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\s+(\d{1,2})\s+([A-Za-z]+)(?:\s+(20\d{2}))?', date_text, re.I)
+            if not match:
+                continue
+            dayname, daystr, monthstr, yearstr = match.groups()
+            month = months.get(monthstr.lower())
+            if not month:
+                continue
+            years = [int(yearstr)] if yearstr else [today.year, today.year + 1]
+            candidates = []
+            for year in years:
+                try:
+                    d = date(year, month, int(daystr))
+                except ValueError:
+                    continue
+                if d >= today and d.strftime('%A').lower() == dayname.lower():
+                    candidates.append(d)
+            if not candidates:
+                continue
+            event_date = min(candidates)
+            # Never create duplicates when an event appears on multiple pages.
+            key = (url, event_date.isoformat())
+            if key in seen:
+                continue
+            seen.add(key)
+            time_text = vals[1] if len(vals) > 1 else ''
+            time_match = re.search(r'\b(\d{1,2}):(\d{2})\s*(am|pm)\b', time_text, re.I)
+            hour, minute = 0, 0
+            if time_match:
+                hour = int(time_match.group(1)) % 12 + (12 if time_match.group(3).lower() == 'pm' else 0)
+                minute = int(time_match.group(2))
+            event_dt = datetime(event_date.year, event_date.month, event_date.day, hour, minute)
+            image_el = card.select_one('.card__image img')
+            image = ''
+            if image_el:
+                image = image_el.get('data-src') or ''
+                if not image:
+                    srcset = image_el.get('data-srcset') or image_el.get('srcset') or ''
+                    image = srcset.split(',')[0].strip().split(' ')[0] if srcset else ''
+                if not image:
+                    image = image_el.get('src') or ''
+                if image.startswith('./'):
+                    image = ''
+                elif image:
+                    image = normalise_url(image, source_url)
+            tag = card.select_one('.tag__text')
+            raw_cat = tag.get_text(' ', strip=True).lower() if tag else ''
+            category = category_map.get(raw_cat) or categorise_event(title)
+            venue = ''
+            if len(vals) > 2:
+                candidate = vals[2]
+                if candidate.lower() not in ('book now', 'view event details'):
+                    venue = candidate
+            if not venue:
+                venue = 'Jetty Road Glenelg'
+            results.append({
+                'title': title, 'venue': venue,
+                'date': event_dt.strftime('%Y-%m-%dT%H:%M:%S'),
+                'end_date': '', 'category': category,
+                'image': image, 'url': url,
+            })
+    print(f'    Jetty Road Glenelg: {total_cards} cards, {len(results)} verified upcoming first dates')
+    if total_cards == 0:
+        raise RuntimeError('Jetty Road Glenelg cards not found; preserve existing records')
+    return results
