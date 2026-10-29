@@ -4060,78 +4060,6 @@
     "source": "Lion Arts Factory"
   },
   {
-    "title": "Andrew Hill: Our Rights and Pleasures",
-    "venue": "Immersive Light and Art (ILA)",
-    "datetime": "2026-10-23T00:00:00",
-    "end_datetime": "2026-11-07T23:59:59",
-    "category": [
-      "Arts & Culture"
-    ],
-    "image": "https://immersivelightandart.com.au/wp-content/uploads/2026/09/HERO_2568x1440_AndrewHill_ORAP_0-1024x576.jpg",
-    "link": "https://immersivelightandart.com.au/event/andrew-hill-our-rights-and-pleasures/",
-    "source": "Immersive Light and Art"
-  },
-  {
-    "title": "Architecture in Music",
-    "venue": "Immersive Light and Art (ILA)",
-    "datetime": "2026-11-13T00:00:00",
-    "end_datetime": "2026-12-05T23:59:59",
-    "category": [
-      "Arts & Culture"
-    ],
-    "image": "https://immersivelightandart.com.au/wp-content/uploads/2026/09/2568x1440_AiM_Website_Resizes_Charles-Brooks-1024x576.jpg",
-    "link": "https://immersivelightandart.com.au/event/architecture-in-music/",
-    "source": "Immersive Light and Art"
-  },
-  {
-    "title": "Slava and Sharon Grigoryan – Live",
-    "venue": "Immersive Light and Art (ILA)",
-    "datetime": "2026-11-26T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://immersivelightandart.com.au/wp-content/uploads/2026/09/sharon-draper-slava-grigoryan-simon-shiff-2560-1-1024x683.jpg",
-    "link": "https://immersivelightandart.com.au/event/slava-and-sharon-grigoryan-live/",
-    "source": "Immersive Light and Art"
-  },
-  {
-    "title": "Sea to Soil",
-    "venue": "Immersive Light and Art (ILA)",
-    "datetime": "2027-10-23T00:00:00",
-    "end_datetime": "2027-11-07T23:59:59",
-    "category": [
-      "Food & Beverage"
-    ],
-    "image": "https://immersivelightandart.com.au/wp-content/uploads/2026/06/ILA_Website_SeaToSoil_Hero_Image_2568x1440-1024x576.jpg",
-    "link": "https://immersivelightandart.com.au/event/sea-to-soil/",
-    "source": "Immersive Light and Art"
-  },
-  {
-    "title": "Cockaigne: The Land of Plenty",
-    "venue": "Immersive Light and Art (ILA)",
-    "datetime": "2027-02-25T00:00:00",
-    "end_datetime": "2027-03-21T23:59:59",
-    "category": [
-      "Other"
-    ],
-    "image": "https://immersivelightandart.com.au/wp-content/uploads/2026/10/Cockaigne-The-Land-of-Plenty_Sam-Leach_Immersive-Light-and-Art_2568x1440_Website_0-1024x576.jpg",
-    "link": "https://immersivelightandart.com.au/event/cockaigne-the-land-of-plenty/",
-    "source": "Immersive Light and Art"
-  },
-  {
-    "title": "Thin Ice",
-    "venue": "Immersive Light and Art (ILA)",
-    "datetime": "2027-05-05T00:00:00",
-    "end_datetime": "2027-05-29T23:59:59",
-    "category": [
-      "Arts & Culture"
-    ],
-    "image": "https://immersivelightandart.com.au/wp-content/uploads/2026/09/2568x1440_ThinIce_WebsiteImage-1024x576.jpg",
-    "link": "https://immersivelightandart.com.au/event/thin-ice/",
-    "source": "Immersive Light and Art"
-  },
-  {
     "title": "GOLDEN VOICES",
     "venue": "St Peter'S Cathedral",
     "datetime": "2026-11-13T00:00:00",
@@ -6509,6 +6437,190 @@
     "source": "Jive"
   },
   {
+    "title": "For the Love of Trees",
+    "venue": "National Trust South Australia",
+    "datetime": "2026-11-11T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://www.nationaltrust.org.au/wp-content/uploads/2026/10/Screenshot-2026-10-22-100141-587x315.png",
+    "link": "https://www.nationaltrust.org.au/event/fortheloveoftrees/",
+    "source": "National Trust SA"
+  },
+  {
+    "title": "O’ Christmas Tree",
+    "venue": "National Trust South Australia",
+    "datetime": "2026-11-15T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Arts & Culture",
+      "Family"
+    ],
+    "image": "https://www.nationaltrust.org.au/wp-content/uploads/2026/10/TTG-christmas-587x471.jpg",
+    "link": "https://www.nationaltrust.org.au/event/ochristmastree/",
+    "source": "National Trust SA"
+  },
+  {
+    "title": "Private Group Tours",
+    "venue": "National Trust South Australia",
+    "datetime": "2026-01-03T00:00:00",
+    "end_datetime": "2026-12-11T00:00:00",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://www.nationaltrust.org.au/wp-content/uploads/2023/01/012020_SDUFF_Treasury_7-1-587x471.jpeg",
+    "link": "https://www.nationaltrust.org.au/event/private-group-tours/",
+    "source": "National Trust SA"
+  },
+  {
+    "title": "Christmas Carols Sing-Along!",
+    "venue": "National Trust South Australia",
+    "datetime": "2026-12-13T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music",
+      "Family"
+    ],
+    "image": "https://www.nationaltrust.org.au/wp-content/uploads/2025/08/Christmas-Carols-587x471.jpg",
+    "link": "https://www.nationaltrust.org.au/event/christmas-carols-sing-along-2/",
+    "source": "National Trust SA"
+  },
+  {
+    "title": "Remembering Sister Millie Dorsch",
+    "venue": "National Trust South Australia",
+    "datetime": "2026-11-11T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://www.nationaltrust.org.au/wp-content/uploads/2026/09/Screenshot-2026-09-14-110337.png",
+    "link": "https://www.nationaltrust.org.au/event/remembering-sister-millie-dorsch/",
+    "source": "National Trust SA"
+  },
+  {
+    "title": "Fairy & Elf Picnic",
+    "venue": "National Trust South Australia",
+    "datetime": "2026-11-14T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Family",
+      "Arts & Culture"
+    ],
+    "image": "https://www.nationaltrust.org.au/wp-content/uploads/2025/07/1-587x471.jpg",
+    "link": "https://www.nationaltrust.org.au/event/fairy-elf-picnic-3/",
+    "source": "National Trust SA"
+  },
+  {
+    "title": "Walking Tour: City of Pubs",
+    "venue": "National Trust South Australia",
+    "datetime": "2026-11-21T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://www.nationaltrust.org.au/wp-content/uploads/2025/01/20180521_131751-587x471.jpg",
+    "link": "https://www.nationaltrust.org.au/event/walking-tour-city-of-pubs-2/",
+    "source": "National Trust SA"
+  },
+  {
+    "title": "Walking Tour: East End Street Art Trail",
+    "venue": "National Trust South Australia",
+    "datetime": "2026-11-08T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://www.nationaltrust.org.au/wp-content/uploads/2025/01/20180914_115526-587x471.jpg",
+    "link": "https://www.nationaltrust.org.au/event/walking-tour-east-end-street-art-trail-2/",
+    "source": "National Trust SA"
+  },
+  {
+    "title": "Beaumont House Children’s Halloween Spooky Trail",
+    "venue": "National Trust South Australia",
+    "datetime": "2026-10-31T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Family",
+      "Arts & Culture"
+    ],
+    "image": "https://www.nationaltrust.org.au/wp-content/uploads/2024/10/Childrens-Halloween-Spooky-Trail-587x471.png",
+    "link": "https://www.nationaltrust.org.au/event/beaumont-house-childrens-halloween-spooky-trail-3/",
+    "source": "National Trust SA"
+  },
+  {
+    "title": "Cape Jaffa Lighthouse Tours",
+    "venue": "National Trust South Australia",
+    "datetime": "2026-01-01T00:00:00",
+    "end_datetime": "2026-12-31T00:00:00",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://www.nationaltrust.org.au/wp-content/uploads/2025/01/EFI580880-041219042051.jpg",
+    "link": "https://www.nationaltrust.org.au/event/cape-jaffa-lighthouse-tours-2/",
+    "source": "National Trust SA"
+  },
+  {
+    "title": "Z Ward: Behind The Walls",
+    "venue": "National Trust South Australia",
+    "datetime": "2026-01-03T00:00:00",
+    "end_datetime": "2026-12-06T00:00:00",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://www.nationaltrust.org.au/wp-content/uploads/2023/07/2017_Z-Ward_Behind-The-Walls_Upstairs-587x471.jpg",
+    "link": "https://www.nationaltrust.org.au/event/z-ward-behind-the-walls/",
+    "source": "National Trust SA"
+  },
+  {
+    "title": "Tea Tree Gully Heritage Museum",
+    "venue": "National Trust South Australia",
+    "datetime": "2026-02-15T00:00:00",
+    "end_datetime": "2026-11-15T00:00:00",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://www.nationaltrust.org.au/wp-content/uploads/2022/01/ttgt-museum-img-587x471.jpg",
+    "link": "https://www.nationaltrust.org.au/event/tea-tree-gully-heritage-museum/",
+    "source": "National Trust SA"
+  },
+  {
+    "title": "Watchman House",
+    "venue": "National Trust South Australia",
+    "datetime": "2026-02-07T00:00:00",
+    "end_datetime": "2026-12-05T00:00:00",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://www.nationaltrust.org.au/wp-content/uploads/2023/09/CV-NTSA-587x471.jpg",
+    "link": "https://www.nationaltrust.org.au/event/watchman-house/",
+    "source": "National Trust SA"
+  },
+  {
+    "title": "Old Treasury & Tunnels",
+    "venue": "National Trust South Australia",
+    "datetime": "2026-01-18T00:00:00",
+    "end_datetime": "2026-12-06T00:00:00",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://www.nationaltrust.org.au/wp-content/uploads/2022/01/Old-Treasury-Tour-587x471.jpg",
+    "link": "https://www.nationaltrust.org.au/event/old-treasury-tunnels/",
+    "source": "National Trust SA"
+  },
+  {
+    "title": "Beaumont House Open Days",
+    "venue": "National Trust South Australia",
+    "datetime": "2026-02-01T00:00:00",
+    "end_datetime": "2026-12-06T00:00:00",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://www.nationaltrust.org.au/wp-content/uploads/2022/01/1K1A1801-587x471.jpg",
+    "link": "https://www.nationaltrust.org.au/event/beaumont-house-open-day/",
+    "source": "National Trust SA"
+  },
+  {
     "title": "Government House Garden Tour (Fully Booked)",
     "venue": "Government House",
     "datetime": "2026-11-06T10:45:00",
@@ -6831,6 +6943,78 @@
     "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/73893830-1917-11f0-af90-de92939c34e1.jpg",
     "link": "https://feverup.com/m/812815",
     "source": "Fever Candlelight Adelaide"
+  },
+  {
+    "title": "Andrew Hill: Our Rights and Pleasures",
+    "venue": "Immersive Light and Art (ILA)",
+    "datetime": "2026-10-23T00:00:00",
+    "end_datetime": "2026-11-07T23:59:59",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://immersivelightandart.com.au/wp-content/uploads/2026/09/HERO_2568x1440_AndrewHill_ORAP_0-1024x576.jpg",
+    "link": "https://immersivelightandart.com.au/event/andrew-hill-our-rights-and-pleasures/",
+    "source": "Immersive Light and Art"
+  },
+  {
+    "title": "Architecture in Music",
+    "venue": "Immersive Light and Art (ILA)",
+    "datetime": "2026-11-13T00:00:00",
+    "end_datetime": "2026-12-05T23:59:59",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://immersivelightandart.com.au/wp-content/uploads/2026/09/2568x1440_AiM_Website_Resizes_Charles-Brooks-1024x576.jpg",
+    "link": "https://immersivelightandart.com.au/event/architecture-in-music/",
+    "source": "Immersive Light and Art"
+  },
+  {
+    "title": "Slava and Sharon Grigoryan – Live",
+    "venue": "Immersive Light and Art (ILA)",
+    "datetime": "2026-11-26T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://immersivelightandart.com.au/wp-content/uploads/2026/09/sharon-draper-slava-grigoryan-simon-shiff-2560-1-1024x683.jpg",
+    "link": "https://immersivelightandart.com.au/event/slava-and-sharon-grigoryan-live/",
+    "source": "Immersive Light and Art"
+  },
+  {
+    "title": "Sea to Soil",
+    "venue": "Immersive Light and Art (ILA)",
+    "datetime": "2027-10-23T00:00:00",
+    "end_datetime": "2027-11-07T23:59:59",
+    "category": [
+      "Food & Beverage"
+    ],
+    "image": "https://immersivelightandart.com.au/wp-content/uploads/2026/06/ILA_Website_SeaToSoil_Hero_Image_2568x1440-1024x576.jpg",
+    "link": "https://immersivelightandart.com.au/event/sea-to-soil/",
+    "source": "Immersive Light and Art"
+  },
+  {
+    "title": "Cockaigne: The Land of Plenty",
+    "venue": "Immersive Light and Art (ILA)",
+    "datetime": "2027-02-25T00:00:00",
+    "end_datetime": "2027-03-21T23:59:59",
+    "category": [
+      "Other"
+    ],
+    "image": "https://immersivelightandart.com.au/wp-content/uploads/2026/10/Cockaigne-The-Land-of-Plenty_Sam-Leach_Immersive-Light-and-Art_2568x1440_Website_0-1024x576.jpg",
+    "link": "https://immersivelightandart.com.au/event/cockaigne-the-land-of-plenty/",
+    "source": "Immersive Light and Art"
+  },
+  {
+    "title": "Thin Ice",
+    "venue": "Immersive Light and Art (ILA)",
+    "datetime": "2027-05-05T00:00:00",
+    "end_datetime": "2027-05-29T23:59:59",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://immersivelightandart.com.au/wp-content/uploads/2026/09/2568x1440_ThinIce_WebsiteImage-1024x576.jpg",
+    "link": "https://immersivelightandart.com.au/event/thin-ice/",
+    "source": "Immersive Light and Art"
   },
   {
     "title": "Shane Todd",

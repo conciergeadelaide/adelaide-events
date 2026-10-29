@@ -6395,3 +6395,97 @@ def parse_jive(soup, source_url):
           f"{sum(bool(e['image']) for e in events)} official images; "
           f"{sum(e['date'][11:16] != '00:00' for e in events)} verified start times")
     return events
+
+
+# ============================================================
+# NATIONAL TRUST SOUTH AUSTRALIA - official Explore event cards
+# ============================================================
+
+def parse_national_trust_sa(soup, source_url):
+    """Read dated SA event cards, never infer recurring session dates.
+
+    Multi-month listings retain the *advertised range* as one event; they do
+    not imply that tours operate every day. Live requests use the Explore page
+    rather than an old saved snapshot. If the listing changes/returns no cards,
+    the main scraper preserves previously collected National Trust records.
+    """
+    from datetime import date
+    from urllib.parse import urlparse
+
+    cards = soup.select('#exploremain .image-text')
+    if not cards:
+        cards = soup.select('.explore-main .image-text')
+    if not cards:
+        raise RuntimeError('National Trust Explore: no event cards found (layout changed or listing unavailable)')
+
+    results = []
+    seen = set()
+    today = date.today().isoformat()
+    for card in cards:
+        heading = card.select_one('h3 a[href]')
+        meta = card.select_one('.explore-meta')
+        if not heading or not meta:
+            continue
+        title = ' '.join(heading.stripped_strings).strip()
+        link = normalise_url(heading.get('href'), source_url)
+        if not title or '/event/' not in urlparse(link).path:
+            continue
+        # The state indicator is part of the card itself, not just the URL.
+        meta_text = ' '.join(meta.stripped_strings).strip()
+        if not re.match(r'^sa\b', meta_text, re.I):
+            continue
+        dates = re.findall(r'\b\d{1,2}\s+[A-Za-z]+\s+20\d{2}\b', meta_text)
+        if not dates:
+            continue
+        start = parse_date_text(dates[0])
+        end = parse_date_text(dates[-1]) if len(dates) > 1 else ''
+        if not start:
+            continue
+        if end and end[:10] < start[:10]:
+            continue
+        if (end or start)[:10] < today:
+            continue
+        key = link.split('?', 1)[0].rstrip('/').casefold()
+        if key in seen:
+            continue
+        seen.add(key)
+
+        img = card.select_one('img')
+        image = ''
+        if img:
+            for attr in ('data-src', 'data-lazy-src', 'src'):
+                raw = str(img.get(attr) or '').strip()
+                if raw and not raw.startswith(('data:', './')):
+                    image = normalise_url(raw, source_url)
+                    break
+        # Edge's "Save as HTML" rewrites images to local _files/ paths.
+        # Live requests have absolute URLs or root-relative paths instead.
+        if image and urlparse(image).hostname not in ('www.nationaltrust.org.au', 'nationaltrust.org.au'):
+            image = ''
+
+        lower = title.casefold()
+        if 'carols' in lower or 'sing-along' in lower:
+            category = ['Music', 'Family']
+        elif 'halloween' in lower or 'fairy' in lower or 'elf picnic' in lower:
+            category = ['Family', 'Arts & Culture']
+        elif 'tree' in lower and 'christmas' in lower:
+            category = ['Arts & Culture', 'Family']
+        else:
+            category = ['Arts & Culture']
+
+        # Listing cards do not reliably supply a precise site/venue. Keep
+        # a truthful organiser label instead of guessing a street address.
+        results.append({
+            'title': title,
+            'venue': 'National Trust South Australia',
+            'date': start,
+            'end_date': end if end and end[:10] > start[:10] else '',
+            'category': category,
+            'image': image,
+            'url': link,
+        })
+
+    if not results:
+        raise RuntimeError('National Trust Explore: no upcoming dated SA events; preserving existing records')
+    print(f'    National Trust SA: {len(cards)} cards, {len(results)} upcoming dated events')
+    return results

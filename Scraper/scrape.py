@@ -60,6 +60,7 @@ try:
         parse_arkaba_hotel,
         parse_rhino_room,
         parse_jive,
+        parse_national_trust_sa,
         parse_allevents_victoria_square,
         parse_allevents_adelaide_and_surrounds,
     )
@@ -108,6 +109,7 @@ except ModuleNotFoundError:
         parse_arkaba_hotel,
         parse_rhino_room,
         parse_jive,
+        parse_national_trust_sa,
         parse_allevents_victoria_square,
         parse_allevents_adelaide_and_surrounds,
     )
@@ -661,6 +663,10 @@ def scrape_source(source):
 
     if name == "Morphettville Racecourse":
         return parse_morphettville_racecourse(fetch_page("https://morphettville.com.au/"), "https://morphettville.com.au/")
+
+    if name == "National Trust SA":
+        listing_url = "https://www.nationaltrust.org.au/explore/?content=event&state=sa"
+        return parse_national_trust_sa(fetch_page(listing_url), listing_url)
 
     if name == "Jive":
         return parse_jive(fetch_page(url), url)
@@ -1306,7 +1312,7 @@ def main(only_source=None):
             "Trinity Sessions", "Morphettville Racecourse",
             "Holden Street Theatres",
             "Baroque Hall",
-            "National Trust SA", "MOD.", "SAMSTAG Museum",
+            "MOD.", "SAMSTAG Museum",
             "Kerry Packer Civic Gallery",
         }
         skipped = [s["name"] for s in configured_sources
