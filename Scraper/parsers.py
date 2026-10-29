@@ -7021,3 +7021,184 @@ def parse_plant_3_bowden():
             })
     print(f"    Plant 3: {len(confirmed)} weekly activities verified; {len(events)} dated sessions")
     return events
+
+
+# ============================================================
+# MOD. (Adelaide) — official events and exhibitions
+# ============================================================
+
+def parse_mod_museum():
+    """Collect dated MOD. activities without guessing years or daily sessions.
+
+    The official listings occasionally retain old events under 'upcoming'.
+    Dates are therefore verified on detail pages, not inferred from cards.
+    Exhibitions are one ranged record, not one record per opening day.
+    """
+    from datetime import date
+    from urllib.parse import urlparse
+
+    root = "https://mod.org.au"
+    listings = (root + "/whats-on/events/", root + "/whats-on/exhibitions/")
+    headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/140.0 Safari/537.36"}
+    session = requests.Session()
+    session.headers.update(headers)
+    today = date.today()
+    links = set()
+    failed_listings = 0
+
+    def fetch(url):
+        response = session.get(url, timeout=30)
+        response.raise_for_status()
+        return BeautifulSoup(response.text, "lxml")
+
+    for listing in listings:
+        try:
+            page = fetch(listing)
+        except requests.RequestException as exc:
+            failed_listings += 1
+            print(f"    MOD. listing unavailable: {listing} ({exc})")
+            continue
+        for a in page.find_all("a", href=True):
+            url = urljoin(listing, a["href"]).split("#", 1)[0].split("?", 1)[0]
+            parsed = urlparse(url)
+            if parsed.netloc.lower() not in ("mod.org.au", "www.mod.org.au"):
+                continue
+            if re.fullmatch(r"/(?:events|exhibitions)/[^/]+/?", parsed.path, re.I):
+                links.add(url.rstrip("/") + "/")
+
+    # This is a currently published exhibition detail page, not an inferred
+    # calendar entry. Validate its actual date range before inclusion.
+    links.add(root + "/exhibitions/beginnings/")
+
+    def read_date(value):
+        value = str(value or "").strip()
+        match = re.search(r"\b(20\d{2})-(\d{2})-(\d{2})\b", value)
+        if match:
+            try:
+                return date(*map(int, match.groups()))
+            except ValueError:
+                return None
+        match = re.search(r"\b(\d{1,2})\s+(Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\s+(20\d{2})\b", value, re.I)
+        if match:
+            months = {"jan":1,"feb":2,"mar":3,"apr":4,"may":5,"jun":6,"jul":7,"aug":8,"sep":9,"oct":10,"nov":11,"dec":12}
+            try:
+                return date(int(match.group(3)), months[match.group(2)[:3].lower()], int(match.group(1)))
+            except ValueError:
+                return None
+        return None
+
+    def parse_range(text):
+        # '27 Feb - 31 Oct 2026', '13 Jan – 20 Nov 2026'
+        m = re.search(r"\b(\d{1,2})\s+([A-Za-z]{3,9})\s*[-–—]\s*(\d{1,2})\s+([A-Za-z]{3,9})\s+(20\d{2})\b", text)
+        if not m:
+            return None
+        a = read_date(f"{m.group(1)} {m.group(2)} {m.group(5)}")
+        b = read_date(f"{m.group(3)} {m.group(4)} {m.group(5)}")
+        return (a,b) if a and b and a <= b else None
+
+    def get_metadata(soup, name):
+        node = soup.find("meta", attrs={"property":name})
+        return str(node.get("content", "")).strip() if node else ""
+
+    events = []
+    skipped_past = 0
+    skipped_unverified = 0
+    page_errors = 0
+    for url in sorted(links):
+        try:
+            soup = fetch(url)
+        except requests.RequestException as exc:
+            page_errors += 1
+            print(f"    MOD. detail unavailable: {url} ({exc})")
+            continue
+        h1 = soup.find("h1")
+        title = h1.get_text(" ", strip=True) if h1 else ""
+        if not title:
+            skipped_unverified += 1
+            continue
+        # Use the main page's event information, not navigation and related
+        # event cards. The date/time and location appear directly below h1.
+        main = soup.find("main") or soup.find("article") or soup
+        heading = main.find("h1")
+        section = heading.parent if heading else main
+        # Include nearby ancestors so hero metadata is available even when
+        # the title and event facts are sibling elements.
+        for _ in range(3):
+            if section.parent and section.parent is not main:
+                section = section.parent
+        detail = " ".join(section.stripped_strings)
+        # When layout containers are too small, fall back to the main page,
+        # but trim before related events to prevent borrowing their dates.
+        if len(detail) < 70:
+            detail = " ".join(main.stripped_strings)
+        detail = re.split(r"\bUpcoming Events\b|\bSee all events\b", detail, maxsplit=1)[0]
+        detail = re.split(r"\bPlan your visit\b", detail, maxsplit=1, flags=re.I)[0]
+        # Locate the title and inspect the first portion of the event detail.
+        idx = detail.find(title)
+        if idx >= 0:
+            detail = detail[idx + len(title):]
+        header = detail[:1100]
+        is_exhibition = "/exhibitions/" in url
+        span = parse_range(header)
+        start = end = None
+        if span:
+            start, end = span
+        else:
+            # Explicit year required. MOD. listing cards omit the year and
+            # old events sometimes remain published, so never infer it.
+            dates = re.findall(r"\b\d{1,2}\s+(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\s+20\d{2}\b", header, re.I)
+            start = read_date(dates[0]) if dates else None
+            if is_exhibition and start:
+                # A one-day exhibition date is insufficient to assert a run.
+                start = None
+        if not start:
+            skipped_unverified += 1
+            continue
+        if (end or start) < today:
+            skipped_past += 1
+            continue
+
+        # Offsite projects are kept at their real venues, not relabelled MOD.
+        # A multi-campus project cannot be assigned to one local venue.
+        location = "MOD."
+        if "beginnings-2100" in url.lower() or re.search(r"Mawson Lakes,? Mount Gambier,? Waite and Whyalla", header, re.I):
+            skipped_unverified += 1
+            continue
+        if re.search(r"\bMOD\. Foyer\b", header, re.I):
+            location = "MOD. Foyer"
+        elif re.search(r"\bThe Pod Gallery,? MOD\.\b", header, re.I):
+            location = "The Pod Gallery, MOD."
+
+        image = get_metadata(soup, "og:image")
+        if not image:
+            # Prefer first content image near the event title.
+            img = section.find("img")
+            if img:
+                image = img.get("data-src") or img.get("src") or ""
+        image = urljoin(url, image) if image and not image.startswith("data:") else ""
+        if any(bad in image.lower() for bad in ("favicon", "logo", "placeholder")):
+            image = ""
+        if is_exhibition:
+            category = ["Arts & Culture"]
+        else:
+            category = categorise_event(title)
+            if category == ["Other"]:
+                category = ["Talks & Conferences"] if re.search(r"talk|panel|q series|sharing circle|discussion", title, re.I) else ["Arts & Culture"]
+        time_match = re.search(r"\b(\d{1,2}):(\d{2})\s*(am|pm)\b", header, re.I)
+        clock = "00:00:00"
+        if time_match and not is_exhibition:
+            hour = int(time_match.group(1)) % 12 + (12 if time_match.group(3).lower() == "pm" else 0)
+            clock = f"{hour:02d}:{time_match.group(2)}:00"
+        events.append({
+            "title": title, "venue": location,
+            "date": start.isoformat() + "T" + clock,
+            "end_date": end.isoformat() + "T23:59:59" if end and end > start else "",
+            "category": category, "image": image, "url": url,
+        })
+
+    print(f"    MOD.: {len(links)} detail links, {len(events)} verified current events/exhibitions; "
+          f"{skipped_past} past, {skipped_unverified} undated/offsite, "
+          f"{page_errors} detail errors")
+    if failed_listings == len(listings) and not events:
+        raise RuntimeError("Both MOD. listing pages unavailable; preserving existing records")
+    return events

@@ -1387,6 +1387,18 @@
     "source": "Adelaide Festival Centre"
   },
   {
+    "title": "New Year's Eve Party",
+    "venue": "Banquet Room",
+    "datetime": "2026-12-31T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/10-Oct/New-Years-Eve-Party/fireworks_1136x994.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/new-years-eve-party-2026",
+    "source": "Adelaide Festival Centre"
+  },
+  {
     "title": "New Years Eve Celebration Dinner",
     "venue": "Angry Penguin",
     "datetime": "2026-12-31T00:00:00",
@@ -1654,18 +1666,6 @@
     ],
     "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2027/03-Mar/Burnout-Paradise/Burnout-Paradise_1136x994px.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
     "link": "https://www.adelaidefestivalcentre.com.au/whats-on/burnout-paradise",
-    "source": "Adelaide Festival Centre"
-  },
-  {
-    "title": "Grace Cummings",
-    "venue": "Dunstan Playhouse",
-    "datetime": "2027-03-08T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2027/03-Mar/Grace-Cummings/Grace_1136x994px.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
-    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/grace-cummings",
     "source": "Adelaide Festival Centre"
   },
   {
@@ -6693,6 +6693,18 @@
     "source": "National Trust SA"
   },
   {
+    "title": "Zina Warrior Print Fest",
+    "venue": "MOD.",
+    "datetime": "2026-10-31T11:00:00",
+    "end_datetime": "",
+    "category": [
+      "Festival"
+    ],
+    "image": "https://mod.lbcdn.io/uploads/Title-Banner-Zina-2025-1600x983.jpg",
+    "link": "https://mod.org.au/events/zina-warrior-print-fest-2026/",
+    "source": "MOD."
+  },
+  {
     "title": "Government House Garden Tour (Fully Booked)",
     "venue": "Government House",
     "datetime": "2026-11-06T10:45:00",
@@ -9358,6 +9370,18 @@
     "source": "Adelaide Town Hall"
   },
   {
+    "title": "Grace Cummings",
+    "venue": "Dunstan Playhouse",
+    "datetime": "2027-03-08T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2027/03-Mar/Grace-Cummings/Grace_1136x994px.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/grace-cummings",
+    "source": "Adelaide Festival Centre"
+  },
+  {
     "title": "Jenny and Joel Creasey Live",
     "venue": "Norwood Concert Hall",
     "datetime": "2026-11-08T20:00:00",
@@ -9368,18 +9392,6 @@
     "image": "https://www.norwoodconcerthall.com.au/file/resize/c600x600/39748_website_event_tile_template-3.png",
     "link": "https://www.norwoodconcerthall.com.au/events/3615_jenny_and_joel_creasey_live",
     "source": "Norwood Concert Hall"
-  },
-  {
-    "title": "New Year's Eve Party",
-    "venue": "Banquet Room",
-    "datetime": "2026-12-31T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Arts & Culture"
-    ],
-    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/10-Oct/New-Years-Eve-Party/fireworks_1136x994.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
-    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/new-years-eve-party-2026",
-    "source": "Adelaide Festival Centre"
   },
   {
     "title": "ALL HALLOWS EVE - The Night Before The Horror",
@@ -11329,18 +11341,6 @@
     "source": "Humanitix Adelaide and Regions"
   },
   {
-    "title": "Lip Sync LIVE! - Adelaide",
-    "venue": "Norwood Concert Hall",
-    "datetime": "2027-03-13T19:00:00+1030",
-    "end_datetime": "2027-03-13T22:30:00+1030",
-    "category": [
-      "Other"
-    ],
-    "image": "https://images.humanitix.com/i/2e1e1b26-2b4f-4300-b8ed-e0e7dbca4192.jpg@seo-500.jpg",
-    "link": "https://events.humanitix.com/lipsync-adl",
-    "source": "Humanitix Adelaide and Regions"
-  },
-  {
     "title": "November Field Day at Maslin Creek with Randall Wine Group",
     "venue": "Maslin Creek (Formerly Fox Creek)",
     "datetime": "2026-11-01T09:00:00+1030",
@@ -11749,6 +11749,18 @@
     ],
     "image": "https://images.humanitix.com/i/5d9a0674-28f1-448c-86de-4246cc491135.png@seo-500.jpg",
     "link": "https://events.humanitix.com/vip-frame-styleshow-colonnades",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "Lip Sync LIVE! - Adelaide",
+    "venue": "Norwood Concert Hall",
+    "datetime": "2027-03-13T19:00:00+1030",
+    "end_datetime": "2027-03-13T22:30:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/2e1e1b26-2b4f-4300-b8ed-e0e7dbca4192.jpg@seo-500.jpg",
+    "link": "https://events.humanitix.com/lipsync-adl",
     "source": "Humanitix Adelaide and Regions"
   }
 ]
