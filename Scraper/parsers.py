@@ -7202,3 +7202,168 @@ def parse_mod_museum():
     if failed_listings == len(listings) and not events:
         raise RuntimeError("Both MOD. listing pages unavailable; preserving existing records")
     return events
+
+
+# ============================================================
+# SAMSTAG MUSEUM OF ART — OFFICIAL ADELAIDE UNIVERSITY WEBSITE
+# ============================================================
+
+def parse_samstag_museum():
+    """Collect verified, dated exhibitions and events from the official site.
+
+    An exhibition is represented by one start/end range, never a daily event.
+    Missing dates are deliberately not guessed. HTTP/TLS failures propagate to
+    scrape.py, which preserves the previous records for this source.
+    """
+    from datetime import date as _date
+    from urllib.parse import urlparse
+    import html as _html
+
+    root = "https://samstag.adelaide.edu.au"
+    paths = ("/current", "/upcoming", "/exhibitions", "/events")
+    session = requests.Session()
+    session.headers.update({"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/140.0 Safari/537.36"})
+
+    def fetch(address):
+        response = session.get(address, timeout=25)
+        response.raise_for_status()
+        return BeautifulSoup(response.text, "lxml")
+
+    def tidy(value):
+        return " ".join(_html.unescape(str(value or "")).split())
+
+    months = r"January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec"
+    date_part = rf"\d{{1,2}}\s+(?:{months})\s+20\d{{2}}"
+    date_part_short = rf"\d{{1,2}}\s+(?:{months})"
+
+    def dates(text):
+        text = tidy(text).replace("–", "-").replace("—", "-")
+        # Full explicit range: 9 October 2026 - 4 December 2026.
+        m = re.search(rf"({date_part})\s*(?:-|to|until|through)\s*({date_part})", text, re.I)
+        if m:
+            return parse_date_text(m.group(1)), parse_date_text(m.group(2))
+        # Shared-year range: 9 October - 4 December 2026.
+        m = re.search(rf"({date_part_short})\s*(?:-|to|until|through)\s*({date_part})", text, re.I)
+        if m:
+            end = parse_date_text(m.group(2))
+            start = parse_date_text(m.group(1) + " " + end[:4]) if end else ""
+            return start, end
+        # 9 - 31 October 2026 (same month).
+        m = re.search(rf"(\d{{1,2}})\s*-\s*(\d{{1,2}}\s+(?:{months})\s+20\d{{2}})", text, re.I)
+        if m:
+            end = parse_date_text(m.group(2))
+            parts = m.group(2).split()
+            start = parse_date_text(m.group(1) + " " + " ".join(parts[1:]))
+            return start, end
+        # Single explicit date.
+        m = re.search(rf"({date_part})", text, re.I)
+        if m:
+            return parse_date_text(m.group(1)), ""
+        # HTML time datetime attributes may be ISO-formatted.
+        m = re.search(r"\b(20\d{2}-\d{2}-\d{2})\b", text)
+        if m:
+            return parse_date_text(m.group(1)), ""
+        return "", ""
+
+    def artwork(soup, page_url):
+        for selector, attribute in (("meta[property='og:image']", "content"),
+                                    ("meta[name='twitter:image']", "content"),
+                                    ("main img", "src"), ("article img", "src")):
+            tag = soup.select_one(selector)
+            if tag:
+                value = tidy(tag.get(attribute) or tag.get("data-src"))
+                if value and not value.startswith("data:") and not any(x in value.lower() for x in ("logo", "favicon", "placeholder")):
+                    return urljoin(page_url, value)
+        return ""
+
+    listings = []
+    listing_errors = []
+    for path in paths:
+        url = root + path
+        try:
+            soup = fetch(url)
+        except requests.RequestException as exc:
+            listing_errors.append((path, str(exc)))
+            continue
+        listings.append((url, soup))
+    if not listings:
+        raise RuntimeError("SAMSTAG official listings unavailable: " + "; ".join(f"{path}: {error}" for path,error in listing_errors))
+
+    # Discover detail links from exhibition/event pages, not site-wide menus.
+    candidates = {}
+    allowed_path = re.compile(r"/(?:exhibitions?|events?|current|upcoming)/[^/?#]+", re.I)
+    for listing_url, soup in listings:
+        main = soup.select_one("main") or soup
+        for anchor in main.select("a[href]"):
+            url = urljoin(listing_url, anchor.get("href", "")).split("#")[0]
+            parsed = urlparse(url)
+            if parsed.hostname != "samstag.adelaide.edu.au" or not allowed_path.search(parsed.path):
+                continue
+            if parsed.path.rstrip("/") in paths:
+                continue
+            label = tidy(anchor.get_text(" ", strip=True))
+            parent = anchor.find_parent(["article", "li", "section", "div"])
+            nearby = tidy(parent.get_text(" ", strip=True)) if parent else label
+            if len(nearby) > 1200:
+                nearby = label
+            candidates.setdefault(url, (label, nearby))
+
+    results = []
+    undated = 0
+    errors = 0
+    today = _date.today().isoformat()
+    for url, (listing_title, listing_text) in candidates.items():
+        try:
+            soup = fetch(url)
+        except requests.RequestException:
+            errors += 1
+            continue
+        main = soup.select_one("main") or soup
+        heading = main.find("h1")
+        title = tidy(heading.get_text(" ", strip=True)) if heading else listing_title
+        if not title:
+            continue
+        # Prefer date information near the heading or marked-up date elements.
+        date_chunks = []
+        for tag in main.select("time[datetime], time, [class*='date'], [class*='Date']")[:25]:
+            value = tidy(tag.get("datetime") or tag.get_text(" ", strip=True))
+            if value:
+                date_chunks.append(value)
+        for tag in main.find_all(["h1", "h2", "h3", "p"], limit=24):
+            value = tidy(tag.get_text(" ", strip=True))
+            if len(value) <= 280:
+                date_chunks.append(value)
+        date_chunks.append(listing_text)
+        start = end = ""
+        for chunk in date_chunks:
+            start, end = dates(chunk)
+            if start:
+                break
+        if not start:
+            undated += 1
+            continue
+        if end and end[:10] < start[:10]:
+            undated += 1
+            continue
+        if (end or start)[:10] < today:
+            continue
+        # A page explicitly naming a different physical venue should not be
+        # misrepresented as being at Samstag Museum.
+        location = main.select_one("[class*='location'], [class*='venue']")
+        location_text = tidy(location.get_text(" ", strip=True)) if location else ""
+        if location_text and any(x in location_text.lower() for x in ("other venue", "offsite", "off-site")):
+            continue
+        results.append({"title": title, "venue": "Samstag Museum of Art",
+                        "date": start, "end_date": end,
+                        "category": ["Arts & Culture"], "image": artwork(soup, url),
+                        "url": url})
+
+    # Some current exhibitions may be presented directly on the listing page,
+    # with no separate detail URL. Do not invent them without a dated card.
+    unique = {}
+    for event in results:
+        unique[(event["title"].casefold(), event["date"][:10])] = event
+    print(f"    SAMSTAG: {len(listings)} listing pages, {len(candidates)} detail links, "
+          f"{len(unique)} verified current/future records; {undated} undated, "
+          f"{errors} detail errors")
+    return list(unique.values())

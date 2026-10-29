@@ -1399,18 +1399,6 @@
     "source": "Adelaide Festival Centre"
   },
   {
-    "title": "New Years Eve Celebration Dinner",
-    "venue": "Angry Penguin",
-    "datetime": "2026-12-31T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Other"
-    ],
-    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/10-Oct/New-Years-Eve-Celebration-Dinner/image-5.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
-    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/new-years-eve-long-dining-experience",
-    "source": "Adelaide Festival Centre"
-  },
-  {
     "title": "On Stage Summer School 2027",
     "venue": "Space Theatre",
     "datetime": "2027-01-04T00:00:00",
@@ -1509,6 +1497,18 @@
     ],
     "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2027/01-Jan/You-and-Me-Workshops/you-and-me-workshop-green-sheep-afc-website-1136x994.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
     "link": "https://www.adelaidefestivalcentre.com.au/whats-on/you-and-me-workshops",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "Cosentino",
+    "venue": "Her Majesty's Theatre",
+    "datetime": "2027-01-23T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Theatre"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2027/01-Jan/Cosentino/Cosentino-1136px-w-x-994px-h.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/cosentino-tricked",
     "source": "Adelaide Festival Centre"
   },
   {
@@ -2062,7 +2062,7 @@
     "category": [
       "Music"
     ],
-    "image": "https://dynamicmedia.livenationinternational.com/o/i/h/56d7be90-905d-4bfd-a533-4a991a537ce6.jpg?format=webp&width=3840&quality=75",
+    "image": "https://dynamicmedia.livenationinternational.com/z/x/y/8cce99b5-8aca-4e27-a8f2-10ffa2605057.jpg?format=webp&width=3840&quality=75",
     "link": "https://www.hindleymusichall.com.au/all-events/swae-lee-tickets-ae1679417",
     "source": "Hindley St Music Hall"
   },
@@ -6705,6 +6705,42 @@
     "source": "MOD."
   },
   {
+    "title": "2026 - Robert Fielding: Melting Point",
+    "venue": "Samstag Museum of Art",
+    "datetime": "2026-10-09T00:00:00",
+    "end_datetime": "2026-12-04T00:00:00",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://samstag.adelaide.edu.au/siteassets/samstag/images/exhibitions/2026/melting-point/meltingpoint_teaser.jpg",
+    "link": "https://samstag.adelaide.edu.au/exhibitions/2026/melting-point/",
+    "source": "SAMSTAG Museum"
+  },
+  {
+    "title": "2026 - منّت mannat",
+    "venue": "Samstag Museum of Art",
+    "datetime": "2026-10-09T00:00:00",
+    "end_datetime": "2026-12-04T00:00:00",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://samstag.adelaide.edu.au/siteassets/samstag/images/exhibitions/2026/-mannat/mannat_teaser.jpg",
+    "link": "https://samstag.adelaide.edu.au/exhibitions/2026/mannat/",
+    "source": "SAMSTAG Museum"
+  },
+  {
+    "title": "2026 - Keith Piper: 22 Yards of Earth",
+    "venue": "Samstag Museum of Art",
+    "datetime": "2026-10-09T00:00:00",
+    "end_datetime": "2026-12-04T00:00:00",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://samstag.adelaide.edu.au/siteassets/samstag/images/exhibitions/2026/22-yards-of-earth/22-yards-of-earth_teaser.jpg",
+    "link": "https://samstag.adelaide.edu.au/exhibitions/2026/22-yards/",
+    "source": "SAMSTAG Museum"
+  },
+  {
     "title": "Government House Garden Tour (Fully Booked)",
     "venue": "Government House",
     "datetime": "2026-11-06T10:45:00",
@@ -9370,6 +9406,18 @@
     "source": "Adelaide Town Hall"
   },
   {
+    "title": "New Years Eve Celebration Dinner",
+    "venue": "Angry Penguin",
+    "datetime": "2026-12-31T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Other"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/10-Oct/New-Years-Eve-Celebration-Dinner/image-5.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/new-years-eve-long-dining-experience",
+    "source": "Adelaide Festival Centre"
+  },
+  {
     "title": "Grace Cummings",
     "venue": "Dunstan Playhouse",
     "datetime": "2027-03-08T00:00:00",
@@ -10087,6 +10135,18 @@
     ],
     "image": "https://www.moshtix.com.au/uploads/a067ff92-fb63-477f-a96a-48fc01aa403cx600x600",
     "link": "https://www.moshtix.com.au/v2/event/naethan-apollo-australia-2027-adelaide/201386",
+    "source": "Moshtix Adelaide CBD"
+  },
+  {
+    "title": "Jesse Clegg and The Saxby Twins",
+    "venue": "Lion Arts Factory",
+    "datetime": "2027-06-09T18:30:00",
+    "end_datetime": "2027-06-09T22:30:00",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.moshtix.com.au/uploads/a495cf1b-6d4c-4849-9ba7-2ab760a2b343x600x600",
+    "link": "https://www.moshtix.com.au/v2/event/jesse-clegg-and-the-saxby-twins/202014",
     "source": "Moshtix Adelaide CBD"
   },
   {
