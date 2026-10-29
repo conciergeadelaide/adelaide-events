@@ -6814,3 +6814,145 @@ def parse_oztix_adelaide_city():
     print(f"    Oztix City: {pages_checked} search pages, {len(hits)} unique hits; "
           f"{rejected_location} outside CBD/North Adelaide; {len(events)} verified upcoming events")
     return events
+
+
+# ============================================================
+# PLANT 4 BOWDEN - recurring markets, bingo, special events
+# ============================================================
+
+def parse_plant_4_bowden():
+    """Generate a short rolling window from confirmed venue schedules.
+
+    If the official pages cannot be read, raise rather than publish unverified
+    sessions. Special-event pages require an explicit full date and venue.
+    """
+    from datetime import date, datetime, timedelta
+    from urllib.parse import urlparse
+
+    base = "https://www.plant4bowden.com.au"
+    headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/140.0.0.0 Safari/537.36"}
+    session = requests.Session()
+    session.headers.update(headers)
+
+    def page(path):
+        response = session.get(base + path, timeout=30)
+        response.raise_for_status()
+        return BeautifulSoup(response.text, "lxml")
+
+    whats_on = page("/whats-on")
+    bingo = page("/bingo")
+    market_text = whats_on.get_text(" ", strip=True).lower()
+    bingo_text = bingo.get_text(" ", strip=True).lower()
+    today = date.today()
+    horizon = today + timedelta(days=55)
+    events = []
+
+    def recurring(title, weekday, hour, minute, categories, link):
+        for offset in range((horizon - today).days + 1):
+            day = today + timedelta(days=offset)
+            if day.weekday() != weekday:
+                continue
+            events.append({
+                "title": title,
+                "venue": "Plant 4 Bowden",
+                "date": datetime(day.year, day.month, day.day, hour, minute).isoformat(),
+                "category": categories,
+                "image": "",
+                "url": base + link,
+            })
+
+    # Only generate sessions while the official venue pages explicitly
+    # advertise the relevant weekly recurrence.
+    if ("night markets" in market_text and "wednesday" in market_text
+            and "friday" in market_text and "5:00" in market_text):
+        recurring("Plant 4 Bowden Wednesday Night Market", 2, 17, 0,
+                  ["Food & Beverage", "Community"], "/whats-on")
+        recurring("Plant 4 Bowden Friday Night Market", 4, 17, 0,
+                  ["Food & Beverage", "Community"], "/whats-on")
+    else:
+        print("    Plant 4: weekly markets not confirmed on current website")
+
+    if ("every wednesday" in bingo_text or "weekly on wednesday" in bingo_text) and (
+            "7.00pm" in bingo_text or "7:00pm" in bingo_text or "7pm" in bingo_text):
+        recurring("Plant 4 Bowden Musical Bingo", 2, 19, 0,
+                  ["Music", "Community"], "/bingo")
+    else:
+        print("    Plant 4: weekly bingo not confirmed on current website")
+
+    # Official special event pages: do not infer missing years or times.
+    # Candidate links are discovered from the official venue pages, not
+    # guessed from Instagram captions or arbitrary image text.
+    links = {base + "/musical-bingo-event"}
+    for soup in (whats_on, bingo):
+        for anchor in soup.find_all("a", href=True):
+            href = urljoin(base, anchor["href"]).split("#")[0]
+            parsed = urlparse(href)
+            if parsed.hostname not in ("www.plant4bowden.com.au", "plant4bowden.com.au"):
+                continue
+            path = parsed.path.lower().strip("/")
+            if not path or path in {"whats-on", "whatson", "events", "bingo", "booking", "hours", "contact", "home"}:
+                continue
+            if any(word in path for word in ("event", "festival", "bingo", "quiz", "concert", "show", "music")):
+                links.add(base + parsed.path)
+
+    special_count = 0
+    for link in sorted(links):
+        try:
+            response = session.get(link, timeout=20)
+            response.raise_for_status()
+            detail = BeautifulSoup(response.text, "lxml")
+        except requests.RequestException:
+            continue
+        content = detail.get_text(" ", strip=True)
+        # Require explicit day/month/year. No date inference from undated pages.
+        match = re.search(r"\b(\d{1,2})(?:st|nd|rd|th)?\s+"
+                          r"(January|February|March|April|May|June|July|August|September|October|November|December)"
+                          r"\s+(20\d{2})\b", content, re.I)
+        if not match:
+            continue
+        try:
+            start = datetime(int(match.group(3)), MONTHS[match.group(2).lower()], int(match.group(1)))
+        except ValueError:
+            continue
+        if not today <= start.date() <= horizon:
+            continue
+        if not re.search(r"plant\s*4\s*bowden", content, re.I):
+            continue
+        if re.search(r"\b(cancelled|canceled|postponed)\b", content[:600], re.I):
+            continue
+        # Time must be explicitly stated on the event page.
+        time_match = re.search(r"(?:game\s+from|starts?\s+at|from|commences?\s+at)\s*:?\s*"
+                               r"(\d{1,2})(?:[:.](\d{2}))?\s*(am|pm)", content, re.I)
+        if not time_match:
+            continue
+        hour = int(time_match.group(1)) % 12 + (12 if time_match.group(3).lower() == "pm" else 0)
+        start = start.replace(hour=hour, minute=int(time_match.group(2) or 0))
+        heading = detail.find("h1")
+        title = heading.get_text(" ", strip=True) if heading else ""
+        if not title or len(title) > 120:
+            meta = detail.find("meta", property="og:title")
+            title = meta.get("content", "") if meta else ""
+        if not title or len(title) > 120:
+            continue
+        # A generic 'Musical Bingo Event' page is specifically the special
+        # Boot Scootin' edition, not the regular Wednesday game.
+        if urlparse(link).path.rstrip("/") == "/musical-bingo-event":
+            title = "Musical Bingo: Boot Scootin' Edition"
+        img = detail.find("meta", property="og:image")
+        image = img.get("content", "") if img else ""
+        events.append({"title": title, "venue": "Plant 4 Bowden",
+                       "date": start.isoformat(),
+                       "category": ["Music", "Community"] if "bingo" in title.lower() else categorise_event(title),
+                       "image": image if image.startswith("https://") else "",
+                       "url": link})
+        special_count += 1
+
+    # Keep distinct same-day market and bingo sessions; remove exact repeats.
+    unique = {}
+    for event in events:
+        key = (event["title"].casefold(), event["date"])
+        unique[key] = event
+    result = sorted(unique.values(), key=lambda event: (event["date"], event["title"]))
+    print(f"    Plant 4: {len(result) - special_count} recurring sessions, "
+          f"{special_count} dated special events, {len(result)} total")
+    return result
