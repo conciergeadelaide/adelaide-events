@@ -7367,3 +7367,138 @@ def parse_samstag_museum():
           f"{len(unique)} verified current/future records; {undated} undated, "
           f"{errors} detail errors")
     return list(unique.values())
+
+
+# ============================================================
+# KERRY PACKER CIVIC GALLERY (ADELAIDE UNIVERSITY)
+# ============================================================
+
+def parse_kerry_packer_civic_gallery():
+    """Official gallery exhibitions only, with verified date ranges.
+
+    The old unisa.edu.au site is intentionally not requested. Exceptions on
+    failed listing fetches let the caller preserve previously saved records.
+    """
+    from datetime import date as _date
+    from urllib.parse import urlparse
+    import html as _html
+
+    listing_url = "https://hawkecentre.adelaide.edu.au/kerry-packer-civic-gallery/"
+    session = requests.Session()
+    session.headers.update({"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/140.0 Safari/537.36"})
+
+    def fetch(url):
+        response = session.get(url, timeout=30)
+        response.raise_for_status()
+        return BeautifulSoup(response.text, "lxml")
+
+    def tidy(value):
+        return " ".join(_html.unescape(str(value or "")).split())
+
+    months = r"January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec"
+    longdate = rf"\d{{1,2}}\s+(?:{months})\s+20\d{{2}}"
+    shortdate = rf"\d{{1,2}}\s+(?:{months})"
+
+    def parse_dates(value):
+        value = tidy(value).replace("–", "-").replace("—", "-")
+        # Explicit years on both ends.
+        m = re.search(rf"({longdate})\s*(?:-|to|until)\s*({longdate})", value, re.I)
+        if m:
+            return parse_date_text(m.group(1)), parse_date_text(m.group(2))
+        # Shared year, e.g. 17 September - 8 December 2026.
+        m = re.search(rf"({shortdate})\s*(?:-|to|until)\s*({longdate})", value, re.I)
+        if m:
+            end = parse_date_text(m.group(2))
+            return (parse_date_text(m.group(1) + " " + end[:4]) if end else ""), end
+        # Listing-card short year: 17 Sep 26 8 Dec 26.
+        m = re.search(rf"(\d{{1,2}})\s+({months})\s+([0-9]{{2}})\s+(\d{{1,2}})\s+({months})\s+([0-9]{{2}})", value, re.I)
+        if m:
+            start = parse_date_text(f"{m.group(1)} {m.group(2)} 20{m.group(3)}")
+            end = parse_date_text(f"{m.group(4)} {m.group(5)} 20{m.group(6)}")
+            return start, end
+        # One-off exhibition with an explicit date.
+        m = re.search(rf"({longdate})", value, re.I)
+        return (parse_date_text(m.group(1)), "") if m else ("", "")
+
+    def artwork(soup, url):
+        for selector, attr in (("meta[property='og:image']", "content"),
+                               ("main img", "src"), ("article img", "src")):
+            tag = soup.select_one(selector)
+            if tag:
+                value = tidy(tag.get(attr) or tag.get("data-src"))
+                if value and not value.startswith("data:") and not any(
+                    bad in value.lower() for bad in ("favicon", "logo", "placeholder")
+                ):
+                    return urljoin(url, value)
+        return ""
+
+    listing = fetch(listing_url)
+    main = listing.select_one("main") or listing
+    candidates = {}
+    for a in main.select("a[href]"):
+        url = urljoin(listing_url, a.get("href", "")).split("#", 1)[0]
+        parsed = urlparse(url)
+        if parsed.hostname != "hawkecentre.adelaide.edu.au":
+            continue
+        if not re.search(r"/events-and-exhibitions/exhibitions/20\d{2}/[^/]+", parsed.path, re.I):
+            continue
+        parent = a.find_parent(["article", "li", "section", "div"])
+        nearby = tidy(parent.get_text(" ", strip=True)) if parent else ""
+        candidates.setdefault(url, nearby[:900])
+
+    results = []
+    undated = 0
+    failures = 0
+    past = 0
+    today = _date.today().isoformat()
+    for url, listing_text in candidates.items():
+        try:
+            soup = fetch(url)
+        except requests.RequestException as exc:
+            failures += 1
+            print(f"    Kerry Packer detail unavailable: {url} ({exc})")
+            continue
+        content = soup.select_one("main") or soup
+        heading = content.find("h1")
+        title = tidy(heading.get_text(" ", strip=True)) if heading else ""
+        if not title:
+            undated += 1
+            continue
+        # Prefer the labelled Event details area or the first few short lines,
+        # never arbitrary dates in long exhibition descriptions.
+        chunks = []
+        for tag in content.select("time, [class*='date'], [class*='Date']")[:20]:
+            value = tidy(tag.get("datetime") or tag.get_text(" ", strip=True))
+            if value and len(value) < 220:
+                chunks.append(value)
+        for tag in content.find_all(["h2", "h3", "p"], limit=28):
+            value = tidy(tag.get_text(" ", strip=True))
+            if 8 <= len(value) < 180:
+                chunks.append(value)
+        chunks.append(listing_text)
+        start = end = ""
+        for chunk in chunks:
+            start, end = parse_dates(chunk)
+            if start:
+                break
+        if not start or (end and end[:10] < start[:10]):
+            undated += 1
+            continue
+        if (end or start)[:10] < today:
+            past += 1
+            continue
+        # The exhibition section contains historical pages too. Only gallery
+        # exhibitions are eligible, never offsite Hawke Centre talks.
+        intro = tidy(content.get_text(" ", strip=True))[:1100].lower()
+        if "kerry packer civic gallery" not in intro and "kerry packer civic gallery" not in listing_text.lower():
+            continue
+        results.append({"title": title, "venue": "Kerry Packer Civic Gallery",
+                        "date": start, "end_date": end,
+                        "category": ["Arts & Culture"],
+                        "image": artwork(soup, url), "url": url})
+
+    unique = {(e["title"].casefold(), e["date"][:10]): e for e in results}
+    print(f"    Kerry Packer: {len(candidates)} exhibition links, "
+          f"{len(unique)} verified current/future; {past} past, "
+          f"{undated} undated, {failures} detail errors")
+    return list(unique.values())

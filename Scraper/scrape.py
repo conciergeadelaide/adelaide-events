@@ -68,6 +68,7 @@ try:
         parse_plant_3_bowden,
         parse_mod_museum,
         parse_samstag_museum,
+        parse_kerry_packer_civic_gallery,
         parse_allevents_victoria_square,
         parse_allevents_adelaide_and_surrounds,
     )
@@ -124,6 +125,7 @@ except ModuleNotFoundError:
         parse_plant_3_bowden,
         parse_mod_museum,
         parse_samstag_museum,
+        parse_kerry_packer_civic_gallery,
         parse_allevents_victoria_square,
         parse_allevents_adelaide_and_surrounds,
     )
@@ -686,6 +688,9 @@ def scrape_source(source):
 
     if name == "MOD.":
         return parse_mod_museum()
+
+    if name == "Kerry Packer Civic Gallery":
+        return parse_kerry_packer_civic_gallery()
 
     if name == "SAMSTAG Museum":
         # The previous unisa.edu.au address has a broken certificate.
@@ -1363,7 +1368,6 @@ def main(only_source=None):
             "Trinity Sessions", "Morphettville Racecourse",
             "Holden Street Theatres",
             "Baroque Hall",
-            "Kerry Packer Civic Gallery",
         }
         skipped = [s["name"] for s in configured_sources
                    if s["name"] in known_empty_generic_sources]
