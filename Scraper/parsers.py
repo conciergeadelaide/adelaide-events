@@ -2882,6 +2882,11 @@ def parse_adelaide_symphony_orchestra(soup, source_url):
             continue
         venue = re.sub(r"\s+", " ", venue).replace("’", "'")
         image = _official_event_artwork(detail, url, title)
+        # Official ASO performance photo for two 2026 events where the
+        # official event page provides no usable event-specific artwork.
+        # This is general ASO imagery, not a photo of either concert.
+        if not image and title.casefold() in ("miracle", "endless sky"):
+            image = "https://aso.lbcdn.io/uploads/2024/05/Horizons_saigeprime-068-2.jpg"
         # An animated GIF/WebP may be the site's motion hero. Prefer a
         # labelled static image of this concert if the page provides one.
         if image and image.lower().split("?", 1)[0].endswith(".gif"):
