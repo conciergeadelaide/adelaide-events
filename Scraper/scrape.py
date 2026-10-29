@@ -69,6 +69,7 @@ try:
         parse_mod_museum,
         parse_samstag_museum,
         parse_kerry_packer_civic_gallery,
+        parse_the_district_skycity,
         parse_allevents_victoria_square,
         parse_allevents_adelaide_and_surrounds,
     )
@@ -126,6 +127,7 @@ except ModuleNotFoundError:
         parse_mod_museum,
         parse_samstag_museum,
         parse_kerry_packer_civic_gallery,
+        parse_the_district_skycity,
         parse_allevents_victoria_square,
         parse_allevents_adelaide_and_surrounds,
     )
@@ -689,6 +691,9 @@ def scrape_source(source):
     if name == "MOD.":
         return parse_mod_museum()
 
+    if name == "The District at SkyCity":
+        return parse_the_district_skycity()
+
     if name == "Kerry Packer Civic Gallery":
         return parse_kerry_packer_civic_gallery()
 
@@ -1078,7 +1083,7 @@ def source_domains(source_name):
     """
     domains = set()
 
-    for source in list(SOURCES) + [{"name": "Moshtix Adelaide CBD", "url": "https://www.moshtix.com.au/v2/search"}, {"name": "Humanitix Nineteen Ten", "url": "https://events.humanitix.com/host/nineteentenadl"}, {"name": "Humanitix Adelaide and Regions", "url": "https://humanitix.com/au/events/au--sa--adelaide"}]:
+    for source in list(SOURCES) + [{"name": "The District at SkyCity", "url": "https://skycityadelaide.com.au/eat-and-drink/the-district/whats-on/"}, {"name": "Moshtix Adelaide CBD", "url": "https://www.moshtix.com.au/v2/search"}, {"name": "Humanitix Nineteen Ten", "url": "https://events.humanitix.com/host/nineteentenadl"}, {"name": "Humanitix Adelaide and Regions", "url": "https://humanitix.com/au/events/au--sa--adelaide"}]:
         if source.get("name") != source_name:
             continue
 
@@ -1334,6 +1339,7 @@ def main(only_source=None):
 
     # Single-source test mode: never write events.json or run global cleanup.
     configured_sources = list(SOURCES) + [
+        {"name": "The District at SkyCity", "url": "https://skycityadelaide.com.au/eat-and-drink/the-district/whats-on/"},
         {"name": "Carrick Hill", "url": "https://www.carrickhill.sa.gov.au/visit/whats-on"},
         {"name": "Jetty Road Glenelg", "url": "https://www.jettyroadglenelg.com.au/whats-on"},
         {"name": "Plant 4 Bowden", "url": "https://www.plant4bowden.com.au/whats-on"},

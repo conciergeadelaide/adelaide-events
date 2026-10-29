@@ -7502,3 +7502,182 @@ def parse_kerry_packer_civic_gallery():
           f"{len(unique)} verified current/future; {past} past, "
           f"{undated} undated, {failures} detail errors")
     return list(unique.values())
+
+
+# ============================================================
+# THE DISTRICT AT SKYCITY — verified dated activities only
+# ============================================================
+def parse_the_district_skycity():
+    """Collect dated official SkyCity events and verified weekly trivia sessions."""
+    from datetime import date as _date, timedelta as _timedelta
+    from urllib.parse import urljoin, urlparse
+
+    base = "https://skycityadelaide.com.au"
+    listing_urls = [
+        base + "/eat-and-drink/the-district/whats-on/",
+        base + "/eat-and-drink/the-district/music/",
+        base + "/whats-on/",
+    ]
+    # Official event-detail routes are under /whats-on/content/, not under
+    # /eat-and-drink/the-district/ as the previous parser assumed.
+    known_details = [
+        base + "/whats-on/content/22728/8116/wednesday-trivia-at-the-district/",
+        base + "/whats-on/content/22728/7296/melbourne-cup-at-the-district/",
+    ]
+    session = requests.Session()
+    session.headers.update({"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/140.0 Safari/537.36"})
+
+    def fetch(url):
+        response = session.get(url, timeout=30)
+        response.raise_for_status()
+        return BeautifulSoup(response.text, "lxml")
+
+    def clean(text):
+        return " ".join(str(text or "").split())
+
+    def event_date(soup):
+        # Event-specific structured metadata.
+        for script in soup.select('script[type="application/ld+json"]'):
+            try:
+                data = json.loads(script.string or script.get_text())
+            except (ValueError, TypeError):
+                continue
+            stack = [data]
+            while stack:
+                item = stack.pop()
+                if isinstance(item, list):
+                    stack.extend(item)
+                elif isinstance(item, dict):
+                    stack.extend(v for k, v in item.items() if k in ("@graph", "mainEntity", "itemListElement"))
+                    types = item.get("@type", [])
+                    types = [types] if isinstance(types, str) else types
+                    if any(isinstance(t, str) and (t == "Event" or t.endswith("Event")) for t in types):
+                        raw = str(item.get("startDate") or "")
+                        if re.match(r"^20\d{2}-\d{2}-\d{2}T\d{2}:\d{2}", raw):
+                            return raw[:19]
+                        value = parse_date_text(raw)
+                        if value:
+                            return value
+        main = soup.select_one("main") or soup
+        for tag in main.select('time[datetime], [itemprop="startDate"][content], [class*="date"], [class*="Date"]')[:30]:
+            value = clean(tag.get("datetime") or tag.get("content") or tag.get_text(" ", strip=True))
+            if len(value) <= 130:
+                parsed = parse_date_text(value)
+                if parsed:
+                    return parsed
+        # Some SkyCity detail pages render dates as "Tuesdays from 03 November 2026".
+        # Only inspect a small event heading/intro, never footer or related cards.
+        for tag in main.find_all(["h1", "h2", "h3", "p"], limit=18):
+            value = clean(tag.get_text(" ", strip=True))
+            if len(value) <= 240:
+                parsed = parse_date_text(value)
+                if parsed:
+                    return parsed
+        return ""
+
+    def artwork(soup, url):
+        for selector, attr in (("meta[property='og:image']", "content"), ("main img", "src")):
+            tag = soup.select_one(selector)
+            if tag:
+                value = clean(tag.get(attr) or tag.get("data-src"))
+                if value and not any(x in value.lower() for x in ("favicon", "logo", "placeholder", "data:")):
+                    return urljoin(url, value)
+        return ""
+
+    candidates = set(known_details)
+    listings_ok = 0
+    for listing_url in listing_urls:
+        try:
+            soup = fetch(listing_url)
+        except requests.RequestException as exc:
+            print(f"    The District listing unavailable: {listing_url} ({exc})")
+            continue
+        listings_ok += 1
+        for a in soup.select("a[href]"):
+            url = urljoin(listing_url, a.get("href", "")).split("#")[0].split("?")[0]
+            parsed = urlparse(url)
+            if parsed.hostname not in ("skycityadelaide.com.au", "www.skycityadelaide.com.au"):
+                continue
+            if not re.match(r"^/whats-on/content/\d+/\d+/[^/]+/?$", parsed.path, re.I):
+                continue
+            # The general What's On listing includes other SkyCity venues.
+            # Check venue text on each detail page before accepting it.
+            candidates.add(url)
+
+    if not listings_ok:
+        raise RuntimeError("The District listings unavailable; existing records preserved")
+
+    results = []
+    undated = past = errors = promos = offsite = 0
+    today = _date.today()
+    for url in sorted(candidates):
+        try:
+            soup = fetch(url)
+        except requests.RequestException as exc:
+            errors += 1
+            print(f"    The District detail unavailable: {url} ({exc})")
+            continue
+        main = soup.select_one("main") or soup
+        heading = main.find("h1")
+        title = clean(heading.get_text(" ", strip=True)) if heading else ""
+        content = clean(main.get_text(" ", strip=True))
+        slug = urlparse(url).path.rstrip("/").split("/")[-1].casefold()
+        # SkyCity sometimes places the actual event title outside <main>.
+        # Use the verified official event slug for the weekly trivia only.
+        is_trivia = slug == "wednesday-trivia-at-the-district"
+        if is_trivia:
+            title = "Wednesday Trivia at The District"
+        elif not title:
+            og = soup.select_one('meta[property="og:title"]')
+            title = clean(og.get("content")) if og else ""
+        low = title.casefold()
+        # An event's URL and listing association can establish the venue even
+        # if SkyCity's <main> omits it. Do not accept unrelated SkyCity events.
+        district_confirmed = ("the district" in content.casefold()
+                              or "the-district" in slug or "the district" in low)
+        if not title or not district_confirmed:
+            offsite += 1
+            continue
+        if any(term in low for term in (
+            "happy hour", "burger & beer", "wings", "fridays at the district",
+            "poker", "home of ufc", "english premier league",
+            "up late and loud", "live bands at the district"
+        )):
+            promos += 1
+            continue
+        image = artwork(soup, url)
+        if "wednesday trivia at the district" in low or "quiz meisters trivia at the district" in low:
+            # Official detail confirms every Wednesday from 30 September,
+            # 6pm-8pm. Generate only the next eight confirmed weekly instances.
+            first = _date(2026, 9, 30)
+            day = max(first, today)
+            day += _timedelta(days=(2 - day.weekday()) % 7)
+            for week in range(8):
+                d = day + _timedelta(weeks=week)
+                results.append({
+                    "title": "QuizMeisters Trivia at The District",
+                    "venue": "The District at SkyCity",
+                    "date": d.isoformat() + "T18:00:00",
+                    "end_date": d.isoformat() + "T20:00:00",
+                    "category": ["Community"],
+                    "image": image, "url": url,
+                })
+            continue
+        date = event_date(soup)
+        if not date:
+            undated += 1
+            continue
+        if date[:10] < today.isoformat():
+            past += 1
+            continue
+        category = ["Sport"] if "melbourne cup" in low else (
+            ["Music"] if any(x in low for x in ("queen", "concert", "music", "band", "dj")) else ["Other"])
+        results.append({"title": title, "venue": "The District at SkyCity",
+                        "date": date, "end_date": "", "category": category,
+                        "image": image, "url": url})
+
+    unique = {(e["title"].casefold(), e["date"][:16]): e for e in results}
+    print(f"    The District: {listings_ok} listing pages, {len(candidates)} candidate details, "
+          f"{len(unique)} verified upcoming sessions; {past} past, {undated} undated, "
+          f"{promos} promotions, {offsite} other venues, {errors} detail errors")
+    return list(unique.values())
