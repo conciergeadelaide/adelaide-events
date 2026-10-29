@@ -6956,3 +6956,68 @@ def parse_plant_4_bowden():
     print(f"    Plant 4: {len(result) - special_count} recurring sessions, "
           f"{special_count} dated special events, {len(result)} total")
     return result
+
+
+# ============================================================
+# PLANT 3 BOWDEN - Bowden Brewing official recurring activities
+# ============================================================
+
+def parse_plant_3_bowden():
+    """Fetch the official Bowden Brewing listings; publish a rolling 8 weeks.
+
+    Do not generate an activity unless the live official page confirms it.
+    Unpublished starting times are left as midnight placeholders (date only).
+    """
+    from datetime import date, datetime, timedelta
+
+    root = "https://bowdenbrewing.com"
+    listing = root + "/blogs/whats-on"
+    session = requests.Session()
+    session.headers.update({"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/140.0.0.0 Safari/537.36"})
+
+    def get(url):
+        response = session.get(url, timeout=30)
+        response.raise_for_status()
+        return BeautifulSoup(response.text, "lxml")
+
+    index = get(listing)
+    text = index.get_text(" ", strip=True).casefold()
+    # Check individual official pages, not unrelated third-party event posts.
+    specs = [
+        ("Taco Tuesday", 1, 0, 0, ["Food & Beverage"], "/blogs/whats-on/taco-tuesday", ("taco tuesday", "each tuesday")),
+        ("Pizza & Pint", 2, 0, 0, ["Food & Beverage"], "/blogs/whats-on/pizza-pint", ("pizza & pint", "wednesday")),
+        ("Friday Froths", 4, 17, 0, ["Food & Beverage", "Community"], "/blogs/whats-on/friday-froths", ("friday froths", "every friday")),
+        ("Weekly 50 Quiz", 4, 19, 0, ["Community"], "/blogs/whats-on/weekly-50-quiz", ("weekly 50 quiz", "every friday")),
+    ]
+    today = date.today()
+    events = []
+    confirmed = []
+    for title, weekday, hour, minute, categories, path, clues in specs:
+        # A missing page is a source failure, not permission to invent dates.
+        detail = get(root + path)
+        detail_text = detail.get_text(" ", strip=True).casefold()
+        if not all(clue in (text + " " + detail_text) for clue in clues):
+            print(f"    Plant 3: unconfirmed schedule skipped: {title}")
+            continue
+        # Confirm recurrence on the individual page or index.
+        day_name = ("tuesday" if weekday == 1 else "wednesday" if weekday == 2 else "friday")
+        if day_name not in detail_text and day_name not in text:
+            continue
+        confirmed.append(title)
+        image = ""
+        meta = detail.find("meta", attrs={"property": "og:image"})
+        if meta:
+            candidate = str(meta.get("content", "")).strip()
+            if candidate.startswith("http") and not any(x in candidate.casefold() for x in ("logo", "favicon")):
+                image = candidate
+        for offset in range(56):
+            day = today + timedelta(days=offset)
+            if day.weekday() != weekday:
+                continue
+            events.append({
+                "title": title, "venue": "Plant 3 Bowden",
+                "date": datetime(day.year, day.month, day.day, hour, minute).isoformat(),
+                "category": categories, "image": image, "url": root + path,
+            })
+    print(f"    Plant 3: {len(confirmed)} weekly activities verified; {len(events)} dated sessions")
+    return events

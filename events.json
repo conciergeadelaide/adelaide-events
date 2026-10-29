@@ -6753,6 +6753,18 @@
     "source": "Government House"
   },
   {
+    "title": "Candlelight: Featuring Mozart, Bach, and Timeless Composers",
+    "venue": "St Peter's Cathedral",
+    "datetime": "2026-10-30T18:30:00+10:30",
+    "end_datetime": "2026-10-30T19:30:00+10:30",
+    "category": [
+      "Music"
+    ],
+    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/501c10e8-058a-11f0-9508-fa8a84692968.jpg",
+    "link": "https://feverup.com/m/390146",
+    "source": "Fever Candlelight Adelaide"
+  },
+  {
     "title": "Candlelight: Tribute to TOOL",
     "venue": "The Meeting Hall",
     "datetime": "2026-11-06T18:30:00+10:30",
@@ -7592,6 +7604,398 @@
     "image": "",
     "link": "https://www.plant4bowden.com.au/bingo",
     "source": "Plant 4 Bowden"
+  },
+  {
+    "title": "Taco Tuesday",
+    "venue": "Plant 3 Bowden",
+    "datetime": "2026-11-03T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Food & Beverage"
+    ],
+    "image": "http://bowdenbrewing.com/cdn/shop/articles/BOWDEN_BREWING_27MARCH14702.jpg?crop=center&height=1200&v=1771811721&width=1200",
+    "link": "https://bowdenbrewing.com/blogs/whats-on/taco-tuesday",
+    "source": "Plant 3 Bowden"
+  },
+  {
+    "title": "Taco Tuesday",
+    "venue": "Plant 3 Bowden",
+    "datetime": "2026-11-10T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Food & Beverage"
+    ],
+    "image": "http://bowdenbrewing.com/cdn/shop/articles/BOWDEN_BREWING_27MARCH14702.jpg?crop=center&height=1200&v=1771811721&width=1200",
+    "link": "https://bowdenbrewing.com/blogs/whats-on/taco-tuesday",
+    "source": "Plant 3 Bowden"
+  },
+  {
+    "title": "Taco Tuesday",
+    "venue": "Plant 3 Bowden",
+    "datetime": "2026-11-17T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Food & Beverage"
+    ],
+    "image": "http://bowdenbrewing.com/cdn/shop/articles/BOWDEN_BREWING_27MARCH14702.jpg?crop=center&height=1200&v=1771811721&width=1200",
+    "link": "https://bowdenbrewing.com/blogs/whats-on/taco-tuesday",
+    "source": "Plant 3 Bowden"
+  },
+  {
+    "title": "Taco Tuesday",
+    "venue": "Plant 3 Bowden",
+    "datetime": "2026-11-24T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Food & Beverage"
+    ],
+    "image": "http://bowdenbrewing.com/cdn/shop/articles/BOWDEN_BREWING_27MARCH14702.jpg?crop=center&height=1200&v=1771811721&width=1200",
+    "link": "https://bowdenbrewing.com/blogs/whats-on/taco-tuesday",
+    "source": "Plant 3 Bowden"
+  },
+  {
+    "title": "Taco Tuesday",
+    "venue": "Plant 3 Bowden",
+    "datetime": "2026-12-01T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Food & Beverage"
+    ],
+    "image": "http://bowdenbrewing.com/cdn/shop/articles/BOWDEN_BREWING_27MARCH14702.jpg?crop=center&height=1200&v=1771811721&width=1200",
+    "link": "https://bowdenbrewing.com/blogs/whats-on/taco-tuesday",
+    "source": "Plant 3 Bowden"
+  },
+  {
+    "title": "Taco Tuesday",
+    "venue": "Plant 3 Bowden",
+    "datetime": "2026-12-08T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Food & Beverage"
+    ],
+    "image": "http://bowdenbrewing.com/cdn/shop/articles/BOWDEN_BREWING_27MARCH14702.jpg?crop=center&height=1200&v=1771811721&width=1200",
+    "link": "https://bowdenbrewing.com/blogs/whats-on/taco-tuesday",
+    "source": "Plant 3 Bowden"
+  },
+  {
+    "title": "Taco Tuesday",
+    "venue": "Plant 3 Bowden",
+    "datetime": "2026-12-15T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Food & Beverage"
+    ],
+    "image": "http://bowdenbrewing.com/cdn/shop/articles/BOWDEN_BREWING_27MARCH14702.jpg?crop=center&height=1200&v=1771811721&width=1200",
+    "link": "https://bowdenbrewing.com/blogs/whats-on/taco-tuesday",
+    "source": "Plant 3 Bowden"
+  },
+  {
+    "title": "Taco Tuesday",
+    "venue": "Plant 3 Bowden",
+    "datetime": "2026-12-22T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Food & Beverage"
+    ],
+    "image": "http://bowdenbrewing.com/cdn/shop/articles/BOWDEN_BREWING_27MARCH14702.jpg?crop=center&height=1200&v=1771811721&width=1200",
+    "link": "https://bowdenbrewing.com/blogs/whats-on/taco-tuesday",
+    "source": "Plant 3 Bowden"
+  },
+  {
+    "title": "Pizza & Pint",
+    "venue": "Plant 3 Bowden",
+    "datetime": "2026-11-04T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Food & Beverage"
+    ],
+    "image": "http://bowdenbrewing.com/cdn/shop/articles/Bowden_Brewing_14_11_2025_3_of_124.jpg?crop=center&height=1200&v=1772494286&width=1200",
+    "link": "https://bowdenbrewing.com/blogs/whats-on/pizza-pint",
+    "source": "Plant 3 Bowden"
+  },
+  {
+    "title": "Pizza & Pint",
+    "venue": "Plant 3 Bowden",
+    "datetime": "2026-11-11T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Food & Beverage"
+    ],
+    "image": "http://bowdenbrewing.com/cdn/shop/articles/Bowden_Brewing_14_11_2025_3_of_124.jpg?crop=center&height=1200&v=1772494286&width=1200",
+    "link": "https://bowdenbrewing.com/blogs/whats-on/pizza-pint",
+    "source": "Plant 3 Bowden"
+  },
+  {
+    "title": "Pizza & Pint",
+    "venue": "Plant 3 Bowden",
+    "datetime": "2026-11-18T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Food & Beverage"
+    ],
+    "image": "http://bowdenbrewing.com/cdn/shop/articles/Bowden_Brewing_14_11_2025_3_of_124.jpg?crop=center&height=1200&v=1772494286&width=1200",
+    "link": "https://bowdenbrewing.com/blogs/whats-on/pizza-pint",
+    "source": "Plant 3 Bowden"
+  },
+  {
+    "title": "Pizza & Pint",
+    "venue": "Plant 3 Bowden",
+    "datetime": "2026-11-25T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Food & Beverage"
+    ],
+    "image": "http://bowdenbrewing.com/cdn/shop/articles/Bowden_Brewing_14_11_2025_3_of_124.jpg?crop=center&height=1200&v=1772494286&width=1200",
+    "link": "https://bowdenbrewing.com/blogs/whats-on/pizza-pint",
+    "source": "Plant 3 Bowden"
+  },
+  {
+    "title": "Pizza & Pint",
+    "venue": "Plant 3 Bowden",
+    "datetime": "2026-12-02T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Food & Beverage"
+    ],
+    "image": "http://bowdenbrewing.com/cdn/shop/articles/Bowden_Brewing_14_11_2025_3_of_124.jpg?crop=center&height=1200&v=1772494286&width=1200",
+    "link": "https://bowdenbrewing.com/blogs/whats-on/pizza-pint",
+    "source": "Plant 3 Bowden"
+  },
+  {
+    "title": "Pizza & Pint",
+    "venue": "Plant 3 Bowden",
+    "datetime": "2026-12-09T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Food & Beverage"
+    ],
+    "image": "http://bowdenbrewing.com/cdn/shop/articles/Bowden_Brewing_14_11_2025_3_of_124.jpg?crop=center&height=1200&v=1772494286&width=1200",
+    "link": "https://bowdenbrewing.com/blogs/whats-on/pizza-pint",
+    "source": "Plant 3 Bowden"
+  },
+  {
+    "title": "Pizza & Pint",
+    "venue": "Plant 3 Bowden",
+    "datetime": "2026-12-16T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Food & Beverage"
+    ],
+    "image": "http://bowdenbrewing.com/cdn/shop/articles/Bowden_Brewing_14_11_2025_3_of_124.jpg?crop=center&height=1200&v=1772494286&width=1200",
+    "link": "https://bowdenbrewing.com/blogs/whats-on/pizza-pint",
+    "source": "Plant 3 Bowden"
+  },
+  {
+    "title": "Pizza & Pint",
+    "venue": "Plant 3 Bowden",
+    "datetime": "2026-12-23T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Food & Beverage"
+    ],
+    "image": "http://bowdenbrewing.com/cdn/shop/articles/Bowden_Brewing_14_11_2025_3_of_124.jpg?crop=center&height=1200&v=1772494286&width=1200",
+    "link": "https://bowdenbrewing.com/blogs/whats-on/pizza-pint",
+    "source": "Plant 3 Bowden"
+  },
+  {
+    "title": "Friday Froths",
+    "venue": "Plant 3 Bowden",
+    "datetime": "2026-10-30T17:00:00",
+    "end_datetime": "",
+    "category": [
+      "Food & Beverage",
+      "Community"
+    ],
+    "image": "http://bowdenbrewing.com/cdn/shop/articles/BOWDEN_BREWING_27MARCH14664_1.jpg?crop=center&height=1200&v=1731386447&width=1200",
+    "link": "https://bowdenbrewing.com/blogs/whats-on/friday-froths",
+    "source": "Plant 3 Bowden"
+  },
+  {
+    "title": "Friday Froths",
+    "venue": "Plant 3 Bowden",
+    "datetime": "2026-11-06T17:00:00",
+    "end_datetime": "",
+    "category": [
+      "Food & Beverage",
+      "Community"
+    ],
+    "image": "http://bowdenbrewing.com/cdn/shop/articles/BOWDEN_BREWING_27MARCH14664_1.jpg?crop=center&height=1200&v=1731386447&width=1200",
+    "link": "https://bowdenbrewing.com/blogs/whats-on/friday-froths",
+    "source": "Plant 3 Bowden"
+  },
+  {
+    "title": "Friday Froths",
+    "venue": "Plant 3 Bowden",
+    "datetime": "2026-11-13T17:00:00",
+    "end_datetime": "",
+    "category": [
+      "Food & Beverage",
+      "Community"
+    ],
+    "image": "http://bowdenbrewing.com/cdn/shop/articles/BOWDEN_BREWING_27MARCH14664_1.jpg?crop=center&height=1200&v=1731386447&width=1200",
+    "link": "https://bowdenbrewing.com/blogs/whats-on/friday-froths",
+    "source": "Plant 3 Bowden"
+  },
+  {
+    "title": "Friday Froths",
+    "venue": "Plant 3 Bowden",
+    "datetime": "2026-11-20T17:00:00",
+    "end_datetime": "",
+    "category": [
+      "Food & Beverage",
+      "Community"
+    ],
+    "image": "http://bowdenbrewing.com/cdn/shop/articles/BOWDEN_BREWING_27MARCH14664_1.jpg?crop=center&height=1200&v=1731386447&width=1200",
+    "link": "https://bowdenbrewing.com/blogs/whats-on/friday-froths",
+    "source": "Plant 3 Bowden"
+  },
+  {
+    "title": "Friday Froths",
+    "venue": "Plant 3 Bowden",
+    "datetime": "2026-11-27T17:00:00",
+    "end_datetime": "",
+    "category": [
+      "Food & Beverage",
+      "Community"
+    ],
+    "image": "http://bowdenbrewing.com/cdn/shop/articles/BOWDEN_BREWING_27MARCH14664_1.jpg?crop=center&height=1200&v=1731386447&width=1200",
+    "link": "https://bowdenbrewing.com/blogs/whats-on/friday-froths",
+    "source": "Plant 3 Bowden"
+  },
+  {
+    "title": "Friday Froths",
+    "venue": "Plant 3 Bowden",
+    "datetime": "2026-12-04T17:00:00",
+    "end_datetime": "",
+    "category": [
+      "Food & Beverage",
+      "Community"
+    ],
+    "image": "http://bowdenbrewing.com/cdn/shop/articles/BOWDEN_BREWING_27MARCH14664_1.jpg?crop=center&height=1200&v=1731386447&width=1200",
+    "link": "https://bowdenbrewing.com/blogs/whats-on/friday-froths",
+    "source": "Plant 3 Bowden"
+  },
+  {
+    "title": "Friday Froths",
+    "venue": "Plant 3 Bowden",
+    "datetime": "2026-12-11T17:00:00",
+    "end_datetime": "",
+    "category": [
+      "Food & Beverage",
+      "Community"
+    ],
+    "image": "http://bowdenbrewing.com/cdn/shop/articles/BOWDEN_BREWING_27MARCH14664_1.jpg?crop=center&height=1200&v=1731386447&width=1200",
+    "link": "https://bowdenbrewing.com/blogs/whats-on/friday-froths",
+    "source": "Plant 3 Bowden"
+  },
+  {
+    "title": "Friday Froths",
+    "venue": "Plant 3 Bowden",
+    "datetime": "2026-12-18T17:00:00",
+    "end_datetime": "",
+    "category": [
+      "Food & Beverage",
+      "Community"
+    ],
+    "image": "http://bowdenbrewing.com/cdn/shop/articles/BOWDEN_BREWING_27MARCH14664_1.jpg?crop=center&height=1200&v=1731386447&width=1200",
+    "link": "https://bowdenbrewing.com/blogs/whats-on/friday-froths",
+    "source": "Plant 3 Bowden"
+  },
+  {
+    "title": "Weekly 50 Quiz",
+    "venue": "Plant 3 Bowden",
+    "datetime": "2026-10-30T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Community"
+    ],
+    "image": "http://bowdenbrewing.com/cdn/shop/articles/BB_3_54_of_92_1.jpg?crop=center&height=1200&v=1731386346&width=1200",
+    "link": "https://bowdenbrewing.com/blogs/whats-on/weekly-50-quiz",
+    "source": "Plant 3 Bowden"
+  },
+  {
+    "title": "Weekly 50 Quiz",
+    "venue": "Plant 3 Bowden",
+    "datetime": "2026-11-06T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Community"
+    ],
+    "image": "http://bowdenbrewing.com/cdn/shop/articles/BB_3_54_of_92_1.jpg?crop=center&height=1200&v=1731386346&width=1200",
+    "link": "https://bowdenbrewing.com/blogs/whats-on/weekly-50-quiz",
+    "source": "Plant 3 Bowden"
+  },
+  {
+    "title": "Weekly 50 Quiz",
+    "venue": "Plant 3 Bowden",
+    "datetime": "2026-11-13T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Community"
+    ],
+    "image": "http://bowdenbrewing.com/cdn/shop/articles/BB_3_54_of_92_1.jpg?crop=center&height=1200&v=1731386346&width=1200",
+    "link": "https://bowdenbrewing.com/blogs/whats-on/weekly-50-quiz",
+    "source": "Plant 3 Bowden"
+  },
+  {
+    "title": "Weekly 50 Quiz",
+    "venue": "Plant 3 Bowden",
+    "datetime": "2026-11-20T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Community"
+    ],
+    "image": "http://bowdenbrewing.com/cdn/shop/articles/BB_3_54_of_92_1.jpg?crop=center&height=1200&v=1731386346&width=1200",
+    "link": "https://bowdenbrewing.com/blogs/whats-on/weekly-50-quiz",
+    "source": "Plant 3 Bowden"
+  },
+  {
+    "title": "Weekly 50 Quiz",
+    "venue": "Plant 3 Bowden",
+    "datetime": "2026-11-27T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Community"
+    ],
+    "image": "http://bowdenbrewing.com/cdn/shop/articles/BB_3_54_of_92_1.jpg?crop=center&height=1200&v=1731386346&width=1200",
+    "link": "https://bowdenbrewing.com/blogs/whats-on/weekly-50-quiz",
+    "source": "Plant 3 Bowden"
+  },
+  {
+    "title": "Weekly 50 Quiz",
+    "venue": "Plant 3 Bowden",
+    "datetime": "2026-12-04T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Community"
+    ],
+    "image": "http://bowdenbrewing.com/cdn/shop/articles/BB_3_54_of_92_1.jpg?crop=center&height=1200&v=1731386346&width=1200",
+    "link": "https://bowdenbrewing.com/blogs/whats-on/weekly-50-quiz",
+    "source": "Plant 3 Bowden"
+  },
+  {
+    "title": "Weekly 50 Quiz",
+    "venue": "Plant 3 Bowden",
+    "datetime": "2026-12-11T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Community"
+    ],
+    "image": "http://bowdenbrewing.com/cdn/shop/articles/BB_3_54_of_92_1.jpg?crop=center&height=1200&v=1731386346&width=1200",
+    "link": "https://bowdenbrewing.com/blogs/whats-on/weekly-50-quiz",
+    "source": "Plant 3 Bowden"
+  },
+  {
+    "title": "Weekly 50 Quiz",
+    "venue": "Plant 3 Bowden",
+    "datetime": "2026-12-18T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Community"
+    ],
+    "image": "http://bowdenbrewing.com/cdn/shop/articles/BB_3_54_of_92_1.jpg?crop=center&height=1200&v=1731386346&width=1200",
+    "link": "https://bowdenbrewing.com/blogs/whats-on/weekly-50-quiz",
+    "source": "Plant 3 Bowden"
   },
   {
     "title": "TODD KEM - Adelaide show",
@@ -10805,18 +11209,6 @@
     "source": "Humanitix Adelaide and Regions"
   },
   {
-    "title": "Shedding Light on Dark Skies: Light pollution, wildlife and the Carrickalinga story",
-    "venue": "Aldinga Arts Eco Village",
-    "datetime": "2026-11-09T19:00:00+1030",
-    "end_datetime": "2026-11-09T20:30:00+1030",
-    "category": [
-      "Other"
-    ],
-    "image": "https://images.humanitix.com/i/7477c48f-f47f-4460-8044-103e7078b7fb.jpg@seo-500.jpg",
-    "link": "https://events.humanitix.com/darkskies",
-    "source": "Humanitix Adelaide and Regions"
-  },
-  {
     "title": "Hunt and Brew ðððªð¡ðð¥ððð ð¦ð¨ð ð ðð¥ ðð¨ð¦&ð¡ð­ ð§ð¢ð¨ð¥ // Glenelg Beach, ADELAIDE - 2nd Jan 2027",
     "venue": "Glenelg Beach",
     "datetime": "2027-01-02T04:45:00+1030",
@@ -10826,18 +11218,6 @@
     ],
     "image": "https://images.humanitix.com/i/4a558e3a-c418-499b-8b84-637dc1767710.png@seo-500.jpg",
     "link": "https://events.humanitix.com/dawnbreak-summer-aus-and-nz-tour-glenelg-beach-adelaide-2nd-jan-2027",
-    "source": "Humanitix Adelaide and Regions"
-  },
-  {
-    "title": "Day Moves",
-    "venue": "Home of Plenty",
-    "datetime": "2026-12-31T12:00:00+1030",
-    "end_datetime": "2027-01-01T02:00:00+1030",
-    "category": [
-      "Other"
-    ],
-    "image": "https://images.humanitix.com/i/8b7f62e3-dbd4-4a0b-8b14-c3adc7a29fab.png@seo-500.jpg",
-    "link": "https://events.humanitix.com/day-moves-2026",
     "source": "Humanitix Adelaide and Regions"
   },
   {
@@ -10961,6 +11341,18 @@
     "source": "Humanitix Adelaide and Regions"
   },
   {
+    "title": "November Field Day at Maslin Creek with Randall Wine Group",
+    "venue": "Maslin Creek (Formerly Fox Creek)",
+    "datetime": "2026-11-01T09:00:00+1030",
+    "end_datetime": "2026-11-01T11:00:13+1030",
+    "category": [
+      "Food & Beverage"
+    ],
+    "image": "https://images.humanitix.com/i/Xs2XmI2SUWgwgUmjTJlJ@seo-500.jpg",
+    "link": "https://events.humanitix.com/nov-field-day-at-maslin-creek",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
     "title": "Poppin Corks 2027 - Adelaide",
     "venue": "Sidewood Estate Restaurant",
     "datetime": "2027-02-27T13:00:00+1030",
@@ -11021,6 +11413,42 @@
     ],
     "image": "https://images.humanitix.com/i/2b7ff63d-2808-470b-9329-88073e9381b7.png@seo-500.jpg",
     "link": "https://events.humanitix.com/the-full-runrise-adelaide-14th-nov-2026",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "Women in Innovation Awards 2026",
+    "venue": "National Wine Centre of Australia",
+    "datetime": "2026-11-06T19:00:00+1030",
+    "end_datetime": "2026-11-06T23:30:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/09c56fdc-c015-49d1-8efe-2a9342da52e3.jpg@seo-500.jpg",
+    "link": "https://events.humanitix.com/women-in-innovation-awards-2026",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "Shedding Light on Dark Skies: Light pollution, wildlife and the Carrickalinga story",
+    "venue": "Aldinga Arts Eco Village",
+    "datetime": "2026-11-09T19:00:00+1030",
+    "end_datetime": "2026-11-09T20:30:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/7477c48f-f47f-4460-8044-103e7078b7fb.jpg@seo-500.jpg",
+    "link": "https://events.humanitix.com/darkskies",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "Day Moves",
+    "venue": "Home of Plenty",
+    "datetime": "2026-12-31T12:00:00+1030",
+    "end_datetime": "2027-01-01T02:00:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/8b7f62e3-dbd4-4a0b-8b14-c3adc7a29fab.png@seo-500.jpg",
+    "link": "https://events.humanitix.com/day-moves-2026",
     "source": "Humanitix Adelaide and Regions"
   },
   {
