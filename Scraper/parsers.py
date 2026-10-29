@@ -6489,3 +6489,87 @@ def parse_national_trust_sa(soup, source_url):
         raise RuntimeError('National Trust Explore: no upcoming dated SA events; preserving existing records')
     print(f'    National Trust SA: {len(cards)} cards, {len(results)} upcoming dated events')
     return results
+
+
+# ============================================================
+# CARRICK HILL — OFFICIAL WHAT'S ON
+# ============================================================
+
+def parse_carrick_hill(soup, source_url):
+    """Parse verified dated event cards on Carrick Hill's official listing.
+
+    The card date is a listing/start date, not proof of a recurring
+    schedule or an exhibition end date. Do not invent such dates.
+    """
+    from datetime import date
+    from urllib.parse import urlparse
+
+    results = []
+    seen = set()
+    cards = soup.select('a.event-link[href]')
+    today = date.today()
+
+    for card in cards:
+        url = normalise_url(card.get('href', ''), source_url)
+        parsed = urlparse(url)
+        if parsed.hostname not in ('www.carrickhill.sa.gov.au', 'carrickhill.sa.gov.au'):
+            continue
+        if not parsed.path.startswith('/events/'):
+            continue
+        url = f'{parsed.scheme}://{parsed.netloc}{parsed.path}'
+        if url in seen:
+            continue
+        seen.add(url)
+
+        heading = card.select_one('.event-name-text')
+        title = heading.get_text(' ', strip=True) if heading else ''
+        date_parts = [e.get_text(' ', strip=True) for e in card.select('.event-date-wrapper .event-date')]
+        if not title or len(date_parts) < 3:
+            continue
+        try:
+            start = datetime(int(date_parts[2]), int(date_parts[1]), int(date_parts[0]))
+        except (ValueError, TypeError):
+            continue
+        # Cards do not establish the last day of ongoing exhibitions/tours.
+        # Skip past starts rather than inventing a future occurrence.
+        if start.date() < today:
+            continue
+
+        img = card.select_one('img.events-image')
+        image = ''
+        if img:
+            srcset = img.get('srcset') or ''
+            if srcset:
+                candidates = [part.strip().split()[0] for part in srcset.split(',') if part.strip()]
+                if candidates:
+                    image = candidates[-1]
+            if not image:
+                candidate = img.get('src') or ''
+                if candidate and not candidate.startswith('./'):
+                    image = normalise_url(candidate, source_url)
+
+        lower = title.casefold()
+        if 'musketeers' in lower or 'theatre' in lower:
+            category = ['Theatre']
+        elif 'christmas' in lower or 'halloween' in lower or 'mouse hunt' in lower:
+            category = ['Family']
+        elif 'sunset sessions' in lower:
+            category = ['Music']
+        elif 'conversation' in lower or 'world war' in lower:
+            category = ['Talks & Conferences']
+        elif 'exhibition' in lower or 'tour' in lower:
+            category = ['Arts & Culture']
+        else:
+            category = categorise_event(title)
+
+        results.append({
+            'title': title, 'venue': 'Carrick Hill',
+            'date': start.strftime('%Y-%m-%dT00:00:00'),
+            'end_date': '', 'category': category,
+            'image': image, 'url': url,
+        })
+
+    print(f'    Carrick Hill: {len(cards)} cards, {len(results)} future dated events')
+    if not cards:
+        raise RuntimeError('Carrick Hill event cards missing; retaining existing records')
+    return results

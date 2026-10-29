@@ -61,6 +61,7 @@ try:
         parse_rhino_room,
         parse_jive,
         parse_national_trust_sa,
+        parse_carrick_hill,
         parse_allevents_victoria_square,
         parse_allevents_adelaide_and_surrounds,
     )
@@ -110,6 +111,7 @@ except ModuleNotFoundError:
         parse_rhino_room,
         parse_jive,
         parse_national_trust_sa,
+        parse_carrick_hill,
         parse_allevents_victoria_square,
         parse_allevents_adelaide_and_surrounds,
     )
@@ -663,6 +665,10 @@ def scrape_source(source):
 
     if name == "Morphettville Racecourse":
         return parse_morphettville_racecourse(fetch_page("https://morphettville.com.au/"), "https://morphettville.com.au/")
+
+    if name == "Carrick Hill":
+        listing_url = "https://www.carrickhill.sa.gov.au/visit/whats-on"
+        return parse_carrick_hill(fetch_page(listing_url), listing_url)
 
     if name == "National Trust SA":
         listing_url = "https://www.nationaltrust.org.au/explore/?content=event&state=sa"
@@ -1283,6 +1289,7 @@ def main(only_source=None):
 
     # Single-source test mode: never write events.json or run global cleanup.
     configured_sources = list(SOURCES) + [
+        {"name": "Carrick Hill", "url": "https://www.carrickhill.sa.gov.au/visit/whats-on"},
         {"name": "Moshtix Adelaide CBD", "url": "https://www.moshtix.com.au/v2/search"},
         {"name": "Humanitix Nineteen Ten", "url": "https://events.humanitix.com/host/nineteentenadl"},
         {"name": "Humanitix Adelaide and Regions", "url": "https://humanitix.com/au/events/au--sa--adelaide"},
