@@ -644,6 +644,8 @@ function createEventCard(event) {
     var badge = document.createElement("span");
     badge.className = "category-badge";
     badge.textContent = getCategoryText(event);
+    badge.style.backgroundColor = calendarCategoryColour(event);
+    badge.style.color = "#ffffff";
 
     imageContainer.appendChild(image);
     imageContainer.appendChild(badge);

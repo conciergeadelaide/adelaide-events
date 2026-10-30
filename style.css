@@ -570,3 +570,6 @@ text-align: right;
     .calendar-legend-item {font-size: 10px;}
     .calendar-legend-swatch {width: 10px; height: 10px;}
 }
+
+/* Match Cards category badges to the monthly calendar colours. */
+.category-badge { border-radius: 3px; background: #596674; color: #ffffff; }
