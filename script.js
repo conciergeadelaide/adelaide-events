@@ -343,6 +343,58 @@ function getCategoryText(event) {
     return getEventCategories(event).join(" · ");
 }
 
+// Calendar colour palette. The first category determines an event's colour.
+var CALENDAR_CATEGORY_COLOURS = {
+    "Arts & Culture": "#7655A5",
+    "Comedy": "#A75B12",
+    "Community": "#527D2C",
+    "Expos": "#5465A8",
+    "Family": "#087F87",
+    "Festival": "#B83F69",
+    "Food & Beverage": "#9C5A27",
+    "Music": "#245EAE",
+    "Other": "#596674",
+    "Sport": "#177A4C",
+    "Talks & Conferences": "#65549A",
+    "Theatre": "#793CB0",
+    "Workshop": "#826324",
+    "Club / Party": "#A83388",
+    "Club/Party": "#A83388"
+};
+
+function calendarCategory(event) {
+    var categories = getEventCategories(event);
+    for (var i = 0; i < categories.length; i++) {
+        if (Object.prototype.hasOwnProperty.call(CALENDAR_CATEGORY_COLOURS, categories[i])) {
+            return categories[i];
+        }
+    }
+    return "Other";
+}
+
+function calendarCategoryColour(event) {
+    return CALENDAR_CATEGORY_COLOURS[calendarCategory(event)];
+}
+
+function renderCalendarLegend() {
+    var legend = document.getElementById("calendar-category-legend");
+    if (!legend) return;
+    legend.replaceChildren();
+    Object.keys(CALENDAR_CATEGORY_COLOURS).forEach(function(category) {
+        if (category === "Club/Party") return;
+        var item = document.createElement("span");
+        item.className = "calendar-legend-item";
+        var swatch = document.createElement("span");
+        swatch.className = "calendar-legend-swatch";
+        swatch.style.backgroundColor = CALENDAR_CATEGORY_COLOURS[category];
+        swatch.setAttribute("aria-hidden", "true");
+        var label = document.createElement("span");
+        label.textContent = category;
+        item.append(swatch, label);
+        legend.appendChild(item);
+    });
+}
+
 // ======================================
 // STANDARDISE VENUE NAMES
 // ======================================
@@ -1449,6 +1501,10 @@ function renderCalendar() {
 
                 pill.type = "button";
                 pill.className = "calendar-event";
+                pill.style.backgroundColor = calendarCategoryColour(event);
+                pill.style.borderLeftColor = calendarCategoryColour(event);
+                pill.style.color = "#ffffff";
+                pill.setAttribute("aria-label", calendarCategory(event) + ": " + calendarEventTitle(event));
 
                 pill.textContent =
                     calendarEventTitle(event);
@@ -1495,6 +1551,7 @@ function renderCalendar() {
         grid.appendChild(cell);
     }
 
+    renderCalendarLegend();
     renderDayDetails();
 }
 
