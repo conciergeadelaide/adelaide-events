@@ -288,19 +288,6 @@
     },
     {
       "before": {
-        "title": "Start Making Sense (Talking Heads Tribute) (USA)",
-        "source": "Ticketmaster Adelaide",
-        "end_datetime": ""
-      },
-      "after": {
-        "title": "Start Making Sense (Talking Heads Tribute) (USA)",
-        "source": "Moshtix Adelaide CBD",
-        "end_datetime": ""
-      },
-      "reason": "corrected Moshtix booking-link ownership"
-    },
-    {
-      "before": {
         "title": "Froth and Fury Fest 2027",
         "source": "Ticketmaster Adelaide",
         "end_datetime": ""
@@ -377,19 +364,6 @@
       },
       "after": {
         "title": "A Day in the Gully",
-        "source": "Moshtix Adelaide CBD",
-        "end_datetime": ""
-      },
-      "reason": "corrected Moshtix booking-link ownership"
-    },
-    {
-      "before": {
-        "title": "Slow Pilot (Belgium) - Performing the songs of Jeff Buckley",
-        "source": "Ticketmaster Adelaide",
-        "end_datetime": ""
-      },
-      "after": {
-        "title": "Slow Pilot (Belgium) - Performing the songs of Jeff Buckley",
         "source": "Moshtix Adelaide CBD",
         "end_datetime": ""
       },

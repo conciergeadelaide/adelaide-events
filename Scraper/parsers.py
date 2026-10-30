@@ -5376,6 +5376,9 @@ def parse_the_gov():
                      "the gov", "the gov front bar", "the gov main room"}
         unique_oztix = set()
         rejected = 0
+        from collections import Counter
+        reject_reasons = Counter()
+        date_samples = []
         for hit in all_hits:
             venue = hit.get("Venue") or {}
             if not isinstance(venue, dict):
@@ -5404,6 +5407,9 @@ def parse_the_gov():
                 stamp = int(hit.get("DateStartUnix") or 0)
                 if stamp <= 0:
                     rejected += 1
+                    reject_reasons["missing/zero DateStartUnix"] += 1
+                    if len(date_samples) < 10:
+                        date_samples.append((str(hit.get("EventName")), repr(hit.get("DateStartUnix")), repr(hit.get("DateStart")), repr(hit.get("DateStartLocal"))))
                     continue
                 try:
                     local = datetime.fromtimestamp(stamp, timezone.utc).astimezone(ZoneInfo("Australia/Adelaide"))
@@ -5417,15 +5423,25 @@ def parse_the_gov():
                         return 1 + ((6 - d.weekday()) % 7)
                     dst_start = datetime(year, 10, first_sunday(year, 10), 2)
                     dst_end = datetime(year, 4, first_sunday(year, 4), 3)
-                    local_standard = utc + timedelta(hours=9, minutes=30)
+                    # Use naive local wall-clock values for DST boundary
+                    # comparisons. `utc` is timezone-aware, whereas the
+                    # transition datetimes above are naive.
+                    local_standard = (utc + timedelta(hours=9, minutes=30)).replace(tzinfo=None)
                     dst = (local_standard >= dst_start if local_standard.month >= 10 else
                            local_standard < dst_end if local_standard.month <= 4 else False)
-                    local = utc + timedelta(hours=10, minutes=30) if dst else local_standard
+                    local = (utc + timedelta(hours=10, minutes=30) if dst else
+                             utc + timedelta(hours=9, minutes=30)).replace(tzinfo=None)
                 if local.date() < today:
                     rejected += 1
+                    reject_reasons["past event date"] += 1
+                    if len(date_samples) < 10:
+                        date_samples.append((str(hit.get("EventName")), repr(hit.get("DateStartUnix")), local.isoformat(), "past"))
                     continue
-            except (ValueError, TypeError, OverflowError):
+            except (ValueError, TypeError, OverflowError) as exc:
                 rejected += 1
+                reject_reasons["unparseable timestamp"] += 1
+                if len(date_samples) < 10:
+                    date_samples.append((str(hit.get("EventName")), repr(hit.get("DateStartUnix")), type(exc).__name__, str(exc)))
                 continue
             url = str(hit.get("EventUrl") or "").strip()
             if urlparse(url).hostname not in {"tickets.oztix.com.au", "www.oztix.com.au", "oztix.com.au"}:
@@ -5454,6 +5470,9 @@ def parse_the_gov():
             counters["Oztix"] += 1
         print(f"    Gov Oztix: {len(all_hits)} search results across {total_pages} venue-filtered page(s); "
               f"{counters['Oztix']} new verified Gov events; {rejected} filtered")
+        print("    Gov Oztix timestamp reasons: " + ", ".join(f"{k}: {v}" for k,v in reject_reasons.items()))
+        for title, raw, parsed, detail in date_samples:
+            print(f"    Gov Oztix date sample: {title[:75]!r} | Unix={raw} | parsed={parsed} | {detail}")
     except (requests.RequestException, ValueError, KeyError, TypeError) as exc:
         print(f"    Gov Oztix unavailable: {exc}")
 
