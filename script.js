@@ -49,6 +49,13 @@ function getEventFestivals(event) {
         festivals.indexOf("Adelaide Symphony Orchestra") === -1) {
         festivals.push("Adelaide Symphony Orchestra");
     }
+
+    // Adelaide Festival is distinct from Adelaide Festival Centre.
+    // Include only events whose source is exactly Adelaide Festival.
+    if (String(event.source || event.source_name || "").trim().toLowerCase() === "adelaide festival" &&
+        festivals.indexOf("Adelaide Festival") === -1) {
+        festivals.push("Adelaide Festival");
+    }
     return festivals;
 }
 
@@ -647,11 +654,28 @@ function createEventCard(event) {
     image.alt = event.title || "Adelaide event";
     image.loading = "lazy";
 
+    // Show one individually coloured badge for every category.
+    // Keep the original badge wrapper's position over the image.
     var badge = document.createElement("span");
     badge.className = "category-badge";
-    badge.textContent = getCategoryText(event);
-    badge.style.backgroundColor = calendarCategoryColour(event);
-    badge.style.color = "#ffffff";
+    badge.style.backgroundColor = "transparent";
+    badge.style.padding = "0";
+    badge.style.display = "flex";
+    badge.style.flexWrap = "wrap";
+    badge.style.gap = "5px";
+    badge.style.maxWidth = "calc(100% - 24px)";
+
+    getEventCategories(event).forEach(function(category) {
+        var categoryBadge = document.createElement("span");
+        categoryBadge.textContent = category;
+        categoryBadge.style.backgroundColor =
+            CALENDAR_CATEGORY_COLOURS[category] || CALENDAR_CATEGORY_COLOURS.Other;
+        categoryBadge.style.color = "#ffffff";
+        categoryBadge.style.padding = "6px 9px";
+        categoryBadge.style.lineHeight = "1.3";
+        categoryBadge.style.overflowWrap = "anywhere";
+        badge.appendChild(categoryBadge);
+    });
 
     imageContainer.appendChild(image);
     imageContainer.appendChild(badge);
