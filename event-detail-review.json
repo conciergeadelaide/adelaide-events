@@ -1,0 +1,451 @@
+{
+  "repairs": [
+    {
+      "before": {
+        "title": "Oedipus",
+        "venue": "Festival Theatre",
+        "datetime": "2027-03-10T20:00:00",
+        "end_datetime": "",
+        "source": "Adelaide Festival",
+        "link": "https://www.adelaidefestival.com.au/whats-on/season-2027/oedipus"
+      },
+      "after": {
+        "title": "Oedipus",
+        "venue": "Festival Theatre",
+        "datetime": "2027-03-10T20:00:00",
+        "end_datetime": "2027-03-14T00:00:00",
+        "source": "Adelaide Festival",
+        "link": "https://www.adelaidefestival.com.au/whats-on/season-2027/oedipus"
+      },
+      "reason": "restored verified existing end time"
+    },
+    {
+      "before": {
+        "title": "Bluebeard's Castle",
+        "venue": "Festival Theatre",
+        "datetime": "2027-02-26T20:00:00",
+        "end_datetime": "",
+        "source": "Adelaide Festival",
+        "link": "https://www.adelaidefestival.com.au/whats-on/season-2027/bluebeards-castle"
+      },
+      "after": {
+        "title": "Bluebeard's Castle",
+        "venue": "Festival Theatre",
+        "datetime": "2027-02-26T20:00:00",
+        "end_datetime": "2027-03-02T00:00:00",
+        "source": "Adelaide Festival",
+        "link": "https://www.adelaidefestival.com.au/whats-on/season-2027/bluebeards-castle"
+      },
+      "reason": "restored verified existing end time"
+    },
+    {
+      "before": {
+        "title": "13 & 14",
+        "venue": "Her Majesty's Theatre",
+        "datetime": "2027-02-26T20:00:00",
+        "end_datetime": "",
+        "source": "Adelaide Festival",
+        "link": "https://www.adelaidefestival.com.au/whats-on/season-2027/13-14"
+      },
+      "after": {
+        "title": "13 & 14",
+        "venue": "Her Majesty's Theatre",
+        "datetime": "2027-02-26T20:00:00",
+        "end_datetime": "2027-02-28T00:00:00",
+        "source": "Adelaide Festival",
+        "link": "https://www.adelaidefestival.com.au/whats-on/season-2027/13-14"
+      },
+      "reason": "restored verified existing end time"
+    },
+    {
+      "before": {
+        "title": "K.",
+        "venue": "Her Majesty's Theatre",
+        "datetime": "2027-03-04T19:00:00",
+        "end_datetime": "",
+        "source": "Adelaide Festival",
+        "link": "https://www.adelaidefestival.com.au/whats-on/season-2027/k"
+      },
+      "after": {
+        "title": "K.",
+        "venue": "Her Majesty's Theatre",
+        "datetime": "2027-03-04T19:00:00",
+        "end_datetime": "2027-03-07T00:00:00",
+        "source": "Adelaide Festival",
+        "link": "https://www.adelaidefestival.com.au/whats-on/season-2027/k"
+      },
+      "reason": "restored verified existing end time"
+    },
+    {
+      "before": {
+        "title": "DIPTYCH: The Missing Door and The Lost Room",
+        "venue": "Dunstan Playhouse",
+        "datetime": "2027-03-11T19:00:00",
+        "end_datetime": "",
+        "source": "Adelaide Festival",
+        "link": "https://www.adelaidefestival.com.au/whats-on/season-2027/diptych-the-missing-door-and-the-lost-room"
+      },
+      "after": {
+        "title": "DIPTYCH: The Missing Door and The Lost Room",
+        "venue": "Dunstan Playhouse",
+        "datetime": "2027-03-11T19:00:00",
+        "end_datetime": "2027-03-14T00:00:00",
+        "source": "Adelaide Festival",
+        "link": "https://www.adelaidefestival.com.au/whats-on/season-2027/diptych-the-missing-door-and-the-lost-room"
+      },
+      "reason": "restored verified existing end time"
+    },
+    {
+      "before": {
+        "title": "The Brotherhood: CADELA FORÇA TRILOGY Chapter II",
+        "venue": "Her Majesty's Theatre",
+        "datetime": "2027-03-13T14:00:00",
+        "end_datetime": "",
+        "source": "Adelaide Festival",
+        "link": "https://www.adelaidefestival.com.au/whats-on/season-2027/the-brotherhood"
+      },
+      "after": {
+        "title": "The Brotherhood: CADELA FORÇA TRILOGY Chapter II",
+        "venue": "Her Majesty's Theatre",
+        "datetime": "2027-03-13T14:00:00",
+        "end_datetime": "2027-03-14T00:00:00",
+        "source": "Adelaide Festival",
+        "link": "https://www.adelaidefestival.com.au/whats-on/season-2027/the-brotherhood"
+      },
+      "reason": "restored verified existing end time"
+    },
+    {
+      "before": {
+        "title": "Valentina",
+        "venue": "Dunstan Playhouse",
+        "datetime": "2027-02-25T19:30:00",
+        "end_datetime": "",
+        "source": "Adelaide Festival",
+        "link": "https://www.adelaidefestival.com.au/whats-on/season-2027/valentina"
+      },
+      "after": {
+        "title": "Valentina",
+        "venue": "Dunstan Playhouse",
+        "datetime": "2027-02-25T19:30:00",
+        "end_datetime": "2027-02-28T00:00:00",
+        "source": "Adelaide Festival",
+        "link": "https://www.adelaidefestival.com.au/whats-on/season-2027/valentina"
+      },
+      "reason": "restored verified existing end time"
+    },
+    {
+      "before": {
+        "title": "Taverna Miresia - Mario, Bella, Anastasia",
+        "venue": "Dunstan Playhouse",
+        "datetime": "2027-03-03T19:00:00",
+        "end_datetime": "",
+        "source": "Adelaide Festival",
+        "link": "https://www.adelaidefestival.com.au/whats-on/season-2027/taverna-miresia"
+      },
+      "after": {
+        "title": "Taverna Miresia - Mario, Bella, Anastasia",
+        "venue": "Dunstan Playhouse",
+        "datetime": "2027-03-03T19:00:00",
+        "end_datetime": "2027-03-06T00:00:00",
+        "source": "Adelaide Festival",
+        "link": "https://www.adelaidefestival.com.au/whats-on/season-2027/taverna-miresia"
+      },
+      "reason": "restored verified existing end time"
+    },
+    {
+      "before": {
+        "title": "Burnout Paradise",
+        "venue": "Space Theatre",
+        "datetime": "2027-03-07T18:00:00",
+        "end_datetime": "",
+        "source": "Adelaide Festival",
+        "link": "https://www.adelaidefestival.com.au/whats-on/season-2027/burnout-paradise"
+      },
+      "after": {
+        "title": "Burnout Paradise",
+        "venue": "Space Theatre",
+        "datetime": "2027-03-07T18:00:00",
+        "end_datetime": "2027-03-14T00:00:00",
+        "source": "Adelaide Festival",
+        "link": "https://www.adelaidefestival.com.au/whats-on/season-2027/burnout-paradise"
+      },
+      "reason": "restored verified existing end time"
+    },
+    {
+      "before": {
+        "title": "Galaxia",
+        "venue": "Space Theatre",
+        "datetime": "2027-02-24T19:00:00",
+        "end_datetime": "",
+        "source": "Adelaide Festival",
+        "link": "https://www.adelaidefestival.com.au/whats-on/season-2027/galaxia"
+      },
+      "after": {
+        "title": "Galaxia",
+        "venue": "Space Theatre",
+        "datetime": "2027-02-24T19:00:00",
+        "end_datetime": "2027-03-02T00:00:00",
+        "source": "Adelaide Festival",
+        "link": "https://www.adelaidefestival.com.au/whats-on/season-2027/galaxia"
+      },
+      "reason": "restored verified existing end time"
+    },
+    {
+      "before": {
+        "title": "Nils Hoffmann @ Divide / Everlight Album Tour",
+        "venue": "DIV-DE",
+        "datetime": "2026-10-30T21:00:00",
+        "end_datetime": "",
+        "source": "Ticketmaster Adelaide",
+        "link": "https://www.moshtix.com.au/v2/event/nils-hoffmann-divide-everlight-album-tour/199209"
+      },
+      "after": {
+        "title": "Nils Hoffmann @ Divide / Everlight Album Tour",
+        "venue": "DIV-DE",
+        "datetime": "2026-10-30T21:00:00",
+        "end_datetime": "2026-10-31T05:00:00",
+        "source": "Moshtix Adelaide CBD",
+        "link": "https://www.moshtix.com.au/v2/event/nils-hoffmann-divide-everlight-album-tour/199209"
+      },
+      "reason": "restored verified existing end time"
+    },
+    {
+      "before": {
+        "title": "When Chai Met Toast - Joy Rooms Tour - Australia 2026",
+        "venue": "The Ed Castle",
+        "datetime": "2026-10-31T19:00:00",
+        "end_datetime": "",
+        "source": "Ticketmaster Adelaide",
+        "link": "https://www.moshtix.com.au/v2/event/when-chai-met-toast-joy-rooms-tour-australia-2026/196110"
+      },
+      "after": {
+        "title": "When Chai Met Toast - Joy Rooms Tour - Australia 2026",
+        "venue": "The Ed Castle",
+        "datetime": "2026-10-31T19:00:00",
+        "end_datetime": "2026-10-31T23:00:00",
+        "source": "Moshtix Adelaide CBD",
+        "link": "https://www.moshtix.com.au/v2/event/when-chai-met-toast-joy-rooms-tour-australia-2026/196110"
+      },
+      "reason": "restored verified existing end time"
+    },
+    {
+      "before": {
+        "title": "PLAIN WHITE T'S TOUR 2026",
+        "source": "Ticketmaster Adelaide",
+        "end_datetime": ""
+      },
+      "after": {
+        "title": "PLAIN WHITE T'S TOUR 2026",
+        "source": "Moshtix Adelaide CBD",
+        "end_datetime": ""
+      },
+      "reason": "corrected Moshtix booking-link ownership"
+    },
+    {
+      "before": {
+        "title": "RU Pretty Enuff Australian Tour ‘26",
+        "source": "Ticketmaster Adelaide",
+        "end_datetime": ""
+      },
+      "after": {
+        "title": "RU Pretty Enuff Australian Tour ‘26",
+        "source": "Moshtix Adelaide CBD",
+        "end_datetime": ""
+      },
+      "reason": "corrected Moshtix booking-link ownership"
+    },
+    {
+      "before": {
+        "title": "Party Dozen - 21 Bum Salute Album Tour",
+        "venue": "The Ed Castle",
+        "datetime": "2026-11-05T19:30:00",
+        "end_datetime": "",
+        "source": "Ticketmaster Adelaide",
+        "link": "https://www.moshtix.com.au/v2/event/party-dozen-21-bum-salute-album-tour/200117"
+      },
+      "after": {
+        "title": "Party Dozen - 21 Bum Salute Album Tour",
+        "venue": "The Ed Castle",
+        "datetime": "2026-11-05T19:30:00",
+        "end_datetime": "2026-11-05T23:30:00",
+        "source": "Moshtix Adelaide CBD",
+        "link": "https://www.moshtix.com.au/v2/event/party-dozen-21-bum-salute-album-tour/200117"
+      },
+      "reason": "restored verified existing end time"
+    },
+    {
+      "before": {
+        "title": "MORTIIS + NYTT LAND + TiR - Southern Ritual",
+        "source": "Ticketmaster Adelaide",
+        "end_datetime": ""
+      },
+      "after": {
+        "title": "MORTIIS + NYTT LAND + TiR - Southern Ritual",
+        "source": "Moshtix Adelaide CBD",
+        "end_datetime": ""
+      },
+      "reason": "corrected Moshtix booking-link ownership"
+    },
+    {
+      "before": {
+        "title": "Start Making Sense (Talking Heads Tribute) (USA)",
+        "source": "Ticketmaster Adelaide",
+        "end_datetime": ""
+      },
+      "after": {
+        "title": "Start Making Sense (Talking Heads Tribute) (USA)",
+        "source": "Moshtix Adelaide CBD",
+        "end_datetime": ""
+      },
+      "reason": "corrected Moshtix booking-link ownership"
+    },
+    {
+      "before": {
+        "title": "Froth and Fury Fest 2027",
+        "source": "Ticketmaster Adelaide",
+        "end_datetime": ""
+      },
+      "after": {
+        "title": "Froth and Fury Fest 2027",
+        "source": "Moshtix Adelaide CBD",
+        "end_datetime": ""
+      },
+      "reason": "corrected Moshtix booking-link ownership"
+    },
+    {
+      "before": {
+        "title": "WILLIAM CRIGHTON & BEANS ON TOAST - Wild Folk'n Bush Psych tour",
+        "venue": "The Ed Castle",
+        "datetime": "2027-01-30T20:00:00",
+        "end_datetime": "",
+        "source": "Ticketmaster Adelaide",
+        "link": "https://www.moshtix.com.au/v2/event/william-crighton-beans-on-toast-wild-folk-n-bush-psych-tour/200622"
+      },
+      "after": {
+        "title": "WILLIAM CRIGHTON & BEANS ON TOAST - Wild Folk'n Bush Psych tour",
+        "venue": "The Ed Castle",
+        "datetime": "2027-01-30T20:00:00",
+        "end_datetime": "2027-01-30T23:30:00",
+        "source": "Moshtix Adelaide CBD",
+        "link": "https://www.moshtix.com.au/v2/event/william-crighton-beans-on-toast-wild-folkn-bush-psych-tour/200622"
+      },
+      "reason": "restored verified existing end time"
+    },
+    {
+      "before": {
+        "title": "Tom Harrington 'Australian Summer' Tour 27",
+        "venue": "The Ed Castle",
+        "datetime": "2027-02-12T19:00:00",
+        "end_datetime": "",
+        "source": "Ticketmaster Adelaide",
+        "link": "https://www.moshtix.com.au/v2/event/tom-harrington-australian-summer-tour-27/200450"
+      },
+      "after": {
+        "title": "Tom Harrington 'Australian Summer' Tour 27",
+        "venue": "The Ed Castle",
+        "datetime": "2027-02-12T19:00:00",
+        "end_datetime": "2027-02-12T23:30:00",
+        "source": "Moshtix Adelaide CBD",
+        "link": "https://www.moshtix.com.au/v2/event/tom-harrington-australian-summer-tour-27/200450"
+      },
+      "reason": "restored verified existing end time"
+    },
+    {
+      "before": {
+        "title": "Will Varley & Dave Hause - Australian Tour 2027",
+        "venue": "The Ed Castle",
+        "datetime": "2027-02-26T19:30:00",
+        "end_datetime": "",
+        "source": "Ticketmaster Adelaide",
+        "link": "https://www.moshtix.com.au/v2/event/will-varley-dave-hause-australian-tour-2027/201252"
+      },
+      "after": {
+        "title": "Will Varley & Dave Hause - Australian Tour 2027",
+        "venue": "The Ed Castle",
+        "datetime": "2027-02-26T19:30:00",
+        "end_datetime": "2027-02-26T23:30:00",
+        "source": "Moshtix Adelaide CBD",
+        "link": "https://www.moshtix.com.au/v2/event/will-varley-dave-hause-australian-tour-2027/201252"
+      },
+      "reason": "restored verified existing end time"
+    },
+    {
+      "before": {
+        "title": "A Day in the Gully",
+        "source": "Ticketmaster Adelaide",
+        "end_datetime": ""
+      },
+      "after": {
+        "title": "A Day in the Gully",
+        "source": "Moshtix Adelaide CBD",
+        "end_datetime": ""
+      },
+      "reason": "corrected Moshtix booking-link ownership"
+    },
+    {
+      "before": {
+        "title": "Slow Pilot (Belgium) - Performing the songs of Jeff Buckley",
+        "source": "Ticketmaster Adelaide",
+        "end_datetime": ""
+      },
+      "after": {
+        "title": "Slow Pilot (Belgium) - Performing the songs of Jeff Buckley",
+        "source": "Moshtix Adelaide CBD",
+        "end_datetime": ""
+      },
+      "reason": "corrected Moshtix booking-link ownership"
+    },
+    {
+      "before": {
+        "title": "PINTGLASS ‘Fly In F#ck Off’ Australian Tour 2027 with guests Body Prison",
+        "venue": "The Ed Castle",
+        "datetime": "2027-03-18T19:30:00",
+        "end_datetime": "",
+        "source": "Ticketmaster Adelaide",
+        "link": "https://www.moshtix.com.au/v2/event/pintglass-fly-in-f-ck-off-australian-tour-2027-with-guests-body-prison/201482"
+      },
+      "after": {
+        "title": "PINTGLASS ‘Fly In F#ck Off’ Australian Tour 2027 with guests Body Prison",
+        "venue": "The Ed Castle",
+        "datetime": "2027-03-18T19:30:00",
+        "end_datetime": "2027-03-18T23:30:00",
+        "source": "Moshtix Adelaide CBD",
+        "link": "https://www.moshtix.com.au/v2/event/pintglass-‘fly-in-fck-off’-australian-tour-2027-with-guests-body-prison/201482"
+      },
+      "reason": "restored verified existing end time"
+    },
+    {
+      "before": {
+        "title": "METAL ON MURRAY 10 - SATURDAY MARCH 20TH - THE PA HOTEL, GAWLER",
+        "source": "Ticketmaster Adelaide",
+        "end_datetime": ""
+      },
+      "after": {
+        "title": "METAL ON MURRAY 10 - SATURDAY MARCH 20TH - THE PA HOTEL, GAWLER",
+        "source": "Moshtix Adelaide CBD",
+        "end_datetime": ""
+      },
+      "reason": "corrected Moshtix booking-link ownership"
+    },
+    {
+      "before": {
+        "title": "CAM COLE",
+        "venue": "The Ed Castle",
+        "datetime": "2027-03-24T20:00:00",
+        "end_datetime": "",
+        "source": "Ticketmaster Adelaide",
+        "link": "https://www.moshtix.com.au/v2/event/cam-cole/199989"
+      },
+      "after": {
+        "title": "CAM COLE",
+        "venue": "The Ed Castle",
+        "datetime": "2027-03-24T20:00:00",
+        "end_datetime": "2027-03-24T23:30:00",
+        "source": "Moshtix Adelaide CBD",
+        "link": "https://www.moshtix.com.au/v2/event/cam-cole/199989"
+      },
+      "reason": "restored verified existing end time"
+    }
+  ],
+  "invalid_end_dates": []
+}

@@ -186,3 +186,45 @@ SOURCES.append({"name": "Fever Candlelight Adelaide", "url": "https://feverup.co
 
 # Official outdoor concert promoter — SA events only.
 SOURCES.append({"name": "A Day on the Green", "url": "https://www.adayonthegreen.com.au/"})
+
+# Official Adelaide Zoo event listings.
+SOURCES.append({"name": "Adelaide Zoo", "url": "https://www.adelaidezoo.com.au/events/"})
+
+# Official National Wine Centre event listings.
+SOURCES.append({"name": "National Wine Centre", "url": "https://www.nationalwinecentre.com.au/whats-on"})
+
+# Adelaide Fringe official program. Individual shows appear as published.
+SOURCES.append({"name": "Adelaide Fringe", "url": "https://adelaidefringe.com.au/fringetix/sessions"})
+
+# Official Adelaide Festival program (distinct from Adelaide Festival Centre).
+SOURCES.append({"name": "Adelaide Festival", "url": "https://www.adelaidefestival.com.au/whats-on"})
+
+# Illuminate Adelaide official program; only dated events are published.
+SOURCES.append({"name": "Illuminate Adelaide", "url": "https://www.illuminateadelaide.com/"})
+
+# Individual film screenings only; no inferred season-wide sessions.
+SOURCES.append({"name": "Moonlight Cinema Adelaide", "url": "https://adelaide.moonlight.com.au/program"})
+
+# Official Adelaide Gaol special events; exclude routine admission and tours.
+SOURCES.append({"name": "Adelaide Gaol", "url": "https://www.adelaidegaol.sa.gov.au/"})
+
+# Play & Go is an independent event guide, not an official venue authority.
+SOURCES.append({"name": "Play & Go Adelaide Major Events", "url": "https://playandgo.com.au/category/major-events/"})
+
+# AMOSA official news and event pages: dated public events only.
+SOURCES.append({"name": "Army Museum of South Australia", "url": "https://www.amosa.org.au/stories-and-events/what-s-happening"})
+
+# Migration Museum: only verified future scheduled events (including off-site).
+SOURCES.append({"name": "Migration Museum Adelaide", "url": "https://migration.history.sa.gov.au/what-is-on/"})
+
+# Maritime Museum: verified scheduled public events and dated special tours.
+SOURCES.append({"name": "South Australian Maritime Museum", "url": "https://maritime.history.sa.gov.au/what-is-on/"})
+
+# SAAM: public special-event announcements, not daily museum admission.
+SOURCES.append({"name": "South Australian Aviation Museum", "url": "https://saam.org.au/"})
+
+# NRM: confirmed special events only; ordinary museum visits are excluded.
+SOURCES.append({"name": "National Railway Museum", "url": "https://nrm.org.au/"})
+
+# SALA Festival official ArtFuel exhibition and event program.
+SOURCES.append({"name": "SALA Festival", "url": "https://www.salafestival.com/artfuel/program"})

@@ -7960,3 +7960,1789 @@ def parse_adelaide_showground(soup, source_url):
                        'image': image, 'url': url})
     print(f"    Showground: {len(events)} dated events verified")
     return events
+
+
+# ============================================================
+# ADELAIDE ZOO — official dated events
+# ============================================================
+def parse_adelaide_zoo(soup, source_url):
+    """Follow official event details; avoid ordinary admission and undated pages."""
+    from urllib.parse import urlparse
+    from datetime import date
+
+    session = requests.Session()
+    session.headers.update({"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/140 Safari/537.36"})
+    today = date.today().isoformat()
+    links = set()
+    for a in soup.select('a[href]'):
+        href = urljoin(source_url, a.get('href', ''))
+        parsed = urlparse(href)
+        if parsed.hostname not in ('www.adelaidezoo.com.au', 'adelaidezoo.com.au'):
+            continue
+        path = parsed.path.rstrip('/') + '/'
+        if path.startswith('/events/') and path != '/events/':
+            links.add(parsed._replace(query='', fragment='').geturl())
+
+    def event_nodes(data):
+        if isinstance(data, list):
+            for item in data:
+                yield from event_nodes(item)
+        elif isinstance(data, dict):
+            typ = data.get('@type', [])
+            types = typ if isinstance(typ, list) else [typ]
+            if any(str(t).lower().endswith('event') for t in types):
+                yield data
+            for field in ('@graph', 'mainEntity', 'itemListElement'):
+                if field in data:
+                    yield from event_nodes(data[field])
+
+    def iso(value):
+        if not isinstance(value, str):
+            return ''
+        match = re.match(r'^(20\d\d-\d\d-\d\d)(?:[T ](\d\d:\d\d)(?::(\d\d))?)?', value.strip())
+        return (match.group(1) + 'T' + (match.group(2) or '00:00') + ':' + (match.group(3) or '00')) if match else ''
+
+    events = []
+    seen = set()
+    failed = 0
+    for link in sorted(links):
+        try:
+            response = session.get(link, timeout=20)
+            response.raise_for_status()
+            page = BeautifulSoup(response.text, 'lxml')
+        except requests.RequestException:
+            failed += 1
+            continue
+        nodes = []
+        for script in page.find_all('script', type='application/ld+json'):
+            try:
+                nodes.extend(event_nodes(json.loads(script.string or script.get_text())))
+            except (ValueError, TypeError):
+                pass
+        for node in nodes:
+            title = str(node.get('name') or '').strip()
+            start = iso(node.get('startDate'))
+            end = iso(node.get('endDate'))
+            if not title or not start or (end or start)[:10] < today:
+                continue
+            image = node.get('image') or ''
+            if isinstance(image, list):
+                image = image[0] if image else ''
+            if isinstance(image, dict):
+                image = image.get('url') or image.get('contentUrl') or ''
+            if not image:
+                meta = page.find('meta', attrs={'property': 'og:image'})
+                image = meta.get('content', '') if meta else ''
+            if not isinstance(image, str):
+                image = ''
+            if any(x in image.lower() for x in ('favicon', 'logo.svg')):
+                image = ''
+            key = (title.casefold(), start)
+            if key in seen:
+                continue
+            seen.add(key)
+            categories = ['Family']
+            lower = title.casefold()
+            if any(x in lower for x in ('dinner', 'lunch', 'breakfast', 'high tea')):
+                categories.append('Food & Beverage')
+            if any(x in lower for x in ('tour', 'conservation', 'wildlife', 'keeper')):
+                categories.append('Arts & Culture')
+            events.append({'title': title, 'venue': 'Adelaide Zoo', 'date': start,
+                           'end_date': end, 'category': categories,
+                           'image': urljoin(link, image) if image else '',
+                           'url': urljoin(link, str(node.get('url') or link))})
+    print(f'    Adelaide Zoo: {len(links)} detail links, {len(events)} verified dated events, {failed} page errors')
+    return events
+
+
+# ============================================================
+# NATIONAL WINE CENTRE — official event listings
+# ============================================================
+def parse_national_wine_centre(soup, source_url):
+    """Follow official detail pages and verify their event dates."""
+    from urllib.parse import urlparse
+    from datetime import date
+
+    session = requests.Session()
+    session.headers.update({"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/140 Safari/537.36"})
+    links = set()
+    for a in soup.select('a[href]'):
+        url = urljoin(source_url, a.get('href', ''))
+        parts = urlparse(url)
+        if parts.hostname not in ('nationalwinecentre.com.au', 'www.nationalwinecentre.com.au'):
+            continue
+        if not parts.path.startswith('/whats-on/') or parts.path.rstrip('/') == '/whats-on':
+            continue
+        links.add(parts._replace(query='', fragment='').geturl())
+
+    today = date.today().isoformat()
+    events = []
+    errors = 0
+    for url in sorted(links):
+        try:
+            response = session.get(url, timeout=20)
+            response.raise_for_status()
+            page = BeautifulSoup(response.text, 'lxml')
+        except requests.RequestException as exc:
+            errors += 1
+            print(f'    NWC detail ERROR: {url}: {exc}')
+            continue
+        heading = page.find('h1')
+        if not heading:
+            continue
+        title = ' '.join(heading.stripped_strings).strip()
+        if not title:
+            continue
+        # Exclude fundraising articles that are not public events at this venue.
+        if 'ozharvest ceo cookoff' in title.casefold():
+            continue
+
+        # Webflow detail pages publish a standalone date near the heading.
+        # Use the page's dated heading rather than dates embedded in its body,
+        # which may refer to older editions or related events.
+        heading_parent = heading.parent
+        nearby = heading_parent.get_text(' ', strip=True) if heading_parent else ''
+        page_text = page.get_text(' ', strip=True)
+        date_match = re.search(
+            r'\b(January|February|March|April|May|June|July|August|September|October|November|December)'
+            r'\s+(\d{1,2}),?\s+(20\d{2})\b', nearby, re.I)
+        if not date_match:
+            # The page header date may be before the H1, so use the first
+            # dated occurrence in the document, never a guessed year.
+            date_match = re.search(
+                r'\b(January|February|March|April|May|June|July|August|September|October|November|December)'
+                r'\s+(\d{1,2}),?\s+(20\d{2})\b', page_text[:600], re.I)
+        start = parse_date_text(date_match.group(0)) if date_match else ''
+        if not start:
+            continue
+        end = ''
+        # Exhibitions often have a clearly stated date span (e.g. 2 Oct–15 Nov 2026).
+        if any(x in title.casefold() for x in ('artspace', 'exhibition')):
+            range_match = re.search(
+                r'\b(\d{1,2})\s+(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)'
+                r'\s*[–—-]\s*(\d{1,2})\s+'
+                r'(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)'
+                r'\s+(20\d{2})\b', page_text[:3000], re.I)
+            if range_match:
+                months = {'jan':1,'feb':2,'mar':3,'apr':4,'may':5,'jun':6,'jul':7,'aug':8,'sep':9,'sept':9,'oct':10,'nov':11,'dec':12}
+                try:
+                    from datetime import datetime as _dt
+                    a,b,c,d,y = range_match.groups()
+                    begin = _dt(int(y), months[b.lower()], int(a))
+                    finish = _dt(int(y), months[d.lower()], int(c))
+                    if finish >= begin:
+                        start = begin.isoformat()
+                        end = finish.replace(hour=23,minute=59,second=59).isoformat()
+                except ValueError:
+                    pass
+        if (end or start)[:10] < today:
+            continue
+        image = ''
+        meta = page.find('meta', attrs={'property':'og:image'})
+        if meta:
+            image = str(meta.get('content') or '').strip()
+        if not image:
+            for img in page.select('main img, article img, img'):
+                candidate = (img.get('data-src') or img.get('src') or '').strip()
+                if candidate and not candidate.startswith('data:'):
+                    image = candidate
+                    break
+        if any(x in image.casefold() for x in ('favicon', 'logo.svg', 'placeholder')):
+            image = ''
+        lower = title.casefold()
+        if any(x in lower for x in ('artspace', 'exhibition')):
+            category = ['Arts & Culture']
+        elif any(x in lower for x in ('tasting', 'wine', 'unwined', 'maker', 'bubbles', 'drop in')):
+            category = ['Food & Beverage']
+        else:
+            category = categorise_event(title)
+            if category == ['Other']:
+                category = ['Food & Beverage']
+        events.append({'title':title, 'venue':'National Wine Centre',
+                       'date':start, 'end_date':end, 'category':category,
+                       'image':urljoin(url,image) if image else '', 'url':url})
+    print(f'    National Wine Centre: {len(links)} detail links, {len(events)} verified dated events, {errors} page errors')
+    return events
+
+
+# ============================================================
+# ADELAIDE FRINGE — official show listings
+# ============================================================
+def parse_adelaide_fringe(soup, source_url):
+    """Only publish individually dated official Fringe shows, not generic ads.
+
+    The official program can be unpublished for part of the year; in that case
+    return zero events rather than guessing the season dates for every show.
+    """
+    from urllib.parse import urlparse
+    from datetime import date
+
+    session = requests.Session()
+    session.headers.update({"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/140 Safari/537.36"})
+    hostnames = {"adelaidefringe.com.au", "www.adelaidefringe.com.au"}
+    links = set()
+    for anchor in soup.select('a[href]'):
+        candidate = urljoin(source_url, anchor.get('href', ''))
+        parsed = urlparse(candidate)
+        path = parsed.path.lower()
+        if parsed.hostname not in hostnames:
+            continue
+        if not (path.startswith('/fringetix/') or path.startswith('/events/')):
+            continue
+        if path.rstrip('/') in ('/fringetix', '/events'):
+            continue
+        links.add(parsed._replace(query='', fragment='').geturl())
+
+    def iso_date(value):
+        if not isinstance(value, str):
+            return ''
+        match = re.search(r'\b(20\d{2}-\d{2}-\d{2})(?:[T ](\d{2}:\d{2})(?::\d{2})?)?', value)
+        if match:
+            try:
+                return datetime.fromisoformat(match.group(1) + 'T' + (match.group(2) or '00:00') + ':00').isoformat()
+            except ValueError:
+                return ''
+        return parse_date_text(value)
+
+    def objects(node):
+        if isinstance(node, list):
+            for item in node:
+                yield from objects(item)
+        elif isinstance(node, dict):
+            types = node.get('@type', [])
+            if isinstance(types, str):
+                types = [types]
+            if any(str(t).split('/')[-1].lower() in ('event', 'theaterevent', 'musicevent', 'comedyevent', 'festivalevent', 'danceevent', 'exhibitionevent') for t in types):
+                yield node
+            for key in ('@graph', 'itemListElement', 'item', 'events', 'subEvent'):
+                if key in node:
+                    yield from objects(node[key])
+
+    today = date.today().isoformat()
+    results, seen = [], set()
+    errors = 0
+    # Bound requests so this remains practical on a restricted hotel PC.
+    for detail_url in sorted(links)[:120]:
+        try:
+            response = session.get(detail_url, timeout=18)
+            response.raise_for_status()
+            page = BeautifulSoup(response.text, 'lxml')
+        except requests.RequestException as exc:
+            errors += 1
+            print(f'    Fringe detail ERROR: {detail_url}: {exc}')
+            continue
+        structured = []
+        for script in page.select('script[type="application/ld+json"]'):
+            try:
+                structured.extend(objects(json.loads(script.string or script.get_text())))
+            except (ValueError, TypeError):
+                continue
+        for item in structured:
+            title = str(item.get('name') or '').strip()
+            start = iso_date(item.get('startDate'))
+            end = iso_date(item.get('endDate'))
+            if not title or not start or (end or start)[:10] < today:
+                continue
+            location = item.get('location')
+            if isinstance(location, list):
+                location = next((v for v in location if isinstance(v, dict)), {})
+            venue = str(location.get('name') or '').strip() if isinstance(location, dict) else ''
+            if not venue:
+                # No guessed venue: show records without a confirmed venue
+                # are withheld until the official site publishes it.
+                continue
+            picture = item.get('image') or ''
+            if isinstance(picture, list):
+                picture = picture[0] if picture else ''
+            if isinstance(picture, dict):
+                picture = picture.get('url') or picture.get('contentUrl') or ''
+            image = urljoin(detail_url, picture) if isinstance(picture, str) and picture else ''
+            link = item.get('url') or detail_url
+            if not isinstance(link, str):
+                link = detail_url
+            key = (title.casefold(), venue.casefold(), start)
+            if key in seen:
+                continue
+            seen.add(key)
+            category = categorise_event(title, str(item.get('description') or '')[:300])
+            if category == ['Other']:
+                category = ['Festival']
+            elif 'Festival' not in category:
+                category.append('Festival')
+            results.append({'title': title, 'venue': venue, 'date': start,
+                            'end_date': end, 'category': category,
+                            'image': image, 'url': urljoin(detail_url, link)})
+    print(f'    Adelaide Fringe: {len(links)} show links, {len(results)} verified dated performances, {errors} page errors')
+    if len(links) > 120:
+        print(f'    Adelaide Fringe: first 120 detail links scanned; pagination needed for complete program')
+    return results
+
+
+# ============================================================
+# ADELAIDE FESTIVAL (NOT ADELAIDE FESTIVAL CENTRE)
+# ============================================================
+
+def parse_adelaide_festival(soup, source_url):
+    """Adelaide Festival official event pages: JSON-LD dates and listed sessions."""
+    from urllib.parse import urlparse
+    from datetime import date
+
+    session = requests.Session()
+    session.headers.update({"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/140.0 Safari/537.36"})
+    discovered = {}
+    for a in soup.select('a[href]'):
+        href = urljoin(source_url, a.get('href', ''))
+        parsed = urlparse(href)
+        if parsed.netloc.lower() not in ('www.adelaidefestival.com.au', 'adelaidefestival.com.au'):
+            continue
+        if not re.fullmatch(r'/whats-on/(?:season-20\d{2}|20\d{2}-writers-week)/[^/]+/?', parsed.path):
+            continue
+        href = parsed._replace(query='', fragment='').geturl().rstrip('/')
+        discovered.setdefault(href, ' '.join(a.stripped_strings).strip())
+
+    events, errors = [], 0
+    today = date.today()
+    for href, listing_title in discovered.items():
+        try:
+            response = session.get(href, timeout=25)
+            response.raise_for_status()
+            page = BeautifulSoup(response.text, 'lxml')
+        except requests.RequestException as exc:
+            errors += 1
+            print(f'    Adelaide Festival detail error: {href}: {exc}')
+            continue
+
+        year_match = re.search(r'/(?:season-(20\d{2})|(20\d{2})-writers-week)/', href)
+        year = int(next((g for g in year_match.groups() if g), '0')) if year_match else 0
+        if not year:
+            continue
+        structured = []
+        for script in page.select('script[type="application/ld+json"]'):
+            try:
+                data = json.loads(script.string or script.get_text())
+                items = data if isinstance(data, list) else [data]
+                for item in items:
+                    if isinstance(item, dict):
+                        structured.extend(item.get('@graph', [item]))
+            except (ValueError, TypeError):
+                pass
+        ld = next((x for x in structured if isinstance(x, dict) and 'Event' in str(x.get('@type', ''))), {})
+        title = str(ld.get('name') or listing_title).strip()
+        if not title:
+            heading = page.find('h1')
+            title = heading.get_text(' ', strip=True) if heading else ''
+        if not title:
+            continue
+
+        location = ld.get('location') or {}
+        venue = location.get('name', '') if isinstance(location, dict) else ''
+        if not venue:
+            # Extract the actual 'Where' field from the visible event details.
+            text = page.get_text(' ', strip=True)
+            match = re.search(r'\bWhere\s+(.{3,120}?)\s+(?:Access|Venue & access|Tickets)\b', text, re.I)
+            venue = match.group(1).strip() if match else ''
+        venue = venue or 'Adelaide Festival'
+
+        image = ld.get('image') or ''
+        if isinstance(image, dict):
+            image = image.get('url') or image.get('contentUrl') or ''
+        if isinstance(image, list):
+            image = image[0] if image else ''
+        if not image:
+            meta = page.find('meta', property='og:image')
+            image = meta.get('content', '') if meta else ''
+        image = urljoin(href, image) if isinstance(image, str) and image else ''
+
+        category = ['Festival']
+        text = page.get_text(' ', strip=True)
+        # Official genre appears directly before the show title on these pages.
+        prefix = text[max(0, text.find(title)-100):text.find(title)] if title in text else ''
+        genre = prefix.lower()
+        for key, label in [('theatre','Theatre'),('opera','Theatre'),('dance','Theatre'),
+                           ('music','Music'),('concert','Music'),('comedy','Comedy'),
+                           ('talk','Talks & Conferences'),('visual art','Arts & Culture'),
+                           ('film','Arts & Culture')]:
+            if re.search(r'\b' + re.escape(key) + r'\b', genre) and label not in category:
+                category.append(label)
+
+        start_raw = str(ld.get('startDate') or '')[:10]
+        end_raw = str(ld.get('endDate') or '')[:10]
+        try:
+            start = datetime.strptime(start_raw, '%Y-%m-%d')
+            end = datetime.strptime(end_raw or start_raw, '%Y-%m-%d')
+        except ValueError:
+            # Never guess dates from the festival-wide header.
+            continue
+        if end.date() < today or end < start:
+            continue
+
+        # Show pages list sessions in visible text, e.g. 'Wed 10 Mar 8pm'.
+        # Restrict extraction to the Times field, not the rest of the page.
+        section = re.search(r'\bTimes\s+(.{1,1400}?)\s+(?:Duration|Warnings|Show key info|United Kingdom|Australia)\b', text, re.I)
+        times_text = section.group(1) if section else ''
+        found = set()
+        month_numbers = {'jan':1,'feb':2,'mar':3,'apr':4,'may':5,'jun':6,'jul':7,'aug':8,'sep':9,'oct':10,'nov':11,'dec':12}
+        for match in re.finditer(r'\b(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun)(?:day)?\s+(\d{1,2})\s+(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\s+(\d{1,2}(?:[.:]\d{1,2})?\s*(?:am|pm))\b', times_text, re.I):
+            day, month = int(match.group(1)), month_numbers[match.group(2).lower()]
+            time_string = re.sub(r'\s+', '', match.group(3).lower()).replace('.', ':')
+            if ':' not in time_string:
+                time_string = re.sub(r'^(\d{1,2})(am|pm)$', r'\1:00\2', time_string)
+            try:
+                dt = datetime.strptime(f'{year}-{month:02d}-{day:02d} {time_string}', '%Y-%m-%d %I:%M%p')
+            except ValueError:
+                continue
+            if not (start.date() <= dt.date() <= end.date()) or dt.date() < today:
+                continue
+            if dt.isoformat() in found:
+                continue
+            found.add(dt.isoformat())
+            events.append({'title': title, 'venue': venue, 'date': dt.isoformat(),
+                           'category': category, 'image': image, 'url': href})
+
+        if not found:
+            # No verified individual sessions: one record for the official
+            # date span, not fabricated daily performances.
+            events.append({'title': title, 'venue': venue, 'date': start.isoformat(),
+                           'end_date': end.replace(hour=23, minute=59, second=59).isoformat() if end > start else '',
+                           'category': category, 'image': image, 'url': href})
+
+    print(f'    Adelaide Festival: {len(discovered)} show links, {len(events)} dated records, {errors} page errors')
+    return events
+
+
+# ============================================================
+# ILLUMINATE ADELAIDE (OFFICIAL DATED PROGRAM)
+# ============================================================
+
+def parse_illuminate_adelaide(soup, source_url):
+    """Read confirmed individual events, never infer dates from festival banners.
+
+    Program may be unavailable outside the annual announcement period.
+    Event pages and their JSON-LD take precedence over generic homepage text.
+    """
+    from urllib.parse import urlparse
+    from datetime import date
+
+    session = requests.Session()
+    session.headers.update({"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/140 Safari/537.36"})
+    allowed = {"illuminateadelaide.com", "www.illuminateadelaide.com"}
+    pages = [(source_url, soup)]
+    visited = {source_url.rstrip('/').lower()}
+    errors = 0
+    # Program entry points may vary between seasons; failed optional pages
+    # must not abort the entire source.
+    for suffix in ('/program', '/whats-on', '/events'):
+        url = 'https://www.illuminateadelaide.com' + suffix
+        try:
+            response = session.get(url, timeout=18)
+            if response.status_code == 200:
+                pages.append((response.url, BeautifulSoup(response.text, 'lxml')))
+                visited.add(response.url.rstrip('/').lower())
+        except requests.RequestException:
+            pass
+
+    def event_nodes(node):
+        if isinstance(node, list):
+            for value in node:
+                yield from event_nodes(value)
+        elif isinstance(node, dict):
+            kinds = node.get('@type') or []
+            if isinstance(kinds, str):
+                kinds = [kinds]
+            if any(str(kind).split('/')[-1].lower() in
+                   ('event', 'musicevent', 'theaterevent', 'exhibitionevent',
+                    'festivalevent', 'danceevent', 'visualartsevent') for kind in kinds):
+                yield node
+            for key in ('@graph', 'subEvent', 'itemListElement', 'item'):
+                if key in node:
+                    yield from event_nodes(node[key])
+
+    def confirmed_date(raw):
+        if not isinstance(raw, str):
+            return ''
+        match = re.match(r'^\s*(20\d{2}-\d{2}-\d{2})(?:[T ](\d{2}:\d{2})(?::(\d{2}))?)?', raw)
+        if not match:
+            return ''
+        try:
+            return datetime.fromisoformat(match.group(1) + 'T' + (match.group(2) or '00:00') + ':' + (match.group(3) or '00')).isoformat()
+        except ValueError:
+            return ''
+
+    links = set()
+    for page_url, page in pages:
+        for anchor in page.select('a[href]'):
+            url = urljoin(page_url, anchor.get('href', ''))
+            parsed = urlparse(url)
+            if (parsed.hostname or '').lower() not in allowed:
+                continue
+            path = parsed.path.lower().rstrip('/')
+            if not path or path in ('/program', '/events', '/whats-on', '/about', '/contact'):
+                continue
+            if any(segment in path for segment in ('/event/', '/events/', '/program/', '/whats-on/', '/experience/', '/experiences/')):
+                links.add(parsed._replace(query='', fragment='').geturl())
+    # Limit the workload on hotel computers and avoid crawling the whole site.
+    for url in sorted(links)[:150]:
+        if url.rstrip('/').lower() in visited:
+            continue
+        visited.add(url.rstrip('/').lower())
+        try:
+            response = session.get(url, timeout=18)
+            response.raise_for_status()
+            pages.append((response.url, BeautifulSoup(response.text, 'lxml')))
+        except requests.RequestException:
+            errors += 1
+
+    today = date.today().isoformat()
+    events, seen = [], set()
+    for page_url, page in pages:
+        for script in page.select('script[type="application/ld+json"]'):
+            try:
+                data = json.loads(script.string or script.get_text())
+            except (ValueError, TypeError):
+                continue
+            for event in event_nodes(data):
+                title = str(event.get('name') or '').strip()
+                start = confirmed_date(event.get('startDate'))
+                end = confirmed_date(event.get('endDate'))
+                if not title or not start or (end or start)[:10] < today:
+                    continue
+                if end and end < start:
+                    continue
+                location = event.get('location') or {}
+                if isinstance(location, list):
+                    location = next((x for x in location if isinstance(x, dict)), {})
+                venue = str(location.get('name') or '').strip() if isinstance(location, dict) else ''
+                venue = venue or 'Illuminate Adelaide'
+                image = event.get('image') or ''
+                if isinstance(image, list):
+                    image = image[0] if image else ''
+                if isinstance(image, dict):
+                    image = image.get('url') or image.get('contentUrl') or ''
+                if not image:
+                    meta = page.find('meta', property='og:image')
+                    image = meta.get('content', '') if meta else ''
+                image = urljoin(page_url, image) if isinstance(image, str) and image else ''
+                link = event.get('url') or page_url
+                link = urljoin(page_url, link) if isinstance(link, str) else page_url
+                key = (title.casefold(), venue.casefold(), start)
+                if key in seen:
+                    continue
+                seen.add(key)
+                categories = categorise_event(title, str(event.get('description') or '')[:250])
+                if 'Festival' not in categories:
+                    categories.append('Festival')
+                events.append({'title': title, 'venue': venue, 'date': start,
+                               'end_date': end if end and end[:10] > start[:10] else '',
+                               'category': categories, 'image': image, 'url': link})
+    print(f'    Illuminate Adelaide: {len(links)} detail links, {len(events)} verified dated events, {errors} page errors')
+    return events
+
+
+# ============================================================
+# BOTANIC GARDENS OF SOUTH AUSTRALIA - WHAT'S ON
+# ============================================================
+
+def parse_adelaide_botanic_gardens(soup, source_url):
+    """Read dated cards on the official What's On page, including all gardens.
+
+    Recurring listings are represented by their published date range, not
+    fabricated daily sessions. No dates are inferred from the current year.
+    """
+    from datetime import datetime
+    from urllib.parse import urlparse
+
+    months = {name.lower(): number for number, name in enumerate(
+        ('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug',
+         'Sep', 'Oct', 'Nov', 'Dec'), 1)}
+    date_pattern = re.compile(
+        r'\b(\d{1,2})\s+(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)'
+        r'\s+(20\d{2})\s*[-–—]\s*'
+        r'(\d{1,2})\s+(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)'
+        r'\s+(20\d{2})\b', re.I)
+    time_pattern = re.compile(r'\b([01]?\d|2[0-3]):([0-5]\d)\s*[-–]\s*'
+                              r'([01]?\d|2[0-3]):([0-5]\d)\b')
+    entries = []
+    seen = set()
+    host = urlparse(source_url).netloc.casefold()
+    for link in soup.select('a[href]'):
+        href = normalise_url(link.get('href'), source_url).split('#')[0]
+        parsed = urlparse(href)
+        if parsed.netloc.casefold() != host or '/whats-on/' not in parsed.path.lower():
+            continue
+        if parsed.path.rstrip('/').lower() == '/whats-on':
+            continue
+        title = ' '.join(link.stripped_strings).strip()
+        if not title or len(title) > 125 or title.lower() in ('discover more', 'learn more', 'book now'):
+            continue
+        # The smallest surrounding card with an explicit start/end date.
+        card = link
+        found = None
+        for _ in range(6):
+            card = card.parent
+            if card is None:
+                break
+            card_text = ' '.join(card.stripped_strings)
+            if len(card_text) > 1300:
+                break
+            match = date_pattern.search(card_text)
+            if match:
+                found = (card, card_text, match)
+                break
+        if not found:
+            continue
+        card, card_text, match = found
+        try:
+            start = datetime(int(match.group(3)), months[match.group(2).lower()],
+                             int(match.group(1)))
+            end = datetime(int(match.group(6)), months[match.group(5).lower()],
+                           int(match.group(4)))
+        except ValueError:
+            continue
+        if end < start:
+            continue
+        key = (title.casefold(), href.casefold(), start.date().isoformat())
+        if key in seen:
+            continue
+        seen.add(key)
+        # The listing marks the garden in a short label before the event title.
+        before = card_text.split(title, 1)[0].strip().lower()
+        if 'mount lofty' in before[-90:]:
+            venue = 'Mount Lofty Botanic Garden'
+        elif 'wittunga' in before[-90:]:
+            venue = 'Wittunga Botanic Garden'
+        elif 'botanic park' in title.lower():
+            venue = 'Botanic Park'
+        else:
+            venue = 'Adelaide Botanic Garden'
+        times = time_pattern.search(card_text)
+        start_time = f'{int(times.group(1)):02d}:{times.group(2)}:00' if times else '00:00:00'
+        end_time = f'{int(times.group(3)):02d}:{times.group(4)}:00' if times else '23:59:59'
+        image = get_image(card, source_url)
+        if not image:
+            img = card.find('img')
+            if img:
+                srcset = img.get('srcset') or img.get('data-srcset') or ''
+                if srcset:
+                    image = normalise_url(srcset.split(',')[0].strip().split(' ')[0], source_url)
+        categories = categorise_event(title)
+        lower = title.casefold()
+        if 'guided walk' in lower or 'garden tour' in lower:
+            categories = ['Arts & Culture']
+        elif 'photograph' in lower or 'exhibition' in lower:
+            categories = ['Arts & Culture']
+        elif 'moonlight cinema' in lower:
+            categories = ['Arts & Culture']
+        elif 'womadelaide' in lower:
+            categories = ['Festival', 'Music']
+        entries.append({
+            'title': title, 'venue': venue,
+            'date': start.strftime('%Y-%m-%dT') + start_time,
+            'end_date': end.strftime('%Y-%m-%dT') + end_time if end > start else '',
+            'category': categories, 'image': image, 'url': href
+        })
+    print(f'    Adelaide Botanic Gardens: {len(entries)} verified dated listings')
+    return entries
+
+
+# ============================================================
+# MOONLIGHT CINEMA ADELAIDE
+# ============================================================
+
+def parse_moonlight_cinema_adelaide(soup, source_url):
+    """Read only confirmed Adelaide film sessions from the official program.
+
+    The empty/off-season program deliberately returns no invented screenings.
+    Film titles mentioned in editorial content are NOT sessions.
+    """
+    from urllib.parse import urlparse
+    events = []
+    seen = set()
+    rejected = 0
+
+    def add(title, start, url, image=""):
+        nonlocal rejected
+        title = " ".join(str(title or "").split())
+        start = str(start or "").strip()
+        if not title or not re.match(r"^20\d{2}-\d{2}-\d{2}(?:T|$)", start):
+            rejected += 1
+            return
+        try:
+            date = datetime.fromisoformat(start.replace("Z", "+00:00"))
+        except ValueError:
+            rejected += 1
+            return
+        if date.date() < datetime.now().date():
+            return
+        # Only dates explicitly associated with a film screening qualify.
+        when = date.strftime("%Y-%m-%dT%H:%M:%S")
+        key = (title.casefold(), when)
+        if key in seen:
+            return
+        seen.add(key)
+        events.append({
+            "title": title,
+            "venue": "Botanic Park",
+            "date": when,
+            "end_date": "",
+            "category": ["Arts & Culture"],
+            "image": normalise_url(image, source_url) if image else "",
+            "url": normalise_url(url, source_url) if url else source_url,
+        })
+
+    def walk(node):
+        if isinstance(node, list):
+            for item in node:
+                walk(item)
+        elif isinstance(node, dict):
+            kind = node.get("@type", "")
+            kinds = kind if isinstance(kind, list) else [kind]
+            if any(k in ("ScreeningEvent", "Event") for k in kinds):
+                loc = node.get("location", "")
+                loc_text = json.dumps(loc).lower() if loc else ""
+                # Reject unrelated cities in embedded global cinema data.
+                if loc_text and any(x in loc_text for x in ("sydney", "melbourne", "brisbane", "perth")) and "adelaide" not in loc_text:
+                    return
+                img = node.get("image") or ""
+                if isinstance(img, list):
+                    img = img[0] if img else ""
+                if isinstance(img, dict):
+                    img = img.get("url", "")
+                title = node.get("name", "")
+                movie = node.get("workPresented")
+                if isinstance(movie, dict):
+                    title = movie.get("name") or title
+                add(title, node.get("startDate"), node.get("url") or source_url, img)
+            for k, v in node.items():
+                if k in ("@graph", "itemListElement"):
+                    walk(v)
+
+    for tag in soup.find_all("script", type="application/ld+json"):
+        try:
+            walk(json.loads(tag.string or tag.get_text()))
+        except (ValueError, TypeError):
+            continue
+
+    # If the official site supplies semantic film cards with explicit dates,
+    # accept them; avoid broad page-text date searches and editorial articles.
+    for card in soup.select('[itemtype*="ScreeningEvent"], [data-screening-date], [data-session-date]'):
+        raw_date = card.get("data-screening-date") or card.get("data-session-date")
+        if not raw_date:
+            dated = card.select_one('[itemprop="startDate"]')
+            raw_date = (dated.get("content") or dated.get("datetime") or "") if dated else ""
+        title_el = card.select_one('[itemprop="name"], h2, h3')
+        title = title_el.get_text(" ", strip=True) if title_el else ""
+        link = card.find("a", href=True)
+        img = card.find("img")
+        add(title, raw_date, link.get("href") if link else source_url, img.get("src") if img else "")
+
+    print(f"    Moonlight Cinema Adelaide: {len(events)} verified film screenings, {rejected} undated/invalid candidates")
+    return events
+
+
+# ============================================================
+# ADELAIDE GAOL — VERIFIED SPECIAL EVENTS ONLY
+# ============================================================
+
+def parse_adelaide_gaol(soup, source_url):
+    """Collect dated official special events, not everyday visitor admission."""
+    from urllib.parse import urlparse
+    from datetime import date
+
+    base = "https://www.adelaidegaol.sa.gov.au"
+    session = requests.Session()
+    session.headers.update({"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/140.0 Safari/537.36"})
+    # These are verified official event pages. Other same-site links with
+    # event-oriented slugs can be discovered automatically in future.
+    known = [
+        "/visiting-the-gaol/halloween-wail-at-the-gaol",
+        "/visiting-the-gaol/history-day-at-adelaide-gaol",
+        "/visiting-the-gaol/school-holidays",
+    ]
+    urls = {urljoin(base, path) for path in known}
+    for a in soup.find_all("a", href=True):
+        href = urljoin(source_url, a["href"]).split("#", 1)[0].split("?", 1)[0]
+        parsed = urlparse(href)
+        if parsed.hostname not in ("adelaidegaol.sa.gov.au", "www.adelaidegaol.sa.gov.au"):
+            continue
+        slug = parsed.path.lower()
+        if any(term in slug for term in ("halloween", "history-day", "school-holiday", "special-event", "whats-on", "what-s-on")):
+            urls.add(href)
+
+    results = []
+    seen = set()
+    failures = 0
+    undated = 0
+    today = date.today().isoformat()
+    for url in sorted(urls):
+        try:
+            response = session.get(url, timeout=25)
+            response.raise_for_status()
+            page = BeautifulSoup(response.text, "lxml")
+        except requests.RequestException:
+            failures += 1
+            continue
+        heading = page.find("h1")
+        title = heading.get_text(" ", strip=True) if heading else ""
+        if not title or title.casefold() in ("adelaide gaol", "visiting the gaol"):
+            undated += 1
+            continue
+        # Date must be explicitly associated with the event page. Never
+        # infer a year from a day/month or from an unrelated footer.
+        body = page.find("main") or page.find("article") or page
+        text = body.get_text(" ", strip=True)
+        start = end = ""
+        # Recognise labelled dates and clearly printed ranges.
+        match = re.search(
+            r"\b(?:When|Date|Dates)\s*:\s*(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)?\s*"
+            r"(\d{1,2})(?:st|nd|rd|th)?\s+"
+            r"(January|February|March|April|May|June|July|August|September|October|November|December)"
+            r"\s+(20\d{2})", text, re.I)
+        if match:
+            start = parse_date_text(f"{match.group(1)} {match.group(2)} {match.group(3)}")
+        if not start:
+            match = re.search(
+                r"\b(?:Dates|When|Date)\s*:\s*(\d{1,2})(?:st|nd|rd|th)?\s*"
+                r"(January|February|March|April|May|June|July|August|September|October|November|December)"
+                r"\s*(?:to|until|–|—|-)\s*(\d{1,2})(?:st|nd|rd|th)?\s*"
+                r"(January|February|March|April|May|June|July|August|September|October|November|December)"
+                r"\s+(20\d{2})", text, re.I)
+            if match:
+                start = parse_date_text(f"{match.group(1)} {match.group(2)} {match.group(5)}")
+                end = parse_date_text(f"{match.group(3)} {match.group(4)} {match.group(5)}")
+        if not start:
+            # Explicitly dated schema.org Event data only.
+            for tag in page.find_all("script", type="application/ld+json"):
+                try:
+                    data = json.loads(tag.string or tag.get_text())
+                except (ValueError, TypeError):
+                    continue
+                queue = [data]
+                while queue:
+                    node = queue.pop()
+                    if isinstance(node, list):
+                        queue.extend(node)
+                    elif isinstance(node, dict):
+                        typ = node.get("@type", "")
+                        if "Event" in (typ if isinstance(typ, list) else [typ]):
+                            raw = str(node.get("startDate") or "")
+                            if re.match(r"^20\d{2}-\d{2}-\d{2}", raw):
+                                start = raw[:10] + "T00:00:00"
+                                raw_end = str(node.get("endDate") or "")
+                                if re.match(r"^20\d{2}-\d{2}-\d{2}", raw_end):
+                                    end = raw_end[:10] + "T23:59:59"
+                        for key in ("@graph", "event", "events"):
+                            if key in node:
+                                queue.append(node[key])
+        if not start or (end or start)[:10] < today:
+            undated += 1
+            continue
+        key = (title.casefold(), start[:10])
+        if key in seen:
+            continue
+        seen.add(key)
+        img = page.find("meta", attrs={"property": "og:image"})
+        image = urljoin(url, img.get("content", "")) if img and img.get("content") else ""
+        lower = title.casefold()
+        category = ["Family"] if "halloween" in lower or "school holiday" in lower else ["Arts & Culture"]
+        results.append({"title": title, "venue": "Adelaide Gaol", "date": start,
+                        "end_date": end, "category": category, "image": image, "url": url})
+    print(f"    Adelaide Gaol: {len(urls)} special-event pages checked, "
+          f"{len(results)} verified future events, {undated} past/undated, {failures} page errors")
+    return results
+
+
+# ============================================================
+# PLAY & GO ADELAIDE — MAJOR EVENTS (EDITORIAL DISCOVERY)
+# ============================================================
+
+def parse_play_and_go_major_events(soup, source_url):
+    """Read dated event headlines; never confuse article publication with event dates."""
+    from urllib.parse import urlparse
+    from datetime import date
+
+    today = date.today()
+    seen = set()
+    events = []
+    candidates = 0
+    undated = 0
+    past = 0
+
+    month_pattern = (r"Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|"
+                     r"Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:t(?:ember)?)?|"
+                     r"Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?")
+    month_lookup = {
+        "jan": 1, "feb": 2, "mar": 3, "apr": 4, "may": 5, "jun": 6,
+        "jul": 7, "aug": 8, "sep": 9, "oct": 10, "nov": 11, "dec": 12,
+    }
+
+    def month_number(value):
+        return month_lookup[value.lower()[:3]]
+
+    def date_from_parts(day, month, year):
+        try:
+            return date(int(year), month_number(month), int(day))
+        except (TypeError, ValueError, KeyError):
+            return None
+
+    def headline_dates(text):
+        """Require an explicit year and a day/month; reject month-only dates."""
+        text = re.sub(r"\s+", " ", text.replace("\xa0", " ")).strip()
+        # 25 Sep 2026 – 31 Jan 2027 (each end has a year)
+        dual = re.search(
+            rf"\b(\d{{1,2}})\s+({month_pattern})\s+(20\d{{2}})\s*[–—-]\s*"
+            rf"(\d{{1,2}})\s+({month_pattern})\s+(20\d{{2}})\b", text, re.I)
+        if dual:
+            return (date_from_parts(*dual.group(1, 2, 3)),
+                    date_from_parts(*dual.group(4, 5, 6)))
+        # 9 Oct – 1 Nov 2026 (different months, one explicit year)
+        cross = re.search(
+            rf"\b(\d{{1,2}})\s+({month_pattern})\s*[–—-]\s*"
+            rf"(\d{{1,2}})\s+({month_pattern})\s+(20\d{{2}})\b", text, re.I)
+        if cross:
+            year = int(cross.group(5))
+            end = date_from_parts(cross.group(3), cross.group(4), year)
+            start_year = year - 1 if end and month_number(cross.group(2)) > end.month else year
+            return date_from_parts(cross.group(1), cross.group(2), start_year), end
+        # 8-11 Apr 2027 / 8 & 11 Apr 2027
+        same = re.search(
+            rf"\b(\d{{1,2}})\s*(?:[–—-]|&)\s*(\d{{1,2}})\s+"
+            rf"({month_pattern})\s+(20\d{{2}})\b", text, re.I)
+        if same:
+            return (date_from_parts(same.group(1), same.group(3), same.group(4)),
+                    date_from_parts(same.group(2), same.group(3), same.group(4)))
+        # Single date: 14 Nov 2026
+        single = re.search(rf"\b(\d{{1,2}})\s+({month_pattern})\s+(20\d{{2}})\b", text, re.I)
+        if single:
+            return date_from_parts(*single.groups()), None
+        return None, None
+
+    # WordPress archive cards typically use entry-title headings. Only scan
+    # article headings, never the page footer/sidebar or article publication dates.
+    article_nodes = soup.select("article")
+    if not article_nodes:
+        article_nodes = soup.select(".post, .type-post, .blog-post")
+    if not article_nodes:
+        article_nodes = [soup]
+
+    for article in article_nodes:
+        for heading in article.select("h2, h3"):
+            link = heading.find("a", href=True)
+            if link is None:
+                continue
+            title = " ".join(link.stripped_strings).strip()
+            url = normalise_url(link.get("href"), source_url).split("#", 1)[0].split("?", 1)[0]
+            host = (urlparse(url).hostname or "").lower()
+            if host not in ("playandgo.com.au", "www.playandgo.com.au"):
+                continue
+            if not title or len(title) < 12 or url in seen:
+                continue
+            seen.add(url)
+            candidates += 1
+            if re.search(r"\b(cancelled|canceled|postponed)\b", title, re.I):
+                continue
+            start, end = headline_dates(title)
+            if start is None or (end and end < start):
+                undated += 1
+                continue
+            if (end or start) < today:
+                past += 1
+                continue
+
+            parts = [x.strip() for x in title.split("|") if x.strip()]
+            event_title = parts[0] if parts else title
+            # Do not include an entire article headline or the date in the
+            # event title; use an explicit location segment when supplied.
+            venue = "Adelaide"
+            for part in parts[1:]:
+                if re.search(r"\b20\d{2}\b|\b(?:" + month_pattern + r")\b", part, re.I):
+                    continue
+                if re.search(r"^(?:family friendly|family guide|festival of footy|shows?|events?)$", part, re.I):
+                    continue
+                if len(part) <= 65:
+                    venue = part
+                    break
+            if re.search(r"\b(botanic park|tainmuntilla)\b", title, re.I):
+                venue = "Botanic Park"
+            elif re.search(r"\badelaide oval\b", title, re.I):
+                venue = "Adelaide Oval"
+            elif re.search(r"\belder park\b", title, re.I):
+                venue = "Elder Park"
+            elif re.search(r"\badelaide botanic garden\b", title, re.I):
+                venue = "Adelaide Botanic Garden"
+            elif re.search(r"\badelaide showground\b", title, re.I):
+                venue = "Adelaide Showground"
+            elif re.search(r"\bmemorial drive\b", title, re.I):
+                venue = "The Drive"
+            elif re.search(r"\bvictoria square\b", title, re.I):
+                venue = "Victoria Square / Tarntanyangga"
+
+            image = get_image(article, source_url)
+            if image and any(x in image.lower() for x in ("logo", "favicon", "placeholder")):
+                image = ""
+            categories = categorise_event(event_title)
+            if "Sport" in categories and "Arts & Culture" in categories:
+                categories.remove("Arts & Culture")
+            if re.search(r"\bfringe guide\b", event_title, re.I):
+                # Editorial guides are not an individual event.
+                continue
+            events.append({
+                "title": event_title, "venue": venue,
+                "date": start.isoformat() + "T00:00:00",
+                "end_date": end.isoformat() + "T23:59:59" if end and end > start else "",
+                "category": categories, "image": image, "url": url,
+            })
+
+    print(f"    Play & Go Major Events: {candidates} article headings, "
+          f"{len(events)} future dated events, {past} past, "
+          f"{undated} undated/ambiguous")
+    return events
+
+
+# ============================================================
+# ARMY MUSEUM OF SOUTH AUSTRALIA — OFFICIAL PUBLIC EVENTS
+# ============================================================
+
+def parse_army_museum_south_australia(soup, source_url):
+    """Inspect official event/news pages, accepting only explicitly dated public events.
+
+    Museum opening hours, permanent displays, historical anniversaries and
+    undated news posts are not calendar events.
+    """
+    from datetime import date
+    from urllib.parse import urlparse
+
+    session = requests.Session()
+    session.headers.update({"User-Agent": "Mozilla/5.0 (compatible; AdelaideEvents/1.0)"})
+    base = "https://www.amosa.org.au"
+    listings = [soup]
+    for path in ("/stories-and-events/events",):
+        try:
+            response = session.get(base + path, timeout=18)
+            if response.ok:
+                listings.append(BeautifulSoup(response.text, "lxml"))
+        except requests.RequestException as exc:
+            print(f"    AMOSA secondary listing unavailable: {exc}")
+
+    links = set()
+    for listing in listings:
+        for a in listing.select("a[href]"):
+            url = urljoin(base, a.get("href", "")).split("#")[0].split("?")[0]
+            parsed = urlparse(url)
+            if parsed.hostname not in ("amosa.org.au", "www.amosa.org.au"):
+                continue
+            path = parsed.path.rstrip("/")
+            if (path.startswith("/stories-and-events/events/") or
+                    path.startswith("/stories-and-events/what-s-happening/")):
+                links.add(url)
+    events, undated, failures = [], 0, 0
+    today = date.today().isoformat()
+    for url in sorted(links)[:60]:
+        try:
+            response = session.get(url, timeout=18)
+            response.raise_for_status()
+            page = BeautifulSoup(response.text, "lxml")
+        except requests.RequestException:
+            failures += 1
+            continue
+        main = page.select_one("main") or page.select_one("article") or page
+        heading = main.find("h1") or page.find("h1")
+        title = heading.get_text(" ", strip=True) if heading else ""
+        if not title:
+            undated += 1
+            continue
+        # Only structured event dates or a clearly labelled event date qualify.
+        start, end = "", ""
+        for item in parse_json_ld(page, url):
+            if item.get("date"):
+                start = str(item["date"])
+                end = str(item.get("end_date") or "")
+                break
+        if not start:
+            for element in main.find_all(["time", "p", "li", "div"], limit=150):
+                text = element.get_text(" ", strip=True)
+                if len(text) > 180 or not text:
+                    continue
+                if not re.search(r"\b(?:event date|when|date|held on|takes place on)\s*[:–-]", text, re.I):
+                    continue
+                candidate = parse_date_text(text)
+                if candidate:
+                    start = candidate
+                    break
+        if not start or start[:10] < today or re.search(r"\b(cancelled|canceled|postponed)\b", title, re.I):
+            undated += 1
+            continue
+        image_meta = page.find("meta", attrs={"property": "og:image"})
+        image = urljoin(url, image_meta.get("content", "")) if image_meta else ""
+        events.append({"title": title, "venue": "Army Museum of South Australia",
+                       "date": start, "end_date": end, "category": ["Arts & Culture"],
+                       "image": image, "url": url})
+    print(f"    AMOSA: {len(links)} article pages found, {len(events)} verified future events, "
+          f"{undated} past/undated, {failures} page errors")
+    return events
+
+
+# ============================================================
+# MIGRATION MUSEUM ADELAIDE
+# ============================================================
+
+def parse_migration_museum_adelaide(soup, source_url):
+    """Discover event detail pages; accept only explicitly dated future events.
+
+    Never infer a year from a month/day, and never use article publication dates.
+    The museum has been closed for conservation works since July 2026, so
+    recurring admission, tours and permanent exhibitions must not be listed.
+    """
+    from urllib.parse import urlparse
+    from datetime import date
+
+    if soup is None:
+        print("    Migration Museum: landing page unavailable")
+        return []
+
+    session = requests.Session()
+    session.headers.update({"User-Agent": "Mozilla/5.0 (compatible; AdelaideEvents/1.0)"})
+    origin = "https://migration.history.sa.gov.au"
+    listing_urls = [origin + "/whats-on/events/", origin + "/events/"]
+    pages = [soup]
+    failures = 0
+    for listing_url in listing_urls:
+        try:
+            response = session.get(listing_url, timeout=25)
+            response.raise_for_status()
+            pages.append(BeautifulSoup(response.text, "html.parser"))
+        except requests.RequestException as exc:
+            failures += 1
+            print(f"    Migration Museum listing unavailable: {listing_url} ({exc})")
+
+    # Collect only detail pages on the museum's own site. Avoid historical
+    # archives, permanent exhibition pages, and external booking links.
+    candidates = {}
+    for page in pages:
+        for a in page.find_all("a", href=True):
+            url = normalise_url(a.get("href"), origin).split("#")[0].split("?")[0]
+            parsed = urlparse(url)
+            if parsed.netloc.lower() != "migration.history.sa.gov.au":
+                continue
+            match = re.fullmatch(r"/events/([^/]+)/?", parsed.path, re.I)
+            if not match:
+                continue
+            slug = match.group(1).lower()
+            if slug in {"tour", "guided-weekend-tours", "in-this-place", "impact", "immigration-in-the-20th-century"}:
+                continue
+            candidates[url.rstrip("/") + "/"] = True
+
+    events = []
+    past_or_undated = 0
+    detail_errors = 0
+    today = date.today()
+    for url in list(candidates)[:90]:
+        try:
+            response = session.get(url, timeout=25)
+            response.raise_for_status()
+            detail = BeautifulSoup(response.text, "html.parser")
+        except requests.RequestException:
+            detail_errors += 1
+            continue
+        heading = detail.find("h1")
+        title = " ".join(heading.stripped_strings) if heading else ""
+        if not title or re.search(r"^(?:self.guided|free guided|permanent exhibition|guided museum group tour)", title, re.I):
+            past_or_undated += 1
+            continue
+        # Museum event pages display their actual event period in the Gallery
+        # section, before Where. Restrict date extraction to that block, not
+        # page footer, related items, or publication metadata.
+        main = detail.find("main") or detail
+        text = main.get_text(" ", strip=True)
+        gallery = re.search(r"\bGallery\b(.{0,900}?)(?:\bWhere\b|\b82 Kintore Avenue\b|$)", text, re.I)
+        event_text = gallery.group(1) if gallery else ""
+        if not event_text:
+            # Some event templates label the date directly as Date(s).
+            direct = re.search(r"\bDates?\s*:\s*(.{0,140})", text, re.I)
+            event_text = direct.group(1) if direct else ""
+        # An explicit year is mandatory. A month/day without a year must
+        # never be moved into the future merely because today has passed.
+        dates = []
+        date_re = re.compile(
+            r"\b(?:[0-3]?\d\s+(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:t(?:ember)?)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\s+20\d{2}|"
+            r"(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:t(?:ember)?)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\s+[0-3]?\d,?\s+20\d{2}|20\d{2}-\d{2}-\d{2})\b", re.I)
+        for match in date_re.finditer(event_text):
+            dt = parse_date_text(match.group(0))
+            if dt:
+                dates.append(dt)
+        # In "01 April - 28 June 2026" the first day has no year; the
+        # only verified date is the end. Do not invent a start date.
+        if not dates or dates[-1][:10] < today.isoformat():
+            past_or_undated += 1
+            continue
+        start = dates[0]
+        end = dates[-1] if len(dates) > 1 and dates[-1] > start else ""
+        # Explicit cancellation always wins over date metadata.
+        if re.search(r"^\s*(?:cancelled|canceled|postponed)\b", title, re.I):
+            past_or_undated += 1
+            continue
+        venue = "Migration Museum"
+        where = re.search(r"\bWhere\b(.{0,200}?)(?:\b82 Kintore Avenue\b|\bGallery\b|$)", text, re.I)
+        if where:
+            location = " ".join(where.group(1).split())
+            if location and len(location) < 110 and not re.search(r"migration museum|kintore", location, re.I):
+                venue = location
+        image = ""
+        meta = detail.find("meta", attrs={"property": "og:image"})
+        if meta:
+            image = normalise_url(meta.get("content", ""), url)
+            if any(token in image.lower() for token in ("logo", "favicon", "placeholder")):
+                image = ""
+        events.append({"title": title, "venue": venue, "date": start,
+                       "end_date": end, "category": categorise_event(title),
+                       "image": image, "url": url})
+    print(f"    Migration Museum: {len(candidates)} detail pages found, "
+          f"{len(events)} verified future events, {past_or_undated} past/undated, "
+          f"{failures + detail_errors} page errors")
+    return events
+
+
+# ============================================================
+# SOUTH AUSTRALIAN MARITIME MUSEUM
+# ============================================================
+
+def parse_south_australian_maritime_museum(soup, source_url):
+    """Read only explicitly scheduled, future Maritime Museum special tours.
+
+    The site puts the year in the event range (31 October - 28 November 2026)
+    but individual sessions in text (31 Oct, 14 & 28 Nov 11:00am).
+    Do not treat the overall date range as daily bookable sessions.
+    """
+    from datetime import date
+    from urllib.parse import urlparse
+
+    origin = "https://maritime.history.sa.gov.au"
+    session = requests.Session()
+    session.headers.update({"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/140.0.0.0 Safari/537.36"})
+    pages = [(source_url, soup)]
+    errors = 0
+    # Both paths are published by the museum. Avoid /events/ (404).
+    for path in ("/whats-on/events/", "/whats-on/tours/"):
+        url = origin + path
+        try:
+            response = session.get(url, timeout=25)
+            response.raise_for_status()
+            pages.append((url, BeautifulSoup(response.text, "html.parser")))
+        except requests.RequestException as exc:
+            errors += 1
+            print(f"    Maritime Museum listing unavailable: {url}: {exc}")
+
+    candidates = set()
+    for page_url, page in pages:
+        for anchor in page.select("a[href]"):
+            link = normalise_url(anchor.get("href", ""), page_url).split("#")[0].split("?")[0]
+            parsed = urlparse(link)
+            if parsed.netloc.lower() != "maritime.history.sa.gov.au":
+                continue
+            if re.fullmatch(r"/events/[^/]+/?", parsed.path, re.I):
+                candidates.add(link.rstrip("/") + "/")
+
+    month_number = {"jan":1,"feb":2,"mar":3,"apr":4,"may":5,"jun":6,
+                    "jul":7,"aug":8,"sep":9,"sept":9,"oct":10,"nov":11,"dec":12}
+    month_re = r"Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:t(?:ember)?)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?"
+    today = date.today()
+    events = []
+    excluded = 0
+    for url in sorted(candidates)[:100]:
+        try:
+            response = session.get(url, timeout=25)
+            response.raise_for_status()
+            detail = BeautifulSoup(response.text, "html.parser")
+        except requests.RequestException as exc:
+            errors += 1
+            print(f"    Maritime Museum detail unavailable: {url}: {exc}")
+            continue
+        main = detail.find("main") or detail.find("article") or detail
+        heading = main.find("h1") or detail.find("h1")
+        title = heading.get_text(" ", strip=True) if heading else ""
+        if not title or re.search(r"free guided museum tours|museums in the port.*special offer|general admission|permanent exhibition|self.guided", title, re.I):
+            excluded += 1
+            continue
+        if re.search(r"\b(cancelled|canceled|postponed)\b", title, re.I):
+            excluded += 1
+            continue
+        # Use a year that appears in this event's explicit date range.
+        content = main.get_text(" ", strip=True)
+        range_match = re.search(r"(?:Event\s+)?(\d{1,2})\s+(" + month_re + r")\s*[-–—]\s*(\d{1,2})\s+(" + month_re + r")\s+(20\d{2})", content, re.I)
+        if not range_match:
+            excluded += 1
+            continue
+        start_day, start_month, end_day, end_month, year = range_match.groups()
+        year = int(year)
+        if year < today.year or year > today.year + 2:
+            excluded += 1
+            continue
+        # Sessions are explicitly introduced as available tour dates.
+        label_match = re.search(r"(?:SATURDAY\s+)?TOUR\s+DATES\s+AVAILABLE\s*:\s*(.{0,140})", content, re.I)
+        if not label_match:
+            excluded += 1
+            continue
+        snippet = label_match.group(1)
+        # Stop after the advertised time; do not consume unrelated page dates.
+        time_match = re.search(r"\b(\d{1,2})(?::(\d{2}))?\s*(am|pm)\b", snippet, re.I)
+        if not time_match:
+            excluded += 1
+            continue
+        dates_text = snippet[:time_match.start()].strip()
+        hour = int(time_match.group(1)) % 12 + (12 if time_match.group(3).lower() == "pm" else 0)
+        minute = int(time_match.group(2) or 0)
+        # Example: 31 Oct, 14 & 28 Nov. A trailing month applies to the
+        # preceding unlabelled day(s), but an earlier explicit month is retained.
+        tokens = list(re.finditer(r"\b(\d{1,2})\s*(" + month_re + r")?\b", dates_text, re.I))
+        month_for = [None] * len(tokens)
+        next_month = None
+        for i in range(len(tokens)-1, -1, -1):
+            label = tokens[i].group(2)
+            if label:
+                next_month = month_number[label[:3].lower()]
+            month_for[i] = next_month
+        found = set()
+        for i, token in enumerate(tokens):
+            month = month_for[i]
+            if not month:
+                continue
+            try:
+                dt = datetime(year, month, int(token.group(1)), hour, minute)
+            except ValueError:
+                continue
+            # Explicit sessions must fall within the event's published range.
+            try:
+                range_start = date(year, month_number[start_month[:3].lower()], int(start_day))
+                range_end = date(year, month_number[end_month[:3].lower()], int(end_day))
+            except ValueError:
+                continue
+            if not (today <= dt.date() and range_start <= dt.date() <= range_end):
+                continue
+            found.add(dt.isoformat())
+        if not found:
+            excluded += 1
+            continue
+        meta = detail.find("meta", attrs={"property": "og:image"})
+        image = normalise_url(meta.get("content", ""), url) if meta else ""
+        if any(x in image.lower() for x in ("logo", "favicon", "placeholder")):
+            image = ""
+        for dt in sorted(found):
+            events.append({"title": title, "venue": "South Australian Maritime Museum",
+                           "date": dt, "end_date": "", "category": ["Arts & Culture"],
+                           "image": image, "url": url})
+    print(f"    Maritime Museum: {len(candidates)} detail pages found, "
+          f"{len(events)} verified future sessions, {excluded} past/undated, {errors} page errors")
+    return events
+
+
+# ============================================================
+# SOUTH AUSTRALIAN AVIATION MUSEUM (SAAM)
+# ============================================================
+
+def parse_south_australian_aviation_museum(soup, source_url):
+    """Special public events from official SAAM announcements only.
+
+    Dates must be explicitly stated in event content; article publication
+    dates, routine admission and vague annual mentions are not events.
+    """
+    from datetime import date
+    from urllib.parse import urlparse
+
+    session = requests.Session()
+    session.headers.update({"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/140.0 Safari/537.36"})
+    pages = [(source_url, soup)]
+    errors = 0
+    for path in ("category/engine-run-and-open-cockpit-days/", "category/news/"):
+        url = urljoin(source_url, path)
+        try:
+            response = session.get(url, timeout=25)
+            response.raise_for_status()
+            pages.append((url, BeautifulSoup(response.text, "html.parser")))
+        except Exception as exc:
+            errors += 1
+            print(f"    SAAM listing unavailable: {url} ({exc})")
+
+    candidates = set()
+    for page_url, page in pages:
+        for anchor in page.select("a[href]"):
+            href = normalise_url(anchor.get("href"), page_url).split("#")[0].split("?")[0]
+            parsed = urlparse(href)
+            if parsed.hostname not in ("saam.org.au", "www.saam.org.au"):
+                continue
+            path = parsed.path.strip("/")
+            if not path or "/" in path:
+                continue
+            if path in {"engines", "aircraft", "visit-saam", "book-an-event", "contact-saam"}:
+                continue
+            # Limit detail requests to event-specific announcement titles.
+            label = " ".join(anchor.stripped_strings).lower()
+            signal = (path + " " + label).lower()
+            if any(word in signal for word in ("engine-run", "open-cockpit", "revving-up", "open-day", "airshow", "special-event")):
+                candidates.add(href.rstrip("/") + "/")
+
+    month = (r"Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|"
+             r"Jul(?:y)?|Aug(?:ust)?|Sep(?:t(?:ember)?)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?")
+    future = []
+    undated = 0
+    seen = set()
+    for url in sorted(candidates)[:35]:
+        try:
+            response = session.get(url, timeout=25)
+            response.raise_for_status()
+            detail = BeautifulSoup(response.text, "html.parser")
+        except Exception as exc:
+            errors += 1
+            print(f"    SAAM detail unavailable: {url} ({exc})")
+            continue
+        article = detail.select_one("article") or detail.select_one(".entry-content") or detail.select_one("main")
+        if article is None:
+            undated += 1
+            continue
+        title_el = article.select_one("h1.entry-title") or detail.select_one("h1")
+        title = " ".join(title_el.stripped_strings) if title_el else ""
+        # Exclude WordPress byline/date metadata so publication dates cannot
+        # be mistaken for the scheduled event date.
+        for node in article.select(".post-meta, .entry-meta, .published, time.published, .post-date, .author, .byline"):
+            node.decompose()
+        body = article.select_one(".entry-content") or article
+        text = " ".join(body.stripped_strings)
+        if not title or not text:
+            undated += 1
+            continue
+        # Accept only full dated announcements, never guess missing years.
+        found = set()
+        for match in re.finditer(r"\b(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)?\s*,?\s*"
+                                 r"(\d{1,2})(?:st|nd|rd|th)?\s+(" + month + r")\s*,?\s*(20\d{2})\b", text, re.I):
+            try:
+                dt = datetime(int(match.group(3)), MONTHS.get(match.group(2).lower(), 0) or
+                              {"jan":1,"feb":2,"mar":3,"apr":4,"may":5,"jun":6,"jul":7,"aug":8,"sep":9,"sept":9,"oct":10,"nov":11,"dec":12}[match.group(2)[:3].lower()], int(match.group(1)))
+                if dt.date() >= date.today():
+                    found.add(dt.strftime("%Y-%m-%dT00:00:00"))
+            except (ValueError, KeyError):
+                pass
+        for match in re.finditer(r"\b(" + month + r")\s+(\d{1,2})(?:st|nd|rd|th)?\s*,?\s*(20\d{2})\b", text, re.I):
+            try:
+                dt = datetime(int(match.group(3)), {"jan":1,"feb":2,"mar":3,"apr":4,"may":5,"jun":6,"jul":7,"aug":8,"sep":9,"oct":10,"nov":11,"dec":12}[match.group(1)[:3].lower()], int(match.group(2)))
+                if dt.date() >= date.today():
+                    found.add(dt.strftime("%Y-%m-%dT00:00:00"))
+            except (ValueError, KeyError):
+                pass
+        # Avoid unrelated dates in long-form stories: require event context.
+        if not re.search(r"engine\s*run|open\s*cockpit|open\s*day|airshow|special\s*event", title + " " + text[:500], re.I):
+            found.clear()
+        meta = detail.find("meta", attrs={"property":"og:image"})
+        image = normalise_url(meta.get("content", ""), url) if meta else ""
+        if any(word in image.lower() for word in ("logo", "favicon", "placeholder")):
+            image = ""
+        for dt in sorted(found):
+            key = (title.casefold(), dt)
+            if key in seen:
+                continue
+            seen.add(key)
+            future.append({"title": title, "venue": "South Australian Aviation Museum",
+                           "date": dt, "end_date": "", "category": ["Arts & Culture", "Family"],
+                           "image": image, "url": url})
+        if not found:
+            undated += 1
+    print(f"    SAAM: {len(candidates)} announcement pages found, {len(future)} verified future events, "
+          f"{undated} past/undated, {errors} page errors")
+    return future
+
+
+# ============================================================
+# NATIONAL RAILWAY MUSEUM (PORT ADELAIDE)
+# ============================================================
+
+def parse_national_railway_museum(soup, source_url):
+    """Only official, explicitly dated special events; never infer an annual recurrence."""
+    from datetime import date
+    from urllib.parse import urlparse
+
+    session = requests.Session()
+    session.headers.update({"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/140.0 Safari/537.36"})
+    month_pattern = (r"January|February|March|April|May|June|July|August|"
+                     r"September|October|November|December|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec")
+    month_numbers = {name[:3].lower(): number for number, name in enumerate(
+        ["January", "February", "March", "April", "May", "June", "July", "August",
+         "September", "October", "November", "December"], 1)}
+    today = date.today()
+    urls = set()  # Discover current announcements instead of relying on a fixed-year URL.
+    # Home page advertises latest articles. Only follow articles on the museum domain.
+    for anchor in soup.select("a[href]"):
+        href = normalise_url(anchor.get("href"), source_url).split("#")[0].split("?")[0]
+        parsed = urlparse(href)
+        if parsed.hostname not in ("nrm.org.au", "www.nrm.org.au"):
+            continue
+        slug = parsed.path.strip("/").lower()
+        if not slug or len(slug.split("/")) != 1:
+            continue
+        if re.search(r"event|expo|fair|experience|birthday|heritage|doors|festival|railway-show", slug):
+            urls.add(href.rstrip("/") + "/")
+    events, seen, undated, errors = [], set(), 0, 0
+    if not urls:
+        print("    NRM: no current event announcements linked from homepage")
+
+    def add(title, when, link, image="", end=None):
+        try:
+            start = datetime(when.year, when.month, when.day)
+            finish = datetime(end.year, end.month, end.day, 23, 59, 59) if end else None
+        except ValueError:
+            return
+        if (finish.date() if finish else start.date()) < today:
+            return
+        key = (title.casefold(), start.date().isoformat())
+        if key in seen:
+            return
+        seen.add(key)
+        events.append({"title": title, "venue": "National Railway Museum",
+                       "date": start.isoformat(),
+                       "end_date": finish.isoformat() if finish and finish.date() > start.date() else "",
+                       "category": ["Arts & Culture", "Family"],
+                       "image": image, "url": link})
+
+    for url in sorted(urls):
+        try:
+            response = session.get(url, timeout=25)
+            response.raise_for_status()
+            page = BeautifulSoup(response.text, "lxml")
+        except requests.RequestException as exc:
+            errors += 1
+            print(f"    NRM page unavailable: {url} -> {exc}")
+            continue
+        article = page.select_one("article .entry-content, article .post-content, .et_pb_post .entry-content, .entry-content")
+        if not article:
+            undated += 1
+            continue
+        title_node = page.select_one("h1.entry-title, h1")
+        title = " ".join(title_node.stripped_strings) if title_node else ""
+        if not title:
+            undated += 1
+            continue
+        # Ignore website metadata and related-post dates. Only inspect the article body.
+        for node in article.select("script, style, .post-meta, .entry-meta, .published, .author, .et_pb_post"):
+            node.decompose()
+        body = " ".join(article.stripped_strings)
+        meta = page.find("meta", attrs={"property": "og:image"})
+        image = normalise_url(meta.get("content", ""), url) if meta else ""
+        if any(bad in image.lower() for bad in ("logo", "favicon", "placeholder")):
+            image = ""
+        if re.search(r"events? for 20\d{2}|event program 20\d{2}", title, re.I):
+            # The annual overview includes several named events with dates.
+            # Split on the paragraph boundaries to avoid mixing dates and titles.
+            paragraphs = [" ".join(p.stripped_strings) for p in article.find_all(["p", "li"])]
+            labels = [("BUB's Birthday Party", r"bub.?s birthday"),
+                      ("Behind Closed Doors / Drivers Experience", r"behind closed doors"),
+                      ("Family Fun Fair", r"family fun fair"),
+                      ("Webb's Engines Centenary", r"centenary of webb|webb.?s engines"),
+                      ("Drivers Experience Weekend", r"drivers experience weekend"),
+                      ("Heritage Transport Expo", r"heritage transport expo")]
+            # Annual prose can have multiple events in a single paragraph; only
+            # use the date near each named event, never the article publication date.
+            for paragraph in paragraphs:
+                for label, pattern in labels:
+                    hit = re.search(pattern, paragraph, re.I)
+                    if not hit:
+                        continue
+                    year_match = re.search(r"\b(20\d{2})\b", title)
+                    if not year_match:
+                        continue
+                    year = int(year_match.group(1))
+                    before = paragraph[max(0, hit.start()-105):hit.start()]
+                    after = paragraph[hit.end():hit.end()+100]
+                    dates_text = before if re.search(month_pattern, before, re.I) else after
+                    m = re.search(r"\b(\d{1,2})(?:st|nd|rd|th)?\s*(?:and|&|to|[-–])?\s*(\d{1,2})?\s*(?:of\s+)?("+month_pattern+r")\b", dates_text, re.I)
+                    if not m:
+                        continue
+                    try:
+                        month = month_numbers[m.group(3)[:3].lower()]
+                        day1, day2 = int(m.group(1)), int(m.group(2)) if m.group(2) else None
+                        # A weekend's first date precedes the second date.
+                        start_day = min(day1, day2) if day2 else day1
+                        end_day = max(day1, day2) if day2 else None
+                        start = date(year, month, start_day)
+                        end = date(year, month, end_day) if end_day else None
+                        add(label, start, url, image, end)
+                    except ValueError:
+                        pass
+            continue
+        # Individual event announcements: require a full explicit year and an
+        # event-related title; exclude AGM, memberships and visitor information.
+        if re.search(r"annual general meeting|membership|donat|opening hours|visit|ticket prices", title, re.I):
+            continue
+        if not re.search(r"expo|fair|birthday|experience|heritage|closed doors|festival|event|show|centenary", title, re.I):
+            continue
+        dates = []
+        for match in re.finditer(r"\b(\d{1,2})(?:st|nd|rd|th)?\s+("+month_pattern+r")\s*,?\s*(20\d{2})\b", body, re.I):
+            try:
+                dates.append(date(int(match.group(3)), month_numbers[match.group(2)[:3].lower()], int(match.group(1))))
+            except ValueError:
+                pass
+        for match in re.finditer(r"\b("+month_pattern+r")\s+(\d{1,2})(?:st|nd|rd|th)?\s*,?\s*(20\d{2})\b", body, re.I):
+            try:
+                dates.append(date(int(match.group(3)), month_numbers[match.group(1)[:3].lower()], int(match.group(2))))
+            except ValueError:
+                pass
+        # Also accept compact day/day month year and day/month year used on NRM pages.
+        for match in re.finditer(r"\b(\d{1,2})\s*[/&–-]\s*(\d{1,2})\s+("+month_pattern+r")\s+(20\d{2})\b", body, re.I):
+            try:
+                month = month_numbers[match.group(3)[:3].lower()]
+                d1, d2 = int(match.group(1)), int(match.group(2))
+                start, end = date(int(match.group(4)), month, min(d1,d2)), date(int(match.group(4)), month, max(d1,d2))
+                add(title, start, url, image, end)
+            except ValueError:
+                pass
+        for match in re.finditer(r"\b(\d{1,2})/(\d{1,2})/(20\d{2})\b", body):
+            try:
+                dates.append(date(int(match.group(3)), int(match.group(2)), int(match.group(1))))
+            except ValueError:
+                pass
+        # Restrict to dates near the first event description, not unrelated
+        # historical dates mentioned later in the article.
+        for day in sorted(set(dates)):
+            if day >= today:
+                add(title, day, url, image)
+        if not any(e["url"] == url for e in events):
+            undated += 1
+    print(f"    NRM: {len(urls)} pages checked, {len(events)} verified future events, "
+          f"{undated} past/undated, {errors} page errors")
+    return events
+
+
+# ============================================================
+# SALA FESTIVAL — official ArtFuel program
+# ============================================================
+
+def parse_sala_festival(soup, source_url):
+    """Discover official exhibition records; never infer missing years/dates."""
+    from datetime import date
+    from urllib.parse import urlparse
+    from collections import deque
+
+    base = "https://www.salafestival.com"
+    today = date.today()
+    session = requests.Session()
+    session.headers.update({"User-Agent": "Mozilla/5.0 (compatible; AdelaideEvents/1.0)"})
+    candidates = set()
+    visited = set()
+    errors = 0
+    pages_checked = 0
+    year_hint = None
+
+    def collect_links(page, current_url):
+        for a in page.select("a[href]"):
+            href = urljoin(current_url, a.get("href", "")).split("#")[0]
+            parsed = urlparse(href)
+            if parsed.netloc.lower() not in ("salafestival.com", "www.salafestival.com"):
+                continue
+            if re.search(r"/artfuel/program/view/\d+", parsed.path, re.I):
+                candidates.add(href.split("?")[0])
+
+    def get_page(url):
+        nonlocal errors, pages_checked
+        try:
+            response = session.get(url, timeout=25)
+            response.raise_for_status()
+            pages_checked += 1
+            return BeautifulSoup(response.text, "lxml")
+        except requests.RequestException as exc:
+            errors += 1
+            print(f"    SALA page unavailable: {url} -> {exc}")
+            return None
+
+    collect_links(soup, source_url)
+    # ArtFuel has separate A-Z / index views. Try the links published by the
+    # site, not a guessed URL or a hardcoded annual program page.
+    index_urls = []
+    for a in soup.select("a[href]"):
+        href = urljoin(source_url, a.get("href", ""))
+        parsed = urlparse(href)
+        if parsed.netloc.lower() not in ("www.salafestival.com", "salafestival.com"):
+            continue
+        if parsed.path.startswith("/artfuel/program") and not re.search(r"/view/", parsed.path):
+            if href.rstrip("/") != source_url.rstrip("/") and href not in index_urls:
+                index_urls.append(href)
+    for index_url in index_urls[:6]:
+        page = get_page(index_url)
+        if page:
+            collect_links(page, index_url)
+    # The ArtFuel catalogue can load listings with JavaScript, leaving no
+    # links in requests' HTML. Report that limitation explicitly.
+    if not candidates:
+        print(f"    SALA: 0 exhibition links discovered in static HTML "
+              f"({pages_checked} index pages fetched); ArtFuel may require JavaScript/API")
+        return []
+
+    events = []
+    skipped = 0
+    for url in sorted(candidates)[:300]:
+        page = get_page(url)
+        if page is None:
+            continue
+        heading = page.find("h1")
+        title = heading.get_text(" ", strip=True) if heading else ""
+        if not title:
+            skipped += 1
+            continue
+        # The program explicitly states its edition year, e.g. August 2026.
+        page_text = page.get_text(" ", strip=True)
+        header_text = page.get_text(" ", strip=True)[:350]
+        year_match = re.search(r"(?:August|SALA Festival|SALA)\s*[, ]+\s*(20\d{2})", header_text, re.I)
+        if not year_match:
+            skipped += 1
+            continue
+        year = int(year_match.group(1))
+        # Read the exhibition range (e.g. '7 Aug - 13 Sep', '1-31 Aug').
+        # Do not confuse it with optional opening-night or workshop dates.
+        month_pattern = r"Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:t(?:ember)?)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?"
+        month_ids = {"jan":1,"feb":2,"mar":3,"apr":4,"may":5,"jun":6,"jul":7,"aug":8,"sep":9,"oct":10,"nov":11,"dec":12}
+        patterns = [
+            rf"\b(\d{{1,2}})\s+({month_pattern})\s*[-–—]\s*(\d{{1,2}})\s+({month_pattern})\b",
+            rf"\b(\d{{1,2}})\s*[-–—]\s*(\d{{1,2}})\s+({month_pattern})\b",
+        ]
+        start = end = None
+        for i, pattern in enumerate(patterns):
+            m = re.search(pattern, page_text, re.I)
+            if not m:
+                continue
+            try:
+                if i == 0:
+                    d1, mo1, d2, mo2 = int(m[1]), month_ids[m[2][:3].lower()], int(m[3]), month_ids[m[4][:3].lower()]
+                else:
+                    d1, d2 = int(m[1]), int(m[2]); mo1 = mo2 = month_ids[m[3][:3].lower()]
+                start = date(year, mo1, d1)
+                end = date(year + (mo2 < mo1), mo2, d2)
+            except ValueError:
+                start = end = None
+            break
+        if not start or not end or end < today:
+            skipped += 1
+            continue
+        # Venue is displayed after the exhibition description. Prefer a
+        # venue-specific link label/nearby block rather than claiming SALA HQ.
+        venue = ""
+        for a in page.find_all("a"):
+            if "venue website" in a.get_text(" ", strip=True).lower():
+                parent = a.parent
+                if parent:
+                    lines = [x.strip() for x in parent.stripped_strings if x.strip()]
+                    lines = [x for x in lines if "venue website" not in x.lower() and not re.match(r"^\d", x)]
+                    if lines:
+                        venue = lines[0]
+                break
+        if not venue:
+            # Without a trustworthy venue, don't fabricate one.
+            skipped += 1
+            continue
+        image = ""
+        for img in page.select("img[src]"):
+            candidate = urljoin(url, img.get("src", ""))
+            if not any(x in candidate.lower() for x in ("logo", "icon", "placeholder")):
+                image = candidate
+                break
+        events.append({"title": title, "venue": venue,
+                       "date": start.isoformat() + "T00:00:00",
+                       "end_date": end.isoformat() + "T23:59:59",
+                       "category": ["Arts & Culture", "Festival"],
+                       "image": image, "url": url})
+    print(f"    SALA: {len(candidates)} listing links, {pages_checked} pages checked, "
+          f"{len(events)} current/future exhibitions, {skipped} expired/incomplete, {errors} errors")
+    return events

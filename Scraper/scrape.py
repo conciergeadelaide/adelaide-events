@@ -23,6 +23,7 @@ try:
         parse_json_ld,
         parse_a_day_on_the_green,
         parse_adelaide_showground,
+        parse_adelaide_zoo,
         parse_ace_gallery,
         parse_fever_candlelight,
         parse_adelaide_central_market,
@@ -74,6 +75,20 @@ try:
         parse_the_district_skycity,
         parse_allevents_victoria_square,
         parse_allevents_adelaide_and_surrounds,
+        parse_national_wine_centre,
+        parse_adelaide_fringe,
+        parse_adelaide_festival,
+        parse_illuminate_adelaide,
+        parse_adelaide_botanic_gardens,
+        parse_moonlight_cinema_adelaide,
+        parse_adelaide_gaol,
+        parse_play_and_go_major_events,
+        parse_army_museum_south_australia,
+        parse_migration_museum_adelaide,
+        parse_south_australian_maritime_museum,
+        parse_south_australian_aviation_museum,
+        parse_national_railway_museum,
+        parse_sala_festival,
     )
 except ModuleNotFoundError:
     # Works when importing:
@@ -83,6 +98,7 @@ except ModuleNotFoundError:
         parse_json_ld,
         parse_a_day_on_the_green,
         parse_adelaide_showground,
+        parse_adelaide_zoo,
         parse_ace_gallery,
         parse_fever_candlelight,
         parse_adelaide_central_market,
@@ -134,6 +150,20 @@ except ModuleNotFoundError:
         parse_the_district_skycity,
         parse_allevents_victoria_square,
         parse_allevents_adelaide_and_surrounds,
+        parse_national_wine_centre,
+        parse_adelaide_fringe,
+        parse_adelaide_festival,
+        parse_illuminate_adelaide,
+        parse_adelaide_botanic_gardens,
+        parse_moonlight_cinema_adelaide,
+        parse_adelaide_gaol,
+        parse_play_and_go_major_events,
+        parse_army_museum_south_australia,
+        parse_migration_museum_adelaide,
+        parse_south_australian_maritime_museum,
+        parse_south_australian_aviation_museum,
+        parse_national_railway_museum,
+        parse_sala_festival,
     )
 
 
@@ -327,6 +357,8 @@ VENUE_ALIASES = {
     "adel ent cent - theatre": "Adelaide Entertainment Centre",
     "lucky dumpling market, elder park": "Elder Park",
     "ellis park - tampawardli - city west": "Ellis Park",
+    "the ed castle hotel": "The Ed Castle",
+    "149 hindley": "DIV-DE",
 }
 
 # Specific cancelled event IDs, not a blanket title-based ban. This avoids
@@ -344,6 +376,234 @@ def standardise_venue(event):
         event["venue"] = canonical
         return True
     return False
+
+
+
+def consolidate_verified_cross_source_duplicates(events):
+    """Only merge high-confidence cross-source copies of one performance.
+
+    Same title, verified venue, date AND explicit start time are required.
+    Unknown/midnight start times are not sufficient to merge performances.
+    Preserve richer ticketing data and log both sides of every removal.
+    """
+    from collections import defaultdict
+    from urllib.parse import urlparse
+
+    def normalised(value):
+        value = str(value or "").casefold().replace("&", " and ")
+        return " ".join(re.sub(r"[^a-z0-9]+", " ", value).split())
+
+    def time_value(event):
+        match = re.search(r"T(\d{2}:\d{2})", str(event.get("datetime") or ""))
+        if not match or match.group(1) == "00:00":
+            return None
+        return match.group(1)
+
+    def reliable_end(event):
+        start = str(event.get("datetime") or "")
+        end = str(event.get("end_datetime") or "")
+        try:
+            start_dt = datetime.fromisoformat(start)
+            end_dt = datetime.fromisoformat(end)
+            return bool(end_dt > start_dt and (end_dt - start_dt).days <= 366)
+        except (ValueError, TypeError):
+            return False
+
+    def quality(event):
+        source = str(event.get("source") or "")
+        link = str(event.get("link") or event.get("url") or "")
+        host = (urlparse(link).hostname or "").lower()
+        # A source label is not proof of ownership. A Ticketmaster-labelled
+        # Moshtix URL should not beat a richer original Moshtix record.
+        source_owns_link = (
+            ("moshtix" in source.lower() and "moshtix.com.au" in host)
+            or ("ticketmaster" in source.lower() and "ticketmaster.com.au" in host)
+        )
+        official = not any(x in source.lower() for x in (
+            "ticketmaster", "moshtix", "humanitix", "allevents",
+            "play & go", "experience adelaide", "tourism commission"))
+        return (int(reliable_end(event)), int(bool(event.get("image"))),
+                int(official), int(source_owns_link), int(bool(link)))
+
+    groups = defaultdict(list)
+    for index, event in enumerate(events):
+        key = (normalised(event.get("title")),
+               normalised(event.get("venue")),
+               str(event.get("datetime") or "")[:10])
+        groups[key].append((index, event))
+
+    retained = []
+    audit = []
+    for group in groups.values():
+        chosen = []
+        for index, event in sorted(group, key=lambda pair: quality(pair[1]), reverse=True):
+            start = time_value(event)
+            duplicate_of = None
+            for _, previous in chosen:
+                if previous.get("source") == event.get("source"):
+                    continue
+                # An unknown start time may represent a different session.
+                if not start or not time_value(previous) or start != time_value(previous):
+                    continue
+                duplicate_of = previous
+                break
+            if duplicate_of is None:
+                chosen.append((index, event))
+            else:
+                audit.append({
+                    "removed": {k: event.get(k, "") for k in
+                                ("title", "venue", "datetime", "end_datetime", "source", "link")},
+                    "kept": {k: duplicate_of.get(k, "") for k in
+                             ("title", "venue", "datetime", "end_datetime", "source", "link")},
+                    "reason": "same title, venue, date and confirmed start time",
+                })
+        retained.extend(chosen)
+    retained.sort(key=lambda pair: pair[0])
+    return [event for _, event in retained], audit
+
+
+def restore_richer_existing_event_details(events, existing_events):
+    """Repair information lost when an earlier exact-key merge chose a sparse copy.
+
+    Match only same date plus same ticket URL or same title and canonical venue.
+    Keep the original event record if it is strictly richer, rather than
+    fabricating end times. Never borrow an end time from a different session.
+    """
+    from collections import defaultdict
+    from urllib.parse import urlparse
+
+    def clean(value):
+        return " ".join(re.sub(r"[^a-z0-9]+", " ",
+                               str(value or "").casefold()).split())
+
+    def canonical_venue(value):
+        raw = str(value or "").strip()
+        return clean(VENUE_ALIASES.get(raw.casefold(), raw))
+
+    def url_key(event):
+        raw = str(event.get("link") or event.get("url") or "").strip()
+        parsed = urlparse(raw)
+        return ((parsed.hostname or "").lower().removeprefix("www.")
+                + parsed.path.rstrip("/").lower()) if parsed.hostname else ""
+
+    def valid_end(event):
+        """Reject malformed or demonstrably impossible end dates, not seasons.
+
+        Midnight/date-only starts commonly describe an exhibition, series or
+        recurring listing. A long range is not a performance duration.
+        """
+        try:
+            start_raw = str(event.get("datetime") or "")
+            end_raw = str(event.get("end_datetime") or "")
+            start = datetime.fromisoformat(start_raw)
+            end = datetime.fromisoformat(end_raw)
+            if end <= start:
+                return False
+            # Date-only / midnight records are date ranges, not timed gigs.
+            if len(start_raw) <= 10 or start.time().strftime("%H:%M") == "00:00":
+                return (end - start).days <= 3650
+            # Preserve genuine production runs, tours and festivals even when
+            # the first performance has a specific start time.
+            categories = event.get("category") or []
+            if isinstance(categories, str):
+                categories = [categories]
+            category_text = " ".join(map(str, categories)).casefold()
+            source = str(event.get("source") or "").casefold()
+            title = str(event.get("title") or "").casefold()
+            # Long-running listings can have a real opening time while their
+            # end_datetime denotes the last scheduled occurrence, not the
+            # end of a single session. Keep these verified source ranges.
+            # Do not treat a concert's "Album Tour" as a recurring tour.
+            recurring_title = any(term in title for term in (
+                "garden tour", "guided tour", "cultural garden tours",
+                "plant sale", "drag bingo", "bachata by the beach",
+                "unwined uncovered", "social clay session",
+                "mindful clay", "studio tour", "studio tours",
+                "playgroup", "weekly class", "exhibition",
+                "guided walk", "open days",
+            ))
+            recurring_source = (
+                "south australia tourism commission" in source
+                or "adelaide botanic gardens" in source
+                or "art gallery of south australia" in source
+            )
+            recurring_category = any(term in category_text for term in (
+                "exhibition", "workshop", "community",
+            ))
+            run_listing = (
+                "adelaide festival" in source
+                or "festival" in category_text
+                or recurring_title
+                or (recurring_source and recurring_category)
+            )
+            max_days = 3650 if run_listing else 366
+            return (end - start).total_seconds() <= max_days * 86400
+        except (ValueError, TypeError, OverflowError):
+            return False
+
+    by_url = defaultdict(list)
+    by_identity = defaultdict(list)
+    for old in existing_events:
+        date = str(old.get("datetime") or "")[:10]
+        if not date:
+            continue
+        url = url_key(old)
+        if url:
+            by_url[(url, date)].append(old)
+        by_identity[(clean(old.get("title")), canonical_venue(old.get("venue")), date)].append(old)
+
+    repairs = []
+    invalid_ends = []
+    for event in events:
+        date = str(event.get("datetime") or "")[:10]
+        url = url_key(event)
+        identity = (clean(event.get("title")), canonical_venue(event.get("venue")), date)
+        candidates = list(by_identity.get(identity, []))
+        if url:
+            candidates.extend(by_url.get((url, date), []))
+        # Do not transfer details across two explicitly different showtimes.
+        fresh_time = str(event.get("datetime") or "")[11:16]
+        candidates = [old for old in candidates
+                      if (not fresh_time or fresh_time == "00:00"
+                          or str(old.get("datetime") or "")[11:16] in ("", "00:00", fresh_time))]
+        current_valid = valid_end(event)
+        richer = [old for old in candidates if valid_end(old)]
+        if not current_valid and richer:
+            # Retain the entire source record only for an exact session match.
+            # Otherwise, transfer the valid end date only.
+            chosen = max(richer, key=lambda old: (
+                int(bool(old.get("image"))),
+                int(url_key(old) == url),
+                int(clean(old.get("title")) == identity[0])))
+            before = {k: event.get(k, "") for k in
+                      ("title", "venue", "datetime", "end_datetime", "source", "link")}
+            same_session = str(chosen.get("datetime") or "")[:16] == str(event.get("datetime") or "")[:16]
+            if same_session:
+                event.update({k: v for k, v in chosen.items()
+                              if k not in ("venue",)})
+            else:
+                event["end_datetime"] = chosen["end_datetime"]
+            repairs.append({"before": before,
+                            "after": {k: event.get(k, "") for k in before},
+                            "reason": "restored verified existing end time"})
+        # A Moshtix-owned booking link must not retain an aggregator label.
+        # This also fixes records whose old end date was genuinely invalid.
+        if url and url.startswith("moshtix.com.au/") and str(event.get("source") or "") == "Ticketmaster Adelaide":
+            before_source = event.get("source", "")
+            event["source"] = "Moshtix Adelaide CBD"
+            repairs.append({
+                "before": {"title": event.get("title", ""), "source": before_source,
+                           "end_datetime": event.get("end_datetime", "")},
+                "after": {"title": event.get("title", ""), "source": event["source"],
+                          "end_datetime": event.get("end_datetime", "")},
+                "reason": "corrected Moshtix booking-link ownership",
+            })
+        if event.get("end_datetime") and not valid_end(event):
+            invalid_ends.append({"title": event.get("title", ""),
+                                 "datetime": event.get("datetime", ""),
+                                 "invalid_end": event.get("end_datetime", "")})
+            event["end_datetime"] = ""
+    return repairs, invalid_ends
 
 
 def is_cancelled_secret_garden(event):
@@ -451,7 +711,7 @@ def event_key(event):
 
     # ASO may schedule multiple distinct performances on the same date.
     session_key = (str(event.get("datetime", ""))
-                   if event.get("source") == "Adelaide Symphony Orchestra"
+                   if event.get("source") in ("Adelaide Symphony Orchestra", "Adelaide Festival")
                    else str(event.get("datetime", ""))[:10])
     return (
         str(
@@ -863,6 +1123,51 @@ def scrape_source(source):
 
     if name == "Government House":
         return parse_government_house(fetch_page(url), url)
+
+    if name == "Adelaide Zoo":
+        return parse_adelaide_zoo(fetch_page(url), url)
+
+    if name == "National Wine Centre":
+        return parse_national_wine_centre(fetch_page(url), url)
+
+    if name == "Adelaide Fringe":
+        return parse_adelaide_fringe(fetch_page(url), url)
+
+    if name == "Adelaide Festival":
+        return parse_adelaide_festival(fetch_page(url), url)
+
+    if name == "SALA Festival":
+        return parse_sala_festival(fetch_page(url), url)
+
+    if name == "National Railway Museum":
+        return parse_national_railway_museum(fetch_page(url), url)
+
+    if name == "South Australian Aviation Museum":
+        return parse_south_australian_aviation_museum(fetch_page(url), url)
+
+    if name == "South Australian Maritime Museum":
+        return parse_south_australian_maritime_museum(fetch_page(url), url)
+
+    if name == "Migration Museum Adelaide":
+        return parse_migration_museum_adelaide(fetch_page(url), url)
+
+    if name == "Army Museum of South Australia":
+        return parse_army_museum_south_australia(fetch_page(url), url)
+
+    if name == "Play & Go Adelaide Major Events":
+        return parse_play_and_go_major_events(fetch_page(url), url)
+
+    if name == "Adelaide Gaol":
+        return parse_adelaide_gaol(fetch_page(url), url)
+
+    if name == "Moonlight Cinema Adelaide":
+        return parse_moonlight_cinema_adelaide(fetch_page(url), url)
+
+    if name == "Adelaide Botanic Gardens":
+        return parse_adelaide_botanic_gardens(fetch_page(url), url)
+
+    if name == "Illuminate Adelaide":
+        return parse_illuminate_adelaide(fetch_page(url), url)
 
     if name == "Adelaide Showground":
         return parse_adelaide_showground(fetch_page(url), url)
@@ -1409,7 +1714,6 @@ def main(only_source=None):
         known_empty_generic_sources = {
             "Nineteen Ten",
             "Adelaide Repertory Theatre",
-            "Adelaide Botanic Gardens",
             "Adelaide Cemetery Tours",
             "Trinity Sessions", "Morphettville Racecourse",
             "Holden Street Theatres",
@@ -2213,6 +2517,33 @@ def main(only_source=None):
         f"Legacy/exact duplicates replaced by fresh records: "
         f"{final_duplicates_removed}"
     )
+
+    # Repair information lost in earlier source-priority / exact-key passes.
+    # This must happen AFTER venue normalisation and before the final audit.
+    restored_details, invalid_end_dates = restore_richer_existing_event_details(
+        final_events, existing_events
+    )
+    print(f"Richer existing event details restored: {len(restored_details)}")
+    print(f"Invalid event end dates cleared: {len(invalid_end_dates)}")
+    if "--preview" in sys.argv or "--preview-report" in sys.argv:
+        repair_path = os.path.join(BASE_DIR, "event-detail-review.json")
+        with open(repair_path, "w", encoding="utf-8") as output:
+            json.dump({"repairs": restored_details,
+                       "invalid_end_dates": invalid_end_dates},
+                      output, indent=2, ensure_ascii=False)
+        print(f"Event detail decisions saved to: {repair_path}")
+
+    # One last cross-source pass after venue aliases have been standardised.
+    # Only exact title/venue/date matches qualify; different timed shows survive.
+    final_events, verified_overlap_audit = consolidate_verified_cross_source_duplicates(
+        final_events
+    )
+    print(f"Verified cross-source duplicates excluded: {len(verified_overlap_audit)}")
+    if "--preview" in sys.argv or "--preview-report" in sys.argv:
+        audit_path = os.path.join(BASE_DIR, "duplicate-review.json")
+        with open(audit_path, "w", encoding="utf-8") as output:
+            json.dump(verified_overlap_audit, output, indent=2, ensure_ascii=False)
+        print(f"Duplicate decisions saved to: {audit_path}")
 
     # ----------------------------------------
     # Final safety check
