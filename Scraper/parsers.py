@@ -1767,6 +1767,10 @@ def parse_adelaide_town_hall(soup, source_url):
             seen.add(url)
             urls.append(url)
 
+    print(f"    Town Hall diagnostic: {len(urls)} unique /events/ links on listing page")
+    print(f"    Town Hall diagnostic: listing URL = {source_url}")
+    for candidate in urls[:8]:
+        print(f"    Town Hall listing sample: {candidate}")
     events = []
     for url in urls:
         try:
@@ -1783,25 +1787,47 @@ def parse_adelaide_town_hall(soup, source_url):
             print(f"    Town Hall skipped (no title): {url}")
             continue
 
-        # Navigation also contains "Plan your visit", so splitting the whole
-        # document at that phrase would remove the event before its date.
-        # Instead, isolate the event details around its "When" field.
-        content = page.get_text(" ", strip=True)
-        when_match = re.search(r"\bWhen\s+", content, flags=re.I)
-        event_details = content[when_match.end():when_match.end() + 500] if when_match else ""
-        date_match = re.search(
-            r"Next\s+occurrence\s+is\s+(\d{1,2}\s+[A-Za-z]+\s+20\d{2})",
-            event_details, flags=re.I
-        )
-        date = parse_date_text(date_match.group(1)) if date_match else ""
-        if not date:
-            # Some events have a date range or a single dated "When" value.
-            # Only inspect the event's When field, not recommended events.
-            date = parse_date_text(event_details.split("Accessibility", 1)[0])
+        # Use the event's own date container, not the page-wide "When"
+        # text, which can refer to navigation or recommended events.
+        date_container = page.select_one(".event-dates")
+        date = ""
+        end_date = ""
+        if date_container:
+            date_text = " ".join(date_container.stripped_strings)
+            occurrence = re.search(
+                r"Next\\s+occurrence\\s+is\\s+"
+                r"(\\d{1,2}\\s+[A-Za-z]+\\s+20\\d{2})",
+                date_text,
+                flags=re.I,
+            )
+            if occurrence:
+                date = parse_date_text(occurrence.group(1))
+            else:
+                # Accept an explicit year only; do not invent one.
+                date = parse_date_text(date_text)
+
+            # Multi-day exhibitions may display a yearless starting date
+            # and an explicitly dated end date, for example:
+            # "30 October to 13 July 2027; Next occurrence is 30 October 2026".
+            # Keep the confirmed next occurrence as the start.
+            range_match = re.search(
+                r"(\\d{1,2}\\s+[A-Za-z]+)\\s+to\\s+"
+                r"(\\d{1,2}\\s+[A-Za-z]+\\s+20\\d{2})",
+                date_text,
+                flags=re.I,
+            )
+            if date and range_match:
+                candidate_end = parse_date_text(range_match.group(2))
+                if candidate_end and candidate_end[:10] > date[:10]:
+                    end_date = candidate_end[:10] + "T23:59:59"
+
         if not date:
             print(f"    Town Hall skipped (no confirmed year/date): {title}")
+            print(f"      Detail URL: {url}")
+            print(f"      Event dates: {date_container.get_text(' ', strip=True)[:220] if date_container else 'not found'}")
             continue
 
+        content = page.get_text(" ", strip=True)
         # For category detection, inspect the section around the event title,
         # rather than the navigation menu.
         title_position = content.find(title)
@@ -1854,12 +1880,13 @@ def parse_adelaide_town_hall(soup, source_url):
             "title": title,
             "venue": "Adelaide Town Hall",
             "date": date,
-            "end_date": "",
+            "end_date": end_date,
             "category": category,
             "image": image,
             "url": url,
         })
 
+    print(f"    Town Hall diagnostic: {len(urls)} detail links checked; {len(events)} dated records")
     print(f"\nTotal Adelaide Town Hall events collected: {len(events)}")
     return events
 

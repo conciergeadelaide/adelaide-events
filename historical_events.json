@@ -33,7 +33,10 @@
     ],
     "image": "https://assets.atdw-online.com.au/images/ea4d4c7f26029b71fd8a4b0df60bdcee.jpeg?rect=457%2C0%2C7300%2C5475&w=450&h=335&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjYyMDU5ZTdhNDgyN2E5ZTcwZmFlYzQ5MSIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
     "link": "https://www.experienceadelaide.com.au/whats-on/adelaide-film-festival/",
-    "source": "Experience Adelaide"
+    "source": "Experience Adelaide",
+    "festival": [
+      "Adelaide Film Festival"
+    ]
   },
   {
     "title": "Adelaide Colour Frenzy 5k Fun Walk/Run",
@@ -69,7 +72,10 @@
     ],
     "image": "https://assets.atdw-online.com.au/images/37572a7597f0f9deacde3f16e885d853.jpeg?rect=0%2C0%2C1600%2C1200&w=450&h=335&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhODdiNGEzYWEyNDRmYWY3NWU2YTdlMCIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
     "link": "https://www.experienceadelaide.com.au/whats-on/ozasia-festival-2026-maajela/",
-    "source": "Experience Adelaide"
+    "source": "Experience Adelaide",
+    "festival": [
+      "OzAsia Festival"
+    ]
   },
   {
     "title": "OzAsia Festival’s Weekend of Words",
@@ -81,7 +87,10 @@
     ],
     "image": "https://assets.atdw-online.com.au/images/b1e3b17f7cc7021ad8d91a74ddad8b0f.jpeg?rect=0%2C0%2C1600%2C1200&w=450&h=335&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhODdjMzVkM2U4NjE3M2E1ZTg0OWRjMyIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
     "link": "https://www.experienceadelaide.com.au/whats-on/ozasia-festivals-weekend-of-words/",
-    "source": "Experience Adelaide"
+    "source": "Experience Adelaide",
+    "festival": [
+      "OzAsia Festival"
+    ]
   },
   {
     "title": "Pinkstachio Reig\"Night\" Pre's",

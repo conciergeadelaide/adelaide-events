@@ -1446,66 +1446,42 @@ def source_domains(source_name):
 
 
 def event_belongs_to_source(event, source_name):
+    """Identify source ownership without claiming another source's events.
+
+    The explicit `source` field is authoritative. In particular, an ASO,
+    Adelaide Festival, or Humanitix event at Adelaide Town Hall belongs to
+    its own source, even when the venue or event URL mentions Town Hall.
+    Only source-less legacy records may use URL and venue fallbacks.
     """
-    Identify an existing event's scraper source safely.
+    wanted = source_name.strip().casefold()
+    explicit_source = str(event.get("source") or "").strip().casefold()
 
-    New records carry an explicit `source` field. Older records may
-    not, so fall back to their official event URL/domain, and finally
-    to exact venue matching for legacy records.
-    """
-    wanted = source_name.strip().lower()
+    if explicit_source:
+        return explicit_source == wanted
 
-    explicit_source = str(
-        event.get("source", "")
-    ).strip().lower()
-
-    if explicit_source == wanted:
-        return True
-
-    if source_name == "Thebarton Theatre" and explicit_source:
-        return False
-
-    # Humanitix sources share the same event URL domain. Never classify
-    # a Nineteen Ten host event as a general-directory event (or vice versa).
+    # Humanitix's two feeds share a domain; source-less records cannot be
+    # attributed reliably to either feed.
     if source_name.startswith("Humanitix "):
         return False
 
-    if source_name.startswith("AllEvents ") and explicit_source:
-        return explicit_source == wanted
+    # AllEvents regional feeds also overlap; do not guess ownership.
+    if source_name.startswith("AllEvents "):
+        return False
 
-    # Do not return False merely because an older record has a
-    # different/missing source label. Its official URL may still
-    # identify the correct scraper source.
-    link = str(
-        event.get("link", "")
-        or event.get("url", "")
-    ).strip()
-
+    link = str(event.get("link") or event.get("url") or "").strip()
     if link:
         try:
-            hostname = (
-                urlparse(link).hostname
-                or ""
-            ).lower()
-
+            hostname = (urlparse(link).hostname or "").casefold()
             if hostname.startswith("www."):
                 hostname = hostname[4:]
-
             for domain in source_domains(source_name):
-                if (
-                    hostname == domain
-                    or hostname.endswith("." + domain)
-                ):
+                if hostname == domain or hostname.endswith("." + domain):
                     return True
-
-        except Exception:
+        except (ValueError, TypeError):
             pass
 
-    # Legacy fallback only.
-    venue = str(
-        event.get("venue", "")
-    ).strip().lower()
-
+    # Only undetermined legacy records can fall back to venue equality.
+    venue = str(event.get("venue") or "").strip().casefold()
     return venue == wanted
 
 
@@ -1704,8 +1680,8 @@ def main(only_source=None):
                 print("  " + s["name"])
             return
         configured_sources = matches
-        print(f"SINGLE-SOURCE TEST: {matches[0]['name']}")
-        print("Only this source will be fetched. events.json will not be changed.\n")
+        print(f"SINGLE-SOURCE MODE: {matches[0]['name']}")
+        print("Only this source will be fetched.\n")
 
     # Optional quick mode: skip generic sites that returned zero events
     # in the last verified full run. Skipped sources retain their records.
@@ -1830,12 +1806,76 @@ def main(only_source=None):
             )
 
     if only_source is not None:
+        # A single-source update must not invoke global cleanup or reprocess
+        # other sources. Preserve their records unchanged.
+        source_name = configured_sources[0]["name"]
         print("\n----------------------------------------")
-        print(f"Source tested: {configured_sources[0]['name']}")
+        print(f"Source tested: {source_name}")
         print(f"New records collected: {len(all_new_events)}")
         print(f"Source accepted: {bool(accepted_sources)}")
         print(f"Existing events retained: {len(existing_events)}")
-        print("SINGLE-SOURCE TEST COMPLETE: events.json was NOT changed.")
+
+        if not accepted_sources:
+            print("Source not accepted; events.json was NOT changed.")
+            return
+
+        # --preview and --dry-run are always non-writing, including with --only.
+        dry_run = any(flag in sys.argv for flag in
+                      ("--preview", "--preview-report", "--dry-run"))
+        retained = [event for event in existing_events
+                    if not event_belongs_to_source(event, source_name)]
+        removed = len(existing_events) - len(retained)
+
+        # Protect records belonging to other sources from being replaced by
+        # a same-title, same-venue, same-date record from this source.
+        other_keys = {event_key(event) for event in retained}
+        added = []
+        fresh_seen = set()
+        for event in all_new_events:
+            key = event_key(event)
+            if key in other_keys or key in fresh_seen:
+                continue
+            fresh_seen.add(key)
+            added.append(event)
+
+        # Do not silently lose upcoming records missing from a partially
+        # complete listing. Preserve them unless a matching URL or event key
+        # was refreshed. This mirrors the full-run safeguard.
+        from datetime import date
+        today_key = date.today().isoformat()
+        fresh_keys = {event_key(event) for event in added}
+        def url_identity(event):
+            parsed = urlparse(str(event.get("link") or event.get("url") or ""))
+            return ((parsed.hostname or "").lower().removeprefix("www.")
+                    + parsed.path.rstrip("/").lower()) if parsed.hostname else ""
+        fresh_urls = {url_identity(event) for event in added}
+        fresh_urls.discard("")
+        preserved = []
+        for old in existing_events:
+            if not event_belongs_to_source(old, source_name):
+                continue
+            last_day = str(old.get("end_datetime") or old.get("datetime") or "")[:10]
+            if not last_day or last_day < today_key:
+                continue
+            if event_key(old) in fresh_keys or url_identity(old) in fresh_urls:
+                continue
+            if event_key(old) in other_keys:
+                continue
+            preserved.append(old)
+            other_keys.add(event_key(old))
+
+        proposed = retained + added + preserved
+        print(f"Replaced old source records: {removed}")
+        print(f"New source records added: {len(added)}")
+        print(f"Unmatched upcoming source records preserved: {len(preserved)}")
+        print(f"Proposed total events: {len(proposed)}")
+        if dry_run:
+            if "--preview-report" in sys.argv or "--preview" in sys.argv:
+                write_preview_report(existing_events, proposed)
+            print("SINGLE-SOURCE PREVIEW COMPLETE: events.json was NOT changed.")
+            return
+        save_events(proposed)
+        print("SINGLE-SOURCE UPDATE COMPLETE.")
         return
 
     # ----------------------------------------
