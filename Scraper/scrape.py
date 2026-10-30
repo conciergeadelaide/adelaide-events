@@ -22,6 +22,7 @@ try:
     from parsers import (
         parse_json_ld,
         parse_a_day_on_the_green,
+        parse_adelaide_showground,
         parse_ace_gallery,
         parse_fever_candlelight,
         parse_adelaide_central_market,
@@ -81,6 +82,7 @@ except ModuleNotFoundError:
     from Scraper.parsers import (
         parse_json_ld,
         parse_a_day_on_the_green,
+        parse_adelaide_showground,
         parse_ace_gallery,
         parse_fever_candlelight,
         parse_adelaide_central_market,
@@ -549,6 +551,18 @@ def _same_event(ticket, official):
         return False
     if not _date_within(ticket, official):
         return False
+    # Identical Moshtix booking IDs establish the same event even when the
+    # listing includes extra support acts. Different dates remain distinct.
+    def moshtix_booking_id(event):
+        url = str(event.get("link") or event.get("url") or "")
+        parsed = urlparse(url)
+        if "moshtix.com.au" not in (parsed.hostname or "").lower():
+            return ""
+        match = re.search(r"/v2/event/[^/?]+/(\d+)(?:/|$)", parsed.path, re.I)
+        return match.group(1) if match else ""
+    ticket_id = moshtix_booking_id(ticket)
+    if ticket_id and ticket_id == moshtix_booking_id(official):
+        return True
     # Confirmed alternate ticketing titles at Hindley Street Music Hall.
     # Match only the same artist/show on the same date; never merge dates.
     ticket_title = _title_name(ticket.get("title"))
@@ -628,7 +642,25 @@ def filter_ticketmaster_events(all_events):
     suppressed = 0
     for ticket in tickets:
         candidates = by_venue.get(_venue_name(ticket.get("venue")), [])
-        if any(_same_event(ticket, other) for other in candidates):
+        # The official Showground calls this "Froth & Fury Fest", while
+        # Ticketmaster lists "Froth and Fury Fest 2027". Treat these as the
+        # same festival ONLY when the venue and event date also match.
+        # Do not suppress a Ticketmaster record if the official source failed
+        # to produce its corresponding event on this run.
+        def same_showground_festival(official_event):
+            if official_event.get("source") != "Adelaide Showground":
+                return False
+            if _date(ticket) != _date(official_event) or not _date(ticket):
+                return False
+            def festival_name(value):
+                normalized = _title_name(value)
+                normalized = re.sub(r"\b20\d{2}\b", "", normalized)
+                return " ".join(normalized.split())
+            return (festival_name(ticket.get("title")) == "froth and fury fest"
+                    and festival_name(official_event.get("title")) == "froth and fury fest")
+
+        if any(_same_event(ticket, other) or same_showground_festival(other)
+               for other in candidates):
             suppressed += 1
         else:
             kept.append(ticket)
@@ -831,6 +863,9 @@ def scrape_source(source):
 
     if name == "Government House":
         return parse_government_house(fetch_page(url), url)
+
+    if name == "Adelaide Showground":
+        return parse_adelaide_showground(fetch_page(url), url)
 
     if name == "A Day on the Green":
         return parse_a_day_on_the_green(fetch_page(url), url)
@@ -1932,12 +1967,33 @@ def main(only_source=None):
     if museum_times_recovered:
         print(f"Museum: recovered {museum_times_recovered} SATC start times")
 
+    # AGSA exhibitions can start months before today's scrape. SATC often
+    # uses the true opening date, while other sources may use a different
+    # venue label. For these ONLY, compare the named exhibition and its
+    # overlapping date range instead of requiring equal opening dates.
+    agsa_exhibitions = [e for e in non_tourism
+                        if e.get("source") == "Art Gallery of South Australia"
+                        and str(e.get("end_datetime") or "")[:10] > _date(e)]
+
+    def same_agsa_exhibition(tourism_event, official_event):
+        a = comparable_title(tourism_event.get("title", ""))
+        b = comparable_title(official_event.get("title", ""))
+        if not a or a != b or len(a) < 12:
+            return False
+        a_start = _date(tourism_event)
+        b_start = _date(official_event)
+        a_end = str(tourism_event.get("end_datetime") or "")[:10] or a_start
+        b_end = str(official_event.get("end_datetime") or "")[:10] or b_start
+        return bool(a_start and b_start and a_start <= b_end and b_start <= a_end)
+
     kept_tourism = []
     tourism_duplicates = 0
     for event in tourism:
         same_day = by_date.get(str(event.get("datetime", ""))[:10], [])
-        if any(tourism_matches_official(event, original) or
-               museum_tourism_match(event, original) for original in same_day):
+        if (any(tourism_matches_official(event, original) or
+                museum_tourism_match(event, original) for original in same_day)
+                or any(same_agsa_exhibition(event, original)
+                       for original in agsa_exhibitions)):
             tourism_duplicates += 1
         else:
             kept_tourism.append(event)

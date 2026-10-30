@@ -4486,7 +4486,9 @@ def parse_agsa_calendar_html(calendar_html, today=None):
             if parsed[1] < today:
                 return []
             # One record for a date-span exhibition, not a record every day.
-            return [(max(parsed[0], today), parsed[1])]
+            # Preserve the real exhibition opening date; the end date is
+            # used by the scraper to retain exhibitions still running.
+            return [(parsed[0], parsed[1])]
         return [(parsed[0], None)] if parsed[0] >= today else []
 
     events = []
@@ -7855,3 +7857,106 @@ def parse_a_day_on_the_green(soup, source_url):
           f"{len(candidates)} candidate show pages, {len(results)} verified SA concerts "
           f"({rejected} rejected)")
     return results
+
+
+# ============================================================
+# ADELAIDE SHOWGROUND — official event pages
+# ============================================================
+def parse_adelaide_showground(soup, source_url):
+    """Collect verified, dated public events; never guess dates from card labels.
+
+    The site's event-page slugs are not always related to the current event
+    title, so only the live heading and date on the detail page are trusted.
+    """
+    from urllib.parse import urlparse
+    from datetime import datetime
+    import html
+
+    session = requests.Session()
+    session.headers.update({"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/140 Safari/537.36"})
+    host = urlparse(source_url).hostname
+    links = []
+    seen = set()
+    for a in soup.select('a[href]'):
+        u = urljoin(source_url, a.get('href', '')).split('#', 1)[0]
+        parsed = urlparse(u)
+        if parsed.hostname != host or not parsed.path.startswith('/events/'):
+            continue
+        u = u.split('?', 1)[0].rstrip('/')
+        if u.lower() not in seen:
+            seen.add(u.lower())
+            links.append(u)
+    print(f"    Showground: {len(links)} official event detail links")
+
+    def event_datetime(value):
+        value = ' '.join(str(value or '').replace('\xa0', ' ').split())
+        # Site detail pages use: 07 Nov 2026, 12:30 pm – 10:30 pm
+        m = re.search(r'\b(\d{1,2})\s+(Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:t(?:ember)?)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\s+(20\d{2})\b(?:,?\s+(\d{1,2}(?::\d{2})?\s*[ap]m))?', value, re.I)
+        if not m:
+            return ''
+        month_map = {'jan':1,'feb':2,'mar':3,'apr':4,'may':5,'jun':6,'jul':7,'aug':8,'sep':9,'oct':10,'nov':11,'dec':12}
+        try:
+            day, month, year = int(m.group(1)), month_map[m.group(2)[:3].lower()], int(m.group(3))
+            hour = minute = 0
+            if m.group(4):
+                t = datetime.strptime(m.group(4).replace(' ', '').upper(), '%I:%M%p' if ':' in m.group(4) else '%I%p')
+                hour, minute = t.hour, t.minute
+            return datetime(year, month, day, hour, minute).isoformat()
+        except ValueError:
+            return ''
+
+    events = []
+    for url in links:
+        try:
+            response = session.get(url, timeout=25)
+            response.raise_for_status()
+            page = BeautifulSoup(response.text, 'lxml')
+        except requests.RequestException as exc:
+            print(f"    Showground detail skipped: {url} ({exc})")
+            continue
+        heading = page.find('h1')
+        title = html.unescape(heading.get_text(' ', strip=True)) if heading else ''
+        if not title or title.casefold() in ('events', 'what\'s on', 'adelaide showground'):
+            continue
+        text = page.get_text(' ', strip=True)
+        # Prefer the official Time & Location section to avoid dates in descriptions.
+        section = re.search(r'Time\s*&\s*Location\s*(.{0,420})', text, re.I)
+        scope = section.group(1) if section else ''
+        date_matches = list(re.finditer(r'\b\d{1,2}\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\s+20\d{2}\b', scope, re.I))
+        if not date_matches:
+            print(f"    Showground undated detail skipped: {title}")
+            continue
+        start_match = date_matches[0]
+        start = event_datetime(scope[start_match.start():start_match.start()+48])
+        if not start:
+            continue
+        end = ''
+        if len(date_matches) > 1:
+            last = date_matches[1]
+            end = event_datetime(scope[last.start():last.start()+48])
+            if end and end < start:
+                end = ''
+        # Keep the event through its final day, if a span was stated.
+        if end and end[:10] > start[:10] and end.endswith('T00:00:00'):
+            end = end[:10] + 'T23:59:59'
+        # Prefer event-specific social artwork; reject branding placeholders.
+        image = ''
+        for selector in ('meta[property="og:image"]', 'meta[name="twitter:image"]'):
+            tag = page.select_one(selector)
+            candidate = (tag.get('content') or '').strip() if tag else ''
+            if candidate and not any(x in candidate.lower() for x in ('favicon', 'logo', 'placeholder')):
+                image = urljoin(url, candidate)
+                break
+        if not image:
+            main = page.find('main') or page
+            image = get_image(main, url)
+            if any(x in image.lower() for x in ('favicon', 'logo', 'placeholder')):
+                image = ''
+        category = categorise_event(title)
+        if category == ['Other']:
+            category = ['Expos'] if any(k in title.casefold() for k in ('expo', 'fair', 'show')) else ['Community']
+        events.append({'title': title, 'venue': 'Adelaide Showground',
+                       'date': start, 'end_date': end, 'category': category,
+                       'image': image, 'url': url})
+    print(f"    Showground: {len(events)} dated events verified")
+    return events

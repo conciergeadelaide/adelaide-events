@@ -154,5 +154,174 @@
     "image": "https://images.humanitix.com/i/AvLAOeCzRcqlu9yUbyCp@seo-500.jpg",
     "link": "https://events.humanitix.com/north-metro-music-festival-2026",
     "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "AZIZA",
+    "venue": "Her Majesty's Theatre",
+    "datetime": "2026-10-29T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/10-Oct/Aziza/aziza-website-1136x994.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/aziza",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "Stand Atlantic \"GODBREATH\" Australian Tour",
+    "venue": "Hindley Street Music Hall",
+    "datetime": "2026-10-29T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://dynamicmedia.livenationinternational.com/c/g/z/364da2d2-3208-47f7-b831-3d547849bd2b.jpg?format=webp&width=3840&quality=75",
+    "link": "https://www.hindleymusichall.com.au/all-events/stand-atlantic-tickets-ae1075848",
+    "source": "Hindley St Music Hall"
+  },
+  {
+    "title": "AFC Champions League Two – Adelaide United v Lion City Sailors FC",
+    "venue": "Coopers Stadium",
+    "datetime": "2026-10-29T18:15:00",
+    "end_datetime": "",
+    "category": [
+      "Sport"
+    ],
+    "image": "https://www.coopersstadium.com.au/wp-content/uploads/2026/08/ACL2-Lion-City-2340x765-1.png",
+    "link": "https://www.coopersstadium.com.au/events/adelaide-united-v-lion-city-sailors-fc/",
+    "source": "Coopers Stadium"
+  },
+  {
+    "title": "Femme – Error Code: Cyborgs don’t dream of perfection",
+    "venue": "Nexus Arts Gallery",
+    "datetime": "2026-09-24T00:00:00",
+    "end_datetime": "2026-10-29T00:00:00",
+    "category": [
+      "Exhibitions"
+    ],
+    "image": "https://nexusarts.org.au/wp-content/uploads/2026/08/NEXUS-ARTS-WEBSITE-BANNER-1200x550.jpg",
+    "link": "https://nexusarts.org.au/events/femme-error-code-cyborgs-dont-dream-of-perfection/",
+    "source": "Nexus Arts"
+  },
+  {
+    "title": "Art of the Install - Monet to Matisse: Defying Tradition",
+    "venue": "Art Gallery of South Australia",
+    "datetime": "2026-10-29T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music",
+      "Arts & Culture"
+    ],
+    "image": "https://thumbor.ixchosted.com/QnyXYeswWuX5XvzRZ3_XYQ5S6Go=/fit-in/800x0/filters:format(webp)/https://agsa-prod.s3.amazonaws.com/media/dd/images/147331-Monet_to_Matisse_Out_of_copyright_EDIT_4000PX_10.6a5b3b1.jpg",
+    "link": "https://www.agsa.sa.gov.au/whats-on/event-calendar/art-of-the-install-monet-to-matisse-defying-tradition/",
+    "source": "Art Gallery of South Australia"
+  },
+  {
+    "title": "Lucie Pohl – Old as Mold",
+    "venue": "Rhino Room",
+    "datetime": "2026-10-29T19:00:00",
+    "end_datetime": "2026-10-29T20:00:00",
+    "category": [
+      "Comedy"
+    ],
+    "image": "https://rhinoroom.com.au/wp-content/uploads/2026/09/Lucie-Pohl-Rhino-Room-SQUARE.jpg",
+    "link": "https://events.humanitix.com/lucie-pohl-old-as-mold",
+    "source": "Rhino Room"
+  },
+  {
+    "title": "3Minds in 2D",
+    "venue": "Bay Discovery Centre",
+    "datetime": "2026-10-29T10:00:00",
+    "end_datetime": "",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://www.holdfast.sa.gov.au/assets/resized/eventimages/1078110/BDC-Tutti-Arts-Exhibition-Hero-Image_W2000_upscale_Q100_P38-94-47-67_removeMetadata1_W400_H400_Q80_P38-94-47-67.jpg",
+    "link": "https://www.jettyroadglenelg.com.au/whats-on/3minds-in-2d",
+    "source": "Jetty Road Glenelg"
+  },
+  {
+    "title": "TODD KEM - Adelaide show",
+    "venue": "The Grace Emily Hotel",
+    "datetime": "2026-10-29T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://assets.oztix.com.au/image/69cff891-f3b3-49c8-b9bb-fbd582fc0554.png?width=600&height=300",
+    "link": "https://tickets.oztix.com.au/outlet/event/6574028f-5003-4cef-bd38-b354f742b108?utm_source=Oztix&utm_medium=Website",
+    "source": "Oztix Adelaide City"
+  },
+  {
+    "title": "Seafire x Yalumba The Signature Wine Dinner",
+    "venue": "2 Holdfast Promenade",
+    "datetime": "2026-10-29T18:30:00",
+    "end_datetime": "2026-10-29T22:00:00",
+    "category": [
+      "Food & Beverage"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/7fd861ce57169881f1b65c627b6e03b6.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/seafire-x-yalumba-the-signature-wine-dinner",
+    "source": "South Australia Tourism Commission"
+  },
+  {
+    "title": "10x10 Adelaide | Thursday 29 October 2026",
+    "venue": "55 Currie St - Ground Floor Auditorium",
+    "datetime": "2026-10-29T17:30:00+1030",
+    "end_datetime": "2026-10-29T20:30:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/82297833-c1ac-42fe-a00e-e20692cbf450.png@seo-500.jpg",
+    "link": "https://events.humanitix.com/10x10-adelaide-or-thursday-29-october-2026",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "80s Quiz Night & Disco",
+    "venue": "Mclaren Vale Institute Hall",
+    "datetime": "2026-10-29T18:00:00+1030",
+    "end_datetime": "2026-10-29T21:30:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/9eda85e2-d3ff-458c-ba08-5170ae5c6d81.jpg@seo-500.jpg",
+    "link": "https://events.humanitix.com/80s-quiz-night-and-disco",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "North Metro Music Festival 2026",
+    "venue": "Hewitson Theatre - STARplex",
+    "datetime": "2026-10-29T19:00:00+1030",
+    "end_datetime": "2026-10-29T20:30:00+1030",
+    "category": [
+      "Music"
+    ],
+    "image": "https://images.humanitix.com/i/AvLAOeCzRcqlu9yUbyCp@seo-500.jpg",
+    "link": "https://events.humanitix.com/north-metro-music-festival-2026",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "An Evening with Simon Nasht (Free Event)",
+    "venue": "Hills Christian Community School (Middle School Building)",
+    "datetime": "2026-10-29T18:30:00+1030",
+    "end_datetime": "2026-10-29T20:30:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/878989c2-0bdc-4749-888e-19ce9da68c6f.png@seo-500.jpg",
+    "link": "https://events.humanitix.com/a-evening-with-simon-nasht",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "VIP Frame Styleshow Colonnades",
+    "venue": "Eyes & Vision Colonnades",
+    "datetime": "2026-10-29T09:00:00+1030",
+    "end_datetime": "2026-10-29T19:00:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/5d9a0674-28f1-448c-86de-4246cc491135.png@seo-500.jpg",
+    "link": "https://events.humanitix.com/vip-frame-styleshow-colonnades",
+    "source": "Humanitix Adelaide and Regions"
   }
 ]
