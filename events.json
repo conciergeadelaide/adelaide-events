@@ -4156,32 +4156,6 @@
     "source": "Immersive Light and Art"
   },
   {
-    "title": "GOLDEN VOICES",
-    "venue": "St Peter'S Cathedral",
-    "datetime": "2026-11-13T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Theatre",
-      "Music"
-    ],
-    "image": "https://www.stateopera.com.au/_image?href=http%3A%2F%2Fcms%2Fpublic%2Fassets%2Fgoldenvoices.png&w=1508&h=1508&q=70&f=webp",
-    "link": "https://www.stateopera.com.au/productions/2026/golden-voices",
-    "source": "State Opera South Australia"
-  },
-  {
-    "title": "TRIALS & TRANSFORMATIONS",
-    "venue": "Ukaria Cultural Centre",
-    "datetime": "2026-11-22T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Theatre",
-      "Music"
-    ],
-    "image": "https://www.stateopera.com.au/_image?href=http%3A%2F%2Fcms%2Fpublic%2Fassets%2Ftrials-n-transformations-2.png&w=1508&h=1508&q=70&f=webp",
-    "link": "https://www.stateopera.com.au/productions/2026/trials-and-transformations",
-    "source": "State Opera South Australia"
-  },
-  {
     "title": "Australian String Quartet x Parvyn",
     "venue": "Nexus Arts Gallery",
     "datetime": "2026-11-05T00:00:00",
@@ -13378,5 +13352,31 @@
     "image": "https://assets.atdw-online.com.au/images/c2cb5b1c9b815c771cebee7ee811ce12.jpeg?rect=0%2C0%2C2048%2C1536&w=1280&h=1024&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhYzRlNzlkYmYwN2Q1MDY3YTUwYjBkMiIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
     "link": "https://www.adelaidetownhall.com.au/events/vision-by-vision-musica-viva-australia-in-adelaide/",
     "source": "Adelaide Town Hall"
+  },
+  {
+    "title": "GOLDEN VOICES",
+    "venue": "St Peter'S Cathedral",
+    "datetime": "2026-11-13T00:00:00",
+    "end_datetime": "2026-11-14T23:59:59",
+    "category": [
+      "Theatre",
+      "Music"
+    ],
+    "image": "https://www.stateopera.com.au/_image?href=http%3A%2F%2Fcms%2Fpublic%2Fassets%2Fgoldenvoices.png&w=1508&h=1508&q=70&f=webp",
+    "link": "https://www.stateopera.com.au/productions/2026/golden-voices",
+    "source": "State Opera South Australia"
+  },
+  {
+    "title": "TRIALS & TRANSFORMATIONS",
+    "venue": "Ukaria Cultural Centre",
+    "datetime": "2026-11-22T14:30:00",
+    "end_datetime": "",
+    "category": [
+      "Theatre",
+      "Music"
+    ],
+    "image": "https://www.stateopera.com.au/_image?href=http%3A%2F%2Fcms%2Fpublic%2Fassets%2Ftrials-n-transformations-2.png&w=1508&h=1508&q=70&f=webp",
+    "link": "https://www.stateopera.com.au/productions/2026/trials-and-transformations",
+    "source": "State Opera South Australia"
   }
 ]

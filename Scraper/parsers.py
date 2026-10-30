@@ -3385,27 +3385,71 @@ def parse_state_opera_south_australia(soup, source_url):
         if not venue:
             outside += 1
             continue
-        # The header contains the year and start date; never infer a year.
-        date_match = re.search(r'\b(\d{1,2})\s+(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\s+(20\d{2})\s*[–—-]\s*(\d{1,2})\s+(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\s+(20\d{2})\b', text, re.I)
-        single_match = re.search(r'\b(\d{1,2})\s+(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\s+(20\d{2})\b', text, re.I)
-        if not date_match and not single_match:
+        # Prefer the production's Performance dates section over the teaser
+        # date in its header. The section includes individual published times.
+        performance_section = re.search(
+            r"Performance dates\s+Select a date and time\s+(.+?)(?:\s+Prices\b|\s+50 years takes a village\b|$)",
+            text, re.I)
+        schedule_text = performance_section.group(1) if performance_section else text
+        months = ['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec']
+
+        def as_iso(day, month, year):
+            try:
+                return calendar_date(int(year), months.index(month[:3].lower()) + 1, int(day)).isoformat()
+            except (ValueError, IndexError):
+                return ''
+
+        # Capture explicit day/month/year dates only. This also handles
+        # "Sun, 22 Nov 2026 – 2:30pm" and multiple performance sessions.
+        session_pattern = re.compile(
+            r"\b(\d{1,2})\s+(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\s+(20\d{2})\b"
+            r"(?:\s*.{0,12}?\s*(\d{1,2}(?::\d{2})?\s*[ap]\.?m\.?))?", re.I)
+        matches = list(session_pattern.finditer(schedule_text))
+        sessions = []
+        for match in matches:
+            day = as_iso(match.group(1), match.group(2), match.group(3))
+            if not day:
+                continue
+            time_value = ''
+            if match.group(4):
+                compact = re.sub(r'[.\s]', '', match.group(4)).lower()
+                try:
+                    time_value = datetime.strptime(compact, '%I:%M%p' if ':' in compact else '%I%p').strftime('%H:%M:%S')
+                except ValueError:
+                    pass
+            sessions.append((day, time_value))
+
+        # Some production headings compress ranges as "13–14 Nov 2026".
+        # Expand only a clearly published same-month range.
+        compact_range = re.search(
+            r"\b(\d{1,2})\s*[–—-]\s*(\d{1,2})\s+"
+            r"(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\s+(20\d{2})\b",
+            schedule_text, re.I)
+        if compact_range:
+            first = as_iso(compact_range.group(1), compact_range.group(3), compact_range.group(4))
+            last = as_iso(compact_range.group(2), compact_range.group(3), compact_range.group(4))
+            if first and last and first <= last:
+                sessions.extend([(first, ''), (last, '')])
+
+        if not sessions:
             undated += 1
             continue
-        def as_iso(day, month, year):
-            months = ['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec']
-            try: return calendar_date(int(year), months.index(month[:3].lower()) + 1, int(day)).isoformat()
-            except (ValueError, IndexError): return ''
-        m = date_match or single_match
-        start_day = as_iso(m.group(1), m.group(2), m.group(3))
-        end_day = as_iso(m.group(4), m.group(5), m.group(6)) if date_match else ''
-        if not start_day or (end_day and end_day < start_day): continue
-        if (end_day or start_day) < calendar_date.today().isoformat(): continue
+        sessions = sorted(set(sessions))
+        start_day = sessions[0][0]
+        end_day = sessions[-1][0]
+        if end_day < calendar_date.today().isoformat():
+            continue
+        # One published session: preserve its actual time. Multiple sessions:
+        # retain a single production-range listing without fabricating times.
+        start_time = sessions[0][1] if len(sessions) == 1 else ''
+        start_datetime = start_day + 'T' + (start_time or '00:00:00')
+        end_datetime = end_day + 'T23:59:59' if end_day != start_day else ''
         key = (title.casefold(), venue.casefold(), start_day)
-        if key in seen: continue
+        if key in seen:
+            continue
         seen.add(key)
         results.append({'title': title, 'venue': venue.title() if venue == venue.lower() else venue,
-            'date': start_day + 'T00:00:00',
-            'end_date': end_day + 'T23:59:59' if end_day and end_day != start_day else '',
+            'date': start_datetime, 'end_date': end_datetime,
             'category': ['Theatre', 'Music'], 'image': image, 'url': url})
     print(f'    State Opera: {len(urls)} production pages, {len(results)} SA listings, '
           f'{outside} unverified/outside-SA, {undated} undated, {failed} page errors')
