@@ -325,18 +325,23 @@ function isEventLongerThanSevenDays(event) {
 // CATEGORY HELPERS
 // ======================================
 
+function normaliseEventCategory(category) {
+    var name = String(category || "").trim();
+    if (/^exhibitions?$/i.test(name)) return "Exhibition";
+    if (/^talks(?:\s*&\s*conferences)?$/i.test(name)) return "Talks & Conferences";
+    return name;
+}
+
 function getEventCategories(event) {
-    if (Array.isArray(event.category)) {
-        return event.category.filter(function(category) {
-            return Boolean(category);
-        });
-    }
-
-    if (event.category) {
-        return [event.category];
-    }
-
-    return ["Other"];
+    var raw = Array.isArray(event.category)
+        ? event.category
+        : (event.category ? [event.category] : []);
+    var categories = [];
+    raw.forEach(function(category) {
+        var name = normaliseEventCategory(category);
+        if (name && categories.indexOf(name) === -1) categories.push(name);
+    });
+    return categories.length ? categories : ["Other"];
 }
 
 function getCategoryText(event) {
@@ -349,6 +354,7 @@ var CALENDAR_CATEGORY_COLOURS = {
     "Comedy": "#A75B12",
     "Community": "#527D2C",
     "Expos": "#5465A8",
+    "Exhibition": "#5465A8",
     "Family": "#087F87",
     "Festival": "#B83F69",
     "Food & Beverage": "#9C5A27",
@@ -756,6 +762,7 @@ function populateFilters() {
         "Comedy",
         "Community",
         "Expos",
+        "Exhibition",
         "Family",
         "Festival",
         "Food & Beverage",
