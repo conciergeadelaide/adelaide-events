@@ -1082,6 +1082,22 @@ function renderAgenda(eventList) {
         agendaContainer.appendChild(makeAgendaRow(event));
     });
 }
+// Self-contained print layout: preserves existing style.css and all views.
+(function installPrintGuideImageStyles() {
+    var style = document.createElement("style");
+    style.textContent = `
+        .print-guide-row { display: flex; align-items: flex-start; gap: 12px; break-inside: avoid; page-break-inside: avoid; }
+        .print-guide-details { flex: 1; min-width: 0; }
+        .print-guide-image { width: 94px; height: 72px; flex: 0 0 94px; object-fit: cover; border-radius: 4px; }
+        @media print {
+            .print-guide-row { display: flex !important; align-items: flex-start !important; gap: 10px !important; break-inside: avoid !important; page-break-inside: avoid !important; }
+            .print-guide-image { display: block !important; width: 94px !important; height: 72px !important; max-width: 94px !important; object-fit: cover !important; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+            .print-guide-details { flex: 1; min-width: 0; }
+        }
+    `;
+    document.head.appendChild(style);
+})();
+
 function printCurrentGuide() {
     // Avoid accidentally printing hundreds of pages when no date is selected.
     var from = dateFromInput.value;
@@ -1120,13 +1136,28 @@ function printCurrentGuide() {
         main.textContent = calendarTimeLabel(event) + "  ·  " + (event.title || "Untitled Event");
         var venue = document.createElement("p");
         venue.textContent = event.venue || event.location || "Venue TBC";
-        row.append(main, venue);
+        var details = document.createElement("div");
+        details.className = "print-guide-details";
+        details.append(main, venue);
+        var imageUrl = String(event.image || "").trim();
+        if (/^https?:\/\//i.test(imageUrl)) {
+            var picture = document.createElement("img");
+            picture.className = "print-guide-image";
+            picture.src = imageUrl;
+            picture.alt = "";
+            picture.loading = "eager";
+            picture.decoding = "async";
+            picture.referrerPolicy = "no-referrer";
+            picture.onerror = function() { picture.remove(); };
+            row.appendChild(picture);
+        }
+        row.appendChild(details);
         var url = event.link || event.url;
         if (url && /^https?:\/\//i.test(String(url))) {
             var link = document.createElement("a");
             link.href = url;
             link.textContent = "Event website";
-            row.appendChild(link);
+            details.appendChild(link);
         }
         printGuideContainer.appendChild(row);
     });
@@ -1134,7 +1165,17 @@ function printCurrentGuide() {
     note.className = "print-guide-note";
     note.textContent = "Event details may change. Please confirm times and availability with the organiser.";
     printGuideContainer.appendChild(note);
-    window.print();
+    var pictures = Array.prototype.slice.call(printGuideContainer.querySelectorAll(".print-guide-image"));
+    Promise.race([
+        Promise.all(pictures.map(function(img) {
+            if (img.complete) return Promise.resolve();
+            return new Promise(function(resolve) {
+                img.addEventListener("load", resolve, { once: true });
+                img.addEventListener("error", resolve, { once: true });
+            });
+        })),
+        new Promise(function(resolve) { setTimeout(resolve, 3500); })
+    ]).then(function() { window.print(); });
 }
 document.getElementById("print-guide").addEventListener("click", printCurrentGuide);
 document.getElementById("view-agenda").addEventListener("click", function() { setView("agenda"); });

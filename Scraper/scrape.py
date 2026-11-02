@@ -268,7 +268,19 @@ def correct_comedy_category(event):
     return False
 
 
+def correct_verified_event_dates(event):
+    """Exact event-specific correction; do not truncate genuine long seasons."""
+    if str(event.get("title") or "").strip().casefold() == "glam, gin & drag bingo at prohibition liquor co.":
+        event["datetime"] = "2026-11-07T16:00:00"
+        event["end_datetime"] = "2026-11-07T18:30:00"
+        return True
+    return False
+
+
 def save_events(events):
+    verified_date_fixes = sum(correct_verified_event_dates(event) for event in events)
+    if verified_date_fixes:
+        print(f"Verified event date corrections applied: {verified_date_fixes}")
     # Keep a separate archive of past events from earlier successful runs.
     # Do not change the current events.json merge/deduplication rules.
     from datetime import date
@@ -770,7 +782,7 @@ def clean_event(event, source_name):
         or event.get("end_date", "")
     ).strip()
 
-    return {
+    cleaned_record = {
         "title": title,
         "venue": venue,
         "datetime": dt,
@@ -780,6 +792,8 @@ def clean_event(event, source_name):
         "link": link,
         "source": source_name,
     }
+    correct_verified_event_dates(cleaned_record)
+    return cleaned_record
 
 
 def event_key(event):
