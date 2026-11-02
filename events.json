@@ -14044,7 +14044,7 @@
   {
     "title": "UnWined Uncovered",
     "venue": "Corner Hackney Road and Botanic Road",
-    "datetime": "2025-08-29T17:00:00",
+    "datetime": "2026-11-27T17:00:00",
     "end_datetime": "2026-11-27T19:00:00",
     "category": [
       "Food & Beverage"
@@ -14068,8 +14068,47 @@
   {
     "title": "Vinyl Thursdays",
     "venue": "48 Hindley Street",
-    "datetime": "2026-09-10T00:00:00",
-    "end_datetime": "2026-11-26T00:00:00",
+    "datetime": "2026-11-05T17:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music",
+      "Club/Party"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/dea0e220991b09468e43b1035f104d8a.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/vinyl-thursdays",
+    "source": "South Australia Tourism Commission"
+  },
+  {
+    "title": "Vinyl Thursdays",
+    "venue": "48 Hindley Street",
+    "datetime": "2026-11-12T17:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music",
+      "Club/Party"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/dea0e220991b09468e43b1035f104d8a.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/vinyl-thursdays",
+    "source": "South Australia Tourism Commission"
+  },
+  {
+    "title": "Vinyl Thursdays",
+    "venue": "48 Hindley Street",
+    "datetime": "2026-11-19T17:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music",
+      "Club/Party"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/dea0e220991b09468e43b1035f104d8a.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/vinyl-thursdays",
+    "source": "South Australia Tourism Commission"
+  },
+  {
+    "title": "Vinyl Thursdays",
+    "venue": "48 Hindley Street",
+    "datetime": "2026-11-26T17:00:00",
+    "end_datetime": "",
     "category": [
       "Music",
       "Club/Party"

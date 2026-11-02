@@ -309,6 +309,8 @@ def apply_verified_recurring_sessions(events):
             freq = rule["frequency"]
             match = (freq == "daily"
                      or (freq == "weekly" and day.weekday() == rule["weekday"])
+                     or (freq == "last_weekday" and day.weekday() == rule["weekday"]
+                         and (day + timedelta(days=7)).month != day.month)
                      or (freq == "nth_weekday" and day.weekday() == rule["weekday"]
                          and (day.day - 1) // 7 + 1 == rule["nth"]
                          and day.month in rule.get("months", list(range(1, 13)))))
