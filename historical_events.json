@@ -1310,5 +1310,17 @@
     "image": "https://images.humanitix.com/i/e51be05b-50ca-4e4a-8d3b-5e418da6e41d.png@seo-500.jpg",
     "link": "https://events.humanitix.com/sunday-at-the-cedars",
     "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "Beaumont House Open Days",
+    "venue": "National Trust South Australia",
+    "datetime": "2026-11-01T14:00:00",
+    "end_datetime": "2026-11-01T16:30:00",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://www.nationaltrust.org.au/wp-content/uploads/2022/01/1K1A1801-587x471.jpg",
+    "link": "https://www.nationaltrust.org.au/event/beaumont-house-open-day/",
+    "source": "National Trust SA"
   }
 ]

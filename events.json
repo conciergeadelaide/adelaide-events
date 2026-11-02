@@ -7523,30 +7523,6 @@
     "source": "National Trust SA"
   },
   {
-    "title": "Watchman House",
-    "venue": "National Trust South Australia",
-    "datetime": "2026-11-07T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Arts & Culture"
-    ],
-    "image": "https://www.nationaltrust.org.au/wp-content/uploads/2023/09/CV-NTSA-587x471.jpg",
-    "link": "https://www.nationaltrust.org.au/event/watchman-house/",
-    "source": "National Trust SA"
-  },
-  {
-    "title": "Watchman House",
-    "venue": "National Trust South Australia",
-    "datetime": "2026-12-05T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Arts & Culture"
-    ],
-    "image": "https://www.nationaltrust.org.au/wp-content/uploads/2023/09/CV-NTSA-587x471.jpg",
-    "link": "https://www.nationaltrust.org.au/event/watchman-house/",
-    "source": "National Trust SA"
-  },
-  {
     "title": "Old Treasury & Tunnels",
     "venue": "National Trust South Australia",
     "datetime": "2026-01-18T00:00:00",
@@ -7556,30 +7532,6 @@
     ],
     "image": "https://www.nationaltrust.org.au/wp-content/uploads/2022/01/Old-Treasury-Tour-587x471.jpg",
     "link": "https://www.nationaltrust.org.au/event/old-treasury-tunnels/",
-    "source": "National Trust SA"
-  },
-  {
-    "title": "Beaumont House Open Days",
-    "venue": "National Trust South Australia",
-    "datetime": "2026-11-01T14:00:00",
-    "end_datetime": "2026-11-01T16:30:00",
-    "category": [
-      "Arts & Culture"
-    ],
-    "image": "https://www.nationaltrust.org.au/wp-content/uploads/2022/01/1K1A1801-587x471.jpg",
-    "link": "https://www.nationaltrust.org.au/event/beaumont-house-open-day/",
-    "source": "National Trust SA"
-  },
-  {
-    "title": "Beaumont House Open Days",
-    "venue": "National Trust South Australia",
-    "datetime": "2026-12-06T14:00:00",
-    "end_datetime": "2026-12-06T16:30:00",
-    "category": [
-      "Arts & Culture"
-    ],
-    "image": "https://www.nationaltrust.org.au/wp-content/uploads/2022/01/1K1A1801-587x471.jpg",
-    "link": "https://www.nationaltrust.org.au/event/beaumont-house-open-day/",
     "source": "National Trust SA"
   },
   {
@@ -12767,6 +12719,42 @@
     "image": "https://www.arkabahotel.com.au/wp-content/uploads/2026/08/SOLD-OUT.png",
     "link": "https://www.arkabahotel.com.au/?bn_event=melbourne-cup-top-of-the-ark",
     "source": "Arkaba Hotel"
+  },
+  {
+    "title": "Watchman House",
+    "venue": "National Trust South Australia",
+    "datetime": "2026-11-07T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://www.nationaltrust.org.au/wp-content/uploads/2023/09/CV-NTSA-587x471.jpg",
+    "link": "https://www.nationaltrust.org.au/event/watchman-house/",
+    "source": "National Trust SA"
+  },
+  {
+    "title": "Watchman House",
+    "venue": "National Trust South Australia",
+    "datetime": "2026-12-05T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://www.nationaltrust.org.au/wp-content/uploads/2023/09/CV-NTSA-587x471.jpg",
+    "link": "https://www.nationaltrust.org.au/event/watchman-house/",
+    "source": "National Trust SA"
+  },
+  {
+    "title": "Beaumont House Open Days",
+    "venue": "National Trust South Australia",
+    "datetime": "2026-12-06T14:00:00",
+    "end_datetime": "2026-12-06T16:30:00",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://www.nationaltrust.org.au/wp-content/uploads/2022/01/1K1A1801-587x471.jpg",
+    "link": "https://www.nationaltrust.org.au/event/beaumont-house-open-day/",
+    "source": "National Trust SA"
   },
   {
     "title": "Free guided walks - Adelaide Botanic Garden",
