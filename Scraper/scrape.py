@@ -277,7 +277,56 @@ def correct_verified_event_dates(event):
     return False
 
 
+def apply_verified_recurring_sessions(events):
+    """Expand ONLY dates explicitly confirmed in recurring_sessions.json.
+
+    No inferred weekly/monthly dates, and no alteration of unverified listings.
+    The manifest is a curated list of individual occurrences, not a date span.
+    """
+    manifest_path = os.path.join(BASE_DIR, "recurring_sessions.json")
+    if not os.path.isfile(manifest_path):
+        return events
+    with open(manifest_path, encoding="utf-8") as handle:
+        manifest = json.load(handle)
+    output = []
+    expanded = 0
+    for event in events:
+        url = str(event.get("link") or event.get("url") or "").split("?", 1)[0].rstrip("/")
+        record = manifest.get(url)
+        if not record or not record.get("dates"):
+            output.append(event)
+            continue
+        for day in sorted(set(record["dates"])):
+            try:
+                datetime.strptime(day, "%Y-%m-%d")
+                start_time = record["start_time"]
+                end_time = record.get("end_time")
+                datetime.strptime(start_time, "%H:%M:%S")
+                if end_time:
+                    datetime.strptime(end_time, "%H:%M:%S")
+            except (ValueError, TypeError, KeyError):
+                raise ValueError("Invalid verified recurring session for " + url)
+            occurrence = event.copy()
+            occurrence["datetime"] = day + "T" + start_time
+            occurrence["end_datetime"] = day + "T" + end_time if end_time else ""
+            output.append(occurrence)
+            expanded += 1
+    seen = set()
+    unique = []
+    for event in output:
+        key = (str(event.get("title", "")).casefold(),
+               str(event.get("venue", "")).casefold(),
+               str(event.get("datetime", "")),
+               str(event.get("link") or event.get("url") or "").split("?", 1)[0])
+        if key not in seen:
+            seen.add(key)
+            unique.append(event)
+    print(f"Verified recurring sessions expanded: {expanded}")
+    return unique
+
+
 def save_events(events):
+    events = apply_verified_recurring_sessions(events)
     verified_date_fixes = sum(correct_verified_event_dates(event) for event in events)
     if verified_date_fixes:
         print(f"Verified event date corrections applied: {verified_date_fixes}")
