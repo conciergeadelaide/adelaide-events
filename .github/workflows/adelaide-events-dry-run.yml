@@ -1,10 +1,19 @@
-name: Adelaide Events - Safe Scraper Test
+name: Adelaide Events - Daily Safe Scraper Test
 
 on:
   workflow_dispatch:
+  schedule:
+    # 05:30 Adelaide time: 19:00 UTC during daylight saving,
+    # 20:00 UTC during standard time (on the preceding UTC date).
+    - cron: '30 19 * * *'
+    - cron: '30 20 * * *'
 
 permissions:
   contents: read
+
+concurrency:
+  group: adelaide-events-safe-test
+  cancel-in-progress: false
 
 jobs:
   test-scraper:
@@ -14,10 +23,27 @@ jobs:
       TICKETMASTER_API_KEY: ${{ secrets.TICKETMASTER_API_KEY }}
       TZ: Australia/Adelaide
     steps:
+      - name: Check Adelaide local schedule time
+        id: local_time
+        shell: bash
+        run: |
+          # Manual runs always proceed. For scheduled runs, only proceed
+          # during the intended Adelaide 05:30 hour (DST-safe).
+          if [ '${{ github.event_name }}' = 'workflow_dispatch' ]; then
+            echo 'run_scraper=true' >> "$GITHUB_OUTPUT"
+          elif [ "$(TZ=Australia/Adelaide date +%H)" = '05' ]; then
+            echo 'run_scraper=true' >> "$GITHUB_OUTPUT"
+          else
+            echo 'run_scraper=false' >> "$GITHUB_OUTPUT"
+            echo 'Skipping the non-matching daylight-saving schedule.'
+          fi
+
       - name: Check out repository
+        if: steps.local_time.outputs.run_scraper == 'true'
         uses: actions/checkout@v4
 
       - name: Set up Python 3.13
+        if: steps.local_time.outputs.run_scraper == 'true'
         uses: actions/setup-python@v5
         with:
           python-version: '3.13'
@@ -25,9 +51,11 @@ jobs:
           cache-dependency-path: Scraper/requirements.txt
 
       - name: Install dependencies
+        if: steps.local_time.outputs.run_scraper == 'true'
         run: python -m pip install -r Scraper/requirements.txt
 
       - name: Check required files
+        if: steps.local_time.outputs.run_scraper == 'true'
         shell: bash
         run: |
           for file in Scraper/scrape.py Scraper/parsers.py Scraper/config.py Scraper/humanitix.py Scraper/festival_tags.py Scraper/requirements.txt events.json recurring_sessions.json recurring_rules.json; do
@@ -48,12 +76,14 @@ jobs:
           fi
 
       - name: Scrape without changing the database
+        if: steps.local_time.outputs.run_scraper == 'true'
         shell: bash
         run: |
           set -o pipefail
           python Scraper/scrape.py --dry-run 2>&1 | tee scraper-test.log
 
       - name: Verify events.json was not changed
+        if: steps.local_time.outputs.run_scraper == 'true'
         shell: bash
         run: |
           if ! git diff --exit-code -- events.json; then
@@ -62,7 +92,7 @@ jobs:
           fi
 
       - name: Upload test log
-        if: always()
+        if: always() && steps.local_time.outputs.run_scraper == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: adelaide-scraper-test-log
