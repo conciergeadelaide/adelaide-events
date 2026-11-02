@@ -370,9 +370,9 @@ VENUE_ALIASES = {
     "national wine centre": "National Wine Centre",
     "rhino room, adelaide": "Rhino Room",
     "rhino room": "Rhino Room",
-    "victoria square": "Victoria Square / Tartanyangga",
-    "victoria square / tartanyangga": "Victoria Square / Tartanyangga",
-    "victoria square / tarntanyangga": "Victoria Square / Tartanyangga",
+    "victoria square": "Victoria Square / Tarntanyangga",
+    "victoria square / tartanyangga": "Victoria Square / Tarntanyangga",
+    "victoria square / tarntanyangga": "Victoria Square / Tarntanyangga",
 
     "adel ent cent - theatre": "Adelaide Entertainment Centre",
     "lucky dumpling market, elder park": "Elder Park",
@@ -2613,7 +2613,7 @@ def main(only_source=None):
     # Standardise Victoria Square venue labels across every source,
     # including older imported records with alternate spelling/case.
     victoria_aliases = {
-        "victoria square / tartanyangga",
+        "victoria square / tarntanyangga",
         "victoria square / tartntanyangga",
         "victoria square / tarntanyangga",
     }

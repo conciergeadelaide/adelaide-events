@@ -449,9 +449,9 @@ function canonicalVenue(value) {
         "st peter's cathedral": "St Peter's Cathedral",
         "ukaria cultural centre": "UKARIA Cultural Centre",
         "ukaria cultural centre": "UKARIA Cultural Centre",
-        "victoria square": "Victoria Square / Tartanyangga",
-        "victoria square / tartanyangga": "Victoria Square / Tartanyangga",
-        "victoria square / tarntanyangga": "Victoria Square / Tartanyangga",
+        "victoria square": "Victoria Square / Tarntanyangga",
+        "victoria square / tartanyangga": "Victoria Square / Tarntanyangga",
+        "victoria square / tarntanyangga": "Victoria Square / Tarntanyangga",
     };
     if (name.toLowerCase() === "family friendly events & shows") return "";
     return aliases[name.toLowerCase()] || name;
