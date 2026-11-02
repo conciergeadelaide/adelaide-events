@@ -354,6 +354,26 @@ def save_events(events):
 # Venue aliases are applied to both newly scraped and retained records.
 # This keeps the public Venue filter consistent across future runs.
 VENUE_ALIASES = {
+    "adelaide showground - old brick dairy": "Adelaide Showground",
+    "adelaide showground": "Adelaide Showground",
+    "botanic park": "Botanic Park / Tainmuntilla",
+    "botanic park / tainmuntilla": "Botanic Park / Tainmuntilla",
+    "elder park, adelaide": "Elder Park",
+    "elder park": "Elder Park",
+    "festival plaza, adelaide": "Festival Plaza",
+    "festival plaza": "Festival Plaza",
+    "ila | immersive light and art": "Immersive Light and Art (ILA)",
+    "immersive light and art (ila)": "Immersive Light and Art (ILA)",
+    "mclaren vale institute hall": "McLaren Vale Institute Hall",
+    "mclaren vale institute hall": "McLaren Vale Institute Hall",
+    "national wine centre of australia": "National Wine Centre",
+    "national wine centre": "National Wine Centre",
+    "rhino room, adelaide": "Rhino Room",
+    "rhino room": "Rhino Room",
+    "victoria square": "Victoria Square / Tartanyangga",
+    "victoria square / tartanyangga": "Victoria Square / Tartanyangga",
+    "victoria square / tarntanyangga": "Victoria Square / Tartanyangga",
+
     "adel ent cent - theatre": "Adelaide Entertainment Centre",
     "lucky dumpling market, elder park": "Elder Park",
     "ellis park - tampawardli - city west": "Ellis Park",
@@ -373,8 +393,8 @@ CANCELLED_EVENT_IDS = {
 
 def standardise_venue(event):
     venue = str(event.get("venue") or "").strip()
-    canonical = VENUE_ALIASES.get(venue.casefold())
-    if canonical and canonical != venue:
+    canonical = "" if venue.casefold() == "family friendly events & shows" else VENUE_ALIASES.get(venue.casefold())
+    if canonical is not None and canonical != venue:
         event["venue"] = canonical
         return True
     return False

@@ -428,7 +428,33 @@ function canonicalVenue(value) {
         /^various venues across south australia$/i.test(name)) {
         return "Various";
     }
-    return name;
+    var aliases = {
+        "adelaide showground - old brick dairy": "Adelaide Showground",
+        "adelaide showground": "Adelaide Showground",
+        "botanic park": "Botanic Park / Tainmuntilla",
+        "botanic park / tainmuntilla": "Botanic Park / Tainmuntilla",
+        "elder park, adelaide": "Elder Park",
+        "elder park": "Elder Park",
+        "festival plaza, adelaide": "Festival Plaza",
+        "festival plaza": "Festival Plaza",
+        "ila | immersive light and art": "Immersive Light and Art (ILA)",
+        "immersive light and art (ila)": "Immersive Light and Art (ILA)",
+        "mclaren vale institute hall": "McLaren Vale Institute Hall",
+        "mclaren vale institute hall": "McLaren Vale Institute Hall",
+        "national wine centre of australia": "National Wine Centre",
+        "national wine centre": "National Wine Centre",
+        "rhino room, adelaide": "Rhino Room",
+        "rhino room": "Rhino Room",
+        "st peter's cathedral": "St Peter's Cathedral",
+        "st peter's cathedral": "St Peter's Cathedral",
+        "ukaria cultural centre": "UKARIA Cultural Centre",
+        "ukaria cultural centre": "UKARIA Cultural Centre",
+        "victoria square": "Victoria Square / Tartanyangga",
+        "victoria square / tartanyangga": "Victoria Square / Tartanyangga",
+        "victoria square / tarntanyangga": "Victoria Square / Tartanyangga",
+    };
+    if (name.toLowerCase() === "family friendly events & shows") return "";
+    return aliases[name.toLowerCase()] || name;
 }
 
 // Adelaide Symphony Orchestra is an organiser, not a physical venue.
@@ -465,10 +491,10 @@ function closeCategoryOptions() {
 
 function updateVenueLabel() {
     venueFilter.textContent = selectedVenues.length === 0
-        ? "All venues"
+        ? "All venues/locations"
         : selectedVenues.length === 1
             ? selectedVenues[0]
-            : selectedVenues.length + " venues selected";
+            : selectedVenues.length + " venues/locations selected";
 }
 
 function closeVenueOptions() {
@@ -520,6 +546,7 @@ function isActualVenue(value) {
     }
 
     var lower = venue.toLowerCase();
+    if (lower === "family friendly events & shows") return false;
 
     var excludedLocations = [
         "mundy street",

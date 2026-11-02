@@ -1120,7 +1120,7 @@
   },
   {
     "title": "Lucky's Club House",
-    "venue": "Festival Plaza, Adelaide",
+    "venue": "Festival Plaza",
     "datetime": "2026-11-20T00:00:00",
     "end_datetime": "2027-01-03T00:00:00",
     "category": [
@@ -5139,7 +5139,7 @@
   },
   {
     "title": "Free guided walks - Botanic Park",
-    "venue": "Botanic Park",
+    "venue": "Botanic Park / Tainmuntilla",
     "datetime": "2026-10-09T14:00:00",
     "end_datetime": "2027-12-31T15:30:00",
     "category": [
@@ -6514,7 +6514,7 @@
   },
   {
     "title": "Gilles at the Grounds Market",
-    "venue": "Adelaide Showground - Old Brick Dairy",
+    "venue": "Adelaide Showground",
     "datetime": "2026-11-15T09:00:00",
     "end_datetime": "2026-11-15T15:00:00",
     "category": [
@@ -6528,7 +6528,7 @@
   },
   {
     "title": "Gilles at the Grounds Night Market",
-    "venue": "Adelaide Showground - Old Brick Dairy",
+    "venue": "Adelaide Showground",
     "datetime": "2026-12-05T15:00:00",
     "end_datetime": "2026-12-05T21:00:00",
     "category": [
@@ -6542,7 +6542,7 @@
   },
   {
     "title": "Gilles at the Grounds Market",
-    "venue": "Adelaide Showground - Old Brick Dairy",
+    "venue": "Adelaide Showground",
     "datetime": "2026-12-06T09:00:00",
     "end_datetime": "2026-12-06T15:00:00",
     "category": [
@@ -6556,7 +6556,7 @@
   },
   {
     "title": "Gilles at the Grounds Night Market",
-    "venue": "Adelaide Showground - Old Brick Dairy",
+    "venue": "Adelaide Showground",
     "datetime": "2026-12-19T15:00:00",
     "end_datetime": "2026-12-19T21:00:00",
     "category": [
@@ -6570,7 +6570,7 @@
   },
   {
     "title": "Gilles at the Grounds Market",
-    "venue": "Adelaide Showground - Old Brick Dairy",
+    "venue": "Adelaide Showground",
     "datetime": "2026-12-20T09:00:00",
     "end_datetime": "2026-12-20T15:00:00",
     "category": [
@@ -9389,7 +9389,7 @@
   },
   {
     "title": "Cockaigne: The Land of Plenty",
-    "venue": "ILA | Immersive Light and Art",
+    "venue": "Immersive Light and Art (ILA)",
     "datetime": "2027-02-25T00:00:00",
     "end_datetime": "2027-03-21T23:59:59",
     "category": [
@@ -9609,7 +9609,7 @@
   },
   {
     "title": "WOMADelaide",
-    "venue": "Botanic Park",
+    "venue": "Botanic Park / Tainmuntilla",
     "datetime": "2027-03-05T00:00:00",
     "end_datetime": "2027-03-08T23:59:59",
     "category": [
@@ -10392,7 +10392,7 @@
   },
   {
     "title": "Alta Falls - ‘Don’t Make Me A Number’ EP Tour",
-    "venue": "Rhino Room, Adelaide",
+    "venue": "Rhino Room",
     "datetime": "2026-11-14T19:00:00",
     "end_datetime": "",
     "category": [
@@ -12026,7 +12026,7 @@
   },
   {
     "title": "bp Adelaide Grand Final Parade presented by Experience Adelaide",
-    "venue": "Victoria Square / Tarntanyangga",
+    "venue": "Victoria Square / Tartanyangga",
     "datetime": "2026-11-25T00:00:00",
     "end_datetime": "",
     "category": [
@@ -12551,7 +12551,7 @@
   },
   {
     "title": "Women in Innovation Awards 2026",
-    "venue": "National Wine Centre of Australia",
+    "venue": "National Wine Centre",
     "datetime": "2026-11-06T19:00:00+1030",
     "end_datetime": "2026-11-06T23:30:00+1030",
     "category": [
