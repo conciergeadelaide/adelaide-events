@@ -1159,89 +1159,109 @@ function showDay(key) {
     });
 }
 
+function calendarStartTime(event) {
+    var value = String(getEventStart(event) || "");
+    var match = value.match(/T(\d{2}):(\d{2})/);
+    if (!match) return null;
+    var hours = Number(match[1]);
+    var minutes = Number(match[2]);
+    // Midnight is commonly used by sources for date-only events.
+    if (hours === 0 && minutes === 0) return null;
+    if (hours > 23 || minutes > 59) return null;
+    return hours * 60 + minutes;
+}
+
+function calendarTimeLabel(event) {
+    var minutes = calendarStartTime(event);
+    if (minutes === null) return "Time TBC";
+    var hour = Math.floor(minutes / 60);
+    var minute = minutes % 60;
+    return String((hour % 12) || 12) + ":" +
+        String(minute).padStart(2, "0") + (hour < 12 ? " am" : " pm");
+}
+
 function renderDayDetails() {
-    var panel = document.getElementById(
-        "calendar-details"
-    );
-
+    var panel = document.getElementById("calendar-details");
     panel.replaceChildren();
-
-    panel.classList.toggle(
-        "hidden",
-        !selectedDay
-    );
-
+    panel.classList.toggle("hidden", !selectedDay);
     if (!selectedDay) return;
 
     var parts = selectedDay.split("-").map(Number);
-
     var heading = document.createElement("h4");
-
-    heading.textContent = new Intl.DateTimeFormat(
-        "en-AU",
-        {
-            weekday: "long",
-            day: "numeric",
-            month: "long",
-            year: "numeric"
-        }
-    ).format(
-        new Date(
-            parts[0],
-            parts[1] - 1,
-            parts[2]
-        )
-    );
-
+    heading.textContent = new Intl.DateTimeFormat("en-AU", {
+        weekday: "long", day: "numeric", month: "long", year: "numeric"
+    }).format(new Date(parts[0], parts[1] - 1, parts[2]));
     panel.appendChild(heading);
 
-    var matching = eventsForDay(selectedDay);
+    var matching = eventsForDay(selectedDay).slice().sort(function(a, b) {
+        var first = calendarStartTime(a);
+        var second = calendarStartTime(b);
+        if (first === null && second !== null) return 1;
+        if (second === null && first !== null) return -1;
+        if (first !== null && second !== null && first !== second) return first - second;
+        return calendarEventTitle(a).localeCompare(calendarEventTitle(b));
+    });
+
+    var count = document.createElement("p");
+    count.className = "calendar-details-count";
+    count.textContent = matching.length + (matching.length === 1 ? " event" : " events");
+    panel.appendChild(count);
 
     if (!matching.length) {
         var empty = document.createElement("p");
-
-        empty.textContent =
-            "No matching events on this day.";
-
+        empty.textContent = "No matching events on this day.";
         panel.appendChild(empty);
+        return;
     }
 
     matching.forEach(function(event) {
-        var row = document.createElement("div");
+        var row = document.createElement("article");
         row.className = "calendar-detail";
 
+        var picture = document.createElement("div");
+        picture.className = "calendar-detail-image";
+        if (event.image) {
+            var img = document.createElement("img");
+            img.src = event.image;
+            img.alt = "";
+            img.loading = "lazy";
+            img.addEventListener("error", function() { picture.classList.add("image-unavailable"); img.remove(); });
+            picture.appendChild(img);
+        } else {
+            picture.classList.add("image-unavailable");
+        }
+
         var info = document.createElement("div");
-
+        info.className = "calendar-detail-info";
+        var time = document.createElement("div");
+        time.className = "calendar-detail-time";
+        time.textContent = calendarTimeLabel(event);
         var name = document.createElement("strong");
-
-        name.textContent =
-            event.title || "Untitled Event";
-
-        var details = document.createElement("p");
-
-        details.textContent =
-            formatDate(getEventStart(event)) +
-            " · " +
-            (event.venue || event.location || "Adelaide") +
-            " · " +
-            getCategoryText(event);
-
-        info.append(name, details);
-        row.appendChild(info);
+        name.textContent = calendarEventTitle(event);
+        var venue = document.createElement("p");
+        venue.textContent = event.venue || event.location || "Venue TBC";
+        var categories = document.createElement("div");
+        categories.className = "calendar-detail-categories";
+        getEventCategories(event).forEach(function(category) {
+            var tag = document.createElement("span");
+            tag.className = "calendar-detail-category";
+            tag.textContent = category;
+            tag.style.backgroundColor = CALENDAR_CATEGORY_COLOURS[category] || CALENDAR_CATEGORY_COLOURS.Other;
+            categories.appendChild(tag);
+        });
+        info.append(time, name, venue, categories);
+        row.append(picture, info);
 
         var url = event.link || event.url;
-
-        if (url) {
+        if (url && /^https?:\/\//i.test(String(url))) {
             var link = document.createElement("a");
-
+            link.className = "calendar-detail-link";
             link.href = url;
             link.target = "_blank";
             link.rel = "noopener noreferrer";
             link.textContent = "View Event";
-
             row.appendChild(link);
         }
-
         panel.appendChild(row);
     });
 }

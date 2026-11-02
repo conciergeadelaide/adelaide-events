@@ -650,3 +650,25 @@ text-align: right;
     .calendar-toolbar { flex-wrap: wrap; }
     .calendar-toolbar h3 { min-width: 0; }
 }
+
+/* Selected-day event agenda: image, time, venue and categories */
+.calendar-details {border-radius:6px;}
+.calendar-details h4 {margin-bottom:3px;}
+.calendar-details-count {margin:0 0 14px;color:#6d757b;font-size:13px;font-weight:600;}
+.calendar-detail {display:flex;align-items:center;justify-content:flex-start;gap:16px;padding:14px 0;}
+.calendar-detail-image {width:112px;height:84px;flex:0 0 112px;border-radius:4px;overflow:hidden;background:#e9e5dd;}
+.calendar-detail-image img {display:block;width:100%;height:100%;object-fit:cover;}
+.calendar-detail-image.image-unavailable {background:#e9e5dd;}
+.calendar-detail-info {min-width:0;flex:1;}
+.calendar-detail-info strong {display:block;font-size:14px;line-height:1.4;color:#17212b;}
+.calendar-detail-time {font-size:12px;color:#8c6d3d;font-weight:700;margin-bottom:4px;}
+.calendar-detail-info p {margin:5px 0 8px;color:#6d757b;font-size:12px;}
+.calendar-detail-categories {display:flex;gap:5px;flex-wrap:wrap;}
+.calendar-detail-category {font-size:10px;line-height:1.3;padding:4px 7px;border-radius:3px;color:white;font-weight:600;}
+.calendar-detail-link {margin-left:auto;flex-shrink:0;padding:8px 12px;border:1px solid #17212b;text-decoration:none;font-size:11px;font-weight:700;color:#17212b;}
+.calendar-detail-link:hover {background:#17212b;color:white;}
+@media (max-width:650px) {
+ .calendar-detail {flex-direction:row;align-items:flex-start;flex-wrap:wrap;gap:10px;}
+ .calendar-detail-image {width:76px;height:70px;flex-basis:76px;}
+ .calendar-detail-link {margin-left:86px;}
+}
