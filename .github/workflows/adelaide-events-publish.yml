@@ -1,0 +1,142 @@
+name: Adelaide Events - Manual Safe Publish
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: adelaide-events-publishing
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    env:
+      TICKETMASTER_API_KEY: ${{ secrets.TICKETMASTER_API_KEY }}
+      TZ: Australia/Adelaide
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: true
+
+      - name: Set up Python 3.13
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: pip
+          cache-dependency-path: Scraper/requirements.txt
+
+      - name: Install dependencies
+        run: python -m pip install -r Scraper/requirements.txt
+
+      - name: Validate required files
+        run: |
+          for file in index.html script.js style.css events.json Scraper/scrape.py Scraper/parsers.py Scraper/config.py Scraper/humanitix.py Scraper/festival_tags.py Scraper/requirements.txt recurring_rules.json recurring_sessions.json; do
+            test -f "$file" || { echo "::error::Missing $file"; exit 1; }
+          done
+
+      - name: Save baseline event data
+        run: cp events.json "$RUNNER_TEMP/events-before.json"
+
+      - name: Scrape live sources
+        shell: bash
+        run: |
+          set -o pipefail
+          python Scraper/scrape.py 2>&1 | tee scraper-publish.log
+
+      - name: Validate output and summarise changes
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, os, sys
+          from collections import Counter
+          from pathlib import Path
+
+          before = json.loads(Path(os.environ['RUNNER_TEMP'], 'events-before.json').read_text(encoding='utf-8'))
+          after = json.loads(Path('events.json').read_text(encoding='utf-8'))
+          errors = []
+          if not isinstance(before, list) or not isinstance(after, list):
+              errors.append('Event database must be a JSON list')
+          else:
+              old_count, new_count = len(before), len(after)
+              if old_count < 1 or new_count < 1:
+                  errors.append('Empty input or output event database')
+              if new_count < max(100, int(old_count * 0.85)):
+                  errors.append(f'Unexpected reduction: {old_count} -> {new_count} (more than 15%)')
+              if new_count > max(2000, int(old_count * 1.5)):
+                  errors.append(f'Unexpected increase: {old_count} -> {new_count} (more than 50%)')
+              for i, event in enumerate(after):
+                  if not isinstance(event, dict):
+                      errors.append(f'Event {i} is not an object')
+                      continue
+                  for field in ('title', 'venue', 'datetime'):
+                      if not isinstance(event.get(field), str) or not event[field].strip():
+                          errors.append(f'Event {i} missing {field}')
+              def key(e):
+                  return (str(e.get('title', '')).strip().casefold(), str(e.get('venue', '')).strip().casefold(), str(e.get('datetime', '')), str(e.get('link', '')).strip())
+              if all(isinstance(e, dict) for e in after):
+                  duplicates = sum(n-1 for n in Counter(map(key, after)).values() if n > 1)
+                  if duplicates:
+                      errors.append(f'{duplicates} duplicate records with same title, venue, datetime and link')
+              print(f'Events before: {old_count}; events after: {new_count}; difference: {new_count - old_count:+d}')
+          if errors:
+              for error in errors[:30]:
+                  print(f'::error::{error}')
+              sys.exit(1)
+          print('Event database validation passed.')
+          PY
+
+      - name: Commit updated events database if changed
+        shell: bash
+        run: |
+          if git diff --quiet -- events.json; then
+            echo 'No event database changes to commit.'
+          else
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git add -- events.json
+            git commit -m 'Update Adelaide events database [manual publish]'
+            git push origin HEAD:main
+          fi
+
+      - name: Prepare public website files
+        shell: bash
+        run: |
+          mkdir -p _site
+          cp index.html script.js style.css events.json _site/
+          if [ -d assets ]; then cp -a assets _site/; fi
+          if [ -f agsa-calendar.js ]; then cp agsa-calendar.js _site/; fi
+          if [ -f agsa-calendar.html ]; then cp agsa-calendar.html _site/; fi
+          if [ -f agsa-events-response.json ]; then cp agsa-events-response.json _site/; fi
+          touch _site/.nojekyll
+
+      - name: Set up GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Deploy website
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Upload scraper log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: adelaide-manual-publish-log
+          path: scraper-publish.log
+          if-no-files-found: ignore
+          retention-days: 14
