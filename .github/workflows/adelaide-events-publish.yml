@@ -1,7 +1,11 @@
-name: Adelaide Events - Manual Safe Publish
+name: Adelaide Events - Daily Safe Publish
 
 on:
   workflow_dispatch:
+  schedule:
+    # 05:30 Adelaide local time (daylight-saving aware).
+    - cron: "30 19 * * *"
+    - cron: "30 20 * * *"
 
 permissions:
   contents: write
@@ -23,13 +27,28 @@ jobs:
       TICKETMASTER_API_KEY: ${{ secrets.TICKETMASTER_API_KEY }}
       TZ: Australia/Adelaide
     steps:
+      - name: Check Adelaide local schedule time
+        id: local_time
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "run_scraper=true" >> "$GITHUB_OUTPUT"
+          elif [ "$(TZ=Australia/Adelaide date +%H)" = "05" ]; then
+            echo "run_scraper=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "run_scraper=false" >> "$GITHUB_OUTPUT"
+            echo "Skipping non-matching daylight-saving schedule."
+          fi
+
       - name: Check out main
+        if: steps.local_time.outputs.run_scraper == 'true'
         uses: actions/checkout@v4
         with:
           ref: main
           persist-credentials: true
 
       - name: Set up Python 3.13
+        if: steps.local_time.outputs.run_scraper == 'true'
         uses: actions/setup-python@v5
         with:
           python-version: '3.13'
@@ -37,24 +56,29 @@ jobs:
           cache-dependency-path: Scraper/requirements.txt
 
       - name: Install dependencies
+        if: steps.local_time.outputs.run_scraper == 'true'
         run: python -m pip install -r Scraper/requirements.txt
 
       - name: Validate required files
+        if: steps.local_time.outputs.run_scraper == 'true'
         run: |
           for file in index.html script.js style.css events.json Scraper/scrape.py Scraper/parsers.py Scraper/config.py Scraper/humanitix.py Scraper/festival_tags.py Scraper/requirements.txt recurring_rules.json recurring_sessions.json; do
             test -f "$file" || { echo "::error::Missing $file"; exit 1; }
           done
 
       - name: Save baseline event data
+        if: steps.local_time.outputs.run_scraper == 'true'
         run: cp events.json "$RUNNER_TEMP/events-before.json"
 
       - name: Scrape live sources
+        if: steps.local_time.outputs.run_scraper == 'true'
         shell: bash
         run: |
           set -o pipefail
           python Scraper/scrape.py 2>&1 | tee scraper-publish.log
 
       - name: Validate output and summarise changes
+        if: steps.local_time.outputs.run_scraper == 'true'
         shell: bash
         run: |
           python - <<'PY'
@@ -97,6 +121,7 @@ jobs:
           PY
 
       - name: Commit updated events database if changed
+        if: steps.local_time.outputs.run_scraper == 'true'
         shell: bash
         run: |
           if git diff --quiet -- events.json; then
@@ -105,11 +130,12 @@ jobs:
             git config user.name 'github-actions[bot]'
             git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
             git add -- events.json
-            git commit -m 'Update Adelaide events database [manual publish]'
+            git commit -m 'Update Adelaide events database [scheduled publish]'
             git push origin HEAD:main
           fi
 
       - name: Prepare public website files
+        if: steps.local_time.outputs.run_scraper == 'true'
         shell: bash
         run: |
           mkdir -p _site
@@ -121,22 +147,26 @@ jobs:
           touch _site/.nojekyll
 
       - name: Set up GitHub Pages
+        if: steps.local_time.outputs.run_scraper == 'true'
         uses: actions/configure-pages@v5
 
       - name: Upload Pages artifact
+        if: steps.local_time.outputs.run_scraper == 'true'
         uses: actions/upload-pages-artifact@v3
         with:
           path: _site
 
       - name: Deploy website
+        if: steps.local_time.outputs.run_scraper == 'true'
         id: deployment
         uses: actions/deploy-pages@v4
 
       - name: Upload scraper log
+        if: steps.local_time.outputs.run_scraper == 'true'
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: adelaide-manual-publish-log
+          name: adelaide-daily-publish-log
           path: scraper-publish.log
           if-no-files-found: ignore
           retention-days: 14
