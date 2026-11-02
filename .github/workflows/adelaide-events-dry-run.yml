@@ -1,12 +1,7 @@
-name: Adelaide Events - Daily Safe Scraper Test
+name: Adelaide Events - Manual Safe Scraper Test
 
 on:
   workflow_dispatch:
-  schedule:
-    # 05:30 Adelaide time: 19:00 UTC during daylight saving,
-    # 20:00 UTC during standard time (on the preceding UTC date).
-    - cron: '30 19 * * *'
-    - cron: '30 20 * * *'
 
 permissions:
   contents: read
