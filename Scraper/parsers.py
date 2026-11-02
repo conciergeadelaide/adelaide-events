@@ -6952,6 +6952,11 @@ def parse_plant_4_bowden():
             day = today + timedelta(days=offset)
             if day.weekday() != weekday:
                 continue
+            # A generic weekly schedule does not confirm Christmas Day
+            # trading. Do not invent a 25 December 2026 market session.
+            if day.isoformat() == "2026-12-25":
+                print("    Plant 4: omitted unconfirmed Christmas Day session")
+                continue
             events.append({
                 "title": title,
                 "venue": "Plant 4 Bowden",

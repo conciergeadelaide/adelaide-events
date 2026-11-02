@@ -672,3 +672,40 @@ text-align: right;
  .calendar-detail-image {width:76px;height:70px;flex-basis:76px;}
  .calendar-detail-link {margin-left:86px;}
 }
+
+/* Quick date shortcuts */
+.date-shortcuts {display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-top:16px}
+.date-shortcuts-label {font-size:11px;letter-spacing:.12em;font-weight:700;color:#6d757b;margin-right:6px}
+.date-shortcuts button {background:#fff;border:1px solid #dcd7cd;padding:9px 13px;cursor:pointer;color:#27313a;font:inherit;font-size:12px;border-radius:3px}
+.date-shortcuts button.active,.date-shortcuts button:hover {background:#17212b;color:#fff;border-color:#17212b}
+.date-shortcuts button:focus-visible {outline:2px solid #b08d57;outline-offset:2px}
+/* Agenda view */
+.agenda-view {background:#fff;border:1px solid #e2ded6;padding:20px 25px}
+.agenda-view.hidden {display:none}
+.agenda-day-heading {font:normal 23px Georgia,serif;color:#17212b;margin:24px 0 8px;padding:0 0 10px;border-bottom:2px solid #b08d57}
+.agenda-day-heading:first-child {margin-top:0}
+.agenda-item {display:flex;align-items:flex-start;gap:18px;padding:14px 0;border-bottom:1px solid #eee9e1}
+.agenda-time {width:90px;flex:0 0 90px;font-size:12px;font-weight:700;color:#876a3f}
+.agenda-item-body {flex:1;min-width:0}
+.agenda-item-body strong {font-size:15px;color:#17212b}
+.agenda-item-body p {margin:4px 0 0;font-size:12px;color:#6d757b}
+.agenda-link {font-size:12px;color:#17212b;white-space:nowrap}
+.agenda-empty {padding:30px 10px;color:#6d757b}
+@media(max-width:650px){.agenda-view{padding:12px}.agenda-item{flex-wrap:wrap;gap:5px 10px}.agenda-time{width:100%;flex-basis:100%}.agenda-link{margin-left:0}}
+/* Printable events guide: visible only when printing */
+.print-guide-content {display:none}
+@media print {
+ @page {size:A4;margin:15mm}
+ body {background:#fff;color:#111;font-size:11pt}
+ body > * {display:none!important}
+ body > main.container {display:block!important;width:100%;max-width:none;margin:0}
+ main.container > * {display:none!important}
+ main.container > .print-guide-content {display:block!important}
+ .print-guide-content h1 {font-size:20pt;margin:0 0 8pt}
+ .print-guide-content h2 {font-size:14pt;margin:16pt 0 7pt;border-bottom:1px solid #777;padding-bottom:4pt}
+ .print-guide-content > p {margin:5pt 0 14pt}
+ .print-guide-row {break-inside:avoid;padding:7pt 0;border-bottom:1px solid #ddd}
+ .print-guide-row p {margin:3pt 0}
+ .print-guide-row a {font-size:9pt;color:#333}
+ .print-guide-note {font-size:9pt;color:#555;margin-top:18pt}
+}

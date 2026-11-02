@@ -359,6 +359,8 @@ VENUE_ALIASES = {
     "ellis park - tampawardli - city west": "Ellis Park",
     "the ed castle hotel": "The Ed Castle",
     "149 hindley": "DIV-DE",
+    "st peter's cathedral": "St Peter's Cathedral",
+    "ukaria cultural centre": "UKARIA Cultural Centre",
 }
 
 # Specific cancelled event IDs, not a blanket title-based ban. This avoids
@@ -377,6 +379,59 @@ def standardise_venue(event):
         return True
     return False
 
+
+
+# Conservative, exact-title corrections identified in the November audit.
+# Never infer a time or remove a performance from these corrections.
+AUDITED_CATEGORY_OVERRIDES = {
+    "a perfect circle": "Music",
+    "spacey jane": "Music",
+    "queens of the stone age 2026": "Music",
+    "women’s australian open": "Sport",
+    "women's australian open": "Sport",
+    "adelaide international": "Sport",
+    "womadelaide": "Festival",
+    "adelaide national pharmacies christmas pageant": "Community",
+    "adelaide carols by candlelight": "Music",
+    "santa’s wonderland": "Family",
+    "santa's wonderland": "Family",
+    "bp adelaide grand final": "Sport",
+    "shrek rave": "Club/Party",
+    "five nights at freddy’s rave!": "Club/Party",
+    "five nights at freddy's rave!": "Club/Party",
+    "new years eve celebration dinner": "Food & Beverage",
+    "adelaide town hall christmas concert": "Music",
+    "sunday at the cedars - monthly talks series": "Talks & Conferences",
+}
+
+# Only exact, visually confirmed corruption patterns; no blanket encoding
+# conversion because that can damage legitimate accented names.
+AUDITED_TEXT_REPLACEMENTS = {
+    "BohÃ¨me": "Bohème",
+    "BrontÃ«": "Brontë",
+    "FormalÂ®": "Formal®",
+}
+
+
+def apply_audited_data_corrections(event):
+    """Apply reversible, narrowly scoped display-data fixes in memory."""
+    changes = []
+    title = str(event.get("title") or "")
+    fixed_title = title
+    for bad, good in AUDITED_TEXT_REPLACEMENTS.items():
+        fixed_title = fixed_title.replace(bad, good)
+    if fixed_title != title:
+        event["title"] = fixed_title
+        changes.append("title encoding")
+    category = event.get("category") or []
+    if isinstance(category, str):
+        category = [category]
+    if not category or all(str(c).strip().casefold() in ("", "other") for c in category):
+        corrected = AUDITED_CATEGORY_OVERRIDES.get(fixed_title.strip().casefold())
+        if corrected:
+            event["category"] = [corrected]
+            changes.append("category")
+    return changes
 
 
 def consolidate_verified_cross_source_duplicates(events):
@@ -1609,7 +1664,55 @@ def write_preview_report(existing_events, proposed_events):
                     "review_only": True,
                 })
 
+    # Review-only warnings; never infer cancellations or delete sessions.
+    from datetime import date
+    today_key = date.today().isoformat()
+    proposed_urls = defaultdict(list)
+    def review_url(event):
+        parsed = urlparse(str(event.get("link") or event.get("url") or ""))
+        return ((parsed.hostname or "").casefold().removeprefix("www.")
+                + parsed.path.rstrip("/").casefold()) if parsed.hostname else ""
+    for event in proposed_events:
+        url_key = review_url(event)
+        if url_key:
+            proposed_urls[url_key].append(event)
+    review_flags = []
+    for old in existing_events:
+        last_day = str(old.get("end_datetime") or old.get("datetime") or "")[:10]
+        if not last_day or last_day < today_key or identity(old) in new_by_key:
+            continue
+        matches = proposed_urls.get(review_url(old), []) if review_url(old) else []
+        same_date = [new for new in matches if str(new.get("datetime") or "")[:10]
+                     == str(old.get("datetime") or "")[:10]]
+        if same_date:
+            review_flags.append({"reason": "Upcoming event changed title/venue",
+                                 "before": describe(old),
+                                 "possible_replacements": [describe(new) for new in same_date]})
+        elif not matches:
+            review_flags.append({"reason": "Upcoming/ongoing event absent from proposed data",
+                                 "before": describe(old)})
+    # This known source discrepancy should not silently pass as zero flags.
+    for event in proposed_events:
+        title = str(event.get("title") or "").casefold()
+        venue = str(event.get("venue") or "").casefold()
+        if "meg carlin" in title and "loft" in title and "queens theatre" in venue:
+            review_flags.append({
+                "reason": "Event title names The Loft, but listing venue is The Queens Theatre; confirm with organiser",
+                "proposed": describe(event),
+            })
+    repeated_records = [{"reason": "Repeated title/venue/date; review times and links",
+                         "records": [describe(event) for event in records]}
+                        for records in new_by_key.values() if len(records) > 1]
+    holiday_review = [describe(event) for event in proposed_events
+                      if str(event.get("datetime") or "")[:10] == "2026-12-25"
+                      and "plant 4 bowden" in str(event.get("venue") or "").casefold()]
     report = {
+        "review_flags": review_flags,
+        "review_flags_count": len(review_flags),
+        "repeated_records": repeated_records,
+        "repeated_records_count": len(repeated_records),
+        "holiday_sessions_to_verify": holiday_review,
+        "holiday_sessions_to_verify_count": len(holiday_review),
         "note": "Exact title + venue + date comparison. Renamed or re-venued events may appear in both added and removed; review manually before saving.",
         "existing_total": len(existing_events),
         "proposed_total": len(proposed_events),
@@ -1631,6 +1734,9 @@ def write_preview_report(existing_events, proposed_events):
     print(f"Unchanged: {unchanged} | Updated: {len(updated)} | Added: {len(added)} | Removed: {len(removed)}")
     print("Renamed or re-venued events can appear as both added and removed.")
     print(f"Possible Ticketmaster overlaps to review: {len(possible_overlaps)}")
+    print(f"Upcoming event review flags: {len(review_flags)}")
+    print(f"Repeated event groups: {len(repeated_records)}")
+    print(f"Plant 4 Christmas Day sessions to verify: {len(holiday_review)}")
     print(f"Report saved to: {path}")
     print("events.json was NOT changed.")
 
@@ -2064,7 +2170,10 @@ def main(only_source=None):
                 url_key and (url_key, _date(old_event)) in current_humanitix_sessions
             )
         else:
-            already_refreshed = bool(url_key and url_key in current_urls)
+            already_refreshed = bool(url_key and any(
+                _event_url_identity(e) == url_key and _date(e) == _date(old_event)
+                for e in final_events
+            ))
         if key in current_keys or already_refreshed:
             continue
         final_events.append(old_event)
@@ -2510,6 +2619,17 @@ def main(only_source=None):
     venue_updates = sum(standardise_venue(event) for event in final_events)
     print(f"Additional venue names standardised: {venue_updates}")
 
+    # Apply only audited, deterministic corrections to fresh AND retained data.
+    # The existing --preview mode reports changes without writing events.json.
+    corrected_titles = 0
+    corrected_categories = 0
+    for event in final_events:
+        corrections = apply_audited_data_corrections(event)
+        corrected_titles += int("title encoding" in corrections)
+        corrected_categories += int("category" in corrections)
+    print(f"Audited title encoding fixes: {corrected_titles}")
+    print(f"Audited category fixes: {corrected_categories}")
+
     # Suppress the two specifically identified cancelled Secret Garden listings,
     # including old records restored by the unmatched-event safety logic.
     cancelled_count = len(final_events)
@@ -2634,6 +2754,69 @@ def main(only_source=None):
         print()
 
         return
+
+    # Remove only byte-for-byte-equivalent event listings, not other
+    # performances on the same day or different ticket links.
+    unique_events = []
+    exact_seen = set()
+    for event in final_events:
+        fingerprint = (
+            str(event.get("title") or "").strip().casefold(),
+            str(event.get("venue") or "").strip().casefold(),
+            str(event.get("datetime") or ""),
+            str(event.get("end_datetime") or ""),
+            str(event.get("link") or "").strip(),
+        )
+        if fingerprint in exact_seen:
+            continue
+        exact_seen.add(fingerprint)
+        unique_events.append(event)
+    if len(unique_events) != len(final_events):
+        print(f"Removed {len(final_events) - len(unique_events)} identical listings "
+              "(same title, venue, start, end and link).")
+    final_events = unique_events
+
+    # Targeted, non-destructive retention of independently verified listings.
+    # The Arkaba scraper can omit tomorrow's separately bookable Melbourne Cup
+    # functions even while returning other current events. Keep their old
+    # records until the date passes; do not invent any replacement listings.
+    arkaba_cup_links = {
+        "melbourne-cup-downstairs-2",
+        "melbourne-cup-sportys-2",
+        "melbourne-cup-top-of-the-ark",
+    }
+    from datetime import date as _date_class
+    if _date_class.today().isoformat() <= "2026-11-03":
+        retained_cup = 0
+        for old in existing_events:
+            if old.get("source") != "Arkaba Hotel" or str(old.get("datetime", ""))[:10] != "2026-11-03":
+                continue
+            link = str(old.get("link") or "")
+            if not any(token in link for token in arkaba_cup_links):
+                continue
+            if any(str(e.get("link") or "") == link and str(e.get("datetime") or "")[:10] == "2026-11-03" for e in final_events):
+                continue
+            final_events.append(old.copy())
+            retained_cup += 1
+        print(f"Arkaba Melbourne Cup verified listings retained: {retained_cup}")
+
+    # The Market's scraper sometimes replaces the specific workshop title
+    # with a generic parent-series title. Restore only exact URL/date matches.
+    seafood_titles = {
+        "the-art-of-seafood-fish-for-the-table": "The Art of Seafood: Fish for the Table",
+        "the-art-of-seafood-christmas-from-the-sea": "The Art of Seafood: Christmas from the Sea",
+    }
+    restored_seafood = 0
+    for event in final_events:
+        if event.get("source") != "Adelaide Central Market":
+            continue
+        link = str(event.get("link") or "")
+        for slug, title in seafood_titles.items():
+            if slug in link and event.get("title") != title:
+                event["title"] = title
+                restored_seafood += 1
+                break
+    print(f"Specific Art of Seafood workshop titles restored: {restored_seafood}")
 
     # ----------------------------------------
     # Save final database

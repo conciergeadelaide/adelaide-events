@@ -2,6 +2,63 @@
   "repairs": [
     {
       "before": {
+        "title": "Melbourne Cup | Downstairs",
+        "venue": "Arkaba Hotel",
+        "datetime": "2026-11-03",
+        "end_datetime": "",
+        "source": "Arkaba Hotel",
+        "link": "https://www.arkabahotel.com.au/?bn_event=melbourne-cup-downstairs-2"
+      },
+      "after": {
+        "title": "November Lounge Bar Live Music",
+        "venue": "Arkaba Hotel",
+        "datetime": "2026-11-03",
+        "end_datetime": "2026-11-28",
+        "source": "Arkaba Hotel",
+        "link": "https://www.arkabahotel.com.au/?bn_event=november-lounge-bar-live-music-2"
+      },
+      "reason": "restored verified existing end time"
+    },
+    {
+      "before": {
+        "title": "Melbourne Cup | Sportys",
+        "venue": "Arkaba Hotel",
+        "datetime": "2026-11-03",
+        "end_datetime": "",
+        "source": "Arkaba Hotel",
+        "link": "https://www.arkabahotel.com.au/?bn_event=melbourne-cup-sportys-2"
+      },
+      "after": {
+        "title": "November Lounge Bar Live Music",
+        "venue": "Arkaba Hotel",
+        "datetime": "2026-11-03",
+        "end_datetime": "2026-11-28",
+        "source": "Arkaba Hotel",
+        "link": "https://www.arkabahotel.com.au/?bn_event=november-lounge-bar-live-music-2"
+      },
+      "reason": "restored verified existing end time"
+    },
+    {
+      "before": {
+        "title": "Melbourne Cup | Top of the Ark *Sold Out*",
+        "venue": "Arkaba Hotel",
+        "datetime": "2026-11-03",
+        "end_datetime": "",
+        "source": "Arkaba Hotel",
+        "link": "https://www.arkabahotel.com.au/?bn_event=melbourne-cup-top-of-the-ark"
+      },
+      "after": {
+        "title": "November Lounge Bar Live Music",
+        "venue": "Arkaba Hotel",
+        "datetime": "2026-11-03",
+        "end_datetime": "2026-11-28",
+        "source": "Arkaba Hotel",
+        "link": "https://www.arkabahotel.com.au/?bn_event=november-lounge-bar-live-music-2"
+      },
+      "reason": "restored verified existing end time"
+    },
+    {
+      "before": {
         "title": "Oedipus",
         "venue": "Festival Theatre",
         "datetime": "2027-03-10T20:00:00",
@@ -192,57 +249,6 @@
     },
     {
       "before": {
-        "title": "Nils Hoffmann @ Divide / Everlight Album Tour",
-        "venue": "DIV-DE",
-        "datetime": "2026-10-30T21:00:00",
-        "end_datetime": "",
-        "source": "Ticketmaster Adelaide",
-        "link": "https://www.moshtix.com.au/v2/event/nils-hoffmann-divide-everlight-album-tour/199209"
-      },
-      "after": {
-        "title": "Nils Hoffmann @ Divide / Everlight Album Tour",
-        "venue": "DIV-DE",
-        "datetime": "2026-10-30T21:00:00",
-        "end_datetime": "2026-10-31T05:00:00",
-        "source": "Moshtix Adelaide CBD",
-        "link": "https://www.moshtix.com.au/v2/event/nils-hoffmann-divide-everlight-album-tour/199209"
-      },
-      "reason": "restored verified existing end time"
-    },
-    {
-      "before": {
-        "title": "When Chai Met Toast - Joy Rooms Tour - Australia 2026",
-        "venue": "The Ed Castle",
-        "datetime": "2026-10-31T19:00:00",
-        "end_datetime": "",
-        "source": "Ticketmaster Adelaide",
-        "link": "https://www.moshtix.com.au/v2/event/when-chai-met-toast-joy-rooms-tour-australia-2026/196110"
-      },
-      "after": {
-        "title": "When Chai Met Toast - Joy Rooms Tour - Australia 2026",
-        "venue": "The Ed Castle",
-        "datetime": "2026-10-31T19:00:00",
-        "end_datetime": "2026-10-31T23:00:00",
-        "source": "Moshtix Adelaide CBD",
-        "link": "https://www.moshtix.com.au/v2/event/when-chai-met-toast-joy-rooms-tour-australia-2026/196110"
-      },
-      "reason": "restored verified existing end time"
-    },
-    {
-      "before": {
-        "title": "PLAIN WHITE T'S TOUR 2026",
-        "source": "Ticketmaster Adelaide",
-        "end_datetime": ""
-      },
-      "after": {
-        "title": "PLAIN WHITE T'S TOUR 2026",
-        "source": "Moshtix Adelaide CBD",
-        "end_datetime": ""
-      },
-      "reason": "corrected Moshtix booking-link ownership"
-    },
-    {
-      "before": {
         "title": "RU Pretty Enuff Australian Tour ‘26",
         "source": "Ticketmaster Adelaide",
         "end_datetime": ""
@@ -270,6 +276,25 @@
         "end_datetime": "2026-11-05T23:30:00",
         "source": "Moshtix Adelaide CBD",
         "link": "https://www.moshtix.com.au/v2/event/party-dozen-21-bum-salute-album-tour/200117"
+      },
+      "reason": "restored verified existing end time"
+    },
+    {
+      "before": {
+        "title": "DIV-DE Presents. ISGWAN",
+        "venue": "DIV-DE",
+        "datetime": "2026-11-14T22:00:00",
+        "end_datetime": "",
+        "source": "Ticketmaster Adelaide",
+        "link": "https://www.moshtix.com.au/v2/event/div-de-presents-isgwan/202059"
+      },
+      "after": {
+        "title": "DIV-DE Presents. ISGWAN",
+        "venue": "DIV-DE",
+        "datetime": "2026-11-14T22:00:00",
+        "end_datetime": "2026-11-15T05:00:00",
+        "source": "Moshtix Adelaide CBD",
+        "link": "https://www.moshtix.com.au/v2/event/div-de-presents-isgwan/202059"
       },
       "reason": "restored verified existing end time"
     },
@@ -421,5 +446,11 @@
       "reason": "restored verified existing end time"
     }
   ],
-  "invalid_end_dates": []
+  "invalid_end_dates": [
+    {
+      "title": "Kate Ceberano - Australian Made Tour",
+      "datetime": "2026-11-07T00:00:00",
+      "invalid_end": "2026-11-07T00:00:00"
+    }
+  ]
 }

@@ -1,17 +1,5 @@
 [
   {
-    "title": "Harry Potter and the Deathly Hallows™ Part 2 in Concert",
-    "venue": "Adelaide Entertainment Centre",
-    "datetime": "2026-10-31T19:00:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://aso.lbcdn.io/uploads/2025/09/ASO26-HP7p2-AEC_1920-x-1080.png",
-    "link": "https://www.aso.com.au/events/harry-potter-and-the-deathly-hallows-part-2-in-concert/",
-    "source": "Adelaide Symphony Orchestra"
-  },
-  {
     "title": "Miracle",
     "venue": "Elder Hall",
     "datetime": "2026-11-04T11:30:00",
@@ -792,18 +780,6 @@
     "source": "Adelaide Symphony Orchestra"
   },
   {
-    "title": "Sheffield Shield: SA v WA",
-    "venue": "Adelaide Oval",
-    "datetime": "2026-10-28T10:30:00",
-    "end_datetime": "2026-10-31T23:59:59",
-    "category": [
-      "Sport"
-    ],
-    "image": "https://www.adelaideoval.com.au/wp-content/uploads/event/2025/07/4.png",
-    "link": "https://www.adelaideoval.com.au/events/sheffield-shield-sa-v-wa-3/",
-    "source": "Adelaide Oval"
-  },
-  {
     "title": "Robbie Williams: BRITPOP World Tour",
     "venue": "Adelaide Oval",
     "datetime": "2026-11-07T18:30:00",
@@ -972,56 +948,6 @@
     "source": "Adelaide Convention Centre"
   },
   {
-    "title": "Lucky Dumpling Market",
-    "venue": "Elder Park, Adelaide",
-    "datetime": "2026-10-09T00:00:00",
-    "end_datetime": "2026-11-01T00:00:00",
-    "category": [
-      "Family",
-      "Food & Beverage",
-      "Festival"
-    ],
-    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/10-Oct/Lucky-Dumpling-Market/LDM-afc-website-1136x994.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
-    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/lucky-dumpling-market-2026",
-    "source": "Adelaide Festival Centre",
-    "festival": [
-      "OzAsia Festival"
-    ]
-  },
-  {
-    "title": "Moon Lanterns at Lucky Dumpling Market",
-    "venue": "Elder Park",
-    "datetime": "2026-10-09T00:00:00",
-    "end_datetime": "2026-11-01T00:00:00",
-    "category": [
-      "Family",
-      "Food & Beverage",
-      "Festival",
-      "Arts & Culture"
-    ],
-    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/09-Sep/Moon-Lanterns-at-Lucky-Dumpling-Market/moon-lanterns-afc-website-1136x994.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
-    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/moon-lanterns-at-lucky-dumpling-market",
-    "source": "Adelaide Festival Centre",
-    "festival": [
-      "OzAsia Festival"
-    ]
-  },
-  {
-    "title": "Hong Kong Dragon",
-    "venue": "Riverbank Footbridge",
-    "datetime": "2026-10-09T00:00:00",
-    "end_datetime": "2026-11-01T00:00:00",
-    "category": [
-      "Family"
-    ],
-    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/08-Aug/Hong-Kong-Dragon/hong-kong-dragon-afc-website-1136x994.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
-    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/hong-kong-dragon-2026",
-    "source": "Adelaide Festival Centre",
-    "festival": [
-      "OzAsia Festival"
-    ]
-  },
-  {
     "title": "Ceramic Tile Painting Workshop with Jake Yang",
     "venue": "Artspace",
     "datetime": "2026-10-15T00:00:00",
@@ -1035,18 +961,6 @@
     "festival": [
       "OzAsia Festival"
     ]
-  },
-  {
-    "title": "AZIZA",
-    "venue": "Her Majesty's Theatre",
-    "datetime": "2026-10-29T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/10-Oct/Aziza/aziza-website-1136x994.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
-    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/aziza",
-    "source": "Adelaide Festival Centre"
   },
   {
     "title": "Chat 10 Looks 3 Live",
@@ -1154,6 +1068,18 @@
     ],
     "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/11-Nov/Lawrence-Mooney/lawrence-mooney-full-moon-party-feature-2026.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
     "link": "https://www.adelaidefestivalcentre.com.au/whats-on/lawrence-mooney-full-moon-party",
+    "source": "Adelaide Festival Centre"
+  },
+  {
+    "title": "Create Your Own Dinosaur",
+    "venue": "Artspace",
+    "datetime": "2026-11-14T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Family"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/11-Nov/Create-Your-Own-Dinosaur/Create_your_own_dinosaur_with_Erth_AFC_workshop_website-image_1136x994.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/create-your-own-dinosaur-with-erth",
     "source": "Adelaide Festival Centre"
   },
   {
@@ -1387,12 +1313,24 @@
     "source": "Adelaide Festival Centre"
   },
   {
+    "title": "New Year's Eve Party",
+    "venue": "Banquet Room",
+    "datetime": "2026-12-31T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/10-Oct/New-Years-Eve-Party/fireworks_1136x994.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/new-years-eve-party-2026",
+    "source": "Adelaide Festival Centre"
+  },
+  {
     "title": "New Years Eve Celebration Dinner",
     "venue": "Angry Penguin",
     "datetime": "2026-12-31T00:00:00",
     "end_datetime": "",
     "category": [
-      "Other"
+      "Food & Beverage"
     ],
     "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/10-Oct/New-Years-Eve-Celebration-Dinner/image-5.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
     "link": "https://www.adelaidefestivalcentre.com.au/whats-on/new-years-eve-long-dining-experience",
@@ -1669,6 +1607,18 @@
     "source": "Adelaide Festival Centre"
   },
   {
+    "title": "Burnout Paradise",
+    "venue": "Space Theatre",
+    "datetime": "2027-03-07T00:00:00",
+    "end_datetime": "2027-03-14T00:00:00",
+    "category": [
+      "Theatre"
+    ],
+    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2027/03-Mar/Burnout-Paradise/Burnout-Paradise_1136x994px.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
+    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/burnout-paradise",
+    "source": "Adelaide Festival Centre"
+  },
+  {
     "title": "Grace Cummings",
     "venue": "Dunstan Playhouse",
     "datetime": "2027-03-08T00:00:00",
@@ -1861,18 +1811,6 @@
     "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2027/09-Sep/Everly-Brothers-Roy-Orbison/1136x994-1.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
     "link": "https://www.adelaidefestivalcentre.com.au/whats-on/everly-brothers-roy-orbison-2027",
     "source": "Adelaide Festival Centre"
-  },
-  {
-    "title": "NIKOS OIKONOMOPOULOS LIVE",
-    "venue": "Hindley Street Music Hall",
-    "datetime": "2026-10-30T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://dynamicmedia.livenationinternational.com/t/m/n/baf7dcc9-67cb-4fce-a451-bec6e3fd09b0.jpeg?format=webp&width=3840&quality=75",
-    "link": "https://www.hindleymusichall.com.au/all-events/nikos-oikonomopoulos-tickets-ae1696958",
-    "source": "Hindley St Music Hall"
   },
   {
     "title": "THE ANGELS - AM I EVER GONNA SEE YOUR FACE AGAIN... 50 YEARS ON",
@@ -2281,42 +2219,6 @@
     "image": "https://networksites.livenationinternational.com/networksites/rn0nzhwx/will-sparks-banner.png?format=webp&width=3840&quality=75",
     "link": "https://www.hindleymusichall.com.au/all-events/will-sparks-tickets-ae797894",
     "source": "Hindley St Music Hall"
-  },
-  {
-    "title": "World Series Wrestling – Mega Mania",
-    "venue": "Adelaide Entertainment Centre",
-    "datetime": "2026-10-31T19:30:00",
-    "end_datetime": "",
-    "category": [
-      "Sport"
-    ],
-    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/04/WSW_MEGAMANIA_ADELAIDE_1050x520-1.png",
-    "link": "https://www.adelaideentertainmentcentre.com.au/events/world-series-wrestling-mega-mania/",
-    "source": "Adelaide Entertainment Centre"
-  },
-  {
-    "title": "Adelaide 36ers v Brisbane Bullets",
-    "venue": "Adelaide Entertainment Centre",
-    "datetime": "2026-11-01T16:30:00",
-    "end_datetime": "",
-    "category": [
-      "Sport"
-    ],
-    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/05/1050X520-26.11.01.png",
-    "link": "https://www.adelaideentertainmentcentre.com.au/events/adelaide-36ers-v-brisbane-bullets-7/",
-    "source": "Adelaide Entertainment Centre"
-  },
-  {
-    "title": "Morgan Jay – The Goofy Guy Tour (Strictly 16+)",
-    "venue": "Adelaide Entertainment Centre",
-    "datetime": "2026-11-01T19:00:00",
-    "end_datetime": "",
-    "category": [
-      "Comedy"
-    ],
-    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2025/12/MJ-ADEL-1050x520-1.jpg",
-    "link": "https://www.adelaideentertainmentcentre.com.au/events/morgan-jay-recommended-16/",
-    "source": "Adelaide Entertainment Centre"
   },
   {
     "title": "5 Seconds of Summer",
@@ -2979,6 +2881,18 @@
     "source": "Adelaide Entertainment Centre"
   },
   {
+    "title": "Guy Montgomery (Recommended 16+)",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2027-07-16T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2026/10/GM-ADEL-1050x520-1.jpg",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/guy-montgomery/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
     "title": "Westlife",
     "venue": "Adelaide Entertainment Centre",
     "datetime": "2027-07-18T19:00:00",
@@ -3560,7 +3474,7 @@
     "datetime": "2026-12-04T19:45:00",
     "end_datetime": "",
     "category": [
-      "Other"
+      "Music"
     ],
     "image": "https://www.thedriveadelaide.com.au/wp-content/uploads/2026/03/APC_3_505-copy.jpg",
     "link": "https://www.thedriveadelaide.com.au/events/a-perfect-circle/",
@@ -3572,7 +3486,7 @@
     "datetime": "2026-12-06T19:15:00",
     "end_datetime": "",
     "category": [
-      "Other"
+      "Music"
     ],
     "image": "https://www.thedriveadelaide.com.au/wp-content/uploads/2021/12/2426x1365-player-version-1024x576.png",
     "link": "https://www.thedriveadelaide.com.au/events/spacey-jane/",
@@ -3584,35 +3498,26 @@
     "datetime": "2026-12-08T18:35:00",
     "end_datetime": "",
     "category": [
-      "Other"
+      "Music"
     ],
     "image": "https://www.thedriveadelaide.com.au/wp-content/uploads/2021/12/2426x1365-player-version-1024x576.png",
     "link": "https://www.thedriveadelaide.com.au/events/queens-of-the-stone-age-2026/",
     "source": "The Drive"
   },
   {
-    "title": "Crooked Colours 'Dirt Road Gold' Album Tour",
-    "venue": "Lion Arts Factory",
-    "datetime": "2026-10-30T00:00:00",
+    "title": "Reunion Festival",
+    "venue": "The Drive",
+    "datetime": "2027-01-23T14:00:00",
     "end_datetime": "",
     "category": [
-      "Music"
+      "Festival"
     ],
-    "image": "https://www.moshtix.com.au/uploads/0e8c1e4d-0142-40f1-a39f-2eedff58e58cxoriginal",
-    "link": "https://www.moshtix.com.au/v2/event/crooked-colours-dirt-road-gold-album-tour/196192?ref=RSS_LAF_RSS&skin=LAF20",
-    "source": "Lion Arts Factory"
-  },
-  {
-    "title": "Taking Back Saturday Halloween: Emo & Pop Punk Party - Adelaide",
-    "venue": "Lion Arts Factory",
-    "datetime": "2026-10-31T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://www.moshtix.com.au/uploads/8671c737-bf56-4f6b-81c7-ae07eeb1751axoriginal",
-    "link": "https://www.moshtix.com.au/v2/event/taking-back-saturday-halloween-emo-pop-punk-party-adelaide/198329?ref=RSS_LAF_RSS&skin=LAF20",
-    "source": "Lion Arts Factory"
+    "image": "https://www.thedriveadelaide.com.au/wp-content/uploads/2021/12/2426x1365-player-version-1024x576.png",
+    "link": "https://www.thedriveadelaide.com.au/events/reunion-festival/",
+    "source": "The Drive",
+    "festival": [
+      "Reunion Festival"
+    ]
   },
   {
     "title": "INSIDEOUT - Adelaide",
@@ -4048,6 +3953,18 @@
     "source": "Lion Arts Factory"
   },
   {
+    "title": "The Lottery Winners Australia & New Zealand Tour",
+    "venue": "Lion Arts Factory",
+    "datetime": "2027-04-20T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.moshtix.com.au/uploads/7578f17f-3adb-4b33-b1ae-ace798021ba1xoriginal",
+    "link": "https://www.moshtix.com.au/v2/event/the-lottery-winners-australia-new-zealand-tour/201691?ref=RSS_LAF_RSS&skin=LAF20",
+    "source": "Lion Arts Factory"
+  },
+  {
     "title": "The Army, The Navy",
     "venue": "Lion Arts Factory",
     "datetime": "2027-05-08T00:00:00",
@@ -4156,6 +4073,308 @@
     "source": "Immersive Light and Art"
   },
   {
+    "title": "GOLDEN VOICES",
+    "venue": "St Peter's Cathedral",
+    "datetime": "2026-11-13T00:00:00",
+    "end_datetime": "2026-11-14T23:59:59",
+    "category": [
+      "Theatre",
+      "Music"
+    ],
+    "image": "https://www.stateopera.com.au/_image?href=http%3A%2F%2Fcms%2Fpublic%2Fassets%2Fgoldenvoices.png&w=1508&h=1508&q=70&f=webp",
+    "link": "https://www.stateopera.com.au/productions/2026/golden-voices",
+    "source": "State Opera South Australia"
+  },
+  {
+    "title": "TRIALS & TRANSFORMATIONS",
+    "venue": "UKARIA Cultural Centre",
+    "datetime": "2026-11-22T14:30:00",
+    "end_datetime": "",
+    "category": [
+      "Theatre",
+      "Music"
+    ],
+    "image": "https://www.stateopera.com.au/_image?href=http%3A%2F%2Fcms%2Fpublic%2Fassets%2Ftrials-n-transformations-2.png&w=1508&h=1508&q=70&f=webp",
+    "link": "https://www.stateopera.com.au/productions/2026/trials-and-transformations",
+    "source": "State Opera South Australia"
+  },
+  {
+    "title": "Daryl Austin: The Long View",
+    "venue": "Adelaide Town Hall",
+    "datetime": "2027-02-15T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/ce325ec0ae82abe35267143ffbebdab7.jpeg?rect=0%2C83%2C2953%2C2215&w=1280&h=1024&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjY5ZmE5M2ZjYzhiYTQzYmU3NDY1ZDAyNiIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
+    "link": "https://www.adelaidetownhall.com.au/events/daryl-austin-the-long-view/",
+    "source": "Adelaide Town Hall"
+  },
+  {
+    "title": "Adelaide Town Hall Live Music Rehearsal Space",
+    "venue": "Adelaide Town Hall",
+    "datetime": "2027-02-25T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/8cb4942a73f40dee5536a9a3c74f1767.jpeg?rect=0%2C0%2C1600%2C1200&w=1280&h=1024&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhOTExNDI4OWUyZWE3ZWY2MmU5Yjg2NyIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
+    "link": "https://www.adelaidetownhall.com.au/events/adelaide-town-hall-live-music-rehearsal-space/",
+    "source": "Adelaide Town Hall"
+  },
+  {
+    "title": "The City Dressed Up: Adelaide’s Golden Age of Department Stores",
+    "venue": "Adelaide Town Hall",
+    "datetime": "2027-07-13T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/88fc7e1867ceda4d207aae5d4ab67a43.jpeg?rect=129%2C0%2C1791%2C1343&w=1280&h=1024&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhM2M3NjJjZDRiZTczM2Q1NGU2NGEwMSIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
+    "link": "https://www.adelaidetownhall.com.au/events/the-city-dressed-up-adelaides-golden-age-of-department-stores/",
+    "source": "Adelaide Town Hall"
+  },
+  {
+    "title": "Latvian Radio Choir and Genevieve Lacey - Musica Viva Australia in Adelaide",
+    "venue": "Adelaide Town Hall",
+    "datetime": "2026-11-12T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/5c866733869d34aa63fd515a26609d36.jpeg?rect=0%2C0%2C1600%2C1200&w=1280&h=1024&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjY4YzEyYTRlYmE5ODYzYzkyM2UwN2IxYSIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
+    "link": "https://www.adelaidetownhall.com.au/events/latvian-radio-choir-and-genevieve-lacey-musica-viva-australia-in-adelaide/",
+    "source": "Adelaide Town Hall"
+  },
+  {
+    "title": "Symphony Series 8 – Completely Unfinished",
+    "venue": "Adelaide Town Hall",
+    "datetime": "2026-11-22T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/5cb8d36014dbab225c79259971a7e8c6.jpeg?rect=0%2C0%2C1600%2C1200&w=1280&h=1024&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjY4ZGY2NTE3NzFjMGIxMzMwNjJhZWIwMyIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
+    "link": "https://www.adelaidetownhall.com.au/events/symphony-series-8-completely-unfinished/",
+    "source": "Adelaide Town Hall"
+  },
+  {
+    "title": "Beethoven’s Pastoral",
+    "venue": "Adelaide Town Hall",
+    "datetime": "2026-11-24T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Other"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/f9a8c9abdd05e5d391439bcac7f7620b.jpeg?rect=0%2C0%2C1600%2C1200&w=1280&h=1024&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjY4ZWRhNjA2OThjYzUwZGQ2YzIzMWE5ZSIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
+    "link": "https://www.adelaidetownhall.com.au/events/beethovens-pastoral/",
+    "source": "Adelaide Town Hall"
+  },
+  {
+    "title": "Jessica Mills in Concert at Adelaide Town Hall",
+    "venue": "Adelaide Town Hall",
+    "datetime": "2026-11-26T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/345bf824f9f9ba89d3da0e7e84861b1f.jpeg?rect=0%2C372%2C1780%2C1335&w=1280&h=1024&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhNzkyZDYxNmVkMjU2MjkxNmI1YjM4ZiIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
+    "link": "https://www.adelaidetownhall.com.au/events/jessica-mills-in-concert-at-adelaide-town-hall/",
+    "source": "Adelaide Town Hall"
+  },
+  {
+    "title": "Encore! Classics",
+    "venue": "Adelaide Town Hall",
+    "datetime": "2026-12-02T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/7e6b2f3b2ed8479de908041ae90ac60c.jpeg?rect=172%2C0%2C1600%2C1200&w=1280&h=1024&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjY2N2E0ZDdhYThkYjQ5YmEwZjE4MjRlMCIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
+    "link": "https://www.adelaidetownhall.com.au/events/encore-classics/",
+    "source": "Adelaide Town Hall"
+  },
+  {
+    "title": "Band of the South Australia Police - 2026 Christmas Concert",
+    "venue": "Adelaide Town Hall",
+    "datetime": "2026-12-11T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/ebe8c5e09aa94b32d7e8dd7e6e14a154.jpeg?rect=0%2C0%2C1600%2C1200&w=1280&h=1024&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhYjMyMjZhZTk3YzM3NTY3MTc5NWI1YyIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
+    "link": "https://www.adelaidetownhall.com.au/events/band-of-the-south-australia-police-2026-christmas-concert/",
+    "source": "Adelaide Town Hall"
+  },
+  {
+    "title": "Adelaide Town Hall Christmas Concert",
+    "venue": "Adelaide Town Hall",
+    "datetime": "2026-12-16T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/e7da3440f99a5ce23b4d9ac9245a4b1f.jpeg?rect=103%2C0%2C1600%2C1200&w=1280&h=1024&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhOWU0ZDg5ZTA4OGNiODM3NWJjYjczNyIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
+    "link": "https://www.adelaidetownhall.com.au/events/adelaide-town-hall-christmas-concert/",
+    "source": "Adelaide Town Hall"
+  },
+  {
+    "title": "Nicolas Altstaedt",
+    "venue": "Adelaide Town Hall",
+    "datetime": "2027-02-16T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Other"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/3f712d8d04d4e63d4ff4cbef405c55b7.jpeg?rect=0%2C0%2C1600%2C1200&w=1280&h=1024&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhOWY3ZmVjYzlmYmIwNGM0OGEwZDc1OSIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
+    "link": "https://www.adelaidetownhall.com.au/events/nicolas-altstaedt/",
+    "source": "Adelaide Town Hall"
+  },
+  {
+    "title": "Van Diemen's Band and Bertrand Cuiller - Musica Viva Australia in Adelaide",
+    "venue": "Adelaide Town Hall",
+    "datetime": "2027-02-25T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/cef9209bd247164bf9fdc5f1430503ea.jpeg?rect=0%2C0%2C2048%2C1536&w=1280&h=1024&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhYzRkODgxNTg4ZTZjMmE3ODY3NjUyNSIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
+    "link": "https://www.adelaidetownhall.com.au/events/van-diemens-band-and-bertrand-cuiller-musica-viva-australia-in-adelaide/",
+    "source": "Adelaide Town Hall"
+  },
+  {
+    "title": "Bach's St John Passion",
+    "venue": "Adelaide Town Hall",
+    "datetime": "2027-03-16T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/8552125e35390b88937f48f663dd2cb8.jpeg?rect=0%2C0%2C1600%2C1200&w=1280&h=1024&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhOWY5MzI3YzlmYmIwNGM0OGEwZDdlYiIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
+    "link": "https://www.adelaidetownhall.com.au/events/bachs-st-john-passion/",
+    "source": "Adelaide Town Hall"
+  },
+  {
+    "title": "The Romantics - Musica Viva Australia in Adelaide",
+    "venue": "Adelaide Town Hall",
+    "datetime": "2027-05-06T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/05447a55594b3d7735d4acbc38c5cc6a.jpeg?rect=0%2C0%2C2048%2C1536&w=1280&h=1024&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhYzRlNTYzNjRlZDAzMTQ3ODg1NjIwYyIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
+    "link": "https://www.adelaidetownhall.com.au/events/the-romantics-musica-viva-australia-in-adelaide/",
+    "source": "Adelaide Town Hall"
+  },
+  {
+    "title": "Alina Ibragimova Plays Tchaikovsky’s Violin Concerto",
+    "venue": "Adelaide Town Hall",
+    "datetime": "2027-05-18T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/65a13bfc9f373eb38e8bc0ad6c98746a.jpeg?rect=0%2C0%2C1600%2C1200&w=1280&h=1024&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhOWY5NWVhNDg3OGJlZDk3ZWI3Y2ViMiIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
+    "link": "https://www.adelaidetownhall.com.au/events/alina-ibragimova-plays-tchaikovskys-violin-concerto/",
+    "source": "Adelaide Town Hall"
+  },
+  {
+    "title": "Quatuor Van Kuijk - Musica Viva Australia in Adelaide",
+    "venue": "Adelaide Town Hall",
+    "datetime": "2027-06-11T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/973a31350723e84c364e2d142ea3d504.jpeg?rect=0%2C0%2C2048%2C1536&w=1280&h=1024&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhYzRlNjIyNzQ5YTY1ZjI3OTM0YTg2YiIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
+    "link": "https://www.adelaidetownhall.com.au/events/quatuor-van-kuijk-musica-viva-australia-in-adelaide/",
+    "source": "Adelaide Town Hall"
+  },
+  {
+    "title": "Richard Tognetti Directs Mozart",
+    "venue": "Adelaide Town Hall",
+    "datetime": "2027-06-22T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/dc125d300378a62b6e24227dcb80c9e4.jpeg?rect=0%2C0%2C1600%2C1200&w=1280&h=1024&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhYWI4NTUxMDEyMjNmMDEyZWMyODk0NCIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
+    "link": "https://www.adelaidetownhall.com.au/events/richard-tognetti-directs-mozart/",
+    "source": "Adelaide Town Hall"
+  },
+  {
+    "title": "The Choir of King's College, Cambridge and William Barton - Musica Viva Australia in Adelaide",
+    "venue": "Adelaide Town Hall",
+    "datetime": "2027-07-24T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/80780b86c5c24cbe43f482eb10723196.jpeg?rect=0%2C0%2C2048%2C1536&w=1280&h=1024&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhYzRlNmEwNzg0MGMyYTcwNGIxOTI1ZCIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
+    "link": "https://www.adelaidetownhall.com.au/events/the-choir-of-kings-college-cambridge-and-william-barton-musica-viva-australia-in-adelaide/",
+    "source": "Adelaide Town Hall"
+  },
+  {
+    "title": "ACO In Motion",
+    "venue": "Adelaide Town Hall",
+    "datetime": "2027-08-03T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/4dae32eab0521f9ee48fda6dfbfa8ce4.jpeg?rect=0%2C0%2C1600%2C1200&w=1280&h=1024&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhYjIxYWY1YmQwMmUxZGYyNWI2M2MxYSIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
+    "link": "https://www.adelaidetownhall.com.au/events/aco-in-motion/",
+    "source": "Adelaide Town Hall"
+  },
+  {
+    "title": "The John Adams Almanac",
+    "venue": "Adelaide Town Hall",
+    "datetime": "2027-09-07T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/ecc227f146650ffb48c1834241561389.jpeg?rect=0%2C0%2C1600%2C1200&w=1280&h=1024&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhYjIxY2VlYjU5MDJlMTUxZDU2MmM0YiIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
+    "link": "https://www.adelaidetownhall.com.au/events/the-john-adams-almanac/",
+    "source": "Adelaide Town Hall"
+  },
+  {
+    "title": "Javier Perianes - Musica Viva Australia in Adelaide",
+    "venue": "Adelaide Town Hall",
+    "datetime": "2027-09-16T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/e80f60272e4913ce841c362d84f22dad.jpeg?rect=0%2C0%2C2048%2C1536&w=1280&h=1024&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhYzRlNmY5MTVmYTcxZmM3OTYxZDlkZiIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
+    "link": "https://www.adelaidetownhall.com.au/events/javier-perianes-musica-viva-australia-in-adelaide/",
+    "source": "Adelaide Town Hall"
+  },
+  {
+    "title": "Desandre and Dunford - Musica Viva Australia in Adelaide",
+    "venue": "Adelaide Town Hall",
+    "datetime": "2027-10-22T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/99f904d0e34e467f7b284cc0b1ceddcc.jpeg?rect=0%2C0%2C2048%2C1536&w=1280&h=1024&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhYzRlNzQ0NzQ5YTY1ZjI3OTM0YTg3NiIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
+    "link": "https://www.adelaidetownhall.com.au/events/desandre-and-dunford-musica-viva-australia-in-adelaide/",
+    "source": "Adelaide Town Hall"
+  },
+  {
+    "title": "Vision by Vision - Musica Viva Australia in Adelaide",
+    "venue": "Adelaide Town Hall",
+    "datetime": "2027-11-18T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/c2cb5b1c9b815c771cebee7ee811ce12.jpeg?rect=0%2C0%2C2048%2C1536&w=1280&h=1024&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhYzRlNzlkYmYwN2Q1MDY3YTUwYjBkMiIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
+    "link": "https://www.adelaidetownhall.com.au/events/vision-by-vision-musica-viva-australia-in-adelaide/",
+    "source": "Adelaide Town Hall"
+  },
+  {
     "title": "Australian String Quartet x Parvyn",
     "venue": "Nexus Arts Gallery",
     "datetime": "2026-11-05T00:00:00",
@@ -4250,18 +4469,6 @@
     "image": "https://nexusarts.org.au/wp-content/uploads/2026/08/NEXUS-ARTS-WEBSITE-BANNER4-1200x550.jpg",
     "link": "https://nexusarts.org.au/events/interplay-felix-wang-and-xueqian-chien-zhang/",
     "source": "Nexus Arts"
-  },
-  {
-    "title": "Boxing SA State Titles 2026",
-    "venue": "Dom Polski Centre",
-    "datetime": "2026-10-31T15:00:00",
-    "end_datetime": "2026-11-01T18:00:00",
-    "category": [
-      "Sport"
-    ],
-    "image": "http://static1.squarespace.com/static/6a59c33d3bd155118b637a9f/6a71446188a61b606981d6be/6ad036ef4b008a7a160f9688/1792033198568/boxingsa.png?format=1500w",
-    "link": "https://dompolskicentre.org.au/whats-on/boxing-sa-state-titles-2026",
-    "source": "Dom Polski Centre"
   },
   {
     "title": "West Coast Swing Dance Show",
@@ -4422,18 +4629,6 @@
     "source": "South Australian Museum"
   },
   {
-    "title": "On the Terrace 2026",
-    "venue": "South Australian Museum",
-    "datetime": "2026-11-01T11:00:00",
-    "end_datetime": "2026-11-01T16:00:00",
-    "category": [
-      "Music"
-    ],
-    "image": "https://cdn.prod.website-files.com/6732be8f399afb43b8a54c4e/6abda2499863b0b2d3ce0cb0_WEB-OnTheTerrace2026.jpg",
-    "link": "https://whatson.samuseum.sa.gov.au/events/on-the-terrace-2026",
-    "source": "South Australian Museum"
-  },
-  {
     "title": "It’s In Our Nature: A Queer Tour of the Museum",
     "venue": "South Australian Museum",
     "datetime": "2026-11-07T00:00:00",
@@ -4472,18 +4667,6 @@
   {
     "title": "Monet to Matisse Friday Nights",
     "venue": "Art Gallery of South Australia",
-    "datetime": "2026-10-30T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Arts & Culture"
-    ],
-    "image": "https://thumbor.ixchosted.com/o3EVVyrgE6qzAraCxMwq04A0o4w=/800x0/filters:format(webp)/https://agsa-prod.s3.amazonaws.com/media/dd/images/149542-260715_MtM_People_in_Exhibition_Photo_Henry_Trumble_2000px_127.567cad3.jpg",
-    "link": "https://www.agsa.sa.gov.au/whats-on/exhibitions/monet-to-matisse-defying-tradition/monet-to-matisse-friday-nights/",
-    "source": "Art Gallery of South Australia"
-  },
-  {
-    "title": "Monet to Matisse Friday Nights",
-    "venue": "Art Gallery of South Australia",
     "datetime": "2026-11-06T00:00:00",
     "end_datetime": "",
     "category": [
@@ -4503,44 +4686,6 @@
     ],
     "image": "https://thumbor.ixchosted.com/o3EVVyrgE6qzAraCxMwq04A0o4w=/800x0/filters:format(webp)/https://agsa-prod.s3.amazonaws.com/media/dd/images/149542-260715_MtM_People_in_Exhibition_Photo_Henry_Trumble_2000px_127.567cad3.jpg",
     "link": "https://www.agsa.sa.gov.au/whats-on/exhibitions/monet-to-matisse-defying-tradition/monet-to-matisse-friday-nights/",
-    "source": "Art Gallery of South Australia"
-  },
-  {
-    "title": "Monet to Matisse Friday Nights: Kara Manansala",
-    "venue": "Art Gallery of South Australia",
-    "datetime": "2026-10-30T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Arts & Culture"
-    ],
-    "image": "https://thumbor.ixchosted.com/uoboExaZRgpvRdX5hPp4FzMk00M=/full-fit-in/800x0/filters:format(webp)/https://agsa-prod.s3.amazonaws.com/media/dd/images/KARA_003_-_ASHLEIGH_NOORDHOEK.d51eeb4.jpg",
-    "link": "https://www.agsa.sa.gov.au/whats-on/exhibitions/monet-to-matisse-defying-tradition/monet-to-matisse-friday-nights/monet-to-matisse-friday-nights-kara-manansala/",
-    "source": "Art Gallery of South Australia"
-  },
-  {
-    "title": "Start at the Gallery: Music & Masterpieces",
-    "venue": "Art Gallery of South Australia",
-    "datetime": "2026-11-01T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Family",
-      "Music",
-      "Arts & Culture"
-    ],
-    "image": "https://thumbor.ixchosted.com/OSj-TzMU8yY3c6ffBr8iU2QHQVI=/full-fit-in/800x0/filters:format(webp)/https://agsa-prod.s3.amazonaws.com/media/dd/images/20261004_START_Photo_Carney_Sims_SRGB_2000px_DSD09867.03df3eb.jpg",
-    "link": "https://www.agsa.sa.gov.au/whats-on/event-calendar/start-at-the-gallery-music-masterpieces/",
-    "source": "Art Gallery of South Australia"
-  },
-  {
-    "title": "On the Terrace 2026",
-    "venue": "Art Gallery of South Australia",
-    "datetime": "2026-11-01T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Arts & Culture"
-    ],
-    "image": "https://thumbor.ixchosted.com/e4ptl4czFNeFWyklH1DdOx8naVA=/800x0/filters:format(webp)/https://agsa-prod.s3.amazonaws.com/media/dd/images/OTT25-215-Austral-Harmony-Elinor-Warwick-Jane-Downer-Kim-Worley.8f855bc.jpg",
-    "link": "https://www.agsa.sa.gov.au/whats-on/event-calendar/on-the-terrace-2026/",
     "source": "Art Gallery of South Australia"
   },
   {
@@ -4628,6 +4773,30 @@
     "source": "Art Gallery of South Australia"
   },
   {
+    "title": "First Fridays: Dressed Up",
+    "venue": "Art Gallery of South Australia",
+    "datetime": "2026-12-04T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Talks & Conferences"
+    ],
+    "image": "https://thumbor.ixchosted.com/8-OJEJn8_KdU5b918_jp5zPx5wI=/full-fit-in/800x0/filters:format(webp)/https://agsa-prod.s3.amazonaws.com/media/dd/images/251016_Tarnanthi_Launch_Saige_Prime_SRGB_2000px_DSB07767.392fa26.jpg",
+    "link": "https://www.agsa.sa.gov.au/whats-on/event-calendar/first-fridays-dressed-up/",
+    "source": "Art Gallery of South Australia"
+  },
+  {
+    "title": "The Studio: Atelier",
+    "venue": "Art Gallery of South Australia",
+    "datetime": "2026-12-05T00:00:00",
+    "end_datetime": "2027-04-25T23:59:59",
+    "category": [
+      "Family"
+    ],
+    "image": "https://thumbor.ixchosted.com/MAt50h3p6wWteiv8paGBiKDtaDk=/800x0/filters:format(webp)/https://agsa-prod.s3.amazonaws.com/media/dd/images/202609250_Artlab_Adobe_RGB_0Z2Y6735.11f36ac.tif",
+    "link": "https://www.agsa.sa.gov.au/whats-on/ongoing-programs/studio/the-studio-atelier/",
+    "source": "Art Gallery of South Australia"
+  },
+  {
     "title": "Start at the Gallery: Sewing Stories",
     "venue": "Art Gallery of South Australia",
     "datetime": "2026-12-06T00:00:00",
@@ -4648,7 +4817,7 @@
     "category": [
       "Workshop"
     ],
-    "image": "https://thumbor.ixchosted.com/7CRHjEbOb9mMTDK_HPPEKVkrFVA=/800x0/filters:format(webp)/https://agsa-prod.s3.amazonaws.com/media/dd/images/260411_NEO_Yield_Strength_Photo_Clare_Elvia_SRGB_2000px_058.4567767.jpg",
+    "image": "https://thumbor.ixchosted.com/6IC8P2JGeLtml7rb7Ux7BorBk60=/800x0/filters:focal(0x423:1333x1257):format(webp)/https://agsa-prod.s3.amazonaws.com/media/dd/images/261017_Neo_Teen_Takeover_Saige_Prime_SRGB_2000px_DSA00972.12ca90f.jpg",
     "link": "https://www.agsa.sa.gov.au/whats-on/event-calendar/neo-december-2026/",
     "source": "Art Gallery of South Australia"
   },
@@ -4701,18 +4870,6 @@
     "source": "Art Gallery of South Australia"
   },
   {
-    "title": "James Tylor: Turrangka...in the shadows",
-    "venue": "Art Gallery of South Australia",
-    "datetime": "2026-07-31T00:00:00",
-    "end_datetime": "2026-11-01T23:59:59",
-    "category": [
-      "Arts & Culture"
-    ],
-    "image": "https://thumbor.ixchosted.com/LGir7Kwg8sM-VisUYvRi5Pfdbgo=/full-fit-in/800x0/filters:format(webp)/https://agsa-prod.s3.amazonaws.com/media/dd/images/Vanished_From_an_Untouched_Landscape_102018_Inkjet_print_on_hahnemuhle_paper_with_hole_removed_to_a_black_velvet_void__50x50cm_2000PX.276573e.jpg",
-    "link": "https://www.agsa.sa.gov.au/whats-on/exhibitions/james-tylor-turrangkain-the-shadows/",
-    "source": "Art Gallery of South Australia"
-  },
-  {
     "title": "Melting Point: Wati Wai!",
     "venue": "Art Gallery of South Australia",
     "datetime": "2027-10-22T00:00:00",
@@ -4734,6 +4891,18 @@
     ],
     "image": "https://thumbor.ixchosted.com/EiO3TkRJFDirAGnV1YPlAOQLmy4=/full-fit-in/800x0/filters:format(webp)/https://agsa-prod.s3.amazonaws.com/media/dd/images/250924_2026_Program_Guildhouse_Michelle_Nikou_202412113_Michelle_Nikou_Adobe_RGB_4000px_Photo_Saul_Steed_0Z2Y4155.160dc4b.jpg",
     "link": "https://www.agsa.sa.gov.au/whats-on/exhibitions/michelle-nikou-tell-it-slant/",
+    "source": "Art Gallery of South Australia"
+  },
+  {
+    "title": "Monet to Matisse: Defying Tradition",
+    "venue": "Art Gallery of South Australia",
+    "datetime": "2026-07-11T00:00:00",
+    "end_datetime": "2026-11-15T23:59:59",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://thumbor.ixchosted.com/o5RV0Pa5B7MITaBIP3f89GTvKuQ=/15x27:3985x3743/fit-in/800x0/filters:format(webp)/https://agsa-prod.s3.amazonaws.com/media/dd/images/144332-1981_54primary.8d122f8.jpg",
+    "link": "https://www.agsa.sa.gov.au/whats-on/exhibitions/monet-to-matisse-defying-tradition/",
     "source": "Art Gallery of South Australia"
   },
   {
@@ -4830,18 +4999,6 @@
     ],
     "image": "https://cdn.environment.sa.gov.au/img/eyJidWNrZXQiOiJlbnZzYS1idWNrZXQiLCJrZXkiOiJib3RhbmljZ2FyZGVucy9pbWFnZXMvV1BZL0xlYWYtbGl0dGVyLWNyaXR0ZXItYXNzZXRzLTIzMjAteC0xNjgwLXB4LmpwZyIsImVkaXRzIjp7ImpwZWciOnsicXVhbGl0eSI6ODIsInByb2dyZXNzaXZlIjp0cnVlLCJ0cmVsbGlzUXVhbnRpc2F0aW9uIjp0cnVlLCJvdmVyc2hvb3REZXJpbmdpbmciOnRydWUsIm9wdGltaXplU2NhbnMiOnRydWV9LCJyZXNpemUiOnsid2lkdGgiOjEyMDAsImhlaWdodCI6ODY4LCJmaXQiOiJjb3ZlciJ9fX0=",
     "link": "https://www.botanicgardens.sa.gov.au/whats-on/leaf-litter-critters",
-    "source": "Adelaide Botanic Gardens"
-  },
-  {
-    "title": "Forest Bathing",
-    "venue": "Adelaide Botanic Garden",
-    "datetime": "2026-10-18T15:00:00",
-    "end_datetime": "2026-11-01T17:00:00",
-    "category": [
-      "Other"
-    ],
-    "image": "https://cdn.environment.sa.gov.au/img/eyJidWNrZXQiOiJlbnZzYS1idWNrZXQiLCJrZXkiOiJib3RhbmljZ2FyZGVucy9pbWFnZXMvbGVhZl9RdWlldGx5LVdpbGQuanBnIiwiZWRpdHMiOnsianBlZyI6eyJxdWFsaXR5Ijo4MiwicHJvZ3Jlc3NpdmUiOnRydWUsInRyZWxsaXNRdWFudGlzYXRpb24iOnRydWUsIm92ZXJzaG9vdERlcmluZ2luZyI6dHJ1ZSwib3B0aW1pemVTY2FucyI6dHJ1ZX0sInJlc2l6ZSI6eyJ3aWR0aCI6MTIwMCwiaGVpZ2h0IjoxNTk4LCJmaXQiOiJjb3ZlciJ9fX0=",
-    "link": "https://www.botanicgardens.sa.gov.au/whats-on/forest-bathing",
     "source": "Adelaide Botanic Gardens"
   },
   {
@@ -5104,19 +5261,6 @@
     "source": "ACE Gallery"
   },
   {
-    "title": "Halloween at the Market",
-    "venue": "Adelaide Central Market",
-    "datetime": "2026-10-30T12:00:00",
-    "end_datetime": "",
-    "category": [
-      "Food & Beverage",
-      "Theatre"
-    ],
-    "image": "https://adelaidecentralmarket.com.au/site/wp-content/uploads/2026/10/Untitled-Design-28.png",
-    "link": "https://adelaidecentralmarket.com.au/event/halloween-at-the-market/",
-    "source": "Adelaide Central Market"
-  },
-  {
     "title": "The Art of Seafood: Fish for the Table",
     "venue": "Adelaide Central Market",
     "datetime": "2026-11-05T10:30:00",
@@ -5126,7 +5270,7 @@
       "Workshop",
       "Arts & Culture"
     ],
-    "image": "https://adelaidecentralmarket.com.au/site/wp-content/uploads/2026/09/Baked-Ora-King-Salmon-ingredients.jpg",
+    "image": "https://adelaidecentralmarket.com.au/wp-content/uploads/2026/09/Baked-Ora-King-Salmon-ingredients.jpg",
     "link": "https://adelaidecentralmarket.com.au/event/the-art-of-seafood-fish-for-the-table/",
     "source": "Adelaide Central Market"
   },
@@ -5140,7 +5284,7 @@
       "Workshop",
       "Arts & Culture"
     ],
-    "image": "https://adelaidecentralmarket.com.au/site/wp-content/uploads/2026/09/Sauteed-Abalone-raw.jpg",
+    "image": "https://adelaidecentralmarket.com.au/wp-content/uploads/2026/09/Sauteed-Abalone-raw.jpg",
     "link": "https://adelaidecentralmarket.com.au/event/the-art-of-seafood-christmas-from-the-sea/",
     "source": "Adelaide Central Market"
   },
@@ -5190,42 +5334,6 @@
     ],
     "image": "http://www.moshtix.com.au/uploads/e95a0fdc-ac16-4bd6-ac71-b32e32cfc773x600x600",
     "link": "https://www.moshtix.com.au/v2/event/slow-pilot-belgium-performing-the-songs-of-jeff-buckley/201186",
-    "source": "The Gov"
-  },
-  {
-    "title": "Shane Todd",
-    "venue": "The Gov",
-    "datetime": "2026-10-30T18:30:00",
-    "end_datetime": "",
-    "category": [
-      "Comedy"
-    ],
-    "image": "https://assets.oztix.com.au/image/c0b03904-de68-4960-98ed-dd382b861628.png?width=600&height=300",
-    "link": "https://tickets.oztix.com.au/outlet/event/8288ad6e-7a1e-4ba8-a467-7796c7753509?utm_source=Oztix&utm_medium=Website",
-    "source": "The Gov"
-  },
-  {
-    "title": "DAY OF THE DEAD HALLOWEEN FIESTA",
-    "venue": "The Gov",
-    "datetime": "2026-10-31T20:00:00",
-    "end_datetime": "",
-    "category": [
-      "Club/Party"
-    ],
-    "image": "https://assets.oztix.com.au/image/e7300dcc-0fcd-4ec8-946d-6ed483a21229.png?width=600&height=300",
-    "link": "https://tickets.oztix.com.au/outlet/event/65dea0ff-126a-43eb-bceb-92c5c70351c8?utm_source=Oztix&utm_medium=Website",
-    "source": "The Gov"
-  },
-  {
-    "title": "Windwaker 'smile, you're on camera' Australian Tour 2026",
-    "venue": "The Gov",
-    "datetime": "2026-11-01T19:00:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://assets.oztix.com.au/image/1ea6c8f5-dad3-442a-8cd0-b6a494d4c7e5.png?width=600&height=300",
-    "link": "https://tickets.oztix.com.au/outlet/event/533b2f3c-1a29-4a70-b896-5d4294e32194?utm_source=Oztix&utm_medium=Website",
     "source": "The Gov"
   },
   {
@@ -5334,6 +5442,18 @@
     ],
     "image": "https://assets.oztix.com.au/image/30831db4-b123-40d9-85cf-391cbf5cd1f8.png?width=600&height=300",
     "link": "https://tickets.oztix.com.au/outlet/event/20d53173-d166-49f6-b112-8fc5e33007d9?utm_source=Oztix&utm_medium=Website",
+    "source": "The Gov"
+  },
+  {
+    "title": "STRANGE HIGHWAYS | EASE THE PAIN | VESPR",
+    "venue": "The Gov",
+    "datetime": "2026-11-21T14:30:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://assets.oztix.com.au/image/b61a9589-03c1-4500-90bc-3b61613249f9.png?width=600&height=300",
+    "link": "https://tickets.oztix.com.au/outlet/event/d409257d-e974-40fd-aede-445ee93040e3?utm_source=Oztix&utm_medium=Website",
     "source": "The Gov"
   },
   {
@@ -5502,6 +5622,18 @@
     ],
     "image": "https://assets.oztix.com.au/image/f5010827-451e-4f72-a413-5af23a7fbd4a.png?width=600&height=300",
     "link": "https://tickets.oztix.com.au/outlet/event/13917c8a-ee09-47f0-927a-65133c8476e8?utm_source=Oztix&utm_medium=Website",
+    "source": "The Gov"
+  },
+  {
+    "title": "LATINO NEW YEAR’S EVE CARNIVAL - TROPICAL DANCE EXTRAVAGANZA",
+    "venue": "The Gov",
+    "datetime": "2026-12-31T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Club/Party"
+    ],
+    "image": "https://assets.oztix.com.au/image/d8b9edb3-3bb5-4813-9654-0d6c27ea3455.png?width=600&height=300",
+    "link": "https://tickets.oztix.com.au/outlet/event/177ce97a-e5b4-4f5f-8366-fa1dc1a5a3fc?utm_source=Oztix&utm_medium=Website",
     "source": "The Gov"
   },
   {
@@ -6021,30 +6153,6 @@
     "source": "The Gov"
   },
   {
-    "title": "Eternal Taurus, Torpedoes & Limelight",
-    "venue": "The Gov",
-    "datetime": "2026-10-31T14:00:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://assets.oztix.com.au/image/1fd8d399-2285-4600-b31e-5eb09952f86b.png?width=600&height=300",
-    "link": "https://tickets.oztix.com.au/outlet/event/9bb41624-7b00-4a69-8a8f-077546263a72?utm_source=Oztix&utm_medium=Website",
-    "source": "The Gov"
-  },
-  {
-    "title": "300 Joules",
-    "venue": "The Gov",
-    "datetime": "2026-10-31T19:30:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://assets.oztix.com.au/image/55d8a4c1-39e8-4e56-8d98-f9739ce2c196.png?width=600&height=300",
-    "link": "https://tickets.oztix.com.au/outlet/event/753c575e-7dc4-406d-8de2-5f63e07cc3c4?utm_source=Oztix&utm_medium=Website",
-    "source": "The Gov"
-  },
-  {
     "title": "The Bobby Hawkers",
     "venue": "The Gov",
     "datetime": "2026-11-14T20:30:00",
@@ -6249,16 +6357,16 @@
     "source": "Norwood Concert Hall"
   },
   {
-    "title": "Rick Price - The Call On Me Tour",
-    "venue": "Trinity Sessions",
-    "datetime": "2026-10-30T19:30:00",
+    "title": "Meet the Author | Taylor Walker",
+    "venue": "Norwood Concert Hall",
+    "datetime": "2026-11-10T18:30:00",
     "end_datetime": "",
     "category": [
       "Music"
     ],
-    "image": "https://static.wixstatic.com/media/f86ca5_3880a6a98822490ea6d3d820621d0d54~mv2.jpg/v1/crop/x_0,y_59,w_2000,h_1882/fill/w_373,h_351,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/FB-Rick-Price-Trinity-Sessions.jpg",
-    "link": "https://www.trybooking.com/DMVXE",
-    "source": "Trinity Sessions"
+    "image": "https://www.norwoodconcerthall.com.au/file/resize/c600x600/40111_meet_the_author_tex_walker-5-npsp_event_tile_meet_the_author.png",
+    "link": "https://www.norwoodconcerthall.com.au/events/3693_meet_the_author__taylor_walker",
+    "source": "Norwood Concert Hall"
   },
   {
     "title": "Harp2Harp - Emma Horwood and Višnja",
@@ -6357,18 +6465,6 @@
     "source": "Trinity Sessions"
   },
   {
-    "title": "Victoria Derby Day, October 31 Read more",
-    "venue": "Morphettville Racecourse",
-    "datetime": "2026-10-31T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Sport"
-    ],
-    "image": "https://morphettville.com.au/content/uploads/Oaktree-42-scaled.jpg",
-    "link": "https://morphettville.com.au/feature-race-day/victorian-derby-day-october-31/",
-    "source": "Morphettville Racecourse"
-  },
-  {
     "title": "Melbourne Cup Day, November 3 Read more",
     "venue": "Morphettville Racecourse",
     "datetime": "2026-11-03T00:00:00",
@@ -6393,6 +6489,18 @@
     "source": "Morphettville Racecourse"
   },
   {
+    "title": "Sportsbet Finals Day – November 21 Read more",
+    "venue": "Morphettville Racecourse",
+    "datetime": "2026-11-21T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Sport"
+    ],
+    "image": "https://morphettville.com.au/content/uploads/Oaktree-136-scaled.jpg",
+    "link": "https://morphettville.com.au/feature-race-day/sportsbet-finals-day-november-21/",
+    "source": "Morphettville Racecourse"
+  },
+  {
     "title": "The Greatest Showman Book Here",
     "venue": "Morphettville Racecourse",
     "datetime": "2026-10-29T00:00:00",
@@ -6403,34 +6511,6 @@
     "image": "https://morphettville.com.au/content/uploads/greatest_showman.jpg",
     "link": "https://premier.ticketek.com.au/shows/Show.aspx?sh=COMEAADL26",
     "source": "Morphettville Racecourse"
-  },
-  {
-    "title": "Gilles at the Grounds Night Market",
-    "venue": "Adelaide Showground - Old Brick Dairy",
-    "datetime": "2026-10-31T15:00:00",
-    "end_datetime": "2026-10-31T21:00:00",
-    "category": [
-      "Community",
-      "Arts & Culture",
-      "Food & Beverage"
-    ],
-    "image": "https://gilles.lbcdn.io/uploads/0G6A3766-510x350.jpg",
-    "link": "https://gillesatthegrounds.com.au/",
-    "source": "Gilles at the Grounds"
-  },
-  {
-    "title": "Gilles at the Grounds Market",
-    "venue": "Adelaide Showground - Old Brick Dairy",
-    "datetime": "2026-11-01T09:00:00",
-    "end_datetime": "2026-11-01T15:00:00",
-    "category": [
-      "Community",
-      "Arts & Culture",
-      "Food & Beverage"
-    ],
-    "image": "https://gilles.lbcdn.io/uploads/0G6A3766-510x350.jpg",
-    "link": "https://gillesatthegrounds.com.au/",
-    "source": "Gilles at the Grounds"
   },
   {
     "title": "Gilles at the Grounds Market",
@@ -6503,42 +6583,6 @@
     "source": "Gilles at the Grounds"
   },
   {
-    "title": "THE RIONS - HALLOWEEN SPECIAL",
-    "venue": "UniBar Adelaide",
-    "datetime": "2026-10-30",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://static.wixstatic.com/media/c07c08_799a99df2f7d4018b7054149467b5188~mv2.jpg",
-    "link": "https://moshtix.com.au/v2/event/the-rions-halloween-special-all-ages/200070",
-    "source": "UniBar Adelaide"
-  },
-  {
-    "title": "END OF DAYS 2026 - feat. SHOCKONE b2b AEON:MODE",
-    "venue": "UniBar Adelaide",
-    "datetime": "2026-10-31",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://static.wixstatic.com/media/c07c08_94a35da6a1a8450c8d4acb99854e9c80~mv2.jpg",
-    "link": "https://moshtix.com.au/v2/event/end-of-days-2026-adelaide-feat-shockone-b2b-aeon-mode/197185",
-    "source": "UniBar Adelaide"
-  },
-  {
-    "title": "DREAM ON DREAMER - HOPE/HEARTBOUND REVIVAL TOUR",
-    "venue": "UniBar Adelaide",
-    "datetime": "2026-11-01",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://static.wixstatic.com/media/c07c08_a281851ade2b431d81f952c714497490~mv2.jpg",
-    "link": "https://moshtix.com.au/v2/event/dream-on-dreamer-hope-heartbound-revival-tour-all-ages/200081",
-    "source": "UniBar Adelaide"
-  },
-  {
     "title": "FINAL DAY OF UNI FOR 2026 - DJ MURRAY COOK (The OG Red Wiggle) + THE DEGAS PROJECT",
     "venue": "UniBar Adelaide",
     "datetime": "2026-11-06",
@@ -6584,6 +6628,18 @@
     ],
     "image": "https://static.wixstatic.com/media/c07c08_f89d3c15a79e4070aba503044506ff2e~mv2.jpg",
     "link": "https://moshtix.com.au/v2/event/lumen-ad-mortem-oath-of-damnation-hell-machine-numen-noctis-all-ages/198741",
+    "source": "UniBar Adelaide"
+  },
+  {
+    "title": "ACALACTIC - EMPTY HEADS + DEADLY NIGHTSHADES + STRANGE HIGHWAYS",
+    "venue": "UniBar Adelaide",
+    "datetime": "2026-11-27",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://static.wixstatic.com/media/c07c08_de24859e52bd4de2a5bf361c8b109041~mv2.png",
+    "link": "https://moshtix.com.au/v2/event/acalactic-empty-heads-deadly-nightshades-strange-highways-all-ages/202176",
     "source": "UniBar Adelaide"
   },
   {
@@ -6705,57 +6761,6 @@
     "image": "https://static.wixstatic.com/media/c07c08_641396aa51fe4e3c9086b2fefd1e5608~mv2.jpg",
     "link": "https://moshtix.com.au/v2/event/19-twenty-inspector-cluzo-fr-all-ages/199666",
     "source": "UniBar Adelaide"
-  },
-  {
-    "title": "October Lounge Bar Live Music",
-    "venue": "Arkaba Hotel",
-    "datetime": "2026-10-01",
-    "end_datetime": "2026-10-31",
-    "category": [
-      "Music"
-    ],
-    "image": "https://www.arkabahotel.com.au/wp-content/uploads/2024/06/10-OCT-Arkaba-Live-Entertainment-WO.jpg",
-    "link": "https://www.arkabahotel.com.au/?bn_event=october-lounge-bar-live-music-2",
-    "source": "Arkaba Hotel"
-  },
-  {
-    "title": "Melbourne Cup | Downstairs",
-    "venue": "Arkaba Hotel",
-    "datetime": "2026-11-03",
-    "end_datetime": "",
-    "category": [
-      "Sport",
-      "Food & Beverage"
-    ],
-    "image": "https://www.arkabahotel.com.au/wp-content/uploads/2026/08/ARK-Melbourne-Cup_Downstairs_WO.jpg",
-    "link": "https://www.arkabahotel.com.au/?bn_event=melbourne-cup-downstairs-2",
-    "source": "Arkaba Hotel"
-  },
-  {
-    "title": "Melbourne Cup | Sportys",
-    "venue": "Arkaba Hotel",
-    "datetime": "2026-11-03",
-    "end_datetime": "",
-    "category": [
-      "Sport",
-      "Food & Beverage"
-    ],
-    "image": "https://www.arkabahotel.com.au/wp-content/uploads/2026/08/SP-Melbourne-Cup_WO.jpg",
-    "link": "https://www.arkabahotel.com.au/?bn_event=melbourne-cup-sportys-2",
-    "source": "Arkaba Hotel"
-  },
-  {
-    "title": "Melbourne Cup | Top of the Ark *Sold Out*",
-    "venue": "Arkaba Hotel",
-    "datetime": "2026-11-03",
-    "end_datetime": "",
-    "category": [
-      "Sport",
-      "Food & Beverage"
-    ],
-    "image": "https://www.arkabahotel.com.au/wp-content/uploads/2026/08/SOLD-OUT.png",
-    "link": "https://www.arkabahotel.com.au/?bn_event=melbourne-cup-top-of-the-ark",
-    "source": "Arkaba Hotel"
   },
   {
     "title": "November Lounge Bar Live Music",
@@ -6941,6 +6946,18 @@
     "source": "Arkaba Hotel"
   },
   {
+    "title": "DJ Tommy Tequila’s “Glitz & Glam” NYE | Downstairs Lounge Bar",
+    "venue": "Arkaba Hotel",
+    "datetime": "2026-12-31",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.arkabahotel.com.au/wp-content/uploads/2026/10/WO-2026-12-31-NYE-Tommy-Tequila-Lounge.jpg",
+    "link": "https://www.arkabahotel.com.au/?bn_event=dj-tommy-tequilas-glitz-glam-nye-party-downstairs-lounge-bar",
+    "source": "Arkaba Hotel"
+  },
+  {
     "title": "Glitz & Glam New Year’s Eve – Top of the Ark",
     "venue": "Arkaba Hotel",
     "datetime": "2026-12-31",
@@ -7001,54 +7018,6 @@
     "image": "https://www.arkabahotel.com.au/wp-content/uploads/2026/10/WO-2027-04-02-OPA-Greek-Comedy.jpg",
     "link": "https://www.arkabahotel.com.au/?bn_event=opa-a-big-fat-greek-comedy-music-variety-show-extravaganza",
     "source": "Arkaba Hotel"
-  },
-  {
-    "title": "Lucie Pohl hosts the Adelaide Comedy Showcase",
-    "venue": "Rhino Room",
-    "datetime": "2026-10-30T19:00:00",
-    "end_datetime": "2026-10-30T21:00:00",
-    "category": [
-      "Comedy"
-    ],
-    "image": "https://rhinoroom.com.au/wp-content/uploads/2026/10/Lucie-Square.jpg",
-    "link": "https://events.humanitix.com/the-adelaide-comedy-showcase-oct-30th-26",
-    "source": "Rhino Room"
-  },
-  {
-    "title": "BEST OF BOTH WORLDS – DISNEY HALLOWEEN PARTY",
-    "venue": "Rhino Room",
-    "datetime": "2026-10-30T21:30:00",
-    "end_datetime": "2026-10-31T02:00:00",
-    "category": [
-      "Club/Party"
-    ],
-    "image": "https://rhinoroom.com.au/wp-content/uploads/2026/09/IMG_5163.jpeg",
-    "link": "https://m.moshtix.com.au/v2/event/best-of-both-worlds-halloween-party-adelaide/199992",
-    "source": "Rhino Room"
-  },
-  {
-    "title": "DOWN & OUT- SPOOKY SZN + THE ADMIRED + DONNI HEAT",
-    "venue": "Lowlife Basement Bar",
-    "datetime": "2026-10-31T19:00:00",
-    "end_datetime": "2026-10-31T23:00:00",
-    "category": [
-      "Other"
-    ],
-    "image": "https://rhinoroom.com.au/wp-content/uploads/2026/09/IMG_4744.jpeg",
-    "link": "https://m.moshtix.com.au/v2/event/down-and-out-spooky-szn/200066",
-    "source": "Rhino Room"
-  },
-  {
-    "title": "SUNSLAY SESH",
-    "venue": "Rhino Room",
-    "datetime": "2026-11-01T21:00:00",
-    "end_datetime": "2026-11-02T03:00:00",
-    "category": [
-      "Other"
-    ],
-    "image": "https://rhinoroom.com.au/wp-content/uploads/2026/09/IMG_5161.jpeg",
-    "link": "https://events.humanitix.com/sunslay-sesh",
-    "source": "Rhino Room"
   },
   {
     "title": "Laugh Lab Open Mics – Monday Nights at Rhino Room",
@@ -7116,7 +7085,7 @@
     "datetime": "2026-11-07T20:00:00",
     "end_datetime": "2026-11-08T03:00:00",
     "category": [
-      "Other"
+      "Club/Party"
     ],
     "image": "https://rhinoroom.com.au/wp-content/uploads/2026/09/IMG_4099.jpeg",
     "link": "https://www.eventbrite.com.au/e/shrek-rave-adelaide-tickets-1990507284872",
@@ -7132,6 +7101,18 @@
     ],
     "image": "https://rhinoroom.com.au/wp-content/uploads/2026/09/IMG_4103.jpeg",
     "link": "https://www.eventbrite.com.au/e/skins-party-adelaide-tickets-1999079127484",
+    "source": "Rhino Room"
+  },
+  {
+    "title": "SUNSLAY SESH – SLAYOFFS",
+    "venue": "Rhino Room",
+    "datetime": "2026-11-08T19:00:00",
+    "end_datetime": "2026-11-22T21:00:00",
+    "category": [
+      "Other"
+    ],
+    "image": "https://rhinoroom.com.au/wp-content/uploads/2026/10/IMG_6073.jpeg",
+    "link": "https://events.humanitix.com/sunslay-slayoffs",
     "source": "Rhino Room"
   },
   {
@@ -7320,7 +7301,7 @@
     "datetime": "2026-12-19T20:30:00",
     "end_datetime": "2026-12-20T02:00:00",
     "category": [
-      "Other"
+      "Club/Party"
     ],
     "image": "https://rhinoroom.com.au/wp-content/uploads/2026/06/IMG_4076.jpeg",
     "link": "https://www.eventbrite.com.au/e/five-nights-at-freddys-rave-adelaide-tickets-1990691516915",
@@ -7385,42 +7366,6 @@
     "image": "https://rhinoroom.com.au/wp-content/uploads/2026/10/BarryC-Rhino-Room-1080x1080-1.jpg",
     "link": "https://events.humanitix.com/barry-castagnola-the-last-of-the-barrys",
     "source": "Rhino Room"
-  },
-  {
-    "title": "Newport – 'Fickle' Tour",
-    "venue": "Jive",
-    "datetime": "2026-10-30T19:00:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://cdn.prod.website-files.com/60ac6a3bfd35bf085579a7cf/6aa8fc1d9ffc45b923d4d126_Newport%20-%20Fickle%20-%20Lead%20Press%20Shots%20-%20Credit%20Romy%20Stetter.jpg",
-    "link": "https://www.jivevenue.com/event/newport",
-    "source": "Jive"
-  },
-  {
-    "title": "Destinezia – Halloween Party",
-    "venue": "Jive",
-    "datetime": "2026-10-31T19:00:00",
-    "end_datetime": "",
-    "category": [
-      "Club/Party"
-    ],
-    "image": "https://cdn.prod.website-files.com/60ac6a3bfd35bf085579a7cf/6ab1442714a29ebe5ddda509_DestineziaCopy%20of%20Still%202025-12-27%20120527_1.3.2.jpg",
-    "link": "https://www.jivevenue.com/event/destinezia",
-    "source": "Jive"
-  },
-  {
-    "title": "Matt & Alex – 5 Raves In 5 Days: 10th Anniversary Tour",
-    "venue": "Jive",
-    "datetime": "2026-11-01T16:00:00",
-    "end_datetime": "",
-    "category": [
-      "Club/Party"
-    ],
-    "image": "https://cdn.prod.website-files.com/60ac6a3bfd35bf085579a7cf/6a7279e59eed9bb59eefc50a_Matt%26Alex600x600_V2.png",
-    "link": "https://www.jivevenue.com/event/matt-alex",
-    "source": "Jive"
   },
   {
     "title": "Heavensgate – Australian Tour 2026",
@@ -7591,7 +7536,7 @@
     "source": "Jive"
   },
   {
-    "title": "Real Young & Lazy Horse – Australian Tour 2026",
+    "title": "Real Young & Lazy Horse – Australian Tour 2027",
     "venue": "Jive",
     "datetime": "2027-01-23T19:00:00",
     "end_datetime": "",
@@ -7636,6 +7581,18 @@
     ],
     "image": "https://cdn.prod.website-files.com/60ac6a3bfd35bf085579a7cf/6aceb258acf005935111cc2a_bessatwell.jpeg",
     "link": "https://www.jivevenue.com/event/bess-atwell",
+    "source": "Jive"
+  },
+  {
+    "title": "360 – Falling & Flying 15 year Anniversary Tour",
+    "venue": "Jive",
+    "datetime": "2027-04-15T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://cdn.prod.website-files.com/60ac6a3bfd35bf085579a7cf/6adee219caf52c4bb977bd80_360BYMGH%20-8453.jpg",
+    "link": "https://www.jivevenue.com/event/360-3",
     "source": "Jive"
   },
   {
@@ -7774,19 +7731,6 @@
     "source": "National Trust SA"
   },
   {
-    "title": "Beaumont House Children’s Halloween Spooky Trail",
-    "venue": "National Trust South Australia",
-    "datetime": "2026-10-31T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Family",
-      "Arts & Culture"
-    ],
-    "image": "https://www.nationaltrust.org.au/wp-content/uploads/2024/10/Childrens-Halloween-Spooky-Trail-587x471.png",
-    "link": "https://www.nationaltrust.org.au/event/beaumont-house-childrens-halloween-spooky-trail-3/",
-    "source": "National Trust SA"
-  },
-  {
     "title": "Cape Jaffa Lighthouse Tours",
     "venue": "National Trust South Australia",
     "datetime": "2026-01-01T00:00:00",
@@ -7857,18 +7801,6 @@
     "image": "https://www.nationaltrust.org.au/wp-content/uploads/2022/01/1K1A1801-587x471.jpg",
     "link": "https://www.nationaltrust.org.au/event/beaumont-house-open-day/",
     "source": "National Trust SA"
-  },
-  {
-    "title": "Zina Warrior Print Fest",
-    "venue": "MOD.",
-    "datetime": "2026-10-31T11:00:00",
-    "end_datetime": "",
-    "category": [
-      "Festival"
-    ],
-    "image": "https://mod.lbcdn.io/uploads/Title-Banner-Zina-2025-1600x983.jpg",
-    "link": "https://mod.org.au/events/zina-warrior-print-fest-2026/",
-    "source": "MOD."
   },
   {
     "title": "2026 - Robert Fielding: Melting Point",
@@ -8350,30 +8282,6 @@
     ],
     "image": "https://cdn.prod.website-files.com/640823aed7c2f9caf4efb803/6ae42521d8ec4c81096962a3_NWC%20Web%20Whats%20On%201080x720.png",
     "link": "https://www.nationalwinecentre.com.au/whats-on/summer-uncorked-2026",
-    "source": "National Wine Centre"
-  },
-  {
-    "title": "The Drop In: Bubbles Anniversary Edition",
-    "venue": "National Wine Centre",
-    "datetime": "2026-11-01T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Food & Beverage"
-    ],
-    "image": "https://cdn.prod.website-files.com/640823aed7c2f9caf4efb803/6a967ed6f781e51b6fa0fade_NWC%20Website%20-%20Drop%20in%20Bubbles.png",
-    "link": "https://www.nationalwinecentre.com.au/whats-on/the-drop-in-bubbles-anniversary-edition",
-    "source": "National Wine Centre"
-  },
-  {
-    "title": "UnWined UnCovered: Clare Valley",
-    "venue": "National Wine Centre",
-    "datetime": "2026-10-30T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Food & Beverage"
-    ],
-    "image": "https://cdn.prod.website-files.com/640823aed7c2f9caf4efb803/6ad01a91ba564e8b63344438_UU%20Web%20Whats%20On%20(2).png",
-    "link": "https://www.nationalwinecentre.com.au/whats-on/unwined-uncovered",
     "source": "National Wine Centre"
   },
   {
@@ -9632,7 +9540,7 @@
     "datetime": "2027-03-11T00:00:00",
     "end_datetime": "2027-03-14T23:59:59",
     "category": [
-      "Other"
+      "Sport"
     ],
     "image": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgMzAwIDMwMCI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgc3R5bGU9ImZpbGw6I2NmZDRkYjtmaWxsLW9wYWNpdHk6IDAuMTsiLz48L3N2Zz4=",
     "link": "https://playandgo.com.au/womens-australian-open-adelaide/",
@@ -9656,7 +9564,7 @@
     "datetime": "2027-01-11T00:00:00",
     "end_datetime": "2027-01-16T23:59:59",
     "category": [
-      "Other"
+      "Sport"
     ],
     "image": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgMzAwIDMwMCI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgc3R5bGU9ImZpbGw6I2NmZDRkYjtmaWxsLW9wYWNpdHk6IDAuMTsiLz48L3N2Zz4=",
     "link": "https://playandgo.com.au/adelaide-international-tennis-in-adelaide/",
@@ -9693,7 +9601,7 @@
     "datetime": "2026-11-14T00:00:00",
     "end_datetime": "",
     "category": [
-      "Other"
+      "Community"
     ],
     "image": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgMzAwIDMwMCI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgc3R5bGU9ImZpbGw6I2NmZDRkYjtmaWxsLW9wYWNpdHk6IDAuMTsiLz48L3N2Zz4=",
     "link": "https://playandgo.com.au/adelaide-national-pharmacies-christmas-pageant/",
@@ -9705,7 +9613,7 @@
     "datetime": "2027-03-05T00:00:00",
     "end_datetime": "2027-03-08T23:59:59",
     "category": [
-      "Other"
+      "Festival"
     ],
     "image": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgMzAwIDMwMCI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgc3R5bGU9ImZpbGw6I2NmZDRkYjtmaWxsLW9wYWNpdHk6IDAuMTsiLz48L3N2Zz4=",
     "link": "https://playandgo.com.au/womadelaide-botanic-park/",
@@ -9720,26 +9628,11 @@
     "datetime": "2026-12-12T00:00:00",
     "end_datetime": "",
     "category": [
-      "Other"
+      "Music"
     ],
     "image": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgMzAwIDMwMCI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgc3R5bGU9ImZpbGw6I2NmZDRkYjtmaWxsLW9wYWNpdHk6IDAuMTsiLz48L3N2Zz4=",
     "link": "https://playandgo.com.au/adelaide-carols-by-candlelight/",
     "source": "Play & Go Adelaide Major Events"
-  },
-  {
-    "title": "OzAsia Festival",
-    "venue": "Family Friendly Events & Shows",
-    "datetime": "2026-10-09T00:00:00",
-    "end_datetime": "2026-11-01T23:59:59",
-    "category": [
-      "Festival"
-    ],
-    "image": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgMzAwIDMwMCI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgc3R5bGU9ImZpbGw6I2NmZDRkYjtmaWxsLW9wYWNpdHk6IDAuMTsiLz48L3N2Zz4=",
-    "link": "https://playandgo.com.au/ozasia-festival/",
-    "source": "Play & Go Adelaide Major Events",
-    "festival": [
-      "OzAsia Festival"
-    ]
   },
   {
     "title": "Santa’s Wonderland",
@@ -9747,7 +9640,7 @@
     "datetime": "2026-12-04T00:00:00",
     "end_datetime": "2026-12-24T23:59:59",
     "category": [
-      "Other"
+      "Family"
     ],
     "image": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgMzAwIDMwMCI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgc3R5bGU9ImZpbGw6I2NmZDRkYjtmaWxsLW9wYWNpdHk6IDAuMTsiLz48L3N2Zz4=",
     "link": "https://playandgo.com.au/santas-wonderland-adelaide/",
@@ -9759,7 +9652,7 @@
     "datetime": "2026-11-26T00:00:00",
     "end_datetime": "2026-11-29T23:59:59",
     "category": [
-      "Other"
+      "Sport"
     ],
     "image": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgMzAwIDMwMCI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgc3R5bGU9ImZpbGw6I2NmZDRkYjtmaWxsLW9wYWNpdHk6IDAuMTsiLz48L3N2Zz4=",
     "link": "https://playandgo.com.au/bp-adelaide-grand-final/",
@@ -9787,18 +9680,6 @@
     ],
     "image": "https://maritime.history.sa.gov.au/wp-content/uploads/sites/3/2026/03/SAMM-Archie-Tour-e1786331407805.png",
     "link": "https://maritime.history.sa.gov.au/events/port-river-cruise-on-historic-vessel-archie-badenoch/",
-    "source": "South Australian Maritime Museum"
-  },
-  {
-    "title": "South Australian Maritime Museum",
-    "venue": "South Australian Maritime Museum",
-    "datetime": "2026-10-31T11:00:00",
-    "end_datetime": "",
-    "category": [
-      "Arts & Culture"
-    ],
-    "image": "https://maritime.history.sa.gov.au/wp-content/uploads/sites/3/2024/02/TLA00674-ARW_DxO_DeepPRIME-Copy-scaled.jpg",
-    "link": "https://maritime.history.sa.gov.au/events/portside-lighthouse-museum-discovery-tour/",
     "source": "South Australian Maritime Museum"
   },
   {
@@ -9922,18 +9803,6 @@
     "source": "The District at SkyCity"
   },
   {
-    "title": "Halloween on the Storybook Trail",
-    "venue": "Carrick Hill",
-    "datetime": "2026-10-31T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Family"
-    ],
-    "image": "https://cdn.prod.website-files.com/633a9c0ca1f06fa4196e7c49/6a98cc688b872abdd616bf95_Halloween%20(Instagram%20Post).png",
-    "link": "https://www.carrickhill.sa.gov.au/events/halloween-on-the-storybook-trail",
-    "source": "Carrick Hill"
-  },
-  {
     "title": "FOCH Event | Paul Bangay in conversation with Michael Keelan",
     "venue": "Carrick Hill",
     "datetime": "2026-11-05T00:00:00",
@@ -10030,15 +9899,51 @@
     "source": "Carrick Hill"
   },
   {
+    "title": "Wriggle 'n' Rhyme",
+    "venue": "Glenelg Library",
+    "datetime": "2026-11-03T09:15:00",
+    "end_datetime": "",
+    "category": [
+      "Family"
+    ],
+    "image": "https://www.holdfast.sa.gov.au/assets/resized/eventimages/867695/Wriggle-N-Rhyme_W2000_upscale_Q100_removeMetadata1_W400_H400_Q80_P50-50.jpg",
+    "link": "https://www.jettyroadglenelg.com.au/whats-on/wriggle-n-rhyme-tuesday-glenelg",
+    "source": "Jetty Road Glenelg"
+  },
+  {
     "title": "3Minds in 2D",
     "venue": "Bay Discovery Centre",
-    "datetime": "2026-10-30T10:00:00",
+    "datetime": "2026-11-02T10:00:00",
     "end_datetime": "",
     "category": [
       "Arts & Culture"
     ],
     "image": "https://www.holdfast.sa.gov.au/assets/resized/eventimages/1078110/BDC-Tutti-Arts-Exhibition-Hero-Image_W2000_upscale_Q100_P38-94-47-67_removeMetadata1_W400_H400_Q80_P38-94-47-67.jpg",
     "link": "https://www.jettyroadglenelg.com.au/whats-on/3minds-in-2d",
+    "source": "Jetty Road Glenelg"
+  },
+  {
+    "title": "Toddler Time",
+    "venue": "Glenelg Library",
+    "datetime": "2026-11-03T10:00:00",
+    "end_datetime": "",
+    "category": [
+      "Family"
+    ],
+    "image": "https://www.holdfast.sa.gov.au/assets/resized/eventimages/798051/Toddler-Time_2025-09-30-232547_dwap_W2000_upscale_Q100_removeMetadata1_W400_H400_Q80_P50-50.jpg",
+    "link": "https://www.jettyroadglenelg.com.au/whats-on/toddler-time-10am-tuesday-at-glenelg-library-1",
+    "source": "Jetty Road Glenelg"
+  },
+  {
+    "title": "Tai Chi",
+    "venue": "Wigley Reserve",
+    "datetime": "2026-11-06T09:00:00",
+    "end_datetime": "",
+    "category": [
+      "Community"
+    ],
+    "image": "https://www.holdfast.sa.gov.au/assets/resized/eventimages/1087529/Tai-Chi-Class-Image_W2000_upscale_Q100_removeMetadata1_W400_H400_Q80_P50-50.jpg",
+    "link": "https://www.jettyroadglenelg.com.au/whats-on/tai-chi",
     "source": "Jetty Road Glenelg"
   },
   {
@@ -10063,42 +9968,6 @@
     ],
     "image": "https://www.holdfast.sa.gov.au/assets/resized/eventimages/886844/pexels-ivan-samkov_W2000_upscale_Q100_removeMetadata1_W400_H400_Q80_P50-50.jpg",
     "link": "https://www.jettyroadglenelg.com.au/whats-on/sensory-hour-glenelg",
-    "source": "Jetty Road Glenelg"
-  },
-  {
-    "title": "Wriggle 'n' Rhyme",
-    "venue": "Glenelg Library",
-    "datetime": "2026-11-03T09:15:00",
-    "end_datetime": "",
-    "category": [
-      "Family"
-    ],
-    "image": "https://www.holdfast.sa.gov.au/assets/resized/eventimages/867695/Wriggle-N-Rhyme_W2000_upscale_Q100_removeMetadata1_W400_H400_Q80_P50-50.jpg",
-    "link": "https://www.jettyroadglenelg.com.au/whats-on/wriggle-n-rhyme-tuesday-glenelg",
-    "source": "Jetty Road Glenelg"
-  },
-  {
-    "title": "Toddler Time",
-    "venue": "Glenelg Library",
-    "datetime": "2026-11-03T10:00:00",
-    "end_datetime": "",
-    "category": [
-      "Family"
-    ],
-    "image": "https://www.holdfast.sa.gov.au/assets/resized/eventimages/798051/Toddler-Time_2025-09-30-232547_dwap_W2000_upscale_Q100_removeMetadata1_W400_H400_Q80_P50-50.jpg",
-    "link": "https://www.jettyroadglenelg.com.au/whats-on/toddler-time-10am-tuesday-at-glenelg-library-1",
-    "source": "Jetty Road Glenelg"
-  },
-  {
-    "title": "Tai Chi",
-    "venue": "Wigley Reserve",
-    "datetime": "2026-10-30T09:00:00",
-    "end_datetime": "",
-    "category": [
-      "Community"
-    ],
-    "image": "https://www.holdfast.sa.gov.au/assets/resized/eventimages/1087529/Tai-Chi-Class-Image_W2000_upscale_Q100_removeMetadata1_W400_H400_Q80_P50-50.jpg",
-    "link": "https://www.jettyroadglenelg.com.au/whats-on/tai-chi",
     "source": "Jetty Road Glenelg"
   },
   {
@@ -10184,19 +10053,6 @@
     "image": "https://www.holdfast.sa.gov.au/assets/resized/eventimages/568424/GICF-Whatson-720px-x-457px-DIGITAL_W2000_upscale_Q100_P51-01-36-86_removeMetadata1_W400_H400_Q80_P51-01-36-86.png",
     "link": "https://www.jettyroadglenelg.com.au/whats-on/glenelg-ice-cream-festival",
     "source": "Jetty Road Glenelg"
-  },
-  {
-    "title": "Plant 4 Bowden Friday Night Market",
-    "venue": "Plant 4 Bowden",
-    "datetime": "2026-10-30T17:00:00",
-    "end_datetime": "",
-    "category": [
-      "Food & Beverage",
-      "Community"
-    ],
-    "image": "https://static.wixstatic.com/media/78d2e8_fdcc7132fc334fffa14e9a0999f58f69%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/78d2e8_fdcc7132fc334fffa14e9a0999f58f69%7Emv2.jpg",
-    "link": "https://www.plant4bowden.com.au/whats-on",
-    "source": "Plant 4 Bowden"
   },
   {
     "title": "Plant 4 Bowden Wednesday Night Market",
@@ -10509,6 +10365,54 @@
     "image": "https://static.wixstatic.com/media/78d2e8_fdcc7132fc334fffa14e9a0999f58f69%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/78d2e8_fdcc7132fc334fffa14e9a0999f58f69%7Emv2.jpg",
     "link": "https://www.plant4bowden.com.au/bingo",
     "source": "Plant 4 Bowden"
+  },
+  {
+    "title": "Meg Carlin \"Steady Goes\" FULL BAND SHOW - Adelaide (the Loft, Hindley St)",
+    "venue": "The Queens Theatre",
+    "datetime": "2026-11-29T16:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://assets.oztix.com.au/image/868fd86f-4bd1-4048-8b88-4fa8d9c209f6.png?width=600&height=300",
+    "link": "https://tickets.oztix.com.au/outlet/event/f7caf39c-5282-44ee-b616-fc88a45eb014?utm_source=Oztix&utm_medium=Website",
+    "source": "Oztix Adelaide City"
+  },
+  {
+    "title": "Passenger - Wild Love Tour",
+    "venue": "Adelaide Town Hall",
+    "datetime": "2027-10-24T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://assets.oztix.com.au/image/a37607c3-fd43-41bb-838d-3da67239daa7.png?width=600&height=300",
+    "link": "https://tickets.oztix.com.au/outlet/event/a9e4e2e2-e196-4fdb-9001-19b732c73c5f?utm_source=Oztix&utm_medium=Website",
+    "source": "Oztix Adelaide City"
+  },
+  {
+    "title": "Alta Falls - ‘Don’t Make Me A Number’ EP Tour",
+    "venue": "Rhino Room, Adelaide",
+    "datetime": "2026-11-14T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://assets.oztix.com.au/image/1ded8d80-63cb-4596-959e-5f56930fd40a.png?width=600&height=300",
+    "link": "https://tickets.oztix.com.au/outlet/event/c9991252-441b-4c6a-a937-86f6422d9c13?utm_source=Oztix&utm_medium=Website",
+    "source": "Oztix Adelaide City"
+  },
+  {
+    "title": "Zina Warrior Print Fest",
+    "venue": "MOD.",
+    "datetime": "2026-10-31T11:00:00",
+    "end_datetime": "",
+    "category": [
+      "Festival"
+    ],
+    "image": "https://mod.lbcdn.io/uploads/Title-Banner-Zina-2025-1600x983.jpg",
+    "link": "https://mod.org.au/events/zina-warrior-print-fest-2026/",
+    "source": "MOD."
   },
   {
     "title": "Taco Tuesday",
@@ -10903,40 +10807,16 @@
     "source": "Plant 3 Bowden"
   },
   {
-    "title": "Meg Carlin \"Steady Goes\" FULL BAND SHOW - Adelaide (the Loft, Hindley St)",
-    "venue": "The Loft on Hindley",
-    "datetime": "2026-11-29T16:00:00",
-    "end_datetime": "",
+    "title": "SUNSLAY SESH",
+    "venue": "Rhino Room",
+    "datetime": "2026-11-01T21:00:00",
+    "end_datetime": "2026-11-02T03:00:00",
     "category": [
-      "Music"
+      "Other"
     ],
-    "image": "https://assets.oztix.com.au/image/868fd86f-4bd1-4048-8b88-4fa8d9c209f6.png?width=600&height=300",
-    "link": "https://tickets.oztix.com.au/outlet/event/f7caf39c-5282-44ee-b616-fc88a45eb014?utm_source=Oztix&utm_medium=Website",
-    "source": "Oztix Adelaide City"
-  },
-  {
-    "title": "Passenger - Wild Love Tour",
-    "venue": "Adelaide Town Hall",
-    "datetime": "2027-10-24T19:00:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://assets.oztix.com.au/image/a37607c3-fd43-41bb-838d-3da67239daa7.png?width=600&height=300",
-    "link": "https://tickets.oztix.com.au/outlet/event/a9e4e2e2-e196-4fdb-9001-19b732c73c5f?utm_source=Oztix&utm_medium=Website",
-    "source": "Oztix Adelaide City"
-  },
-  {
-    "title": "Alta Falls - ‘Don’t Make Me A Number’ EP Tour",
-    "venue": "Rhino Room, Adelaide",
-    "datetime": "2026-11-14T19:00:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://assets.oztix.com.au/image/1ded8d80-63cb-4596-959e-5f56930fd40a.png?width=600&height=300",
-    "link": "https://tickets.oztix.com.au/outlet/event/c9991252-441b-4c6a-a937-86f6422d9c13?utm_source=Oztix&utm_medium=Website",
-    "source": "Oztix Adelaide City"
+    "image": "https://rhinoroom.com.au/wp-content/uploads/2026/09/IMG_5161.jpeg",
+    "link": "https://events.humanitix.com/sunslay-sesh",
+    "source": "Rhino Room"
   },
   {
     "title": "Chiodos ‘All’s Well That Ends Well’ 20 Year Anniversary Tour",
@@ -10949,30 +10829,6 @@
     "image": "https://assets.oztix.com.au/image/d1a03f69-d88c-4684-9453-89f368ee6221.png?width=600&height=300",
     "link": "https://tickets.oztix.com.au/outlet/event/03595947-e10c-4f7e-ad81-522a3e88afb9?utm_source=Oztix&utm_medium=Website",
     "source": "The Gov"
-  },
-  {
-    "title": "New Year's Eve Party",
-    "venue": "Banquet Room",
-    "datetime": "2026-12-31T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Arts & Culture"
-    ],
-    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/10-Oct/New-Years-Eve-Party/fireworks_1136x994.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
-    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/new-years-eve-party-2026",
-    "source": "Adelaide Festival Centre"
-  },
-  {
-    "title": "Burnout Paradise",
-    "venue": "Space Theatre",
-    "datetime": "2027-03-07T00:00:00",
-    "end_datetime": "2027-03-14T00:00:00",
-    "category": [
-      "Theatre"
-    ],
-    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2027/03-Mar/Burnout-Paradise/Burnout-Paradise_1136x994px.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
-    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/burnout-paradise",
-    "source": "Adelaide Festival Centre"
   },
   {
     "title": "Monet to Matisse: Defying Tradition",
@@ -10997,54 +10853,6 @@
     "image": "https://www.norwoodconcerthall.com.au/file/resize/c600x600/39748_website_event_tile_template-3.png",
     "link": "https://www.norwoodconcerthall.com.au/events/3615_jenny_and_joel_creasey_live",
     "source": "Norwood Concert Hall"
-  },
-  {
-    "title": "ALL HALLOWS EVE - The Night Before The Horror",
-    "venue": "Arthur Artbar",
-    "datetime": "2026-10-30T19:00:00",
-    "end_datetime": "2026-10-31T00:00:00",
-    "category": [
-      "Music"
-    ],
-    "image": "https://www.moshtix.com.au/uploads/1100cce3-5e66-4d27-b71a-e488ec6d9048x600x600",
-    "link": "https://www.moshtix.com.au/v2/event/all-hallows-eve-the-night-before-the-horror/198062",
-    "source": "Moshtix Adelaide CBD"
-  },
-  {
-    "title": "SUGAR TONGUE Single Launch - Everything She Wants w/ SOUTHSIDE + SUNDAY",
-    "venue": "The Austral Hotel",
-    "datetime": "2026-10-30T20:00:00",
-    "end_datetime": "2026-10-30T23:30:00",
-    "category": [
-      "Music"
-    ],
-    "image": "https://www.moshtix.com.au/uploads/1b330d8a-7f2c-4d93-a44b-bdffb6798284x600x600",
-    "link": "https://www.moshtix.com.au/v2/event/sugar-tongue-single-launch-everything-she-wants-w-southside-sunday/200775",
-    "source": "Moshtix Adelaide CBD"
-  },
-  {
-    "title": "Halloween",
-    "venue": "Zhivago Nightclub",
-    "datetime": "2026-10-31T21:00:00",
-    "end_datetime": "2026-11-01T05:00:00",
-    "category": [
-      "Music"
-    ],
-    "image": "https://www.moshtix.com.au/uploads/8358a959-9e8e-4b20-ac82-1ae82ca8a416x600x600",
-    "link": "https://www.moshtix.com.au/v2/event/halloween/201501",
-    "source": "Moshtix Adelaide CBD"
-  },
-  {
-    "title": "DIV-DE Presents. Denim B2B Samuel",
-    "venue": "DIV-DE",
-    "datetime": "2026-10-31T22:00:00",
-    "end_datetime": "2026-11-01T05:00:00",
-    "category": [
-      "Music"
-    ],
-    "image": "https://www.moshtix.com.au/uploads/a8849368-a46b-48f5-ba0e-154e94bc532cx600x600",
-    "link": "https://www.moshtix.com.au/v2/event/div-de-presents-denim-b2b-samuel/201960",
-    "source": "Moshtix Adelaide CBD"
   },
   {
     "title": "The Colliflowers 'Unforgettable Love' Tour w/ Even Hannah + Greasy (18+)",
@@ -11152,18 +10960,6 @@
     ],
     "image": "https://www.moshtix.com.au/uploads/fd7f2cdd-8879-493a-87fa-fd923af820f5x600x600",
     "link": "https://www.moshtix.com.au/v2/event/stormy-lou-paint-stains-single-launch/201278",
-    "source": "Moshtix Adelaide CBD"
-  },
-  {
-    "title": "DIV-DE Presents. ISGWAN",
-    "venue": "DIV-DE",
-    "datetime": "2026-11-14T22:00:00",
-    "end_datetime": "2026-11-15T05:00:00",
-    "category": [
-      "Music"
-    ],
-    "image": "https://www.moshtix.com.au/uploads/0a2efdc0-9483-4616-bfa1-d9e0537495dbx600x600",
-    "link": "https://www.moshtix.com.au/v2/event/div-de-presents-isgwan/202059",
     "source": "Moshtix Adelaide CBD"
   },
   {
@@ -11296,6 +11092,18 @@
     ],
     "image": "https://www.moshtix.com.au/uploads/baa9cad5-5536-4483-bdd2-874ff7d19642x600x600",
     "link": "https://www.moshtix.com.au/v2/event/six60-with-support-from-dojo-rise/198850",
+    "source": "Moshtix Adelaide CBD"
+  },
+  {
+    "title": "ETHAN HUBBARD, DARCY JAMES CHEATLE AND JADED EARTH LIVE @ THE GRACE EMILY",
+    "venue": "The Grace Emily",
+    "datetime": "2026-12-03T21:00:00",
+    "end_datetime": "2026-12-03T23:30:00",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.moshtix.com.au/uploads/908e8347-484b-4563-b3d6-ccd0ce7a5862x600x600",
+    "link": "https://www.moshtix.com.au/v2/event/ethan-hubbard-darcy-james-cheatle-and-jaded-earth-live-the-grace-emily/202180",
     "source": "Moshtix Adelaide CBD"
   },
   {
@@ -11551,54 +11359,6 @@
     "source": "Moshtix Adelaide CBD"
   },
   {
-    "title": "Nils Hoffmann @ Divide / Everlight Album Tour",
-    "venue": "DIV-DE",
-    "datetime": "2026-10-30T21:00:00",
-    "end_datetime": "2026-10-31T05:00:00",
-    "category": [
-      "Music"
-    ],
-    "image": "https://www.moshtix.com.au/uploads/032bf3f0-f3b9-4149-a960-4ff25bb06ca6x600x600",
-    "link": "https://www.moshtix.com.au/v2/event/nils-hoffmann-divide-everlight-album-tour/199209",
-    "source": "Moshtix Adelaide CBD"
-  },
-  {
-    "title": "When Chai Met Toast - Joy Rooms Tour - Australia 2026",
-    "venue": "The Ed Castle",
-    "datetime": "2026-10-31T19:00:00",
-    "end_datetime": "2026-10-31T23:00:00",
-    "category": [
-      "Music"
-    ],
-    "image": "https://www.moshtix.com.au/uploads/708716e7-ee09-4958-9b59-d77f75251fabx600x600",
-    "link": "https://www.moshtix.com.au/v2/event/when-chai-met-toast-joy-rooms-tour-australia-2026/196110",
-    "source": "Moshtix Adelaide CBD"
-  },
-  {
-    "title": "Adelaide Crows v Melbourne - 2026 NAB AFLW Season 11",
-    "venue": "Unley Oval",
-    "datetime": "2026-11-01T14:35:00",
-    "end_datetime": "",
-    "category": [
-      "Sport"
-    ],
-    "image": "https://s1.ticketm.net/dam/a/8e6/75e83eff-38e4-4228-98e1-4598a51b88e6_TABLET_LANDSCAPE_LARGE_16_9.jpg",
-    "link": "https://www.ticketmaster.com.au/adelaide-crows-v-melbourne-2026-nab-unley-01-11-2026/event/130064E78B571862",
-    "source": "Ticketmaster Adelaide"
-  },
-  {
-    "title": "PLAIN WHITE T'S TOUR 2026",
-    "venue": "Lion Arts Factory",
-    "datetime": "2026-11-01T19:00:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://s1.ticketm.net/dam/a/73c/2671bc9a-0b3b-4026-b917-9fe7a66f073c_RETINA_LANDSCAPE_16_9.jpg",
-    "link": "https://www.moshtix.com.au/v2/event/plain-white-t-s-tour-2026/196658",
-    "source": "Moshtix Adelaide CBD"
-  },
-  {
     "title": "RU Pretty Enuff Australian Tour ‘26",
     "venue": "Lion Arts Factory",
     "datetime": "2026-11-05T19:00:00",
@@ -11633,6 +11393,18 @@
     "image": "https://s1.ticketm.net/dam/a/3fb/bcffc8c6-1c1b-4b5d-af2e-89f2803c13fb_SOURCE",
     "link": "https://www.ticketmaster.com.au/the-bootleg-beatles-and-their-orchestra-torrensville-10-11-2026/event/130062DAFB1D3899",
     "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "DIV-DE Presents. ISGWAN",
+    "venue": "DIV-DE",
+    "datetime": "2026-11-14T22:00:00",
+    "end_datetime": "2026-11-15T05:00:00",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.moshtix.com.au/uploads/0a2efdc0-9483-4616-bfa1-d9e0537495dbx600x600",
+    "link": "https://www.moshtix.com.au/v2/event/div-de-presents-isgwan/202059",
+    "source": "Moshtix Adelaide CBD"
   },
   {
     "title": "2026 Red Hot Summer Tour - AUSTRALIAN CRAWL",
@@ -11693,21 +11465,6 @@
     "image": "https://s1.ticketm.net/dam/a/0a1/d7421e42-44aa-4cf7-a5c5-ccde2c74c0a1_SOURCE",
     "link": "https://www.universe.com/events/adelaide-rodeo-tickets-23DVN0?ref=ticketmaster",
     "source": "Ticketmaster Adelaide"
-  },
-  {
-    "title": "Reunion Festival",
-    "venue": "The Drive",
-    "datetime": "2027-01-23T14:00:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://s1.ticketm.net/dam/a/312/2f3e005f-605a-4976-bd61-2581c9eaa312_RETINA_LANDSCAPE_16_9.jpg",
-    "link": "https://www.ticketmaster.com.au/reunion-festival-adelaide-23-01-2027/event/25006514CABE63D1",
-    "source": "Ticketmaster Adelaide",
-    "festival": [
-      "Reunion Festival"
-    ]
   },
   {
     "title": "Froth and Fury Fest 2027",
@@ -11890,43 +11647,16 @@
     "source": "Ticketmaster Adelaide"
   },
   {
-    "title": "2026 Multicultural Festival",
-    "venue": "Victoria Square",
-    "datetime": "2026-11-01T12:00:00",
-    "end_datetime": "2026-11-01T18:00:00",
+    "title": "bp Adelaide Grand Final",
+    "venue": "Adelaide Street Circuit",
+    "datetime": "2026-11-26T00:00:00",
+    "end_datetime": "2026-11-29T23:59:59",
     "category": [
-      "Festival"
+      "Sport"
     ],
-    "image": "https://assets.atdw-online.com.au/images/5781053a787c920f368a9782cebf82b5.jpeg?mode=crop&width=900&height=506&rot=360",
-    "link": "https://southaustralia.com/products/adelaide/event/2026-multicultural-festival",
-    "source": "South Australia Tourism Commission",
-    "festival": [
-      "2026 Multicultural Festival"
-    ]
-  },
-  {
-    "title": "Amora Hotel Adelaide Festive 2026",
-    "venue": "233 Victoria Square",
-    "datetime": "2026-10-24T18:00:00",
-    "end_datetime": "2026-10-31T21:00:00",
-    "category": [
-      "Other"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/ef1f95530b22654883c66fb4b6fcf976.jpeg?mode=crop&width=900&height=506&rot=360",
-    "link": "https://southaustralia.com/products/adelaide/event/amora-hotel-adelaide-festive-2026",
-    "source": "South Australia Tourism Commission"
-  },
-  {
-    "title": "Cutback by Scott Pyle",
-    "venue": "175 St Vincent St",
-    "datetime": "2026-09-30T11:00:00",
-    "end_datetime": "2026-10-31T16:00:00",
-    "category": [
-      "Other"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/d6323cb31b564c8ba99f6fd48bbf6fc7.jpeg?mode=crop&width=900&height=506&rot=360",
-    "link": "https://southaustralia.com/products/adelaide/event/cutback-by-scott-pyle",
-    "source": "South Australia Tourism Commission"
+    "image": "https://s1.ticketm.net/dam/a/a9d/98815fb3-917a-44be-bc68-be7dd69c5a9d_RETINA_LANDSCAPE_16_9.jpg",
+    "link": "https://www.ticketmaster.com.au/AdelaideGrandFinal",
+    "source": "Ticketmaster Adelaide"
   },
   {
     "title": "Diner en Blanc Adelaide",
@@ -11991,6 +11721,51 @@
     "source": "South Australia Tourism Commission"
   },
   {
+    "title": "Feast Festival: Phoebs, You're a Lesbian",
+    "venue": "166 Goodwood Road",
+    "datetime": "2026-11-05T19:00:00",
+    "end_datetime": "2026-11-05T20:00:00",
+    "category": [
+      "Festival"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/2e9af25d3fced2d34c0e148beda03c8d.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/feast-festival-phoebs-youre-a-lesbian",
+    "source": "South Australia Tourism Commission",
+    "festival": [
+      "Feast Festival"
+    ]
+  },
+  {
+    "title": "Feast Festival: The Feast Festival Gayla",
+    "venue": "166 Goodwood Road",
+    "datetime": "2026-11-07T19:00:00",
+    "end_datetime": "2026-11-07T21:00:00",
+    "category": [
+      "Festival"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/75cdb930257f67528847b88c3f069808.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/feast-festival-the-feast-festival-gayla",
+    "source": "South Australia Tourism Commission",
+    "festival": [
+      "Feast Festival"
+    ]
+  },
+  {
+    "title": "Feast Festival: Visual Arts Opening Night at the Feast Hub",
+    "venue": "166 Goodwood Road",
+    "datetime": "2026-11-03T18:30:00",
+    "end_datetime": "2026-11-03T20:00:00",
+    "category": [
+      "Festival"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/e1f7e612eb518a63f6eca38b05f5df24.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/feast-festival-visual-arts-opening-night-at-the-feast-hub",
+    "source": "South Australia Tourism Commission",
+    "festival": [
+      "Feast Festival"
+    ]
+  },
+  {
     "title": "Fischer-Z - Adelaide",
     "venue": "59 Port Road",
     "datetime": "2026-11-27T19:30:00",
@@ -12015,6 +11790,18 @@
     "source": "South Australia Tourism Commission"
   },
   {
+    "title": "Government House Open Day",
+    "venue": "North Terrace",
+    "datetime": "2026-11-08T10:00:00",
+    "end_datetime": "2026-11-08T14:00:00",
+    "category": [
+      "Other"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/7aa1830c1c0fc60ea2a3ba793a367443.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/government-house-open-day",
+    "source": "South Australia Tourism Commission"
+  },
+  {
     "title": "Grace",
     "venue": "King William Road",
     "datetime": "2026-12-06T14:30:00",
@@ -12024,54 +11811,6 @@
     ],
     "image": "https://assets.atdw-online.com.au/images/9e0c310bc26326abdf4f5fe8a4886c40.jpeg?mode=crop&width=900&height=506&rot=360",
     "link": "https://southaustralia.com/products/adelaide/event/grace",
-    "source": "South Australia Tourism Commission"
-  },
-  {
-    "title": "Gunson Street Party",
-    "venue": "Gunson Street",
-    "datetime": "2026-10-30T16:00:00",
-    "end_datetime": "2026-10-30T21:00:00",
-    "category": [
-      "Other"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/ae2491e4edfc967b19223d0d6fc3553e.jpeg?mode=crop&width=900&height=506&rot=360",
-    "link": "https://southaustralia.com/products/adelaide/event/gunson-street-party-adelaide",
-    "source": "South Australia Tourism Commission"
-  },
-  {
-    "title": "Halloween Dance Party 2026",
-    "venue": "255 Gouger Street",
-    "datetime": "2026-10-31T17:30:00",
-    "end_datetime": "2026-10-31T19:30:00",
-    "category": [
-      "Dance"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/cc15f681362b32aa66ca01ac2db31e90.jpeg?mode=crop&width=900&height=506&rot=360",
-    "link": "https://southaustralia.com/products/adelaide/event/halloween-dance-party-2026",
-    "source": "South Australia Tourism Commission"
-  },
-  {
-    "title": "Halloween Neon Sugar Skull Paint & Sip",
-    "venue": "226 Grenfell Street",
-    "datetime": "2026-10-30T19:00:00",
-    "end_datetime": "2026-10-31T21:00:00",
-    "category": [
-      "Other"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/75c3c717dcf99784230bd019159e8f97.jpeg?mode=crop&width=900&height=506&rot=360",
-    "link": "https://southaustralia.com/products/adelaide/event/halloween-neon-sugar-skull-paint-sip",
-    "source": "South Australia Tourism Commission"
-  },
-  {
-    "title": "Haunted Halloween!",
-    "venue": "111 King William Street",
-    "datetime": "2026-10-31T20:00:00",
-    "end_datetime": "2026-10-31T21:00:00",
-    "category": [
-      "Other"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/a6cb39f97480ea0a4fc281637de0550e.jpeg?mode=crop&width=900&height=506&rot=360",
-    "link": "https://southaustralia.com/products/adelaide/event/haunted-halloween",
     "source": "South Australia Tourism Commission"
   },
   {
@@ -12100,6 +11839,18 @@
     "source": "South Australia Tourism Commission"
   },
   {
+    "title": "Kate Ceberano - Australian Made Tour",
+    "venue": "58 Grote Street",
+    "datetime": "2026-11-07T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Other"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/8ae0756e1894ce1df60fdac231f8d62a.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/kate-ceberano-australian-made-tour",
+    "source": "South Australia Tourism Commission"
+  },
+  {
     "title": "Ray White Semaphore Street Fair",
     "venue": "Semaphore Road, Semaphore",
     "datetime": "2026-11-29T10:00:00",
@@ -12113,39 +11864,15 @@
     "source": "South Australia Tourism Commission"
   },
   {
-    "title": "Morgan Jay",
-    "venue": "98 Port Road",
-    "datetime": "2026-11-01T19:00:00",
-    "end_datetime": "2026-11-01T23:00:00",
+    "title": "Modern Mysticism",
+    "venue": "68 North Terrace",
+    "datetime": "2026-11-07T01:00:00",
+    "end_datetime": "2026-11-07T04:00:00",
     "category": [
       "Other"
     ],
-    "image": "https://assets.atdw-online.com.au/images/dbb0783982b3c8326951d0571eee1b6a.jpeg?mode=crop&width=900&height=506&rot=360",
-    "link": "https://southaustralia.com/products/adelaide/event/morgan-jay",
-    "source": "South Australia Tourism Commission"
-  },
-  {
-    "title": "Nola Mezcal Project Seven: Halloween Mezcal Masterclass",
-    "venue": "28 Vardon Avenue",
-    "datetime": "2026-10-31T13:00:00",
-    "end_datetime": "2026-10-31T15:00:00",
-    "category": [
-      "Conferences/Workshops/Expos"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/3d99ed2c3e06fa3aec49cf12524df737_b1snjom.jpeg?mode=crop&width=900&height=506&rot=360",
-    "link": "https://southaustralia.com/products/adelaide/event/nola-mezcal-project-seven-halloween-mezcal-masterclass",
-    "source": "South Australia Tourism Commission"
-  },
-  {
-    "title": "Rooftop Raclette at Merrymaker Rooftop Bar",
-    "venue": "23-29 Market Street",
-    "datetime": "2026-06-12T15:00:00",
-    "end_datetime": "2026-10-30T18:00:00",
-    "category": [
-      "Food & Beverage"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/18baa6d82ba9e73d360614cc702983b2.jpeg?mode=crop&width=900&height=506&rot=360",
-    "link": "https://southaustralia.com/products/adelaide/event/rooftop-raclette-at-merrymaker-rooftop-bar",
+    "image": "https://assets.atdw-online.com.au/images/580b66e4d7f8c383969e6203e0c8a2e4.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/leaves-ecoanxiety-artist-sharing-emiko-artemis",
     "source": "South Australia Tourism Commission"
   },
   {
@@ -12186,6 +11913,18 @@
     "source": "South Australia Tourism Commission"
   },
   {
+    "title": "South Australian Music Awards 2026",
+    "venue": "98 Port Road",
+    "datetime": "2026-11-10T17:00:00",
+    "end_datetime": "2026-11-10T22:30:00",
+    "category": [
+      "Other"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/888fd67fc425c63fd3474d53ee060a51.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/south-australian-music-awards-2026",
+    "source": "South Australia Tourism Commission"
+  },
+  {
     "title": "Studio Tours",
     "venue": "154 Angas Street",
     "datetime": "2026-01-30T16:30:00",
@@ -12195,18 +11934,6 @@
     ],
     "image": "https://assets.atdw-online.com.au/images/e1abf423907eaaeef92ef12bdf9fcf79.jpeg?mode=crop&width=900&height=506&rot=360",
     "link": "https://southaustralia.com/products/adelaide/event/studio-tours-at-the-mill",
-    "source": "South Australia Tourism Commission"
-  },
-  {
-    "title": "Taste Gouger Street",
-    "venue": "Gouger Street",
-    "datetime": "2026-10-01T09:00:00",
-    "end_datetime": "2026-10-31T23:00:00",
-    "category": [
-      "Other"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/90a558cbde2342db93f1d63c93cedeee.jpeg?mode=crop&width=900&height=506&rot=360",
-    "link": "https://southaustralia.com/products/adelaide/event/taste-gouger-street",
     "source": "South Australia Tourism Commission"
   },
   {
@@ -12234,6 +11961,18 @@
     "source": "South Australia Tourism Commission"
   },
   {
+    "title": "Urban Wine Walk Port Adelaide",
+    "venue": "Urban Wine Walk Port Adelaide",
+    "datetime": "2026-11-07T12:00:00",
+    "end_datetime": "2026-11-07T16:00:00",
+    "category": [
+      "Food & Beverage"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/425f786be84846c3e451d1db466a1053_cj1xpyg_03e85us_i025084_fzhei84_odin13p_tj01t0j_y1r2zxm_xrnwn8j_yhag75a_lbtpfs9.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/urban-wine-walk-port-adelaide",
+    "source": "South Australia Tourism Commission"
+  },
+  {
     "title": "Vinyl Thursdays",
     "venue": "48 Hindley Street",
     "datetime": "2026-09-10T00:00:00",
@@ -12244,18 +11983,6 @@
     ],
     "image": "https://assets.atdw-online.com.au/images/dea0e220991b09468e43b1035f104d8a.jpeg?mode=crop&width=900&height=506&rot=360",
     "link": "https://southaustralia.com/products/adelaide/event/vinyl-thursdays",
-    "source": "South Australia Tourism Commission"
-  },
-  {
-    "title": "WBBL|12 Adelaide Strikers v Melbourne Stars tickets",
-    "venue": "Port Road",
-    "datetime": "2026-10-31T15:10:00",
-    "end_datetime": "2026-10-31T18:00:00",
-    "category": [
-      "Other"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/da1331e918691ec845d4d4d0653b79fe.jpeg?mode=crop&width=900&height=506&rot=360",
-    "link": "https://southaustralia.com/products/adelaide/event/wbbl12-adelaide-strikers-v-melbourne-stars-tickets",
     "source": "South Australia Tourism Commission"
   },
   {
@@ -12337,18 +12064,6 @@
     ]
   },
   {
-    "title": "Adelaide Town Hall Christmas Concert",
-    "venue": "Adelaide Town Hall",
-    "datetime": "2026-12-16T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Other"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/e7da3440f99a5ce23b4d9ac9245a4b1f.jpeg?rect=103%2C0%2C1600%2C1200&w=450&h=335&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhOWU0ZDg5ZTA4OGNiODM3NWJjYjczNyIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
-    "link": "https://www.experienceadelaide.com.au/whats-on/adelaide-town-hall-christmas-concert/",
-    "source": "Experience Adelaide"
-  },
-  {
     "title": "Huami 1st Birthday",
     "venue": "Huami",
     "datetime": "2026-10-22T00:00:00",
@@ -12427,18 +12142,6 @@
     "source": "Experience Adelaide"
   },
   {
-    "title": "Create Your Own Dinosaur",
-    "venue": "Artspace",
-    "datetime": "2026-11-14T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Other"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/794416881ebb700485638e19649d2dc1.jpeg?rect=0%2C0%2C1600%2C1200&w=450&h=335&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhODI4ZTU0MWU2ZWVhNjEzZDRmZjQ3OCIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
-    "link": "https://www.experienceadelaide.com.au/whats-on/create-your-own-dinosaur/",
-    "source": "Experience Adelaide"
-  },
-  {
     "title": "Distillery Sessions at Gilbert Street",
     "venue": "Prohibition Liquor Co. Gilbert Street",
     "datetime": "2026-09-18T00:00:00",
@@ -12463,7 +12166,7 @@
     "source": "Experience Adelaide"
   },
   {
-    "title": "La BohÃ¨me Club",
+    "title": "La Bohème Club",
     "venue": "Nineteen Ten",
     "datetime": "2026-11-07T19:00:00+1030",
     "end_datetime": "2026-11-07T22:30:00+1030",
@@ -12487,27 +12190,15 @@
     "source": "Humanitix Nineteen Ten"
   },
   {
-    "title": "The Haunted Hotel II",
+    "title": "Tumblr Famous: Fandoms",
     "venue": "Nineteen Ten",
-    "datetime": "2026-10-31T18:30:00+1030",
-    "end_datetime": "2026-10-31T21:00:00+1030",
+    "datetime": "2026-12-04T19:30:00+1030",
+    "end_datetime": "2026-12-04T22:00:00+1030",
     "category": [
       "Other"
     ],
-    "image": "https://images.humanitix.com/i/x3eETB9Tl62ctnaqwQqg@seo-500.jpg",
-    "link": "https://events.humanitix.com/the-haunted-hotel-ii",
-    "source": "Humanitix Nineteen Ten"
-  },
-  {
-    "title": "Wonderfully Terrible Halloween",
-    "venue": "Nineteen Ten",
-    "datetime": "2026-10-30T19:30:00+1030",
-    "end_datetime": "2026-10-30T23:00:00+1030",
-    "category": [
-      "Other"
-    ],
-    "image": "https://images.humanitix.com/i/928ac65b-26d1-4ba3-a0ec-55485a261504.png@seo-500.jpg",
-    "link": "https://events.humanitix.com/wonderfully-terrible-halloween",
+    "image": "https://images.humanitix.com/i/939d47c7-9850-4b5e-a96a-8f3ac187e37a.jpeg@seo-500.jpg",
+    "link": "https://events.humanitix.com/tumblr-famous-fandoms",
     "source": "Humanitix Nineteen Ten"
   },
   {
@@ -12523,27 +12214,27 @@
     "source": "Humanitix Adelaide and Regions"
   },
   {
-    "title": "Origins",
-    "venue": "Tatachilla Lutheran College Stadium",
-    "datetime": "2026-11-08T15:00:00+1030",
-    "end_datetime": "2026-11-08T17:30:00+1030",
+    "title": "AI for Small Business: Productivity Hacks | Workshop",
+    "venue": "Durham St Apartments Meeting Room",
+    "datetime": "2026-11-25T10:00:00+1030",
+    "end_datetime": "2026-11-25T12:30:00+1030",
     "category": [
-      "Other"
+      "Conferences/Workshops/Expos"
     ],
-    "image": "https://images.humanitix.com/i/AK6pJp3FQOSh1Rhc788x@seo-500.jpg",
-    "link": "https://events.humanitix.com/big-sing-2026",
+    "image": "https://images.humanitix.com/i/f588979d-bf82-4d9c-83b1-d47bf8f1d450.png@seo-500.jpg",
+    "link": "https://events.humanitix.com/ai-for-small-business-productivity-hacks-or-workshop-november25",
     "source": "Humanitix Adelaide and Regions"
   },
   {
-    "title": "Daniel Champagne LIVE at Aldinga Institute Hall (Family Friendly Concert) [SOLD OUT]",
-    "venue": "Aldinga Institute Hall",
-    "datetime": "2026-11-20T19:30:00+1030",
-    "end_datetime": "2026-11-20T20:45:00+1030",
+    "title": "Brontë EP Release show",
+    "venue": "Noori on the Midcoast",
+    "datetime": "2026-11-13T19:30:00+1030",
+    "end_datetime": "2026-11-13T23:30:00+1030",
     "category": [
-      "Music"
+      "Other"
     ],
-    "image": "https://images.humanitix.com/i/2441c7f3-f904-400d-99ce-8e2aa12c80eb.jpg@seo-500.jpg",
-    "link": "https://events.humanitix.com/daniel-champagne-live-at-aldinga-institute-hall-family-friendly-concert",
+    "image": "https://images.humanitix.com/i/667b6bf0-ecc5-4829-aff7-ed49be430152.png@seo-500.jpg",
+    "link": "https://events.humanitix.com/bronte-ep-release-show",
     "source": "Humanitix Adelaide and Regions"
   },
   {
@@ -12580,30 +12271,6 @@
     ],
     "image": "https://images.humanitix.com/i/4a558e3a-c418-499b-8b84-637dc1767710.png@seo-500.jpg",
     "link": "https://events.humanitix.com/dawnbreak-summer-aus-and-nz-tour-glenelg-beach-adelaide-2nd-jan-2027",
-    "source": "Humanitix Adelaide and Regions"
-  },
-  {
-    "title": "Day Moves",
-    "venue": "Home of Plenty",
-    "datetime": "2026-12-31T12:00:00+1030",
-    "end_datetime": "2027-01-01T02:00:00+1030",
-    "category": [
-      "Other"
-    ],
-    "image": "https://images.humanitix.com/i/8b7f62e3-dbd4-4a0b-8b14-c3adc7a29fab.png@seo-500.jpg",
-    "link": "https://events.humanitix.com/day-moves-2026",
-    "source": "Humanitix Adelaide and Regions"
-  },
-  {
-    "title": "Marley Love - Don't Know My Name EP Launch (with Erin Buku + Inner Tribe DJ's)",
-    "venue": "Soul House Social Club",
-    "datetime": "2026-11-28T19:00:00+1030",
-    "end_datetime": "2026-11-28T22:30:00+1030",
-    "category": [
-      "Other"
-    ],
-    "image": "https://images.humanitix.com/i/f9f2417b-c6c4-4287-a42e-f872eaa05d9b.jpg@seo-500.jpg",
-    "link": "https://events.humanitix.com/dontknowmynamelaunch",
     "source": "Humanitix Adelaide and Regions"
   },
   {
@@ -12667,6 +12334,30 @@
     "source": "Humanitix Adelaide and Regions"
   },
   {
+    "title": "Flow + Feast",
+    "venue": "Yonder Aldinga",
+    "datetime": "2026-11-08T10:00:00+1030",
+    "end_datetime": "2026-11-08T13:00:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/5af9db14-95b5-4e5f-8f51-2afcc71cd632.png@seo-500.jpg",
+    "link": "https://events.humanitix.com/feast-flow",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "Good News Festival 2026",
+    "venue": "Bonython Park",
+    "datetime": "2026-12-26T12:00:00+1030",
+    "end_datetime": "2026-12-26T23:00:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/657c0299-6bf9-4099-aac5-4e3bd4b6799a.jpg@seo-500.jpg",
+    "link": "https://events.humanitix.com/goodnews2026",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
     "title": "HIGH FEVER FESTIVAL, VOL III, 2027",
     "venue": "Three Brothers Arms Hotel",
     "datetime": "2027-02-06T15:00:00+1030",
@@ -12715,15 +12406,27 @@
     "source": "Humanitix Adelaide and Regions"
   },
   {
-    "title": "MECCA Burnside Village: THE MECCA HOLIDAY SOIREE",
-    "venue": "MECCA Burnside Village",
-    "datetime": "2026-11-04T19:00:00+1030",
-    "end_datetime": "2026-11-04T21:00:00+1030",
+    "title": "Ignite Christmas Dinner 2026: Women's Christmas Dinner at Glenelg, Adelaide",
+    "venue": "Ellenika",
+    "datetime": "2026-12-04T18:00:00+1030",
+    "end_datetime": "2026-12-04T22:30:00+1030",
     "category": [
-      "Other"
+      "Food & Beverage"
     ],
-    "image": "https://images.humanitix.com/i/8b921000-f988-4556-a9aa-bc1519ac168e.jpg@seo-500.jpg",
-    "link": "https://events.humanitix.com/mecca-burnside-village-the-mecca-holiday-soiree",
+    "image": "https://images.humanitix.com/i/f11e1db8-5d09-4827-8a0d-18f6e8ba432b.jpg@seo-500.jpg",
+    "link": "https://events.humanitix.com/ignite-christmas-dinner-2026-women-s-christmas-dinner-at-glenelg-adelaide",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "Motivate Dance Studio Concert 2026",
+    "venue": "Marnkutyi Parirna Theatre @Trinity College",
+    "datetime": "2026-11-21T11:00:00+1030",
+    "end_datetime": "2026-11-21T13:30:00+1030",
+    "category": [
+      "Music"
+    ],
+    "image": "https://images.humanitix.com/i/4Lz4scBTbW4EIYQydbky@seo-500.jpg",
+    "link": "https://events.humanitix.com/motivate-dance-studio-concert-2026",
     "source": "Humanitix Adelaide and Regions"
   },
   {
@@ -12736,6 +12439,186 @@
     ],
     "image": "https://images.humanitix.com/i/59a7944d-9021-42df-b350-f423d53a73f4.jpg@seo-500.jpg",
     "link": "https://events.humanitix.com/poppincorks",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "Poppin Out 2026 - Adelaide",
+    "venue": "Mary's Poppin",
+    "datetime": "2026-11-07T17:00:00+1030",
+    "end_datetime": "2026-11-07T23:00:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/4c846d55-ee9a-4c0a-a578-787099b58138.jpg@seo-500.jpg",
+    "link": "https://events.humanitix.com/poppinout26",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "Port Noarlunga Music Festival",
+    "venue": "The Arts Centre",
+    "datetime": "2026-11-20T17:30:00+1030",
+    "end_datetime": "2026-11-22T22:30:00+1030",
+    "category": [
+      "Music"
+    ],
+    "image": "https://images.humanitix.com/i/f6132b4e-20a9-4974-a6b7-0d325158ee64.jpg@seo-500.jpg",
+    "link": "https://events.humanitix.com/port-noarlunga-music-festival",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "Queer Joy",
+    "venue": "Glandore Community Centre",
+    "datetime": "2026-11-08T12:00:00+1030",
+    "end_datetime": "2026-11-08T15:00:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/4e8488ea-846a-4d03-a26b-d5904a027095.jpg@seo-500.jpg",
+    "link": "https://events.humanitix.com/queer-joy",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "SINGLES Night 30+ @ Prancing Pony Adel. Hills",
+    "venue": "Prancing Pony Brewery",
+    "datetime": "2026-11-28T19:00:00+1030",
+    "end_datetime": "2026-11-28T21:30:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/c7d6d81a-9801-4df6-93a5-1e55543e377f.png@seo-500.jpg",
+    "link": "https://events.humanitix.com/singles-night-3-prancing-pony-adel-hills",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "Sparkling Sounds: Sunset Edition ft. Cosmos Midnight",
+    "venue": "150 Pfeiffer Rd",
+    "datetime": "2026-11-21T15:30:00+1030",
+    "end_datetime": "2026-11-21T20:00:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/9ef3922c-cff5-4b73-9261-170b10715a1f.jpg@seo-500.jpg",
+    "link": "https://events.humanitix.com/sparkling-sounds-sunset-edition-ft-cosmos-midnight",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "THE FULL+ RUNRISE // Adelaide - 14th NOV 2026",
+    "venue": "Chalk Hill Wines",
+    "datetime": "2026-11-14T04:15:00+1030",
+    "end_datetime": "2026-11-14T08:00:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/2b7ff63d-2808-470b-9329-88073e9381b7.png@seo-500.jpg",
+    "link": "https://events.humanitix.com/the-full-runrise-adelaide-14th-nov-2026",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "The Three Musketeers at The Cedars",
+    "venue": "Hans Heysen - The Cedars",
+    "datetime": "2027-01-15T18:30:00+1030",
+    "end_datetime": "2027-01-15T21:30:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/17eeb33f-bd01-46d7-bdee-5f317078ec10.jpg@seo-500.jpg",
+    "link": "https://events.humanitix.com/the-three-musketeers-at-the-cedars",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "The Three Musketeers at The Cedars",
+    "venue": "Hans Heysen - The Cedars",
+    "datetime": "2027-01-16T18:30:00+1030",
+    "end_datetime": "2027-01-16T21:30:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/17eeb33f-bd01-46d7-bdee-5f317078ec10.jpg@seo-500.jpg",
+    "link": "https://events.humanitix.com/the-three-musketeers-at-the-cedars",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "The Three Musketeers at The Cedars",
+    "venue": "Hans Heysen - The Cedars",
+    "datetime": "2027-01-17T18:30:00+1030",
+    "end_datetime": "2027-01-17T21:30:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/17eeb33f-bd01-46d7-bdee-5f317078ec10.jpg@seo-500.jpg",
+    "link": "https://events.humanitix.com/the-three-musketeers-at-the-cedars",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "Women in Innovation Awards 2026",
+    "venue": "National Wine Centre of Australia",
+    "datetime": "2026-11-06T19:00:00+1030",
+    "end_datetime": "2026-11-06T23:30:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/09c56fdc-c015-49d1-8efe-2a9342da52e3.jpg@seo-500.jpg",
+    "link": "https://events.humanitix.com/women-in-innovation-awards-2026",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "Origins",
+    "venue": "Tatachilla Lutheran College Stadium",
+    "datetime": "2026-11-08T15:00:00+1030",
+    "end_datetime": "2026-11-08T17:30:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/AK6pJp3FQOSh1Rhc788x@seo-500.jpg",
+    "link": "https://events.humanitix.com/big-sing-2026",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "Daniel Champagne LIVE at Aldinga Institute Hall (Family Friendly Concert) [SOLD OUT]",
+    "venue": "Aldinga Institute Hall",
+    "datetime": "2026-11-20T19:30:00+1030",
+    "end_datetime": "2026-11-20T20:45:00+1030",
+    "category": [
+      "Music"
+    ],
+    "image": "https://images.humanitix.com/i/2441c7f3-f904-400d-99ce-8e2aa12c80eb.jpg@seo-500.jpg",
+    "link": "https://events.humanitix.com/daniel-champagne-live-at-aldinga-institute-hall-family-friendly-concert",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "Day Moves",
+    "venue": "Home of Plenty",
+    "datetime": "2026-12-31T12:00:00+1030",
+    "end_datetime": "2027-01-01T02:00:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/8b7f62e3-dbd4-4a0b-8b14-c3adc7a29fab.png@seo-500.jpg",
+    "link": "https://events.humanitix.com/day-moves-2026",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "Marley Love - Don't Know My Name EP Launch (with Erin Buku + Inner Tribe DJ's)",
+    "venue": "Soul House Social Club",
+    "datetime": "2026-11-28T19:00:00+1030",
+    "end_datetime": "2026-11-28T22:30:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/f9f2417b-c6c4-4287-a42e-f872eaa05d9b.jpg@seo-500.jpg",
+    "link": "https://events.humanitix.com/dontknowmynamelaunch",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "MECCA Burnside Village: THE MECCA HOLIDAY SOIREE",
+    "venue": "MECCA Burnside Village",
+    "datetime": "2026-11-04T19:00:00+1030",
+    "end_datetime": "2026-11-04T21:00:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/8b921000-f988-4556-a9aa-bc1519ac168e.jpg@seo-500.jpg",
+    "link": "https://events.humanitix.com/mecca-burnside-village-the-mecca-holiday-soiree",
     "source": "Humanitix Adelaide and Regions"
   },
   {
@@ -12754,54 +12637,6 @@
     ]
   },
   {
-    "title": "SINGLES Night 30+ @ Prancing Pony Adel. Hills",
-    "venue": "Prancing Pony Brewery",
-    "datetime": "2026-11-28T19:00:00+1030",
-    "end_datetime": "2026-11-28T21:30:00+1030",
-    "category": [
-      "Other"
-    ],
-    "image": "https://images.humanitix.com/i/c7d6d81a-9801-4df6-93a5-1e55543e377f.png@seo-500.jpg",
-    "link": "https://events.humanitix.com/singles-night-3-prancing-pony-adel-hills",
-    "source": "Humanitix Adelaide and Regions"
-  },
-  {
-    "title": "STOP THE CHOP ROAD SHOW AT GLENELG",
-    "venue": "Wigley Reserve",
-    "datetime": "2026-10-31T13:00:00+1030",
-    "end_datetime": "2026-10-31T14:00:00+1030",
-    "category": [
-      "Other"
-    ],
-    "image": "https://images.humanitix.com/i/4d3d2c00-e0e6-43f8-bf94-76950e5f2af6.jpg@seo-500.jpg",
-    "link": "https://events.humanitix.com/stop-the-chop-road-show-at-glenelg",
-    "source": "Humanitix Adelaide and Regions"
-  },
-  {
-    "title": "THE FULL+ RUNRISE // Adelaide - 14th NOV 2026",
-    "venue": "Chalk Hill Wines",
-    "datetime": "2026-11-14T04:15:00+1030",
-    "end_datetime": "2026-11-14T08:00:00+1030",
-    "category": [
-      "Other"
-    ],
-    "image": "https://images.humanitix.com/i/2b7ff63d-2808-470b-9329-88073e9381b7.png@seo-500.jpg",
-    "link": "https://events.humanitix.com/the-full-runrise-adelaide-14th-nov-2026",
-    "source": "Humanitix Adelaide and Regions"
-  },
-  {
-    "title": "Sparkling Sounds: Sunset Edition ft. Cosmos Midnight",
-    "venue": "150 Pfeiffer Rd",
-    "datetime": "2026-11-21T15:30:00+1030",
-    "end_datetime": "2026-11-21T20:00:00+1030",
-    "category": [
-      "Other"
-    ],
-    "image": "https://images.humanitix.com/i/9ef3922c-cff5-4b73-9261-170b10715a1f.jpg@seo-500.jpg",
-    "link": "https://events.humanitix.com/sparkling-sounds-sunset-edition-ft-cosmos-midnight",
-    "source": "Humanitix Adelaide and Regions"
-  },
-  {
     "title": "For the Love of Trees",
     "venue": "Waverley Park Homestead",
     "datetime": "2026-11-11T18:30:00+1030",
@@ -12811,42 +12646,6 @@
     ],
     "image": "https://images.humanitix.com/i/6819ff4d-6a21-467a-9753-249f7a2d7077.jpg@seo-500.jpg",
     "link": "https://events.humanitix.com/for-the-love-of-trees",
-    "source": "Humanitix Adelaide and Regions"
-  },
-  {
-    "title": "November Field Day at Maslin Creek with Randall Wine Group",
-    "venue": "Maslin Creek (Formerly Fox Creek)",
-    "datetime": "2026-11-01T09:00:00+1030",
-    "end_datetime": "2026-11-01T11:00:13+1030",
-    "category": [
-      "Food & Beverage"
-    ],
-    "image": "https://images.humanitix.com/i/Xs2XmI2SUWgwgUmjTJlJ@seo-500.jpg",
-    "link": "https://events.humanitix.com/nov-field-day-at-maslin-creek",
-    "source": "Humanitix Adelaide and Regions"
-  },
-  {
-    "title": "Women in Innovation Awards 2026",
-    "venue": "National Wine Centre of Australia",
-    "datetime": "2026-11-06T19:00:00+1030",
-    "end_datetime": "2026-11-06T23:30:00+1030",
-    "category": [
-      "Other"
-    ],
-    "image": "https://images.humanitix.com/i/09c56fdc-c015-49d1-8efe-2a9342da52e3.jpg@seo-500.jpg",
-    "link": "https://events.humanitix.com/women-in-innovation-awards-2026",
-    "source": "Humanitix Adelaide and Regions"
-  },
-  {
-    "title": "'Sweat Your Prayers' 5Rhythms McLaren Vale",
-    "venue": "McLaren Vale Institute Hall",
-    "datetime": "2026-11-01T10:00:00+1030",
-    "end_datetime": "2026-11-01T12:00:00+1030",
-    "category": [
-      "Other"
-    ],
-    "image": "https://images.humanitix.com/i/f27318b4-8513-4f8b-a00c-7a694b963df8.jpg@seo-500.jpg",
-    "link": "https://events.humanitix.com/sweat-your-prayers-5rhythms",
     "source": "Humanitix Adelaide and Regions"
   },
   {
@@ -12871,30 +12670,6 @@
     ],
     "image": "https://images.humanitix.com/i/f27318b4-8513-4f8b-a00c-7a694b963df8.jpg@seo-500.jpg",
     "link": "https://events.humanitix.com/sweat-your-prayers-5rhythms",
-    "source": "Humanitix Adelaide and Regions"
-  },
-  {
-    "title": "Music of the Middle Ages (400-1500) - Southern Vales tour!",
-    "venue": "McLaren Vale Hall",
-    "datetime": "2026-10-30T13:00:00+1030",
-    "end_datetime": "2026-10-30T14:30:00+1030",
-    "category": [
-      "Music"
-    ],
-    "image": "https://images.humanitix.com/i/63a2c986-c326-47cc-8abe-47d311aefbbd.png@seo-500.jpg",
-    "link": "https://events.humanitix.com/music-of-the-middle-ages-400-1500-southern-vales-tour",
-    "source": "Humanitix Adelaide and Regions"
-  },
-  {
-    "title": "Ignite Christmas Dinner 2026: Women's Christmas Dinner at Glenelg, Adelaide",
-    "venue": "Ellenika",
-    "datetime": "2026-12-04T18:00:00+1030",
-    "end_datetime": "2026-12-04T22:30:00+1030",
-    "category": [
-      "Food & Beverage"
-    ],
-    "image": "https://images.humanitix.com/i/f11e1db8-5d09-4827-8a0d-18f6e8ba432b.jpg@seo-500.jpg",
-    "link": "https://events.humanitix.com/ignite-christmas-dinner-2026-women-s-christmas-dinner-at-glenelg-adelaide",
     "source": "Humanitix Adelaide and Regions"
   },
   {
@@ -12934,19 +12709,7 @@
     "source": "Humanitix Adelaide and Regions"
   },
   {
-    "title": "BrontÃ« EP Release show",
-    "venue": "Noori on the Midcoast",
-    "datetime": "2026-11-13T19:30:00+1030",
-    "end_datetime": "2026-11-13T23:30:00+1030",
-    "category": [
-      "Other"
-    ],
-    "image": "https://images.humanitix.com/i/667b6bf0-ecc5-4829-aff7-ed49be430152.png@seo-500.jpg",
-    "link": "https://events.humanitix.com/bronte-ep-release-show",
-    "source": "Humanitix Adelaide and Regions"
-  },
-  {
-    "title": "Minus18 Queer FormalÂ® Adelaide 2026",
+    "title": "Minus18 Queer Formal® Adelaide 2026",
     "venue": "Adelaide Town Hall",
     "datetime": "2026-11-06T18:30:00+1030",
     "end_datetime": "2026-11-06T22:00:00+1030",
@@ -12970,36 +12733,12 @@
     "source": "Humanitix Adelaide and Regions"
   },
   {
-    "title": "Queer Joy",
-    "venue": "Glandore Community Centre",
-    "datetime": "2026-11-08T12:00:00+1030",
-    "end_datetime": "2026-11-08T15:00:00+1030",
-    "category": [
-      "Other"
-    ],
-    "image": "https://images.humanitix.com/i/4e8488ea-846a-4d03-a26b-d5904a027095.jpg@seo-500.jpg",
-    "link": "https://events.humanitix.com/queer-joy",
-    "source": "Humanitix Adelaide and Regions"
-  },
-  {
-    "title": "Sunday at The Cedars - Monthly Talks Series",
-    "venue": "The Cedars",
-    "datetime": "2026-11-01T13:00:00+1030",
-    "end_datetime": "2026-11-01T14:30:00+1030",
-    "category": [
-      "Other"
-    ],
-    "image": "https://images.humanitix.com/i/e51be05b-50ca-4e4a-8d3b-5e418da6e41d.png@seo-500.jpg",
-    "link": "https://events.humanitix.com/sunday-at-the-cedars",
-    "source": "Humanitix Adelaide and Regions"
-  },
-  {
     "title": "Sunday at The Cedars - Monthly Talks Series",
     "venue": "The Cedars",
     "datetime": "2026-12-06T13:00:00+1030",
     "end_datetime": "2026-12-06T14:30:00+1030",
     "category": [
-      "Other"
+      "Talks & Conferences"
     ],
     "image": "https://images.humanitix.com/i/e51be05b-50ca-4e4a-8d3b-5e418da6e41d.png@seo-500.jpg",
     "link": "https://events.humanitix.com/sunday-at-the-cedars",
@@ -13011,7 +12750,7 @@
     "datetime": "2027-02-07T13:00:00+1030",
     "end_datetime": "2027-02-07T14:30:00+1030",
     "category": [
-      "Other"
+      "Talks & Conferences"
     ],
     "image": "https://images.humanitix.com/i/e51be05b-50ca-4e4a-8d3b-5e418da6e41d.png@seo-500.jpg",
     "link": "https://events.humanitix.com/sunday-at-the-cedars",
@@ -13023,7 +12762,7 @@
     "datetime": "2027-03-07T13:00:00+1030",
     "end_datetime": "2027-03-07T14:30:00+1030",
     "category": [
-      "Other"
+      "Talks & Conferences"
     ],
     "image": "https://images.humanitix.com/i/e51be05b-50ca-4e4a-8d3b-5e418da6e41d.png@seo-500.jpg",
     "link": "https://events.humanitix.com/sunday-at-the-cedars",
@@ -13035,7 +12774,7 @@
     "datetime": "2027-04-04T13:00:00+0930",
     "end_datetime": "2027-04-04T14:30:00+0930",
     "category": [
-      "Other"
+      "Talks & Conferences"
     ],
     "image": "https://images.humanitix.com/i/e51be05b-50ca-4e4a-8d3b-5e418da6e41d.png@seo-500.jpg",
     "link": "https://events.humanitix.com/sunday-at-the-cedars",
@@ -13047,7 +12786,7 @@
     "datetime": "2027-05-02T13:00:00+0930",
     "end_datetime": "2027-05-02T14:30:00+0930",
     "category": [
-      "Other"
+      "Talks & Conferences"
     ],
     "image": "https://images.humanitix.com/i/e51be05b-50ca-4e4a-8d3b-5e418da6e41d.png@seo-500.jpg",
     "link": "https://events.humanitix.com/sunday-at-the-cedars",
@@ -13059,22 +12798,10 @@
     "datetime": "2027-06-06T13:00:00+0930",
     "end_datetime": "2027-06-06T14:30:00+0930",
     "category": [
-      "Other"
+      "Talks & Conferences"
     ],
     "image": "https://images.humanitix.com/i/e51be05b-50ca-4e4a-8d3b-5e418da6e41d.png@seo-500.jpg",
     "link": "https://events.humanitix.com/sunday-at-the-cedars",
-    "source": "Humanitix Adelaide and Regions"
-  },
-  {
-    "title": "Poppin Out 2026 - Adelaide",
-    "venue": "Mary's Poppin",
-    "datetime": "2026-11-07T17:00:00+1030",
-    "end_datetime": "2026-11-07T23:00:00+1030",
-    "category": [
-      "Other"
-    ],
-    "image": "https://images.humanitix.com/i/4c846d55-ee9a-4c0a-a578-787099b58138.jpg@seo-500.jpg",
-    "link": "https://events.humanitix.com/poppinout26",
     "source": "Humanitix Adelaide and Regions"
   },
   {
@@ -13090,293 +12817,42 @@
     "source": "Humanitix Adelaide and Regions"
   },
   {
-    "title": "Daryl Austin: The Long View",
-    "venue": "Adelaide Town Hall",
-    "datetime": "2027-02-15T00:00:00",
+    "title": "Melbourne Cup | Downstairs",
+    "venue": "Arkaba Hotel",
+    "datetime": "2026-11-03",
     "end_datetime": "",
     "category": [
-      "Arts & Culture"
+      "Sport",
+      "Food & Beverage"
     ],
-    "image": "https://assets.atdw-online.com.au/images/ce325ec0ae82abe35267143ffbebdab7.jpeg?rect=0%2C83%2C2953%2C2215&w=1280&h=1024&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjY5ZmE5M2ZjYzhiYTQzYmU3NDY1ZDAyNiIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
-    "link": "https://www.adelaidetownhall.com.au/events/daryl-austin-the-long-view/",
-    "source": "Adelaide Town Hall"
+    "image": "https://www.arkabahotel.com.au/wp-content/uploads/2026/08/ARK-Melbourne-Cup_Downstairs_WO.jpg",
+    "link": "https://www.arkabahotel.com.au/?bn_event=melbourne-cup-downstairs-2",
+    "source": "Arkaba Hotel"
   },
   {
-    "title": "The City Dressed Up: Adelaide’s Golden Age of Department Stores",
-    "venue": "Adelaide Town Hall",
-    "datetime": "2027-07-13T00:00:00",
+    "title": "Melbourne Cup | Sportys",
+    "venue": "Arkaba Hotel",
+    "datetime": "2026-11-03",
     "end_datetime": "",
     "category": [
-      "Arts & Culture"
+      "Sport",
+      "Food & Beverage"
     ],
-    "image": "https://assets.atdw-online.com.au/images/88fc7e1867ceda4d207aae5d4ab67a43.jpeg?rect=129%2C0%2C1791%2C1343&w=1280&h=1024&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhM2M3NjJjZDRiZTczM2Q1NGU2NGEwMSIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
-    "link": "https://www.adelaidetownhall.com.au/events/the-city-dressed-up-adelaides-golden-age-of-department-stores/",
-    "source": "Adelaide Town Hall"
+    "image": "https://www.arkabahotel.com.au/wp-content/uploads/2026/08/SP-Melbourne-Cup_WO.jpg",
+    "link": "https://www.arkabahotel.com.au/?bn_event=melbourne-cup-sportys-2",
+    "source": "Arkaba Hotel"
   },
   {
-    "title": "Adelaide Town Hall Live Music Rehearsal Space",
-    "venue": "Adelaide Town Hall",
-    "datetime": "2027-02-25T00:00:00",
+    "title": "Melbourne Cup | Top of the Ark *Sold Out*",
+    "venue": "Arkaba Hotel",
+    "datetime": "2026-11-03",
     "end_datetime": "",
     "category": [
-      "Music"
+      "Sport",
+      "Food & Beverage"
     ],
-    "image": "https://assets.atdw-online.com.au/images/8cb4942a73f40dee5536a9a3c74f1767.jpeg?rect=0%2C0%2C1600%2C1200&w=1280&h=1024&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhOTExNDI4OWUyZWE3ZWY2MmU5Yjg2NyIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
-    "link": "https://www.adelaidetownhall.com.au/events/adelaide-town-hall-live-music-rehearsal-space/",
-    "source": "Adelaide Town Hall"
-  },
-  {
-    "title": "Latvian Radio Choir and Genevieve Lacey - Musica Viva Australia in Adelaide",
-    "venue": "Adelaide Town Hall",
-    "datetime": "2026-11-12T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/5c866733869d34aa63fd515a26609d36.jpeg?rect=0%2C0%2C1600%2C1200&w=1280&h=1024&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjY4YzEyYTRlYmE5ODYzYzkyM2UwN2IxYSIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
-    "link": "https://www.adelaidetownhall.com.au/events/latvian-radio-choir-and-genevieve-lacey-musica-viva-australia-in-adelaide/",
-    "source": "Adelaide Town Hall"
-  },
-  {
-    "title": "Symphony Series 8 – Completely Unfinished",
-    "venue": "Adelaide Town Hall",
-    "datetime": "2026-11-22T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/5cb8d36014dbab225c79259971a7e8c6.jpeg?rect=0%2C0%2C1600%2C1200&w=1280&h=1024&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjY4ZGY2NTE3NzFjMGIxMzMwNjJhZWIwMyIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
-    "link": "https://www.adelaidetownhall.com.au/events/symphony-series-8-completely-unfinished/",
-    "source": "Adelaide Town Hall"
-  },
-  {
-    "title": "Beethoven’s Pastoral",
-    "venue": "Adelaide Town Hall",
-    "datetime": "2026-11-24T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Other"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/f9a8c9abdd05e5d391439bcac7f7620b.jpeg?rect=0%2C0%2C1600%2C1200&w=1280&h=1024&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjY4ZWRhNjA2OThjYzUwZGQ2YzIzMWE5ZSIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
-    "link": "https://www.adelaidetownhall.com.au/events/beethovens-pastoral/",
-    "source": "Adelaide Town Hall"
-  },
-  {
-    "title": "Jessica Mills in Concert at Adelaide Town Hall",
-    "venue": "Adelaide Town Hall",
-    "datetime": "2026-11-26T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/345bf824f9f9ba89d3da0e7e84861b1f.jpeg?rect=0%2C372%2C1780%2C1335&w=1280&h=1024&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhNzkyZDYxNmVkMjU2MjkxNmI1YjM4ZiIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
-    "link": "https://www.adelaidetownhall.com.au/events/jessica-mills-in-concert-at-adelaide-town-hall/",
-    "source": "Adelaide Town Hall"
-  },
-  {
-    "title": "Encore! Classics",
-    "venue": "Adelaide Town Hall",
-    "datetime": "2026-12-02T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/7e6b2f3b2ed8479de908041ae90ac60c.jpeg?rect=172%2C0%2C1600%2C1200&w=1280&h=1024&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjY2N2E0ZDdhYThkYjQ5YmEwZjE4MjRlMCIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
-    "link": "https://www.adelaidetownhall.com.au/events/encore-classics/",
-    "source": "Adelaide Town Hall"
-  },
-  {
-    "title": "Band of the South Australia Police - 2026 Christmas Concert",
-    "venue": "Adelaide Town Hall",
-    "datetime": "2026-12-11T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/ebe8c5e09aa94b32d7e8dd7e6e14a154.jpeg?rect=0%2C0%2C1600%2C1200&w=1280&h=1024&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhYjMyMjZhZTk3YzM3NTY3MTc5NWI1YyIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
-    "link": "https://www.adelaidetownhall.com.au/events/band-of-the-south-australia-police-2026-christmas-concert/",
-    "source": "Adelaide Town Hall"
-  },
-  {
-    "title": "Nicolas Altstaedt",
-    "venue": "Adelaide Town Hall",
-    "datetime": "2027-02-16T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Other"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/3f712d8d04d4e63d4ff4cbef405c55b7.jpeg?rect=0%2C0%2C1600%2C1200&w=1280&h=1024&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhOWY3ZmVjYzlmYmIwNGM0OGEwZDc1OSIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
-    "link": "https://www.adelaidetownhall.com.au/events/nicolas-altstaedt/",
-    "source": "Adelaide Town Hall"
-  },
-  {
-    "title": "Van Diemen's Band and Bertrand Cuiller - Musica Viva Australia in Adelaide",
-    "venue": "Adelaide Town Hall",
-    "datetime": "2027-02-25T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/cef9209bd247164bf9fdc5f1430503ea.jpeg?rect=0%2C0%2C2048%2C1536&w=1280&h=1024&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhYzRkODgxNTg4ZTZjMmE3ODY3NjUyNSIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
-    "link": "https://www.adelaidetownhall.com.au/events/van-diemens-band-and-bertrand-cuiller-musica-viva-australia-in-adelaide/",
-    "source": "Adelaide Town Hall"
-  },
-  {
-    "title": "Bach's St John Passion",
-    "venue": "Adelaide Town Hall",
-    "datetime": "2027-03-16T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/8552125e35390b88937f48f663dd2cb8.jpeg?rect=0%2C0%2C1600%2C1200&w=1280&h=1024&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhOWY5MzI3YzlmYmIwNGM0OGEwZDdlYiIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
-    "link": "https://www.adelaidetownhall.com.au/events/bachs-st-john-passion/",
-    "source": "Adelaide Town Hall"
-  },
-  {
-    "title": "The Romantics - Musica Viva Australia in Adelaide",
-    "venue": "Adelaide Town Hall",
-    "datetime": "2027-05-06T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/05447a55594b3d7735d4acbc38c5cc6a.jpeg?rect=0%2C0%2C2048%2C1536&w=1280&h=1024&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhYzRlNTYzNjRlZDAzMTQ3ODg1NjIwYyIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
-    "link": "https://www.adelaidetownhall.com.au/events/the-romantics-musica-viva-australia-in-adelaide/",
-    "source": "Adelaide Town Hall"
-  },
-  {
-    "title": "Alina Ibragimova Plays Tchaikovsky’s Violin Concerto",
-    "venue": "Adelaide Town Hall",
-    "datetime": "2027-05-18T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/65a13bfc9f373eb38e8bc0ad6c98746a.jpeg?rect=0%2C0%2C1600%2C1200&w=1280&h=1024&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhOWY5NWVhNDg3OGJlZDk3ZWI3Y2ViMiIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
-    "link": "https://www.adelaidetownhall.com.au/events/alina-ibragimova-plays-tchaikovskys-violin-concerto/",
-    "source": "Adelaide Town Hall"
-  },
-  {
-    "title": "Quatuor Van Kuijk - Musica Viva Australia in Adelaide",
-    "venue": "Adelaide Town Hall",
-    "datetime": "2027-06-11T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/973a31350723e84c364e2d142ea3d504.jpeg?rect=0%2C0%2C2048%2C1536&w=1280&h=1024&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhYzRlNjIyNzQ5YTY1ZjI3OTM0YTg2YiIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
-    "link": "https://www.adelaidetownhall.com.au/events/quatuor-van-kuijk-musica-viva-australia-in-adelaide/",
-    "source": "Adelaide Town Hall"
-  },
-  {
-    "title": "Richard Tognetti Directs Mozart",
-    "venue": "Adelaide Town Hall",
-    "datetime": "2027-06-22T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Arts & Culture"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/dc125d300378a62b6e24227dcb80c9e4.jpeg?rect=0%2C0%2C1600%2C1200&w=1280&h=1024&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhYWI4NTUxMDEyMjNmMDEyZWMyODk0NCIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
-    "link": "https://www.adelaidetownhall.com.au/events/richard-tognetti-directs-mozart/",
-    "source": "Adelaide Town Hall"
-  },
-  {
-    "title": "The Choir of King's College, Cambridge and William Barton - Musica Viva Australia in Adelaide",
-    "venue": "Adelaide Town Hall",
-    "datetime": "2027-07-24T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/80780b86c5c24cbe43f482eb10723196.jpeg?rect=0%2C0%2C2048%2C1536&w=1280&h=1024&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhYzRlNmEwNzg0MGMyYTcwNGIxOTI1ZCIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
-    "link": "https://www.adelaidetownhall.com.au/events/the-choir-of-kings-college-cambridge-and-william-barton-musica-viva-australia-in-adelaide/",
-    "source": "Adelaide Town Hall"
-  },
-  {
-    "title": "ACO In Motion",
-    "venue": "Adelaide Town Hall",
-    "datetime": "2027-08-03T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/4dae32eab0521f9ee48fda6dfbfa8ce4.jpeg?rect=0%2C0%2C1600%2C1200&w=1280&h=1024&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhYjIxYWY1YmQwMmUxZGYyNWI2M2MxYSIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
-    "link": "https://www.adelaidetownhall.com.au/events/aco-in-motion/",
-    "source": "Adelaide Town Hall"
-  },
-  {
-    "title": "The John Adams Almanac",
-    "venue": "Adelaide Town Hall",
-    "datetime": "2027-09-07T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/ecc227f146650ffb48c1834241561389.jpeg?rect=0%2C0%2C1600%2C1200&w=1280&h=1024&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhYjIxY2VlYjU5MDJlMTUxZDU2MmM0YiIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
-    "link": "https://www.adelaidetownhall.com.au/events/the-john-adams-almanac/",
-    "source": "Adelaide Town Hall"
-  },
-  {
-    "title": "Javier Perianes - Musica Viva Australia in Adelaide",
-    "venue": "Adelaide Town Hall",
-    "datetime": "2027-09-16T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/e80f60272e4913ce841c362d84f22dad.jpeg?rect=0%2C0%2C2048%2C1536&w=1280&h=1024&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhYzRlNmY5MTVmYTcxZmM3OTYxZDlkZiIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
-    "link": "https://www.adelaidetownhall.com.au/events/javier-perianes-musica-viva-australia-in-adelaide/",
-    "source": "Adelaide Town Hall"
-  },
-  {
-    "title": "Desandre and Dunford - Musica Viva Australia in Adelaide",
-    "venue": "Adelaide Town Hall",
-    "datetime": "2027-10-22T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/99f904d0e34e467f7b284cc0b1ceddcc.jpeg?rect=0%2C0%2C2048%2C1536&w=1280&h=1024&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhYzRlNzQ0NzQ5YTY1ZjI3OTM0YTg3NiIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
-    "link": "https://www.adelaidetownhall.com.au/events/desandre-and-dunford-musica-viva-australia-in-adelaide/",
-    "source": "Adelaide Town Hall"
-  },
-  {
-    "title": "Vision by Vision - Musica Viva Australia in Adelaide",
-    "venue": "Adelaide Town Hall",
-    "datetime": "2027-11-18T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/c2cb5b1c9b815c771cebee7ee811ce12.jpeg?rect=0%2C0%2C2048%2C1536&w=1280&h=1024&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhYzRlNzlkYmYwN2Q1MDY3YTUwYjBkMiIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
-    "link": "https://www.adelaidetownhall.com.au/events/vision-by-vision-musica-viva-australia-in-adelaide/",
-    "source": "Adelaide Town Hall"
-  },
-  {
-    "title": "GOLDEN VOICES",
-    "venue": "St Peter'S Cathedral",
-    "datetime": "2026-11-13T00:00:00",
-    "end_datetime": "2026-11-14T23:59:59",
-    "category": [
-      "Theatre",
-      "Music"
-    ],
-    "image": "https://www.stateopera.com.au/_image?href=http%3A%2F%2Fcms%2Fpublic%2Fassets%2Fgoldenvoices.png&w=1508&h=1508&q=70&f=webp",
-    "link": "https://www.stateopera.com.au/productions/2026/golden-voices",
-    "source": "State Opera South Australia"
-  },
-  {
-    "title": "TRIALS & TRANSFORMATIONS",
-    "venue": "Ukaria Cultural Centre",
-    "datetime": "2026-11-22T14:30:00",
-    "end_datetime": "",
-    "category": [
-      "Theatre",
-      "Music"
-    ],
-    "image": "https://www.stateopera.com.au/_image?href=http%3A%2F%2Fcms%2Fpublic%2Fassets%2Ftrials-n-transformations-2.png&w=1508&h=1508&q=70&f=webp",
-    "link": "https://www.stateopera.com.au/productions/2026/trials-and-transformations",
-    "source": "State Opera South Australia"
+    "image": "https://www.arkabahotel.com.au/wp-content/uploads/2026/08/SOLD-OUT.png",
+    "link": "https://www.arkabahotel.com.au/?bn_event=melbourne-cup-top-of-the-ark",
+    "source": "Arkaba Hotel"
   }
 ]

@@ -932,6 +932,186 @@ function populateFilters() {
 // APPLY SEARCH AND FILTERS
 // ======================================
 
+
+// ======================================
+// CONCIERGE: QUICK DATES / AGENDA / PRINT
+// ======================================
+var quickDateChoice = "";
+var agendaContainer = document.getElementById("agenda-view");
+var printGuideContainer = document.getElementById("print-guide-content");
+
+function dateInputValue(date) {
+    return dateKey(date.getFullYear(), date.getMonth(), date.getDate());
+}
+function shiftedDate(date, offset) {
+    return new Date(date.getFullYear(), date.getMonth(), date.getDate() + offset, 12);
+}
+function setQuickDate(choice) {
+    var now = new Date();
+    var start = shiftedDate(now, 0);
+    var end = start;
+    if (choice === "all") {
+        dateFromInput.value = "";
+        dateToInput.value = "";
+    } else {
+        if (choice === "tomorrow") start = shiftedDate(now, 1);
+        if (choice === "weekend") {
+            // Australian weekend is Saturday and Sunday. On Sunday, include today.
+            var weekday = now.getDay();
+            var daysUntilSaturday = (6 - weekday + 7) % 7;
+            if (weekday === 0) daysUntilSaturday = -1;
+            start = shiftedDate(now, daysUntilSaturday);
+            end = shiftedDate(start, 1);
+        } else if (choice === "7" || choice === "30") {
+            end = shiftedDate(start, Number(choice) - 1);
+        } else {
+            end = start;
+        }
+        dateFromInput.value = dateInputValue(start);
+        dateToInput.value = dateInputValue(end);
+        if (currentView === "calendar") {
+            visibleMonth = new Date(start.getFullYear(), start.getMonth(), 1);
+            selectedDay = "";
+        }
+    }
+    quickDateChoice = choice;
+    updateQuickDateButtons();
+    applyFilters();
+}
+function updateQuickDateButtons() {
+    document.querySelectorAll("[data-quick-date]").forEach(function(button) {
+        var active = button.getAttribute("data-quick-date") === quickDateChoice;
+        button.classList.toggle("active", active);
+        button.setAttribute("aria-pressed", active ? "true" : "false");
+    });
+}
+document.querySelectorAll("[data-quick-date]").forEach(function(button) {
+    button.addEventListener("click", function() {
+        setQuickDate(button.getAttribute("data-quick-date"));
+    });
+});
+function clearQuickDateSelection() {
+    quickDateChoice = "";
+    updateQuickDateButtons();
+}
+function eventTimeSort(a, b) {
+    var ad = getDatePart(getEventStart(a));
+    var bd = getDatePart(getEventStart(b));
+    if (ad !== bd) return ad.localeCompare(bd);
+    var at = calendarStartTime(a);
+    var bt = calendarStartTime(b);
+    if (at === null && bt !== null) return 1;
+    if (bt === null && at !== null) return -1;
+    if (at !== null && bt !== null && at !== bt) return at - bt;
+    return String(a.title || "").localeCompare(String(b.title || ""));
+}
+function makeAgendaRow(event) {
+    var row = document.createElement("article");
+    row.className = "agenda-item";
+    var time = document.createElement("span");
+    time.className = "agenda-time";
+    time.textContent = calendarTimeLabel(event);
+    var body = document.createElement("div");
+    body.className = "agenda-item-body";
+    var title = document.createElement("strong");
+    title.textContent = event.title || "Untitled Event";
+    var info = document.createElement("p");
+    info.textContent = (event.venue || event.location || "Venue TBC") + " · " + getEventCategories(event).join(", ");
+    body.append(title, info);
+    row.append(time, body);
+    var url = event.link || event.url;
+    if (url && /^https?:\/\//i.test(String(url))) {
+        var link = document.createElement("a");
+        link.href = url;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.textContent = "Event details";
+        link.className = "agenda-link";
+        row.appendChild(link);
+    }
+    return row;
+}
+function renderAgenda(eventList) {
+    agendaContainer.replaceChildren();
+    if (currentView !== "agenda") return;
+    var sorted = eventList.slice().sort(eventTimeSort);
+    if (!sorted.length) {
+        var empty = document.createElement("p");
+        empty.className = "agenda-empty";
+        empty.textContent = "No events match these filters.";
+        agendaContainer.appendChild(empty);
+        return;
+    }
+    var lastDate = "";
+    sorted.forEach(function(event) {
+        var day = getDatePart(getEventStart(event));
+        if (day !== lastDate) {
+            lastDate = day;
+            var heading = document.createElement("h3");
+            heading.className = "agenda-day-heading";
+            heading.textContent = day ? formatDate(day) : "Date TBC";
+            agendaContainer.appendChild(heading);
+        }
+        agendaContainer.appendChild(makeAgendaRow(event));
+    });
+}
+function printCurrentGuide() {
+    // Avoid accidentally printing hundreds of pages when no date is selected.
+    var from = dateFromInput.value;
+    var to = dateToInput.value;
+    var today = dateInputValue(new Date());
+    var printFrom = from || (to ? "" : today);
+    var printTo = to || (from ? "" : today);
+    var records = filteredEventsForCalendar.filter(function(event) {
+        var start = getDatePart(getEventStart(event));
+        var end = getDatePart(getEventEnd(event)) || start;
+        return start && (!printFrom || end >= printFrom) && (!printTo || start <= printTo);
+    }).slice().sort(eventTimeSort);
+    printGuideContainer.replaceChildren();
+    var heading = document.createElement("h1");
+    heading.textContent = "CONCIERGE · What's On Adelaide";
+    var sub = document.createElement("p");
+    sub.textContent = "Events guide · " + (printFrom || "Any date") + " to " + (printTo || "Any date") + " · " + records.length + " events";
+    printGuideContainer.append(heading, sub);
+    if (!records.length) {
+        var empty = document.createElement("p");
+        empty.textContent = "No matching events.";
+        printGuideContainer.appendChild(empty);
+    }
+    var lastDate = "";
+    records.forEach(function(event) {
+        var day = getDatePart(getEventStart(event));
+        if (day !== lastDate) {
+            lastDate = day;
+            var dateHeading = document.createElement("h2");
+            dateHeading.textContent = formatDate(day);
+            printGuideContainer.appendChild(dateHeading);
+        }
+        var row = document.createElement("div");
+        row.className = "print-guide-row";
+        var main = document.createElement("strong");
+        main.textContent = calendarTimeLabel(event) + "  ·  " + (event.title || "Untitled Event");
+        var venue = document.createElement("p");
+        venue.textContent = event.venue || event.location || "Venue TBC";
+        row.append(main, venue);
+        var url = event.link || event.url;
+        if (url && /^https?:\/\//i.test(String(url))) {
+            var link = document.createElement("a");
+            link.href = url;
+            link.textContent = "Event website";
+            row.appendChild(link);
+        }
+        printGuideContainer.appendChild(row);
+    });
+    var note = document.createElement("p");
+    note.className = "print-guide-note";
+    note.textContent = "Event details may change. Please confirm times and availability with the organiser.";
+    printGuideContainer.appendChild(note);
+    window.print();
+}
+document.getElementById("print-guide").addEventListener("click", printCurrentGuide);
+document.getElementById("view-agenda").addEventListener("click", function() { setView("agenda"); });
+
 function applyFilters() {
     var searchText =
         searchInput.value.toLowerCase().trim();
@@ -1078,7 +1258,10 @@ function sortEvents(eventList) {
 
     filteredEventsForCalendar = eventList;
 
-    if (currentView === "calendar") {
+    if (currentView === "agenda") {
+        eventCount.textContent = eventList.length + " events";
+        renderAgenda(eventList);
+    } else if (currentView === "calendar") {
         eventCount.textContent =
             eventList.length +
             " events";
@@ -1450,14 +1633,16 @@ function setView(view) {
 
     eventsContainer.classList.toggle(
         "hidden",
-        calendar
+        view !== "cards"
     );
+    agendaContainer.classList.toggle("hidden", view !== "agenda");
+    document.getElementById("view-agenda").classList.toggle("active", view === "agenda");
 
     document.getElementById(
         "view-cards"
     ).classList.toggle(
         "active",
-        !calendar
+        view === "cards"
     );
 
     document.getElementById(
@@ -1469,7 +1654,7 @@ function setView(view) {
 
     noResults.classList.toggle(
         "hidden",
-        calendar ||
+        view !== "cards" ||
         filteredEventsForCalendar.length > 0
     );
 
@@ -1610,6 +1795,7 @@ document.addEventListener(
 // ======================================
 
 function clearAllFilters() {
+    clearQuickDateSelection();
     searchInput.value = "";
     dateFromInput.value = "";
     dateToInput.value = "";
@@ -1668,15 +1854,15 @@ searchInput.addEventListener(
     applyFilters
 );
 
-dateFromInput.addEventListener(
-    "change",
-    applyFilters
-);
+dateFromInput.addEventListener("change", function() {
+    clearQuickDateSelection();
+    applyFilters();
+});
 
-dateToInput.addEventListener(
-    "change",
-    applyFilters
-);
+dateToInput.addEventListener("change", function() {
+    clearQuickDateSelection();
+    applyFilters();
+});
 
 // ======================================
 // VENUE DROPDOWN
