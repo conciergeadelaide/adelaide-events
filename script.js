@@ -940,9 +940,10 @@ function applyFilters() {
     var dateTo = dateToInput.value;
 
 
-    var hideLongEvents =
-        hideLongEventsInput &&
-        hideLongEventsInput.checked;
+    // Calendar always hides long-running events, regardless of prior Cards settings.
+    var hideLongEvents = currentView === "calendar" || Boolean(
+        hideLongEventsInput && hideLongEventsInput.checked
+    );
 
     var todayKey = dateKey(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
     var sourceEvents = pastEventsOnlyInput && pastEventsOnlyInput.checked ? historicalEvents : events;
@@ -1018,6 +1019,10 @@ function applyFilters() {
                 !hideLongEvents ||
                 !isEventLongerThanSevenDays(event);
 
+            var matchesCalendarCategory =
+                currentView !== "calendar" ||
+                !isExcludedCalendarCategory(event);
+
             return (
                 matchesSearch &&
                 matchesFrom &&
@@ -1025,7 +1030,8 @@ function applyFilters() {
                 matchesCategory &&
                 matchesVenue &&
                 matchesFestival &&
-                matchesDuration
+                matchesDuration &&
+                matchesCalendarCategory
             );
         }
     );
@@ -1074,8 +1080,8 @@ function sortEvents(eventList) {
 
     if (currentView === "calendar") {
         eventCount.textContent =
-            eventList.filter(isMajorCalendarEvent).length +
-            " major events";
+            eventList.length +
+            " events";
 
         renderCalendar();
     } else {
@@ -1096,86 +1102,17 @@ function dateKey(year, month, day) {
     );
 }
 
-// The calendar shows major events only.
-// Cards continue to show every event.
-
-var majorCalendarVenues = [
-    "adelaide oval",
-    "adelaide convention centre",
-    "festival theatre",
-    "her majesty's theatre",
-    "her majestys theatre",
-    "adelaide entertainment centre",
-    "hindley st music hall",
-    "hindley street music hall",
-    "coopers stadium",
-    "norwood concert hall",
-    "immersive light and art",
-    "thebarton theatre",
-    "adelaide central market",
-    "the gov",
-    "morphettville racecourse",
-    "unibar",
-    "uni bar"
-];
-
-var majorCalendarSources = [
-    "south australia tourism commission",
-    "south australian tourism commission",
-    "southaustralia.com",
-    "adelaide oval",
-    "adelaide convention centre",
-    "adelaide entertainment centre",
-    "hindley st music hall",
-    "hindley street music hall",
-    "coopers stadium",
-    "immersive light and art",
-    "candlelight",
-    "fever",
-    "the gov",
-    "morphettville racecourse",
-    "adelaide central market",
-    "norwood concert hall",
-    "thebarton theatre",
-    "unibar",
-    "uni bar"
-];
-
-var majorFestivalNames = [
-    "adelaide festival",
-    "womadelaide",
-    "illuminate adelaide",
-    "adelaide film festival",
-    "adelaide equestrian festival",
-    "adelaide motorsport festival",
-    "adelaide vegan festival",
-    "gather round",
-    "adl fashion week",
-    "adelaide fashion week",
-    "adelaide grand final",
-    "adelaide motogp",
-    "feast festival",
-    "christmas pageant",
-    "nature festival",
-    "sala festival",
-    "santos tour down under",
-    "tour down under",
-    "shannons adelaide rally",
-    "south australia's history festival",
-    "south australias history festival",
-    "tasting australia",
-    "tarnanthi",
-    "liv golf",
-    "ozasia festival",
-    "adelaide cabaret festival",
-    "adelaide guitar festival",
-    "dreambig children's festival",
-    "dreambig childrens festival",
-    "adelaide writers' week",
-    "adelaide writers week",
-    "adelaide jazz festival",
-    "adelaide fringe"
-];
+// Calendar shows all eligible events, excluding long-running events
+// and the categories listed below. Cards retains the full selection.
+function isExcludedCalendarCategory(event) {
+    return getEventCategories(event).some(function(category) {
+        var value = normalizedCalendarText(category);
+        return value === "exhibition" || value === "exhibitions" ||
+            value === "workshop" || value === "workshops" ||
+            value === "talks" || value === "conference" ||
+            value === "conferences" || value === "talks & conferences";
+    });
+}
 
 function normalizedCalendarText(value) {
     return String(value || "")
@@ -1185,122 +1122,6 @@ function normalizedCalendarText(value) {
         .trim();
 }
 
-function includesAnyCalendarText(value, phrases) {
-    return phrases.some(function(phrase) {
-        return value.indexOf(phrase) !== -1;
-    });
-}
-
-function isFestivalOverview(event) {
-    var title = normalizedCalendarText(event.title);
-
-    // Individual Fringe performances should
-    // not appear in the major-events calendar.
-
-    if (
-        title.indexOf("adelaide fringe") !== -1 ||
-        title === "fringe festival"
-    ) {
-        return (
-            /^(?:the )?adelaide fringe(?: festival)?(?: 20\d{2})?$/.test(title) ||
-            title === "fringe festival"
-        );
-    }
-
-    return includesAnyCalendarText(
-        title,
-        majorFestivalNames
-    );
-}
-
-function isMajorCalendarEvent(event) {
-    var title = normalizedCalendarText(event.title);
-    var venue = normalizedCalendarText(event.venue);
-
-    var source = normalizedCalendarText(
-        event.source ||
-        event.source_name ||
-        event.source_url
-    );
-
-    var url = normalizedCalendarText(
-        event.url || event.link
-    );
-
-    var category = normalizedCalendarText(
-        getCategoryText(event)
-    );
-
-    // Include public demonstrations
-    // with a known date.
-
-    var protest =
-        /\b(protest|rally|demonstration|march for|peace march|climate strike|solidarity march|vigil)\b/.test(title) &&
-        !/\b(comedy|theatre|theater|concert|film|musical|tribute)\b/.test(category);
-
-    if (protest) return true;
-
-    if (isFestivalOverview(event)) {
-        return true;
-    }
-
-    if (
-        title.indexOf("fringe") !== -1 &&
-        !isFestivalOverview(event)
-    ) {
-        return false;
-    }
-
-    if (
-        venue.indexOf("rhino room") !== -1 ||
-        source.indexOf("rhino room") !== -1
-    ) {
-        return category.indexOf("comedy") !== -1;
-    }
-
-    // Adelaide Festival Centre events
-    // are included only at these theatres.
-
-    if (
-        source.indexOf("adelaide festival centre") !== -1
-    ) {
-        return (
-            venue.indexOf("festival theatre") !== -1 ||
-            venue.indexOf("her majesty") !== -1
-        );
-    }
-
-    if (
-        includesAnyCalendarText(
-            venue,
-            majorCalendarVenues
-        )
-    ) {
-        return true;
-    }
-
-    if (
-        includesAnyCalendarText(
-            source,
-            majorCalendarSources
-        )
-    ) {
-        return true;
-    }
-
-    if (
-        url.indexOf("feverup.com") !== -1 &&
-        (
-            title.indexOf("candlelight") !== -1 ||
-            category.indexOf("music") !== -1
-        )
-    ) {
-        return true;
-    }
-
-    return false;
-}
-
 function calendarEventTitle(event) {
     return event.title || "Untitled Event";
 }
@@ -1308,10 +1129,6 @@ function calendarEventTitle(event) {
 function eventsForDay(key) {
     return filteredEventsForCalendar.filter(
         function(event) {
-            if (!isMajorCalendarEvent(event)) {
-                return false;
-            }
-
             var start = getDatePart(
                 getEventStart(event)
             );
@@ -1597,6 +1414,13 @@ function setView(view) {
 
     var calendar = view === "calendar";
 
+    // Reset the duration filter on every view switch.
+    // Disabled makes the checked Calendar setting visibly greyed out.
+    if (hideLongEventsInput) {
+        hideLongEventsInput.checked = calendar;
+        hideLongEventsInput.disabled = calendar;
+    }
+
     document.getElementById(
         "calendar-view"
     ).classList.toggle(
@@ -1629,16 +1453,8 @@ function setView(view) {
         filteredEventsForCalendar.length > 0
     );
 
-    if (calendar) {
-        eventCount.textContent =
-            filteredEventsForCalendar.filter(
-                isMajorCalendarEvent
-            ).length + " major events";
-
-        renderCalendar();
-    } else {
-        displayEvents(filteredEventsForCalendar);
-    }
+    // Reapply filters so the calendar-only exclusions never carry into Cards.
+    applyFilters();
 }
 
 function changeMonth(delta) {
@@ -1816,7 +1632,8 @@ function clearAllFilters() {
     if (pastEventsOnlyInput) pastEventsOnlyInput.checked = false;
 
     if (hideLongEventsInput) {
-        hideLongEventsInput.checked = false;
+        hideLongEventsInput.checked = currentView === "calendar";
+        hideLongEventsInput.disabled = currentView === "calendar";
     }
 
     applyFilters();
