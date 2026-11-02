@@ -1343,7 +1343,7 @@ function renderCalendar() {
 
         cell.appendChild(dateButton);
 
-        matching.slice(0, 6).forEach(
+        matching.slice(0, 8).forEach(
             function(event) {
                 var pill = document.createElement(
                     "button"
@@ -1375,7 +1375,7 @@ function renderCalendar() {
             }
         );
 
-        if (matching.length > 6) {
+        if (matching.length > 8) {
             var more = document.createElement(
                 "button"
             );
@@ -1384,7 +1384,7 @@ function renderCalendar() {
             more.className = "calendar-more";
 
             more.textContent =
-                "+" + (matching.length - 6) + " more";
+                "+" + (matching.length - 8) + " more";
 
             more.addEventListener(
                 "click",

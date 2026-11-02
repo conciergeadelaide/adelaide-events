@@ -573,3 +573,80 @@ text-align: right;
 
 /* Match Cards category badges to the monthly calendar colours. */
 .category-badge { border-radius: 3px; background: #596674; color: #ffffff; }
+
+
+/* November 2026 calendar layout refinement — preserve existing site styles */
+.calendar-section {
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: thin;
+}
+.calendar-weekdays,
+.calendar-grid {
+    min-width: 840px;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+.calendar-weekdays {
+    background: #f7f5f0;
+    border: 1px solid #e2ded6;
+    border-bottom: 0;
+}
+.calendar-weekdays span {
+    padding: 12px 4px;
+    letter-spacing: .045em;
+}
+.calendar-cell {
+    min-height: 330px;
+    padding: 10px;
+    background: #fff;
+    border-color: #e2ded6;
+}
+.calendar-cell.calendar-empty { background: #f7f5f0; }
+.calendar-cell.calendar-today { background: #fcf8ee; }
+.calendar-cell.calendar-selected { box-shadow: inset 0 0 0 2px #b08d57; }
+.calendar-day-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 30px;
+    min-height: 30px;
+    margin: 0 0 8px;
+    border-radius: 50%;
+    font-size: 13px;
+}
+.calendar-today .calendar-day-number {
+    background: #17212b;
+    color: #fff;
+}
+.calendar-event {
+    display: -webkit-box;
+    width: 100%;
+    margin: 4px 0;
+    padding: 6px 7px;
+    line-height: 1.35;
+    font-size: 11px;
+    font-weight: 600;
+    text-align: left;
+    white-space: normal;
+    overflow: hidden;
+    overflow-wrap: anywhere;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    border-radius: 4px;
+}
+.calendar-more { padding: 7px 3px; font-size: 11px; }
+@media (max-width: 1050px) {
+    .calendar-weekdays, .calendar-grid { min-width: 840px; }
+    .calendar-cell { min-height: 315px; padding: 8px; }
+    .calendar-event { font-size: 11px; padding: 6px; }
+}
+@media (max-width: 650px) {
+    .calendar-section { padding: 10px; }
+    .calendar-weekdays, .calendar-grid { min-width: 840px; }
+    .calendar-cell { min-height: 315px; padding: 8px; }
+    .calendar-event { font-size: 11px; padding: 6px; line-height: 1.35; }
+    .calendar-more { font-size: 11px; }
+    .calendar-toolbar { flex-wrap: wrap; }
+    .calendar-toolbar h3 { min-width: 0; }
+}
