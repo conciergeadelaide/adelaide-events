@@ -295,6 +295,25 @@ def apply_verified_recurring_sessions(events):
     if os.path.isfile(rules_path):
         with open(rules_path, encoding="utf-8") as handle:
             rules = json.load(handle)
+    # Official National Trust SA schedules. These defaults supplement the
+    # existing recurring_rules.json without replacing its other entries.
+    # The 2026 listing end dates cap the generated occurrences.
+    verified_heritage_rules = {
+        "https://www.nationaltrust.org.au/event/beaumont-house-open-day": {
+            "start": "2026-02-01", "end": "2026-12-06",
+            "frequency": "nth_weekday", "weekday": 6, "nth": 1,
+            "months": list(range(2, 13)),
+            "start_time": "14:00:00", "end_time": "16:30:00"
+        },
+        "https://www.nationaltrust.org.au/event/watchman-house": {
+            "start": "2026-02-07", "end": "2026-12-05",
+            "frequency": "nth_weekday", "weekday": 5, "nth": 1,
+            "months": list(range(2, 13)),
+            "start_time": "00:00:00", "end_time": ""
+        }
+    }
+    for heritage_url, heritage_rule in verified_heritage_rules.items():
+        rules.setdefault(heritage_url, heritage_rule)
     from datetime import date, timedelta
     today = date.today()
     horizon = today + timedelta(days=120)
@@ -319,24 +338,47 @@ def apply_verified_recurring_sessions(events):
             day += timedelta(days=1)
         return dates
 
-    output = []
-    expanded = 0
+    # Group by exact listing URL before expansion. On subsequent runs, the
+    # existing database already contains one record per occurrence; expanding
+    # each of those records would multiply the same dates many times.
+    from collections import defaultdict
+    grouped = defaultdict(list)
+    passthrough = []
     for event in events:
         url = str(event.get("link") or event.get("url") or "").split("?", 1)[0].rstrip("/")
+        if url in rules or url in manifest:
+            grouped[url].append(event)
+        else:
+            passthrough.append(event)
+
+    output = list(passthrough)
+    generated = 0
+    for url, existing in grouped.items():
+        rule = rules.get(url)
         record = manifest.get(url)
-        if url in rules:
-            rule = rules[url]
+        if rule is not None:
             record = {"dates": rule_dates(rule),
                       "start_time": rule["start_time"],
                       "end_time": rule.get("end_time", "")}
         if not record or not record.get("dates"):
-            # Expired recurring series should not revert to a misleading
-            # continuous date range. Preserve existing dated occurrences.
-            if url not in rules:
-                output.append(event)
-            elif str(event.get("datetime") or "")[:10] >= today.isoformat() and str(event.get("datetime") or "")[:10] == str(event.get("end_datetime") or "")[:10]:
-                output.append(event)
+            # Do not resurrect a broad, outdated date span when the rule ends.
+            # Preserve already dated future occurrences, if any.
+            for event in existing:
+                start = str(event.get("datetime") or "")[:10]
+                end = str(event.get("end_datetime") or "")[:10]
+                if start >= today.isoformat() and (not end or end == start):
+                    output.append(event)
             continue
+
+        # Prefer the source's original season listing as the template, if
+        # present, rather than an already-expanded dated session.
+        def template_quality(event):
+            start = str(event.get("datetime") or "")[:10]
+            end = str(event.get("end_datetime") or "")[:10]
+            return (int(bool(end and end > start)),
+                    int(bool(event.get("image"))),
+                    len(str(event.get("title") or "")))
+        template = max(existing, key=template_quality)
         for day in sorted(set(record["dates"])):
             try:
                 datetime.strptime(day, "%Y-%m-%d")
@@ -347,11 +389,12 @@ def apply_verified_recurring_sessions(events):
                     datetime.strptime(end_time, "%H:%M:%S")
             except (ValueError, TypeError, KeyError):
                 raise ValueError("Invalid verified recurring session for " + url)
-            occurrence = event.copy()
+            occurrence = template.copy()
             occurrence["datetime"] = day + "T" + start_time
             occurrence["end_datetime"] = day + "T" + end_time if end_time else ""
             output.append(occurrence)
-            expanded += 1
+            generated += 1
+
     seen = set()
     unique = []
     for event in output:
@@ -362,7 +405,7 @@ def apply_verified_recurring_sessions(events):
         if key not in seen:
             seen.add(key)
             unique.append(event)
-    print(f"Verified recurring sessions expanded: {expanded}")
+    print(f"Verified recurring sessions generated: {generated} from {len(grouped)} listings")
     return unique
 
 
