@@ -288,13 +288,52 @@ def apply_verified_recurring_sessions(events):
         return events
     with open(manifest_path, encoding="utf-8") as handle:
         manifest = json.load(handle)
+    # Additional official recurrence rules are generated only within a rolling
+    # 120-day window, rather than treating a season as one continuous event.
+    rules_path = os.path.join(BASE_DIR, "recurring_rules.json")
+    rules = {}
+    if os.path.isfile(rules_path):
+        with open(rules_path, encoding="utf-8") as handle:
+            rules = json.load(handle)
+    from datetime import date, timedelta
+    today = date.today()
+    horizon = today + timedelta(days=120)
+
+    def rule_dates(rule):
+        first = max(today, date.fromisoformat(rule["start"]))
+        last = min(horizon, date.fromisoformat(rule["end"]))
+        excluded = set(rule.get("exclude", []))
+        dates = []
+        day = first
+        while day <= last:
+            freq = rule["frequency"]
+            match = (freq == "daily"
+                     or (freq == "weekly" and day.weekday() == rule["weekday"])
+                     or (freq == "nth_weekday" and day.weekday() == rule["weekday"]
+                         and (day.day - 1) // 7 + 1 == rule["nth"]
+                         and day.month in rule.get("months", list(range(1, 13)))))
+            if match and day.isoformat() not in excluded:
+                dates.append(day.isoformat())
+            day += timedelta(days=1)
+        return dates
+
     output = []
     expanded = 0
     for event in events:
         url = str(event.get("link") or event.get("url") or "").split("?", 1)[0].rstrip("/")
         record = manifest.get(url)
+        if url in rules:
+            rule = rules[url]
+            record = {"dates": rule_dates(rule),
+                      "start_time": rule["start_time"],
+                      "end_time": rule.get("end_time", "")}
         if not record or not record.get("dates"):
-            output.append(event)
+            # Expired recurring series should not revert to a misleading
+            # continuous date range. Preserve existing dated occurrences.
+            if url not in rules:
+                output.append(event)
+            elif str(event.get("datetime") or "")[:10] >= today.isoformat() and str(event.get("datetime") or "")[:10] == str(event.get("end_datetime") or "")[:10]:
+                output.append(event)
             continue
         for day in sorted(set(record["dates"])):
             try:
