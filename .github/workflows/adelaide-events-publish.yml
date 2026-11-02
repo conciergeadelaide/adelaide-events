@@ -4,8 +4,8 @@ on:
   workflow_dispatch:
   schedule:
     # 05:30 Adelaide local time (daylight-saving aware).
-    - cron: "30 19 * * *"
-    - cron: "30 20 * * *"
+    - cron: "0 19 * * *"
+    - cron: "0 20 * * *"
 
 permissions:
   contents: write
@@ -162,8 +162,7 @@ jobs:
         uses: actions/deploy-pages@v4
 
       - name: Upload scraper log
-        if: steps.local_time.outputs.run_scraper == 'true'
-        if: always()
+        if: always() && steps.local_time.outputs.run_scraper == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: adelaide-daily-publish-log
