@@ -204,6 +204,28 @@ function formatDate(value) {
     return dateText + " · " + timeText;
 }
 
+// Door-opening information is separate from the performance start time.
+// Never infer a show time from doors_open or from a midnight placeholder.
+function formatDoorsOpen(event) {
+    var value = String(event.doors_open || "").trim();
+    var match = value.match(/(?:^|T)(\d{2}):(\d{2})(?::\d{2})?(?:$|[Z+-])/);
+    if (!match) return "";
+    var hours = Number(match[1]);
+    var minutes = Number(match[2]);
+    if (hours > 23 || minutes > 59) return "";
+    var hour12 = (hours % 12) || 12;
+    return hour12 + ":" + String(minutes).padStart(2, "0") + (hours < 12 ? " AM" : " PM");
+}
+
+function eventTimeDetails(event) {
+    var showTime = calendarStartTime(event);
+    var doorsTime = formatDoorsOpen(event);
+    if (showTime === null) {
+        return doorsTime ? "Show time: TBA · Doors open: " + doorsTime : "Time TBA";
+    }
+    return doorsTime ? "Doors open: " + doorsTime : "";
+}
+
 function formatEventDate(event) {
     var startValue = getEventStart(event);
     var endValue = getEventEnd(event);
@@ -760,6 +782,15 @@ function createEventCard(event) {
     content.appendChild(date);
     content.appendChild(title);
     content.appendChild(venue);
+    var timeDetails = eventTimeDetails(event);
+    if (timeDetails) {
+        var timeInfo = document.createElement("div");
+        timeInfo.className = "event-time-details";
+        timeInfo.textContent = timeDetails;
+        timeInfo.style.fontSize = "0.9rem";
+        timeInfo.style.marginTop = "6px";
+        content.appendChild(timeInfo);
+    }
     content.appendChild(link);
 
     article.appendChild(imageContainer);
@@ -1045,6 +1076,11 @@ function makeAgendaRow(event) {
     var info = document.createElement("p");
     info.textContent = (event.venue || event.location || "Venue TBC") + " · " + getEventCategories(event).join(", ");
     body.append(title, info);
+    if (calendarStartTime(event) !== null && formatDoorsOpen(event)) {
+        var doorsNote = document.createElement("p");
+        doorsNote.textContent = "Doors open: " + formatDoorsOpen(event);
+        body.appendChild(doorsNote);
+    }
     row.append(time, body);
     var url = event.link || event.url;
     if (url && /^https?:\/\//i.test(String(url))) {
@@ -1139,6 +1175,11 @@ function printCurrentGuide() {
         var details = document.createElement("div");
         details.className = "print-guide-details";
         details.append(main, venue);
+        if (calendarStartTime(event) !== null && formatDoorsOpen(event)) {
+            var doorsNote = document.createElement("p");
+            doorsNote.textContent = "Doors open: " + formatDoorsOpen(event);
+            details.appendChild(doorsNote);
+        }
         var imageUrl = String(event.image || "").trim();
         if (/^https?:\/\//i.test(imageUrl)) {
             var picture = document.createElement("img");
@@ -1424,7 +1465,10 @@ function calendarStartTime(event) {
 
 function calendarTimeLabel(event) {
     var minutes = calendarStartTime(event);
-    if (minutes === null) return "Time TBC";
+    if (minutes === null) {
+        var doorsTime = formatDoorsOpen(event);
+        return doorsTime ? "Show TBA · Doors " + doorsTime : "Time TBA";
+    }
     var hour = Math.floor(minutes / 60);
     var minute = minutes % 60;
     return String((hour % 12) || 12) + ":" +
@@ -1501,6 +1545,11 @@ function renderDayDetails() {
             categories.appendChild(tag);
         });
         info.append(time, name, venue, categories);
+        if (calendarStartTime(event) !== null && formatDoorsOpen(event)) {
+            var doorsNote = document.createElement("p");
+            doorsNote.textContent = "Doors open: " + formatDoorsOpen(event);
+            info.appendChild(doorsNote);
+        }
         row.append(picture, info);
 
         var url = event.link || event.url;

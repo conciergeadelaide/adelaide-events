@@ -925,6 +925,17 @@ def clean_event(event, source_name):
         "link": link,
         "source": source_name,
     }
+    # Preserve verified door-opening metadata separately from the event start.
+    # Only Hindley Street Music Hall currently supplies this field.
+    if source_name == "Hindley St Music Hall":
+        doors_open = str(event.get("doors_open") or "").strip()
+        if re.fullmatch(r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}", doors_open):
+            try:
+                doors_dt = datetime.fromisoformat(doors_open)
+                if doors_dt.strftime("%Y-%m-%d") == dt[:10]:
+                    cleaned_record["doors_open"] = doors_open
+            except ValueError:
+                pass
     correct_verified_event_dates(cleaned_record)
     return cleaned_record
 
@@ -2270,6 +2281,46 @@ def main(only_source=None):
     if drive_times_recovered:
         print(f"The Drive: preserved {drive_times_recovered} previously "
               "verified start times")
+
+    # Restore Hindley start times only from unambiguous, previously verified
+    # records for the same venue, calendar date and event identity.
+    # An unknown midnight placeholder is never treated as a verified time.
+    hindley_times_recovered = 0
+    def _hindley_identity(value):
+        return " ".join(re.sub(r"[^a-z0-9]+", " ",
+                               str(value or "").casefold().replace("&", " and ")).split())
+
+    known_hindley = list(existing_events) + list(all_new_events)
+    for fresh in all_new_events:
+        if fresh.get("source") != "Hindley St Music Hall":
+            continue
+        start = str(fresh.get("datetime") or "")
+        if not start.endswith("T00:00:00"):
+            continue
+        fresh_name = _hindley_identity(fresh.get("title"))
+        fresh_url = str(fresh.get("link") or "").split("?", 1)[0].rstrip("/").casefold()
+        candidates = set()
+        for known in known_hindley:
+            if known is fresh or _venue_name(known.get("venue")) != "hindley street music hall":
+                continue
+            known_start = str(known.get("datetime") or "")
+            if known_start[:10] != start[:10] or not re.fullmatch(r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}", known_start):
+                continue
+            if known_start[11:] == "00:00:00":
+                continue
+            known_name = _hindley_identity(known.get("title"))
+            known_url = str(known.get("link") or "").split("?", 1)[0].rstrip("/").casefold()
+            # Require identical titles or identical event URLs. Do not borrow
+            # times from similar-looking concerts or a different performance.
+            if ((fresh_name and fresh_name == known_name)
+                    or (fresh_url and fresh_url == known_url)):
+                candidates.add(known_start)
+        if len(candidates) == 1:
+            fresh["datetime"] = candidates.pop()
+            hindley_times_recovered += 1
+    if hindley_times_recovered:
+        print(f"Hindley Street Music Hall: recovered {hindley_times_recovered} "
+              "verified start times from matching records")
 
     # Add newly scraped events.
 

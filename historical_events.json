@@ -1322,5 +1322,89 @@
     "image": "https://www.nationaltrust.org.au/wp-content/uploads/2022/01/1K1A1801-587x471.jpg",
     "link": "https://www.nationaltrust.org.au/event/beaumont-house-open-day/",
     "source": "National Trust SA"
+  },
+  {
+    "title": "Laugh Lab Open Mics – Monday Nights at Rhino Room",
+    "venue": "Rhino Room",
+    "datetime": "2026-11-02T19:30:00",
+    "end_datetime": "2026-11-02T21:30:00",
+    "category": [
+      "Comedy"
+    ],
+    "image": "https://rhinoroom.com.au/wp-content/uploads/2024/05/user_crop_1697623298-1697623292-ll-768x768-1.png",
+    "link": "https://events.humanitix.com/host/laugh-lab",
+    "source": "Rhino Room"
+  },
+  {
+    "title": "3Minds in 2D",
+    "venue": "Bay Discovery Centre",
+    "datetime": "2026-11-02T10:00:00",
+    "end_datetime": "",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://www.holdfast.sa.gov.au/assets/resized/eventimages/1078110/BDC-Tutti-Arts-Exhibition-Hero-Image_W2000_upscale_Q100_P38-94-47-67_removeMetadata1_W400_H400_Q80_P38-94-47-67.jpg",
+    "link": "https://www.jettyroadglenelg.com.au/whats-on/3minds-in-2d",
+    "source": "Jetty Road Glenelg"
+  },
+  {
+    "title": "Library Sensory Hour (Glenelg Library)",
+    "venue": "Glenelg Library",
+    "datetime": "2026-11-02T11:00:00",
+    "end_datetime": "",
+    "category": [
+      "Community"
+    ],
+    "image": "https://www.holdfast.sa.gov.au/assets/resized/eventimages/1072728/Screenshot-2026-07-21-162023_W2000_upscale_Q100_removeMetadata1_W400_H400_Q80_P50-50.png",
+    "link": "https://www.jettyroadglenelg.com.au/whats-on/sensory-hour",
+    "source": "Jetty Road Glenelg"
+  },
+  {
+    "title": "Glenelg Sensory Hour",
+    "venue": "Glenelg Library",
+    "datetime": "2026-11-02T11:00:00",
+    "end_datetime": "",
+    "category": [
+      "Family"
+    ],
+    "image": "https://www.holdfast.sa.gov.au/assets/resized/eventimages/886844/pexels-ivan-samkov_W2000_upscale_Q100_removeMetadata1_W400_H400_Q80_P50-50.jpg",
+    "link": "https://www.jettyroadglenelg.com.au/whats-on/sensory-hour-glenelg",
+    "source": "Jetty Road Glenelg"
+  },
+  {
+    "title": "SUNSLAY SESH",
+    "venue": "Rhino Room",
+    "datetime": "2026-11-01T21:00:00",
+    "end_datetime": "2026-11-02T03:00:00",
+    "category": [
+      "Other"
+    ],
+    "image": "https://rhinoroom.com.au/wp-content/uploads/2026/09/IMG_5161.jpeg",
+    "link": "https://events.humanitix.com/sunslay-sesh",
+    "source": "Rhino Room"
+  },
+  {
+    "title": "Free guided walks - Adelaide Botanic Garden",
+    "venue": "Adelaide Botanic Garden",
+    "datetime": "2026-11-02T10:30:00",
+    "end_datetime": "2026-11-02T12:00:00",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://cdn.environment.sa.gov.au/img/eyJidWNrZXQiOiJlbnZzYS1idWNrZXQiLCJrZXkiOiJib3RhbmljZ2FyZGVucy9pbWFnZXMvRmljdXMtd2Fsay1pbWFnZS1JRC0xMjE2MjYtY3JlZGl0LVNvdXRoLUF1c3RyYWxpYW4tVG91cmlzbS1Db21taXNzaW9uLmpwZyIsImVkaXRzIjp7ImpwZWciOnsicXVhbGl0eSI6ODIsInByb2dyZXNzaXZlIjp0cnVlLCJ0cmVsbGlzUXVhbnRpc2F0aW9uIjp0cnVlLCJvdmVyc2hvb3REZXJpbmdpbmciOnRydWUsIm9wdGltaXplU2NhbnMiOnRydWV9LCJyZXNpemUiOnsid2lkdGgiOjEyMDAsImhlaWdodCI6MTIwMCwiZml0IjoiY292ZXIifX19",
+    "link": "https://www.botanicgardens.sa.gov.au/whats-on/free-guided-walks-adelaide-botanic-garden-2",
+    "source": "Adelaide Botanic Gardens"
+  },
+  {
+    "title": "Free guided walks - Botanic Park",
+    "venue": "Botanic Park / Tainmuntilla",
+    "datetime": "2026-11-02T14:00:00",
+    "end_datetime": "2026-11-02T15:30:00",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://cdn.environment.sa.gov.au/img/eyJidWNrZXQiOiJlbnZzYS1idWNrZXQiLCJrZXkiOiJib3RhbmljZ2FyZGVucy9pbWFnZXMvVHJlZXMtaW4tQm90YW5pYy1QYXJrLWRpZ2l0YWwuanBnIiwiZWRpdHMiOnsianBlZyI6eyJxdWFsaXR5Ijo4MiwicHJvZ3Jlc3NpdmUiOnRydWUsInRyZWxsaXNRdWFudGlzYXRpb24iOnRydWUsIm92ZXJzaG9vdERlcmluZ2luZyI6dHJ1ZSwib3B0aW1pemVTY2FucyI6dHJ1ZX0sInJlc2l6ZSI6eyJ3aWR0aCI6MTIwMCwiaGVpZ2h0Ijo5MDAsImZpdCI6ImNvdmVyIn0sInNoYXJwZW4iOnRydWV9fQ==",
+    "link": "https://www.botanicgardens.sa.gov.au/whats-on/free-guided-walks-adelaide-botanic-garden",
+    "source": "Adelaide Botanic Gardens"
   }
 ]

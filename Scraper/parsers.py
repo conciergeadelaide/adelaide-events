@@ -1189,6 +1189,18 @@ def parse_hindley_st_music_hall(soup, source_url):
                 clock = "00:00:00"
             date = f"{date_part}T{clock}"
 
+            # Door-opening time is distinct from the performance start.
+            # Keep it as separate metadata; never use it to populate date.
+            door_text = str(item.get("doorTime") or "").strip()
+            door_match = re.fullmatch(r"(\d{1,2}):(\d{2})(?::(\d{2}))?", door_text)
+            doors_open = ""
+            if door_match:
+                door_hour = int(door_match.group(1))
+                door_minute = int(door_match.group(2))
+                door_second = int(door_match.group(3) or 0)
+                if door_hour < 24 and door_minute < 60 and door_second < 60:
+                    doors_open = f"{date_part}T{door_hour:02d}:{door_minute:02d}:{door_second:02d}"
+
             raw_end = str(item.get("eventDateTo") or "")[:10]
             end_date = ""
             if re.fullmatch(r"20\d{2}-\d{2}-\d{2}", raw_end) and raw_end > date_part:
@@ -1219,6 +1231,7 @@ def parse_hindley_st_music_hall(soup, source_url):
                 "venue": "Hindley Street Music Hall",
                 "date": date,
                 "end_date": end_date,
+                "doors_open": doors_open,
                 "category": ["Music"],
                 "image": image,
                 "url": event_url,
