@@ -3136,78 +3136,6 @@
     "source": "Lion Arts Factory"
   },
   {
-    "title": "Andrew Hill: Our Rights and Pleasures",
-    "venue": "Immersive Light and Art (ILA)",
-    "datetime": "2026-10-23T00:00:00",
-    "end_datetime": "2026-11-07T23:59:59",
-    "category": [
-      "Arts & Culture"
-    ],
-    "image": "https://immersivelightandart.com.au/wp-content/uploads/2026/09/HERO_2568x1440_AndrewHill_ORAP_0-1024x576.jpg",
-    "link": "https://immersivelightandart.com.au/event/andrew-hill-our-rights-and-pleasures/",
-    "source": "Immersive Light and Art"
-  },
-  {
-    "title": "Architecture in Music",
-    "venue": "Immersive Light and Art (ILA)",
-    "datetime": "2026-11-13T00:00:00",
-    "end_datetime": "2026-12-05T23:59:59",
-    "category": [
-      "Arts & Culture"
-    ],
-    "image": "https://immersivelightandart.com.au/wp-content/uploads/2026/09/2568x1440_AiM_Website_Resizes_Charles-Brooks-1024x576.jpg",
-    "link": "https://immersivelightandart.com.au/event/architecture-in-music/",
-    "source": "Immersive Light and Art"
-  },
-  {
-    "title": "Slava and Sharon Grigoryan – Live",
-    "venue": "Immersive Light and Art (ILA)",
-    "datetime": "2026-11-26T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://immersivelightandart.com.au/wp-content/uploads/2026/09/sharon-draper-slava-grigoryan-simon-shiff-2560-1-1024x683.jpg",
-    "link": "https://immersivelightandart.com.au/event/slava-and-sharon-grigoryan-live/",
-    "source": "Immersive Light and Art"
-  },
-  {
-    "title": "Sea to Soil",
-    "venue": "Immersive Light and Art (ILA)",
-    "datetime": "2027-10-23T00:00:00",
-    "end_datetime": "2027-11-07T23:59:59",
-    "category": [
-      "Food & Beverage"
-    ],
-    "image": "https://immersivelightandart.com.au/wp-content/uploads/2026/06/ILA_Website_SeaToSoil_Hero_Image_2568x1440-1024x576.jpg",
-    "link": "https://immersivelightandart.com.au/event/sea-to-soil/",
-    "source": "Immersive Light and Art"
-  },
-  {
-    "title": "Cockaigne: The Land of Plenty",
-    "venue": "Immersive Light and Art (ILA)",
-    "datetime": "2027-02-25T00:00:00",
-    "end_datetime": "2027-03-21T23:59:59",
-    "category": [
-      "Other"
-    ],
-    "image": "https://immersivelightandart.com.au/wp-content/uploads/2026/10/Cockaigne-The-Land-of-Plenty_Sam-Leach_Immersive-Light-and-Art_2568x1440_Website_0-1024x576.jpg",
-    "link": "https://immersivelightandart.com.au/event/cockaigne-the-land-of-plenty/",
-    "source": "Immersive Light and Art"
-  },
-  {
-    "title": "Thin Ice",
-    "venue": "Immersive Light and Art (ILA)",
-    "datetime": "2027-05-05T00:00:00",
-    "end_datetime": "2027-05-29T23:59:59",
-    "category": [
-      "Arts & Culture"
-    ],
-    "image": "https://immersivelightandart.com.au/wp-content/uploads/2026/09/2568x1440_ThinIce_WebsiteImage-1024x576.jpg",
-    "link": "https://immersivelightandart.com.au/event/thin-ice/",
-    "source": "Immersive Light and Art"
-  },
-  {
     "title": "GOLDEN VOICES",
     "venue": "St Peter's Cathedral",
     "datetime": "2026-11-13T00:00:00",
@@ -5128,18 +5056,6 @@
     "source": "Morphettville Racecourse"
   },
   {
-    "title": "Champion Stakes Day, November 7 Read more",
-    "venue": "Morphettville Racecourse",
-    "datetime": "2026-11-07T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Sport"
-    ],
-    "image": "https://morphettville.com.au/content/uploads/Oaktree-178-scaled.jpg",
-    "link": "https://morphettville.com.au/feature-race-day/champion-stakes-day-november-7/",
-    "source": "Morphettville Racecourse"
-  },
-  {
     "title": "The Greatest Showman Book Here",
     "venue": "Morphettville Racecourse",
     "datetime": "2026-10-29T00:00:00",
@@ -6679,6 +6595,18 @@
     ],
     "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/b2ee49a2-1a93-11f0-aa80-c25aaa6cf640.jpg",
     "link": "https://feverup.com/m/765905",
+    "source": "Fever Candlelight Adelaide"
+  },
+  {
+    "title": "Candlelight: Tribute to Queen",
+    "venue": "St Peter's Cathedral",
+    "datetime": "2027-01-22T20:30:00+10:30",
+    "end_datetime": "2027-01-22T21:30:00+10:30",
+    "category": [
+      "Music"
+    ],
+    "image": "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/9830311a-1940-11f0-90df-56c21721c770.jpg",
+    "link": "https://feverup.com/m/410900",
     "source": "Fever Candlelight Adelaide"
   },
   {
@@ -9194,6 +9122,78 @@
     "source": "Oztix Adelaide City"
   },
   {
+    "title": "Andrew Hill: Our Rights and Pleasures",
+    "venue": "Immersive Light and Art (ILA)",
+    "datetime": "2026-10-23T00:00:00",
+    "end_datetime": "2026-11-07T23:59:59",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://immersivelightandart.com.au/wp-content/uploads/2026/09/HERO_2568x1440_AndrewHill_ORAP_0-1024x576.jpg",
+    "link": "https://immersivelightandart.com.au/event/andrew-hill-our-rights-and-pleasures/",
+    "source": "Immersive Light and Art"
+  },
+  {
+    "title": "Architecture in Music",
+    "venue": "Immersive Light and Art (ILA)",
+    "datetime": "2026-11-13T00:00:00",
+    "end_datetime": "2026-12-05T23:59:59",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://immersivelightandart.com.au/wp-content/uploads/2026/09/2568x1440_AiM_Website_Resizes_Charles-Brooks-1024x576.jpg",
+    "link": "https://immersivelightandart.com.au/event/architecture-in-music/",
+    "source": "Immersive Light and Art"
+  },
+  {
+    "title": "Slava and Sharon Grigoryan – Live",
+    "venue": "Immersive Light and Art (ILA)",
+    "datetime": "2026-11-26T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://immersivelightandart.com.au/wp-content/uploads/2026/09/sharon-draper-slava-grigoryan-simon-shiff-2560-1-1024x683.jpg",
+    "link": "https://immersivelightandart.com.au/event/slava-and-sharon-grigoryan-live/",
+    "source": "Immersive Light and Art"
+  },
+  {
+    "title": "Sea to Soil",
+    "venue": "Immersive Light and Art (ILA)",
+    "datetime": "2027-10-23T00:00:00",
+    "end_datetime": "2027-11-07T23:59:59",
+    "category": [
+      "Food & Beverage"
+    ],
+    "image": "https://immersivelightandart.com.au/wp-content/uploads/2026/06/ILA_Website_SeaToSoil_Hero_Image_2568x1440-1024x576.jpg",
+    "link": "https://immersivelightandart.com.au/event/sea-to-soil/",
+    "source": "Immersive Light and Art"
+  },
+  {
+    "title": "Cockaigne: The Land of Plenty",
+    "venue": "Immersive Light and Art (ILA)",
+    "datetime": "2027-02-25T00:00:00",
+    "end_datetime": "2027-03-21T23:59:59",
+    "category": [
+      "Other"
+    ],
+    "image": "https://immersivelightandart.com.au/wp-content/uploads/2026/10/Cockaigne-The-Land-of-Plenty_Sam-Leach_Immersive-Light-and-Art_2568x1440_Website_0-1024x576.jpg",
+    "link": "https://immersivelightandart.com.au/event/cockaigne-the-land-of-plenty/",
+    "source": "Immersive Light and Art"
+  },
+  {
+    "title": "Thin Ice",
+    "venue": "Immersive Light and Art (ILA)",
+    "datetime": "2027-05-05T00:00:00",
+    "end_datetime": "2027-05-29T23:59:59",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://immersivelightandart.com.au/wp-content/uploads/2026/09/2568x1440_ThinIce_WebsiteImage-1024x576.jpg",
+    "link": "https://immersivelightandart.com.au/event/thin-ice/",
+    "source": "Immersive Light and Art"
+  },
+  {
     "title": "Ceramic Tile Painting Workshop with Jake Yang",
     "venue": "Artspace",
     "datetime": "2026-10-15T00:00:00",
@@ -11393,6 +11393,18 @@
     "image": "https://s1.ticketm.net/dam/a/0a1/d7421e42-44aa-4cf7-a5c5-ccde2c74c0a1_SOURCE",
     "link": "https://www.universe.com/events/adelaide-rodeo-tickets-23DVN0?ref=ticketmaster",
     "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "IAN ASHER",
+    "venue": "Hindley St Music Hall",
+    "datetime": "2027-01-25T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/20a/f7da40f2-f6bb-40bb-828f-0c6ab0a6620a_SOURCE",
+    "link": "https://www.moshtix.com.au/v2/event/ian-asher/202197",
+    "source": "Moshtix Adelaide CBD"
   },
   {
     "title": "Froth and Fury Fest 2027",
