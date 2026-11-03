@@ -1656,18 +1656,6 @@
     "source": "Adelaide Entertainment Centre"
   },
   {
-    "title": "AFC Champions League Two – Adelaide United v Lion City Sailors FC",
-    "venue": "Coopers Stadium",
-    "datetime": "2026-10-29T18:15:00",
-    "end_datetime": "",
-    "category": [
-      "Sport"
-    ],
-    "image": "https://www.coopersstadium.com.au/wp-content/uploads/2026/08/ACL2-Lion-City-2340x765-1.png",
-    "link": "https://www.coopersstadium.com.au/events/adelaide-united-v-lion-city-sailors-fc/",
-    "source": "Coopers Stadium"
-  },
-  {
     "title": "Adelaide United v Melbourne Victory",
     "venue": "Coopers Stadium",
     "datetime": "2026-11-08T14:00:00",
@@ -2728,6 +2716,78 @@
     "source": "Lion Arts Factory"
   },
   {
+    "title": "Andrew Hill: Our Rights and Pleasures",
+    "venue": "Immersive Light and Art (ILA)",
+    "datetime": "2026-10-23T00:00:00",
+    "end_datetime": "2026-11-07T23:59:59",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://immersivelightandart.com.au/wp-content/uploads/2026/09/HERO_2568x1440_AndrewHill_ORAP_0-1024x576.jpg",
+    "link": "https://immersivelightandart.com.au/event/andrew-hill-our-rights-and-pleasures/",
+    "source": "Immersive Light and Art"
+  },
+  {
+    "title": "Architecture in Music",
+    "venue": "Immersive Light and Art (ILA)",
+    "datetime": "2026-11-13T00:00:00",
+    "end_datetime": "2026-12-05T23:59:59",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://immersivelightandart.com.au/wp-content/uploads/2026/09/2568x1440_AiM_Website_Resizes_Charles-Brooks-1024x576.jpg",
+    "link": "https://immersivelightandart.com.au/event/architecture-in-music/",
+    "source": "Immersive Light and Art"
+  },
+  {
+    "title": "Slava and Sharon Grigoryan – Live",
+    "venue": "Immersive Light and Art (ILA)",
+    "datetime": "2026-11-26T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://immersivelightandart.com.au/wp-content/uploads/2026/09/sharon-draper-slava-grigoryan-simon-shiff-2560-1-1024x683.jpg",
+    "link": "https://immersivelightandart.com.au/event/slava-and-sharon-grigoryan-live/",
+    "source": "Immersive Light and Art"
+  },
+  {
+    "title": "Sea to Soil",
+    "venue": "Immersive Light and Art (ILA)",
+    "datetime": "2027-10-23T00:00:00",
+    "end_datetime": "2027-11-07T23:59:59",
+    "category": [
+      "Food & Beverage"
+    ],
+    "image": "https://immersivelightandart.com.au/wp-content/uploads/2026/06/ILA_Website_SeaToSoil_Hero_Image_2568x1440-1024x576.jpg",
+    "link": "https://immersivelightandart.com.au/event/sea-to-soil/",
+    "source": "Immersive Light and Art"
+  },
+  {
+    "title": "Cockaigne: The Land of Plenty",
+    "venue": "Immersive Light and Art (ILA)",
+    "datetime": "2027-02-25T00:00:00",
+    "end_datetime": "2027-03-21T23:59:59",
+    "category": [
+      "Other"
+    ],
+    "image": "https://immersivelightandart.com.au/wp-content/uploads/2026/10/Cockaigne-The-Land-of-Plenty_Sam-Leach_Immersive-Light-and-Art_2568x1440_Website_0-1024x576.jpg",
+    "link": "https://immersivelightandart.com.au/event/cockaigne-the-land-of-plenty/",
+    "source": "Immersive Light and Art"
+  },
+  {
+    "title": "Thin Ice",
+    "venue": "Immersive Light and Art (ILA)",
+    "datetime": "2027-05-05T00:00:00",
+    "end_datetime": "2027-05-29T23:59:59",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://immersivelightandart.com.au/wp-content/uploads/2026/09/2568x1440_ThinIce_WebsiteImage-1024x576.jpg",
+    "link": "https://immersivelightandart.com.au/event/thin-ice/",
+    "source": "Immersive Light and Art"
+  },
+  {
     "title": "GOLDEN VOICES",
     "venue": "St Peter's Cathedral",
     "datetime": "2026-11-13T00:00:00",
@@ -2736,7 +2796,7 @@
       "Theatre",
       "Music"
     ],
-    "image": "https://www.stateopera.com.au/_image?href=http%3A%2F%2Fcms%2Fpublic%2Fassets%2Fgoldenvoices.png&w=1508&h=1508&q=70&f=webp",
+    "image": "https://www.stateopera.com.au/_image?href=http%3A%2F%2Fcms%2Fpublic%2Fassets%2FBenClarkImagery-0026.jpg&w=1508&h=923&q=70&f=webp",
     "link": "https://www.stateopera.com.au/productions/2026/golden-voices",
     "source": "State Opera South Australia"
   },
@@ -3357,19 +3417,6 @@
     "source": "ACE Gallery"
   },
   {
-    "title": "'Leaves: Eco-Anxiety' Artist Sharing: Alycia Bennett and Florian Cinco",
-    "venue": "Adelaide Contemporary Experimental (ACE)",
-    "datetime": "2026-11-03T12:30:00",
-    "end_datetime": "",
-    "category": [
-      "Talks & Conferences",
-      "Arts & Culture"
-    ],
-    "image": "https://ace.gallery/img/asset/YXNzZXRzL2FseS1mbG9yaWFuLmpwZw==?w=900",
-    "link": "https://ace.gallery/whats-on/live-programs/leaves-eco-anxiety-artist-talk-alycia-florian",
-    "source": "ACE Gallery"
-  },
-  {
     "title": "Modern Mysticism",
     "venue": "Adelaide Contemporary Experimental (ACE)",
     "datetime": "2026-11-07T13:00:00",
@@ -3384,7 +3431,7 @@
     "source": "ACE Gallery"
   },
   {
-    "title": "Shan Michaels: Can Touch This",
+    "title": "Shan Michaels: Can Touch This – Brisbane",
     "venue": "Adelaide Contemporary Experimental (ACE)",
     "datetime": "2026-11-19T00:00:00",
     "end_datetime": "2026-12-19T23:59:59",
@@ -3408,6 +3455,19 @@
     "source": "ACE Gallery"
   },
   {
+    "title": "Artist Talk: Shan Michaels 'Can Touch This'",
+    "venue": "Adelaide Contemporary Experimental (ACE)",
+    "datetime": "2026-11-21T12:00:00",
+    "end_datetime": "",
+    "category": [
+      "Talks & Conferences",
+      "Arts & Culture"
+    ],
+    "image": "https://ace.gallery/img/asset/YXNzZXRzL2FjZV9wdXNoLXB1bGxfaW5zdGFsbC1waG90b2dyYXBoeV9tYXk5LTIwMjVfLTI1Nl9sb3Jlcy0oMSktMTc0ODkxMTUzNi5qcGc=?w=900",
+    "link": "https://ace.gallery/whats-on/live-programs/shan-michaels-artist-talk-can-touch-this",
+    "source": "ACE Gallery"
+  },
+  {
     "title": "The Art of Seafood: Fish for the Table",
     "venue": "Adelaide Central Market",
     "datetime": "2026-11-05T10:30:00",
@@ -3419,6 +3479,60 @@
     ],
     "image": "https://adelaidecentralmarket.com.au/wp-content/uploads/2026/09/Baked-Ora-King-Salmon-ingredients.jpg",
     "link": "https://adelaidecentralmarket.com.au/event/the-art-of-seafood-fish-for-the-table/",
+    "source": "Adelaide Central Market"
+  },
+  {
+    "title": "Cicchetti at the Markets with Chef Luca Guiotto",
+    "venue": "Adelaide Central Market",
+    "datetime": "2026-11-07T11:00:00",
+    "end_datetime": "",
+    "category": [
+      "Food & Beverage"
+    ],
+    "image": "https://adelaidecentralmarket.com.au/wp-content/uploads/2026/11/Luca-Guiotto-3-500x750V2-1.jpg",
+    "link": "https://adelaidecentralmarket.com.au/event/cicchetti-at-the-markets-with-chef-luca-guiotto/",
+    "source": "Adelaide Central Market"
+  },
+  {
+    "title": "The Sopranos Play Pageant Day!",
+    "venue": "Adelaide Central Market",
+    "datetime": "2026-11-14T08:00:00",
+    "end_datetime": "",
+    "category": [
+      "Food & Beverage",
+      "Festival",
+      "Workshop",
+      "Theatre"
+    ],
+    "image": "https://adelaidecentralmarket.com.au/wp-content/uploads/2026/11/CofA_2023_Sauce_Day_Jack_Fenby_DSC_5513-2-scaled.jpg",
+    "link": "https://adelaidecentralmarket.com.au/event/the-sopranos-play-pageant-day/",
+    "source": "Adelaide Central Market"
+  },
+  {
+    "title": "Cheese After Dark with Sidewood Estate",
+    "venue": "Adelaide Central Market",
+    "datetime": "2026-11-18T18:30:00",
+    "end_datetime": "",
+    "category": [
+      "Sport",
+      "Food & Beverage",
+      "Workshop"
+    ],
+    "image": "https://adelaidecentralmarket.com.au/wp-content/uploads/2026/11/825292542_1519180713584513_7766628467473047163_n.jpg",
+    "link": "https://adelaidecentralmarket.com.au/event/cheese-after-dark-with-sidewood-estate/",
+    "source": "Adelaide Central Market"
+  },
+  {
+    "title": "In Conversation with Laura Sharrad",
+    "venue": "Adelaide Central Market",
+    "datetime": "2026-11-21T10:30:00",
+    "end_datetime": "",
+    "category": [
+      "Food & Beverage",
+      "Family"
+    ],
+    "image": "https://adelaidecentralmarket.com.au/wp-content/uploads/2026/11/Laura-Portrait2.jpg",
+    "link": "https://adelaidecentralmarket.com.au/event/in-conversation-with-laura-sharrad/",
     "source": "Adelaide Central Market"
   },
   {
@@ -5167,18 +5281,6 @@
     "source": "Arkaba Hotel"
   },
   {
-    "title": "Laugh Lab Open Mics – Monday Nights at Rhino Room",
-    "venue": "Rhino Room",
-    "datetime": "2026-11-02T19:30:00",
-    "end_datetime": "2026-11-02T21:30:00",
-    "category": [
-      "Comedy"
-    ],
-    "image": "https://rhinoroom.com.au/wp-content/uploads/2024/05/user_crop_1697623298-1697623292-ll-768x768-1.png",
-    "link": "https://events.humanitix.com/host/laugh-lab",
-    "source": "Rhino Room"
-  },
-  {
     "title": "RUFUS RICE: RICE AGE – ADELAIDE",
     "venue": "Rhino Room",
     "datetime": "2026-11-03T19:00:00",
@@ -5260,6 +5362,18 @@
     ],
     "image": "https://rhinoroom.com.au/wp-content/uploads/2026/10/IMG_6073.jpeg",
     "link": "https://events.humanitix.com/sunslay-slayoffs",
+    "source": "Rhino Room"
+  },
+  {
+    "title": "Laugh Lab Open Mics – Monday Nights at Rhino Room",
+    "venue": "Rhino Room",
+    "datetime": "2026-11-09T19:30:00",
+    "end_datetime": "2026-11-09T21:30:00",
+    "category": [
+      "Comedy"
+    ],
+    "image": "https://rhinoroom.com.au/wp-content/uploads/2024/05/user_crop_1697623298-1697623292-ll-768x768-1.png",
+    "link": "https://events.humanitix.com/host/laugh-lab",
     "source": "Rhino Room"
   },
   {
@@ -6357,6 +6471,18 @@
     ],
     "image": "https://cdn.prod.website-files.com/640823aed7c2f9caf4efb803/6ae42521d8ec4c81096962a3_NWC%20Web%20Whats%20On%201080x720.png",
     "link": "https://www.nationalwinecentre.com.au/whats-on/summer-uncorked-2026",
+    "source": "National Wine Centre"
+  },
+  {
+    "title": "UnWined UnCovered: Alternative vs Traditional White Wines",
+    "venue": "National Wine Centre",
+    "datetime": "2026-11-27T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Food & Beverage"
+    ],
+    "image": "https://cdn.prod.website-files.com/640823aed7c2f9caf4efb803/6ae93ba1cdb9b3313af99bbe_UU%20Web%20Whats%20On%20(3).png",
+    "link": "https://www.nationalwinecentre.com.au/whats-on/unwined-uncovered",
     "source": "National Wine Centre"
   },
   {
@@ -8714,78 +8840,6 @@
     "source": "Oztix Adelaide City"
   },
   {
-    "title": "Andrew Hill: Our Rights and Pleasures",
-    "venue": "Immersive Light and Art (ILA)",
-    "datetime": "2026-10-23T00:00:00",
-    "end_datetime": "2026-11-07T23:59:59",
-    "category": [
-      "Arts & Culture"
-    ],
-    "image": "https://immersivelightandart.com.au/wp-content/uploads/2026/09/HERO_2568x1440_AndrewHill_ORAP_0-1024x576.jpg",
-    "link": "https://immersivelightandart.com.au/event/andrew-hill-our-rights-and-pleasures/",
-    "source": "Immersive Light and Art"
-  },
-  {
-    "title": "Architecture in Music",
-    "venue": "Immersive Light and Art (ILA)",
-    "datetime": "2026-11-13T00:00:00",
-    "end_datetime": "2026-12-05T23:59:59",
-    "category": [
-      "Arts & Culture"
-    ],
-    "image": "https://immersivelightandart.com.au/wp-content/uploads/2026/09/2568x1440_AiM_Website_Resizes_Charles-Brooks-1024x576.jpg",
-    "link": "https://immersivelightandart.com.au/event/architecture-in-music/",
-    "source": "Immersive Light and Art"
-  },
-  {
-    "title": "Slava and Sharon Grigoryan – Live",
-    "venue": "Immersive Light and Art (ILA)",
-    "datetime": "2026-11-26T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://immersivelightandart.com.au/wp-content/uploads/2026/09/sharon-draper-slava-grigoryan-simon-shiff-2560-1-1024x683.jpg",
-    "link": "https://immersivelightandart.com.au/event/slava-and-sharon-grigoryan-live/",
-    "source": "Immersive Light and Art"
-  },
-  {
-    "title": "Sea to Soil",
-    "venue": "Immersive Light and Art (ILA)",
-    "datetime": "2027-10-23T00:00:00",
-    "end_datetime": "2027-11-07T23:59:59",
-    "category": [
-      "Food & Beverage"
-    ],
-    "image": "https://immersivelightandart.com.au/wp-content/uploads/2026/06/ILA_Website_SeaToSoil_Hero_Image_2568x1440-1024x576.jpg",
-    "link": "https://immersivelightandart.com.au/event/sea-to-soil/",
-    "source": "Immersive Light and Art"
-  },
-  {
-    "title": "Cockaigne: The Land of Plenty",
-    "venue": "Immersive Light and Art (ILA)",
-    "datetime": "2027-02-25T00:00:00",
-    "end_datetime": "2027-03-21T23:59:59",
-    "category": [
-      "Other"
-    ],
-    "image": "https://immersivelightandart.com.au/wp-content/uploads/2026/10/Cockaigne-The-Land-of-Plenty_Sam-Leach_Immersive-Light-and-Art_2568x1440_Website_0-1024x576.jpg",
-    "link": "https://immersivelightandart.com.au/event/cockaigne-the-land-of-plenty/",
-    "source": "Immersive Light and Art"
-  },
-  {
-    "title": "Thin Ice",
-    "venue": "Immersive Light and Art (ILA)",
-    "datetime": "2027-05-05T00:00:00",
-    "end_datetime": "2027-05-29T23:59:59",
-    "category": [
-      "Arts & Culture"
-    ],
-    "image": "https://immersivelightandart.com.au/wp-content/uploads/2026/09/2568x1440_ThinIce_WebsiteImage-1024x576.jpg",
-    "link": "https://immersivelightandart.com.au/event/thin-ice/",
-    "source": "Immersive Light and Art"
-  },
-  {
     "title": "Ceramic Tile Painting Workshop with Jake Yang",
     "venue": "Artspace",
     "datetime": "2026-10-15T00:00:00",
@@ -8918,18 +8972,6 @@
     ],
     "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/11-Nov/Create-Your-Own-Dinosaur/Create_your_own_dinosaur_with_Erth_AFC_workshop_website-image_1136x994.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
     "link": "https://www.adelaidefestivalcentre.com.au/whats-on/create-your-own-dinosaur-with-erth",
-    "source": "Adelaide Festival Centre"
-  },
-  {
-    "title": "The Harmony Club",
-    "venue": "Her Majesty's Theatre",
-    "datetime": "2026-11-14T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/11-Nov/The-Harmony-Club/Harmony-Club-1136x994.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
-    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/the-harmony-club",
     "source": "Adelaide Festival Centre"
   },
   {
@@ -10327,16 +10369,17 @@
     "source": "MOD."
   },
   {
-    "title": "SUNSLAY SESH",
-    "venue": "Rhino Room",
-    "datetime": "2026-11-01T21:00:00",
-    "end_datetime": "2026-11-02T03:00:00",
+    "title": "'Leaves: Eco-Anxiety' Artist Sharing: Alycia Bennett and Florian Cinco",
+    "venue": "Adelaide Contemporary Experimental (ACE)",
+    "datetime": "2026-11-03T12:30:00",
+    "end_datetime": "",
     "category": [
-      "Other"
+      "Talks & Conferences",
+      "Arts & Culture"
     ],
-    "image": "https://rhinoroom.com.au/wp-content/uploads/2026/09/IMG_5161.jpeg",
-    "link": "https://events.humanitix.com/sunslay-sesh",
-    "source": "Rhino Room"
+    "image": "https://ace.gallery/img/asset/YXNzZXRzL2FseS1mbG9yaWFuLmpwZw==?w=900",
+    "link": "https://ace.gallery/whats-on/live-programs/leaves-eco-anxiety-artist-talk-alycia-florian",
+    "source": "ACE Gallery"
   },
   {
     "title": "Chiodos ‘All’s Well That Ends Well’ 20 Year Anniversary Tour",
@@ -11152,6 +11195,18 @@
     ],
     "image": "https://s1.ticketm.net/dam/a/a3d/ac32b9d9-47b8-40ca-8ea2-067def907a3d_SOURCE",
     "link": "https://www.ticketmaster.com.au/crash-test-dummies-canada-the-careerspanning-torrensville-08-04-2027/event/13006514D11770C3",
+    "source": "Ticketmaster Adelaide"
+  },
+  {
+    "title": "APP TEST Wales v Zimbabwe",
+    "venue": "Adelaide Oval",
+    "datetime": "2027-10-02T12:15:00",
+    "end_datetime": "",
+    "category": [
+      "Sport"
+    ],
+    "image": "https://s1.ticketm.net/dam/a/d24/4839bd0f-e27a-4592-89de-88e42e974d24_RETINA_PORTRAIT_16_9.jpg",
+    "link": "https://rwc2027.rugbyworldcup.com/EDP/Event/Index/135",
     "source": "Ticketmaster Adelaide"
   },
   {
