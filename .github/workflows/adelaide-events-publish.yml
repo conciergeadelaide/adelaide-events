@@ -62,7 +62,7 @@ jobs:
       - name: Validate required files
         if: steps.local_time.outputs.run_scraper == 'true'
         run: |
-          for file in index.html script.js style.css events.json Scraper/scrape.py Scraper/parsers.py Scraper/config.py Scraper/humanitix.py Scraper/festival_tags.py Scraper/requirements.txt recurring_rules.json recurring_sessions.json; do
+          for file in index.html script.js style.css events.json Scraper/scrape.py Scraper/parsers.py Scraper/config.py Scraper/humanitix.py Scraper/festival_tags.py Scraper/requirements.txt Scraper/audit_events.py recurring_rules.json recurring_sessions.json; do
             test -f "$file" || { echo "::error::Missing $file"; exit 1; }
           done
 
@@ -119,6 +119,28 @@ jobs:
               sys.exit(1)
           print('Event database validation passed.')
           PY
+
+      - name: Generate read-only event accuracy report
+        if: steps.local_time.outputs.run_scraper == 'true'
+        shell: bash
+        run: |
+          python Scraper/audit_events.py
+          echo "### Event accuracy audit" >> "$GITHUB_STEP_SUMMARY"
+          echo '```text' >> "$GITHUB_STEP_SUMMARY"
+          sed -n '1,24p' reports/event_audit_summary.txt >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Download the CSV and full summary from the event-accuracy-audit artifact.' >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload event accuracy audit
+        if: always() && steps.local_time.outputs.run_scraper == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: event-accuracy-audit
+          path: |
+            reports/event_audit.csv
+            reports/event_audit_summary.txt
+          if-no-files-found: warn
+          retention-days: 30
 
       - name: Commit updated events database if changed
         if: steps.local_time.outputs.run_scraper == 'true'

@@ -6,6 +6,7 @@ import csv
 import json
 from collections import Counter, defaultdict
 from datetime import date, datetime
+from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -25,7 +26,10 @@ def main():
         events = json.load(handle)
     if not isinstance(events, list):
         raise SystemExit('events.json must contain a JSON list; nothing changed.')
-    today = date.today()
+    try:
+        today = datetime.now(ZoneInfo("Australia/Adelaide")).date()
+    except ZoneInfoNotFoundError:
+        today = date.today()  # Local PC fallback when timezone data is unavailable
     issues = []
     source_counts = Counter()
     groups = defaultdict(list)
@@ -63,7 +67,7 @@ def main():
         if raw_end:
             try:
                 end = datetime.fromisoformat(raw_end)
-                if start and end < start:
+                if start and ((end.replace(tzinfo=None) < start.replace(tzinfo=None)) if (end.tzinfo is None) != (start.tzinfo is None) else end < start):
                     flag(event, 'HIGH', 'End before start', 'Check date range')
             except ValueError:
                 flag(event, 'HIGH', 'Invalid end date', 'Cannot parse end_datetime')
@@ -79,7 +83,7 @@ def main():
             flag(event, 'LOW', 'Missing image', 'Check whether an official image is available')
         if source == 'Adelaide Festival Centre':
             flag(event, 'MEDIUM', 'Manual review: Adelaide Festival Centre',
-                 'Automated source is blocked; check current date, time, cancellation and link')
+                 'Check current date, time, cancellation and link against the official listing; this is a review reminder, not a confirmed source failure')
 
     for key, members in groups.items():
         if len(members) < 2:
@@ -108,7 +112,7 @@ def main():
     lines += ['', 'EVENTS BY SOURCE:']
     lines += [f'  {name}: {count}' for name, count in source_counts.most_common()]
     lines += ['', 'NOTE: Flags are review candidates, not confirmed errors.',
-              'No event records were changed. No website data was published.']
+              'This audit did not change events.json or publish website data.']
     summary_path = REPORT_DIR / 'event_audit_summary.txt'
     summary_path.write_text('\n'.join(lines) + '\n', encoding='utf-8')
     print('\n'.join(lines[:5]))
