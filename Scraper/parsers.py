@@ -228,6 +228,25 @@ def categorise_event(title, text=""):
 def parse_json_ld(soup, source_url):
     events = []
 
+    def structured_datetime(value):
+        """Keep explicit ISO showtimes in Adelaide local time; never infer one."""
+        if not isinstance(value, str):
+            return ""
+        value = value.strip()
+        # Date-only values are valid, but they do not establish a start time.
+        if re.fullmatch(r"20\d{2}-\d{2}-\d{2}", value):
+            return parse_date_text(value)
+        if re.match(r"^20\d{2}-\d{2}-\d{2}[Tt ]\d{2}:\d{2}", value):
+            try:
+                from zoneinfo import ZoneInfo
+                parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+                if parsed.tzinfo is not None:
+                    parsed = parsed.astimezone(ZoneInfo("Australia/Adelaide"))
+                return parsed.replace(tzinfo=None).isoformat(timespec="seconds")
+            except (ValueError, OverflowError, KeyError):
+                return ""
+        return parse_date_text(value)
+
     for script in soup.find_all(
         "script",
         type="application/ld+json",
@@ -271,15 +290,10 @@ def parse_json_ld(soup, source_url):
             if not title:
                 continue
 
-            date = item.get("startDate", "")
-
-            if isinstance(date, str):
-                parsed_date = parse_date_text(date)
-
-                if not parsed_date:
-                    parsed_date = date
-            else:
-                parsed_date = ""
+            parsed_date = structured_datetime(item.get("startDate", ""))
+            parsed_end = structured_datetime(item.get("endDate", ""))
+            if parsed_end and parsed_date and parsed_end < parsed_date:
+                parsed_end = ""
 
             location = item.get("location", "")
 
@@ -321,7 +335,7 @@ def parse_json_ld(soup, source_url):
                     "title": title,
                     "venue": venue,
                     "date": parsed_date,
-                    "end_date": "",
+                    "end_date": parsed_end,
                     "category": categorise_event(title),
                     "image": normalise_url(
                         image,
