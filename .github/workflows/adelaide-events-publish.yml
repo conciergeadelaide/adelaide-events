@@ -2,6 +2,15 @@ name: Adelaide Events - Daily Safe Publish
 
 on:
   workflow_dispatch:
+    inputs:
+      publish_mode:
+        description: "Choose whether to scrape events or publish existing website files only"
+        required: true
+        type: choice
+        default: website_only
+        options:
+          - website_only
+          - full_update
   schedule:
     # 05:30 Adelaide local time (daylight-saving aware).
     - cron: "0 19 * * *"
@@ -27,21 +36,35 @@ jobs:
       TICKETMASTER_API_KEY: ${{ secrets.TICKETMASTER_API_KEY }}
       TZ: Australia/Adelaide
     steps:
-      - name: Check Adelaide local schedule time
+      - name: Determine publish mode and Adelaide local schedule time
         id: local_time
         shell: bash
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          REQUESTED_MODE: ${{ inputs.publish_mode }}
         run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            echo "run_scraper=true" >> "$GITHUB_OUTPUT"
+          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
+            if [ "$REQUESTED_MODE" = "full_update" ]; then
+              echo "run_scraper=true" >> "$GITHUB_OUTPUT"
+              echo "publish_site=true" >> "$GITHUB_OUTPUT"
+              echo "Manual full update: scrape, validate, and publish."
+            else
+              echo "run_scraper=false" >> "$GITHUB_OUTPUT"
+              echo "publish_site=true" >> "$GITHUB_OUTPUT"
+              echo "Manual website-only publish: no scraping or event database commits."
+            fi
           elif [ "$(TZ=Australia/Adelaide date +%H)" = "05" ]; then
             echo "run_scraper=true" >> "$GITHUB_OUTPUT"
+            echo "publish_site=true" >> "$GITHUB_OUTPUT"
+            echo "Scheduled daily full update."
           else
             echo "run_scraper=false" >> "$GITHUB_OUTPUT"
+            echo "publish_site=false" >> "$GITHUB_OUTPUT"
             echo "Skipping non-matching daylight-saving schedule."
           fi
 
       - name: Check out main
-        if: steps.local_time.outputs.run_scraper == 'true'
+        if: steps.local_time.outputs.publish_site == 'true'
         uses: actions/checkout@v4
         with:
           ref: main
@@ -60,11 +83,17 @@ jobs:
         run: python -m pip install -r Scraper/requirements.txt
 
       - name: Validate required files
-        if: steps.local_time.outputs.run_scraper == 'true'
+        if: steps.local_time.outputs.publish_site == 'true'
+        shell: bash
         run: |
-          for file in index.html script.js style.css events.json Scraper/scrape.py Scraper/parsers.py Scraper/config.py Scraper/humanitix.py Scraper/festival_tags.py Scraper/requirements.txt Scraper/audit_events.py recurring_rules.json recurring_sessions.json; do
+          for file in index.html script.js style.css events.json; do
             test -f "$file" || { echo "::error::Missing $file"; exit 1; }
           done
+          if [ "${{ steps.local_time.outputs.run_scraper }}" = "true" ]; then
+            for file in Scraper/scrape.py Scraper/parsers.py Scraper/config.py Scraper/humanitix.py Scraper/festival_tags.py Scraper/requirements.txt Scraper/audit_events.py recurring_rules.json recurring_sessions.json; do
+              test -f "$file" || { echo "::error::Missing $file"; exit 1; }
+            done
+          fi
 
       - name: Save baseline event data
         if: steps.local_time.outputs.run_scraper == 'true'
@@ -157,7 +186,7 @@ jobs:
           fi
 
       - name: Prepare public website files
-        if: steps.local_time.outputs.run_scraper == 'true'
+        if: steps.local_time.outputs.publish_site == 'true'
         shell: bash
         run: |
           mkdir -p _site
@@ -169,17 +198,17 @@ jobs:
           touch _site/.nojekyll
 
       - name: Set up GitHub Pages
-        if: steps.local_time.outputs.run_scraper == 'true'
+        if: steps.local_time.outputs.publish_site == 'true'
         uses: actions/configure-pages@v5
 
       - name: Upload Pages artifact
-        if: steps.local_time.outputs.run_scraper == 'true'
+        if: steps.local_time.outputs.publish_site == 'true'
         uses: actions/upload-pages-artifact@v3
         with:
           path: _site
 
       - name: Deploy website
-        if: steps.local_time.outputs.run_scraper == 'true'
+        if: steps.local_time.outputs.publish_site == 'true'
         id: deployment
         uses: actions/deploy-pages@v4
 
