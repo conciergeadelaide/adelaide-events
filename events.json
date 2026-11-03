@@ -2592,6 +2592,18 @@
     "source": "Thebarton Theatre"
   },
   {
+    "title": "A Perfect Circle",
+    "venue": "The Drive",
+    "datetime": "2026-12-04T19:45:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.thedriveadelaide.com.au/wp-content/uploads/2026/03/APC_3_505-copy.jpg",
+    "link": "https://www.thedriveadelaide.com.au/events/a-perfect-circle/",
+    "source": "The Drive"
+  },
+  {
     "title": "Spacey Jane",
     "venue": "The Drive",
     "datetime": "2026-12-06T19:15:00",
@@ -6870,6 +6882,18 @@
     "source": "National Wine Centre"
   },
   {
+    "title": "UnWined UnCovered: Alternative vs Traditional White Wines",
+    "venue": "National Wine Centre",
+    "datetime": "2026-11-27T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Food & Beverage"
+    ],
+    "image": "https://cdn.prod.website-files.com/640823aed7c2f9caf4efb803/6ae93ba1cdb9b3313af99bbe_UU%20Web%20Whats%20On%20(3).png",
+    "link": "https://www.nationalwinecentre.com.au/whats-on/unwined-uncovered",
+    "source": "National Wine Centre"
+  },
+  {
     "title": "Oedipus",
     "venue": "Festival Theatre",
     "datetime": "2027-03-10T20:00:00",
@@ -9359,18 +9383,6 @@
     "source": "Adelaide Festival Centre"
   },
   {
-    "title": "The Harmony Club",
-    "venue": "Her Majesty's Theatre",
-    "datetime": "2026-11-14T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2026/11-Nov/The-Harmony-Club/Harmony-Club-1136x994.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
-    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/the-harmony-club",
-    "source": "Adelaide Festival Centre"
-  },
-  {
     "title": "An Evening with Alastair Campbell",
     "venue": "Festival Theatre",
     "datetime": "2026-11-18T00:00:00",
@@ -11376,18 +11388,6 @@
     "image": "https://www.moshtix.com.au/uploads/ff6d3433-ed75-413f-9dd3-4c3b0bffcc29x600x600",
     "link": "https://www.moshtix.com.au/v2/event/div-de-presents-newtone/201981",
     "source": "Moshtix Adelaide CBD"
-  },
-  {
-    "title": "A Perfect Circle",
-    "venue": "The Drive",
-    "datetime": "2026-12-04T19:45:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://s1.ticketm.net/dam/a/e9f/43342585-439b-4045-89ca-327847ed4e9f_TABLET_LANDSCAPE_LARGE_16_9.jpg",
-    "link": "https://www.ticketmaster.com.au/a-perfect-circle-adelaide-04-12-2026/event/2500646BEE0E6D51",
-    "source": "Ticketmaster Adelaide"
   },
   {
     "title": "An Evening with Cat Power",
