@@ -192,6 +192,8 @@ jobs:
           mkdir -p _site
           cp index.html script.js style.css events.json _site/
           if [ -d assets ]; then cp -a assets _site/; fi
+          test -f quizmeisters-trivia.svg || { echo "::error::Missing quizmeisters-trivia.svg"; exit 1; }
+          cp quizmeisters-trivia.svg _site/
           if [ -f agsa-calendar.js ]; then cp agsa-calendar.js _site/; fi
           if [ -f agsa-calendar.html ]; then cp agsa-calendar.html _site/; fi
           if [ -f agsa-events-response.json ]; then cp agsa-events-response.json _site/; fi
