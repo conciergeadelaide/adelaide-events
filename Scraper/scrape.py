@@ -455,10 +455,34 @@ def repair_missing_event_images(events):
     return events
 
 
+# Targeted correction for a confirmed broken Moshtix event image (HTTP 404).
+# Only the exact event with the bad directory URL is changed.
+MOSHTIX_LISA_HILL_IMAGE = (
+    "https://conciergeadelaide.github.io/adelaide-events/moshtix-big-room.svg"
+)
+
+
+def repair_confirmed_broken_moshtix_image(events):
+    repaired = 0
+    for event in events:
+        if (str(event.get("source") or "") == "Moshtix Adelaide CBD"
+                and str(event.get("title") or "").strip().casefold()
+                == "big room w/ lisa hill (18+)"
+                and str(event.get("link") or event.get("url") or "").split("?", 1)[0]
+                == "https://www.moshtix.com.au/v2/event/big-room-w-lisa-hill-18/201022"
+                and str(event.get("image") or "").strip().rstrip("/")
+                == "https://www.moshtix.com.au/uploads"):
+            event["image"] = MOSHTIX_LISA_HILL_IMAGE
+            repaired += 1
+    print(f"Moshtix BIG ROOM: {repaired} confirmed broken image(s) repaired")
+    return events
+
+
 def save_events(events):
     events = apply_verified_recurring_sessions(events)
     events = repair_missing_event_images(events)
     events = apply_district_trivia_image(events)
+    events = repair_confirmed_broken_moshtix_image(events)
     verified_date_fixes = sum(correct_verified_event_dates(event) for event in events)
     if verified_date_fixes:
         print(f"Verified event date corrections applied: {verified_date_fixes}")

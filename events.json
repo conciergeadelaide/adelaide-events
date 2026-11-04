@@ -11063,7 +11063,7 @@
     "category": [
       "Music"
     ],
-    "image": "https://www.moshtix.com.au/uploads/",
+    "image": "https://conciergeadelaide.github.io/adelaide-events/moshtix-big-room.svg",
     "link": "https://www.moshtix.com.au/v2/event/big-room-w-lisa-hill-18/201022",
     "source": "Moshtix Adelaide CBD"
   },
@@ -12349,18 +12349,6 @@
     "source": "Humanitix Adelaide and Regions"
   },
   {
-    "title": "Origins",
-    "venue": "Tatachilla Lutheran College Stadium",
-    "datetime": "2026-11-08T15:00:00+1030",
-    "end_datetime": "2026-11-08T17:30:00+1030",
-    "category": [
-      "Other"
-    ],
-    "image": "https://images.humanitix.com/i/AK6pJp3FQOSh1Rhc788x@seo-500.jpg",
-    "link": "https://events.humanitix.com/big-sing-2026",
-    "source": "Humanitix Adelaide and Regions"
-  },
-  {
     "title": "Brontë EP Release show",
     "venue": "Noori on the Midcoast",
     "datetime": "2026-11-13T19:30:00+1030",
@@ -12670,6 +12658,18 @@
     ],
     "image": "https://images.humanitix.com/i/17eeb33f-bd01-46d7-bdee-5f317078ec10.jpg@seo-500.jpg",
     "link": "https://events.humanitix.com/the-three-musketeers-at-the-cedars",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "Origins",
+    "venue": "Tatachilla Lutheran College Stadium",
+    "datetime": "2026-11-08T15:00:00+1030",
+    "end_datetime": "2026-11-08T17:30:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/AK6pJp3FQOSh1Rhc788x@seo-500.jpg",
+    "link": "https://events.humanitix.com/big-sing-2026",
     "source": "Humanitix Adelaide and Regions"
   },
   {
