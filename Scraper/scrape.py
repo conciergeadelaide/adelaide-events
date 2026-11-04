@@ -409,8 +409,31 @@ def apply_verified_recurring_sessions(events):
     return unique
 
 
+# Local, dependable artwork for the recurring District trivia sessions.
+# The asset is hosted in this project's own GitHub Pages root, avoiding
+# third-party hotlink restrictions and image URLs that change over time.
+DISTRICT_TRIVIA_IMAGE = (
+    "https://conciergeadelaide.github.io/adelaide-events/quizmeisters-trivia.svg"
+)
+
+
+def apply_district_trivia_image(events):
+    updated = 0
+    for event in events:
+        if (str(event.get("source") or "") == "The District at SkyCity"
+                and str(event.get("title") or "").strip().casefold()
+                == "quizmeisters trivia at the district"
+                and "district" in str(event.get("venue") or "").casefold()):
+            if event.get("image") != DISTRICT_TRIVIA_IMAGE:
+                event["image"] = DISTRICT_TRIVIA_IMAGE
+                updated += 1
+    print(f"District QuizMeisters: {updated} event images set to local artwork")
+    return events
+
+
 def save_events(events):
     events = apply_verified_recurring_sessions(events)
+    events = apply_district_trivia_image(events)
     verified_date_fixes = sum(correct_verified_event_dates(event) for event in events)
     if verified_date_fixes:
         print(f"Verified event date corrections applied: {verified_date_fixes}")
@@ -598,6 +621,72 @@ def apply_audited_data_corrections(event):
             changes.append("category")
     return changes
 
+
+
+def remove_verified_festival_cross_source_duplicates(events):
+    """Remove a small, independently verifiable set of festival co-listings.
+
+    Require exact normalised title, venue, first date and final date.  Only
+    compare known source pairs.  Keep separately timed performances and never
+    combine distinct dates.  The original venue/organiser URL is retained.
+    """
+    from collections import defaultdict
+
+    def norm(value):
+        return " ".join(re.sub(r"[^a-z0-9]+", " ",
+                               str(value or "").casefold()).split())
+
+    def time_of(event):
+        found = re.search(r"T(\d{2}:\d{2})", str(event.get("datetime") or ""))
+        return found.group(1) if found and found.group(1) != "00:00" else None
+
+    # (source to keep, source to discard), only for verified co-publishers.
+    source_pairs = {
+        ("Adelaide Festival", "Adelaide Festival Centre"),
+        ("Hindley St Music Hall", "Adelaide Festival"),
+        ("Immersive Light and Art", "Adelaide Festival"),
+        ("Art Gallery of South Australia", "Adelaide Festival"),
+        ("Adelaide Festival", "Play & Go Adelaide Major Events"),
+    }
+    groups = defaultdict(list)
+    for index, event in enumerate(events):
+        key = (norm(event.get("title")), norm(event.get("venue")),
+               str(event.get("datetime") or "")[:10],
+               str(event.get("end_datetime") or "")[:10])
+        if key[0] and key[1] and key[2]:
+            groups[key].append((index, event))
+
+    removed = set()
+    audit = []
+    for key, group in groups.items():
+        for index, event in group:
+            if index in removed:
+                continue
+            for keep_index, keeper in group:
+                if keep_index == index or keep_index in removed:
+                    continue
+                if (str(keeper.get("source") or ""),
+                    str(event.get("source") or "")) not in source_pairs:
+                    continue
+                # If both have explicit but different times, they are separate
+                # performances, regardless of matching event/venue/date.
+                first_time, second_time = time_of(keeper), time_of(event)
+                if first_time and second_time and first_time != second_time:
+                    continue
+                # Never discard a confirmed time in favour of an unknown one.
+                if second_time and not first_time:
+                    continue
+                # A matched source pair, title, venue and date range makes
+                # this a verified festival co-listing rather than a guess.
+                removed.add(index)
+                audit.append((event.get("title"), event.get("source"),
+                              keeper.get("source")))
+                break
+
+    print(f"Festival co-listings: {len(removed)} verified duplicates excluded")
+    for title, dropped, kept in audit:
+        print(f"  DEDUP: {title} | removed {dropped} | kept {kept}")
+    return [event for index, event in enumerate(events) if index not in removed]
 
 def remove_verified_showground_aggregator_duplicates(events):
     """Prefer the official Santa's Wonderland listing over its date-only copy.
@@ -3074,6 +3163,9 @@ def main(only_source=None):
 
     # Prefer the confirmed Showground start time to a date-only Play & Go copy.
     final_events = remove_verified_showground_aggregator_duplicates(final_events)
+
+    # Apply verified co-listing rules to the stored database as well.
+    final_events = remove_verified_festival_cross_source_duplicates(final_events)
 
     # ----------------------------------------
     # Save final database

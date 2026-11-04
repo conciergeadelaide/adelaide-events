@@ -1499,54 +1499,6 @@
     "source": "Adelaide Festival Centre"
   },
   {
-    "title": "Galaxia",
-    "venue": "Space Theatre",
-    "datetime": "2027-02-24T00:00:00",
-    "end_datetime": "2027-03-02T00:00:00",
-    "category": [
-      "Theatre"
-    ],
-    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2027/02-Feb/Galaxia/Galaxia_1136x994px.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
-    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/galaxia",
-    "source": "Adelaide Festival Centre"
-  },
-  {
-    "title": "Valentina",
-    "venue": "Dunstan Playhouse",
-    "datetime": "2027-02-25T00:00:00",
-    "end_datetime": "2027-02-28T00:00:00",
-    "category": [
-      "Theatre"
-    ],
-    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2027/02-Feb/Valentina/Valentina_1136x994px.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
-    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/valentina",
-    "source": "Adelaide Festival Centre"
-  },
-  {
-    "title": "Bluebeard's Castle",
-    "venue": "Festival Theatre",
-    "datetime": "2027-02-26T00:00:00",
-    "end_datetime": "2027-03-02T00:00:00",
-    "category": [
-      "Theatre"
-    ],
-    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2027/02-Feb/Bluebeards-Castle/af26-bluebeards-castle-feature-2026.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
-    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/bluebeards-castle",
-    "source": "Adelaide Festival Centre"
-  },
-  {
-    "title": "13 & 14",
-    "venue": "Her Majesty's Theatre",
-    "datetime": "2027-02-26T00:00:00",
-    "end_datetime": "2027-02-28T00:00:00",
-    "category": [
-      "Theatre"
-    ],
-    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2027/02-Feb/13-14/13_14_1136x994px.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
-    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/13-14",
-    "source": "Adelaide Festival Centre"
-  },
-  {
     "title": "Even the Good Girls Will Cry: Melissa Auf der Maur",
     "venue": "Banquet Room",
     "datetime": "2027-03-01T00:00:00",
@@ -1580,102 +1532,6 @@
     ],
     "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2027/03-Mar/A-Midlife-Reckoning-Myf-Warhurst/a-midlife-reckoning-myf-warhurst-adelaide-festival-2027-1136x994.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
     "link": "https://www.adelaidefestivalcentre.com.au/whats-on/a-midlife-reckoning-myf-warhurst",
-    "source": "Adelaide Festival Centre"
-  },
-  {
-    "title": "Taverna Miresia – Mario, Bella, Anastasia",
-    "venue": "Dunstan Playhouse",
-    "datetime": "2027-03-03T00:00:00",
-    "end_datetime": "2027-03-06T00:00:00",
-    "category": [
-      "Theatre"
-    ],
-    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2027/03-Mar/Taverna-Miresia-%E2%80%93-Mario-Bella-Anastasia/Taverna_1136x994px.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
-    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/taverna-miresia-mario-bella-anastasia",
-    "source": "Adelaide Festival Centre"
-  },
-  {
-    "title": "K.",
-    "venue": "Her Majesty's Theatre",
-    "datetime": "2027-03-04T00:00:00",
-    "end_datetime": "2027-03-07T00:00:00",
-    "category": [
-      "Theatre"
-    ],
-    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2027/03-Mar/K/af26-k-feature-2026.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
-    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/k",
-    "source": "Adelaide Festival Centre"
-  },
-  {
-    "title": "The Complete Philip Glass Piano Etudes",
-    "venue": "Festival Theatre",
-    "datetime": "2027-03-05T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2027/03-Mar/The-Complete-Philip-Glass-Piano-Etudes/Glass-Etudes_1136x994px.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
-    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/the-complete-philip-glass-piano-etudes",
-    "source": "Adelaide Festival Centre"
-  },
-  {
-    "title": "Burnout Paradise",
-    "venue": "Space Theatre",
-    "datetime": "2027-03-07T00:00:00",
-    "end_datetime": "2027-03-14T00:00:00",
-    "category": [
-      "Theatre"
-    ],
-    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2027/03-Mar/Burnout-Paradise/Burnout-Paradise_1136x994px.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
-    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/burnout-paradise",
-    "source": "Adelaide Festival Centre"
-  },
-  {
-    "title": "Grace Cummings",
-    "venue": "Dunstan Playhouse",
-    "datetime": "2027-03-08T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Music"
-    ],
-    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2027/03-Mar/Grace-Cummings/Grace_1136x994px.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
-    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/grace-cummings",
-    "source": "Adelaide Festival Centre"
-  },
-  {
-    "title": "Oedipus",
-    "venue": "Festival Theatre",
-    "datetime": "2027-03-10T00:00:00",
-    "end_datetime": "2027-03-14T00:00:00",
-    "category": [
-      "Theatre"
-    ],
-    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2027/03-Mar/Oedipus/Oedipus_1136x994px.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
-    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/oedipus-2027",
-    "source": "Adelaide Festival Centre"
-  },
-  {
-    "title": "DIPTYCH: The Missing Door and The Lost Room",
-    "venue": "Dunstan Playhouse",
-    "datetime": "2027-03-11T00:00:00",
-    "end_datetime": "2027-03-14T00:00:00",
-    "category": [
-      "Theatre"
-    ],
-    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2027/03-Mar/DIPTYCH-The-Missing-Door-and-The-Lost-Room/Diptych_1136x994px.png?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
-    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/diptych-the-missing-door-and-the-lost-room",
-    "source": "Adelaide Festival Centre"
-  },
-  {
-    "title": "The Brotherhood: CADELA FORÇA TRILOGY Chapter II",
-    "venue": "Her Majesty's Theatre",
-    "datetime": "2027-03-13T00:00:00",
-    "end_datetime": "2027-03-14T00:00:00",
-    "category": [
-      "Theatre"
-    ],
-    "image": "https://adelaidefestivalcentre.imgix.net/assets/volumes/images/Shows/2027/03-Mar/The-Brotherhood-CADELA-FOR%C3%87A-TRILOGY-Chapter-II/The-Brotherhood_1136_994px.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&h=672&q=80&w=768",
-    "link": "https://www.adelaidefestivalcentre.com.au/whats-on/the-brotherhood-cadela-força-trilogy-chapter-ii",
     "source": "Adelaide Festival Centre"
   },
   {
@@ -3963,6 +3819,18 @@
     ],
     "image": "https://www.moshtix.com.au/uploads/0e2fbe91-338c-4582-a99c-17c5e16276daxoriginal",
     "link": "https://www.moshtix.com.au/v2/event/nekrogoblikon-with-guests-rumahoy-and-gosika/202090?ref=RSS_LAF_RSS&skin=LAF20",
+    "source": "Lion Arts Factory"
+  },
+  {
+    "title": "CONVERGE Australia 2027",
+    "venue": "Lion Arts Factory",
+    "datetime": "2027-03-12T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.moshtix.com.au/uploads/04dde0a1-893a-4cc3-b8ef-33f328364a09xoriginal",
+    "link": "https://www.moshtix.com.au/v2/event/converge-australia-2027/202087?ref=RSS_LAF_RSS&skin=LAF20",
     "source": "Lion Arts Factory"
   },
   {
@@ -7277,6 +7145,18 @@
     "source": "Rhino Room"
   },
   {
+    "title": "AdelaideComedy.com",
+    "venue": "Rhino Room",
+    "datetime": "2027-02-19T22:00:00",
+    "end_datetime": "2027-03-20T00:00:00",
+    "category": [
+      "Comedy"
+    ],
+    "image": "https://rhinoroom.com.au/wp-content/uploads/2026/11/RRLS27-Square.jpg",
+    "link": "http://adelaidecomedy.com",
+    "source": "Rhino Room"
+  },
+  {
     "title": "BARRY CASTAGNOLA – THE LAST OF THE BARRYS",
     "venue": "Rhino Room",
     "datetime": "2027-04-13T19:00:00",
@@ -8718,18 +8598,6 @@
     "source": "Adelaide Festival"
   },
   {
-    "title": "Tim Hecker",
-    "venue": "Hindley Street Music Hall",
-    "datetime": "2027-03-03T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Festival"
-    ],
-    "image": "https://cms.adelaidefestival.com.au/media/zqpdcu2q/tim-hecker-c-maria-louceiro.jpg",
-    "link": "https://www.adelaidefestival.com.au/whats-on/season-2027/tim-hecker",
-    "source": "Adelaide Festival"
-  },
-  {
     "title": "Burnout Paradise",
     "venue": "Space Theatre",
     "datetime": "2027-03-07T18:00:00",
@@ -9321,18 +9189,6 @@
     "source": "Adelaide Festival"
   },
   {
-    "title": "Cockaigne: The Land of Plenty",
-    "venue": "Immersive Light and Art (ILA)",
-    "datetime": "2027-02-25T00:00:00",
-    "end_datetime": "2027-03-21T23:59:59",
-    "category": [
-      "Festival"
-    ],
-    "image": "https://cms.adelaidefestival.com.au/media/rt2lechx/boucher-x-superstudio-2020-50cmx50cm-oil-on-wood.jpg",
-    "link": "https://www.adelaidefestival.com.au/whats-on/season-2027/cockaigne-the-land-of-plenty",
-    "source": "Adelaide Festival"
-  },
-  {
     "title": "Tactile World: Dark Forest",
     "venue": "ACE Gallery",
     "datetime": "2027-02-26T00:00:00",
@@ -9354,18 +9210,6 @@
     ],
     "image": "https://cms.adelaidefestival.com.au/media/ybqn4qig/juanita_mclachlin-1010864.jpg",
     "link": "https://www.adelaidefestival.com.au/whats-on/season-2027/within-dhuwi-bray-ngaya-i-have-spirit",
-    "source": "Adelaide Festival"
-  },
-  {
-    "title": "Floating Worlds: Prints from Osaka & Kyoto",
-    "venue": "Art Gallery of South Australia",
-    "datetime": "2027-01-30T00:00:00",
-    "end_datetime": "2027-04-18T23:59:59",
-    "category": [
-      "Festival"
-    ],
-    "image": "https://cms.adelaidefestival.com.au/media/0u2lajt2/agsa_wr_20262g42_79807_1_2000px_srgb_1400x800px.png",
-    "link": "https://www.adelaidefestival.com.au/whats-on/season-2027/floating-worlds-prints-from-osaka-kyoto",
     "source": "Adelaide Festival"
   },
   {
@@ -9541,21 +9385,6 @@
     "source": "Play & Go Adelaide Major Events"
   },
   {
-    "title": "WOMADelaide",
-    "venue": "Botanic Park / Tainmuntilla",
-    "datetime": "2027-03-05T00:00:00",
-    "end_datetime": "2027-03-08T23:59:59",
-    "category": [
-      "Festival"
-    ],
-    "image": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgMzAwIDMwMCI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgc3R5bGU9ImZpbGw6I2NmZDRkYjtmaWxsLW9wYWNpdHk6IDAuMTsiLz48L3N2Zz4=",
-    "link": "https://playandgo.com.au/womadelaide-botanic-park/",
-    "source": "Play & Go Adelaide Major Events",
-    "festival": [
-      "WOMADelaide"
-    ]
-  },
-  {
     "title": "Adelaide Carols by Candlelight",
     "venue": "Elder Park",
     "datetime": "2026-12-12T00:00:00",
@@ -9708,7 +9537,7 @@
     "category": [
       "Community"
     ],
-    "image": "",
+    "image": "https://conciergeadelaide.github.io/adelaide-events/quizmeisters-trivia.svg",
     "link": "https://skycityadelaide.com.au/whats-on/content/22728/8116/wednesday-trivia-at-the-district/",
     "source": "The District at SkyCity"
   },
@@ -9720,7 +9549,7 @@
     "category": [
       "Community"
     ],
-    "image": "",
+    "image": "https://conciergeadelaide.github.io/adelaide-events/quizmeisters-trivia.svg",
     "link": "https://skycityadelaide.com.au/whats-on/content/22728/8116/wednesday-trivia-at-the-district/",
     "source": "The District at SkyCity"
   },
@@ -9732,7 +9561,7 @@
     "category": [
       "Community"
     ],
-    "image": "",
+    "image": "https://conciergeadelaide.github.io/adelaide-events/quizmeisters-trivia.svg",
     "link": "https://skycityadelaide.com.au/whats-on/content/22728/8116/wednesday-trivia-at-the-district/",
     "source": "The District at SkyCity"
   },
@@ -9744,7 +9573,7 @@
     "category": [
       "Community"
     ],
-    "image": "",
+    "image": "https://conciergeadelaide.github.io/adelaide-events/quizmeisters-trivia.svg",
     "link": "https://skycityadelaide.com.au/whats-on/content/22728/8116/wednesday-trivia-at-the-district/",
     "source": "The District at SkyCity"
   },
@@ -9756,7 +9585,7 @@
     "category": [
       "Community"
     ],
-    "image": "",
+    "image": "https://conciergeadelaide.github.io/adelaide-events/quizmeisters-trivia.svg",
     "link": "https://skycityadelaide.com.au/whats-on/content/22728/8116/wednesday-trivia-at-the-district/",
     "source": "The District at SkyCity"
   },
@@ -9768,7 +9597,7 @@
     "category": [
       "Community"
     ],
-    "image": "",
+    "image": "https://conciergeadelaide.github.io/adelaide-events/quizmeisters-trivia.svg",
     "link": "https://skycityadelaide.com.au/whats-on/content/22728/8116/wednesday-trivia-at-the-district/",
     "source": "The District at SkyCity"
   },
@@ -9780,7 +9609,7 @@
     "category": [
       "Community"
     ],
-    "image": "",
+    "image": "https://conciergeadelaide.github.io/adelaide-events/quizmeisters-trivia.svg",
     "link": "https://skycityadelaide.com.au/whats-on/content/22728/8116/wednesday-trivia-at-the-district/",
     "source": "The District at SkyCity"
   },
@@ -9792,7 +9621,7 @@
     "category": [
       "Community"
     ],
-    "image": "",
+    "image": "https://conciergeadelaide.github.io/adelaide-events/quizmeisters-trivia.svg",
     "link": "https://skycityadelaide.com.au/whats-on/content/22728/8116/wednesday-trivia-at-the-district/",
     "source": "The District at SkyCity"
   },
@@ -11467,6 +11296,18 @@
     "source": "Moshtix Adelaide CBD"
   },
   {
+    "title": "BULLET BRA III",
+    "venue": "Lion Arts Factory",
+    "datetime": "2026-12-11T18:00:00",
+    "end_datetime": "2026-12-11T23:00:00",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.moshtix.com.au/uploads/5705ee86-99d3-448e-b464-1c4b3b533c05x600x600",
+    "link": "https://www.moshtix.com.au/v2/event/bullet-bra-iii/202243",
+    "source": "Moshtix Adelaide CBD"
+  },
+  {
     "title": "LOCK, STOCK & TWO SMOKING DECKS (18+)",
     "venue": "The Austral Hotel",
     "datetime": "2026-12-11T20:00:00",
@@ -12676,6 +12517,18 @@
     "source": "Humanitix Adelaide and Regions"
   },
   {
+    "title": "ICONS ONLY - Adelaide",
+    "venue": "Mary's Poppin",
+    "datetime": "2026-11-27T18:00:00+1030",
+    "end_datetime": "2026-11-27T22:00:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/1ad030a9-3f14-407a-b775-20a344afcf78.jpg@seo-500.jpg",
+    "link": "https://events.humanitix.com/icons-adl",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
     "title": "Ignite Christmas Dinner 2026: Women's Christmas Dinner at Glenelg, Adelaide",
     "venue": "Ellenika",
     "datetime": "2026-12-04T18:00:00+1030",
@@ -12685,18 +12538,6 @@
     ],
     "image": "https://images.humanitix.com/i/f11e1db8-5d09-4827-8a0d-18f6e8ba432b.jpg@seo-500.jpg",
     "link": "https://events.humanitix.com/ignite-christmas-dinner-2026-women-s-christmas-dinner-at-glenelg-adelaide",
-    "source": "Humanitix Adelaide and Regions"
-  },
-  {
-    "title": "MECCA Burnside Village: THE MECCA HOLIDAY SOIREE",
-    "venue": "MECCA Burnside Village",
-    "datetime": "2026-11-04T19:00:00+1030",
-    "end_datetime": "2026-11-04T21:00:00+1030",
-    "category": [
-      "Other"
-    ],
-    "image": "https://images.humanitix.com/i/8b921000-f988-4556-a9aa-bc1519ac168e.jpg@seo-500.jpg",
-    "link": "https://events.humanitix.com/mecca-burnside-village-the-mecca-holiday-soiree",
     "source": "Humanitix Adelaide and Regions"
   },
   {
@@ -12820,6 +12661,18 @@
     "source": "Humanitix Adelaide and Regions"
   },
   {
+    "title": "MECCA Burnside Village: THE MECCA HOLIDAY SOIREE",
+    "venue": "MECCA Burnside Village",
+    "datetime": "2026-11-04T19:00:00+1030",
+    "end_datetime": "2026-11-04T21:00:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/8b921000-f988-4556-a9aa-bc1519ac168e.jpg@seo-500.jpg",
+    "link": "https://events.humanitix.com/mecca-burnside-village-the-mecca-holiday-soiree",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
     "title": "Origins",
     "venue": "Tatachilla Lutheran College Stadium",
     "datetime": "2026-11-08T15:00:00+1030",
@@ -12865,18 +12718,6 @@
     ],
     "image": "https://images.humanitix.com/i/ddb87ee7-9d8c-4cc3-8b1c-1f021a253909.jpg@seo-500.jpg",
     "link": "https://events.humanitix.com/hills-business-strength-in-diversity",
-    "source": "Humanitix Adelaide and Regions"
-  },
-  {
-    "title": "ICONS ONLY - Adelaide",
-    "venue": "Mary's Poppin",
-    "datetime": "2026-11-27T18:00:00+1030",
-    "end_datetime": "2026-11-27T22:00:00+1030",
-    "category": [
-      "Other"
-    ],
-    "image": "https://images.humanitix.com/i/1ad030a9-3f14-407a-b775-20a344afcf78.jpg@seo-500.jpg",
-    "link": "https://events.humanitix.com/icons-adl",
     "source": "Humanitix Adelaide and Regions"
   },
   {

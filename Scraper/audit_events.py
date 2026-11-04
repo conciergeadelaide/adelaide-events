@@ -1,124 +1,23 @@
-"""Read-only quality audit for the What's On Adelaide events.json file.
-Run from repository root: python Scraper\audit_events.py
-Outputs a CSV and text summary in reports/; never edits events.json.
-"""
-import csv
-import json
-from collections import Counter, defaultdict
-from datetime import date, datetime
-from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
-from pathlib import Path
-
-ROOT = Path(__file__).resolve().parent.parent
-DATA = ROOT / 'events.json'
-REPORT_DIR = ROOT / 'reports'
-FIELDS = ['priority', 'issue', 'title', 'venue', 'datetime', 'end_datetime', 'source', 'link', 'notes']
-
-
-def clean(value):
-    return ' '.join(str(value or '').casefold().split())
-
-
-def main():
-    if not DATA.is_file():
-        raise SystemExit(f'Cannot find {DATA}. Put this script in the Scraper folder.')
-    with DATA.open(encoding='utf-8') as handle:
-        events = json.load(handle)
-    if not isinstance(events, list):
-        raise SystemExit('events.json must contain a JSON list; nothing changed.')
-    try:
-        today = datetime.now(ZoneInfo("Australia/Adelaide")).date()
-    except ZoneInfoNotFoundError:
-        today = date.today()  # Local PC fallback when timezone data is unavailable
-    issues = []
-    source_counts = Counter()
-    groups = defaultdict(list)
-
-    def flag(event, priority, issue, notes=''):
-        issues.append({'priority': priority, 'issue': issue,
-                       'title': str(event.get('title') or ''),
-                       'venue': str(event.get('venue') or ''),
-                       'datetime': str(event.get('datetime') or ''),
-                       'end_datetime': str(event.get('end_datetime') or ''),
-                       'source': str(event.get('source') or ''),
-                       'link': str(event.get('link') or event.get('url') or ''),
-                       'notes': notes})
-
-    for index, event in enumerate(events, 1):
-        if not isinstance(event, dict):
-            flag({}, 'HIGH', 'Invalid record', f'Item {index} is not an object')
-            continue
-        source = str(event.get('source') or '')
-        source_counts[source or '(unknown)'] += 1
-        title = str(event.get('title') or '').strip()
-        venue = str(event.get('venue') or '').strip()
-        raw_start = str(event.get('datetime') or '').strip()
-        raw_end = str(event.get('end_datetime') or '').strip()
-        link = str(event.get('link') or event.get('url') or '').strip()
-        if not title or not venue or not raw_start or not link:
-            flag(event, 'HIGH', 'Missing essential field',
-                 'Check title, venue, datetime and link')
-        start = None
-        if raw_start:
-            try:
-                start = datetime.fromisoformat(raw_start)
-            except ValueError:
-                flag(event, 'HIGH', 'Invalid start date', 'Cannot parse datetime')
-        if raw_end:
-            try:
-                end = datetime.fromisoformat(raw_end)
-                if start and ((end.replace(tzinfo=None) < start.replace(tzinfo=None)) if (end.tzinfo is None) != (start.tzinfo is None) else end < start):
-                    flag(event, 'HIGH', 'End before start', 'Check date range')
-            except ValueError:
-                flag(event, 'HIGH', 'Invalid end date', 'Cannot parse end_datetime')
-        if start:
-            if start.date() < today and not raw_end:
-                flag(event, 'MEDIUM', 'Past start date without end date',
-                     'May be an expired listing or an ongoing event; verify')
-            if start.strftime('%H:%M') == '00:00':
-                flag(event, 'MEDIUM', 'Midnight / unknown start time',
-                     'May be a placeholder or a genuine all-day event; verify before publishing a time')
-            groups[(clean(title), clean(venue), start.date().isoformat())].append(event)
-        if not str(event.get('image') or '').strip():
-            flag(event, 'LOW', 'Missing image', 'Check whether an official image is available')
-        if source == 'Adelaide Festival Centre':
-            flag(event, 'MEDIUM', 'Manual review: Adelaide Festival Centre',
-                 'Check current date, time, cancellation and link against the official listing; this is a review reminder, not a confirmed source failure')
-
-    for key, members in groups.items():
-        if len(members) < 2:
-            continue
-        exact_times = Counter(str(e.get('datetime') or '') for e in members)
-        if any(n > 1 for n in exact_times.values()):
-            flag(members[0], 'MEDIUM', 'Possible duplicate performance',
-                 f'{len(members)} records share title/venue/date; at least two share a start time. Check before removing.')
-        else:
-            flag(members[0], 'INFO', 'Multiple performances on one day',
-                 f'{len(members)} different start times; likely legitimate sessions. Do not merge automatically.')
-
-    priority_order = {'HIGH': 0, 'MEDIUM': 1, 'LOW': 2, 'INFO': 3}
-    issues.sort(key=lambda x: (priority_order.get(x['priority'], 9), x['issue'], x['datetime'], x['title']))
-    REPORT_DIR.mkdir(exist_ok=True)
-    csv_path = REPORT_DIR / 'event_audit.csv'
-    with csv_path.open('w', encoding='utf-8-sig', newline='') as handle:
-        writer = csv.DictWriter(handle, fieldnames=FIELDS)
-        writer.writeheader()
-        writer.writerows(issues)
-    issue_counts = Counter(x['issue'] for x in issues)
-    lines = [f"WHAT'S ON ADELAIDE - READ-ONLY AUDIT", f'Audit date: {today.isoformat()}',
-             f'Events checked: {len(events)}', f'Flags raised: {len(issues)}',
-             '', 'FLAGS BY TYPE:']
-    lines += [f'  {name}: {count}' for name, count in issue_counts.most_common()]
-    lines += ['', 'EVENTS BY SOURCE:']
-    lines += [f'  {name}: {count}' for name, count in source_counts.most_common()]
-    lines += ['', 'NOTE: Flags are review candidates, not confirmed errors.',
-              'This audit did not change events.json or publish website data.']
-    summary_path = REPORT_DIR / 'event_audit_summary.txt'
-    summary_path.write_text('\n'.join(lines) + '\n', encoding='utf-8')
-    print('\n'.join(lines[:5]))
-    print(f'\nExcel report: {csv_path}')
-    print(f'Text summary: {summary_path}')
-
-
-if __name__ == '__main__':
-    main()
+"""Offline read-only audit of the events.json file; Python standard library only."""
+import json, collections, pathlib, re, sys
+path=pathlib.Path(sys.argv[1]) if len(sys.argv)>1 else pathlib.Path("events.json")
+events=json.loads(path.read_text(encoding="utf-8"))
+print("Events:",len(events))
+print("Sources:",len(set(str(e.get("source") or "") for e in events)))
+missing_images=[e for e in events if not str(e.get("image") or "").startswith(("https://","http://"))]
+missing_links=[e for e in events if not str(e.get("link") or "").startswith(("https://","http://"))]
+print("Missing/invalid image URLs:",len(missing_images))
+print("Missing/invalid event links:",len(missing_links))
+for e in missing_images[:20]: print("  IMAGE:",e.get("datetime"),"|",e.get("title"),"|",e.get("source"))
+for e in missing_links[:20]: print("  LINK:",e.get("datetime"),"|",e.get("title"),"|",e.get("source"))
+groups=collections.defaultdict(list)
+def clean(s): return " ".join(re.sub(r"[^a-z0-9]+"," ",str(s or "").casefold()).split())
+for e in events:
+ key=(clean(e.get("title")),clean(e.get("venue")),str(e.get("datetime") or "")[:10])
+ groups[key].append(e)
+ambiguous=[(k,v) for k,v in groups.items() if len(v)>1 and len(set(e.get("source") for e in v))>1]
+print("Cross-source same-title/venue/day groups to review:",len(ambiguous))
+for (title,venue,day),group in ambiguous:
+ print("  REVIEW:",day,"|",group[0].get("title"),"|",group[0].get("venue"))
+ for e in group: print("    ",e.get("datetime"),"|",e.get("source"))
+print("This audit checks data only; it does not verify live websites or images.")
