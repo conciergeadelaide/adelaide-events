@@ -431,8 +431,33 @@ def apply_district_trivia_image(events):
     return events
 
 
+def repair_missing_event_images(events):
+    """Assign local, clearly generic artwork only to records without an image.
+
+    Never replace source-provided images or fabricate official production posters.
+    Files are hosted in this GitHub Pages repository.
+    """
+    artwork = {
+        "State Theatre Company South Australia": "state-theatre-event.svg",
+        "Play & Go Adelaide Major Events": "adelaide-major-events.svg",
+    }
+    counts = {name: 0 for name in artwork}
+    for event in events:
+        source = str(event.get("source") or "")
+        if source in artwork and not str(event.get("image") or "").strip():
+            event["image"] = (
+                "https://conciergeadelaide.github.io/adelaide-events/"
+                + artwork[source]
+            )
+            counts[source] += 1
+    for source, count in counts.items():
+        print(f"Local fallback artwork: {source}: {count} missing images repaired")
+    return events
+
+
 def save_events(events):
     events = apply_verified_recurring_sessions(events)
+    events = repair_missing_event_images(events)
     events = apply_district_trivia_image(events)
     verified_date_fixes = sum(correct_verified_event_dates(event) for event in events)
     if verified_date_fixes:
