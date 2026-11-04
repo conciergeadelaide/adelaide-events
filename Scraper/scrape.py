@@ -432,9 +432,9 @@ def apply_district_trivia_image(events):
 
 
 def repair_missing_event_images(events):
-    """Assign local, clearly generic artwork only to records without an image.
+    """Assign local generic artwork to missing or non-HTTP image values.
 
-    Never replace source-provided images or fabricate official production posters.
+    Preserve valid absolute HTTP(S) image URLs; replace relative paths and data URIs.
     Files are hosted in this GitHub Pages repository.
     """
     artwork = {
@@ -444,7 +444,7 @@ def repair_missing_event_images(events):
     counts = {name: 0 for name in artwork}
     for event in events:
         source = str(event.get("source") or "")
-        if source in artwork and not str(event.get("image") or "").strip():
+        if source in artwork and not str(event.get("image") or "").strip().lower().startswith(("https://", "http://")):
             event["image"] = (
                 "https://conciergeadelaide.github.io/adelaide-events/"
                 + artwork[source]
