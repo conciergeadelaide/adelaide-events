@@ -709,3 +709,12 @@ text-align: right;
  .print-guide-row a {font-size:9pt;color:#333}
  .print-guide-note {font-size:9pt;color:#555;margin-top:18pt}
 }
+
+/* Batch 1: resilient image layout and keyboard focus */
+.event-image img { display: block; }
+.event-link:focus-visible, .clear-button:focus-visible,
+.date-shortcuts button:focus-visible { outline: 3px solid #b08d57; outline-offset: 3px; }
+@media (max-width: 650px) {
+  .event-image { height: auto; aspect-ratio: 4 / 3; min-height: 220px; }
+  .event-image img { width: 100%; height: 100%; position: absolute; inset: 0; }
+}

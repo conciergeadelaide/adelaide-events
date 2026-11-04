@@ -693,15 +693,17 @@ function createEventCard(event) {
 
     var image = document.createElement("img");
 
-    if (event.image) {
-        image.src = event.image;
-    } else {
-        image.src =
-            "https://images.unsplash.com/photo-1492684223066-81342ee5ff30";
-    }
-
-    image.alt = event.title || "Adelaide event";
+    // Local fallback works even when an external image host is unavailable.
+    image.src = /^https?:\/\//i.test(String(event.image || ""))
+        ? event.image : "event-placeholder.svg";
+    image.addEventListener("error", function() {
+        if (!image.src.endsWith("event-placeholder.svg")) {
+            image.src = "event-placeholder.svg";
+        }
+    });
+    image.alt = event.image ? (event.title || "Adelaide event") : "Event image unavailable";
     image.loading = "lazy";
+    image.decoding = "async";
 
     // Show one individually coloured badge for every category.
     // Keep the original badge wrapper's position over the image.
@@ -2093,7 +2095,46 @@ Promise.all([
         seen.add(id);
         return true;
     });
-    events = current.filter(function(event) { return !isPast(event); });
+    // A date-only listing can overlap a verified timed listing from another
+    // source. Only hide the date-only copy when it has no multi-day range.
+    // Same-source matinees/evening shows and multi-day exhibitions remain intact.
+    function duplicateTitle(value) {
+        return String(value || "").toLowerCase()
+            .normalize("NFKD").replace(/[\u0300-\u036f]/g, "")
+            .replace(/[\u2018\u2019]/g, "'")
+            .replace(/[^a-z0-9]/g, "");
+    }
+    function duplicateKey(event) {
+        return [duplicateTitle(event.title),
+            duplicateTitle(canonicalVenue(event.venue)),
+            getDatePart(getEventStart(event))].join("|");
+    }
+    function isDateOnlyListing(event) {
+        var value = String(getEventStart(event));
+        return /^\d{4}-\d{2}-\d{2}(?:T00:00(?::00)?(?:Z|[+-]\d{2}:?\d{2})?)?$/.test(value);
+    }
+    var timedListings = new Map();
+    current.forEach(function(event) {
+        if (isPast(event) || isDateOnlyListing(event)) return;
+        var k = duplicateKey(event);
+        if (!timedListings.has(k)) timedListings.set(k, new Set());
+        timedListings.get(k).add(String(event.source || ""));
+    });
+    var dateOnlyOverlaps = 0;
+    events = current.filter(function(event) {
+        if (isPast(event)) return false;
+        if (!isDateOnlyListing(event)) return true;
+        // Never discard an entry that describes a date range.
+        var end = getDatePart(event.end_datetime || event.end_date || "");
+        if (end && end !== getDatePart(getEventStart(event))) return true;
+        var sources = timedListings.get(duplicateKey(event));
+        if (!sources || !Array.from(sources).some(function(source) {
+            return source !== String(event.source || "");
+        })) return true;
+        dateOnlyOverlaps++;
+        return false;
+    });
+    if (dateOnlyOverlaps) console.info("Date-only cross-source overlaps hidden:", dateOnlyOverlaps);
     events.concat(historicalEvents).forEach(function(event) {
         if (event.venue) event.venue = canonicalVenue(event.venue);
     });
