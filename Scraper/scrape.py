@@ -599,6 +599,42 @@ def apply_audited_data_corrections(event):
     return changes
 
 
+def remove_verified_showground_aggregator_duplicates(events):
+    """Prefer the official Santa's Wonderland listing over its date-only copy.
+
+    The rule is deliberately limited to one named event, venue, calendar day
+    and two sources. Other events and separately timed sessions are untouched.
+    """
+    def canonical_title(value):
+        return " ".join(re.sub(r"[^a-z0-9]+", " ",
+                               str(value or "").casefold()).split())
+
+    official_dates = {
+        str(event.get("datetime") or "")[:10]
+        for event in events
+        if event.get("source") == "Adelaide Showground"
+        and str(event.get("venue") or "").strip().casefold() == "adelaide showground"
+        and canonical_title(event.get("title")) == "santa s wonderland"
+        and re.search(r"T(?!00:00)\d{2}:\d{2}", str(event.get("datetime") or ""))
+    }
+    filtered = []
+    removed = 0
+    for event in events:
+        is_duplicate = (
+            event.get("source") == "Play & Go Adelaide Major Events"
+            and str(event.get("venue") or "").strip().casefold() == "adelaide showground"
+            and canonical_title(event.get("title")) == "santa s wonderland"
+            and str(event.get("datetime") or "")[:10] in official_dates
+            and str(event.get("datetime") or "")[11:16] in ("", "00:00")
+        )
+        if is_duplicate:
+            removed += 1
+        else:
+            filtered.append(event)
+    print(f"Showground: {removed} date-only Santa's Wonderland aggregator duplicates excluded")
+    return filtered
+
+
 def consolidate_verified_cross_source_duplicates(events):
     """Only merge high-confidence cross-source copies of one performance.
 
@@ -3035,6 +3071,9 @@ def main(only_source=None):
                 restored_seafood += 1
                 break
     print(f"Specific Art of Seafood workshop titles restored: {restored_seafood}")
+
+    # Prefer the confirmed Showground start time to a date-only Play & Go copy.
+    final_events = remove_verified_showground_aggregator_duplicates(final_events)
 
     # ----------------------------------------
     # Save final database

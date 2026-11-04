@@ -228,3 +228,6 @@ SOURCES.append({"name": "National Railway Museum", "url": "https://nrm.org.au/"}
 
 # SALA Festival official ArtFuel exhibition and event program.
 SOURCES.append({"name": "SALA Festival", "url": "https://www.salafestival.com/artfuel/program"})
+
+# Official Adelaide Showground upcoming events.
+SOURCES.append({"name": "Adelaide Showground", "url": "https://www.adelaideshowground.com.au/whats-on"})
