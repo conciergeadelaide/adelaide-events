@@ -1003,6 +1003,22 @@ def restore_richer_existing_event_details(events, existing_events):
     return repairs, invalid_ends
 
 
+# Batch 7: Confirmed cancelled booking URLs, scoped to the exact booking ID.
+# Do not use performer-name or substring matching: another performance may be valid.
+CONFIRMED_CANCELLED_BOOKINGS = {
+    ("moshtix.com.au", "/v2/event/ru-pretty-enuff-australian-tour-26/195437"),
+}
+
+
+def is_confirmed_cancelled_booking(event):
+    """Match a verified cancelled booking by its exact canonical host and path."""
+    link = str(event.get("link") or event.get("url") or "").strip()
+    parsed = urlparse(link)
+    host = (parsed.hostname or "").casefold().removeprefix("www.")
+    path = parsed.path.rstrip("/").casefold()
+    return (host, path) in CONFIRMED_CANCELLED_BOOKINGS
+
+
 def is_cancelled_secret_garden(event):
     link = str(event.get("link") or event.get("url") or "")
     parsed = urlparse(link)
@@ -3096,6 +3112,12 @@ def main(only_source=None):
     explicitly_cancelled = sum(is_explicitly_cancelled(e) for e in final_events)
     final_events = [e for e in final_events if not is_explicitly_cancelled(e)]
     print(f"Explicitly cancelled listings excluded: {explicitly_cancelled}")
+
+    # Batch 7: exclude only independently confirmed cancelled booking IDs.
+    # Apply after preservation/merge so a retained old record cannot reappear.
+    confirmed_cancelled = sum(is_confirmed_cancelled_booking(e) for e in final_events)
+    final_events = [e for e in final_events if not is_confirmed_cancelled_booking(e)]
+    print(f"Confirmed cancelled booking URLs excluded: {confirmed_cancelled}")
 
     # Permanently exclude unreliable AllEvents records, including legacy preserved ones.
     def _is_allevents(event):
