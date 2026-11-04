@@ -5,6 +5,9 @@ from difflib import SequenceMatcher
 from datetime import datetime
 import os
 import shutil
+import time
+from email.utils import parsedate_to_datetime
+from datetime import timezone
 import requests
 from urllib.parse import urlparse
 
@@ -1366,6 +1369,64 @@ def fetch_page(url):
         )
 
 
+def classify_source_failure(exc):
+    """Make HTTP failures understandable without changing preservation rules."""
+    response = getattr(exc, "response", None)
+    status = getattr(response, "status_code", None)
+    if status is None:
+        match = re.search(r"\b(403|429|500|502|503|504)\b", str(exc))
+        status = int(match.group(1)) if match else None
+    if status == 403:
+        return "HTTP 403 (access denied; no automatic retry)"
+    if status == 429:
+        return "HTTP 429 (rate limited; existing records retained)"
+    if status in (500, 502, 503, 504):
+        return f"HTTP {status} (server unavailable)"
+    return "source error"
+
+
+def limited_retry_after(exc):
+    """Retry at most once, only when server explicitly requests a short wait."""
+    response = getattr(exc, "response", None)
+    status = getattr(response, "status_code", None)
+    if status is None and re.search(r"\b429\b", str(exc)):
+        status = 429
+    if status != 429:
+        return None
+    header = (getattr(response, "headers", {}) or {}).get("Retry-After")
+    if not header:
+        return None
+    try:
+        seconds = float(header)
+    except (TypeError, ValueError):
+        try:
+            dt = parsedate_to_datetime(header)
+            if dt.tzinfo is None:
+                dt = dt.replace(tzinfo=timezone.utc)
+            seconds = (dt - datetime.now(timezone.utc)).total_seconds()
+        except (TypeError, ValueError, OverflowError):
+            return None
+    if 0 <= seconds <= 10:
+        return max(1.0, seconds)
+    return None
+
+
+def scrape_with_bounded_retry(source):
+    """Avoid repeated requests when a site is limiting automated traffic."""
+    try:
+        return scrape_source(source)
+    except requests.exceptions.HTTPError as exc:
+        # Only Plant 3 is retried. Other sources keep their existing behavior.
+        if source["name"] != "Plant 3 Bowden":
+            raise
+        wait = limited_retry_after(exc)
+        if wait is None:
+            raise
+        print(f"HTTP 429; respecting Retry-After ({wait:g}s); one retry -> ", end="", flush=True)
+        time.sleep(wait)
+        return scrape_source(source)
+
+
 def scrape_source(source):
 
     name = source["name"]
@@ -2172,7 +2233,7 @@ def main(only_source=None):
 
         try:
 
-            fresh_events = scrape_source(
+            fresh_events = scrape_with_bounded_retry(
                 source
             )
 
@@ -2182,7 +2243,7 @@ def main(only_source=None):
         except Exception as e:
 
             print(
-                f"ERROR: {e}, "
+                f"{classify_source_failure(e)}: {e}; "
                 f"preserved existing"
             )
 
