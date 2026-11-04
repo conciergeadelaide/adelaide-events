@@ -2099,21 +2099,39 @@ def parse_south_australia_tourism(soup, source_url):
     """
     from urllib.parse import urlparse
 
-    listing_url = "https://southaustralia.com/destinations/adelaide/what-s-on"
+    # Batch 8: discover Adelaide event detail pages from both the destination
+    # listing and the four curated carousels on the main What's On page.
+    # Both use /products/adelaide/event/... URLs. Regional cards are excluded.
+    listing_urls = (
+        "https://southaustralia.com/destinations/adelaide/what-s-on",
+        "https://southaustralia.com/whats-on",
+    )
     session = requests.Session()
     session.headers.update({"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/140.0.0.0 Safari/537.36"})
-    response = session.get(listing_url, timeout=30)
-    response.raise_for_status()
-    listing = BeautifulSoup(response.text, "lxml")
     urls = set()
-    for anchor in listing.find_all("a", href=True):
-        link = normalise_url(anchor["href"], listing_url).split("#")[0].split("?")[0]
-        parsed = urlparse(link)
-        if parsed.hostname in ("southaustralia.com", "www.southaustralia.com") and re.fullmatch(r"/products/adelaide/event/[^/]+/?", parsed.path, re.I):
-            urls.add(link.rstrip("/"))
+    listing_failures = []
+    for listing_url in listing_urls:
+        try:
+            response = session.get(listing_url, timeout=30)
+            response.raise_for_status()
+            listing = BeautifulSoup(response.text, "lxml")
+            found = set()
+            for anchor in listing.find_all("a", href=True):
+                link = normalise_url(anchor["href"], listing_url).split("#")[0].split("?")[0]
+                parsed = urlparse(link)
+                if (parsed.hostname in ("southaustralia.com", "www.southaustralia.com")
+                        and re.fullmatch(r"/products/adelaide/event/[^/]+/?", parsed.path, re.I)):
+                    found.add(link.rstrip("/"))
+            urls.update(found)
+            print(f"    Tourism discovery: {len(found)} Adelaide links from {listing_url}")
+        except requests.RequestException as exc:
+            listing_failures.append(f"{listing_url}: {exc}")
+            print(f"    Tourism discovery unavailable: {listing_url}: {exc}")
 
     if not urls:
-        raise RuntimeError("Tourism: no Adelaide event links found; preserving existing records")
+        raise RuntimeError("Tourism: no Adelaide event links found; preserving existing records. "
+                           + "; ".join(listing_failures))
+    print(f"    Tourism discovery: {len(urls)} unique Adelaide links across both pages")
 
     events = []
     failed = 0

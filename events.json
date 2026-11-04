@@ -11836,279 +11836,6 @@
     "source": "Ticketmaster Adelaide"
   },
   {
-    "title": "Diner en Blanc Adelaide",
-    "venue": "Diner en Blanc Adelaide",
-    "datetime": "2026-12-05T18:00:00",
-    "end_datetime": "2026-12-05T22:00:00",
-    "category": [
-      "Other"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/035bf061f9579a88c612cb399eb0e90d.jpeg?mode=crop&width=900&height=506&rot=360",
-    "link": "https://southaustralia.com/products/adelaide/event/diner-en-blanc-adelaide",
-    "source": "South Australia Tourism Commission"
-  },
-  {
-    "title": "Dirty Dancing In Concert - Adelaide",
-    "venue": "98 Port Rd",
-    "datetime": "2026-11-28T19:30:00",
-    "end_datetime": "2026-11-28T21:00:00",
-    "category": [
-      "Music",
-      "Film"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/2ba4564ffd0ddca51c7796cd40b63791.jpeg?mode=crop&width=900&height=506&rot=360",
-    "link": "https://southaustralia.com/products/adelaide/event/dirty-dancing-in-concert-adelaide",
-    "source": "South Australia Tourism Commission"
-  },
-  {
-    "title": "Glam, Gin & Drag Bingo at Prohibition Liquor Co.",
-    "venue": "22 Gilbert Street",
-    "datetime": "2026-11-07T16:00:00",
-    "end_datetime": "2026-11-07T18:30:00",
-    "category": [
-      "Club/Party",
-      "Food & Beverage"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/fd90ca1571f677baace1c7b8b0296a1c.jpeg?mode=crop&width=900&height=506&rot=360",
-    "link": "https://southaustralia.com/products/adelaide/event/drag-bingo-cocktail-fun",
-    "source": "South Australia Tourism Commission"
-  },
-  {
-    "title": "Endless Sky – Cathedral Series",
-    "venue": "27 King William Road",
-    "datetime": "2026-11-26T00:00:00",
-    "end_datetime": "2026-11-27T00:00:00",
-    "category": [
-      "Music"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/22f79ed45883136c20e75dc6b94ce883_w2tbw5h.jpeg?mode=crop&width=900&height=506&rot=360",
-    "link": "https://southaustralia.com/products/adelaide/event/endless-sky-cathedral-series",
-    "source": "South Australia Tourism Commission"
-  },
-  {
-    "title": "Exhibition: BEGINNINGS",
-    "venue": "North Terrace, adjacent, Morphett St Bridge",
-    "datetime": "2026-01-13T10:00:00",
-    "end_datetime": "2026-11-20T17:00:00",
-    "category": [
-      "Exhibitions"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/9f6bb4204184cbd412353ea7bd388361.jpeg?mode=crop&width=900&height=506&rot=360",
-    "link": "https://southaustralia.com/products/adelaide/event/exhibition-beginnings",
-    "source": "South Australia Tourism Commission"
-  },
-  {
-    "title": "Feast Festival: Phoebs, You're a Lesbian",
-    "venue": "166 Goodwood Road",
-    "datetime": "2026-11-05T19:00:00",
-    "end_datetime": "2026-11-05T20:00:00",
-    "category": [
-      "Festival"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/2e9af25d3fced2d34c0e148beda03c8d.jpeg?mode=crop&width=900&height=506&rot=360",
-    "link": "https://southaustralia.com/products/adelaide/event/feast-festival-phoebs-youre-a-lesbian",
-    "source": "South Australia Tourism Commission",
-    "festival": [
-      "Feast Festival"
-    ]
-  },
-  {
-    "title": "Feast Festival: The Feast Festival Gayla",
-    "venue": "166 Goodwood Road",
-    "datetime": "2026-11-07T19:00:00",
-    "end_datetime": "2026-11-07T21:00:00",
-    "category": [
-      "Festival"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/75cdb930257f67528847b88c3f069808.jpeg?mode=crop&width=900&height=506&rot=360",
-    "link": "https://southaustralia.com/products/adelaide/event/feast-festival-the-feast-festival-gayla",
-    "source": "South Australia Tourism Commission",
-    "festival": [
-      "Feast Festival"
-    ]
-  },
-  {
-    "title": "Fischer-Z - Adelaide",
-    "venue": "59 Port Road",
-    "datetime": "2026-11-27T19:30:00",
-    "end_datetime": "2026-11-27T22:00:00",
-    "category": [
-      "Music"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/b40f4225ac25945566a732e03d3fdc64.jpeg?mode=crop&width=900&height=506&rot=360",
-    "link": "https://southaustralia.com/products/adelaide/event/fischerz-adelaide",
-    "source": "South Australia Tourism Commission"
-  },
-  {
-    "title": "Gabriel Iglesias",
-    "venue": "98 Port Road",
-    "datetime": "2026-12-06T19:00:00",
-    "end_datetime": "2026-12-06T21:00:00",
-    "category": [
-      "Comedy"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/94fab0ed4aa2622d121d40617ae55582.jpeg?mode=crop&width=900&height=506&rot=360",
-    "link": "https://southaustralia.com/products/adelaide/event/gabriel-iglesias",
-    "source": "South Australia Tourism Commission"
-  },
-  {
-    "title": "Government House Open Day",
-    "venue": "North Terrace",
-    "datetime": "2026-11-08T10:00:00",
-    "end_datetime": "2026-11-08T14:00:00",
-    "category": [
-      "Other"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/7aa1830c1c0fc60ea2a3ba793a367443.jpeg?mode=crop&width=900&height=506&rot=360",
-    "link": "https://southaustralia.com/products/adelaide/event/government-house-open-day",
-    "source": "South Australia Tourism Commission"
-  },
-  {
-    "title": "Grace",
-    "venue": "King William Road",
-    "datetime": "2026-12-06T14:30:00",
-    "end_datetime": "2026-12-06T16:30:00",
-    "category": [
-      "Music"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/9e0c310bc26326abdf4f5fe8a4886c40.jpeg?mode=crop&width=900&height=506&rot=360",
-    "link": "https://southaustralia.com/products/adelaide/event/grace",
-    "source": "South Australia Tourism Commission"
-  },
-  {
-    "title": "Inferno",
-    "venue": "143 Hindley Street",
-    "datetime": "2026-05-29T19:00:00",
-    "end_datetime": "2026-11-27T23:00:00",
-    "category": [
-      "Theatre"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/32aa1c545ffbd4a3e801970cd72fd4ee.jpeg?mode=crop&width=900&height=506&rot=360",
-    "link": "https://southaustralia.com/products/adelaide/event/inferno",
-    "source": "South Australia Tourism Commission"
-  },
-  {
-    "title": "Kate Ceberano - Australian Made Tour",
-    "venue": "58 Grote Street",
-    "datetime": "2026-11-07T00:00:00",
-    "end_datetime": "",
-    "category": [
-      "Other"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/8ae0756e1894ce1df60fdac231f8d62a.jpeg?mode=crop&width=900&height=506&rot=360",
-    "link": "https://southaustralia.com/products/adelaide/event/kate-ceberano-australian-made-tour",
-    "source": "South Australia Tourism Commission"
-  },
-  {
-    "title": "Ray White Semaphore Street Fair",
-    "venue": "Semaphore Road, Semaphore",
-    "datetime": "2026-11-29T10:00:00",
-    "end_datetime": "2026-11-29T17:00:00",
-    "category": [
-      "Community",
-      "Festival"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/911e6b1bc5052b7e426d27d05098c42f.jpeg?mode=crop&width=900&height=506&rot=360",
-    "link": "https://southaustralia.com/products/adelaide/event/kate-smith-property-semaphore-street-fair",
-    "source": "South Australia Tourism Commission"
-  },
-  {
-    "title": "Modern Mysticism",
-    "venue": "68 North Terrace",
-    "datetime": "2026-11-07T01:00:00",
-    "end_datetime": "2026-11-07T04:00:00",
-    "category": [
-      "Other"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/580b66e4d7f8c383969e6203e0c8a2e4.jpeg?mode=crop&width=900&height=506&rot=360",
-    "link": "https://southaustralia.com/products/adelaide/event/leaves-ecoanxiety-artist-sharing-emiko-artemis",
-    "source": "South Australia Tourism Commission"
-  },
-  {
-    "title": "Simply Adelaide West Coast Swing",
-    "venue": "230 Angas Street",
-    "datetime": "2026-11-05T18:45:00",
-    "end_datetime": "2026-11-08T23:59:00",
-    "category": [
-      "Dance"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/11413d9ba900934c8c14a317c9d304ad.jpeg?mode=crop&width=900&height=506&rot=360",
-    "link": "https://southaustralia.com/products/adelaide/event/simply-adelaide-west-coast-swing",
-    "source": "South Australia Tourism Commission"
-  },
-  {
-    "title": "Social Clay Session - Pottery Wheel",
-    "venue": "3A Hubbe Court",
-    "datetime": "2025-06-06T18:00:00",
-    "end_datetime": "2027-01-08T21:00:00",
-    "category": [
-      "Conferences/Workshops/Expos"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/9a9bb7fda3f56acfbfebf81b344ad492.jpeg?mode=crop&width=900&height=506&rot=360",
-    "link": "https://southaustralia.com/products/adelaide/event/social-clay-session-pottery-wheel",
-    "source": "South Australia Tourism Commission"
-  },
-  {
-    "title": "South Australian Music Awards 2026",
-    "venue": "98 Port Road",
-    "datetime": "2026-11-10T17:00:00",
-    "end_datetime": "2026-11-10T22:30:00",
-    "category": [
-      "Other"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/888fd67fc425c63fd3474d53ee060a51.jpeg?mode=crop&width=900&height=506&rot=360",
-    "link": "https://southaustralia.com/products/adelaide/event/south-australian-music-awards-2026",
-    "source": "South Australia Tourism Commission"
-  },
-  {
-    "title": "Studio Tours",
-    "venue": "154 Angas Street",
-    "datetime": "2026-01-30T16:30:00",
-    "end_datetime": "2027-07-27T17:15:00",
-    "category": [
-      "Exhibitions"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/e1abf423907eaaeef92ef12bdf9fcf79.jpeg?mode=crop&width=900&height=506&rot=360",
-    "link": "https://southaustralia.com/products/adelaide/event/studio-tours-at-the-mill",
-    "source": "South Australia Tourism Commission"
-  },
-  {
-    "title": "The Mini-Cine",
-    "venue": "North Terrace",
-    "datetime": "2026-08-21T00:00:00",
-    "end_datetime": "2026-12-05T00:00:00",
-    "category": [
-      "Film"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/5c6828c78eaf83c1ad1da722547fc640.jpeg?mode=crop&width=900&height=506&rot=360",
-    "link": "https://southaustralia.com/products/adelaide/event/the-minicine",
-    "source": "South Australia Tourism Commission"
-  },
-  {
-    "title": "Urban Wine Walk Port Adelaide",
-    "venue": "Urban Wine Walk Port Adelaide",
-    "datetime": "2026-11-07T12:00:00",
-    "end_datetime": "2026-11-07T16:00:00",
-    "category": [
-      "Food & Beverage"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/425f786be84846c3e451d1db466a1053_cj1xpyg_03e85us_i025084_fzhei84_odin13p_tj01t0j_y1r2zxm_xrnwn8j_yhag75a_lbtpfs9.jpeg?mode=crop&width=900&height=506&rot=360",
-    "link": "https://southaustralia.com/products/adelaide/event/urban-wine-walk-port-adelaide",
-    "source": "South Australia Tourism Commission"
-  },
-  {
-    "title": "Mindful Clay, Pottery wheel, Hand Building & Colors",
-    "venue": "3A Hubbe Court",
-    "datetime": "2026-03-27T11:00:00",
-    "end_datetime": "2028-03-09T13:30:00",
-    "category": [
-      "Conferences/Workshops/Expos"
-    ],
-    "image": "https://assets.atdw-online.com.au/images/a36b9f27eeb7c36e4220e67286336f59.jpeg?mode=crop&width=900&height=506&rot=360",
-    "link": "https://southaustralia.com/products/adelaide/event/mindful-clay-pottery-wheel-hand-building-colors",
-    "source": "South Australia Tourism Commission"
-  },
-  {
     "title": "Adelaide Film Festival",
     "venue": "Various venues",
     "datetime": "2026-10-14T00:00:00",
@@ -12986,6 +12713,579 @@
     "image": "https://images.humanitix.com/i/2e1e1b26-2b4f-4300-b8ed-e0e7dbca4192.jpg@seo-500.jpg",
     "link": "https://events.humanitix.com/lipsync-adl",
     "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "140th Bay Sheffield Carnival",
+    "venue": "Colley Terrace",
+    "datetime": "2026-12-27T13:00:00",
+    "end_datetime": "2026-12-28T19:00:00",
+    "category": [
+      "Other"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/40c79bdbb3033ef9c8e3543bf7c63361.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/140th-bay-sheffield-carnival",
+    "source": "South Australia Tourism Commission"
+  },
+  {
+    "title": "Adelaide Festival 2027",
+    "venue": "Various locations",
+    "datetime": "2027-02-26T00:00:00",
+    "end_datetime": "2027-03-14T00:00:00",
+    "category": [
+      "Festival"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/e5d69379b8e9e973aaf348d4e0ccf261.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/adelaide-festival-2027",
+    "source": "South Australia Tourism Commission",
+    "festival": [
+      "Adelaide Festival"
+    ]
+  },
+  {
+    "title": "Adelaide Fringe",
+    "venue": "Adelaide Fringe",
+    "datetime": "2027-02-19T09:00:00",
+    "end_datetime": "2027-03-21T23:00:00",
+    "category": [
+      "Other"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/7a2ea3925705354b53fd44b36b13b3f7.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/adelaide-fringe",
+    "source": "South Australia Tourism Commission",
+    "festival": [
+      "Adelaide Fringe"
+    ]
+  },
+  {
+    "title": "Adelaide Town Hall Christmas Concert",
+    "venue": "128 King William Street",
+    "datetime": "2026-12-16T00:00:00",
+    "end_datetime": "2026-12-16T00:00:00",
+    "category": [
+      "Music"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/e7da3440f99a5ce23b4d9ac9245a4b1f.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/adelaide-town-hall-christmas-concert",
+    "source": "South Australia Tourism Commission"
+  },
+  {
+    "title": "AFL Gather Round 2027",
+    "venue": "Adelaide Oval",
+    "datetime": "2027-04-08T00:00:00",
+    "end_datetime": "2027-04-11T00:00:00",
+    "category": [
+      "Other"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/bbaaecfcc12492caa7cd9d371d45ac48.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/afl-gather-round-2027",
+    "source": "South Australia Tourism Commission"
+  },
+  {
+    "title": "Björn Again: ABBA Forever Tour",
+    "venue": "58 Grote Street",
+    "datetime": "2026-11-21T00:00:00",
+    "end_datetime": "2026-11-21T00:00:00",
+    "category": [
+      "Other"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/d07dbdd36f15c31f5d1def5fa47cefb0.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/bjrn-again-abba-forever-tour",
+    "source": "South Australia Tourism Commission"
+  },
+  {
+    "title": "bp Adelaide Grand Final",
+    "venue": "Victoria Park",
+    "datetime": "2026-11-26T00:00:00",
+    "end_datetime": "2026-11-29T00:00:00",
+    "category": [
+      "Other"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/9a5a8f177ba96074f8f0975cce3efebd.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/bp-adelaide-grand-final",
+    "source": "South Australia Tourism Commission"
+  },
+  {
+    "title": "Diner en Blanc Adelaide",
+    "venue": "Diner en Blanc Adelaide",
+    "datetime": "2026-12-05T18:00:00",
+    "end_datetime": "2026-12-05T22:00:00",
+    "category": [
+      "Other"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/035bf061f9579a88c612cb399eb0e90d.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/diner-en-blanc-adelaide",
+    "source": "South Australia Tourism Commission"
+  },
+  {
+    "title": "Dirty Dancing In Concert - Adelaide",
+    "venue": "98 Port Rd",
+    "datetime": "2026-11-28T19:30:00",
+    "end_datetime": "2026-11-28T21:00:00",
+    "category": [
+      "Music",
+      "Film"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/2ba4564ffd0ddca51c7796cd40b63791.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/dirty-dancing-in-concert-adelaide",
+    "source": "South Australia Tourism Commission"
+  },
+  {
+    "title": "Glam, Gin & Drag Bingo at Prohibition Liquor Co.",
+    "venue": "22 Gilbert Street",
+    "datetime": "2026-11-07T16:00:00",
+    "end_datetime": "2026-11-07T18:30:00",
+    "category": [
+      "Club/Party",
+      "Food & Beverage"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/fd90ca1571f677baace1c7b8b0296a1c.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/drag-bingo-cocktail-fun",
+    "source": "South Australia Tourism Commission"
+  },
+  {
+    "title": "Ebenezer Night Markets",
+    "venue": "31 Ebenezer Place",
+    "datetime": "2026-12-05T17:30:00",
+    "end_datetime": "2027-03-20T22:30:00",
+    "category": [
+      "Other"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/9f04f2a05084d77365006581f5a94490.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/ebenezer-night-markets",
+    "source": "South Australia Tourism Commission"
+  },
+  {
+    "title": "Endless Sky – Cathedral Series",
+    "venue": "27 King William Road",
+    "datetime": "2026-11-26T00:00:00",
+    "end_datetime": "2026-11-27T00:00:00",
+    "category": [
+      "Music"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/22f79ed45883136c20e75dc6b94ce883_w2tbw5h.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/endless-sky-cathedral-series",
+    "source": "South Australia Tourism Commission"
+  },
+  {
+    "title": "Exhibition: BEGINNINGS",
+    "venue": "North Terrace, adjacent, Morphett St Bridge",
+    "datetime": "2026-01-13T10:00:00",
+    "end_datetime": "2026-11-20T17:00:00",
+    "category": [
+      "Exhibitions"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/9f6bb4204184cbd412353ea7bd388361.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/exhibition-beginnings",
+    "source": "South Australia Tourism Commission"
+  },
+  {
+    "title": "Feast Festival 2026",
+    "venue": "Level 1",
+    "datetime": "2026-11-01T00:00:00",
+    "end_datetime": "2026-11-22T00:00:00",
+    "category": [
+      "Festival"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/8c353d829e3846d53b3098e67e1712aa_ffp619h.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/feast-festival-2026",
+    "source": "South Australia Tourism Commission",
+    "festival": [
+      "Feast Festival"
+    ]
+  },
+  {
+    "title": "Feast Festival: Phoebs, You're a Lesbian",
+    "venue": "166 Goodwood Road",
+    "datetime": "2026-11-05T19:00:00",
+    "end_datetime": "2026-11-05T20:00:00",
+    "category": [
+      "Festival"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/2e9af25d3fced2d34c0e148beda03c8d.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/feast-festival-phoebs-youre-a-lesbian",
+    "source": "South Australia Tourism Commission",
+    "festival": [
+      "Feast Festival"
+    ]
+  },
+  {
+    "title": "Feast Festival: The Feast Festival Gayla",
+    "venue": "166 Goodwood Road",
+    "datetime": "2026-11-07T19:00:00",
+    "end_datetime": "2026-11-07T21:00:00",
+    "category": [
+      "Festival"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/75cdb930257f67528847b88c3f069808.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/feast-festival-the-feast-festival-gayla",
+    "source": "South Australia Tourism Commission",
+    "festival": [
+      "Feast Festival"
+    ]
+  },
+  {
+    "title": "Fischer-Z - Adelaide",
+    "venue": "59 Port Road",
+    "datetime": "2026-11-27T19:30:00",
+    "end_datetime": "2026-11-27T22:00:00",
+    "category": [
+      "Music"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/b40f4225ac25945566a732e03d3fdc64.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/fischerz-adelaide",
+    "source": "South Australia Tourism Commission"
+  },
+  {
+    "title": "Gabriel Iglesias",
+    "venue": "98 Port Road",
+    "datetime": "2026-12-06T19:00:00",
+    "end_datetime": "2026-12-06T21:00:00",
+    "category": [
+      "Comedy"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/94fab0ed4aa2622d121d40617ae55582.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/gabriel-iglesias",
+    "source": "South Australia Tourism Commission"
+  },
+  {
+    "title": "Good Music Month",
+    "venue": "4 Cinema Place",
+    "datetime": "2026-11-01T00:00:00",
+    "end_datetime": "2026-11-30T00:00:00",
+    "category": [
+      "Other"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/f1893891a3ea444a9b91a63ad9f20758.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/good-music-month",
+    "source": "South Australia Tourism Commission"
+  },
+  {
+    "title": "Government House Open Day",
+    "venue": "North Terrace",
+    "datetime": "2026-11-08T10:00:00",
+    "end_datetime": "2026-11-08T14:00:00",
+    "category": [
+      "Other"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/7aa1830c1c0fc60ea2a3ba793a367443.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/government-house-open-day",
+    "source": "South Australia Tourism Commission"
+  },
+  {
+    "title": "Grace",
+    "venue": "King William Road",
+    "datetime": "2026-12-06T14:30:00",
+    "end_datetime": "2026-12-06T16:30:00",
+    "category": [
+      "Music"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/9e0c310bc26326abdf4f5fe8a4886c40.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/grace",
+    "source": "South Australia Tourism Commission"
+  },
+  {
+    "title": "Inferno",
+    "venue": "143 Hindley Street",
+    "datetime": "2026-05-29T19:00:00",
+    "end_datetime": "2026-11-27T23:00:00",
+    "category": [
+      "Theatre"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/32aa1c545ffbd4a3e801970cd72fd4ee.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/inferno",
+    "source": "South Australia Tourism Commission"
+  },
+  {
+    "title": "Kate Ceberano - Australian Made Tour",
+    "venue": "58 Grote Street",
+    "datetime": "2026-11-07T00:00:00",
+    "end_datetime": "2026-11-07T00:00:00",
+    "category": [
+      "Other"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/8ae0756e1894ce1df60fdac231f8d62a.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/kate-ceberano-australian-made-tour",
+    "source": "South Australia Tourism Commission"
+  },
+  {
+    "title": "Ray White Semaphore Street Fair",
+    "venue": "Semaphore Road, Semaphore",
+    "datetime": "2026-11-29T10:00:00",
+    "end_datetime": "2026-11-29T17:00:00",
+    "category": [
+      "Community",
+      "Festival"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/911e6b1bc5052b7e426d27d05098c42f.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/kate-smith-property-semaphore-street-fair",
+    "source": "South Australia Tourism Commission"
+  },
+  {
+    "title": "Modern Mysticism",
+    "venue": "68 North Terrace",
+    "datetime": "2026-11-07T01:00:00",
+    "end_datetime": "2026-11-07T04:00:00",
+    "category": [
+      "Other"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/580b66e4d7f8c383969e6203e0c8a2e4.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/leaves-ecoanxiety-artist-sharing-emiko-artemis",
+    "source": "South Australia Tourism Commission"
+  },
+  {
+    "title": "Lunar New Year Art Installation: Year of the Fire Horse",
+    "venue": "Grote Street",
+    "datetime": "2025-02-09T00:00:00",
+    "end_datetime": "2027-02-08T00:00:00",
+    "category": [
+      "Other"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/bbbdeab756709001fd8c8ce96f4095a8.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/lunar-new-year-art-installation-year-of-the-fire-horse",
+    "source": "South Australia Tourism Commission"
+  },
+  {
+    "title": "Men's ODI Series vs England | 2nd ODI",
+    "venue": "War Memorial Drive",
+    "datetime": "2026-11-15T14:00:00",
+    "end_datetime": "2026-11-15T19:00:00",
+    "category": [
+      "Other"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/60998fd3d935fec4f1c49af25f2d04e0.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/mens-odi-series-vs-england-2nd-odi",
+    "source": "South Australia Tourism Commission"
+  },
+  {
+    "title": "Michelle Nikou: Tell it slant",
+    "venue": "490 North Terrace",
+    "datetime": "2026-12-05T10:00:00",
+    "end_datetime": "2027-03-21T17:00:00",
+    "category": [
+      "Exhibitions"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/856d746ab77d4e8d13f78a72965afc0d.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/michelle-nikou-tell-it-slant",
+    "source": "South Australia Tourism Commission"
+  },
+  {
+    "title": "Monet to Matisse: Defying Tradition",
+    "venue": "North Terrace",
+    "datetime": "2026-07-11T10:00:00",
+    "end_datetime": "2026-11-15T17:00:00",
+    "category": [
+      "Exhibitions"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/86dd0d7010ef96e370837d1081dff371.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/monet-to-matisse-defying-tradition",
+    "source": "South Australia Tourism Commission"
+  },
+  {
+    "title": "Monet to Matisse Friday Nights: Ella Ion",
+    "venue": "North Terrace",
+    "datetime": "2026-11-06T17:30:00",
+    "end_datetime": "2026-11-06T20:30:00",
+    "category": [
+      "Other"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/e0dd502f3b1f2d3e1bcd48b5f2c25bf2.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/monet-to-matisse-friday-nights-ella-ion",
+    "source": "South Australia Tourism Commission"
+  },
+  {
+    "title": "National Pharmacies Christmas Pageant",
+    "venue": "National Pharmacies Christmas Pageant",
+    "datetime": "2026-11-14T00:00:00",
+    "end_datetime": "2026-11-14T00:00:00",
+    "category": [
+      "Other"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/4a4b706ca86c7cf9caa3f973a53a98d3.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/national-pharmacies-christmas-pageant",
+    "source": "South Australia Tourism Commission"
+  },
+  {
+    "title": "NRMA Insurance Christmas Test vs New Zealand",
+    "venue": "War Memorial Drive",
+    "datetime": "2026-12-17T10:00:00",
+    "end_datetime": "2026-12-21T17:00:00",
+    "category": [
+      "Other"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/52508a819960535b92765bf7d1046c4f.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/nrma-insurance-christmas-test-vs-new-zealand",
+    "source": "South Australia Tourism Commission"
+  },
+  {
+    "title": "Santos Tour Down Under - City of Adelaide Tour Village",
+    "venue": "Victoria Square / Tarntanyangga",
+    "datetime": "2027-01-16T00:00:00",
+    "end_datetime": "2027-01-24T00:00:00",
+    "category": [
+      "Other"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/9835efc2d5736a6d4f07825cbcdbb4e2.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/santos-tour-down-under-city-of-adelaide-tour-village",
+    "source": "South Australia Tourism Commission"
+  },
+  {
+    "title": "Simply Adelaide West Coast Swing",
+    "venue": "230 Angas Street",
+    "datetime": "2026-11-05T18:45:00",
+    "end_datetime": "2026-11-08T23:59:00",
+    "category": [
+      "Dance"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/11413d9ba900934c8c14a317c9d304ad.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/simply-adelaide-west-coast-swing",
+    "source": "South Australia Tourism Commission"
+  },
+  {
+    "title": "Social Clay Session - Pottery Wheel",
+    "venue": "3A Hubbe Court",
+    "datetime": "2025-06-06T18:00:00",
+    "end_datetime": "2027-01-08T21:00:00",
+    "category": [
+      "Conferences/Workshops/Expos"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/9a9bb7fda3f56acfbfebf81b344ad492.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/social-clay-session-pottery-wheel",
+    "source": "South Australia Tourism Commission"
+  },
+  {
+    "title": "South Australian Music Awards 2026",
+    "venue": "98 Port Road",
+    "datetime": "2026-11-10T17:00:00",
+    "end_datetime": "2026-11-10T22:30:00",
+    "category": [
+      "Other"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/888fd67fc425c63fd3474d53ee060a51.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/south-australian-music-awards-2026",
+    "source": "South Australia Tourism Commission"
+  },
+  {
+    "title": "Starlit Christmas",
+    "venue": "92 North Terrace",
+    "datetime": "2026-12-11T19:00:00",
+    "end_datetime": "2026-12-12T23:59:00",
+    "category": [
+      "Other"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/abfede1e299cb6f92b95df1c7dca606e.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/starlit-christmas",
+    "source": "South Australia Tourism Commission"
+  },
+  {
+    "title": "Storytime Ballet: Cinderella 2026",
+    "venue": "Festival Drive",
+    "datetime": "2027-01-07T00:00:00",
+    "end_datetime": "2027-01-10T00:00:00",
+    "category": [
+      "Dance"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/fd6bccec07f0cb8c60971ead9c5cb4c2.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/storytime-ballet-cinderella-2026",
+    "source": "South Australia Tourism Commission"
+  },
+  {
+    "title": "Studio Tours",
+    "venue": "154 Angas Street",
+    "datetime": "2026-01-30T16:30:00",
+    "end_datetime": "2027-07-27T17:15:00",
+    "category": [
+      "Exhibitions"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/e1abf423907eaaeef92ef12bdf9fcf79.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/studio-tours-at-the-mill",
+    "source": "South Australia Tourism Commission"
+  },
+  {
+    "title": "The Book of Mormon",
+    "venue": "King William Street",
+    "datetime": "2026-12-19T00:00:00",
+    "end_datetime": "2027-01-10T00:00:00",
+    "category": [
+      "Other"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/71bc5ff5f5bd52fd541bd697294e9718.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/the-book-of-mormon",
+    "source": "South Australia Tourism Commission"
+  },
+  {
+    "title": "The Mini-Cine",
+    "venue": "North Terrace",
+    "datetime": "2026-08-21T00:00:00",
+    "end_datetime": "2026-12-05T00:00:00",
+    "category": [
+      "Film"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/5c6828c78eaf83c1ad1da722547fc640.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/the-minicine",
+    "source": "South Australia Tourism Commission"
+  },
+  {
+    "title": "The Nutcracker",
+    "venue": "58 Grote Street",
+    "datetime": "2026-11-26T00:00:00",
+    "end_datetime": "2026-11-28T00:00:00",
+    "category": [
+      "Other"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/0b6e519b8a7d63fbb85cf5931f2b618c.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/the-nutcracker",
+    "source": "South Australia Tourism Commission"
+  },
+  {
+    "title": "Urban Wine Walk Port Adelaide",
+    "venue": "Urban Wine Walk Port Adelaide",
+    "datetime": "2026-11-07T12:00:00",
+    "end_datetime": "2026-11-07T16:00:00",
+    "category": [
+      "Food & Beverage"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/425f786be84846c3e451d1db466a1053_cj1xpyg_03e85us_i025084_fzhei84_odin13p_tj01t0j_y1r2zxm_xrnwn8j_yhag75a_lbtpfs9.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/urban-wine-walk-port-adelaide",
+    "source": "South Australia Tourism Commission"
+  },
+  {
+    "title": "Vegan Festival Adelaide",
+    "venue": "300 Rundle Street",
+    "datetime": "2026-12-05T12:00:00",
+    "end_datetime": "2026-12-05T19:00:00",
+    "category": [
+      "Festival"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/bd1d22096dfb569b158c026962bf1922.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/vegan-festival-adelaide",
+    "source": "South Australia Tourism Commission"
+  },
+  {
+    "title": "WOMADelaide",
+    "venue": "Plane Tree Drive",
+    "datetime": "2027-03-05T00:00:00",
+    "end_datetime": "2027-03-08T00:00:00",
+    "category": [
+      "Other"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/fb0fbd155b2ddce67c527f991949e28e.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/womadelaide",
+    "source": "South Australia Tourism Commission",
+    "festival": [
+      "WOMADelaide"
+    ]
+  },
+  {
+    "title": "Mindful Clay, Pottery wheel, Hand Building & Colors",
+    "venue": "3A Hubbe Court",
+    "datetime": "2026-03-27T11:00:00",
+    "end_datetime": "2028-03-09T13:30:00",
+    "category": [
+      "Conferences/Workshops/Expos"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/a36b9f27eeb7c36e4220e67286336f59.jpeg?mode=crop&width=900&height=506&rot=360",
+    "link": "https://southaustralia.com/products/adelaide/event/mindful-clay-pottery-wheel-hand-building-colors",
+    "source": "South Australia Tourism Commission"
   },
   {
     "title": "Watchman House",
