@@ -9352,18 +9352,6 @@
     "source": "Play & Go Adelaide Major Events"
   },
   {
-    "title": "bp Adelaide Grand Final",
-    "venue": "Adelaide Street Circuit",
-    "datetime": "2026-11-26T00:00:00",
-    "end_datetime": "2026-11-29T23:59:59",
-    "category": [
-      "Festival/Major Events"
-    ],
-    "image": "https://conciergeadelaide.github.io/adelaide-events/adelaide-major-events.svg",
-    "link": "https://playandgo.com.au/bp-adelaide-grand-final/",
-    "source": "Play & Go Adelaide Major Events"
-  },
-  {
     "title": "South Australian Maritime Museum",
     "venue": "South Australian Maritime Museum",
     "datetime": "2026-11-07T11:00:00",
@@ -20704,6 +20692,21 @@
     "image": "https://images.humanitix.com/i/b8823acc-3b00-472c-a90e-52c210230a2f.jpg@seo-500.jpg",
     "link": "https://events.humanitix.com/2026-sa-assa-christmas-connect",
     "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "bp Adelaide Grand Final",
+    "venue": "Adelaide Street Circuit",
+    "datetime": "2026-11-26T00:00:00",
+    "end_datetime": "2026-11-29T23:59:59",
+    "category": [
+      "Festival/Major Events"
+    ],
+    "image": "https://assets.adelaide500.com.au/app/uploads/2026/07/30100114/78a3e4e8-28de-4e07-88dd-d3ef2d066eb3_rw_1920.jpg",
+    "link": "https://adelaidegrandfinal.com.au/",
+    "source": "bp Adelaide Grand Final Official",
+    "festival": [
+      "bp Adelaide Grand Final"
+    ]
   },
   {
     "title": "Watchman House",

@@ -2524,6 +2524,27 @@ def main(only_source=None):
             other_keys.add(event_key(old))
 
         proposed = retained + added + preserved
+        if source_name == "bp Adelaide Grand Final Official":
+            # The official listing replaces ONLY the exact 2026 parent event,
+            # never individual concerts, parades, ticket types or other sources.
+            def is_parent(event):
+                return (str(event.get("title") or "").strip().casefold()
+                        == "bp adelaide grand final"
+                        and str(event.get("datetime") or "")[:10] == "2026-11-26"
+                        and str(event.get("end_datetime") or "")[:10] == "2026-11-29"
+                        and str(event.get("source") or "") in (
+                            "Play & Go Adelaide Major Events",
+                            "Ticketmaster Adelaide",
+                            "bp Adelaide Grand Final Official"))
+            official = [event for event in all_new_events if is_parent(event)]
+            if len(official) != 1:
+                print("Official Grand Final: expected exactly one valid parent; no changes made.")
+                return
+            old_parents = sum(is_parent(event) for event in proposed)
+            proposed = [event for event in proposed if not is_parent(event)]
+            proposed.append(official[0])
+            print(f"Official Grand Final: {old_parents} existing parent record(s) replaced")
+            print("Official Grand Final: individual concerts and activities retained")
         print(f"Replaced old source records: {removed}")
         print(f"New source records added: {len(added)}")
         print(f"Unmatched upcoming source records preserved: {len(preserved)}")

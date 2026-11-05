@@ -9901,67 +9901,27 @@ def parse_sala_festival(soup, source_url):
 # ============================================================
 
 def parse_bp_adelaide_grand_final(soup, source_url):
-    """One official parent listing; never turn ticket products into events.
-
-    2026 dates are verified for the existing parent listing. Do not infer
-    future editions from the year displayed in news links or page footer.
-    If official artwork is unavailable, leave the old record untouched.
-    """
+    """2026 parent event only, with a verified official homepage showcase image."""
     from datetime import date
-    from urllib.parse import urlparse
-
-    text = " ".join(soup.stripped_strings)
-    if not re.search(r"\\b2026\\s+bp\\s+adelaide\\s+grand\\s+final\\b", text, re.I):
-        print("    Official Grand Final: 2026 edition not confirmed on homepage")
-        return []
     if date.today() > date(2026, 11, 29):
         return []
-
-    def usable_image(value):
-        value = str(value or "").strip()
-        if not value or value.startswith(("data:", "blob:")):
-            return ""
-        url = normalise_url(value, source_url)
-        parsed = urlparse(url)
-        if parsed.scheme not in ("http", "https"):
-            return ""
-        if re.search(r"(?:favicon|\\blogo\\b|icon|placeholder|sprite|avatar)", parsed.path, re.I):
-            return ""
-        return url
-
-    image = ""
-    for attributes in (
-        {"property": "og:image"},
-        {"name": "twitter:image"},
-        {"property": "og:image:secure_url"},
-    ):
-        meta = soup.find("meta", attrs=attributes)
-        if meta:
-            image = usable_image(meta.get("content"))
-            if image:
-                break
-
-    # Some versions of the official site use lazy-loaded promo artwork.
-    if not image:
-        for img in soup.select("main img, section img, img"):
-            candidates = [
-                img.get("data-src"), img.get("data-lazy-src"),
-                img.get("src"), img.get("data-original"),
-            ]
-            srcset = img.get("data-srcset") or img.get("srcset") or ""
-            if srcset:
-                candidates.append(srcset.split(",")[-1].strip().split(" ")[0])
-            for candidate in candidates:
-                image = usable_image(candidate)
-                if image:
-                    break
-            if image:
-                break
-
-    if not image:
-        print("    Official Grand Final: no suitable image; retaining existing listing")
+    headings = " ".join(h.get_text(" ", strip=True) for h in soup.select("h1,h2,h3"))
+    if not re.search(r"2026\s+bp\s+adelaide\s+grand\s+final", headings, re.I):
+        print("    Official Grand Final: 2026 heading not found")
         return []
 
+    # This exact official homepage asset was identified from its 'Image showcase'
+    # image, not guessed from a URL pattern or selected from a generic icon list.
+    image = "https://assets.adelaide500.com.au/app/uploads/2026/07/30100114/78a3e4e8-28de-4e07-88dd-d3ef2d066eb3_rw_1920.jpg"
+    found = any(
+        image == normalise_url(img.get("src") or "", source_url)
+        for img in soup.find_all("img")
+    )
+    if not found:
+        print("    Official Grand Final: verified showcase image absent; preserving existing listing")
+        return []
+    print("    Official Grand Final: 2026 event and image found")
+    print("    Official Grand Final image: " + image)
     return [{
         "title": "bp Adelaide Grand Final",
         "venue": "Adelaide Street Circuit",
