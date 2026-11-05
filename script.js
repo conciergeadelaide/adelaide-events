@@ -43,6 +43,14 @@ function getEventFestivals(event) {
         ? event.festival.filter(Boolean).slice()
         : (typeof event.festival === "string" && event.festival ? [event.festival] : []);
 
+    // Include the main bp Adelaide Grand Final event in the festival dropdown,
+    // even when an existing events.json record has not yet been re-tagged.
+    // Do not include individual concerts, parade or hospitality activities.
+    if (/^bp adelaide grand final(?: 20\d{2})?$/i.test(String(event.title || "").trim()) &&
+        festivals.indexOf("bp Adelaide Grand Final") === -1) {
+        festivals.push("bp Adelaide Grand Final");
+    }
+
     // Treat the orchestra as a Festival-filter grouping, not a venue.
     // This is derived from the source, so future scraped events work too.
     if (isAdelaideSymphonyEvent(event) &&

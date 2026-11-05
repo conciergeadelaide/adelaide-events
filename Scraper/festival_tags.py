@@ -43,6 +43,11 @@ def assign_festivals(event):
             matches.append(name)
     if title.casefold() in OZASIA_2026_TITLES and "OzAsia Festival" not in matches:
         matches.append("OzAsia Festival")
+    # The main Grand Final is a curated major event. Related concerts,
+    # parades and hospitality activities retain their own classifications.
+    if re.fullmatch(r"bp adelaide grand final(?: 20\d{2})?", title, re.I):
+        if "bp Adelaide Grand Final" not in matches:
+            matches.append("bp Adelaide Grand Final")
     # Recompute instead of retaining stale tags from previous scraper runs.
     if matches:
         event["festival"] = matches
