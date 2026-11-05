@@ -875,13 +875,37 @@ function populateFilters() {
     // so explicitly exclude events whose final day is before today.
     var today = new Date();
     var todayKey = dateKey(today.getFullYear(), today.getMonth(), today.getDate());
+    // A festival can have individual activities continuing after the main
+    // festival has ended. Where a dated parent listing exists, use its end
+    // date to decide whether the festival itself belongs in the dropdown.
+    // Otherwise, keep the existing rule: at least one current/upcoming event.
+    var festivalParentEndDates = new Map();
+    events.forEach(function(event) {
+        var title = String(event.title || "").trim().replace(/\s+/g, " ").toLowerCase();
+        var end = getDatePart(getEventEnd(event)) || getDatePart(getEventStart(event));
+        if (!end) return;
+        getEventFestivals(event).forEach(function(festival) {
+            var name = String(festival).trim().replace(/\s+/g, " ").toLowerCase();
+            // Match the parent title, optionally followed by a year.
+            // Do not mistake a concert/workshop with the festival in its
+            // title for the festival's main listing.
+            var parentWithYear = title.match(/^(.*?) 20\d{2}$/);
+            if (title !== name && !(parentWithYear && parentWithYear[1] === name)) return;
+            var previous = festivalParentEndDates.get(name);
+            if (!previous || end > previous) festivalParentEndDates.set(name, end);
+        });
+    });
     var festivals = Array.from(new Set(
         events.filter(function(event) {
             var start = getDatePart(getEventStart(event));
             var end = getDatePart(getEventEnd(event)) || start;
             return Boolean(end && end >= todayKey);
         }).flatMap(getEventFestivals)
-    )).sort(function(a, b) { return a.localeCompare(b); });
+    )).filter(function(festival) {
+        var key = String(festival).trim().replace(/\s+/g, " ").toLowerCase();
+        var parentEnd = festivalParentEndDates.get(key);
+        return !parentEnd || parentEnd >= todayKey;
+    }).sort(function(a, b) { return a.localeCompare(b); });
     festivals.forEach(function(festival) {
         var option = document.createElement("label");
         option.className = "festival-option";
