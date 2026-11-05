@@ -702,9 +702,13 @@ function createEventCard(event) {
 
     var image = document.createElement("img");
 
-    // Local fallback works even when an external image host is unavailable.
-    image.src = /^https?:\/\//i.test(String(event.image || ""))
-        ? event.image : "event-placeholder.svg";
+    // Support trusted external URLs and local images in the site's assets folder.
+    var eventImagePath = String(event.image || "").trim();
+    var isExternalImage = /^https?:\/\//i.test(eventImagePath);
+    var isLocalAsset = /^\/?assets\/[a-z0-9_./-]+\.(?:jpg|jpeg|png|webp|gif|svg)(?:\?[^#]*)?$/i.test(eventImagePath) &&
+        !eventImagePath.split("?")[0].split("/").includes("..");
+    image.src = (isExternalImage || isLocalAsset)
+        ? eventImagePath.replace(/^\//, "") : "event-placeholder.svg";
     image.addEventListener("error", function() {
         if (!image.src.endsWith("event-placeholder.svg")) {
             image.src = "event-placeholder.svg";
