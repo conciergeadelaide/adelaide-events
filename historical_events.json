@@ -29,14 +29,11 @@
     "datetime": "2026-10-14T00:00:00",
     "end_datetime": "2026-10-25T00:00:00",
     "category": [
-      "Family"
+      "Festival/Major Events"
     ],
     "image": "https://assets.atdw-online.com.au/images/ea4d4c7f26029b71fd8a4b0df60bdcee.jpeg?rect=457%2C0%2C7300%2C5475&w=450&h=335&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjYyMDU5ZTdhNDgyN2E5ZTcwZmFlYzQ5MSIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
     "link": "https://www.experienceadelaide.com.au/whats-on/adelaide-film-festival/",
-    "source": "Experience Adelaide",
-    "festival": [
-      "Adelaide Film Festival"
-    ]
+    "source": "Experience Adelaide"
   },
   {
     "title": "Adelaide Colour Frenzy 5k Fun Walk/Run",
@@ -68,14 +65,11 @@
     "datetime": "2026-10-23T00:00:00",
     "end_datetime": "",
     "category": [
-      "Festival"
+      "Festival/Major Events"
     ],
     "image": "https://assets.atdw-online.com.au/images/37572a7597f0f9deacde3f16e885d853.jpeg?rect=0%2C0%2C1600%2C1200&w=450&h=335&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhODdiNGEzYWEyNDRmYWY3NWU2YTdlMCIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
     "link": "https://www.experienceadelaide.com.au/whats-on/ozasia-festival-2026-maajela/",
-    "source": "Experience Adelaide",
-    "festival": [
-      "OzAsia Festival"
-    ]
+    "source": "Experience Adelaide"
   },
   {
     "title": "OzAsia Festival’s Weekend of Words",
@@ -83,14 +77,11 @@
     "datetime": "2026-10-23T00:00:00",
     "end_datetime": "2026-10-24T00:00:00",
     "category": [
-      "Festival"
+      "Festival/Major Events"
     ],
     "image": "https://assets.atdw-online.com.au/images/b1e3b17f7cc7021ad8d91a74ddad8b0f.jpeg?rect=0%2C0%2C1600%2C1200&w=450&h=335&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhODdjMzVkM2U4NjE3M2E1ZTg0OWRjMyIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
     "link": "https://www.experienceadelaide.com.au/whats-on/ozasia-festivals-weekend-of-words/",
-    "source": "Experience Adelaide",
-    "festival": [
-      "OzAsia Festival"
-    ]
+    "source": "Experience Adelaide"
   },
   {
     "title": "Pinkstachio Reig\"Night\" Pre's",
@@ -841,7 +832,7 @@
     "datetime": "2026-10-31T11:00:00",
     "end_datetime": "",
     "category": [
-      "Festival"
+      "Festival/Major Events"
     ],
     "image": "https://mod.lbcdn.io/uploads/Title-Banner-Zina-2025-1600x983.jpg",
     "link": "https://mod.org.au/events/zina-warrior-print-fest-2026/",
@@ -1221,7 +1212,7 @@
     "datetime": "2026-10-30T00:00:00",
     "end_datetime": "",
     "category": [
-      "Festival"
+      "Festival/Major Events"
     ],
     "image": "https://assets.atdw-online.com.au/images/eba2fa1ea1b961af6a4e70379e7f5974.jpeg?rect=0%2C0%2C2000%2C1500&w=450&h=335&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhYmIwZjg5Y2QwNWMyMGEwMzI3YmYzOCIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
     "link": "https://www.experienceadelaide.com.au/whats-on/feast-feastival-opening-night-street-party/",
@@ -1739,5 +1730,65 @@
     "image": "https://cdn.environment.sa.gov.au/img/eyJidWNrZXQiOiJlbnZzYS1idWNrZXQiLCJrZXkiOiJib3RhbmljZ2FyZGVucy9pbWFnZXMvRmljdXMtd2Fsay1pbWFnZS1JRC0xMjE2MjYtY3JlZGl0LVNvdXRoLUF1c3RyYWxpYW4tVG91cmlzbS1Db21taXNzaW9uLmpwZyIsImVkaXRzIjp7ImpwZWciOnsicXVhbGl0eSI6ODIsInByb2dyZXNzaXZlIjp0cnVlLCJ0cmVsbGlzUXVhbnRpc2F0aW9uIjp0cnVlLCJvdmVyc2hvb3REZXJpbmdpbmciOnRydWUsIm9wdGltaXplU2NhbnMiOnRydWV9LCJyZXNpemUiOnsid2lkdGgiOjEyMDAsImhlaWdodCI6MTIwMCwiZml0IjoiY292ZXIifX19",
     "link": "https://www.botanicgardens.sa.gov.au/whats-on/free-guided-walks-adelaide-botanic-garden-2",
     "source": "Adelaide Botanic Gardens"
+  },
+  {
+    "title": "OzAsia Festival",
+    "venue": "Adelaide Festival Centre",
+    "datetime": "2026-10-09T00:00:00",
+    "end_datetime": "2026-11-01T00:00:00",
+    "category": [
+      "Festival/Major Events"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/79a0af143dc9f20bf9b3b4160281b3e6.jpeg?rect=0%2C0%2C1600%2C1200&w=450&h=335&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhODY5MzNkZjMzZjM5MzA0NzM2NTEzYSIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
+    "link": "https://www.experienceadelaide.com.au/whats-on/ozasia-festival/",
+    "source": "Experience Adelaide"
+  },
+  {
+    "title": "OzAsia Festival 2026 | Lucky Dumpling Market",
+    "venue": "Elder Park",
+    "datetime": "2026-10-09T00:00:00",
+    "end_datetime": "2026-11-01T00:00:00",
+    "category": [
+      "Festival/Major Events"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/964e7e2c58599ddddb517b7eb3f11e5b_jpqhs9t.jpeg?rect=0%2C0%2C1600%2C1200&w=450&h=335&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhODY5NThiZDY2NTZmNzg0MWIwYmYwNCIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
+    "link": "https://www.experienceadelaide.com.au/whats-on/ozasia-festival-2026-lucky-dumpling-market/",
+    "source": "Experience Adelaide"
+  },
+  {
+    "title": "OzAsia Festival 2026 | Hong Kong Dragon",
+    "venue": "Riverbank Footbridge",
+    "datetime": "2026-10-09T00:00:00",
+    "end_datetime": "2026-11-01T00:00:00",
+    "category": [
+      "Festival/Major Events"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/45996e8bfa883bc0c68338fd67225574_ffwoson.jpeg?rect=0%2C0%2C1600%2C1200&w=450&h=335&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhODY5YjQ3YTVjMDM4N2U0MWE1MTViOCIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
+    "link": "https://www.experienceadelaide.com.au/whats-on/ozasia-festival-2026-hong-kong-dragon/",
+    "source": "Experience Adelaide"
+  },
+  {
+    "title": "Taste Gouger Street",
+    "venue": "Gouger Street",
+    "datetime": "2026-10-01T00:00:00",
+    "end_datetime": "2026-10-31T00:00:00",
+    "category": [
+      "Food & Beverage"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/90a558cbde2342db93f1d63c93cedeee.jpeg?rect=714%2C0%2C4284%2C3213&w=450&h=335&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhYjViYzU3NjFhNGJlOTcxMmI1MWY4NyIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
+    "link": "https://www.experienceadelaide.com.au/whats-on/taste-gouger-street/",
+    "source": "Experience Adelaide"
+  },
+  {
+    "title": "OzAsia Festival 2026 | Moon Lantern at Lucky Dumpling Market",
+    "venue": "Pinky Flat",
+    "datetime": "2026-10-09T00:00:00",
+    "end_datetime": "2026-11-01T00:00:00",
+    "category": [
+      "Festival/Major Events"
+    ],
+    "image": "https://assets.atdw-online.com.au/images/f2799f13c1b6e8de382a05e47ae217b0.jpeg?rect=0%2C0%2C1600%2C1200&w=450&h=335&rot=360&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjZhODY5YmY4OWM3NTRkMjI3ZWNjNzVhYSIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZjQ4YTQ0ZmVjYTNkZjJlNGFiOGMiLCJhcGlrZXlJZCI6IjU2YjFmNjNmMGNmMjEzYWQyMGRlZGVjYSJ9",
+    "link": "https://www.experienceadelaide.com.au/whats-on/ozasia-festival-2026-moon-lantern-at-lucky-dumpling-market/",
+    "source": "Experience Adelaide"
   }
 ]

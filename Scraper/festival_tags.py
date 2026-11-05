@@ -49,3 +49,46 @@ def assign_festivals(event):
     else:
         event.pop("festival", None)
     return event
+
+
+MAJOR_EVENT_CATEGORY = "Festival/Major Events"
+
+# Curated parent events. Do not classify individual concerts, theatre productions,
+# sporting matches or other programme activities solely because they share a source.
+MAJOR_EVENT_TITLE_PATTERNS = (
+    r"^bp adelaide grand final(?: 20\d{2})?$",
+    r"^womadelaide(?: 20\d{2})?$",
+    r"^adelaide fringe(?: festival)?(?: 20\d{2})?$",
+    r"^adelaide festival(?: 20\d{2})?$",
+    r"^illuminate adelaide(?: 20\d{2})?$",
+    r"^(?:sala festival|south australian living artists festival)(?: 20\d{2})?$",
+    r"^(?:south australian |sa |20\d{2} )?multicultural festival(?: 20\d{2})?$",
+    r"^adelaide film festival(?: 20\d{2})?$",
+    r"^ozasia festival(?: 20\d{2})?$",
+    r"^adelaide cabaret festival(?: 20\d{2})?$",
+    r"^tasting australia(?: 20\d{2})?$",
+    r"^adelaide motorsport festival(?: 20\d{2})?$",
+    r"^adelaide beer (?:&|and) bbq festival(?: 20\d{2})?$",
+    r"^(?:lucky dumpling market|moon lanterns at lucky dumpling market)(?: 20\d{2})?$",
+    r"^(?:santos )?tour down under(?: 20\d{2})?$",
+    r"^adelaide international(?: tennis)?(?: tournament)?(?: 20\d{2})?$",
+    r"^liv golf(?: adelaide)?(?: 20\d{2})?$",
+    r"^(?:adelaide |national pharmaci(?:es|y) )?christmas pageant(?: 20\d{2})?$",
+    r"^(?:adelaide )?carols by candlelight(?: 20\d{2})?$",
+)
+
+def assign_major_event_category(event):
+    """Apply the requested single primary category without losing other tags."""
+    title = re.sub(r"\s+", " ", str(event.get("title") or "")).strip()
+    categories = event.get("category") or []
+    if isinstance(categories, str):
+        categories = [categories]
+    categories = [str(value).strip() for value in categories if str(value).strip()]
+    categories = [MAJOR_EVENT_CATEGORY if value.casefold() == "festival"
+                  else value for value in categories]
+
+    # A festival-specific programme title remains in its existing category.
+    if any(re.fullmatch(pattern, title, re.I) for pattern in MAJOR_EVENT_TITLE_PATTERNS):
+        categories = [MAJOR_EVENT_CATEGORY]
+    event["category"] = list(dict.fromkeys(categories)) or ["Other"]
+    return event

@@ -1,6 +1,7 @@
 """Public Humanitix event discovery for Adelaide and nearby SA regions.
 
-Uses public HTML and Event JSON-LD only. No private API or credentials.
+Uses public directory pages, their website recommendations endpoint, and Event JSON-LD.
+No credentials are required. The website endpoint may change.
 Site layout may change: inspect dry-run counts before publishing.
 """
 import json
@@ -43,6 +44,10 @@ EVENT_LINK = re.compile(r'^https://events\.humanitix\.com/[^/?#]+/?$', re.I)
 RESERVED_SLUGS = {'host', 'hosts', 'event', 'events', 'login', 'signup',
                   'register', 'search', 'help', 'contact', 'about', 'privacy',
                   'terms', 'checkout', 'organiser', 'organizer'}
+API_PAGES_PER_DIRECTORY = 4  # 4 x 32 records per directory, subject to overlap
+API_DELAY_SECONDS = 0.3
+EVENT_DELAY_SECONDS = 0.12
+
 # The region directories below are discovery entry points, not comprehensive indexes.
 # Only add verified URLs: the previous Adelaide Hills/Barossa slugs returned 404.
 
@@ -206,47 +211,159 @@ def _next_directory_link(soup, current_url):
     return ''
 
 
-def scrape_humanitix(host_only=False,max_event_pages=350):
-    """Collect publicly discoverable upcoming events with safe diagnostics.
+def _directory_api_links(session, soup, base):
+    """Discover event URLs using the public website's recommendations request.
 
-    This does not guarantee a complete Humanitix catalogue. It follows only
-    directory pagination explicitly exposed in the HTML, up to five pages.
+    This endpoint is undocumented and can change. Failure is nonfatal: the
+    HTML-discovered links remain available as a fallback.
     """
-    sources=[HOST_URL] if host_only else DIRECTORIES
-    urls=set()
-    reachable=0
+    script = soup.find('script', id='__NEXT_DATA__')
+    if script is None:
+        print('    Humanitix recommendations unavailable: no page metadata')
+        return [], False
+
+    try:
+        props = json.loads(script.string or script.get_text())['props']['pageProps']
+        state_key = props['stateKey']
+        geobox = props.get('geocodingResult')
+    except (ValueError, TypeError, KeyError):
+        print('    Humanitix recommendations unavailable: invalid page metadata')
+        return [], False
+
+    payload = {
+        'query': '', 'locationQuery': '', 'locationType': '',
+        'types': [], 'categories': [], 'subcategories': [], 'interests': [],
+        'prices': 'all', 'dates': '', 'startDate': '', 'endDate': '',
+        'accessibility': [], 'page': 0, 'safeSearch': True,
+        'stateKey': state_key,
+    }
+    if geobox is not None:
+        payload['geobox'] = geobox
+
+    discovered = []
+    seen = set()
+    successful_pages = 0
+    headers = {'Referer': base, 'Origin': 'https://humanitix.com'}
+    for page in range(API_PAGES_PER_DIRECTORY):
+        payload['page'] = page
+        try:
+            response = session.post(
+                'https://humanitix.com/api/recommendations',
+                json=payload, headers=headers, timeout=30,
+            )
+            response.raise_for_status()
+            records = response.json()
+            if not isinstance(records, list):
+                raise ValueError('unexpected response format')
+        except (requests.RequestException, ValueError) as exc:
+            print(f'    Humanitix recommendations page {page} unavailable: {str(exc)[:140]}')
+            break
+
+        successful_pages += 1
+        fresh = 0
+        for record in records:
+            if not isinstance(record, dict):
+                continue
+            hostname = str(record.get('hostname') or '')
+            slug = str(record.get('slug') or '').strip('/')
+            # Only accept canonical Humanitix event hosts.
+            url = _valid_event_url(urljoin(hostname, slug), base) if hostname and slug else ''
+            if url and url not in seen:
+                seen.add(url)
+                discovered.append(url)
+                fresh += 1
+        print(f'    Humanitix recommendations page {page}: {len(records)} records, {fresh} new links')
+        if not records or fresh == 0:
+            break
+        time.sleep(API_DELAY_SECONDS)
+    return discovered, successful_pages > 0
+
+
+def scrape_humanitix(host_only=False, max_event_pages=350):
+    """Discover and verify upcoming events; return website-compatible records.
+
+    Host-only discovery remains HTML-based. Regional discovery combines HTML
+    links with a bounded number of recommendations pages per directory.
+    Individual event pages must pass Event JSON-LD validation.
+    """
+    if max_event_pages < 1:
+        raise ValueError('max_event_pages must be at least 1')
+
+    sources = [HOST_URL] if host_only else DIRECTORIES
+    candidate_lists = []
+    reachable = 0
+    api_successes = 0
+
     with requests.Session() as session:
         session.headers.update(HEADERS)
         for base in sources:
-            page_url=base
-            seen_pages=set()
-            for page_no in range(1,6):
+            directory_links = []
+            directory_seen = set()
+            page_url = base
+            seen_pages = set()
+            for _ in range(5):
                 if not page_url or page_url in seen_pages:
                     break
                 seen_pages.add(page_url)
                 try:
-                    soup=_fetch(session,page_url)
-                    reachable+=1
-                    found=_event_links(soup,page_url)
-                    new=found-urls
-                    urls.update(found)
-                    print(f'    Humanitix listing: {len(found)} links, {len(new)} new ({page_url})')
-                    page_url=_next_directory_link(soup,page_url)
+                    soup = _fetch(session, page_url)
                 except requests.RequestException as exc:
                     print(f'    Humanitix listing unavailable: {page_url} ({exc})')
                     break
-        if reachable==0:
+                reachable += 1
+                html_links = sorted(_event_links(soup, page_url))
+                new_html = [u for u in html_links if u not in directory_seen]
+                directory_seen.update(new_html)
+                directory_links.extend(new_html)
+                print(f'    Humanitix listing: {len(html_links)} links, {len(new_html)} new ({page_url})')
+
+                if not host_only and page_url == base:
+                    api_links, api_ok = _directory_api_links(session, soup, base)
+                    if api_ok:
+                        api_successes += 1
+                    new_api = [u for u in api_links if u not in directory_seen]
+                    directory_seen.update(new_api)
+                    directory_links.extend(new_api)
+                    print(f'    Humanitix recommendations: {len(api_links)} links, {len(new_api)} additional ({base})')
+
+                page_url = _next_directory_link(soup, page_url)
+
+            candidate_lists.append(directory_links)
+
+        if reachable == 0:
             raise RuntimeError('No Humanitix listing pages reachable')
+
+        # Interleave directories rather than letting Adelaide consume the
+        # entire verification budget before regional listings are considered.
+        urls = []
+        seen_urls = set()
+        longest = max((len(group) for group in candidate_lists), default=0)
+        for index in range(longest):
+            for group in candidate_lists:
+                if index < len(group):
+                    url = group[index]
+                    if url not in seen_urls:
+                        seen_urls.add(url)
+                        urls.append(url)
+
         if not urls:
-            print('    Humanitix: no event links discovered')
-            return []
+            # Raising protects the caller from treating a failed source as an
+            # authoritative empty catalogue.
+            raise RuntimeError('No Humanitix event links discovered')
+
+        if not host_only and api_successes == 0:
+            print('    Humanitix: recommendations unavailable; using HTML discovery only')
+
         results = []
         failures = 0
         no_event_data = 0
         excluded = 0
         rejected_examples = []
         rejection_counts = {}
-        for index, url in enumerate(sorted(urls)[:max_event_pages]):
+
+        selected = urls[:max_event_pages]
+        print(f'    Humanitix: verifying {len(selected)} of {len(urls)} discovered links')
+        for url in selected:
             try:
                 soup = _fetch(session, url)
                 structured = list(_json_events(soup))
@@ -272,15 +389,18 @@ def scrape_humanitix(host_only=False,max_event_pages=350):
                 reason = 'fetch failed'
                 rejection_counts[reason] = rejection_counts.get(reason, 0) + 1
                 rejected_examples.append((reason, url, str(exc)[:130]))
-            time.sleep(0.12)
-        unique={}
-        for e in results:
-            unique[(e['title'].casefold(),e['venue'].casefold(),e['date'])]=e
+            time.sleep(EVENT_DELAY_SECONDS)
+
+        unique = {}
+        for event in results:
+            key = (event['title'].casefold(), event['venue'].casefold(), event['date'])
+            unique[key] = event
+
         print(f'    Humanitix: {len(urls)} links, {len(unique)} verified events, {failures} page failures')
         print(f'    Humanitix diagnostics: {no_event_data} without Event JSON-LD, {excluded} filtered event pages')
         for reason, count in sorted(rejection_counts.items()):
             print(f'      Rejection reason: {reason}: {count}')
-        # Print all host diagnostics, with a bounded regional sample.
+
         max_examples = 100 if host_only else 25
         for reason, url, detail in rejected_examples[:max_examples]:
             print(f'      Skipped ({reason}): {url}')
@@ -288,6 +408,8 @@ def scrape_humanitix(host_only=False,max_event_pages=350):
                 print(f'        {detail}')
         if len(rejected_examples) > max_examples:
             print(f'      ... {len(rejected_examples)-max_examples} additional rejected items not displayed')
-        if len(urls)>max_event_pages:
+        if len(urls) > max_event_pages:
             print(f'    Humanitix: capped at {max_event_pages} event pages; directory coverage incomplete')
+        if failures:
+            print('    Humanitix WARNING: some booking pages failed; inspect before publishing')
         return list(unique.values())

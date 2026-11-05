@@ -518,8 +518,13 @@ def save_events(events):
         os.replace(tmp_archive, archive_file)
         print(f"Historical archive: {len(unique_archive)} past events retained.")
 
-    from festival_tags import assign_festivals
-    events = [assign_festivals(event) for event in events]
+    from festival_tags import assign_festivals, assign_major_event_category
+    events = [assign_major_event_category(assign_festivals(event)) for event in events]
+    # Exact, user-curated categories override generic festival tagging.
+    for event in events:
+        if str(event.get("title") or "").strip().casefold() in (
+                "bp adelaide grand final", "south australian multicultural festival"):
+            event["category"] = ["Festival/Major Events"]
     comedy_corrections = sum(correct_comedy_category(event) for event in events)
     print(f"Comedy category corrections applied: {comedy_corrections}")
 
@@ -635,7 +640,7 @@ AUDITED_CATEGORY_OVERRIDES = {
     "adelaide carols by candlelight": "Music",
     "santa’s wonderland": "Family",
     "santa's wonderland": "Family",
-    "bp adelaide grand final": "Sport",
+    "bp adelaide grand final": "Festival",
     "shrek rave": "Club/Party",
     "five nights at freddy’s rave!": "Club/Party",
     "five nights at freddy's rave!": "Club/Party",
@@ -1135,9 +1140,15 @@ def clean_event(event, source_name):
 
 def event_key(event):
 
-    # ASO may schedule multiple distinct performances on the same date.
+    # Preserve independently timed performances from these sources.
+    # In particular, Humanitix bookings can have multiple sessions on one day.
     session_key = (str(event.get("datetime", ""))
-                   if event.get("source") in ("Adelaide Symphony Orchestra", "Adelaide Festival")
+                   if event.get("source") in (
+                       "Adelaide Symphony Orchestra",
+                       "Adelaide Festival",
+                       "Humanitix Nineteen Ten",
+                       "Humanitix Adelaide and Regions",
+                   )
                    else str(event.get("datetime", ""))[:10])
     return (
         str(
@@ -1443,10 +1454,112 @@ def scrape_with_bounded_retry(source):
         return scrape_source(source)
 
 
+MULTICULTURAL_FESTIVAL_URL = (
+    "https://www.dpc.sa.gov.au/responsibilities/multicultural-affairs/"
+    "events/multicultural-festival"
+)
+
+
+def scrape_multicultural_festival():
+    """Check the official annual announcement; never extrapolate a new date."""
+    html = fetch_page(MULTICULTURAL_FESTIVAL_URL)
+    soup = html if isinstance(html, BeautifulSoup) else BeautifulSoup(html, "html.parser")
+    for unwanted in soup(["script", "style", "nav", "footer"]):
+        unwanted.decompose()
+    text = " ".join(soup.stripped_strings)
+    # Only an explicit announcement for a specific edition qualifies.
+    # Older years shown under 'Previous Multicultural Festival highlights'
+    # must not be treated as new event announcements.
+    text = re.split(r"Previous Multicultural Festival highlights", text, maxsplit=1, flags=re.I)[0]
+    today = datetime.now().date()
+    for match in re.finditer(r"\b(20\d{2})\s+Multicultural Festival\b", text, re.I):
+        year = int(match.group(1))
+        if year < today.year:
+            continue
+        nearby = text[match.end():match.end() + 300]
+        date_match = re.search(
+            r"\b(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\s+"
+            r"(\d{1,2})\s+(January|February|March|April|May|June|July|August|"
+            r"September|October|November|December)\b", nearby, re.I
+        )
+        if not date_match:
+            continue
+        try:
+            event_day = datetime.strptime(
+                f"{date_match.group(1)} {date_match.group(2)} {year}",
+                "%d %B %Y"
+            ).date()
+        except ValueError:
+            continue
+        if event_day < today:
+            continue
+        # Times are added only if published in this year's announcement.
+        times = re.search(r"from\s+(\d{1,2})(?::(\d{2}))?\s*(am|pm)\s*"
+                          r"[–—-]\s*(\d{1,2})(?::(\d{2}))?\s*(am|pm)",
+                          nearby, re.I)
+        def clock(hour, minute, ampm):
+            h = int(hour) % 12 + (12 if ampm.lower() == "pm" else 0)
+            return f"{h:02d}:{int(minute or 0):02d}:00"
+        start = event_day.isoformat() + "T00:00:00"
+        end = ""
+        if times:
+            start = event_day.isoformat() + "T" + clock(*times.group(1, 2, 3))
+            end = event_day.isoformat() + "T" + clock(*times.group(4, 5, 6))
+        print(f"    Multicultural Festival: confirmed {event_day.isoformat()} on official page")
+        return [{
+            "title": "South Australian Multicultural Festival",
+            "venue": "Victoria Square / Tarntanyangga",
+            "datetime": start,
+            "end_datetime": end,
+            "category": ["Festival"],
+            "image": "",
+            "link": MULTICULTURAL_FESTIVAL_URL,
+        }]
+    print("    Multicultural Festival: no confirmed upcoming edition; not added")
+    return []
+
+
+def consolidate_named_major_events(events):
+    """Merge verified parent listings, not independently bookable activities."""
+    result = []
+    grand_final_index = None
+    dropped = 0
+    for event in events:
+        title = str(event.get("title") or "").strip().casefold()
+        start = str(event.get("datetime") or "")[:10]
+        end = str(event.get("end_datetime") or "")[:10]
+        is_parent = (title == "bp adelaide grand final"
+                     and start == "2026-11-26" and end == "2026-11-29"
+                     and event.get("source") in (
+                         "Ticketmaster Adelaide", "Play & Go Adelaide Major Events"))
+        if is_parent:
+            event["category"] = ["Festival/Major Events"]
+            event["venue"] = "Adelaide Street Circuit"
+            if grand_final_index is None:
+                grand_final_index = len(result)
+                result.append(event)
+            else:
+                current = result[grand_final_index]
+                # Prefer the primary ticketing listing when both are present.
+                if (event.get("source") == "Ticketmaster Adelaide"
+                        and current.get("source") != "Ticketmaster Adelaide"):
+                    result[grand_final_index] = event
+                dropped += 1
+            continue
+        if title == "south australian multicultural festival":
+            event["category"] = ["Festival/Major Events"]
+        result.append(event)
+    print(f"bp Adelaide Grand Final: {dropped} duplicate parent listing(s) removed")
+    return result
+
+
 def scrape_source(source):
 
     name = source["name"]
     url = source["url"]
+
+    if name == "South Australian Multicultural Festival":
+        return scrape_multicultural_festival()
 
     if name == "Humanitix Nineteen Ten":
         return scrape_humanitix(host_only=True)
@@ -2204,6 +2317,7 @@ def main(only_source=None):
         {"name": "Moshtix Adelaide CBD", "url": "https://www.moshtix.com.au/v2/search"},
         {"name": "Humanitix Nineteen Ten", "url": "https://events.humanitix.com/host/nineteentenadl"},
         {"name": "Humanitix Adelaide and Regions", "url": "https://humanitix.com/au/events/au--sa--adelaide"},
+        {"name": "South Australian Multicultural Festival", "url": MULTICULTURAL_FESTIVAL_URL},
     ]
     if only_source is not None:
         matches = [s for s in configured_sources
@@ -3299,7 +3413,14 @@ def main(only_source=None):
     # Apply verified co-listing rules to the stored database as well.
     final_events = remove_verified_festival_cross_source_duplicates(final_events)
 
+    # Retain separately bookable parade/concert/lunch activities.
+    final_events = consolidate_named_major_events(final_events)
+
     # ----------------------------------------
+    from festival_tags import assign_major_event_category
+    final_events = [assign_major_event_category(event) for event in final_events]
+    print("Festival/Major Events: primary categories updated")
+
     # Save final database
     # ----------------------------------------
 

@@ -61,10 +61,10 @@ function getEventFestivals(event) {
 
 function updateFestivalLabel() {
     festivalFilter.textContent = selectedFestivals.length === 0
-        ? "All festivals"
+        ? "All festivals/major events"
         : selectedFestivals.length === 1
             ? selectedFestivals[0]
-            : selectedFestivals.length + " festivals selected";
+            : selectedFestivals.length + " festivals/major events selected";
 }
 
 function closeFestivalOptions() {
@@ -356,6 +356,7 @@ function isEventLongerThanSevenDays(event) {
 
 function normaliseEventCategory(category) {
     var name = String(category || "").trim();
+    if (/^festival$/i.test(name)) return "Festival/Major Events";
     if (/^exhibitions?$/i.test(name)) return "Exhibition";
     if (/^talks(?:\s*&\s*conferences)?$/i.test(name)) return "Talks & Conferences";
     return name;
@@ -385,7 +386,7 @@ var CALENDAR_CATEGORY_COLOURS = {
     "Expos": "#5465A8",
     "Exhibition": "#5465A8",
     "Family": "#087F87",
-    "Festival": "#B83F69",
+    "Festival/Major Events": "#B83F69",
     "Food & Beverage": "#9C5A27",
     "Music": "#245EAE",
     "Other": "#596674",
@@ -848,7 +849,7 @@ function populateFilters() {
         "Expos",
         "Exhibition",
         "Family",
-        "Festival",
+        "Festival/Major Events",
         "Food & Beverage",
         "Music",
         "Other",
