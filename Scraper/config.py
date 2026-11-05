@@ -231,3 +231,6 @@ SOURCES.append({"name": "SALA Festival", "url": "https://www.salafestival.com/ar
 
 # Official Adelaide Showground upcoming events.
 SOURCES.append({"name": "Adelaide Showground", "url": "https://www.adelaideshowground.com.au/whats-on"})
+
+# Official bp Adelaide Grand Final website (preferred for parent event artwork).
+SOURCES.append({"name": "bp Adelaide Grand Final Official", "url": "https://adelaidegrandfinal.com.au/"})

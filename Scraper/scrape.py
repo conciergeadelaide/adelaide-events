@@ -86,6 +86,7 @@ try:
         parse_moonlight_cinema_adelaide,
         parse_adelaide_gaol,
         parse_play_and_go_major_events,
+        parse_bp_adelaide_grand_final,
         parse_army_museum_south_australia,
         parse_migration_museum_adelaide,
         parse_south_australian_maritime_museum,
@@ -161,6 +162,7 @@ except ModuleNotFoundError:
         parse_moonlight_cinema_adelaide,
         parse_adelaide_gaol,
         parse_play_and_go_major_events,
+        parse_bp_adelaide_grand_final,
         parse_army_museum_south_australia,
         parse_migration_museum_adelaide,
         parse_south_australian_maritime_museum,
@@ -1531,7 +1533,8 @@ def consolidate_named_major_events(events):
         is_parent = (title == "bp adelaide grand final"
                      and start == "2026-11-26" and end == "2026-11-29"
                      and event.get("source") in (
-                         "Ticketmaster Adelaide", "Play & Go Adelaide Major Events"))
+                         "Ticketmaster Adelaide", "Play & Go Adelaide Major Events",
+                         "bp Adelaide Grand Final Official"))
         if is_parent:
             event["category"] = ["Festival/Major Events"]
             event["venue"] = "Adelaide Street Circuit"
@@ -1540,9 +1543,13 @@ def consolidate_named_major_events(events):
                 result.append(event)
             else:
                 current = result[grand_final_index]
-                # Prefer the primary ticketing listing when both are present.
-                if (event.get("source") == "Ticketmaster Adelaide"
-                        and current.get("source") != "Ticketmaster Adelaide"):
+                # Prefer the official event page and artwork over aggregators.
+                priority = {
+                    "bp Adelaide Grand Final Official": 3,
+                    "Ticketmaster Adelaide": 2,
+                    "Play & Go Adelaide Major Events": 1,
+                }
+                if priority.get(event.get("source"), 0) > priority.get(current.get("source"), 0):
                     result[grand_final_index] = event
                 dropped += 1
             continue
@@ -1750,6 +1757,9 @@ def scrape_source(source):
 
     if name == "Army Museum of South Australia":
         return parse_army_museum_south_australia(fetch_page(url), url)
+
+    if name == "bp Adelaide Grand Final Official":
+        return parse_bp_adelaide_grand_final(fetch_page(url), url)
 
     if name == "Play & Go Adelaide Major Events":
         return parse_play_and_go_major_events(fetch_page(url), url)

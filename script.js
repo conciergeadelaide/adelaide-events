@@ -870,9 +870,18 @@ function populateFilters() {
     festivalOptions.replaceChildren();
     selectedFestivals = [];
     updateFestivalLabel();
-    var festivals = Array.from(new Set(events.flatMap(getEventFestivals))).sort(
-        function(a, b) { return a.localeCompare(b); }
-    );
+    // Offer only festivals with at least one current or upcoming event.
+    // populateFilters() temporarily receives both upcoming and archived records,
+    // so explicitly exclude events whose final day is before today.
+    var today = new Date();
+    var todayKey = dateKey(today.getFullYear(), today.getMonth(), today.getDate());
+    var festivals = Array.from(new Set(
+        events.filter(function(event) {
+            var start = getDatePart(getEventStart(event));
+            var end = getDatePart(getEventEnd(event)) || start;
+            return Boolean(end && end >= todayKey);
+        }).flatMap(getEventFestivals)
+    )).sort(function(a, b) { return a.localeCompare(b); });
     festivals.forEach(function(festival) {
         var option = document.createElement("label");
         option.className = "festival-option";
