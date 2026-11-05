@@ -1,0 +1,37 @@
+
+TEST Baseline: the gov HTTP 200 HITS 273 PAGES 55 ERROR 
+  Kennie Simon | HOT CHOCOLATE | The Gov - The Venue | 2026-10-28T09:00:00
+  Shane Todd | The Gov - The Venue | 2026-10-30T08:00:00
+  Eternal Taurus, Torpedoes & Limelight | The Gov - The Gibson Stage | 2026-10-31T03:30:00
+
+TEST Venue ID filter 2437 HTTP 200 HITS 75 PAGES 15 ERROR 
+  Kennie Simon | HOT CHOCOLATE | The Gov - The Venue | 2026-10-28T09:00:00
+  Shane Todd | The Gov - The Venue | 2026-10-30T08:00:00
+  DAY OF THE DEAD HALLOWEEN FIESTA | The Gov - The Venue | 2026-10-31T09:30:00
+
+TEST Venue ID filter 4633 HTTP 200 HITS 4 PAGES 1 ERROR 
+  Eternal Taurus, Torpedoes & Limelight | The Gov - The Gibson Stage | 2026-10-31T03:30:00
+  300 Joules | The Gov - The Gibson Stage | 2026-10-31T09:00:00
+  The Bobby Hawkers | The Gov - The Gibson Stage | 2026-11-14T10:00:00
+
+TEST Venue name facet main HTTP 200 HITS 75 PAGES 15 ERROR 
+  Kennie Simon | HOT CHOCOLATE | The Gov - The Venue | 2026-10-28T09:00:00
+  Shane Todd | The Gov - The Venue | 2026-10-30T08:00:00
+  DAY OF THE DEAD HALLOWEEN FIESTA | The Gov - The Venue | 2026-10-31T09:30:00
+
+TEST Venue name facet Gibson HTTP 200 HITS 4 PAGES 1 ERROR 
+  Eternal Taurus, Torpedoes & Limelight | The Gov - The Gibson Stage | 2026-10-31T03:30:00
+  300 Joules | The Gov - The Gibson Stage | 2026-10-31T09:00:00
+  The Bobby Hawkers | The Gov - The Gibson Stage | 2026-11-14T10:00:00
+
+TEST Venue names in query HTTP 200 HITS 75 PAGES 15 ERROR 
+  Kennie Simon | HOT CHOCOLATE | The Gov - The Venue | 2026-10-28T09:00:00
+  Shane Todd | The Gov - The Venue | 2026-10-30T08:00:00
+  DAY OF THE DEAD HALLOWEEN FIESTA | The Gov - The Venue | 2026-10-31T09:30:00
+
+TEST Hindmarsh query HTTP 200 HITS 75 PAGES 15 ERROR 
+  Kennie Simon | HOT CHOCOLATE | The Gov - The Venue | 2026-10-28T09:00:00
+  Shane Todd | The Gov - The Venue | 2026-10-30T08:00:00
+  DAY OF THE DEAD HALLOWEEN FIESTA | The Gov - The Venue | 2026-10-31T09:30:00
+
+No project files modified.

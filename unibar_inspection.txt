@@ -1,0 +1,115 @@
+UniBar ADL source inspection
+HTTP status: 200 HTML bytes: 1609640
+
+HEADINGS:
+h6 'UniBar ADL has been a vital part of University culture and the Australian live music scene since opening circa 1975.' class= ['font_6', 'wixui-rich-text__text']
+h4 'UPCOMING GIGS' class= ['font_4', 'wixui-rich-text__text']
+h6 '23 Oct 2026' class= ['font_6', 'wixui-rich-text__text']
+h6 '30 Oct 2026' class= ['font_6', 'wixui-rich-text__text']
+h6 '31 Oct 2026' class= ['font_6', 'wixui-rich-text__text']
+h6 '1 Nov 2026' class= ['font_6', 'wixui-rich-text__text']
+h6 '6 Nov 2026' class= ['font_6', 'wixui-rich-text__text']
+h6 '7 Nov 2026' class= ['font_6', 'wixui-rich-text__text']
+h6 '14 Nov 2026' class= ['font_6', 'wixui-rich-text__text']
+h6 '20 Nov 2026' class= ['font_6', 'wixui-rich-text__text']
+h6 '28 Nov 2026' class= ['font_6', 'wixui-rich-text__text']
+h6 '5 Dec 2026' class= ['font_6', 'wixui-rich-text__text']
+h6 '6 Dec 2026' class= ['font_6', 'wixui-rich-text__text']
+h6 '12 Dec 2026' class= ['font_6', 'wixui-rich-text__text']
+h6 '13 Dec 2026' class= ['font_6', 'wixui-rich-text__text']
+h6 '16 Jan 2027' class= ['font_6', 'wixui-rich-text__text']
+h6 '6 Feb 2027' class= ['font_6', 'wixui-rich-text__text']
+h6 '19 Feb 2027' class= ['font_6', 'wixui-rich-text__text']
+h6 '28 Feb 2027' class= ['font_6', 'wixui-rich-text__text']
+h6 '19 Mar 2027' class= ['font_6', 'wixui-rich-text__text']
+h4 'WEEKLY EVENTS' class= ['font_4', 'wixui-rich-text__text']
+h5 'Every Monday' class= ['font_5', 'wixui-rich-text__text']
+h5 'Every Wednesday' class= ['font_5', 'wixui-rich-text__text']
+h4 'VENUE ACCESSIBILITY INFO' class= ['font_4', 'wixui-rich-text__text']
+h4 'DIRECTIONS' class= ['font_4', 'wixui-rich-text__text']
+h4 'GET IN TOUCH' class= ['font_4', 'wixui-rich-text__text']
+h4 'SUBSCRIBE' class= ['font_4', 'wixui-rich-text__text']
+
+LINKS NEAR EVENTS (first 110):
+Menu | https://www.unibaradl.com.au/menu | []
+Venue Specs | https://www.unibaradl.com.au/_files/ugd/c07c08_4b6c1471adaf40cc90374586e2deaac9.pdf | []
+Functions and Events | https://www.unibaradl.com.au/_files/ugd/c07c08_8b51e6d0871f4b0b98b50e660495ed87.pdf | []
+TICKETS | https://moshtix.com.au/v2/event/future-sounds-2026-i-a-free-entry-all-ages-festival-of-new-sa-music/199720 | ['PoVCDy', 'wixui-button', 'ZhVEJq']
+TICKETS | https://moshtix.com.au/v2/event/the-rions-halloween-special-all-ages/200070 | ['PoVCDy', 'wixui-button', 'ZhVEJq']
+TICKETS | https://moshtix.com.au/v2/event/end-of-days-2026-adelaide-feat-shockone-b2b-aeon-mode/197185 | ['PoVCDy', 'wixui-button', 'ZhVEJq']
+TICKETS | https://moshtix.com.au/v2/event/dream-on-dreamer-hope-heartbound-revival-tour-all-ages/200081 | ['PoVCDy', 'wixui-button', 'ZhVEJq']
+TICKETS | https://moshtix.com.au/v2/event/final-day-of-uni-for-2026-%E2%98%85-dj-murray-cook-the-og-red-wiggle-the-degas-projec/201489 | ['PoVCDy', 'wixui-button', 'ZhVEJq']
+TICKETS | https://moshtix.com.au/v2/event/murray-the-movers-all-ages-/193004 | ['PoVCDy', 'wixui-button', 'ZhVEJq']
+TICKETS | https://moshtix.com.au/v2/event/fluorescent-adolescents-choose-your-own-setlist-all-ages/200630 | ['PoVCDy', 'wixui-button', 'ZhVEJq']
+TICKETS | https://moshtix.com.au/v2/event/lumen-ad-mortem-oath-of-damnation-hell-machine-numen-noctis-all-ages/198741 | ['PoVCDy', 'wixui-button', 'ZhVEJq']
+TICKETS | https://moshtix.com.au/v2/event/sunset-fest-all-ages/197436 | ['PoVCDy', 'wixui-button', 'ZhVEJq']
+TICKETS | https://moshtix.com.au/v2/event/even-hannah-aus-tour-w-supports-all-ages/200824 | ['PoVCDy', 'wixui-button', 'ZhVEJq']
+TICKETS | https://moshtix.com.au/v2/event/block-party-feat-the-pharcyde-usa-w-dem-mob-bloomy-meadows-inkswel-erin/198401 | ['PoVCDy', 'wixui-button', 'ZhVEJq']
+TICKETS | https://moshtix.com.au/v2/event/south-american-music-experience-brazil-nuts-orchestra-latin-soul-band-all-ag/201024 | ['PoVCDy', 'wixui-button', 'ZhVEJq']
+TICKETS | https://moshtix.com.au/v2/event/the-gospel-project-a-christmas-special-all-ages/201364 | ['PoVCDy', 'wixui-button', 'ZhVEJq']
+TICKETS | https://moshtix.com.au/v2/event/scorched-earth-w-dreadnaught-se-bon-ki-ra-frankenbok-the-ascended-headbore-alterdrive-all-ages-/198107 | ['PoVCDy', 'wixui-button', 'ZhVEJq']
+TICKETS | https://moshtix.com.au/v2/event/cargo-ago-go-all-ages/201165 | ['PoVCDy', 'wixui-button', 'ZhVEJq']
+TICKETS | https://moshtix.com.au/v2/event/teenage-bottlerocket-usa-brendan-kelly-the-lawrence-arms-all-ages-/198316 | ['PoVCDy', 'wixui-button', 'ZhVEJq']
+TICKETS | https://moshtix.com.au/v2/event/skerryvore-beautiful-mistakes-album-tour-all-ages/200740 | ['PoVCDy', 'wixui-button', 'ZhVEJq']
+TICKETS | https://moshtix.com.au/v2/event/19-twenty-inspector-cluzo-fr-all-ages/199666 | ['PoVCDy', 'wixui-button', 'ZhVEJq']
+VENUE ACCESSIBILITY INFO | https://www.unibaradl.com.au/home-1 | ['wixui-rich-text__text']
+MENU | https://www.unibaradl.com.au/menu | ['wixui-rich-text__text']
+VENUE SPECS | https://www.unibaradl.com.au/_files/ugd/c07c08_4b6c1471adaf40cc90374586e2deaac9.pdf | ['wixui-rich-text__text']
+VENUE ACCESSIBILITY | https://www.unibaradl.com.au/home-1 | ['wixui-rich-text__text']
+Menu | https://www.unibaradl.com.au/menu | ['G7GdaI', 'wixui-vertical-menu__item-label']
+Venue Specs | https://www.unibaradl.com.au/_files/ugd/c07c08_4b6c1471adaf40cc90374586e2deaac9.pdf | ['G7GdaI', 'wixui-vertical-menu__item-label']
+Functions and Events | https://www.unibaradl.com.au/_files/ugd/c07c08_8b51e6d0871f4b0b98b50e660495ed87.pdf | ['G7GdaI', 'wixui-vertical-menu__item-label']
+
+IMAGES (first 35):
+alt= '' src= https://static.wixstatic.com/media/3f563e_eab6589091c64836889b53ad07a2961c~mv2.png/v1/fill/w_56,h_65,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/3f563e_eab6589091c64836889b53ad07a2961c~m data-src= None parent= picture
+alt= 'Instagram' src= None data-src= None parent= wow-image
+alt= 'Facebook' src= None data-src= None parent= wow-image
+alt= '' src= https://static.wixstatic.com/media/c07c08_2e743f04c60348828c6d55de8db36096~mv2.png/v1/fill/w_49,h_61,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/FUTURE%20SOUNDS%20(Insta).png data-src= None parent= picture
+alt= '' src= https://static.wixstatic.com/media/c07c08_799a99df2f7d4018b7054149467b5188~mv2.jpg/v1/fill/w_147,h_147,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/The%20Rions%20Halloween%20POSTER%20SOCI data-src= None parent= picture
+alt= '' src= https://static.wixstatic.com/media/c07c08_94a35da6a1a8450c8d4acb99854e9c80~mv2.jpg/v1/fill/w_147,h_147,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/EOD_Adelaide_Moshtix.jpg data-src= None parent= picture
+alt= '' src= https://static.wixstatic.com/media/c07c08_a281851ade2b431d81f952c714497490~mv2.jpg/v1/fill/w_147,h_184,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/FLYER.jpg data-src= None parent= picture
+alt= '' src= https://static.wixstatic.com/media/c07c08_b1404983aefa487aab2c93273081b94d~mv2.png/v1/fill/w_49,h_61,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/unibar%20poster%20IG.png data-src= None parent= picture
+alt= '' src= https://static.wixstatic.com/media/c07c08_e7b01697a56f4bd9a142e47621f0b689~mv2.jpg/v1/fill/w_147,h_147,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/Murray-and-the-movers-Legs-Square-3.jpg data-src= None parent= picture
+alt= '' src= https://static.wixstatic.com/media/c07c08_839e30a2a9424670828e34b9098e53a7~mv2.png/v1/fill/w_79,h_112,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/fa-cyosl-unibar-poster.png data-src= None parent= picture
+alt= '' src= https://static.wixstatic.com/media/c07c08_f89d3c15a79e4070aba503044506ff2e~mv2.jpg/v1/fill/w_147,h_152,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/Lumen%20Launch%20Square.jpg data-src= None parent= picture
+alt= '' src= https://static.wixstatic.com/media/c07c08_3566f21120464b6396610189e8bd109d~mv2.png/v1/fill/w_49,h_49,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/SUNSET%20FEST%20ADL%20NOV%2028%20SQUARE.p data-src= None parent= picture
+alt= '' src= https://static.wixstatic.com/media/c07c08_948d834d82d94e6781dd1771c0588ede~mv2.jpeg/v1/fill/w_108,h_108,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/even%20hannah.jpeg data-src= None parent= picture
+alt= '' src= https://static.wixstatic.com/media/c07c08_62c467e776f840e38315dac97bc4b285~mv2.png/v1/fill/w_49,h_61,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/BLOCK%20PARTY%20(4-5).png data-src= None parent= picture
+alt= '' src= https://static.wixstatic.com/media/c07c08_381f97ea6e964b24ba473736256dac06~mv2.png/v1/fill/w_49,h_49,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/SAME%20SQUARE.png data-src= None parent= picture
+alt= '' src= https://static.wixstatic.com/media/c07c08_88aac92218bc4e619d8c587f66a178b4~mv2.jpg/v1/fill/w_147,h_147,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/Ticket%20Thumbnail.jpg data-src= None parent= picture
+alt= '' src= https://static.wixstatic.com/media/c07c08_0a25edc4cb714974be6dca3102ce666c~mv2.jpg/v1/fill/w_147,h_147,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/Online%20square%20poster%20-%20SCORCHED data-src= None parent= picture
+alt= '' src= https://static.wixstatic.com/media/c07c08_bcf3968ea945469f80aa81124039bf6a~mv2.jpg/v1/fill/w_147,h_184,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/Cargo%20ago%20go%202027%201080%20x%2013 data-src= None parent= picture
+alt= '' src= https://static.wixstatic.com/media/c07c08_d63f3d64ea1a4f37b79b63918f0b60b2~mv2.jpg/v1/fill/w_147,h_147,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/Adelaide.jpg data-src= None parent= picture
+alt= '' src= https://static.wixstatic.com/media/c07c08_b38aa99c180f430496cfb9609f1aa87c~mv2.jpg/v1/fill/w_147,h_147,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/ADELAIDE%201080X1080.jpg data-src= None parent= picture
+alt= '' src= https://static.wixstatic.com/media/c07c08_641396aa51fe4e3c9086b2fefd1e5608~mv2.jpg/v1/fill/w_147,h_98,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/19-20%20285%20bytonymott.jpg data-src= None parent= picture
+alt= '' src= https://static.wixstatic.com/media/3f563e_420425af20754d63a8118e75d53616c3~mv2.jpeg/v1/fill/w_115,h_144,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/monday.jpeg data-src= None parent= picture
+alt= '' src= https://static.wixstatic.com/media/3f563e_83432d64b19d4334b262522e2ccfc01b~mv2.png/v1/fill/w_64,h_91,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/wed%20night.png data-src= None parent= picture
+alt= '' src= https://static.wixstatic.com/media/3f563e_c6995d95dc134202bfaa6f738ab72e54~mv2.jpg/v1/fill/w_147,h_147,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/unibar-map.jpg data-src= None parent= picture
+
+DATE-CONTAINING TEXT (first 65):
+'FUTURE SOUNDS 2026' parent= span class= ['wixui-rich-text__text']
+'23 Oct 2026' parent= span class= ['wixui-rich-text__text']
+'30 Oct 2026' parent= span class= ['wixui-rich-text__text']
+'END OF DAYS 2026' parent= span class= ['wixui-rich-text__text']
+'31 Oct 2026' parent= span class= ['wixui-rich-text__text']
+'1 Nov 2026' parent= span class= ['wixui-rich-text__text']
+'FINAL DAY OF UNI FOR 2026' parent= span class= ['wixui-rich-text__text']
+'6 Nov 2026' parent= span class= ['wixui-rich-text__text']
+'7 Nov 2026' parent= span class= ['wixui-rich-text__text']
+'14 Nov 2026' parent= span class= ['wixui-rich-text__text']
+'20 Nov 2026' parent= span class= ['wixui-rich-text__text']
+'28 Nov 2026' parent= span class= ['wixui-rich-text__text']
+'5 Dec 2026' parent= span class= ['wixui-rich-text__text']
+'6 Dec 2026' parent= span class= ['wixui-rich-text__text']
+'12 Dec 2026' parent= span class= ['wixui-rich-text__text']
+'13 Dec 2026' parent= span class= ['wixui-rich-text__text']
+'16 Jan 2027' parent= span class= ['wixui-rich-text__text']
+'6 Feb 2027' parent= span class= ['wixui-rich-text__text']
+'19 Feb 2027' parent= span class= ['wixui-rich-text__text']
+'28 Feb 2027' parent= span class= ['wixui-rich-text__text']
+'19 Mar 2027' parent= span class= ['wixui-rich-text__text']
+
+JSON-LD:
+{"@context":"https://schema.org/","@type":"WebSite","name":"UniBar Adelaide","url":"https://www.unibaradl.com.au"}
+
+INSPECTION COMPLETE

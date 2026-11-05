@@ -1,0 +1,110 @@
+
+PAGE https://www.oztix.com.au/search/?q=the%20gov&venues%5B0%5D=The%20Gov%20-%20The%20Venue
+STATUS 200 BYTES 5024 FINAL https://www.oztix.com.au/search/?q=the%20gov&venues%5B0%5D=The%20Gov%20-%20The%20Venue
+SCRIPTS 3
+ JS https://www.googletagmanager.com/gtag/js?id=G-Z6Q34PSGS3
+ JS https://www.oztix.com.au/js/chunk-vendors.5cff63e0.js
+ JS https://www.oztix.com.au/js/app.abc3f3e0.js
+JSON-LD 1
+EVENT-LINKS 0
+PAGE API HINTS ['https://www.oztix.com.au/search?q={search_term_string}']
+ BUNDLE 200 1405137 https://www.oztix.com.au/js/chunk-vendors.5cff63e0.js
+  HINT http://www.w3.org/2000/svg
+  HINT http://a/c%20d?a=1&c=3
+  HINT https://momentjs.com/timezone/docs/#/use-it/browser/
+  HINT http://momentjs.com/timezone/docs/#/data-loading/.
+  HINT http://www.w3.org/1999/xlink
+  HINT https://github.com/algolia/algoliasearch-client-javascript
+  HINT https://github.com/focus-trap/tabbable/blob/master/LICENSE
+  HINT https://github.com/focus-trap/focus-trap/blob/master/LICENSE
+  HINT https://github.com/axios/axios.git
+  HINT https://github.com/axios/axios/issues
+  HINT https://axios-http.com
+  HINT https://registry.npmjs.org/axios/-/axios-0.21.4.tgz
+  HINT https://next.vuex.vuejs.org/
+  HINT https://vuejs.org/images/icons/favicon-96x96.png
+  HINT https://alg.li/vue-custom
+  HINT https://alg.li/lNiZZ7
+  HINT https://github.com/algolia/vue-instantsearch/issues/new?template=feature.md
+  HINT https://www.algolia.com/doc/api-reference/widgets/instantsearch/vue/#widget-param-search-client
+ BUNDLE 200 272999 https://www.oztix.com.au/js/app.abc3f3e0.js
+  HINT http://www.w3.org/2000/svg
+  HINT https://instagram.com/oztix
+  HINT https://youtube.com/@oztixofficial
+  HINT https://linkedin.com/company/oztix
+  HINT https://facebook.com/oztix
+  HINT https://x.com/oztix
+  HINT https://studio.oztix.com.au
+  HINT https://client.oztix.com.au
+  HINT https://www.oztix.com.au/customer-support/thank-you
+  HINT https://www.oztix.com.au/ticket-your-event/thank-you
+  HINT https://ux.oztix.com.au
+  HINT /events/create?register=true
+  HINT https://www.facebook.com/Oztix/
+  HINT https://www.instagram.com/oztix/
+  HINT https://www.linkedin.com/company/oztix
+  HINT /search?q=
+  HINT https://assets.oztix.com.au/image/f2a28f18-1bb2-4374-b1c8-ef8b1cab84a3.png
+  HINT https://assets.oztix.com.au/image/426e9cb0-c527-4fff-aa60-0779461117ef.png
+
+PAGE https://www.oztix.com.au/search/
+STATUS 200 BYTES 5024 FINAL https://www.oztix.com.au/search/
+SCRIPTS 3
+ JS https://www.googletagmanager.com/gtag/js?id=G-Z6Q34PSGS3
+ JS https://www.oztix.com.au/js/chunk-vendors.5cff63e0.js
+ JS https://www.oztix.com.au/js/app.abc3f3e0.js
+JSON-LD 1
+EVENT-LINKS 0
+PAGE API HINTS ['https://www.oztix.com.au/search?q={search_term_string}']
+ BUNDLE 200 1405137 https://www.oztix.com.au/js/chunk-vendors.5cff63e0.js
+  HINT http://www.w3.org/2000/svg
+  HINT http://a/c%20d?a=1&c=3
+  HINT https://momentjs.com/timezone/docs/#/use-it/browser/
+  HINT http://momentjs.com/timezone/docs/#/data-loading/.
+  HINT http://www.w3.org/1999/xlink
+  HINT https://github.com/algolia/algoliasearch-client-javascript
+  HINT https://github.com/focus-trap/tabbable/blob/master/LICENSE
+  HINT https://github.com/focus-trap/focus-trap/blob/master/LICENSE
+  HINT https://github.com/axios/axios.git
+  HINT https://github.com/axios/axios/issues
+  HINT https://axios-http.com
+  HINT https://registry.npmjs.org/axios/-/axios-0.21.4.tgz
+  HINT https://next.vuex.vuejs.org/
+  HINT https://vuejs.org/images/icons/favicon-96x96.png
+  HINT https://alg.li/vue-custom
+  HINT https://alg.li/lNiZZ7
+  HINT https://github.com/algolia/vue-instantsearch/issues/new?template=feature.md
+  HINT https://www.algolia.com/doc/api-reference/widgets/instantsearch/vue/#widget-param-search-client
+ BUNDLE 200 272999 https://www.oztix.com.au/js/app.abc3f3e0.js
+  HINT http://www.w3.org/2000/svg
+  HINT https://instagram.com/oztix
+  HINT https://youtube.com/@oztixofficial
+  HINT https://linkedin.com/company/oztix
+  HINT https://facebook.com/oztix
+  HINT https://x.com/oztix
+  HINT https://studio.oztix.com.au
+  HINT https://client.oztix.com.au
+  HINT https://www.oztix.com.au/customer-support/thank-you
+  HINT https://www.oztix.com.au/ticket-your-event/thank-you
+  HINT https://ux.oztix.com.au
+  HINT /events/create?register=true
+  HINT https://www.facebook.com/Oztix/
+  HINT https://www.instagram.com/oztix/
+  HINT https://www.linkedin.com/company/oztix
+  HINT /search?q=
+  HINT https://assets.oztix.com.au/image/f2a28f18-1bb2-4374-b1c8-ef8b1cab84a3.png
+  HINT https://assets.oztix.com.au/image/426e9cb0-c527-4fff-aa60-0779461117ef.png
+
+PAGE https://www.moshtix.com.au/v2/venues/the-gov-adelaide/923
+STATUS 200 BYTES 29967 FINAL https://www.moshtix.com.au/v2/venues/the-gov-adelaide/923
+SCRIPTS 5
+ JS https://www.moshtix.com.au/v2/bundles/common/js?v=PYm_JSREcgQKdP1hwn8u7yZhDC95d0kRVE90-9afeIQ1
+ JS https://www.moshtix.com.au/v2/scripts/App/moshtix.tooltip.js?v=20261027130602
+ JS https://www.moshtix.com.au/eps-mgr
+ JS https://www.moshtix.com.au/v2/Scripts/App/Moshtix.Search.js?v=20261027130602
+ JS https://www.moshtix.com.au/v2/bundles/one-column/js/scripts?v=NqlDmp4Hat0Yj9rUfXwki5xDgY4VDx_O9oAV-rRx2f41
+JSON-LD 2
+EVENT-LINKS 4
+PAGE API HINTS ['https://www.google.com/maps/search/?api=1&amp;query=59+Port+Rd%2c+Hindmarsh+SA+5007']
+
+Diagnostic finished; no files modified.

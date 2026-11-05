@@ -1,0 +1,34 @@
+    Gov Moshtix: 2 unique venue links, 2 verified upcoming events
+    Gov Oztix venue search: The Venue 75, Gibson Stage 4
+    Gov Oztix: 79 search results across 2 venue-filtered page(s); 6 new verified Gov events; 73 filtered
+    The Gov: 8 unique verified upcoming events
+
+=================================================================
+OZTIX FILTER DIAGNOSTIC
+=================================================================
+Total raw Oztix hits: 79
+Events returned by Gov parser (Oztix + Moshtix): 8
+
+Rejection / acceptance breakdown:
+  passed core checks: 75
+  cancelled: 3
+  postponed: 1
+
+SAMPLES: passed core checks
+  {"title": "Shane Todd", "venue_id": 2437, "date_start_unix": 1793347200, "date_start": "2026-10-30T08:00:00", "event_url": "https://tickets.oztix.com.au/outlet/event/8288ad6e-7a1e-4ba8-a467-7796c7753509?utm_source=Oztix&utm_medium=Website", "event_guid": "8288ad6e-7a1e-4ba8-a467-7796c7753509", "event_id": 235499, "cancelled": false, "postponed": false, "approved": true}
+  {"title": "DAY OF THE DEAD HALLOWEEN FIESTA", "venue_id": 2437, "date_start_unix": 1793439000, "date_start": "2026-10-31T09:30:00", "event_url": "https://tickets.oztix.com.au/outlet/event/65dea0ff-126a-43eb-bceb-92c5c70351c8?utm_source=Oztix&utm_medium=Website", "event_guid": "65dea0ff-126a-43eb-bceb-92c5c70351c8", "event_id": 240804, "cancelled": false, "postponed": false, "approved": true}
+  {"title": "Windwaker 'smile, you're on camera' Australian Tour 2026", "venue_id": 2437, "date_start_unix": 1793521800, "date_start": "2026-11-01T08:30:00", "event_url": "https://tickets.oztix.com.au/outlet/event/533b2f3c-1a29-4a70-b896-5d4294e32194?utm_source=Oztix&utm_medium=Website", "event_guid": "533b2f3c-1a29-4a70-b896-5d4294e32194", "event_id": 244106, "cancelled": false, "postponed": false, "approved": true}
+  {"title": "The Exploding Universe of Ed Kuepper", "venue_id": 2437, "date_start_unix": 1793782800, "date_start": "2026-11-04T09:00:00", "event_url": "https://tickets.oztix.com.au/outlet/event/74590c64-7a2e-4fa4-b6cc-e95c24425f54?utm_source=Oztix&utm_medium=Website", "event_guid": "74590c64-7a2e-4fa4-b6cc-e95c24425f54", "event_id": 237826, "cancelled": false, "postponed": false, "approved": true}
+  {"title": "Tusk - The Fleetwood Mac Tribute Show - Rumours & Hits", "venue_id": 2437, "date_start_unix": 1793955600, "date_start": "2026-11-06T09:00:00", "event_url": "https://tickets.oztix.com.au/outlet/event/a6992070-36de-4e6c-9c8f-d0dc02378bee?utm_source=Oztix&utm_medium=Website", "event_guid": "a6992070-36de-4e6c-9c8f-d0dc02378bee", "event_id": 238384, "cancelled": false, "postponed": false, "approved": true}
+
+SAMPLES: postponed
+  {"title": "POSTPONED - Barry Morgan’s Travelling Organ Tour 2025", "venue_id": 2437, "date_start_unix": 1763863200, "date_start": "2025-11-23T02:00:00", "event_url": "https://tickets.oztix.com.au/outlet/event/8bebe092-f737-4db0-b8a8-90a66de3cfcf?utm_source=Oztix&utm_medium=Website", "event_guid": "8bebe092-f737-4db0-b8a8-90a66de3cfcf", "event_id": 227258, "cancelled": false, "postponed": true, "approved": true}
+
+SAMPLES: cancelled
+  {"title": "CANCELLED - SUN RECORDS", "venue_id": 2437, "date_start_unix": 1793869200, "date_start": "2026-11-05T09:00:00", "event_url": "https://tickets.oztix.com.au/outlet/event/d14c9010-bc72-4f38-9f3e-50279f4eab82?utm_source=Oztix&utm_medium=Website", "event_guid": "d14c9010-bc72-4f38-9f3e-50279f4eab82", "event_id": 244620, "cancelled": true, "postponed": false, "approved": true}
+  {"title": "CANCELLED - Hugh Cornwell", "venue_id": 2437, "date_start_unix": 1796545800, "date_start": "2026-12-06T08:30:00", "event_url": "https://tickets.oztix.com.au/outlet/event/e88568ce-a1c6-4daf-a411-0b916f4434a1?utm_source=Oztix&utm_medium=Website", "event_guid": "e88568ce-a1c6-4daf-a411-0b916f4434a1", "event_id": 232945, "cancelled": true, "postponed": false, "approved": true}
+  {"title": "CANCELLED - PAVLOV'S DOG", "venue_id": 2437, "date_start_unix": 1815298200, "date_start": "2027-07-11T09:30:00", "event_url": "https://tickets.oztix.com.au/outlet/event/944e9a9f-efa1-42df-ac92-faf0f48292ec?utm_source=Oztix&utm_medium=Website", "event_guid": "944e9a9f-efa1-42df-ac92-faf0f48292ec", "event_id": 244686, "cancelled": true, "postponed": false, "approved": true}
+
+FIRST HIT FIELD NAMES: Affected, AffectedBy, Availability, AvailabilityDate, Bands, Brand, Categories, CollectionIds, DateEnd, DateEndUnix, DateStart, DateStartMonth, DateStartMonthName, DateStartUnix, DateStartWeek, EventDescription, EventGuid, EventId, EventImage1, EventName, EventSearchKeywords, EventUrl, ExpirationDate, FullCategories, HasEventDatePassed, HomepageImage, IsApproved, IsCancelled, IsPostponed, IsRescheduled, LastModifiedUtc, MinPrice, OutletFriendlyName, OutletId, Performances, PriceBreakdown, PriceFrom, ShortEventUrl, SpecialGuests, TourName, Venue, _geoloc, _highlightResult, objectID
+
+Diagnostic complete. No project files modified.

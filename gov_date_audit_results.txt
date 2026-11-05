@@ -1,0 +1,105 @@
+    Gov Moshtix: 2 unique venue links, 2 verified upcoming events
+    Gov Oztix venue search: The Venue 75, Gibson Stage 4
+    Gov Oztix: 79 search results across 2 venue-filtered page(s); 6 new verified Gov events; 73 filtered
+    The Gov: 8 unique verified upcoming events
+
+=== GOV OZTIX DATE AUDIT ===
+Today (computer date): 2026-10-28
+Raw hits: 79
+Parser results (including Moshtix): 8
+
+Exclusive reason counts:
+  eligible upcoming: 75
+  cancelled: 3
+  postponed: 1
+
+ALL ELIGIBLE UPCOMING OZTIX EVENTS:
+  2026-10-28 | Kennie Simon | HOT CHOCOLATE | venue 2437 | 9e151a29-0e57-4133-a97f-97ee6a8bb8b1
+  2026-10-30 | Shane Todd | venue 2437 | 8288ad6e-7a1e-4ba8-a467-7796c7753509
+  2026-10-31 | 300 Joules | venue 4633 | 753c575e-7dc4-406d-8de2-5f63e07cc3c4
+  2026-10-31 | DAY OF THE DEAD HALLOWEEN FIESTA | venue 2437 | 65dea0ff-126a-43eb-bceb-92c5c70351c8
+  2026-10-31 | Eternal Taurus, Torpedoes & Limelight | venue 4633 | 9bb41624-7b00-4a69-8a8f-077546263a72
+  2026-11-01 | Windwaker 'smile, you're on camera' Australian Tour 2026 | venue 2437 | 533b2f3c-1a29-4a70-b896-5d4294e32194
+  2026-11-04 | The Exploding Universe of Ed Kuepper | venue 2437 | 74590c64-7a2e-4fa4-b6cc-e95c24425f54
+  2026-11-06 | Tusk - The Fleetwood Mac Tribute Show - Rumours & Hits | venue 2437 | a6992070-36de-4e6c-9c8f-d0dc02378bee
+  2026-11-07 | Tusk - The Fleetwood Mac Tribute Show - Greatest Hits | venue 2437 | 1ba5fbd6-d01d-4dd7-b3dc-f982d183bd1c
+  2026-11-10 | Dance Gavin Dance | Australian Tour | venue 2437 | 631dd586-00e5-474e-b8d8-d03cdd951196
+  2026-11-12 | REVEREND HORTON HEAT | venue 2437 | 3634ec57-c2d2-4cf6-becf-33f7e8b42286
+  2026-11-13 | The Audreys | venue 2437 | 2a9d7358-92af-449b-a8af-4d15367967e2
+  2026-11-14 | The Bobby Hawkers | venue 4633 | 10d6dac9-ff3d-4833-b355-d7c9af8ad113
+  2026-11-14 | Zep Boys | venue 2437 | 292db670-56d0-4cb2-9bbe-ea006549f7d3
+  2026-11-15 | JONAH MARAIS | venue 2437 | 1bbd429a-3b5c-455d-a5be-93baf2060571
+  2026-11-20 | Celebrating DAVID BOWIE | venue 2437 | 20d53173-d166-49f6-b112-8fc5e33007d9
+  2026-11-21 | The Doors Alive (UK) | venue 2437 | f294d16a-6c85-40b2-aae6-378235e874da
+  2026-11-22 | An Evening with Dave Hole | venue 2437 | 70cbd5be-22c1-407c-854e-16c3d44dc058
+  2026-11-23 | Saint Etienne - Final Australian Tour | venue 2437 | 20c448bb-1e67-4a1e-98b7-22f2e8403008
+  2026-11-24 | The Kim Wilde CLOSER TOUR | venue 2437 | cd26523d-7c2a-467a-809b-6a30e65002b1
+  2026-11-26 | Chiodos ‘All’s Well That Ends Well’ 20 Year Anniversary Tour | venue 2437 | 03595947-e10c-4f7e-ad81-522a3e88afb9
+  2026-11-27 | Fischer-Z | venue 2437 | 9739aeb3-830e-490a-b5c5-ef5312d91926
+  2026-11-28 | AJ Pike Band | venue 4633 | 432cb8d4-5170-412a-9834-1252c70cea3e
+  2026-11-28 | Lachy Doley - Returns Home Tour | venue 2437 | 6bf0bd96-a9e8-4af3-8938-b037dd8ac1cd
+  2026-12-01 | P.O.D | venue 2437 | b0dbb591-ded3-4da5-ab7c-a91494bf3377
+  2026-12-02 | The Animals (UK) - The House of the Rising Sun Tour 2026 | venue 2437 | 8cfb0770-53c7-4b2a-abf8-cb5c1474395b
+  2026-12-04 | NEVER ENDING 80S PRESENTS: 80S VS 70s GLOW VS FRO | venue 2437 | a4d4734a-e3b5-4bd2-a1ab-d8baa71d4810
+  2026-12-05 | NEVER ENDING 80S - JUST WANNA HAVE FUN! DRESS UP PARTY! | venue 2437 | 57d1358e-77ca-4f47-8b78-f44497d1c4c1
+  2026-12-11 | PAUL DEMPSEY’S CHRISTMAS KARAOKE | venue 2437 | 49cb4838-8f5b-4011-bffb-a89678d8971b
+  2026-12-12 | Thirsty Merc | venue 2437 | 3a532337-c3eb-4296-a8fb-d588ad65b63a
+  2026-12-19 | Classic Rock Extravanganza 2 | venue 2437 | 0fa384db-dfae-4686-b2b2-37e41cf56471
+  2026-12-28 | Lucky Seven DANCE DANCE DANCE | venue 2437 | 13917c8a-ee09-47f0-927a-65133c8476e8
+  2027-01-09 | Lapdogs | venue 2437 | e7c0bd8e-b8ce-433d-928d-db70fcb1fcff
+  2027-01-16 | Tropical Summer Fiesta | venue 2437 | 23a09f21-e59a-4acd-8a96-9961af62eabe
+  2027-01-19 | Rodrigo y Gabriela - OurHome Tour | venue 2437 | a413b45c-22a2-499b-81ed-61c8a43442f0
+  2027-01-20 | Start Making Sense (Talking Heads Tribute) (USA) | venue 2437 | a490f189-d9a5-45ff-b82c-d286b2040254
+  2027-01-21 | Level 42 | Australian Tour | venue 2437 | 6f0a1149-1c6c-491c-8f04-679c070a10ea
+  2027-01-23 | HIGH VOLTAGE | venue 2437 | 2240de55-7d30-4e52-8f3c-edc1d50b071a
+  2027-01-26 | PUBLIC IMAGE LTD | venue 2437 | 079b49a1-e47d-4ff0-b44d-0db4696c82e8
+  2027-01-27 | Waylon Wyatt - Dustpiles World Tour | venue 2437 | e11f13ae-493d-437b-bb2b-beeec601aa84
+  2027-01-29 | Big Night Out | venue 2437 | 49640f82-100d-4bc6-9d4e-2be18e677629
+  2027-01-30 | Baggy Trousers - The Sound of Madness | venue 2437 | 577f541c-3a41-49ff-93f4-c8f14b67b094
+  2027-02-03 | The Saints ’73-’78 | venue 2437 | 985dc99d-5328-4f6a-a900-b086a3672f56
+  2027-02-06 | Bondi Cigars | venue 2437 | 645a4b19-b6b6-4020-a08f-ec28f69b2180
+  2027-02-09 | Loudon Wainwright III Australian Tour | venue 2437 | 4718862a-bfce-4b41-8eae-764aef30ac53
+  2027-02-12 | DOLLY - THE TRIBUTE | venue 2437 | 4e884527-149a-48b5-9b35-2908423b9f0d
+  2027-02-13 | Echoes of Pink Floyd | venue 2437 | 72fdd09d-bc06-46ab-b885-c5d537d49d51
+  2027-02-16 | Waterparks Australian Tour 2027 | venue 2437 | 16094dc4-be09-47c8-82da-9d585d51afa3
+  2027-02-18 | Jane Remover | venue 2437 | 793dc809-6192-4bae-a70c-37dc586a72f5
+  2027-02-24 | The Smyths (UK) perform The Very Best of The Smiths | venue 2437 | b097ab74-c216-475f-9cf6-d19c66ce9fac
+  2027-02-25 | Del Amitri - Past to Present - Four Decades Of Their Greatest Music | venue 2437 | 68ace5a2-fd75-44ff-adaf-8fb52db66393
+  2027-02-27 | RAGE AGAINST THE 90S - THE ULTIMATE 90'S ROCK SHOW | venue 2437 | 89ea2d1a-2de1-42d8-890d-6d2eb3460ba1
+  2027-03-03 | Citizen 'Halcyon Blues' Australian Tour 2027 | venue 2437 | 7edb6b33-c91a-4d12-b3d2-066d11c892cd
+  2027-03-06 | Voxneon - 80's Synth Anthems | venue 2437 | 869ad901-f3d4-4be7-8139-c88b5b3ed95a
+  2027-03-08 | JON CLEARY & THE ABSOLUTE MONSTER GENTLEMEN | venue 2437 | d6a6debc-6b4b-4f05-aeba-1d9fa3fbaedd
+  2027-03-09 | The Longest Johns | Australia and New Zealand | venue 2437 | 3c31eb94-2543-4570-a436-4310d5cace97
+  2027-03-10 | Periphery - Australian Tour | venue 2437 | c8470bc7-67e1-426e-94d8-3e4ec074e31a
+  2027-03-13 | Slow Pilot (Belgium) - Performing the songs of Jeff Buckley | venue 2437 | 7baed7ee-1925-4efb-9b11-8c1e25df8e3b
+  2027-03-14 | BEN OTTEWELL & IAN BALL from GOMEZ | venue 2437 | 7c120de3-74f2-421c-b458-b202d3df4850
+  2027-03-15 | The Original Wailers featuring Al Anderson (Jamaica) | venue 2437 | df687812-f269-47be-8536-2fc0f0023594
+  2027-03-16 | SIXPENCE NONE THE RICHER | venue 2437 | 495ddf00-3cbf-4dc0-91c0-11c841723186
+  2027-03-18 | ABC - The Lexicon Of Life Tour 2027 | venue 2437 | 4cd37f53-6706-4556-a385-376da2df5e0e
+  2027-03-19 | DON’T CHANGE – Ultimate INXS Tribute | venue 2437 | 9b88fa3a-50e5-4ba7-b5be-a9a7520796dc
+  2027-03-20 | DON’T CHANGE – Ultimate INXS Tribute | venue 2437 | c0fe2fc0-403a-4d9c-af3e-81eaf50ab4bf
+  2027-04-06 | Luka Bloom | venue 2437 | 222b0347-083b-4138-bd25-bf92aa0bac98
+  2027-04-14 | GEOFF TATE | venue 2437 | 43c24c59-a121-49fe-9316-15aaca429725
+  2027-04-20 | Squeeze 'Tried, Tested and Trixies' Tour | venue 2437 | d6c02bf2-bab9-4fb4-b790-4c0c65e9d44a
+  2027-04-24 | Clash of the Titans - GAME OVER | venue 2437 | c850cf97-2113-47ba-b2ef-0c9816b453e2
+  2027-04-25 | MONO | venue 2437 | a37a9361-fb09-4eb4-a66c-3d0d548e5d0a
+  2027-05-01 | Inspiral Carpets (UK) The Singles Tour | venue 2437 | 010fb8c6-6e26-4ace-87ae-85903ba4ca29
+  2027-05-10 | St. Paul & The Broken Bones (USA) | venue 2437 | d95d912c-bd97-44f7-bd51-95ce44e897df
+  2027-05-18 | ELDER ‘THROUGH ZERO’ AUSTRALIAN TOUR | venue 2437 | b34772f2-04bd-415f-acc1-f0fae4eb61c3
+  2027-05-23 | ARTHUR HILL | venue 2437 | 96b17365-aa0a-431c-930b-6e599155aa50
+  2027-05-28 | Men Without Hats | venue 2437 | 75522815-b644-45c6-9d43-2531a1164188
+  2027-08-07 | MOOD LIFTERS (USA) | venue 2437 | b5bad536-c41c-43a0-934c-eb122d5b7d2d
+
+MOST RECENT 12 PAST OZTIX EVENTS:
+
+FINAL PARSER EVENTS (Oztix and Moshtix):
+  2027-01-20T19:00:00 | Start Making Sense (Talking Heads Tribute) (USA) | https://www.moshtix.com.au/v2/event/start-making-sense-talking-heads-tribute-usa/198448
+  2027-03-13T19:00:00 | Slow Pilot (Belgium) - Performing the songs of Jeff Buckley | https://www.moshtix.com.au/v2/event/slow-pilot-belgium-performing-the-songs-of-jeff-buckley/201186
+  2027-05-01T19:30:00 | Inspiral Carpets (UK) The Singles Tour | https://tickets.oztix.com.au/outlet/event/010fb8c6-6e26-4ace-87ae-85903ba4ca29?utm_source=Oztix&utm_medium=Website
+  2027-05-10T19:00:00 | St. Paul & The Broken Bones (USA) | https://tickets.oztix.com.au/outlet/event/d95d912c-bd97-44f7-bd51-95ce44e897df?utm_source=Oztix&utm_medium=Website
+  2027-05-18T19:30:00 | ELDER ‘THROUGH ZERO’ AUSTRALIAN TOUR | https://tickets.oztix.com.au/outlet/event/b34772f2-04bd-415f-acc1-f0fae4eb61c3?utm_source=Oztix&utm_medium=Website
+  2027-05-23T19:30:00 | ARTHUR HILL | https://tickets.oztix.com.au/outlet/event/96b17365-aa0a-431c-930b-6e599155aa50?utm_source=Oztix&utm_medium=Website
+  2027-05-28T19:30:00 | Men Without Hats | https://tickets.oztix.com.au/outlet/event/75522815-b644-45c6-9d43-2531a1164188?utm_source=Oztix&utm_medium=Website
+  2027-08-07T19:00:00 | MOOD LIFTERS (USA) | https://tickets.oztix.com.au/outlet/event/b5bad536-c41c-43a0-934c-eb122d5b7d2d?utm_source=Oztix&utm_medium=Website
+
+Read-only audit complete. No project files modified.

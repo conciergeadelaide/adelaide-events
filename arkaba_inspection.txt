@@ -1,0 +1,193 @@
+ARKABA HOTEL INSPECTION — READ ONLY
+Source: https://www.arkabahotel.com.au/whats-on/
+STATUS: 200 BYTES: 264500 FINAL URL: https://www.arkabahotel.com.au/whats-on/
+
+PAGE TITLE: What's On - Events | Arkaba Hotel
+
+HEADINGS (first 70):
+h2 'WHAT’s ON' class= ['wp-block-heading', 'has-text-align-center', 'fadeInUp', 'has-large-font-size']
+h2 'we’re Adelaide’s home of live entertainment for a reason!' class= ['wp-block-heading', 'has-text-align-center', 'fadeIn', 'delay-200ms', 'has-medium-font-size']
+h2 '' class= ['gill-font']
+h2 'Ark Events' class= ['gill-font', 'small-heading']
+h4 'Melbourne Cup | Top of the Ark *Sold Out*' class= ['event-title']
+h4 'Melbourne Cup | Downstairs' class= ['event-title']
+h4 'Christmas Dinner + Show' class= ['event-title']
+h4 'Christmas Day | Downstairs' class= ['event-title']
+h4 'Christmas Day Lunch | Top of the Ark' class= ['event-title']
+h4 'Glitz & Glam New Year’s Eve – Top of the Ark' class= ['event-title']
+h4 'OPA! A Big Fat Greek Comedy & Music Variety Show Extravaganza' class= ['event-title']
+h2 'Entertainment' class= ['gill-font', 'small-heading']
+h4 'October Lounge Bar Live Music' class= ['event-title']
+h4 'Saša Matić Live with Full Band' class= ['event-title']
+h4 'Adelaide Silver Style' class= ['event-title']
+h4 'Pink Pop Party | All Ages' class= ['event-title']
+h4 'No Scrubs: 90s + Early 00s Party | Adelaide' class= ['event-title']
+h4 'Motown Connection’s 21st Birthday' class= ['event-title']
+h4 'Ultra Naté (USA) | Adelaide' class= ['event-title']
+h4 'Broadway Sessions | November' class= ['event-title']
+h4 'Swing Kings: Sir Richard Hadlee & Damien Fleming' class= ['event-title']
+h4 'A Holly Dolly Christmas – With Kelly O’Brien' class= ['event-title']
+h4 'Glitz & Glam New Year’s Eve – Top of the Ark' class= ['event-title']
+h4 'Craig McLaughlan: Six String Stories | Adelaide' class= ['event-title']
+h4 'Jack Gatto & Charlie Gaylard: ELVIS LIVE IN CONCERT' class= ['event-title']
+h4 'Casey Rocket (USA) – As Above, So Down Under' class= ['event-title']
+h2 'Sportys Events' class= ['gill-font', 'small-heading']
+h4 'Melbourne Cup | Sportys' class= ['event-title']
+
+EVENT-LIKE LINKS (first 100):
+'Skip to content' | https://www.arkabahotel.com.au/whats-on/#content
+'What’s On' | https://www.arkabahotel.com.au/whats-on/
+'Christmas at the ark' | https://www.arkabahotel.com.au/whats-on/christmas-functions/
+'Eat + Drink' | https://www.arkabahotel.com.au/eat-drink/
+'Restaurant' | https://www.arkabahotel.com.au/eat-drink/#restaurant
+'Lounge Bar' | https://www.arkabahotel.com.au/eat-drink/#lounge
+'Sportys' | https://www.arkabahotel.com.au/eat-drink/#sportys
+'Stay' | https://www.arkabahotel.com.au/stay/
+'Offers' | https://www.arkabahotel.com.au/offers/
+'FAQ' | https://www.arkabahotel.com.au/faq/
+'Book Now' | https://book-directonline.com/properties/ARKABAHOTELDIRECT
+'Functions' | https://www.arkabahotel.com.au/functions/
+'Function Enquiry' | https://www.arkabahotel.com.au/function-enquiry/
+'Functions Menu Selections' | https://www.arkabahotel.com.au/functions-menu-selections/
+'Cellars' | https://www.arkabahotel.com.au/cellars/
+'' | https://www.arkabahotel.com.au/
+'Sportys' | https://www.arkabahotel.com.au/sportys/
+'Live Sport Schedule' | https://arkabahotel.com.au/sportys/#fanzo-schedule
+'Gaming' | https://www.arkabahotel.com.au/gaming/
+'Contact' | https://www.arkabahotel.com.au/contact/
+'About Us' | https://www.arkabahotel.com.au/about-us/
+'Community' | https://www.arkabahotel.com.au/community/
+'Gallery' | https://www.arkabahotel.com.au/galleries/
+'' | https://www.arkabahotel.com.au/?bn_event=melbourne-cup-top-of-the-ark
+'' | https://www.arkabahotel.com.au/?bn_event=melbourne-cup-downstairs-2
+'' | https://www.arkabahotel.com.au/?bn_event=christmas-dinner-show
+'' | https://www.arkabahotel.com.au/?bn_event=christmas-day-downstairs-2
+'' | https://www.arkabahotel.com.au/?bn_event=christmas-day-lunch-top-of-the-ark-3
+'' | https://www.arkabahotel.com.au/?bn_event=glitz-glam-new-years-eve-top-of-the-ark
+'' | https://www.arkabahotel.com.au/?bn_event=opa-a-big-fat-greek-comedy-music-variety-show-extravaganza
+'' | https://www.arkabahotel.com.au/?bn_event=october-lounge-bar-live-music-2
+'' | https://www.arkabahotel.com.au/?bn_event=sasa-matic-live-with-full-band
+'' | https://www.arkabahotel.com.au/?bn_event=adelaide-silver-style
+'' | https://www.arkabahotel.com.au/?bn_event=pink-pop-party-all-ages
+'' | https://www.arkabahotel.com.au/?bn_event=no-scrubs-90s-early-00s-party-adelaide
+'' | https://www.arkabahotel.com.au/?bn_event=motown-connection-presents-the-best-of-motown-21st-birthday
+'' | https://www.arkabahotel.com.au/?bn_event=ultra-nate-usa-adelaide
+'' | https://www.arkabahotel.com.au/?bn_event=broadway-sessions-november
+'' | https://www.arkabahotel.com.au/?bn_event=swing-kings-an-evening-with-sir-richard-hadlee-damien-fleming
+'' | https://www.arkabahotel.com.au/?bn_event=a-holly-dolly-christmas-starring-kelly-obrien
+'' | https://www.arkabahotel.com.au/?bn_event=craig-mclaughlan-six-string-stories-adelaide
+'' | https://www.arkabahotel.com.au/?bn_event=jack-gatto-charlie-gaylard-elvis-live-in-concert
+'' | https://www.arkabahotel.com.au/?bn_event=casey-rocket-usa-as-above-so-down-under
+'' | https://www.arkabahotel.com.au/?bn_event=melbourne-cup-sportys-2
+'[email\xa0protected]' | https://www.arkabahotel.com.au/cdn-cgi/l/email-protection
+'' | https://www.facebook.com/ArkabaHotel
+'' | https://www.instagram.com/arkabahotel/?hl=en
+'' | https://www.linkedin.com/company/arkaba-hotel/?originalSubdomain=au
+'JOIN OUR MAILING LIST' | https://www.arkabahotel.com.au/subscribe
+'Terms' | https://www.arkabahotel.com.au/terms-conditions/
+'Privacy' | https://www.arkabahotel.com.au/privacy-policy/
+
+DATE/TIME ELEMENTS (first 75):
+div 'Tue, 3 November' datetime= None class= ['time']
+div 'Tue, 3 November' datetime= None class= ['time']
+div 'Sat, 5-19 December' datetime= None class= ['time']
+div 'Fri, 25 December' datetime= None class= ['time']
+div 'Fri, 25 December' datetime= None class= ['time']
+div 'Thu, 31 December' datetime= None class= ['time']
+div 'Fri, 2 April' datetime= None class= ['time']
+div 'Thu, 1-Sat, 31 October' datetime= None class= ['time']
+div 'Fri, 6 November' datetime= None class= ['time']
+div 'Sat, 7 November' datetime= None class= ['time']
+div 'Join the Letitia Linke Research Foundation at Arkaba Hotel on November 7 for an evening of gourmet food, wine and entertainment, celebrating 10 years of Adelaide Silver Style.' datetime= None class= ['excerpt']
+div 'Sun, 8 November' datetime= None class= ['time']
+div 'Sat, 14 November' datetime= None class= ['time']
+div 'Fri, 27 November' datetime= None class= ['time']
+div 'Sat, 28 November' datetime= None class= ['time']
+div 'Sun, 29 November' datetime= None class= ['time']
+div 'Tue, 15 December' datetime= None class= ['time']
+div 'Fri, 18 December' datetime= None class= ['time']
+div 'Thu, 31 December' datetime= None class= ['time']
+div 'Sat, 30 January' datetime= None class= ['time']
+div 'Sat, 13 February' datetime= None class= ['time']
+div 'Sat, 20 February' datetime= None class= ['time']
+div 'Tue, 3 November' datetime= None class= ['time']
+
+JSON-LD (first 20 scripts, 2500 chars each):
+{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebPage","@id":"https:\/\/www.arkabahotel.com.au\/whats-on\/","url":"https:\/\/www.arkabahotel.com.au\/whats-on\/","name":"What's On - Events | Arkaba Hotel","isPartOf":{"@id":"https:\/\/www.arkabahotel.com.au\/#website"},"primaryImageOfPage":{"@id":"https:\/\/www.arkabahotel.com.au\/whats-on\/#primaryimage"},"image":{"@id":"https:\/\/www.arkabahotel.com.au\/whats-on\/#primaryimage"},"thumbnailUrl":"https:\/\/www.arkabahotel.com.au\/wp-content\/uploads\/2023\/11\/ArkabaMrBuzzy-129.jpg","datePublished":"2023-11-14T13:37:51+00:00","dateModified":"2026-10-20T23:39:21+00:00","description":"From premium wine lunches, huge live big band music events in the Top of the Ark, Adelaide Fringe shows to thrilling 4am English Premier League finals, the Ark is where unforgettable entertainment comes to life.","breadcrumb":{"@id":"https:\/\/www.arkabahotel.com.au\/whats-on\/#breadcrumb"},"inLanguage":"en-AU","potentialAction":[{"@type":"ReadAction","target":["https:\/\/www.arkabahotel.com.au\/whats-on\/"]}]},{"@type":"ImageObject","inLanguage":"en-AU","@id":"https:\/\/www.arkabahotel.com.au\/whats-on\/#primaryimage","url":"https:\/\/www.arkabahotel.com.au\/wp-content\/uploads\/2023\/11\/ArkabaMrBuzzy-129.jpg","contentUrl":"https:\/\/www.arkabahotel.com.au\/wp-content\/uploads\/2023\/11\/ArkabaMrBuzzy-129.jpg","width":2560,"height":1447},{"@type":"BreadcrumbList","@id":"https:\/\/www.arkabahotel.com.au\/whats-on\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/www.arkabahotel.com.au\/"},{"@type":"ListItem","position":2,"name":"What&#8217;s On"}]},{"@type":"WebSite","@id":"https:\/\/www.arkabahotel.com.au\/#website","url":"https:\/\/www.arkabahotel.com.au\/","name":"Arkaba Hotel","description":"Adelaide&#039;s home of entertainment","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/www.arkabahotel.com.au\/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-AU"}]}
+
+IMAGES (first 35):
+alt= 'fbpx' src= https://www.facebook.com/tr?id=677496842101415&ev=PageView&noscript=1 data-src= 
+alt= '' src= https://www.arkabahotel.com.au/wp-content/uploads/2023/11/arkaba-logo.png data-src= 
+alt= '' src= https://www.arkabahotel.com.au/wp-content/uploads/2023/11/arkaba-logo.png data-src= 
+alt= '' src= https://www.arkabahotel.com.au/wp-content/uploads/2023/11/arkaba-logo.png data-src= 
+alt= '' src= data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg== data-src= https://www.arkabahotel.com.au/wp-content/uploads/2023/11/ArkabaMrBuzzy-129.jpg
+alt= '' src= data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg== data-src= https://www.arkabahotel.com.au/wp-content/uploads/2023/11/ArkabaVinylDestination-62.jpg
+alt= '' src= data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg== data-src= https://www.arkabahotel.com.au/wp-content/uploads/2023/11/RebuildingSchools-56.jpg
+alt= '' src= data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg== data-src= https://www.arkabahotel.com.au/wp-content/uploads/2023/11/ArkabaMastersApprentices-14.jpg
+alt= '' src= data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg== data-src= https://www.arkabahotel.com.au/wp-content/uploads/2023/11/ArkabaMastersApprentices-38.jpg
+alt= '' src= data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg== data-src= https://www.arkabahotel.com.au/wp-content/uploads/2023/11/ArkabaMrBuzzy-130-1.jpg
+alt= '' src= data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg== data-src= https://www.arkabahotel.com.au/wp-content/uploads/2023/11/ArkabaMrBuzzy-80-1.jpg
+alt= '' src= data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg== data-src= https://www.arkabahotel.com.au/wp-content/uploads/2023/11/ArkabaVinylDestination-67.jpg
+alt= '' src= https://www.arkabahotel.com.au/wp-content/uploads/2026/08/SOLD-OUT.png data-src= 
+alt= '' src= data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg== data-src= https://www.arkabahotel.com.au/wp-content/uploads/2026/08/ARK-Melbourne-Cup_Downstairs_WO.jpg
+alt= '' src= data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg== data-src= https://www.arkabahotel.com.au/wp-content/uploads/2026/07/ARK-Christmas-Dinner-Show_WO.jpg
+alt= '' src= data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg== data-src= https://www.arkabahotel.com.au/wp-content/uploads/2026/07/ARK-Christmas-Day_Downstairs_WO.jpg
+alt= '' src= data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg== data-src= https://www.arkabahotel.com.au/wp-content/uploads/2026/07/ARK-Christmas-Day_WO.jpg
+alt= '' src= data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg== data-src= https://www.arkabahotel.com.au/wp-content/uploads/2026/10/WO-2026-12-31-NYE-Glitz-Glam-TOP.jpg
+alt= '' src= data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg== data-src= https://www.arkabahotel.com.au/wp-content/uploads/2026/10/WO-2027-04-02-OPA-Greek-Comedy.jpg
+alt= '' src= data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg== data-src= https://www.arkabahotel.com.au/wp-content/uploads/2024/06/10-OCT-Arkaba-Live-Entertainment-WO.jpg
+alt= '' src= data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg== data-src= https://www.arkabahotel.com.au/wp-content/uploads/2026/10/WO-2026-11-06-Sasa-Matic.jpg
+alt= '' src= data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg== data-src= https://www.arkabahotel.com.au/wp-content/uploads/2026/09/ARK-Adelaide-Silver-Style_WO.jpg
+alt= '' src= data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg== data-src= https://www.arkabahotel.com.au/wp-content/uploads/2026/09/WO-2026-11-08-Pink-Pop-Party.jpg
+alt= '' src= data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg== data-src= https://www.arkabahotel.com.au/wp-content/uploads/2026/10/WO-2026-11-14-No-Scrubs.jpg
+alt= '' src= data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg== data-src= https://www.arkabahotel.com.au/wp-content/uploads/2026/10/WO-2026-11-27-Motown-Connection.jpg
+alt= '' src= data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg== data-src= https://www.arkabahotel.com.au/wp-content/uploads/2026/07/WO-2026-11-28-Ultra-Nate.jpg
+alt= '' src= data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg== data-src= https://www.arkabahotel.com.au/wp-content/uploads/2026/10/WO-2026-11-29-Broadway-Sessions-Nov.jpg
+alt= '' src= data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg== data-src= https://www.arkabahotel.com.au/wp-content/uploads/2026/10/ARK-Swing-Kings_WO.jpg
+alt= '' src= data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg== data-src= https://www.arkabahotel.com.au/wp-content/uploads/2026/05/WO-2026-12-18-A-Holly-Dolly-Christmas.jpg
+alt= '' src= data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg== data-src= https://www.arkabahotel.com.au/wp-content/uploads/2026/10/WO-2026-12-31-NYE-Glitz-Glam-TOP.jpg
+alt= '' src= data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg== data-src= https://www.arkabahotel.com.au/wp-content/uploads/2026/10/WO-2027-01-30-Craig-McLachlan.jpg
+alt= '' src= data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg== data-src= https://www.arkabahotel.com.au/wp-content/uploads/2026/09/WO-2027-02-13-Jack-Gatto-Elvis.jpg
+alt= '' src= data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg== data-src= https://www.arkabahotel.com.au/wp-content/uploads/2026/10/WO-2026-02-20-FRINGE-Casey-Rocket.jpg
+alt= '' src= data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg== data-src= https://www.arkabahotel.com.au/wp-content/uploads/2026/08/SP-Melbourne-Cup_WO.jpg
+alt= '' src= data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg== data-src= https://www.arkabahotel.com.au/wp-content/uploads/2023/12/Seperator.png
+
+DETAIL PAGE SAMPLES (up to 4 same-site event pages):
+
+--- https://www.arkabahotel.com.au/whats-on/#content ---
+STATUS: 200 BYTES: 264500
+TITLE: What's On - Events | Arkaba Hotel
+h2 'WHAT’s ON' datetime= None
+h2 'we’re Adelaide’s home of live entertainment for a reason!' datetime= None
+h2 '' datetime= None
+h2 'Ark Events' datetime= None
+h2 'Entertainment' datetime= None
+h2 'Sportys Events' datetime= None
+META og:title What's On - Events | Arkaba Hotel
+META og:image https://www.arkabahotel.com.au/wp-content/uploads/2023/11/ArkabaMrBuzzy-129.jpg
+JSON-LD {"@context":"https:\/\/schema.org","@graph":[{"@type":"WebPage","@id":"https:\/\/www.arkabahotel.com.au\/whats-on\/","url":"https:\/\/www.arkabahotel.com.au\/whats-on\/","name":"What's On - Events | Arkaba Hotel","isPartOf":{"@id":"https:\/\/www.arkabahotel.com.au\/#website"},"primaryImageOfPage":{"@id":"https:\/\/www.arkabahotel.com.au\/whats-on\/#primaryimage"},"image":{"@id":"https:\/\/www.arkabahotel.com.au\/whats-on\/#primaryimage"},"thumbnailUrl":"https:\/\/www.arkabahotel.com.au\/wp-content\/uploads\/2023\/11\/ArkabaMrBuzzy-129.jpg","datePublished":"2023-11-14T13:37:51+00:00","dateModified":"2026-10-20T23:39:21+00:00","description":"From premium wine lunches, huge live big band music events in the Top of the Ark, Adelaide Fringe shows to thrilling 4am English Premier League finals, the Ark is where unforgettable entertainment comes to life.","breadcrumb":{"@id":"https:\/\/www.arkabahotel.com.au\/whats-on\/#breadcrumb"},"inLanguage":"en-AU","potentialAction":[{"@type":"ReadAction","target":["https:\/\/www.arkabahotel.com.au\/whats-on\/"]}]},{"@type":"ImageObject","inLanguage":"en-AU","@id":"https:\/\/www.arkabahotel.com.au\/whats-on\/#primaryimage","url":"https:\/\/www.arkabahotel.com.au\/wp-content\/uploads\/2023\/11\/ArkabaMrBuzzy-129.jpg","contentUrl":"https:\/\/www.arkabahotel.com.au\/wp-content\/uploads\/2023\/11\/ArkabaMrBuzzy-129.jpg","width":2560,"height":1447},{"@type":"BreadcrumbList","@id":"https:\/\/www.arkabahotel.com.au\/whats-on\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/www.arkabahotel.com.au\/"},{"@type":"ListItem","position":2,"name":"What&#8217;s On"}]},{"@type":"WebSite","@id":"https:\/\/www.arkabahotel.com.au\/#website","url":"https:\/\/www.arkabahotel.com.au\/","name":"Arkaba Hotel","description":"Adelaide&#039;s home of entertainment","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/www.arkabahotel.com.au\/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-AU"}]}
+
+--- https://www.arkabahotel.com.au/whats-on/christmas-functions/ ---
+STATUS: 200 BYTES: 357748
+TITLE: Christmas at the ark | Arkaba Hotel
+h2 'celebrate the magic of christmas at Arkaba' datetime= None
+h2 'WE KNOW HOW TO CELEBRATE' datetime= None
+h2 'OUR SIGNATURE CHRISTMAS EVENT' datetime= None
+h2 'CHRISTMAS DINNER & SHOW ft. THE INCREDIBLES' datetime= None
+h2 'CHRISTMAS DAY' datetime= None
+h1 'FUNCTION SPACES' datetime= None
+h2 'HEART OF THE ARK' datetime= None
+h2 'TOP OF THE ARK' datetime= None
+h2 'Top of the Ark' datetime= None
+h2 'Osmond' datetime= None
+h2 'Fullarton' datetime= None
+h2 'Florey' datetime= None
+h2 'Franklin' datetime= None
+h2 'Eastwood' datetime= None
+h2 'Sportys' datetime= None
+h3 'Taylor' datetime= None
+META og:title Christmas at the ark | Arkaba Hotel
+META og:image https://www.arkabahotel.com.au/wp-content/uploads/2026/08/177A1138-scaled.jpg
+JSON-LD {"@context":"https:\/\/schema.org","@graph":[{"@type":"WebPage","@id":"https:\/\/www.arkabahotel.com.au\/whats-on\/christmas-functions\/","url":"https:\/\/www.arkabahotel.com.au\/whats-on\/christmas-functions\/","name":"Christmas at the ark | Arkaba Hotel","isPartOf":{"@id":"https:\/\/www.arkabahotel.com.au\/#website"},"primaryImageOfPage":{"@id":"https:\/\/www.arkabahotel.com.au\/whats-on\/christmas-functions\/#primaryimage"},"image":{"@id":"https:\/\/www.arkabahotel.com.au\/whats-on\/christmas-functions\/#primaryimage"},"thumbnailUrl":"https:\/\/www.arkabahotel.com.au\/wp-content\/uploads\/2026\/08\/177A1138-scaled.jpg","datePublished":"2025-06-30T04:49:43+00:00","dateModified":"2026-09-02T03:32:25+00:00","breadcrumb":{"@id":"https:\/\/www.arkabahotel.com.au\/whats-on\/christmas-functions\/#breadcrumb"},"inLanguage":"en-AU","potentialAction":[{"@type":"ReadAction","target":["https:\/\/www.arkabahotel.com.au\/whats-on\/christmas-functions\/"]}]},{"@type":"ImageObject","inLanguage":"en-AU","@id":"https:\/\/www.arkabahotel.com.au\/whats-on\/christmas-functions\/#primaryimage","url":"https:\/\/www.arkabahotel.com.au\/wp-content\/uploads\/2026\/08\/177A1138-scaled.jpg","contentUrl":"https:\/\/www.arkabahotel.com.au\/wp-content\/uploads\/2026\/08\/177A1138-scaled.jpg","width":2560,"height":1707},{"@type":"BreadcrumbList","@id":"https:\/\/www.arkabahotel.com.au\/whats-on\/christmas-functions\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/www.arkabahotel.com.au\/"},{"@type":"ListItem","position":2,"name":"What&#8217;s On","item":"https:\/\/www.arkabahotel.com.au\/whats-on\/"},{"@type":"ListItem","position":3,"name":"Christmas at the ark"}]},{"@type":"WebSite","@id":"https:\/\/www.arkabahotel.com.au\/#website","url":"https:\/\/www.arkabahotel.com.au\/","name":"Arkaba Hotel","description":"Adelaide&#039;s home of entertainment","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/www.arkabahotel.com.au\/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-AU"}]}
+
+INSPECTION COMPLETE
