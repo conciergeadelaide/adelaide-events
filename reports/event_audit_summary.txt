@@ -1,0 +1,72 @@
+WHAT'S ON ADELAIDE - READ-ONLY AUDIT
+Audit date: 2026-11-02
+Events checked: 1238
+Flags raised: 486
+
+FLAGS BY TYPE:
+  Midnight / unknown start time: 377
+  Manual review: Adelaide Festival Centre: 71
+  Multiple performances on one day: 16
+  Past start date without end date: 8
+  Missing image: 8
+  Possible duplicate performance: 6
+
+EVENTS BY SOURCE:
+  Adelaide Botanic Gardens: 189
+  Adelaide Festival: 102
+  The Gov: 73
+  Adelaide Festival Centre: 71
+  Adelaide Symphony Orchestra: 65
+  Adelaide Entertainment Centre: 59
+  Moshtix Adelaide CBD: 54
+  Humanitix Adelaide and Regions: 51
+  Lion Arts Factory: 40
+  South Australia Tourism Commission: 35
+  Hindley St Music Hall: 34
+  Plant 3 Bowden: 32
+  Rhino Room: 30
+  Thebarton Theatre: 29
+  Art Gallery of South Australia: 25
+  Arkaba Hotel: 24
+  Plant 4 Bowden: 24
+  Adelaide Town Hall: 23
+  Fever Candlelight Adelaide: 23
+  Jive: 22
+  Norwood Concert Hall: 17
+  Coopers Stadium: 16
+  UniBar Adelaide: 15
+  National Trust SA: 15
+  Jetty Road Glenelg: 13
+  Ticketmaster Adelaide: 13
+  Experience Adelaide: 13
+  Adelaide Oval: 12
+  Play & Go Adelaide Major Events: 11
+  Nexus Arts: 8
+  State Theatre Company South Australia: 8
+  Trinity Sessions: 8
+  The District at SkyCity: 8
+  Carrick Hill: 8
+  Immersive Light and Art: 6
+  ACE Gallery: 6
+  Gilles at the Grounds: 5
+  Government House: 5
+  Adelaide Zoo: 5
+  The Drive: 4
+  Morphettville Racecourse: 4
+  South Australian Maritime Museum: 4
+  Dom Polski Centre: 3
+  South Australian Museum: 3
+  SAMSTAG Museum: 3
+  National Wine Centre: 3
+  Oztix Adelaide City: 3
+  Humanitix Nineteen Ten: 3
+  Adelaide Convention Centre: 2
+  State Opera South Australia: 2
+  Adelaide Central Market: 2
+  David Roche Foundation: 2
+  Adelaide Repertory Theatre: 1
+  Kerry Packer Civic Gallery: 1
+  MOD.: 1
+
+NOTE: Flags are review candidates, not confirmed errors.
+No event records were changed. No website data was published.

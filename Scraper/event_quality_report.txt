@@ -1,0 +1,305 @@
+ADELAIDE EVENTS — READ-ONLY DATA QUALITY REPORT
+Total records: 1102
+Potential same-title / same-venue / same-day groups: 21
+Records without confirmed start time: 390
+Records without venue: 0
+Records with missing / Other category: 97
+Invalid dates: 0
+Venue spelling / punctuation variants: 2
+
+IMPORTANT: Repeated performances on the same day are NOT necessarily duplicates.
+This report never deletes, merges or edits events.
+
+POTENTIAL DUPLICATE GROUPS (up to 100)
+  #8 | 2026-11-26T10:00:00 | Free Community Concerts | Multiple Locations | Adelaide Symphony Orchestra
+  #9 | 2026-11-26T13:45:00 | Free Community Concerts | Multiple Locations | Adelaide Symphony Orchestra
+
+  #10 | 2026-11-27T10:00:00 | Free Community Concerts | Multiple Locations | Adelaide Symphony Orchestra
+  #11 | 2026-11-27T13:45:00 | Free Community Concerts | Multiple Locations | Adelaide Symphony Orchestra
+
+  #389 | 2027-01-30T00:00:00 | Floating Worlds: Prints from Osaka & Kyoto | Art Gallery of South Australia | Art Gallery of South Australia
+  #787 | 2027-01-30T00:00:00 | Floating Worlds: Prints from Osaka & Kyoto | Art Gallery of South Australia | Adelaide Festival
+
+  #128 | 2027-02-24T00:00:00 | Galaxia | Space Theatre | Adelaide Festival Centre
+  #743 | 2027-02-24T19:00:00 | Galaxia | Space Theatre | Adelaide Festival
+
+  #129 | 2027-02-25T00:00:00 | Valentina | Dunstan Playhouse | Adelaide Festival Centre
+  #724 | 2027-02-25T19:30:00 | Valentina | Dunstan Playhouse | Adelaide Festival
+
+  #130 | 2027-02-26T00:00:00 | 13 & 14 | Her Majesty's Theatre | Adelaide Festival Centre
+  #706 | 2027-02-26T20:00:00 | 13 & 14 | Her Majesty's Theatre | Adelaide Festival
+
+  #131 | 2027-02-26T00:00:00 | Bluebeard's Castle | Festival Theatre | Adelaide Festival Centre
+  #702 | 2027-02-26T20:00:00 | Bluebeard's Castle | Festival Theatre | Adelaide Festival
+
+  #135 | 2027-03-03T00:00:00 | Taverna Miresia – Mario, Bella, Anastasia | Dunstan Playhouse | Adelaide Festival Centre
+  #728 | 2027-03-03T19:00:00 | Taverna Miresia - Mario, Bella, Anastasia | Dunstan Playhouse | Adelaide Festival
+
+  #180 | 2027-03-03T00:00:00 | Tim Hecker | Hindley Street Music Hall | Hindley St Music Hall
+  #734 | 2027-03-03T00:00:00 | Tim Hecker | Hindley Street Music Hall | Adelaide Festival
+
+  #136 | 2027-03-04T00:00:00 | K. | Her Majesty's Theatre | Adelaide Festival Centre
+  #709 | 2027-03-04T19:00:00 | K. | Her Majesty's Theatre | Adelaide Festival
+
+  #137 | 2027-03-05T00:00:00 | The Complete Philip Glass Piano Etudes | Festival Theatre | Adelaide Festival Centre
+  #713 | 2027-03-05T00:00:00 | The Complete Philip Glass Piano Etudes | Festival Theatre | Adelaide Festival
+
+  #735 | 2027-03-07T18:00:00 | Burnout Paradise | Space Theatre | Adelaide Festival
+  #904 | 2027-03-07T00:00:00 | Burnout Paradise | Space Theatre | Adelaide Festival Centre
+
+  #138 | 2027-03-08T00:00:00 | Grace Cummings | Dunstan Playhouse | Adelaide Festival Centre
+  #732 | 2027-03-08T00:00:00 | Grace Cummings | Dunstan Playhouse | Adelaide Festival
+
+  #139 | 2027-03-10T00:00:00 | Oedipus | Festival Theatre | Adelaide Festival Centre
+  #693 | 2027-03-10T20:00:00 | Oedipus | Festival Theatre | Adelaide Festival
+
+  #140 | 2027-03-11T00:00:00 | DIPTYCH: The Missing Door and The Lost Room | Dunstan Playhouse | Adelaide Festival Centre
+  #715 | 2027-03-11T19:00:00 | DIPTYCH: The Missing Door and The Lost Room | Dunstan Playhouse | Adelaide Festival
+
+  #694 | 2027-03-11T13:00:00 | Oedipus | Festival Theatre | Adelaide Festival
+  #695 | 2027-03-11T19:30:00 | Oedipus | Festival Theatre | Adelaide Festival
+
+  #141 | 2027-03-13T00:00:00 | The Brotherhood: CADELA FORÇA TRILOGY Chapter II | Her Majesty's Theatre | Adelaide Festival Centre
+  #721 | 2027-03-13T14:00:00 | The Brotherhood: CADELA FORÇA TRILOGY Chapter II | Her Majesty's Theatre | Adelaide Festival
+
+  #697 | 2027-03-13T14:00:00 | Oedipus | Festival Theatre | Adelaide Festival
+  #698 | 2027-03-13T19:30:00 | Oedipus | Festival Theatre | Adelaide Festival
+
+  #754 | 2027-03-13T14:00:00 | ShadowSide | The Odeon | Adelaide Festival
+  #755 | 2027-03-13T19:00:00 | ShadowSide | The Odeon | Adelaide Festival
+
+  #24 | 2027-04-03T11:45:00 | Move to the Music | Grainger Studio | Adelaide Symphony Orchestra
+  #25 | 2027-04-03T14:00:00 | Move to the Music | Grainger Studio | Adelaide Symphony Orchestra
+
+  #37 | 2027-06-12T11:45:00 | The Young Person’s Guide to the Orchestra | Grainger Studio | Adelaide Symphony Orchestra
+  #38 | 2027-06-12T14:00:00 | The Young Person’s Guide to the Orchestra | Grainger Studio | Adelaide Symphony Orchestra
+
+VENUE NAME VARIANTS
+  St Peter's Cathedral (15) | St Peter'S Cathedral (1)
+  UKARIA Cultural Centre (4) | Ukaria Cultural Centre (1)
+
+CATEGORY COUNTS
+  Music: 505
+  Festival: 115
+  Other: 97
+  Arts & Culture: 82
+  Food & Beverage: 74
+  Community: 72
+  Theatre: 59
+  Sport: 56
+  Family: 45
+  Comedy: 41
+  Talks & Conferences: 17
+  Club/Party: 15
+  Exhibitions: 11
+  Workshop: 8
+  Dance: 4
+  Conferences/Workshops/Expos: 4
+  Talks: 2
+  Film: 2
+  Exhibition: 1
+
+MISSING START TIMES (first 100)
+  80 | Starlit Christmas | 2026-12-12
+  81 | Interstellar Live | 2027-03-14
+  82 | Lucky Dumpling Market | 2026-10-09
+  83 | Moon Lanterns at Lucky Dumpling Market | 2026-10-09
+  84 | Hong Kong Dragon | 2026-10-09
+  85 | Ceramic Tile Painting Workshop with Jake Yang | 2026-10-15
+  86 | AZIZA | 2026-10-29
+  87 | Chat 10 Looks 3 Live | 2026-11-05
+  88 | Nurse Georgie Carroll: Infectious | 2026-11-06
+  89 | Kate Ceberano | 2026-11-07
+  90 | James Morrison | 2026-11-08
+  91 | John Edward | 2026-11-10
+  92 | Wrestling with Tomorrow | 2026-11-11
+  93 | Introduction to Puppet Making and Puppeteering Workshop | 2026-11-12
+  94 | Erth's Dinosaurs | 2026-11-13
+  95 | Lawrence Mooney | 2026-11-13
+  96 | The Harmony Club | 2026-11-14
+  97 | An Evening with Alastair Campbell | 2026-11-18
+  98 | TEEKS | 2026-11-19
+  99 | Lucky's Club House | 2026-11-20
+  100 | An Evening with Mary Beard | 2026-11-20
+  101 | The Heartbreak Choir | 2026-11-20
+  102 | Björn Again: ABBA Forever Tour | 2026-11-21
+  103 | Khaled Khalafalla | 2026-11-21
+  104 | The Nutcracker | 2026-11-26
+  105 | Detroit Motortown | 2026-11-27
+  106 | Her Majesty's Theatre Guided Tour | 2026-12-01
+  107 | RocKwiz Rocks Christmas | 2026-12-04
+  108 | Suzi Quatro | 2026-12-05
+  109 | Eric Idle | 2026-12-10
+  110 | Expressive Still Life Workshops | 2026-12-12
+  111 | WOOF! | 2026-12-17
+  112 | The Very Hungry Caterpillar Show | 2026-12-19
+  113 | The Book of Mormon | 2026-12-19
+  114 | The Very Cranky Bear | 2026-12-28
+  115 | New Years Eve Celebration Dinner | 2026-12-31
+  116 | On Stage Summer School 2027 | 2027-01-04
+  117 | Bluey’s Big Play | 2027-01-06
+  118 | Storytime Ballet: Cinderella | 2027-01-07
+  119 | On Stage Introduction to Technical Production | 2027-01-11
+  120 | Re:PLAY | 2027-01-13
+  121 | Country Royalty | 2027-01-16
+  122 | Where is the Green Sheep? | 2027-01-20
+  123 | You and Me Workshops | 2027-01-21
+  124 | Cosentino | 2027-01-23
+  125 | First Nations Artists in Schools Program | 2027-01-27
+  126 | Dracula | 2027-02-11
+  127 | Drum Tao | 2027-02-16
+  128 | Galaxia | 2027-02-24
+  129 | Valentina | 2027-02-25
+  130 | 13 & 14 | 2027-02-26
+  131 | Bluebeard's Castle | 2027-02-26
+  132 | Even the Good Girls Will Cry: Melissa Auf der Maur | 2027-03-01
+  133 | Egrets, While War: Tishani Doshi Performs | 2027-03-02
+  134 | A Midlife Reckoning: Myf Warhurst | 2027-03-03
+  135 | Taverna Miresia – Mario, Bella, Anastasia | 2027-03-03
+  136 | K. | 2027-03-04
+  137 | The Complete Philip Glass Piano Etudes | 2027-03-05
+  138 | Grace Cummings | 2027-03-08
+  139 | Oedipus | 2027-03-10
+  140 | DIPTYCH: The Missing Door and The Lost Room | 2027-03-11
+  141 | The Brotherhood: CADELA FORÇA TRILOGY Chapter II | 2027-03-13
+  142 | Shen Yun | 2027-03-19
+  143 | Celtic Thunder | 2027-03-25
+  144 | The Shawshank Redemption | 2027-04-01
+  145 | Magic Mike Live | 2027-04-07
+  146 | Swan Lake | 2027-04-15
+  147 | Best of the Bee Gees | 2027-04-24
+  148 | Lenny's Toddler Rave | 2027-05-22
+  149 | A Beautiful Noise | 2027-05-23
+  150 | Aladdin | 2027-07-02
+  151 | Murder, She Didn’t Write | 2027-07-27
+  152 | Cinderella | 2027-09-04
+  153 | Everly Brothers & Roy Orbison | 2027-09-30
+  154 | NIKOS OIKONOMOPOULOS LIVE | 2026-10-30
+  155 | THE ANGELS - AM I EVER GONNA SEE YOUR FACE AGAIN... 50 YEARS ON | 2026-11-06
+  156 | Killswitch Engage with special guests Sylosis | 2026-11-12
+  157 | Wade Forster - The Aftermath Tour | 2026-11-20
+  158 | The Mark Of Cain | 2026-11-21
+  159 | Hoodoo Gurus Rewind Tour - All Killer, No Filler | 2026-11-27
+  160 | Hoodoo Gurus Rewind Tour - All Killer, No Filler | 2026-11-28
+  161 | Kool & the Gang + Sister Sledge ft. Slegendary | 2026-11-30
+  162 | Dizzee Rascal: We Want Bass Tour | 2026-12-01
+  163 | Dizzee Rascal: We Want Bass Tour | 2026-12-02
+  164 | SIX60 | 2026-12-03
+  165 | Cat Power: The Greatest On Tour | 2026-12-05
+  166 | Wolf Alice | Australian Tour 2026 | 2026-12-06
+  167 | Ministry | 2026-12-10
+  168 | Suki Waterhouse: The Loveland Tour | 2026-12-11
+  169 | Jimmy Eat World Bleed American 25th Anniversary | 2026-12-12
+  170 | Swae Lee: Same Difference Tour | 2027-01-12
+  171 | Dinosaur Jr | 2027-01-24
+  172 | Max McNown 'Slow Down, Down Under Tour' | 2027-02-04
+  173 | Thrown Australian Tour 2027 with special guests Boundaries, 156/Silence & Volatile Ways | 2027-02-05
+  174 | Silverstein + Story Of The Year Camp Screamo Australia | 2027-02-08
+  175 | Dayseeker 'Creature In The Black Night' Australian tour 2027 | 2027-02-09
+  176 | SWIM: Live Solo Show | 2027-02-13
+  177 | PRESIDENT: Australian Campaign 2027 | 2027-02-21
+  178 | José González | 2027-02-24
+  179 | Ian Moss & Troy Cassar-Daley | 2027-02-26
+
+MISSING VENUES (first 100)
+
+MISSING / OTHER CATEGORIES (first 100)
+  99 | Lucky's Club House | 2026-11-20
+  115 | New Years Eve Celebration Dinner | 2026-12-31
+  277 | An Evening with Lee Asher | 2027-01-27
+  295 | A Perfect Circle | 2026-12-04
+  296 | Spacey Jane | 2026-12-06
+  297 | Queens of the Stone Age 2026 | 2026-12-08
+  343 | Cockaigne: The Land of Plenty | 2027-02-25
+  397 | Gather in the Garden | 2026-12-04
+  398 | Tools for Quiet Activism: Stephanie Doddridge | 2026-07-25
+  400 | Leaf Litter Critters | 2026-09-25
+  401 | Forest Bathing | 2026-10-18
+  402 | Queer Botany | 2026-11-03
+  403 | The Lodge Lounge | 2026-10-31
+  405 | Home School Learning Day: Spring in the Garden | 2026-11-12
+  406 | Nature-based wellbeing: Mindfulness in the Gardens | 2026-11-20
+  407 | Nature-based wellbeing: Introduction to Nature Journaling | 2026-11-21
+  408 | Nature-based Wellbeing: Botanical Balms and Oil Infusions | 2026-11-22
+  416 | Plant sale at Mount Lofty | 2025-03-23
+  427 | Events | 2026-11-12
+  581 | DOWN & OUT- SPOOKY SZN + THE ADMIRED + DONNI HEAT | 2026-10-31
+  582 | SUNSLAY SESH | 2026-11-01
+  586 | ROADIE + BILLIE BURNS + CHRISSIE MOWER + MITCHELL SEAGER | 2026-11-05
+  588 | SHREK RAVE | 2026-11-07
+  590 | NAT’S WHAT I RECKON: Panic at The Bistro (Adelaide) | 2026-11-12
+  592 | SOULKEEPERS + THROWING HANDS + CLOVER + PARADIGMS | 2026-11-13
+  593 | ALTA FALLS – EP LAUNCH | 2026-11-14
+  599 | SELECT ALL + MACEY + TV THERAPY + PARAPHERNALIA | 2026-11-26
+  601 | GALACTIC VIDEO PRESENTS GALACTIC BALL 2026 | 2026-11-28
+  605 | FIVE NIGHTS AT FREDDY’S RAVE! | 2026-12-19
+  796 | Women’s Australian Open | 2027-03-11
+  798 | Adelaide International | 2027-01-11
+  801 | Adelaide National Pharmacies Christmas Pageant | 2026-11-14
+  802 | WOMADelaide | 2027-03-05
+  803 | Adelaide Carols by Candlelight | 2026-12-12
+  805 | Santa’s Wonderland | 2026-12-04
+  806 | bp Adelaide Grand Final | 2026-11-26
+  963 | Hindley Hall Pass | 2026-12-31
+  982 | Amora Hotel Adelaide Festive 2026 | 2026-10-24
+  983 | Cutback by Scott Pyle | 2026-09-30
+  984 | Diner en Blanc Adelaide | 2026-12-05
+  992 | Gunson Street Party | 2026-10-30
+  994 | Halloween Neon Sugar Skull Paint & Sip | 2026-10-30
+  995 | Haunted Halloween! | 2026-10-31
+  999 | Morgan Jay | 2026-11-01
+  1006 | Taste Gouger Street | 2026-10-01
+  1010 | WBBL|12 Adelaide Strikers v Melbourne Stars tickets | 2026-10-31
+  1017 | Adelaide Town Hall Christmas Concert | 2026-12-16
+  1024 | Create Your Own Dinosaur | 2026-11-14
+  1027 | La BohÃ¨me Club | 2026-11-07
+  1028 | NYE Diamonds & Pearls Soiree | 2026-12-31
+  1029 | The Haunted Hotel II | 2026-10-31
+  1030 | Wonderfully Terrible Halloween | 2026-10-30
+  1031 | Adelaide Hills Ready-Set-Connect | 2026-11-11
+  1032 | Origins | 2026-11-08
+  1035 | Shedding Light on Dark Skies: Light pollution, wildlife and the Carrickalinga story | 2026-11-09
+  1036 | Hunt and Brew ðððªð¡ðð¥ððð ð¦ð¨ð ð ðð¥ ðð¨ð¦&ð¡ð­ ð§ð¢ð¨ð¥ // Glenelg Beach, ADELAIDE - 2nd Jan 2027 | 2027-01-02
+  1037 | Day Moves | 2026-12-31
+  1038 | Marley Love - Don't Know My Name EP Launch (with Erin Buku + Inner Tribe DJ's) | 2026-11-28
+  1039 | Estara Inclusive Beach Days | 2027-01-10
+  1040 | Estara Inclusive Beach Days | 2027-01-23
+  1041 | Estara Inclusive Beach Days | 2027-02-05
+  1042 | Estara Inclusive Beach Days | 2027-02-21
+  1043 | Estara Inclusive Beach Days | 2027-03-06
+  1044 | HIGH FEVER FESTIVAL, VOL III, 2027 | 2027-02-06
+  1045 | High Tea by the Sea: Share the Joy | 2026-11-14
+  1046 | Hills Business - Strength in Diversity | 2026-11-04
+  1047 | ICONS ONLY - Adelaide | 2026-11-27
+  1048 | MECCA Burnside Village: THE MECCA HOLIDAY SOIREE | 2026-11-04
+  1049 | Poppin Corks 2027 - Adelaide | 2027-02-27
+  1050 | Sidebyside Festival 2027 | 2027-01-30
+  1051 | SINGLES Night 30+ @ Prancing Pony Adel. Hills | 2026-11-28
+  1052 | STOP THE CHOP ROAD SHOW AT GLENELG | 2026-10-31
+  1053 | THE FULL+ RUNRISE // Adelaide - 14th NOV 2026 | 2026-11-14
+  1054 | Sparkling Sounds: Sunset Edition ft. Cosmos Midnight | 2026-11-21
+  1055 | For the Love of Trees | 2026-11-11
+  1057 | Women in Innovation Awards 2026 | 2026-11-06
+  1058 | 'Sweat Your Prayers' 5Rhythms McLaren Vale | 2026-11-01
+  1059 | 'Sweat Your Prayers' 5Rhythms McLaren Vale | 2026-12-06
+  1060 | 'Sweat Your Prayers' 5Rhythms McLaren Vale | 2027-02-07
+  1063 | End of Year Celebration - Adelaide | 2026-11-19
+  1064 | Orange Breakfast - in recognition of the 16 Days of Activism against gender based violence | 2026-11-26
+  1065 | Single Lesbian, Bi & Queer Women @ No.6 East - City | 2026-11-22
+  1066 | BrontÃ« EP Release show | 2026-11-13
+  1067 | Minus18 Queer FormalÂ® Adelaide 2026 | 2026-11-06
+  1068 | 2026 SA ASSA Christmas Connect | 2026-11-11
+  1069 | Queer Joy | 2026-11-08
+  1070 | Sunday at The Cedars - Monthly Talks Series | 2026-11-01
+  1071 | Sunday at The Cedars - Monthly Talks Series | 2026-12-06
+  1072 | Sunday at The Cedars - Monthly Talks Series | 2027-02-07
+  1073 | Sunday at The Cedars - Monthly Talks Series | 2027-03-07
+  1074 | Sunday at The Cedars - Monthly Talks Series | 2027-04-04
+  1075 | Sunday at The Cedars - Monthly Talks Series | 2027-05-02
+  1076 | Sunday at The Cedars - Monthly Talks Series | 2027-06-06
+  1077 | Poppin Out 2026 - Adelaide | 2026-11-07
+  1078 | Lip Sync LIVE! - Adelaide | 2027-03-13
+  1084 | Beethoven’s Pastoral | 2026-11-24
+  1088 | Nicolas Altstaedt | 2027-02-16
+
+INVALID DATES

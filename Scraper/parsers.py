@@ -228,6 +228,25 @@ def categorise_event(title, text=""):
 def parse_json_ld(soup, source_url):
     events = []
 
+    def structured_datetime(value):
+        """Keep explicit ISO showtimes in Adelaide local time; never infer one."""
+        if not isinstance(value, str):
+            return ""
+        value = value.strip()
+        # Date-only values are valid, but they do not establish a start time.
+        if re.fullmatch(r"20\d{2}-\d{2}-\d{2}", value):
+            return parse_date_text(value)
+        if re.match(r"^20\d{2}-\d{2}-\d{2}[Tt ]\d{2}:\d{2}", value):
+            try:
+                from zoneinfo import ZoneInfo
+                parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+                if parsed.tzinfo is not None:
+                    parsed = parsed.astimezone(ZoneInfo("Australia/Adelaide"))
+                return parsed.replace(tzinfo=None).isoformat(timespec="seconds")
+            except (ValueError, OverflowError, KeyError):
+                return ""
+        return parse_date_text(value)
+
     for script in soup.find_all(
         "script",
         type="application/ld+json",
@@ -271,15 +290,10 @@ def parse_json_ld(soup, source_url):
             if not title:
                 continue
 
-            date = item.get("startDate", "")
-
-            if isinstance(date, str):
-                parsed_date = parse_date_text(date)
-
-                if not parsed_date:
-                    parsed_date = date
-            else:
-                parsed_date = ""
+            parsed_date = structured_datetime(item.get("startDate", ""))
+            parsed_end = structured_datetime(item.get("endDate", ""))
+            if parsed_end and parsed_date and parsed_end < parsed_date:
+                parsed_end = ""
 
             location = item.get("location", "")
 
@@ -321,7 +335,7 @@ def parse_json_ld(soup, source_url):
                     "title": title,
                     "venue": venue,
                     "date": parsed_date,
-                    "end_date": "",
+                    "end_date": parsed_end,
                     "category": categorise_event(title),
                     "image": normalise_url(
                         image,
@@ -1175,6 +1189,18 @@ def parse_hindley_st_music_hall(soup, source_url):
                 clock = "00:00:00"
             date = f"{date_part}T{clock}"
 
+            # Door-opening time is distinct from the performance start.
+            # Keep it as separate metadata; never use it to populate date.
+            door_text = str(item.get("doorTime") or "").strip()
+            door_match = re.fullmatch(r"(\d{1,2}):(\d{2})(?::(\d{2}))?", door_text)
+            doors_open = ""
+            if door_match:
+                door_hour = int(door_match.group(1))
+                door_minute = int(door_match.group(2))
+                door_second = int(door_match.group(3) or 0)
+                if door_hour < 24 and door_minute < 60 and door_second < 60:
+                    doors_open = f"{date_part}T{door_hour:02d}:{door_minute:02d}:{door_second:02d}"
+
             raw_end = str(item.get("eventDateTo") or "")[:10]
             end_date = ""
             if re.fullmatch(r"20\d{2}-\d{2}-\d{2}", raw_end) and raw_end > date_part:
@@ -1205,6 +1231,7 @@ def parse_hindley_st_music_hall(soup, source_url):
                 "venue": "Hindley Street Music Hall",
                 "date": date,
                 "end_date": end_date,
+                "doors_open": doors_open,
                 "category": ["Music"],
                 "image": image,
                 "url": event_url,
@@ -2072,21 +2099,39 @@ def parse_south_australia_tourism(soup, source_url):
     """
     from urllib.parse import urlparse
 
-    listing_url = "https://southaustralia.com/destinations/adelaide/what-s-on"
+    # Batch 8: discover Adelaide event detail pages from both the destination
+    # listing and the four curated carousels on the main What's On page.
+    # Both use /products/adelaide/event/... URLs. Regional cards are excluded.
+    listing_urls = (
+        "https://southaustralia.com/destinations/adelaide/what-s-on",
+        "https://southaustralia.com/whats-on",
+    )
     session = requests.Session()
     session.headers.update({"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/140.0.0.0 Safari/537.36"})
-    response = session.get(listing_url, timeout=30)
-    response.raise_for_status()
-    listing = BeautifulSoup(response.text, "lxml")
     urls = set()
-    for anchor in listing.find_all("a", href=True):
-        link = normalise_url(anchor["href"], listing_url).split("#")[0].split("?")[0]
-        parsed = urlparse(link)
-        if parsed.hostname in ("southaustralia.com", "www.southaustralia.com") and re.fullmatch(r"/products/adelaide/event/[^/]+/?", parsed.path, re.I):
-            urls.add(link.rstrip("/"))
+    listing_failures = []
+    for listing_url in listing_urls:
+        try:
+            response = session.get(listing_url, timeout=30)
+            response.raise_for_status()
+            listing = BeautifulSoup(response.text, "lxml")
+            found = set()
+            for anchor in listing.find_all("a", href=True):
+                link = normalise_url(anchor["href"], listing_url).split("#")[0].split("?")[0]
+                parsed = urlparse(link)
+                if (parsed.hostname in ("southaustralia.com", "www.southaustralia.com")
+                        and re.fullmatch(r"/products/adelaide/event/[^/]+/?", parsed.path, re.I)):
+                    found.add(link.rstrip("/"))
+            urls.update(found)
+            print(f"    Tourism discovery: {len(found)} Adelaide links from {listing_url}")
+        except requests.RequestException as exc:
+            listing_failures.append(f"{listing_url}: {exc}")
+            print(f"    Tourism discovery unavailable: {listing_url}: {exc}")
 
     if not urls:
-        raise RuntimeError("Tourism: no Adelaide event links found; preserving existing records")
+        raise RuntimeError("Tourism: no Adelaide event links found; preserving existing records. "
+                           + "; ".join(listing_failures))
+    print(f"    Tourism discovery: {len(urls)} unique Adelaide links across both pages")
 
     events = []
     failed = 0
@@ -6951,6 +6996,11 @@ def parse_plant_4_bowden():
         for offset in range((horizon - today).days + 1):
             day = today + timedelta(days=offset)
             if day.weekday() != weekday:
+                continue
+            # A generic weekly schedule does not confirm Christmas Day
+            # trading. Do not invent a 25 December 2026 market session.
+            if day.isoformat() == "2026-12-25":
+                print("    Plant 4: omitted unconfirmed Christmas Day session")
                 continue
             events.append({
                 "title": title,

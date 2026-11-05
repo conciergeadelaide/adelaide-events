@@ -127,7 +127,7 @@
             </div>
 
             <div class="filter-box">
-                <label id="venue-label">Venue</label>
+                <label id="venue-label">Venue/Location</label>
 
                 <div id="venue-multiselect" class="venue-multiselect">
                     <button id="venue-filter" class="venue-filter-button"
@@ -135,17 +135,17 @@
                             aria-labelledby="venue-label venue-filter"
                             aria-expanded="false"
                             aria-controls="venue-options">
-                        All venues
+                        All venues/locations
                     </button>
 
                     <div id="venue-options" class="venue-options hidden">
                         <input id="venue-search" type="search"
-                               placeholder="Search venues..."
-                               aria-label="Search venues"
+                               placeholder="Search venues/locations..."
+                               aria-label="Search venues/locations"
                                autocomplete="off">
                         <div id="venue-checkboxes"></div>
                         <p id="venue-no-results" class="venue-no-results hidden">
-                            No matching venues
+                            No matching venues/locations
                         </p>
                     </div>
                 </div>
@@ -223,6 +223,17 @@
         </section>
 
 
+        <!-- QUICK DATE SHORTCUTS -->
+        <nav class="date-shortcuts" aria-label="Quick date filters">
+            <span class="date-shortcuts-label">QUICK DATES</span>
+            <button type="button" data-quick-date="today">Today</button>
+            <button type="button" data-quick-date="tomorrow">Tomorrow</button>
+            <button type="button" data-quick-date="weekend">This Weekend</button>
+            <button type="button" data-quick-date="7">Next 7 Days</button>
+            <button type="button" data-quick-date="30">Next 30 Days</button>
+            <button type="button" data-quick-date="all">All Dates</button>
+        </nav>
+
         <!-- RESULTS HEADER -->
 
         <section class="results-header">
@@ -254,9 +265,12 @@
                     >
                         Calendar
                     </button>
+                    <button id="view-agenda" type="button">Agenda</button>
 
                 </div>
 
+
+                <button id="print-guide" class="clear-button" type="button">Print guide</button>
 
                 <button
                     id="clear-filters"
@@ -279,8 +293,8 @@
         >
 
             <p class="calendar-intro">
-                Major events, festivals and public rallies.
-                For the complete listings, switch to Cards.
+                Events lasting up to seven days, excluding exhibitions, workshops, talks and conferences.
+                Switch to Cards for the complete listings.
             </p>
 
 
@@ -344,6 +358,12 @@
 
         </section>
 
+
+        <!-- AGENDA VIEW -->
+        <section id="agenda-view" class="agenda-view hidden" aria-label="Chronological events agenda"></section>
+
+        <!-- PRINTABLE GUIDE -->
+        <section id="print-guide-content" class="print-guide-content" aria-label="Printable Adelaide events guide"></section>
 
         <!-- EVENT CARDS -->
 

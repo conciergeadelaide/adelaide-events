@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+<title id="title">QuizMeisters Trivia at The District</title>
+<desc id="desc">Custom trivia night artwork featuring a question mark and the event name.</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#111827"/><stop offset="1" stop-color="#312e81"/></linearGradient></defs>
+<rect width="1200" height="675" fill="url(#bg)"/>
+<circle cx="1030" cy="100" r="230" fill="#ffffff" opacity=".045"/>
+<circle cx="150" cy="610" r="260" fill="#ffffff" opacity=".035"/>
+<g fill="none" stroke="#a5b4fc" stroke-width="5" opacity=".55"><circle cx="600" cy="172" r="105"/><circle cx="600" cy="172" r="120" opacity=".35"/></g>
+<text x="600" y="241" font-family="Arial,Helvetica,sans-serif" font-size="185" font-weight="bold" text-anchor="middle" fill="#facc15">?</text>
+<text x="600" y="359" font-family="Arial,Helvetica,sans-serif" font-size="84" font-weight="800" letter-spacing="1" text-anchor="middle" fill="#ffffff">QUIZMEISTERS</text>
+<text x="600" y="448" font-family="Arial,Helvetica,sans-serif" font-size="76" font-weight="700" letter-spacing="9" text-anchor="middle" fill="#facc15">TRIVIA</text>
+<rect x="360" y="488" width="480" height="3" rx="2" fill="#a5b4fc" opacity=".8"/>
+<text x="600" y="552" font-family="Arial,Helvetica,sans-serif" font-size="38" font-weight="600" letter-spacing="3" text-anchor="middle" fill="#ffffff">AT THE DISTRICT</text>
+<text x="600" y="600" font-family="Arial,Helvetica,sans-serif" font-size="24" text-anchor="middle" fill="#c7d2fe">TRIVIA NIGHT</text>
+</svg>

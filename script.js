@@ -204,6 +204,28 @@ function formatDate(value) {
     return dateText + " · " + timeText;
 }
 
+// Door-opening information is separate from the performance start time.
+// Never infer a show time from doors_open or from a midnight placeholder.
+function formatDoorsOpen(event) {
+    var value = String(event.doors_open || "").trim();
+    var match = value.match(/(?:^|T)(\d{2}):(\d{2})(?::\d{2})?(?:$|[Z+-])/);
+    if (!match) return "";
+    var hours = Number(match[1]);
+    var minutes = Number(match[2]);
+    if (hours > 23 || minutes > 59) return "";
+    var hour12 = (hours % 12) || 12;
+    return hour12 + ":" + String(minutes).padStart(2, "0") + (hours < 12 ? " AM" : " PM");
+}
+
+function eventTimeDetails(event) {
+    var showTime = calendarStartTime(event);
+    var doorsTime = formatDoorsOpen(event);
+    if (showTime === null) {
+        return doorsTime ? "Show time: TBA · Doors open: " + doorsTime : "Time TBA";
+    }
+    return doorsTime ? "Doors open: " + doorsTime : "";
+}
+
 function formatEventDate(event) {
     var startValue = getEventStart(event);
     var endValue = getEventEnd(event);
@@ -428,7 +450,33 @@ function canonicalVenue(value) {
         /^various venues across south australia$/i.test(name)) {
         return "Various";
     }
-    return name;
+    var aliases = {
+        "adelaide showground - old brick dairy": "Adelaide Showground",
+        "adelaide showground": "Adelaide Showground",
+        "botanic park": "Botanic Park / Tainmuntilla",
+        "botanic park / tainmuntilla": "Botanic Park / Tainmuntilla",
+        "elder park, adelaide": "Elder Park",
+        "elder park": "Elder Park",
+        "festival plaza, adelaide": "Festival Plaza",
+        "festival plaza": "Festival Plaza",
+        "ila | immersive light and art": "Immersive Light and Art (ILA)",
+        "immersive light and art (ila)": "Immersive Light and Art (ILA)",
+        "mclaren vale institute hall": "McLaren Vale Institute Hall",
+        "mclaren vale institute hall": "McLaren Vale Institute Hall",
+        "national wine centre of australia": "National Wine Centre",
+        "national wine centre": "National Wine Centre",
+        "rhino room, adelaide": "Rhino Room",
+        "rhino room": "Rhino Room",
+        "st peter's cathedral": "St Peter's Cathedral",
+        "st peter's cathedral": "St Peter's Cathedral",
+        "ukaria cultural centre": "UKARIA Cultural Centre",
+        "ukaria cultural centre": "UKARIA Cultural Centre",
+        "victoria square": "Victoria Square / Tarntanyangga",
+        "victoria square / tartanyangga": "Victoria Square / Tarntanyangga",
+        "victoria square / tarntanyangga": "Victoria Square / Tarntanyangga",
+    };
+    if (name.toLowerCase() === "family friendly events & shows") return "";
+    return aliases[name.toLowerCase()] || name;
 }
 
 // Adelaide Symphony Orchestra is an organiser, not a physical venue.
@@ -465,10 +513,10 @@ function closeCategoryOptions() {
 
 function updateVenueLabel() {
     venueFilter.textContent = selectedVenues.length === 0
-        ? "All venues"
+        ? "All venues/locations"
         : selectedVenues.length === 1
             ? selectedVenues[0]
-            : selectedVenues.length + " venues selected";
+            : selectedVenues.length + " venues/locations selected";
 }
 
 function closeVenueOptions() {
@@ -520,6 +568,7 @@ function isActualVenue(value) {
     }
 
     var lower = venue.toLowerCase();
+    if (lower === "family friendly events & shows") return false;
 
     var excludedLocations = [
         "mundy street",
@@ -644,15 +693,17 @@ function createEventCard(event) {
 
     var image = document.createElement("img");
 
-    if (event.image) {
-        image.src = event.image;
-    } else {
-        image.src =
-            "https://images.unsplash.com/photo-1492684223066-81342ee5ff30";
-    }
-
-    image.alt = event.title || "Adelaide event";
+    // Local fallback works even when an external image host is unavailable.
+    image.src = /^https?:\/\//i.test(String(event.image || ""))
+        ? event.image : "event-placeholder.svg";
+    image.addEventListener("error", function() {
+        if (!image.src.endsWith("event-placeholder.svg")) {
+            image.src = "event-placeholder.svg";
+        }
+    });
+    image.alt = event.image ? (event.title || "Adelaide event") : "Event image unavailable";
     image.loading = "lazy";
+    image.decoding = "async";
 
     // Show one individually coloured badge for every category.
     // Keep the original badge wrapper's position over the image.
@@ -733,6 +784,15 @@ function createEventCard(event) {
     content.appendChild(date);
     content.appendChild(title);
     content.appendChild(venue);
+    var timeDetails = eventTimeDetails(event);
+    if (timeDetails) {
+        var timeInfo = document.createElement("div");
+        timeInfo.className = "event-time-details";
+        timeInfo.textContent = timeDetails;
+        timeInfo.style.fontSize = "0.9rem";
+        timeInfo.style.marginTop = "6px";
+        content.appendChild(timeInfo);
+    }
     content.appendChild(link);
 
     article.appendChild(imageContainer);
@@ -932,6 +992,237 @@ function populateFilters() {
 // APPLY SEARCH AND FILTERS
 // ======================================
 
+
+// ======================================
+// CONCIERGE: QUICK DATES / AGENDA / PRINT
+// ======================================
+var quickDateChoice = "";
+var agendaContainer = document.getElementById("agenda-view");
+var printGuideContainer = document.getElementById("print-guide-content");
+
+function dateInputValue(date) {
+    return dateKey(date.getFullYear(), date.getMonth(), date.getDate());
+}
+function shiftedDate(date, offset) {
+    return new Date(date.getFullYear(), date.getMonth(), date.getDate() + offset, 12);
+}
+function setQuickDate(choice) {
+    var now = new Date();
+    var start = shiftedDate(now, 0);
+    var end = start;
+    if (choice === "all") {
+        dateFromInput.value = "";
+        dateToInput.value = "";
+    } else {
+        if (choice === "tomorrow") start = shiftedDate(now, 1);
+        if (choice === "weekend") {
+            // Australian weekend is Saturday and Sunday. On Sunday, include today.
+            var weekday = now.getDay();
+            var daysUntilSaturday = (6 - weekday + 7) % 7;
+            if (weekday === 0) daysUntilSaturday = -1;
+            start = shiftedDate(now, daysUntilSaturday);
+            end = shiftedDate(start, 1);
+        } else if (choice === "7" || choice === "30") {
+            end = shiftedDate(start, Number(choice) - 1);
+        } else {
+            end = start;
+        }
+        dateFromInput.value = dateInputValue(start);
+        dateToInput.value = dateInputValue(end);
+        if (currentView === "calendar") {
+            visibleMonth = new Date(start.getFullYear(), start.getMonth(), 1);
+            selectedDay = "";
+        }
+    }
+    quickDateChoice = choice;
+    updateQuickDateButtons();
+    applyFilters();
+}
+function updateQuickDateButtons() {
+    document.querySelectorAll("[data-quick-date]").forEach(function(button) {
+        var active = button.getAttribute("data-quick-date") === quickDateChoice;
+        button.classList.toggle("active", active);
+        button.setAttribute("aria-pressed", active ? "true" : "false");
+    });
+}
+document.querySelectorAll("[data-quick-date]").forEach(function(button) {
+    button.addEventListener("click", function() {
+        setQuickDate(button.getAttribute("data-quick-date"));
+    });
+});
+function clearQuickDateSelection() {
+    quickDateChoice = "";
+    updateQuickDateButtons();
+}
+function eventTimeSort(a, b) {
+    var ad = getDatePart(getEventStart(a));
+    var bd = getDatePart(getEventStart(b));
+    if (ad !== bd) return ad.localeCompare(bd);
+    var at = calendarStartTime(a);
+    var bt = calendarStartTime(b);
+    if (at === null && bt !== null) return 1;
+    if (bt === null && at !== null) return -1;
+    if (at !== null && bt !== null && at !== bt) return at - bt;
+    return String(a.title || "").localeCompare(String(b.title || ""));
+}
+function makeAgendaRow(event) {
+    var row = document.createElement("article");
+    row.className = "agenda-item";
+    var time = document.createElement("span");
+    time.className = "agenda-time";
+    time.textContent = calendarTimeLabel(event);
+    var body = document.createElement("div");
+    body.className = "agenda-item-body";
+    var title = document.createElement("strong");
+    title.textContent = event.title || "Untitled Event";
+    var info = document.createElement("p");
+    info.textContent = (event.venue || event.location || "Venue TBC") + " · " + getEventCategories(event).join(", ");
+    body.append(title, info);
+    if (calendarStartTime(event) !== null && formatDoorsOpen(event)) {
+        var doorsNote = document.createElement("p");
+        doorsNote.textContent = "Doors open: " + formatDoorsOpen(event);
+        body.appendChild(doorsNote);
+    }
+    row.append(time, body);
+    var url = event.link || event.url;
+    if (url && /^https?:\/\//i.test(String(url))) {
+        var link = document.createElement("a");
+        link.href = url;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.textContent = "Event details";
+        link.className = "agenda-link";
+        row.appendChild(link);
+    }
+    return row;
+}
+function renderAgenda(eventList) {
+    agendaContainer.replaceChildren();
+    if (currentView !== "agenda") return;
+    var sorted = eventList.slice().sort(eventTimeSort);
+    if (!sorted.length) {
+        var empty = document.createElement("p");
+        empty.className = "agenda-empty";
+        empty.textContent = "No events match these filters.";
+        agendaContainer.appendChild(empty);
+        return;
+    }
+    var lastDate = "";
+    sorted.forEach(function(event) {
+        var day = getDatePart(getEventStart(event));
+        if (day !== lastDate) {
+            lastDate = day;
+            var heading = document.createElement("h3");
+            heading.className = "agenda-day-heading";
+            heading.textContent = day ? formatDate(day) : "Date TBC";
+            agendaContainer.appendChild(heading);
+        }
+        agendaContainer.appendChild(makeAgendaRow(event));
+    });
+}
+// Self-contained print layout: preserves existing style.css and all views.
+(function installPrintGuideImageStyles() {
+    var style = document.createElement("style");
+    style.textContent = `
+        .print-guide-row { display: flex; align-items: flex-start; gap: 12px; break-inside: avoid; page-break-inside: avoid; }
+        .print-guide-details { flex: 1; min-width: 0; }
+        .print-guide-image { width: 94px; height: 72px; flex: 0 0 94px; object-fit: cover; border-radius: 4px; }
+        @media print {
+            .print-guide-row { display: flex !important; align-items: flex-start !important; gap: 10px !important; break-inside: avoid !important; page-break-inside: avoid !important; }
+            .print-guide-image { display: block !important; width: 94px !important; height: 72px !important; max-width: 94px !important; object-fit: cover !important; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+            .print-guide-details { flex: 1; min-width: 0; }
+        }
+    `;
+    document.head.appendChild(style);
+})();
+
+function printCurrentGuide() {
+    // Avoid accidentally printing hundreds of pages when no date is selected.
+    var from = dateFromInput.value;
+    var to = dateToInput.value;
+    var today = dateInputValue(new Date());
+    var printFrom = from || (to ? "" : today);
+    var printTo = to || (from ? "" : today);
+    var records = filteredEventsForCalendar.filter(function(event) {
+        var start = getDatePart(getEventStart(event));
+        var end = getDatePart(getEventEnd(event)) || start;
+        return start && (!printFrom || end >= printFrom) && (!printTo || start <= printTo);
+    }).slice().sort(eventTimeSort);
+    printGuideContainer.replaceChildren();
+    var heading = document.createElement("h1");
+    heading.textContent = "CONCIERGE · What's On Adelaide";
+    var sub = document.createElement("p");
+    sub.textContent = "Events guide · " + (printFrom || "Any date") + " to " + (printTo || "Any date") + " · " + records.length + " events";
+    printGuideContainer.append(heading, sub);
+    if (!records.length) {
+        var empty = document.createElement("p");
+        empty.textContent = "No matching events.";
+        printGuideContainer.appendChild(empty);
+    }
+    var lastDate = "";
+    records.forEach(function(event) {
+        var day = getDatePart(getEventStart(event));
+        if (day !== lastDate) {
+            lastDate = day;
+            var dateHeading = document.createElement("h2");
+            dateHeading.textContent = formatDate(day);
+            printGuideContainer.appendChild(dateHeading);
+        }
+        var row = document.createElement("div");
+        row.className = "print-guide-row";
+        var main = document.createElement("strong");
+        main.textContent = calendarTimeLabel(event) + "  ·  " + (event.title || "Untitled Event");
+        var venue = document.createElement("p");
+        venue.textContent = event.venue || event.location || "Venue TBC";
+        var details = document.createElement("div");
+        details.className = "print-guide-details";
+        details.append(main, venue);
+        if (calendarStartTime(event) !== null && formatDoorsOpen(event)) {
+            var doorsNote = document.createElement("p");
+            doorsNote.textContent = "Doors open: " + formatDoorsOpen(event);
+            details.appendChild(doorsNote);
+        }
+        var imageUrl = String(event.image || "").trim();
+        if (/^https?:\/\//i.test(imageUrl)) {
+            var picture = document.createElement("img");
+            picture.className = "print-guide-image";
+            picture.src = imageUrl;
+            picture.alt = "";
+            picture.loading = "eager";
+            picture.decoding = "async";
+            picture.referrerPolicy = "no-referrer";
+            picture.onerror = function() { picture.remove(); };
+            row.appendChild(picture);
+        }
+        row.appendChild(details);
+        var url = event.link || event.url;
+        if (url && /^https?:\/\//i.test(String(url))) {
+            var link = document.createElement("a");
+            link.href = url;
+            link.textContent = "Event website";
+            details.appendChild(link);
+        }
+        printGuideContainer.appendChild(row);
+    });
+    var note = document.createElement("p");
+    note.className = "print-guide-note";
+    note.textContent = "Event details may change. Please confirm times and availability with the organiser.";
+    printGuideContainer.appendChild(note);
+    var pictures = Array.prototype.slice.call(printGuideContainer.querySelectorAll(".print-guide-image"));
+    Promise.race([
+        Promise.all(pictures.map(function(img) {
+            if (img.complete) return Promise.resolve();
+            return new Promise(function(resolve) {
+                img.addEventListener("load", resolve, { once: true });
+                img.addEventListener("error", resolve, { once: true });
+            });
+        })),
+        new Promise(function(resolve) { setTimeout(resolve, 3500); })
+    ]).then(function() { window.print(); });
+}
+document.getElementById("print-guide").addEventListener("click", printCurrentGuide);
+document.getElementById("view-agenda").addEventListener("click", function() { setView("agenda"); });
+
 function applyFilters() {
     var searchText =
         searchInput.value.toLowerCase().trim();
@@ -940,9 +1231,10 @@ function applyFilters() {
     var dateTo = dateToInput.value;
 
 
-    var hideLongEvents =
-        hideLongEventsInput &&
-        hideLongEventsInput.checked;
+    // Calendar always hides long-running events, regardless of prior Cards settings.
+    var hideLongEvents = currentView === "calendar" || Boolean(
+        hideLongEventsInput && hideLongEventsInput.checked
+    );
 
     var todayKey = dateKey(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
     var sourceEvents = pastEventsOnlyInput && pastEventsOnlyInput.checked ? historicalEvents : events;
@@ -1018,6 +1310,10 @@ function applyFilters() {
                 !hideLongEvents ||
                 !isEventLongerThanSevenDays(event);
 
+            var matchesCalendarCategory =
+                currentView !== "calendar" ||
+                !isExcludedCalendarCategory(event);
+
             return (
                 matchesSearch &&
                 matchesFrom &&
@@ -1025,7 +1321,8 @@ function applyFilters() {
                 matchesCategory &&
                 matchesVenue &&
                 matchesFestival &&
-                matchesDuration
+                matchesDuration &&
+                matchesCalendarCategory
             );
         }
     );
@@ -1072,10 +1369,13 @@ function sortEvents(eventList) {
 
     filteredEventsForCalendar = eventList;
 
-    if (currentView === "calendar") {
+    if (currentView === "agenda") {
+        eventCount.textContent = eventList.length + " events";
+        renderAgenda(eventList);
+    } else if (currentView === "calendar") {
         eventCount.textContent =
-            eventList.filter(isMajorCalendarEvent).length +
-            " major events";
+            eventList.length +
+            " events";
 
         renderCalendar();
     } else {
@@ -1096,86 +1396,17 @@ function dateKey(year, month, day) {
     );
 }
 
-// The calendar shows major events only.
-// Cards continue to show every event.
-
-var majorCalendarVenues = [
-    "adelaide oval",
-    "adelaide convention centre",
-    "festival theatre",
-    "her majesty's theatre",
-    "her majestys theatre",
-    "adelaide entertainment centre",
-    "hindley st music hall",
-    "hindley street music hall",
-    "coopers stadium",
-    "norwood concert hall",
-    "immersive light and art",
-    "thebarton theatre",
-    "adelaide central market",
-    "the gov",
-    "morphettville racecourse",
-    "unibar",
-    "uni bar"
-];
-
-var majorCalendarSources = [
-    "south australia tourism commission",
-    "south australian tourism commission",
-    "southaustralia.com",
-    "adelaide oval",
-    "adelaide convention centre",
-    "adelaide entertainment centre",
-    "hindley st music hall",
-    "hindley street music hall",
-    "coopers stadium",
-    "immersive light and art",
-    "candlelight",
-    "fever",
-    "the gov",
-    "morphettville racecourse",
-    "adelaide central market",
-    "norwood concert hall",
-    "thebarton theatre",
-    "unibar",
-    "uni bar"
-];
-
-var majorFestivalNames = [
-    "adelaide festival",
-    "womadelaide",
-    "illuminate adelaide",
-    "adelaide film festival",
-    "adelaide equestrian festival",
-    "adelaide motorsport festival",
-    "adelaide vegan festival",
-    "gather round",
-    "adl fashion week",
-    "adelaide fashion week",
-    "adelaide grand final",
-    "adelaide motogp",
-    "feast festival",
-    "christmas pageant",
-    "nature festival",
-    "sala festival",
-    "santos tour down under",
-    "tour down under",
-    "shannons adelaide rally",
-    "south australia's history festival",
-    "south australias history festival",
-    "tasting australia",
-    "tarnanthi",
-    "liv golf",
-    "ozasia festival",
-    "adelaide cabaret festival",
-    "adelaide guitar festival",
-    "dreambig children's festival",
-    "dreambig childrens festival",
-    "adelaide writers' week",
-    "adelaide writers week",
-    "adelaide jazz festival",
-    "adelaide fringe"
-];
+// Calendar shows all eligible events, excluding long-running events
+// and the categories listed below. Cards retains the full selection.
+function isExcludedCalendarCategory(event) {
+    return getEventCategories(event).some(function(category) {
+        var value = normalizedCalendarText(category);
+        return value === "exhibition" || value === "exhibitions" ||
+            value === "workshop" || value === "workshops" ||
+            value === "talks" || value === "conference" ||
+            value === "conferences" || value === "talks & conferences";
+    });
+}
 
 function normalizedCalendarText(value) {
     return String(value || "")
@@ -1185,122 +1416,6 @@ function normalizedCalendarText(value) {
         .trim();
 }
 
-function includesAnyCalendarText(value, phrases) {
-    return phrases.some(function(phrase) {
-        return value.indexOf(phrase) !== -1;
-    });
-}
-
-function isFestivalOverview(event) {
-    var title = normalizedCalendarText(event.title);
-
-    // Individual Fringe performances should
-    // not appear in the major-events calendar.
-
-    if (
-        title.indexOf("adelaide fringe") !== -1 ||
-        title === "fringe festival"
-    ) {
-        return (
-            /^(?:the )?adelaide fringe(?: festival)?(?: 20\d{2})?$/.test(title) ||
-            title === "fringe festival"
-        );
-    }
-
-    return includesAnyCalendarText(
-        title,
-        majorFestivalNames
-    );
-}
-
-function isMajorCalendarEvent(event) {
-    var title = normalizedCalendarText(event.title);
-    var venue = normalizedCalendarText(event.venue);
-
-    var source = normalizedCalendarText(
-        event.source ||
-        event.source_name ||
-        event.source_url
-    );
-
-    var url = normalizedCalendarText(
-        event.url || event.link
-    );
-
-    var category = normalizedCalendarText(
-        getCategoryText(event)
-    );
-
-    // Include public demonstrations
-    // with a known date.
-
-    var protest =
-        /\b(protest|rally|demonstration|march for|peace march|climate strike|solidarity march|vigil)\b/.test(title) &&
-        !/\b(comedy|theatre|theater|concert|film|musical|tribute)\b/.test(category);
-
-    if (protest) return true;
-
-    if (isFestivalOverview(event)) {
-        return true;
-    }
-
-    if (
-        title.indexOf("fringe") !== -1 &&
-        !isFestivalOverview(event)
-    ) {
-        return false;
-    }
-
-    if (
-        venue.indexOf("rhino room") !== -1 ||
-        source.indexOf("rhino room") !== -1
-    ) {
-        return category.indexOf("comedy") !== -1;
-    }
-
-    // Adelaide Festival Centre events
-    // are included only at these theatres.
-
-    if (
-        source.indexOf("adelaide festival centre") !== -1
-    ) {
-        return (
-            venue.indexOf("festival theatre") !== -1 ||
-            venue.indexOf("her majesty") !== -1
-        );
-    }
-
-    if (
-        includesAnyCalendarText(
-            venue,
-            majorCalendarVenues
-        )
-    ) {
-        return true;
-    }
-
-    if (
-        includesAnyCalendarText(
-            source,
-            majorCalendarSources
-        )
-    ) {
-        return true;
-    }
-
-    if (
-        url.indexOf("feverup.com") !== -1 &&
-        (
-            title.indexOf("candlelight") !== -1 ||
-            category.indexOf("music") !== -1
-        )
-    ) {
-        return true;
-    }
-
-    return false;
-}
-
 function calendarEventTitle(event) {
     return event.title || "Untitled Event";
 }
@@ -1308,10 +1423,6 @@ function calendarEventTitle(event) {
 function eventsForDay(key) {
     return filteredEventsForCalendar.filter(
         function(event) {
-            if (!isMajorCalendarEvent(event)) {
-                return false;
-            }
-
             var start = getDatePart(
                 getEventStart(event)
             );
@@ -1342,89 +1453,117 @@ function showDay(key) {
     });
 }
 
+function calendarStartTime(event) {
+    var value = String(getEventStart(event) || "");
+    var match = value.match(/T(\d{2}):(\d{2})/);
+    if (!match) return null;
+    var hours = Number(match[1]);
+    var minutes = Number(match[2]);
+    // Midnight is commonly used by sources for date-only events.
+    if (hours === 0 && minutes === 0) return null;
+    if (hours > 23 || minutes > 59) return null;
+    return hours * 60 + minutes;
+}
+
+function calendarTimeLabel(event) {
+    var minutes = calendarStartTime(event);
+    if (minutes === null) {
+        var doorsTime = formatDoorsOpen(event);
+        return doorsTime ? "Show TBA · Doors " + doorsTime : "Time TBA";
+    }
+    var hour = Math.floor(minutes / 60);
+    var minute = minutes % 60;
+    return String((hour % 12) || 12) + ":" +
+        String(minute).padStart(2, "0") + (hour < 12 ? " am" : " pm");
+}
+
 function renderDayDetails() {
-    var panel = document.getElementById(
-        "calendar-details"
-    );
-
+    var panel = document.getElementById("calendar-details");
     panel.replaceChildren();
-
-    panel.classList.toggle(
-        "hidden",
-        !selectedDay
-    );
-
+    panel.classList.toggle("hidden", !selectedDay);
     if (!selectedDay) return;
 
     var parts = selectedDay.split("-").map(Number);
-
     var heading = document.createElement("h4");
-
-    heading.textContent = new Intl.DateTimeFormat(
-        "en-AU",
-        {
-            weekday: "long",
-            day: "numeric",
-            month: "long",
-            year: "numeric"
-        }
-    ).format(
-        new Date(
-            parts[0],
-            parts[1] - 1,
-            parts[2]
-        )
-    );
-
+    heading.textContent = new Intl.DateTimeFormat("en-AU", {
+        weekday: "long", day: "numeric", month: "long", year: "numeric"
+    }).format(new Date(parts[0], parts[1] - 1, parts[2]));
     panel.appendChild(heading);
 
-    var matching = eventsForDay(selectedDay);
+    var matching = eventsForDay(selectedDay).slice().sort(function(a, b) {
+        var first = calendarStartTime(a);
+        var second = calendarStartTime(b);
+        if (first === null && second !== null) return 1;
+        if (second === null && first !== null) return -1;
+        if (first !== null && second !== null && first !== second) return first - second;
+        return calendarEventTitle(a).localeCompare(calendarEventTitle(b));
+    });
+
+    var count = document.createElement("p");
+    count.className = "calendar-details-count";
+    count.textContent = matching.length + (matching.length === 1 ? " event" : " events");
+    panel.appendChild(count);
 
     if (!matching.length) {
         var empty = document.createElement("p");
-
-        empty.textContent =
-            "No matching events on this day.";
-
+        empty.textContent = "No matching events on this day.";
         panel.appendChild(empty);
+        return;
     }
 
     matching.forEach(function(event) {
-        var row = document.createElement("div");
+        var row = document.createElement("article");
         row.className = "calendar-detail";
 
+        var picture = document.createElement("div");
+        picture.className = "calendar-detail-image";
+        if (event.image) {
+            var img = document.createElement("img");
+            img.src = event.image;
+            img.alt = "";
+            img.loading = "lazy";
+            img.addEventListener("error", function() { picture.classList.add("image-unavailable"); img.remove(); });
+            picture.appendChild(img);
+        } else {
+            picture.classList.add("image-unavailable");
+        }
+
         var info = document.createElement("div");
-
+        info.className = "calendar-detail-info";
+        var time = document.createElement("div");
+        time.className = "calendar-detail-time";
+        time.textContent = calendarTimeLabel(event);
         var name = document.createElement("strong");
-
-        name.textContent =
-            event.title || "Untitled Event";
-
-        var details = document.createElement("p");
-
-        details.textContent =
-            formatDate(getEventStart(event)) +
-            " · " +
-            (event.venue || event.location || "Adelaide") +
-            " · " +
-            getCategoryText(event);
-
-        info.append(name, details);
-        row.appendChild(info);
+        name.textContent = calendarEventTitle(event);
+        var venue = document.createElement("p");
+        venue.textContent = event.venue || event.location || "Venue TBC";
+        var categories = document.createElement("div");
+        categories.className = "calendar-detail-categories";
+        getEventCategories(event).forEach(function(category) {
+            var tag = document.createElement("span");
+            tag.className = "calendar-detail-category";
+            tag.textContent = category;
+            tag.style.backgroundColor = CALENDAR_CATEGORY_COLOURS[category] || CALENDAR_CATEGORY_COLOURS.Other;
+            categories.appendChild(tag);
+        });
+        info.append(time, name, venue, categories);
+        if (calendarStartTime(event) !== null && formatDoorsOpen(event)) {
+            var doorsNote = document.createElement("p");
+            doorsNote.textContent = "Doors open: " + formatDoorsOpen(event);
+            info.appendChild(doorsNote);
+        }
+        row.append(picture, info);
 
         var url = event.link || event.url;
-
-        if (url) {
+        if (url && /^https?:\/\//i.test(String(url))) {
             var link = document.createElement("a");
-
+            link.className = "calendar-detail-link";
             link.href = url;
             link.target = "_blank";
             link.rel = "noopener noreferrer";
             link.textContent = "View Event";
-
             row.appendChild(link);
         }
-
         panel.appendChild(row);
     });
 }
@@ -1526,7 +1665,7 @@ function renderCalendar() {
 
         cell.appendChild(dateButton);
 
-        matching.slice(0, 6).forEach(
+        matching.slice(0, 8).forEach(
             function(event) {
                 var pill = document.createElement(
                     "button"
@@ -1558,7 +1697,7 @@ function renderCalendar() {
             }
         );
 
-        if (matching.length > 6) {
+        if (matching.length > 8) {
             var more = document.createElement(
                 "button"
             );
@@ -1567,7 +1706,7 @@ function renderCalendar() {
             more.className = "calendar-more";
 
             more.textContent =
-                "+" + (matching.length - 6) + " more";
+                "+" + (matching.length - 8) + " more";
 
             more.addEventListener(
                 "click",
@@ -1597,6 +1736,13 @@ function setView(view) {
 
     var calendar = view === "calendar";
 
+    // Reset the duration filter on every view switch.
+    // Disabled makes the checked Calendar setting visibly greyed out.
+    if (hideLongEventsInput) {
+        hideLongEventsInput.checked = calendar;
+        hideLongEventsInput.disabled = calendar;
+    }
+
     document.getElementById(
         "calendar-view"
     ).classList.toggle(
@@ -1606,14 +1752,16 @@ function setView(view) {
 
     eventsContainer.classList.toggle(
         "hidden",
-        calendar
+        view !== "cards"
     );
+    agendaContainer.classList.toggle("hidden", view !== "agenda");
+    document.getElementById("view-agenda").classList.toggle("active", view === "agenda");
 
     document.getElementById(
         "view-cards"
     ).classList.toggle(
         "active",
-        !calendar
+        view === "cards"
     );
 
     document.getElementById(
@@ -1625,20 +1773,12 @@ function setView(view) {
 
     noResults.classList.toggle(
         "hidden",
-        calendar ||
+        view !== "cards" ||
         filteredEventsForCalendar.length > 0
     );
 
-    if (calendar) {
-        eventCount.textContent =
-            filteredEventsForCalendar.filter(
-                isMajorCalendarEvent
-            ).length + " major events";
-
-        renderCalendar();
-    } else {
-        displayEvents(filteredEventsForCalendar);
-    }
+    // Reapply filters so the calendar-only exclusions never carry into Cards.
+    applyFilters();
 }
 
 function changeMonth(delta) {
@@ -1774,6 +1914,7 @@ document.addEventListener(
 // ======================================
 
 function clearAllFilters() {
+    clearQuickDateSelection();
     searchInput.value = "";
     dateFromInput.value = "";
     dateToInput.value = "";
@@ -1816,7 +1957,8 @@ function clearAllFilters() {
     if (pastEventsOnlyInput) pastEventsOnlyInput.checked = false;
 
     if (hideLongEventsInput) {
-        hideLongEventsInput.checked = false;
+        hideLongEventsInput.checked = currentView === "calendar";
+        hideLongEventsInput.disabled = currentView === "calendar";
     }
 
     applyFilters();
@@ -1831,15 +1973,15 @@ searchInput.addEventListener(
     applyFilters
 );
 
-dateFromInput.addEventListener(
-    "change",
-    applyFilters
-);
+dateFromInput.addEventListener("change", function() {
+    clearQuickDateSelection();
+    applyFilters();
+});
 
-dateToInput.addEventListener(
-    "change",
-    applyFilters
-);
+dateToInput.addEventListener("change", function() {
+    clearQuickDateSelection();
+    applyFilters();
+});
 
 // ======================================
 // VENUE DROPDOWN
@@ -1953,7 +2095,46 @@ Promise.all([
         seen.add(id);
         return true;
     });
-    events = current.filter(function(event) { return !isPast(event); });
+    // A date-only listing can overlap a verified timed listing from another
+    // source. Only hide the date-only copy when it has no multi-day range.
+    // Same-source matinees/evening shows and multi-day exhibitions remain intact.
+    function duplicateTitle(value) {
+        return String(value || "").toLowerCase()
+            .normalize("NFKD").replace(/[\u0300-\u036f]/g, "")
+            .replace(/[\u2018\u2019]/g, "'")
+            .replace(/[^a-z0-9]/g, "");
+    }
+    function duplicateKey(event) {
+        return [duplicateTitle(event.title),
+            duplicateTitle(canonicalVenue(event.venue)),
+            getDatePart(getEventStart(event))].join("|");
+    }
+    function isDateOnlyListing(event) {
+        var value = String(getEventStart(event));
+        return /^\d{4}-\d{2}-\d{2}(?:T00:00(?::00)?(?:Z|[+-]\d{2}:?\d{2})?)?$/.test(value);
+    }
+    var timedListings = new Map();
+    current.forEach(function(event) {
+        if (isPast(event) || isDateOnlyListing(event)) return;
+        var k = duplicateKey(event);
+        if (!timedListings.has(k)) timedListings.set(k, new Set());
+        timedListings.get(k).add(String(event.source || ""));
+    });
+    var dateOnlyOverlaps = 0;
+    events = current.filter(function(event) {
+        if (isPast(event)) return false;
+        if (!isDateOnlyListing(event)) return true;
+        // Never discard an entry that describes a date range.
+        var end = getDatePart(event.end_datetime || event.end_date || "");
+        if (end && end !== getDatePart(getEventStart(event))) return true;
+        var sources = timedListings.get(duplicateKey(event));
+        if (!sources || !Array.from(sources).some(function(source) {
+            return source !== String(event.source || "");
+        })) return true;
+        dateOnlyOverlaps++;
+        return false;
+    });
+    if (dateOnlyOverlaps) console.info("Date-only cross-source overlaps hidden:", dateOnlyOverlaps);
     events.concat(historicalEvents).forEach(function(event) {
         if (event.venue) event.venue = canonicalVenue(event.venue);
     });

@@ -1,0 +1,89 @@
+{
+  "https://www.botanicgardens.sa.gov.au/whats-on/free-guided-walks-adelaide-botanic-garden-2": {
+    "frequency": "daily",
+    "start": "2026-10-09",
+    "end": "2027-12-31",
+    "start_time": "10:30:00",
+    "end_time": "12:00:00",
+    "exclude": [
+      "2026-12-25",
+      "2027-03-26",
+      "2027-12-25"
+    ],
+    "note": "Cancelled on days forecast 36C or hotter; volunteer availability; no Christmas Day or Good Friday"
+  },
+  "https://www.botanicgardens.sa.gov.au/whats-on/free-guided-walks-adelaide-botanic-garden": {
+    "frequency": "weekly",
+    "weekday": 0,
+    "start": "2026-10-09",
+    "end": "2027-12-31",
+    "start_time": "14:00:00",
+    "end_time": "15:30:00",
+    "note": "Cancelled on days forecast 36C or hotter; volunteer availability"
+  },
+  "https://www.botanicgardens.sa.gov.au/whats-on/free-guided-walks-mt-lofty-2": {
+    "frequency": "weekly",
+    "weekday": 3,
+    "start": "2026-10-09",
+    "end": "2027-12-31",
+    "start_time": "10:30:00",
+    "end_time": "12:00:00",
+    "note": "Cancelled on days forecast 36C or hotter; volunteer availability"
+  },
+  "https://www.botanicgardens.sa.gov.au/whats-on/free-guided-walks-wittunga": {
+    "frequency": "weekly",
+    "weekday": 1,
+    "start": "2026-10-09",
+    "end": "2027-12-31",
+    "start_time": "10:30:00",
+    "end_time": "12:00:00",
+    "note": "Cancelled on days forecast 36C or hotter; volunteer availability"
+  },
+  "https://www.botanicgardens.sa.gov.au/whats-on/plant-sale-at-mount-lofty": {
+    "frequency": "nth_weekday",
+    "weekday": 6,
+    "nth": 4,
+    "start": "2025-03-23",
+    "end": "2026-11-22",
+    "months": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "start_time": "10:30:00",
+    "end_time": "13:30:00"
+  },
+  "https://southaustralia.com/products/adelaide/event/intergenerational-playgroup-the-learning-tree": {
+    "frequency": "weekly",
+    "weekday": 3,
+    "start": "2026-11-02",
+    "end": "2026-12-11",
+    "start_time": "10:00:00",
+    "end_time": "11:30:00",
+    "note": "2026 Term 4 only; future terms require separate confirmation"
+  },
+  "https://southaustralia.com/products/adelaide/event/unwined-uncovered": {
+    "frequency": "last_weekday",
+    "weekday": 4,
+    "start": "2025-08-29",
+    "end": "2026-11-27",
+    "start_time": "17:00:00",
+    "end_time": "19:00:00",
+    "note": "Last Friday of each month; National Wine Centre published schedule"
+  },
+  "https://southaustralia.com/products/adelaide/event/vinyl-thursdays": {
+    "frequency": "weekly",
+    "weekday": 3,
+    "start": "2026-09-10",
+    "end": "2026-11-26",
+    "start_time": "17:00:00",
+    "end_time": "",
+    "note": "Doors 5pm, vinyl DJs from 8pm; closing time unconfirmed"
+  }
+}

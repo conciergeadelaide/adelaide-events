@@ -573,3 +573,148 @@ text-align: right;
 
 /* Match Cards category badges to the monthly calendar colours. */
 .category-badge { border-radius: 3px; background: #596674; color: #ffffff; }
+
+
+/* November 2026 calendar layout refinement — preserve existing site styles */
+.calendar-section {
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: thin;
+}
+.calendar-weekdays,
+.calendar-grid {
+    min-width: 840px;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+.calendar-weekdays {
+    background: #f7f5f0;
+    border: 1px solid #e2ded6;
+    border-bottom: 0;
+}
+.calendar-weekdays span {
+    padding: 12px 4px;
+    letter-spacing: .045em;
+}
+.calendar-cell {
+    min-height: 330px;
+    padding: 10px;
+    background: #fff;
+    border-color: #e2ded6;
+}
+.calendar-cell.calendar-empty { background: #f7f5f0; }
+.calendar-cell.calendar-today { background: #fcf8ee; }
+.calendar-cell.calendar-selected { box-shadow: inset 0 0 0 2px #b08d57; }
+.calendar-day-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 30px;
+    min-height: 30px;
+    margin: 0 0 8px;
+    border-radius: 50%;
+    font-size: 13px;
+}
+.calendar-today .calendar-day-number {
+    background: #17212b;
+    color: #fff;
+}
+.calendar-event {
+    display: -webkit-box;
+    width: 100%;
+    margin: 4px 0;
+    padding: 6px 7px;
+    line-height: 1.35;
+    font-size: 11px;
+    font-weight: 600;
+    text-align: left;
+    white-space: normal;
+    overflow: hidden;
+    overflow-wrap: anywhere;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    border-radius: 4px;
+}
+.calendar-more { padding: 7px 3px; font-size: 11px; }
+@media (max-width: 1050px) {
+    .calendar-weekdays, .calendar-grid { min-width: 840px; }
+    .calendar-cell { min-height: 315px; padding: 8px; }
+    .calendar-event { font-size: 11px; padding: 6px; }
+}
+@media (max-width: 650px) {
+    .calendar-section { padding: 10px; }
+    .calendar-weekdays, .calendar-grid { min-width: 840px; }
+    .calendar-cell { min-height: 315px; padding: 8px; }
+    .calendar-event { font-size: 11px; padding: 6px; line-height: 1.35; }
+    .calendar-more { font-size: 11px; }
+    .calendar-toolbar { flex-wrap: wrap; }
+    .calendar-toolbar h3 { min-width: 0; }
+}
+
+/* Selected-day event agenda: image, time, venue and categories */
+.calendar-details {border-radius:6px;}
+.calendar-details h4 {margin-bottom:3px;}
+.calendar-details-count {margin:0 0 14px;color:#6d757b;font-size:13px;font-weight:600;}
+.calendar-detail {display:flex;align-items:center;justify-content:flex-start;gap:16px;padding:14px 0;}
+.calendar-detail-image {width:112px;height:84px;flex:0 0 112px;border-radius:4px;overflow:hidden;background:#e9e5dd;}
+.calendar-detail-image img {display:block;width:100%;height:100%;object-fit:cover;}
+.calendar-detail-image.image-unavailable {background:#e9e5dd;}
+.calendar-detail-info {min-width:0;flex:1;}
+.calendar-detail-info strong {display:block;font-size:14px;line-height:1.4;color:#17212b;}
+.calendar-detail-time {font-size:12px;color:#8c6d3d;font-weight:700;margin-bottom:4px;}
+.calendar-detail-info p {margin:5px 0 8px;color:#6d757b;font-size:12px;}
+.calendar-detail-categories {display:flex;gap:5px;flex-wrap:wrap;}
+.calendar-detail-category {font-size:10px;line-height:1.3;padding:4px 7px;border-radius:3px;color:white;font-weight:600;}
+.calendar-detail-link {margin-left:auto;flex-shrink:0;padding:8px 12px;border:1px solid #17212b;text-decoration:none;font-size:11px;font-weight:700;color:#17212b;}
+.calendar-detail-link:hover {background:#17212b;color:white;}
+@media (max-width:650px) {
+ .calendar-detail {flex-direction:row;align-items:flex-start;flex-wrap:wrap;gap:10px;}
+ .calendar-detail-image {width:76px;height:70px;flex-basis:76px;}
+ .calendar-detail-link {margin-left:86px;}
+}
+
+/* Quick date shortcuts */
+.date-shortcuts {display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-top:16px}
+.date-shortcuts-label {font-size:11px;letter-spacing:.12em;font-weight:700;color:#6d757b;margin-right:6px}
+.date-shortcuts button {background:#fff;border:1px solid #dcd7cd;padding:9px 13px;cursor:pointer;color:#27313a;font:inherit;font-size:12px;border-radius:3px}
+.date-shortcuts button.active,.date-shortcuts button:hover {background:#17212b;color:#fff;border-color:#17212b}
+.date-shortcuts button:focus-visible {outline:2px solid #b08d57;outline-offset:2px}
+/* Agenda view */
+.agenda-view {background:#fff;border:1px solid #e2ded6;padding:20px 25px}
+.agenda-view.hidden {display:none}
+.agenda-day-heading {font:normal 23px Georgia,serif;color:#17212b;margin:24px 0 8px;padding:0 0 10px;border-bottom:2px solid #b08d57}
+.agenda-day-heading:first-child {margin-top:0}
+.agenda-item {display:flex;align-items:flex-start;gap:18px;padding:14px 0;border-bottom:1px solid #eee9e1}
+.agenda-time {width:90px;flex:0 0 90px;font-size:12px;font-weight:700;color:#876a3f}
+.agenda-item-body {flex:1;min-width:0}
+.agenda-item-body strong {font-size:15px;color:#17212b}
+.agenda-item-body p {margin:4px 0 0;font-size:12px;color:#6d757b}
+.agenda-link {font-size:12px;color:#17212b;white-space:nowrap}
+.agenda-empty {padding:30px 10px;color:#6d757b}
+@media(max-width:650px){.agenda-view{padding:12px}.agenda-item{flex-wrap:wrap;gap:5px 10px}.agenda-time{width:100%;flex-basis:100%}.agenda-link{margin-left:0}}
+/* Printable events guide: visible only when printing */
+.print-guide-content {display:none}
+@media print {
+ @page {size:A4;margin:15mm}
+ body {background:#fff;color:#111;font-size:11pt}
+ body > * {display:none!important}
+ body > main.container {display:block!important;width:100%;max-width:none;margin:0}
+ main.container > * {display:none!important}
+ main.container > .print-guide-content {display:block!important}
+ .print-guide-content h1 {font-size:20pt;margin:0 0 8pt}
+ .print-guide-content h2 {font-size:14pt;margin:16pt 0 7pt;border-bottom:1px solid #777;padding-bottom:4pt}
+ .print-guide-content > p {margin:5pt 0 14pt}
+ .print-guide-row {break-inside:avoid;padding:7pt 0;border-bottom:1px solid #ddd}
+ .print-guide-row p {margin:3pt 0}
+ .print-guide-row a {font-size:9pt;color:#333}
+ .print-guide-note {font-size:9pt;color:#555;margin-top:18pt}
+}
+
+/* Batch 1: resilient image layout and keyboard focus */
+.event-image img { display: block; }
+.event-link:focus-visible, .clear-button:focus-visible,
+.date-shortcuts button:focus-visible { outline: 3px solid #b08d57; outline-offset: 3px; }
+@media (max-width: 650px) {
+  .event-image { height: auto; aspect-ratio: 4 / 3; min-height: 220px; }
+  .event-image img { width: 100%; height: 100%; position: absolute; inset: 0; }
+}
