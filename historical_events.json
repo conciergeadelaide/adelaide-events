@@ -1581,5 +1581,163 @@
     "image": "https://cdn.environment.sa.gov.au/img/eyJidWNrZXQiOiJlbnZzYS1idWNrZXQiLCJrZXkiOiJib3RhbmljZ2FyZGVucy9pbWFnZXMvRnJlZS1ndWlkZWQtd2Fsa3MtV2l0dHVuZ2EucG5nIiwiZWRpdHMiOnsicG5nIjp7InF1YWxpdHkiOjgyLCJwcm9ncmVzc2l2ZSI6dHJ1ZX0sInJlc2l6ZSI6eyJ3aWR0aCI6MTIwMCwiaGVpZ2h0Ijo4ODEsImZpdCI6ImNvdmVyIn0sInNoYXJwZW4iOnRydWV9fQ==",
     "link": "https://www.botanicgardens.sa.gov.au/whats-on/free-guided-walks-wittunga",
     "source": "Adelaide Botanic Gardens"
+  },
+  {
+    "title": "Miracle",
+    "venue": "Elder Hall",
+    "datetime": "2026-11-04T11:30:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://aso.lbcdn.io/uploads/2024/05/Horizons_saigeprime-068-2.jpg",
+    "link": "https://www.aso.com.au/events/matinee-series-5-miracle/",
+    "source": "Adelaide Symphony Orchestra"
+  },
+  {
+    "title": "5 Seconds of Summer",
+    "venue": "Adelaide Entertainment Centre",
+    "datetime": "2026-11-04T20:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.adelaideentertainmentcentre.com.au/wp-content/uploads/2025/12/5SOS_1050x520.jpg",
+    "link": "https://www.adelaideentertainmentcentre.com.au/events/5-seconds-of-summer-2/",
+    "source": "Adelaide Entertainment Centre"
+  },
+  {
+    "title": "INSIDEOUT - Adelaide",
+    "venue": "Lion Arts Factory",
+    "datetime": "2026-11-04T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://www.moshtix.com.au/uploads/0abd054c-3076-4340-98e0-f2c306d65dccxoriginal",
+    "link": "https://www.moshtix.com.au/v2/event/insideout-adelaide/200401?ref=RSS_LAF_RSS&skin=LAF20",
+    "source": "Lion Arts Factory"
+  },
+  {
+    "title": "The Exploding Universe of Ed Kuepper",
+    "venue": "The Gov",
+    "datetime": "2026-11-04T19:30:00",
+    "end_datetime": "",
+    "category": [
+      "Music"
+    ],
+    "image": "https://assets.oztix.com.au/image/df70e02c-7384-4e60-9417-6565c3bbc0e7.png?width=600&height=300",
+    "link": "https://tickets.oztix.com.au/outlet/event/74590c64-7a2e-4fa4-b6cc-e95c24425f54?utm_source=Oztix&utm_medium=Website",
+    "source": "The Gov"
+  },
+  {
+    "title": "QuizMeisters Trivia at The District",
+    "venue": "The District at SkyCity",
+    "datetime": "2026-11-04T18:00:00",
+    "end_datetime": "2026-11-04T20:00:00",
+    "category": [
+      "Community"
+    ],
+    "image": "https://conciergeadelaide.github.io/adelaide-events/quizmeisters-trivia.svg",
+    "link": "https://skycityadelaide.com.au/whats-on/content/22728/8116/wednesday-trivia-at-the-district/",
+    "source": "The District at SkyCity"
+  },
+  {
+    "title": "3Minds in 2D",
+    "venue": "Bay Discovery Centre",
+    "datetime": "2026-11-04T10:00:00",
+    "end_datetime": "",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://www.holdfast.sa.gov.au/assets/resized/eventimages/1078110/BDC-Tutti-Arts-Exhibition-Hero-Image_W2000_upscale_Q100_P38-94-47-67_removeMetadata1_W400_H400_Q80_P38-94-47-67.jpg",
+    "link": "https://www.jettyroadglenelg.com.au/whats-on/3minds-in-2d",
+    "source": "Jetty Road Glenelg"
+  },
+  {
+    "title": "Plant 4 Bowden Wednesday Night Market",
+    "venue": "Plant 4 Bowden",
+    "datetime": "2026-11-04T17:00:00",
+    "end_datetime": "",
+    "category": [
+      "Food & Beverage",
+      "Community"
+    ],
+    "image": "https://static.wixstatic.com/media/78d2e8_fdcc7132fc334fffa14e9a0999f58f69%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/78d2e8_fdcc7132fc334fffa14e9a0999f58f69%7Emv2.jpg",
+    "link": "https://www.plant4bowden.com.au/whats-on",
+    "source": "Plant 4 Bowden"
+  },
+  {
+    "title": "Plant 4 Bowden Musical Bingo",
+    "venue": "Plant 4 Bowden",
+    "datetime": "2026-11-04T19:00:00",
+    "end_datetime": "",
+    "category": [
+      "Music",
+      "Community"
+    ],
+    "image": "https://static.wixstatic.com/media/78d2e8_fdcc7132fc334fffa14e9a0999f58f69%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/78d2e8_fdcc7132fc334fffa14e9a0999f58f69%7Emv2.jpg",
+    "link": "https://www.plant4bowden.com.au/bingo",
+    "source": "Plant 4 Bowden"
+  },
+  {
+    "title": "Pizza & Pint",
+    "venue": "Plant 3 Bowden",
+    "datetime": "2026-11-04T00:00:00",
+    "end_datetime": "",
+    "category": [
+      "Food & Beverage"
+    ],
+    "image": "http://bowdenbrewing.com/cdn/shop/articles/Bowden_Brewing_14_11_2025_3_of_124.jpg?crop=center&height=1200&v=1772494286&width=1200",
+    "link": "https://bowdenbrewing.com/blogs/whats-on/pizza-pint",
+    "source": "Plant 3 Bowden"
+  },
+  {
+    "title": "RUFUS RICE: RICE AGE – ADELAIDE",
+    "venue": "Rhino Room",
+    "datetime": "2026-11-03T19:00:00",
+    "end_datetime": "2026-11-04T20:00:00",
+    "category": [
+      "Comedy"
+    ],
+    "image": "https://rhinoroom.com.au/wp-content/uploads/2026/07/800-x-800.png",
+    "link": "https://collections.humanitix.com/rufus-rice-rice-age-adelaide",
+    "source": "Rhino Room"
+  },
+  {
+    "title": "MECCA Burnside Village: THE MECCA HOLIDAY SOIREE",
+    "venue": "MECCA Burnside Village",
+    "datetime": "2026-11-04T19:00:00+1030",
+    "end_datetime": "2026-11-04T21:00:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/8b921000-f988-4556-a9aa-bc1519ac168e.jpg@seo-500.jpg",
+    "link": "https://events.humanitix.com/mecca-burnside-village-the-mecca-holiday-soiree",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "Hills Business - Strength in Diversity",
+    "venue": "Auchendarroch House",
+    "datetime": "2026-11-04T10:00:00+1030",
+    "end_datetime": "2026-11-04T12:00:00+1030",
+    "category": [
+      "Other"
+    ],
+    "image": "https://images.humanitix.com/i/ddb87ee7-9d8c-4cc3-8b1c-1f021a253909.jpg@seo-500.jpg",
+    "link": "https://events.humanitix.com/hills-business-strength-in-diversity",
+    "source": "Humanitix Adelaide and Regions"
+  },
+  {
+    "title": "Free guided walks - Adelaide Botanic Garden",
+    "venue": "Adelaide Botanic Garden",
+    "datetime": "2026-11-04T10:30:00",
+    "end_datetime": "2026-11-04T12:00:00",
+    "category": [
+      "Arts & Culture"
+    ],
+    "image": "https://cdn.environment.sa.gov.au/img/eyJidWNrZXQiOiJlbnZzYS1idWNrZXQiLCJrZXkiOiJib3RhbmljZ2FyZGVucy9pbWFnZXMvRmljdXMtd2Fsay1pbWFnZS1JRC0xMjE2MjYtY3JlZGl0LVNvdXRoLUF1c3RyYWxpYW4tVG91cmlzbS1Db21taXNzaW9uLmpwZyIsImVkaXRzIjp7ImpwZWciOnsicXVhbGl0eSI6ODIsInByb2dyZXNzaXZlIjp0cnVlLCJ0cmVsbGlzUXVhbnRpc2F0aW9uIjp0cnVlLCJvdmVyc2hvb3REZXJpbmdpbmciOnRydWUsIm9wdGltaXplU2NhbnMiOnRydWV9LCJyZXNpemUiOnsid2lkdGgiOjEyMDAsImhlaWdodCI6MTIwMCwiZml0IjoiY292ZXIifX19",
+    "link": "https://www.botanicgardens.sa.gov.au/whats-on/free-guided-walks-adelaide-botanic-garden-2",
+    "source": "Adelaide Botanic Gardens"
   }
 ]

@@ -2135,6 +2135,14 @@ def parse_south_australia_tourism(soup, source_url):
 
     events = []
     failed = 0
+    failure_details = []
+
+    def record_failure(url, reason):
+        nonlocal failed
+        failed += 1
+        failure_details.append((url, reason))
+        print(f"    Tourism FAILED: {url} | {reason}")
+
     for url in sorted(urls):
         try:
             page_response = session.get(url, timeout=25)
@@ -2153,17 +2161,17 @@ def parse_south_australia_tourism(soup, source_url):
 
             event_data = next((x for x in blocks if isinstance(x, dict) and "Event" in ([x.get("@type")] if isinstance(x.get("@type"), str) else x.get("@type", []))), None)
             if not event_data:
-                failed += 1
+                record_failure(url, "No JSON-LD Event object found")
                 continue
             title = str(event_data.get("name") or "").strip()
             raw_start = str(event_data.get("startDate") or "")
             if not title or not raw_start:
-                failed += 1
+                record_failure(url, "Missing event title" if not title else "Missing startDate")
                 continue
             try:
                 start = datetime.fromisoformat(raw_start.replace("Z", "+00:00")).replace(tzinfo=None).isoformat(timespec="seconds")
-            except ValueError:
-                failed += 1
+            except ValueError as exc:
+                record_failure(url, f"Invalid startDate {raw_start!r}: {exc}")
                 continue
             end = ""
             if event_data.get("endDate"):
@@ -2231,8 +2239,8 @@ def parse_south_australia_tourism(soup, source_url):
                 "title": title, "venue": venue, "date": start, "end_date": end,
                 "category": categorise_tourism_event(title), "image": image_url, "url": url,
             })
-        except requests.RequestException:
-            failed += 1
+        except requests.RequestException as exc:
+            record_failure(url, f"HTTP/request error: {exc}")
 
     if failed > max(3, len(urls) // 4):
         raise RuntimeError(f"Tourism: {failed}/{len(urls)} pages failed; preserving existing records")
