@@ -367,6 +367,7 @@ function normaliseEventCategory(category) {
     if (/^festival$/i.test(name)) return "Festival/Major Events";
     if (/^exhibitions?$/i.test(name)) return "Exhibition";
     if (/^talks(?:\s*&\s*conferences)?$/i.test(name)) return "Talks & Conferences";
+    if (/^protests?\s*&\s*rallies$/i.test(name)) return "Protests & Rallies";
     return name;
 }
 
@@ -398,6 +399,7 @@ var CALENDAR_CATEGORY_COLOURS = {
     "Food & Beverage": "#9C5A27",
     "Music": "#245EAE",
     "Other": "#596674",
+    "Protests & Rallies": "#C0392B",
     "Sport": "#177A4C",
     "Talks & Conferences": "#65549A",
     "Theatre": "#793CB0",
@@ -702,13 +704,9 @@ function createEventCard(event) {
 
     var image = document.createElement("img");
 
-    // Support trusted external URLs and local images in the site's assets folder.
-    var eventImagePath = String(event.image || "").trim();
-    var isExternalImage = /^https?:\/\//i.test(eventImagePath);
-    var isLocalAsset = /^\/?assets\/[a-z0-9_./-]+\.(?:jpg|jpeg|png|webp|gif|svg)(?:\?[^#]*)?$/i.test(eventImagePath) &&
-        !eventImagePath.split("?")[0].split("/").includes("..");
-    image.src = (isExternalImage || isLocalAsset)
-        ? eventImagePath.replace(/^\//, "") : "event-placeholder.svg";
+    // Local fallback works even when an external image host is unavailable.
+    image.src = /^https?:\/\//i.test(String(event.image || ""))
+        ? event.image : "event-placeholder.svg";
     image.addEventListener("error", function() {
         if (!image.src.endsWith("event-placeholder.svg")) {
             image.src = "event-placeholder.svg";

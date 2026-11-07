@@ -232,5 +232,11 @@ SOURCES.append({"name": "SALA Festival", "url": "https://www.salafestival.com/ar
 # Official Adelaide Showground upcoming events.
 SOURCES.append({"name": "Adelaide Showground", "url": "https://www.adelaideshowground.com.au/whats-on"})
 
-# Official bp Adelaide Grand Final website (preferred for parent event artwork).
-SOURCES.append({"name": "bp Adelaide Grand Final Official", "url": "https://adelaidegrandfinal.com.au/"})
+# Community / civic / protest calendars
+SOURCES.extend([
+    {"name": "Rotary Adelaide Central", "url": "https://rotaryadelaidecentral.org.au/events"},
+    {"name": "Extinction Rebellion SA", "url": "https://ausrebellion.earth/events/?e-filter-b3b5b39-event-location=sa"},
+    {"name": "Green Left Adelaide Protests", "url": "https://www.greenleft.org.au/event/actions-protests-rallies"},
+    {"name": "Anti-Poverty Network SA", "url": "https://apn-sa.org/events/"},
+    {"name": "Working Women's Centre SA", "url": "https://wwcsa.org.au/events/?all"},
+])

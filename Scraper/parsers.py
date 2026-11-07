@@ -28,10 +28,20 @@ MONTHS = {
 
 
 def normalise_url(url, source_url):
+    """Resolve media/links safely even when malformed markup yields bytes or objects."""
     if not url:
         return ""
-
-    return urljoin(source_url, url)
+    if isinstance(url, bytes):
+        url = url.decode("utf-8", errors="replace")
+    elif isinstance(url, dict):
+        url = url.get("url") or url.get("contentUrl") or url.get("@id") or ""
+    if not isinstance(url, str):
+        url = str(url)
+    if isinstance(source_url, bytes):
+        source_url = source_url.decode("utf-8", errors="replace")
+    elif not isinstance(source_url, str):
+        source_url = str(source_url)
+    return urljoin(source_url, url.strip())
 
 
 def parse_date_text(text):
@@ -197,6 +207,7 @@ def categorise_event(title, text=""):
             categories.append(category)
 
     rules = [
+        ("Protests & Rallies", ["protest", "rally", "rallies", "march", "demonstration", "vigil", "picket", "action"]),
         ("Sport", ["bbl", "wbbl", "sheffield shield", "odi", "cricket", "basketball", "36ers", "football", "afl", "soccer", "rugby", "wrestling", "darts", "tennis", "sport"]),
         ("Food & Beverage", ["food", "wine", "beer", "dining", "dinner", "lunch", "brunch", "tasting", "culinary", "restaurant", "chef", "beverage", "cocktail", "dumpling", "market"]),
         ("Expos", ["expo", "exhibition fair", "trade show", "trade fair"]),
@@ -224,6 +235,327 @@ def categorise_event(title, text=""):
 # ============================================================
 # GENERIC JSON-LD
 # ============================================================
+
+
+# ============================================================
+# COMMUNITY / ACTIVIST EVENT LISTINGS
+# ============================================================
+
+def parse_community_event_listing(soup, source_url, source_name, adelaide_only=False):
+    """Extract dated public events from community calendars; keep location checks conservative."""
+    from datetime import date
+    from urllib.parse import urljoin, urlparse
+
+    events = parse_json_ld(soup, source_url)
+    today = date.today()
+    if adelaide_only:
+        events = [e for e in events if re.search(
+            r"adelaide|south australia|\bsa\b",
+            " ".join(str(e.get(k) or "") for k in ("venue", "location", "description", "title")),
+            re.I
+        )]
+    seen = {str(e.get("link") or e.get("url") or "") for e in events}
+
+    # Use event-like content blocks rather than every page link.
+    main = soup.find("main") or soup.find(id=re.compile(r"content|events", re.I)) or soup
+    anchors = main.find_all("a", href=True)
+    for a in anchors:
+        title = " ".join(a.get_text(" ", strip=True).split())
+        href = urljoin(source_url, a.get("href", ""))
+        if not title or len(title) < 5 or href in seen:
+            continue
+        if urlparse(href).netloc and urlparse(href).netloc != urlparse(source_url).netloc:
+            continue
+        # Ignore menus, pagination, buttons and generic links.
+        if re.search(r"^(home|read more|learn more|more information|register|sign up|events?|calendar|view all|donate)$", title, re.I):
+            continue
+        if re.search(r"(?:/tag/|/category/|/page/|#)", href):
+            continue
+
+        block = a
+        for _ in range(5):
+            if not getattr(block, "parent", None):
+                break
+            block = block.parent
+            text = " ".join(block.get_text(" ", strip=True).split())
+            # Typical event cards contain title plus date and modest amount of text.
+            if len(text) > 35 and len(text) < 1800 and re.search(
+                r"(?:20\d{2}|\b(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|January|February|March|April|May|June|July|August|September|October|November|December)\b)",
+                text, re.I
+            ):
+                break
+        text = " ".join(block.get_text(" ", strip=True).split())
+        # Prefer date found in nearby card text, not page-wide dates.
+        start = parse_date_text(text)
+        if not start:
+            # Many civic calendars omit the year; infer the next occurrence
+            # from an explicit day/month only (never a date with no month).
+            month_match = re.search(
+                r"\b(\d{1,2})\\s+(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)\b",
+                text, re.I
+            )
+            if month_match:
+                month_num = {"jan":1,"feb":2,"mar":3,"apr":4,"may":5,"jun":6,
+                             "jul":7,"aug":8,"sep":9,"sept":9,"oct":10,"nov":11,"dec":12}[month_match.group(2).lower()]
+                try:
+                    candidate = datetime(today.year, month_num, int(month_match.group(1))).date()
+                    if candidate < today:
+                        candidate = datetime(today.year + 1, month_num, int(month_match.group(1))).date()
+                    start = candidate.strftime("%Y-%m-%dT00:00:00")
+                except ValueError:
+                    start = ""
+        if not start:
+            continue
+        try:
+            if datetime.strptime(start[:10], "%Y-%m-%d").date() < today:
+                continue
+        except ValueError:
+            continue
+
+        if adelaide_only:
+            # Green Left is national; only retain explicitly Adelaide/SA tagged records.
+            location_ok = bool(re.search(r"\b(adelaide|south australia|\bsa\b)\b", text, re.I))
+            if not location_ok:
+                continue
+
+        # XR SA filter includes SA-specific items; exclude online-only and interstate.
+        if source_name == "Extinction Rebellion SA":
+            if not re.search(r"\bSA\b|South Australia|Adelaide", text, re.I):
+                continue
+            if re.search(r"\b(?:VIC|NSW|QLD|WA|TAS|NT)\b", text):
+                continue
+
+        image = get_image(block, source_url)
+        event = {
+            "title": title,
+            "datetime": start,
+            "date": start[:10],
+            "venue": "",
+            "location": "",
+            "description": text[:1200],
+            "link": href,
+            "url": href,
+            "image": image,
+            "source": source_name,
+            "category": ["Protests & Rallies"] if source_name in (
+                "Extinction Rebellion SA", "Green Left Adelaide Protests",
+                "Anti-Poverty Network SA"
+            ) else categorise_event(title, text),
+        }
+        # Event cards with a specific venue/address.
+        loc = re.search(r"(?:at|@|venue:?)\s+([^.;]{4,100})", text, re.I)
+        if loc:
+            event["venue"] = loc.group(1).strip()
+        events.append(event)
+        seen.add(href)
+
+    # Enforce source category for confirmed activism events even where JSON-LD supplied it.
+    for event in events:
+        event["source"] = source_name
+        if source_name in ("Extinction Rebellion SA", "Green Left Adelaide Protests", "Anti-Poverty Network SA"):
+            event["category"] = ["Protests & Rallies"]
+    # WCC/Rotary retain source's nature, but protest-related event names can classify.
+    print(f"    {source_name}: {len(events)} dated event(s) parsed")
+    return events
+
+
+def parse_rotary_adelaide_central(soup, source_url):
+    return parse_community_event_listing(soup, source_url, "Rotary Adelaide Central")
+
+
+def _activist_date_with_url_year(text, url):
+    """Read an explicit day/month from event copy, using the year in its event URL."""
+    parsed = parse_date_text(text)
+    if parsed:
+        return parsed
+    from urllib.parse import urlparse
+    year_match = re.search(r"(20\d{2})[-/]", urlparse(str(url)).path)
+    if not year_match:
+        return ""
+    year = int(year_match.group(1))
+    months = {
+        "jan":1,"feb":2,"mar":3,"apr":4,"may":5,"jun":6,"jul":7,"aug":8,
+        "sep":9,"sept":9,"oct":10,"nov":11,"dec":12,
+        "january":1,"february":2,"march":3,"april":4,"june":6,"july":7,
+        "august":8,"september":9,"october":10,"november":11,"december":12,
+    }
+    patterns = [
+        (r"\b(\d{1,2})\s+(January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)\b", True),
+        (r"\b(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\s+(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{1,2})\b", False),
+        (r"\b(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{1,2})\b", False),
+    ]
+    for pattern, day_first in patterns:
+        match = re.search(pattern, str(text), re.I)
+        if not match:
+            continue
+        if day_first:
+            day, month = int(match.group(1)), months[match.group(2).lower()]
+        else:
+            month, day = months[match.group(1).lower()], int(match.group(2))
+        try:
+            return datetime(year, month, day).strftime("%Y-%m-%dT00:00:00")
+        except ValueError:
+            return ""
+    return ""
+
+
+def _is_verified_adelaide_location(value):
+    """Return True only for an explicit Adelaide metro place, not site-wide copy."""
+    value = " ".join(str(value or "").split())
+    if not value:
+        return False
+    # Reject clearly interstate place/state references before looking for local terms.
+    if re.search(r"\b(?:Perth|Western Australia|WA|Brisbane|Queensland|QLD|Sydney|New South Wales|NSW|Melbourne|Victoria|VIC|Hobart|Tasmania|TAS|Darwin|Northern Territory|NT|Canberra|ACT|Newcastle)\b", value, re.I):
+        return False
+    adelaide_places = (
+        r"\bAdelaide\b|Tarntanyangga|Victoria Square|Rundle Mall|North Terrace|"
+        r"Elder Park|Adelaide Park Lands|Park Lands|Botanic Park|Botanic Garden|"
+        r"Hindmarsh Square|Light Square|Whitmore Square|Hurtle Square|"
+        r"Port Adelaide|Thebarton|Torrensville|Hindmarsh|Bowden|West End|"
+        r"Norwood|Unley|Prospect|Kent Town|North Adelaide|Eastwood|Mile End|"
+        r"Goodwood|Keswick|Glenelg|Semaphore|Henley Beach|Port Road|"
+        r"Morphett Vale|Marion|Burnside|Walkerville|St Peters|Stepney|"
+        r"Plympton|Woodville|Croydon|Brompton|Findon|Mawson Lakes|Tea Tree Gully"
+    )
+    return bool(re.search(adelaide_places, value, re.I))
+
+
+def _activist_event_from_detail(url, source_name, adelaide_only=False):
+    """Fetch a detail page; Green Left needs a verified event-specific Adelaide venue."""
+    try:
+        response = requests.get(url, headers={"User-Agent": "Mozilla/5.0 (compatible; AdelaideEventsBot/1.0)"}, timeout=25)
+        response.raise_for_status()
+        detail = BeautifulSoup(response.text, "lxml")
+    except Exception:
+        return None
+    title_node = detail.find("h1") or detail.find("h2")
+    page_title = " ".join(title_node.get_text(" ", strip=True).split()) if title_node else ""
+    body = detail.find("main") or detail.find("article") or detail
+    page_text = " ".join(body.get_text(" ", strip=True).split())
+    structured = parse_json_ld(detail, url)
+    ev = structured[0] if structured else {}
+    title = ev.get("title") or page_title
+    date_value = ev.get("datetime") or ev.get("date") or parse_date_text(page_text)
+    description = ev.get("description") or page_text
+
+    # Only a location attached to this event can establish Adelaide relevance.
+    # Do not search the full page description: headers, footers and related-event
+    # links often mention Adelaide even on interstate event pages.
+    venue = str(ev.get("venue") or "").strip()
+    location = str(ev.get("location") or "").strip()
+    where_match = re.search(
+        r"\b(?:Where|Location|Venue)\s*:?\s*(.{3,220}?)(?=\s+(?:Why|When|What|Who|Contact|Register|Cost|Tickets)\b|$)",
+        page_text, re.I
+    )
+    event_where = where_match.group(1).strip(" .|–—-") if where_match else ""
+    if event_where:
+        # Prefer the event-specific visible Where field over a generic JSON-LD label.
+        venue = event_where
+        location = event_where
+    if not venue and not location and ev:
+        # Structured location may be a plain address string; do not substitute the
+        # source name or the event title as a venue.
+        venue = str(ev.get("venue") or "").strip()
+        location = str(ev.get("location") or "").strip()
+    if venue.casefold() == source_name.casefold():
+        venue = ""
+
+    if not date_value:
+        date_value = _activist_date_with_url_year(description, url)
+    if not title or not date_value:
+        return None
+    if adelaide_only and not _is_verified_adelaide_location(" ".join((venue, location, event_where))):
+        return None
+    return {"title": title, "datetime": date_value, "date": date_value[:10], "venue": venue,
+            "location": location, "description": description[:1400], "link": url, "url": url,
+            "image": get_image(detail, url), "source": source_name, "category": ["Protests & Rallies"]}
+
+
+def _parse_linked_activist_events(soup, source_url, source_name, adelaide_only=False, link_pattern=None):
+    """Follow event-detail links (including RSVP providers) instead of parsing fragile cards."""
+    from urllib.parse import urljoin
+    found, seen = [], set()
+    for a in soup.find_all("a", href=True):
+        # BeautifulSoup can expose non-string href values on malformed/encoded
+        # markup; urljoin requires both arguments to have the same type.
+        raw_href = a.get("href", "")
+        if isinstance(raw_href, bytes):
+            raw_href = raw_href.decode("utf-8", errors="replace")
+        href = urljoin(str(source_url), str(raw_href))
+        title = " ".join(a.get_text(" ", strip=True).split())
+        if not title or len(title) < 5 or href in seen:
+            continue
+        if link_pattern and not re.search(link_pattern, href, re.I):
+            continue
+        if re.search(r"(?:/category/|/tag/|/page/|#)$", href):
+            continue
+        seen.add(href)
+        event = _activist_event_from_detail(href, source_name, adelaide_only)
+        if not event:
+            # Some organizers put the date/location on the listing card and link only to RSVP.
+            card = a
+            card_text = ""
+            for _ in range(5):
+                if not getattr(card, "parent", None):
+                    break
+                card = card.parent
+                card_text = " ".join(card.get_text(" ", strip=True).split())
+                if len(card_text) > 25 and len(card_text) < 1600 and parse_date_text(card_text):
+                    break
+            card_date = parse_date_text(card_text)
+            locality = re.search(r"adelaide|kaurna|south australia|\bSA\b", card_text, re.I)
+            if title and card_date and (not adelaide_only or locality):
+                event = {"title": title, "datetime": card_date, "date": card_date[:10], "venue": "", "location": "",
+                         "description": card_text[:1200], "link": href, "url": href, "image": get_image(card, source_url),
+                         "source": source_name, "category": ["Protests & Rallies"]}
+        if event:
+            found.append(event)
+    # Listing-level structured records can still be useful when details aren't linked.
+    for event in parse_json_ld(soup, source_url):
+        location_text = " ".join(str(event.get(k) or "") for k in ("venue", "location"))
+        if adelaide_only and not _is_verified_adelaide_location(location_text):
+            continue
+        event["source"] = source_name
+        event["category"] = ["Protests & Rallies"]
+        if event.get("link") not in {x.get("link") for x in found}:
+            found.append(event)
+    # Keep only future/undated-filtered explicit dates and deduplicate.
+    from datetime import date
+    clean, urls = [], set()
+    for event in found:
+        key = event.get("link") or event.get("url")
+        try:
+            if datetime.strptime(event["date"][:10], "%Y-%m-%d").date() < date.today():
+                continue
+        except Exception:
+            continue
+        if key not in urls:
+            urls.add(key); clean.append(event)
+    print(f"    {source_name}: {len(clean)} dated event(s) parsed")
+    return clean
+
+
+def parse_extinction_rebellion_sa(soup, source_url):
+    # Elementor cards often link to Action Network/Facebook RSVP pages; follow them.
+    return _parse_linked_activist_events(soup, source_url, "Extinction Rebellion SA")
+
+
+def parse_green_left_adelaide(soup, source_url):
+    # Green Left Drupal event detail URLs contain /YYYY-MM/event/; visible page text supplies When/Where.
+    return _parse_linked_activist_events(soup, source_url, "Green Left Adelaide Protests", adelaide_only=True,
+                                         link_pattern=r"greenleft\.org\.au/20\d{2}-\d{2}/event/(?!actions-protests-rallies(?:[/?#]|$))[^?#]+")
+
+
+def parse_anti_poverty_sa(soup, source_url):
+    # WordPress event announcements are posts; dates are embedded in the article body.
+    return _parse_linked_activist_events(soup, source_url, "Anti-Poverty Network SA",
+                                         link_pattern=r"apn-sa\.org/(?:20\d{2}/\d{2}/\d{2}/)?[^?#]+")
+
+
+def parse_working_womens_centre_sa(soup, source_url):
+    return parse_community_event_listing(soup, source_url, "Working Women's Centre SA")
+
+
 
 def parse_json_ld(soup, source_url):
     events = []
@@ -9901,27 +10233,67 @@ def parse_sala_festival(soup, source_url):
 # ============================================================
 
 def parse_bp_adelaide_grand_final(soup, source_url):
-    """2026 parent event only, with a verified official homepage showcase image."""
+    """One official parent listing; never turn ticket products into events.
+
+    2026 dates are verified for the existing parent listing. Do not infer
+    future editions from the year displayed in news links or page footer.
+    If official artwork is unavailable, leave the old record untouched.
+    """
     from datetime import date
+    from urllib.parse import urlparse
+
+    text = " ".join(soup.stripped_strings)
+    if not re.search(r"\\b2026\\s+bp\\s+adelaide\\s+grand\\s+final\\b", text, re.I):
+        print("    Official Grand Final: 2026 edition not confirmed on homepage")
+        return []
     if date.today() > date(2026, 11, 29):
         return []
-    headings = " ".join(h.get_text(" ", strip=True) for h in soup.select("h1,h2,h3"))
-    if not re.search(r"2026\s+bp\s+adelaide\s+grand\s+final", headings, re.I):
-        print("    Official Grand Final: 2026 heading not found")
+
+    def usable_image(value):
+        value = str(value or "").strip()
+        if not value or value.startswith(("data:", "blob:")):
+            return ""
+        url = normalise_url(value, source_url)
+        parsed = urlparse(url)
+        if parsed.scheme not in ("http", "https"):
+            return ""
+        if re.search(r"(?:favicon|\\blogo\\b|icon|placeholder|sprite|avatar)", parsed.path, re.I):
+            return ""
+        return url
+
+    image = ""
+    for attributes in (
+        {"property": "og:image"},
+        {"name": "twitter:image"},
+        {"property": "og:image:secure_url"},
+    ):
+        meta = soup.find("meta", attrs=attributes)
+        if meta:
+            image = usable_image(meta.get("content"))
+            if image:
+                break
+
+    # Some versions of the official site use lazy-loaded promo artwork.
+    if not image:
+        for img in soup.select("main img, section img, img"):
+            candidates = [
+                img.get("data-src"), img.get("data-lazy-src"),
+                img.get("src"), img.get("data-original"),
+            ]
+            srcset = img.get("data-srcset") or img.get("srcset") or ""
+            if srcset:
+                candidates.append(srcset.split(",")[-1].strip().split(" ")[0])
+            for candidate in candidates:
+                image = usable_image(candidate)
+                if image:
+                    break
+            if image:
+                break
+
+    if not image:
+        print("    Official Grand Final: no suitable image; retaining existing listing")
         return []
 
-    # This exact official homepage asset was identified from its 'Image showcase'
-    # image, not guessed from a URL pattern or selected from a generic icon list.
-    image = "https://assets.adelaide500.com.au/app/uploads/2026/07/30100114/78a3e4e8-28de-4e07-88dd-d3ef2d066eb3_rw_1920.jpg"
-    found = any(
-        image == normalise_url(img.get("src") or "", source_url)
-        for img in soup.find_all("img")
-    )
-    if not found:
-        print("    Official Grand Final: verified showcase image absent; preserving existing listing")
-        return []
-    print("    Official Grand Final: 2026 event and image found")
-    print("    Official Grand Final image: " + image)
     return [{
         "title": "bp Adelaide Grand Final",
         "venue": "Adelaide Street Circuit",
